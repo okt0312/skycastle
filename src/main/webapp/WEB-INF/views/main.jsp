@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>SKY CASTLE</title>
 <style>
- 	body{margin:0}
+ 	body
+ 	{
+ 		max-width: 1700px;
+ 		margin:auto
+ 	}
     .content
     {
         max-width: 1700px;
@@ -22,17 +26,18 @@
     #content_list
     {
         position: relative;
-        margin: 70px auto 90px 35px;
+        margin: 70px auto 90px;
         height: 430px;
         width: 1650px;
         display: flex;
         justify-content: center;
+        padding: auto 20px;
     }
     #img_slide, #notice_list
     {
         display: inline-block;
         height: 400px;
-        margin: auto 80px;
+        margin: auto;
     }
     #img_slide
     {

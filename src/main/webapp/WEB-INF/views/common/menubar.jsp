@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700" rel="stylesheet">	
 <style>
 	#main_Header
 	{
@@ -41,7 +42,8 @@
 	    margin: auto; 
 	    padding: 0; 
 	    width: 1400px; 
-	    font-size: 23px;
+	    font-size: 17px;
+	    font-family: 'Noto Sans KR', sans-serif;
 	    font-weight: bold;
 	}
 	.header_menu ul
@@ -68,9 +70,27 @@
 	}
 	.submenu li
 	{
-	    background-color: whitesmoke;
+	    background-color: rgba( 255, 255, 255, 0.5 );;
 	}
 	.header_menu > li:hover ul.submenu { display:block; }
+	
+	/* 로그인 버튼 */
+	.sky_btn1 /* 확인 버튼 */
+	{
+		width: 200px;
+		height: 50px;
+		text-align: center;
+		border-radius: 5px;
+		padding: 10px;
+		cursor: pointer;
+		background: #fdce07;
+		color: #000000;
+		border: 2px solid #F79F81;
+		font-size: 17px;
+	    font-family: 'Noto Sans KR', sans-serif;
+	    font-weight: bold;
+	    color:white;
+	}
 </style>
 </head>
 <body>
@@ -98,7 +118,7 @@
                     </ul>
 
                 </li>
-                <li>로그인
+                <li><button class="sky_btn1">로그인</button>
                     <ul class="submenu">
                         <li><a href="">회원가입</a></li>
                     </ul>
