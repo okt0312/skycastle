@@ -39,7 +39,7 @@
 
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br><br><br>
-	    <h2>소모임2</h2>
+	    <h2>소모임</h2>
 	    <br><hr><br>
 	
 	    <div align="center">
