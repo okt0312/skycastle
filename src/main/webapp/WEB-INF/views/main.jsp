@@ -7,8 +7,7 @@
 <meta charset="UTF-8">
 <title>SKY CASTLE</title>
 <style>
-    /* ====== content =======*/
-    body{margin:0}
+ 	body{margin:0}
     .content
     {
         max-width: 1700px;
@@ -23,7 +22,7 @@
     #content_list
     {
         position: absolute;
-        margin: 70px auto;
+        margin: 70px auto 70px 35px;
         height: 430px;
         width: 1650px;
         display: flex;
@@ -132,9 +131,6 @@
     @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}}
 
-
-
-
     #intro_notice thead td{
     border-bottom: #333333 solid 1px;
     }
@@ -145,6 +141,24 @@
     .index_noticemiddleTr td {
         border-bottom: 1px solid #dfdfdf;
         padding-bottom: 0;
+    }
+
+    /* 하단 링크 3개 */
+    #link_list
+    {
+        width: 100%;
+        height: 200px;
+        margin-top: 40px;
+        margin-bottom: 160px;
+        text-align: center;
+    }
+    .main_link
+    {
+        display: inline-block;
+        width: 20%;
+        height: 100%;
+        border: 1px solid black;
+        margin: 0 105px;
     }
 </style>
 </head>
@@ -248,6 +262,11 @@
               </table>
             </div>
         </div>
+    </div>
+    <div id="link_list">
+        <div class="main_link" id="main_link1"></div>
+        <div class="main_link" id="main_link2"></div>
+        <div class="main_link" id="main_link3"></div>
     </div>
 	<jsp:include page="common/footer.jsp"/>
 </body>

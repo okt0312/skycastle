@@ -32,7 +32,7 @@
 	}
 	#header2
 	{
-	    margin: 20px auto;
+	    margin: 20px auto 0;
 	    border-top: 2px #d1d1d1 solid;
 	    border-bottom: 2px #d1d1d1 solid;
 	}
