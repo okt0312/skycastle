@@ -33,7 +33,7 @@
     {
         display: inline-block;
         height: 400px;
-        margin: auto 50px;
+        margin: auto 80px;
     }
     #img_slide
     {
