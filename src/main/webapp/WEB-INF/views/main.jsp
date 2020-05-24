@@ -11,7 +11,7 @@
     .content
     {
         max-width: 1700px;
-        height: 1000px;
+        height: 1350px;
         margin: auto;
     }
     #content_img
@@ -21,8 +21,8 @@
     }
     #content_list
     {
-        position: absolute;
-        margin: 70px auto 70px 35px;
+        position: relative;
+        margin: 70px auto 90px 35px;
         height: 430px;
         width: 1650px;
         display: flex;
@@ -146,10 +146,12 @@
     /* 하단 링크 3개 */
     #link_list
     {
+    	
+    	position: relative;
+    	display: block;
         width: 100%;
         height: 200px;
-        margin-top: 40px;
-        margin-bottom: 160px;
+        margin: 40px auto 160px;
         text-align: center;
     }
     .main_link
@@ -158,7 +160,7 @@
         width: 20%;
         height: 100%;
         border: 1px solid black;
-        margin: 0 105px;
+        margin: 0 100px;
     }
 </style>
 </head>
@@ -262,11 +264,11 @@
               </table>
             </div>
         </div>
-    </div>
-    <div id="link_list">
-        <div class="main_link" id="main_link1"></div>
-        <div class="main_link" id="main_link2"></div>
-        <div class="main_link" id="main_link3"></div>
+	    <div id="link_list">
+	        <div class="main_link" id="main_link1"></div>
+	        <div class="main_link" id="main_link2"></div>
+	        <div class="main_link" id="main_link3"></div>
+	    </div>
     </div>
 	<jsp:include page="common/footer.jsp"/>
 </body>
