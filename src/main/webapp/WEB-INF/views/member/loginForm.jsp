@@ -47,6 +47,7 @@
 	  color : #ffffff;
 	  background:#fdce07;
 	  cursor: pointer;
+   	  border: 0;
 	}
 	#loginBox:hover{
 	  width:100%;

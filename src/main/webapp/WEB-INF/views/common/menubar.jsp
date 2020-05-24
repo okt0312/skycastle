@@ -134,14 +134,14 @@
                 	<c:when test="${ loginUser.userNo eq 1}">
 						<li><button class="sky_btn1" onclick="">관리페이지</button>
 		                    <ul class="submenu">
-		                        <li><a href="">로그아웃</a></li>
+		                        <li><a href="logout.me">로그아웃</a></li>
 		                    </ul>
 		                </li>
                 	</c:when>
                 	<c:otherwise>
 						<li><button class="sky_btn1" onclick="">마이페이지</button>
 		                    <ul class="submenu">
-		                        <li><a href="">로그아웃</a></li>
+		                        <li><a href="logout.me">로그아웃</a></li>
 		                    </ul>
 		                </li>
                 	</c:otherwise>

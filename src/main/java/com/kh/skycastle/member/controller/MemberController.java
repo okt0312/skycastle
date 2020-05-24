@@ -45,4 +45,11 @@ public class MemberController {
             return "common/errorPage";
         }
 	}
+	
+	 @RequestMapping("logout.me")
+	    public String logoutMember(HttpSession session) 
+	    {
+	        session.invalidate();
+	        return "redirect:/";
+	    }
 }
