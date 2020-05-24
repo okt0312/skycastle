@@ -72,12 +72,16 @@
 	{
 	    background-color: rgba( 255, 255, 255, 0.5 );;
 	}
-	.header_menu > li:hover ul.submenu { display:block; }
+	.header_menu > li:hover ul.submenu 
+	{
+		display:block;  
+		transform:scale(1.1);
+	}
 	
 	/* 로그인 버튼 */
 	.sky_btn1 /* 확인 버튼 */
 	{
-		width: 200px;
+		width: 150px;
 		height: 50px;
 		text-align: center;
 		border-radius: 5px;
@@ -110,7 +114,7 @@
                 <li><a href="">좌석 예약</a></li>
                 <li><a href="">공간 예약</a></li>
                 <li><a href="">소모임</a></li>
-                <li>고객센터
+                <li><a href="">고객센터</a>
                     <ul class="submenu">
                         <li><a href="">공지사항</a></li>
                         <li><a href="">FAQ</a></li>
