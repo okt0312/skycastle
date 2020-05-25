@@ -9,6 +9,6 @@ public class GroupController {
 	@RequestMapping("groupList.gr")
 	public String groupList()
 	{
-		return "group/groupList";
+		return "groups/groupList";
 	}
 }
