@@ -7,7 +7,11 @@
 <meta charset="UTF-8">
 <title>SKY CASTLE</title>
 <style>
- 	body{margin:0}
+ 	body
+ 	{
+ 		max-width: 1700px;
+ 		margin:auto
+ 	}
     .content
     {
         max-width: 1700px;
@@ -22,17 +26,18 @@
     #content_list
     {
         position: relative;
-        margin: 70px auto 90px 35px;
+        margin: 70px auto 90px;
         height: 430px;
         width: 1650px;
         display: flex;
         justify-content: center;
+        padding: auto 20px;
     }
     #img_slide, #notice_list
     {
         display: inline-block;
         height: 400px;
-        margin: auto 80px;
+        margin: auto;
     }
     #img_slide
     {
@@ -167,7 +172,7 @@
 <body>
 	<jsp:include page="common/menubar.jsp"/>
 	 <div class="content">
-        <img id="content_img" src="${pageContext.request.contextPath}/resources/images/main_content1.jpg">
+        <img id="content_img" src="${pageContext.servletContext.contextPath}/resources/images/main_content1.jpg">
         <div id="content_list">
         
             <div id="img_slide">
@@ -178,17 +183,17 @@
                       <span class="dot" onclick="currentSlide(3)"></span> 
                     </div>
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_mountains_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_mountains_wide.jpg">
                       <div class="text">Caption Text</div>
                     </div>
                     
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_nature_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_nature_wide.jpg">
                       <div class="text">Caption Two</div>
                     </div>
                     
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_snow_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_snow_wide.jpg">
                       <div class="text">Caption Three</div>
                     </div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
