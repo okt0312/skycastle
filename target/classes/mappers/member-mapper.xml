@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="memberMapper">
+	<resultMap type="Member" id="memberResultSet">
+		<id column="USER_NO" property="userNo"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="USER_PWD" property="userPwd"/>
+		<result column="UESR_NAME" property="userName"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<result column="PHONE" property="phone"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="MODIFY_DATE" property="modifyDate"/>
+		<result column="BLACKLIST" property="blacklist"/>
+		<result column="STATUS" property="status"/>
+		<result column="DROP_DATE" property="dropDate"/>
+		<result column="LAST_YEAR_USAGE" property="lastYearUsage"/>
+		<result column="THIS_YEAR_USAGE" property="thisYearUsage"/>
+		<result column="GRADE_CODE" property="gradeCode"/>
+		<result column="REDCARD" property="redCard"/>
+	</resultMap>
+
+	<select id="loginUser" resultMap="memberResultSet" parameterType="Member">
+ 	   	SELECT * 
+		  FROM MEMBER
+		 WHERE USER_ID = #{userId} 
+	 	   AND STATUS = 'Y'
+	</select>
 </mapper>
