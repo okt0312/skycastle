@@ -1,9 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+    <title>myPageMenubar</title>
     <style>
     /* body
     {
@@ -18,9 +19,6 @@
         
     }
 
- 
-   
-   
     #header2
     {
         margin-top: 20px;
@@ -99,7 +97,7 @@
                 <li><a href="">개인정보수정</a></li>
                 
             </ul>
-        </>
+        </div>
     </div>
 
     <!-- contents -->

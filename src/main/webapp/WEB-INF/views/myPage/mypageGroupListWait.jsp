@@ -1,48 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mygroupListNow</title>
+<meta charset="UTF-8">
+    <title>mygroupListWait</title>
     <style>
-        body
-        {
-            margin: 0px;
-            background-color: #ffffff;
-            color: #000000;
-        }
-        #hd_outer
-        {
-            max-width: 1700px;
-            margin: auto;
-        }
-        #hd_logo
-        {
-            border: 1px solid black;
-            height: 143px;
-        }
-        #hd_logo_img
-        {
-            float: left;
-            margin: 20px 0 0 100px;
-            width: 200px;
-            height: 100px;
-            background-color: black;
-        }
-        #hd_menu
-        {
-            position: relative;
-            z-index: 8;
-            background: rgb(255, 255, 255);
-            border-bottom: 1px solid rgb(209, 209, 209);
-            border-top: 1px solid rgb(209, 209, 209);
-            width: 100%;
-            height: 104px;
-        }
-        .content{
-            max-width: 1700px;
-            margin: auto;
-        }
         .inner{
             width: 100%;
         }
@@ -88,16 +51,8 @@
     </style>
 </head>
 <body>
-    <div class="content">
-        <div id="hd_outer">
-            <div id="hd_logo">
-                <div id="hd_logo_img">
-                        
-                </div>
-            </div>
-            <div id="hd_menu">
-                
-            </div>
+    <jsp:include page="common/myPageMenubar.jsp"/>
+
             <div id="inner" style="width: 800px; margin: auto;">
                 <br><br><br>
                 <h2>소모임</h2>
@@ -174,7 +129,5 @@
 
 
             </div>
-        </div>
-    </div>
 </body>
 </html>
