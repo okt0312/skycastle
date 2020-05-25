@@ -69,6 +69,7 @@
     <script src='https://unpkg.com/@fullcalendar/daygrid@4.4.0/main.min.js'></script>
 </head>
 <body>
+    <jsp:include page="../common/menubar.jsp"/>
     <div class="content">
       <div id="hd_outer">
           <div id="hd_logo">
@@ -84,6 +85,8 @@
           </div>
       </div>
     </div>
+    <jsp:include page="../common/footer.jsp"/>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');

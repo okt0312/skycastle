@@ -188,6 +188,7 @@
     </style>
 </head>
 <body>
+    <jsp:include page="../common/menubar.jsp"/>
             <div id="mygroup">
                 <div id="mygroupMenubar">
                     <h2>소모임명</h2>
@@ -274,6 +275,8 @@
                             
                 </div>
             </div>
+            
+    <jsp:include page="../common/footer.jsp"/>
             
     <!-- 모달 시작 -->
     <div class="modal fade" id="reportModal"> <!-- modal별 id 변경해주세요-->

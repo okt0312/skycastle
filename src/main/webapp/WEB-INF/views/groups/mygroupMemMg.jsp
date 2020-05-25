@@ -158,6 +158,7 @@
     </style>
 </head>
 <body>
+    <jsp:include page="../common/menubar.jsp"/>
             <div id="mygroup">
                 <div id="mygroupMenubar">
                     <h2>소모임명</h2>
@@ -327,6 +328,8 @@
                     <!-- 모달 끝 -->
                 </div>
             </div>
+            
+    <jsp:include page="../common/footer.jsp"/>
             
                 <script>
         function deleteConfirm() {

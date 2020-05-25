@@ -32,6 +32,7 @@
     </style>
 </head>
 <body>
+    <jsp:include page="../common/menubar.jsp"/>
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br><br><br>
 	    <h2>소모임</h2>
@@ -52,5 +53,6 @@
 	
 	    <br><br><br><br>
 	</div>
+    <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
