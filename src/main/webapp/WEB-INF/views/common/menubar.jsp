@@ -100,7 +100,7 @@
 <body>
 	    <div id="main_Header">
         <div id="header1">
-            <a href=""><img id="main_logo" src="${pageContext.request.contextPath}/resources/images/logo.PNG"></a>
+            <a href=""><img id="main_logo" src="${pageContext.servletContext.contextPath}/resources/images/logo.PNG"></a>
         </div>
         <div id="header2">
             <ul class="header_menu">

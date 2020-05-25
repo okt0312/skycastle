@@ -172,7 +172,7 @@
 <body>
 	<jsp:include page="common/menubar.jsp"/>
 	 <div class="content">
-        <img id="content_img" src="${pageContext.request.contextPath}/resources/images/main_content1.jpg">
+        <img id="content_img" src="${pageContext.servletContext.contextPath}/resources/images/main_content1.jpg">
         <div id="content_list">
         
             <div id="img_slide">
@@ -183,17 +183,17 @@
                       <span class="dot" onclick="currentSlide(3)"></span> 
                     </div>
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_mountains_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_mountains_wide.jpg">
                       <div class="text">Caption Text</div>
                     </div>
                     
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_nature_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_nature_wide.jpg">
                       <div class="text">Caption Two</div>
                     </div>
                     
                     <div class="mySlides fade">
-                      <img src="${pageContext.request.contextPath}/resources/images/img_snow_wide.jpg">
+                      <img src="${pageContext.servletContext.contextPath}/resources/images/img_snow_wide.jpg">
                       <div class="text">Caption Three</div>
                     </div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
