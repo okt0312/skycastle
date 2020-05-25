@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
     <!-- jQuery 라이브러리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- 부트스트랩에서 제공하고 있는 스타일 -->
@@ -11,44 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeDetail</title>
     <style>
-        body
-        {
-            margin: 0px;
-            background-color: #ffffff;
-            color: #000000;
-        }
-        #hd_outer
-        {
-            max-width: 1700px;
-            margin: auto;
-        }
-        #hd_logo
-        {
-            border: 1px solid black;
-            height: 143px;
-        }
-        #hd_logo_img
-        {
-            float: left;
-            margin: 20px 0 0 100px;
-            width: 200px;
-            height: 100px;
-            background-color: black;
-        }
-        #hd_menu
-        {
-            position: relative;
-            z-index: 8;
-            background: rgb(255, 255, 255);
-            border-bottom: 1px solid rgb(209, 209, 209);
-            border-top: 1px solid rgb(209, 209, 209);
-            width: 100%;
-            height: 104px;
-        }
-        .content{
-            max-width: 1700px;
-            margin: auto;
-        }
         /**/
         #groupMenuTable{margin: auto;}
         #groupMenuTable td{
@@ -58,8 +21,6 @@
             border-right: 1px solid;
             border-left: 1px solid;
         } 
-
-
         /* 마이소모임 메뉴바 */
         #mygroupMenubar{
             width: 25%;
@@ -227,16 +188,6 @@
     </style>
 </head>
 <body>
-    <div class="content">
-        <div id="hd_outer">
-            <div id="hd_logo">
-                <div id="hd_logo_img">
-                        
-                </div>
-            </div>
-            <div id="hd_menu">
-                
-            </div>
             <div id="mygroup">
                 <div id="mygroupMenubar">
                     <h2>소모임명</h2>
@@ -323,9 +274,7 @@
                             
                 </div>
             </div>
-        </div>
-    </div>
-
+            
     <!-- 모달 시작 -->
     <div class="modal fade" id="reportModal"> <!-- modal별 id 변경해주세요-->
         <div class="modal-dialog">
