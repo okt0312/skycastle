@@ -9,6 +9,18 @@ public class AdminController {
 	@RequestMapping("adminMain.ad")
 	public String adminMainForm()
 	{
-		return "admin/adminMain"; 
+		return "admin/adMain"; 
+	}
+	
+	@RequestMapping("memberList.ad")
+	public String adMemberListForm()
+	{
+		return "admin/adMemberListForm";
+	}
+	
+	@RequestMapping("gradeMgmt.ad")
+	public String adGradeMgmtForm()
+	{
+		return "admin/adGradeMgmtForm";
 	}
 }
