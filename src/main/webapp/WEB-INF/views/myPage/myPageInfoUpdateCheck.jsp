@@ -212,6 +212,7 @@ input[type=password]{font-family:'inherit';}
 		</div>
 	</div>
 
+<jsp:include page="../common/footer.jsp"/>
 
 </body>
 </html>

@@ -320,7 +320,7 @@ table {
                 <button type="submit" class="middle_btn" id="mbtn">변경</button>
 
 			</div>
-			</form>
+			
 
 			<table>
 				<tr>
@@ -333,7 +333,8 @@ table {
 		</div>
 		</div>
 	
-			
+		
+		<jsp:include page="../common/footer.jsp"/>
 
 </body>
 </html>

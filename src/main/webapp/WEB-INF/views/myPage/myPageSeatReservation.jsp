@@ -494,7 +494,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
         
 
-       
+       <jsp:include page="../common/footer.jsp"/>
         
 
                
