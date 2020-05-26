@@ -155,6 +155,8 @@ input[type=password]{font-family:'inherit';}
 </head>
 <body>
 
+<jsp:include page="common/myPageMenubar.jsp"/>
+
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
         <br>
