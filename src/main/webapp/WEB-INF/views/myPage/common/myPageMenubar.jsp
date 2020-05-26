@@ -100,12 +100,6 @@
         </div>
     </div>
 
-    <!-- contents -->
-    <div class="content">
-     
-       
-
-
-    </div>
+   
 </body>
 </html>
