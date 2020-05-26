@@ -34,6 +34,7 @@
 		<url-pattern>*.me</url-pattern>
 		<url-pattern>*.gr</url-pattern>
 		<url-pattern>*.ad</url-pattern>
+		<url-pattern>*.bo</url-pattern>
 	</servlet-mapping>
 
 		<!-- 한글 깨짐 방지용 인코딩 필터 등록 -->
