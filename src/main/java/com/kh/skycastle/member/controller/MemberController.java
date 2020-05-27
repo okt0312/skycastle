@@ -52,4 +52,9 @@ public class MemberController {
 	        session.invalidate();
 	        return "redirect:/";
 	    }
+	 
+	 @RequestMapping("myPage.me")
+	 public String myPage() {
+		 return "myPage/myPageSpaceReservation";
+	 }
 }

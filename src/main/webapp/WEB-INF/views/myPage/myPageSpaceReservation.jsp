@@ -381,11 +381,6 @@ a:link, a:visited, a:hover, a:active, a:focus {
 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         
-        <br>
-		
-	
-		
-		<hr>
 		
 		
 
@@ -486,6 +481,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
         </div>
 
+		<br><br><br><br><br><br>
 	
 		<jsp:include page="../common/footer.jsp"/>
 
