@@ -5,20 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SKY CASTLE Admin Page</title>
 <style>
-	main
-	{
-		width: 1358px; 
-		right: 500px;
-		margin: 0;
-	}
 </style>
 </head>
 <body>
 	<jsp:include page="common/adminSidebar.jsp"/>
 	<div id="layoutSidenav_content">
-                <main ">
+                <main>
                     <div class="container-fluid">
                         <h1 class="mt-4">Dashboard</h1>
                         <!-- 알람  -->
