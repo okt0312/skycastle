@@ -90,10 +90,10 @@
             <ul class="myPage_header_menu" style="margin-right: 10px;">
                
                
-                <li><a href="">이용현황</a></li>
+                <li><a href="myPage.bo">이용현황</a></li>
                 <li><a href="">소모임관리</a></li>
                 <li><a href="">1:1문의</a></li>
-                <li><a href="Coupon.me">쿠폰함</a></li>
+                <li><a href="Coupon.bo">쿠폰함</a></li>
                 <li><a href="">개인정보수정</a></li>
                 
             </ul>

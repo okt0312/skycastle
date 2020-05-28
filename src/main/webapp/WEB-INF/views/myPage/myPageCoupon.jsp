@@ -103,14 +103,10 @@ div {
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 	
-		<br>
 		
 	
-		
-		<hr>
 
-
-
+	<br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 				
@@ -202,13 +198,7 @@ div {
                     <a href="#">&raquo;</a>
                 </div>
 
-				<!--
-                <div class="pagination" align="center">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">&raquo;</a>
-                </div>
-                -->
+				
 				<br>
 				<br>
 				<br>
