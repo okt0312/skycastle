@@ -11,4 +11,11 @@ public class GroupController {
 	{
 		return "groups/groupList";
 	}
+	
+	
+	@RequestMapping("mygroupList.gr")
+	public String mygroupList()
+	{
+		return "myPage/myPageGroupListNow";
+	}
 }
