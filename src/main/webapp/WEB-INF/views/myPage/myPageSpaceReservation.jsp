@@ -418,7 +418,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
             <ul class="use_status_list">
                 <li class="use_status_item  clr">
-                    <a href="myPageDetail.bo">
+                    <a href="myPageDetail.my">
                         <span class="col1 thumb align_center">
                             <img src="룸2.png" style="height: 100%; width: 100%; object-fit: contain;">
                         </span>
