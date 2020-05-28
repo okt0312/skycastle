@@ -98,7 +98,7 @@
                                                         <td>${ m.userId }</td>
                                                         <td>${ m.birthday }</td>
                                                         <td>${ m.phone }</td>
-                                                        <td>${ m.gradeCode }</td>
+                                                        <td>${ m.gradeName }</td>
                                                         <td>${ m.enrollDate }</td>
                                                         <td><button id="tbBtn" data-toggle="modal" data-target="#manageModal">관리</button>
                                                             <button id="tbBtn" data-toggle="modal" data-target="#spaceModal">공간</button>

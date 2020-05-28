@@ -21,6 +21,7 @@
 	<select id="selectMember" resultMap="adMemberResultSet">
 		SELECT M.USER_NO, M.USER_NAME, M.STATUS, M.USER_ID, M.BIRTHDAY, M.PHONE, G.GRADE_NAME, M.ENROLL_DATE
 		FROM MEMBER M
-		JOIN GRADE G USING(GRADE_CODE);
+		JOIN GRADE G USING(GRADE_CODE)
+		WHERE USER_ID != 'admin@naver.com'
 	</select>
 </mapper>
