@@ -15,7 +15,7 @@ import lombok.ToString;
 @ToString
 
 public class Member {
-	private String userNo;
+	private int userNo;
 	private String userId;
 	private String userPwd;
 	private String userName;
@@ -26,8 +26,8 @@ public class Member {
 	private String blacklist;
 	private String status;
 	private Date dropDate;
-	private String lastYearUsage;
-	private String thisYearUsage;
-	private String gradeCode;
-	private String redCard;
+	private int lastYearUsage;
+	private int thisYearUsage;
+	private int gradeCode;
+	private int redCard;
 }
