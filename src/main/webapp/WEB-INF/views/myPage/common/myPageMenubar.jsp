@@ -85,7 +85,7 @@
         <div id="header2">
 
            
-            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="마이페이지 로고.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
+            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
            	
             <ul class="myPage_header_menu" style="margin-right: 10px;">
                
