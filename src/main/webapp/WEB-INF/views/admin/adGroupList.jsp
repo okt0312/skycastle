@@ -24,13 +24,24 @@
             background-color: rgba(204, 199, 199, 0.699);
             cursor:pointer;
         }
+        
+         #selectBox
+       {
+           position: absolute;
+           float: left;
+           margin-left: 170px;
+           display: block;
+           z-index: 100;
+       }
     </style>
 
 </head>
 <body>
 	<div id="layoutSidenav"> 
 	<jsp:include page="common/adminSidebar.jsp"/>
-	</div>
+	
+	<div id="layoutSidenav_content">
+	<!-- 시작 -->
 	<main>
         <div  class="container-fluid" style="padding-right: 10px;">
             <h1 class="mt-4"><b>소모임 조회</b></h1>
@@ -48,16 +59,16 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div>
-                            <!-- 테이블-->
-                            <div clss="slecet" >
-                                <select >
-                                    <option value="전체보기">전체보기</option>
-                                    <option value="회원">회원</option>
-                                    <option value="비회원">비회원</option>
-                                </select>
-                                
-                            </div>
-                            <!-- 셀렉트 끝 -->
+                            <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
+                               <div id="selectBox">
+                                   <select>
+                                       <option value="전체보기">전체보기</option>
+                                       <option value="회원">회원</option>
+                                       <option value="비회원">비회원</option>
+                                   </select>
+                                   
+                               </div>
+                               <!-- 셀렉트 끝 -->
                         </div>
 
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
@@ -243,8 +254,8 @@
             </div>
                     
                 </main>
-                
-               <%--  <jsp:include page="../common/footer.jsp"/> --%>
+                </div>
+               
 	
 </body>
 </html>

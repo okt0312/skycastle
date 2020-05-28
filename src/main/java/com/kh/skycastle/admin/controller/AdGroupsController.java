@@ -12,6 +12,16 @@ public class AdGroupsController {
 		return "admin/adGroupList";
 	}
 	
+	@RequestMapping("groupConfirm.ad")
+	public String adGroupConfirm()
+	{
+		return "admin/adGroupConfirm";
+	}
 	
+	@RequestMapping("groupBoMgmt.ad")
+	public String adGroupBoMgmt()
+	{
+		return "admin/adGroupBoMgmt";
+	}
 	
 }
