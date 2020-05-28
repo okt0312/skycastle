@@ -139,7 +139,7 @@
 		                </li>
                 	</c:when>
                 	<c:otherwise>
-						<li><button class="sky_btn1" onclick="location.href='myPage.bo'">마이페이지</button>
+						<li><button class="sky_btn1" onclick="location.href='myPage.my'">마이페이지</button>
 		                    <ul class="submenu">
 		                        <li><a href="logout.me">로그아웃</a></li>
 		                    </ul>

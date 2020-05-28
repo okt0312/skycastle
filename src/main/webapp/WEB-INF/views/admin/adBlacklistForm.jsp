@@ -5,10 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>등급 관리</title>
+<title>블랙리스트 관리</title>
 </head>
 <body>
 	<div id="layoutSidenav">
+	
 		<jsp:include page="common/adminSidebar.jsp"/>
 	</div>
 </body>

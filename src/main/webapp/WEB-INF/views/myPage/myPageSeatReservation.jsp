@@ -400,11 +400,11 @@ a:link, a:visited, a:hover, a:active, a:focus {
                     <ul>
 
                         <li>
-                            <a href="myPage.bo" class="">공간예약</a>
+                            <a href="myPage.my" class="">공간예약</a>
                         </li>
 
                         <li>
-                            <a href="seat.bo" class="active">좌석예약</a>
+                            <a href="seat.my" class="active">좌석예약</a>
                         </li>
 
                     </ul>

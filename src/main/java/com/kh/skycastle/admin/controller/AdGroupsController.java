@@ -4,11 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminController {
-	
-	@RequestMapping("adminMain.ad")
-	public String adminMainForm()
+public class AdGroupsController {
+
+	@RequestMapping("groupList.ad")
+	public String adGroupList()
 	{
-		return "admin/adMain"; 
+		return "admin/adGroupList";
 	}
+	
+	
+	
 }

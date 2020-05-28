@@ -12,7 +12,7 @@
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-	    <a class="navbar-brand" href="adminMain.ad"><b>SKY CASTLE</b></a>
+	    <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/"><b>SKY CASTLE</b></a>
 	    
 	    <!-- 상단 검색바 숨깁니다 -->
 	    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -38,7 +38,6 @@
 	</nav>
 	
 	<!-- 사이드바 시작-->
-	<div id="layoutSidenav">
 	    <div id="layoutSidenav_nav">
 	        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 	            <div class="sb-sidenav-menu">
@@ -70,7 +69,7 @@
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
                         <div class="collapse" id="collapseMeeting" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">소모임 조회</a>
+                                <a class="nav-link" href="groupList.ad">소모임 조회</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">소모임 개설 관리</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">소모임 게시글 관리</a> 
                             </nav>
@@ -123,27 +122,14 @@
 	            </div> 
 	        </nav>
 	    </div>
-	    <footer class="py-4 bg-light mt-auto" >
-			<div class="container-fluid">
-			    <div class="d-flex align-items-center justify-content-between small">
-			        <div class="text-muted">Copyright &copy; Your Website 2019</div>
-			        <div>
-			            <a href="#">Privacy Policy</a>
-			            &middot;
-			            <a href="#">Terms &amp; Conditions</a>
-			        </div>
-			    </div>
-			</div>
-        </footer>
-	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	<script src="${pageContext.servletContext.contextPath}/resources/js/scripts.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/demo/chart-area-demo.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-	<script src="assets/demo/datatables-demo.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/demo/datatables-demo.js"></script>
 </body>
 </html>
