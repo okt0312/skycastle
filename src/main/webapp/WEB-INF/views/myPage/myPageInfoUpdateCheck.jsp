@@ -194,15 +194,15 @@ input[type=password]{font-family:'inherit';}
 		<br><br>
 		
 		<div class="inner">
-			<form id="updateForm" action="/myInfoUpdateForm.my" method="post">
+			<form id="updateForm" action="PwdCheckk.my" method="post">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
-					<td colspan="2">xorud3290</td>
+					<td colspan="2">${ loginUser.userId }</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name="inputPwd"></td>
+					<td><input type="password" name="userPwd" id="userPwd"></td>
 					<td><button type="submit" class="small_btn" id="#" style="margin: 10px">확인</button></td>
                 </tr>
                 
