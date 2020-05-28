@@ -8,6 +8,9 @@
 <title>블랙리스트 관리</title>
 </head>
 <body>
-	<jsp:include page="common/adminSidebar.jsp"/>
+	<div id="layoutSidenav">
+	
+		<jsp:include page="common/adminSidebar.jsp"/>
+	</div>
 </body>
 </html>

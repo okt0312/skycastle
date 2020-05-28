@@ -9,18 +9,10 @@
 <link href="${pageContext.servletContext.contextPath}/resources/css/styles.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-<style>
-	main
-	{
-		width: 1358px;
-		float: right; 
-		margin-right: 10px;
-	}
-</style>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-	    <a class="navbar-brand" href="adminMain.ad"><b>SKY CASTLE</b></a>
+	    <a class="navbar-brand" href="${pageContext.servletContext.contextPath}/"><b>SKY CASTLE</b></a>
 	    
 	    <!-- 상단 검색바 숨깁니다 -->
 	    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -46,7 +38,6 @@
 	</nav>
 	
 	<!-- 사이드바 시작-->
-	<div id="layoutSidenav">
 	    <div id="layoutSidenav_nav">
 	        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
 	            <div class="sb-sidenav-menu">
@@ -131,19 +122,6 @@
 	            </div> 
 	        </nav>
 	    </div>
-	    <footer class="py-4 bg-light mt-auto" >
-			<div class="container-fluid">
-			    <div class="d-flex align-items-center justify-content-between small">
-			        <div class="text-muted">Copyright &copy; Your Website 2019</div>
-			        <div>
-			            <a href="#">Privacy Policy</a>
-			            &middot;
-			            <a href="#">Terms &amp; Conditions</a>
-			        </div>
-			    </div>
-			</div>
-        </footer>
-	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	<script src="${pageContext.servletContext.contextPath}/resources/js/scripts.js"></script>

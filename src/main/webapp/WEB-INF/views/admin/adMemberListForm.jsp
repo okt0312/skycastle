@@ -8,6 +8,8 @@
 <title>회원 조회</title>
 </head>
 <body>
-	<jsp:include page="common/adminSidebar.jsp"/>
+	<div id="layoutSidenav">
+		<jsp:include page="common/adminSidebar.jsp"/>
+	</div>
 </body>
 </html>
