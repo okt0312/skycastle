@@ -6,12 +6,14 @@
 	<meta charset="UTF-8">
     <title>myPageMenubar</title>
     <style>
-    /* body
+    
+    
+    body
     {
         max-width: 1700px;
         margin: auto;
 
-    } */
+    } 
     #mypage_main_Header
     {
         max-width: 1700px;

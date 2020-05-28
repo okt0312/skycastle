@@ -415,7 +415,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
        
 
         <div>
-
+	
             <ul class="use_status_list">
                 <li class="use_status_item  clr">
                     <a href="myPageDetail.my">
