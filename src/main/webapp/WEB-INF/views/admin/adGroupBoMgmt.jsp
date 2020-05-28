@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>소모임 게시판 관리</title>
+<style>
+	  #selectBox
+       {
+           position: absolute;
+           float: left;
+           margin-left: 170px;
+           display: block;
+           z-index: 100;
+       }
+</style>
 </head>
 <body>
 <div id="layoutSidenav">

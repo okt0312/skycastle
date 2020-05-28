@@ -37,6 +37,15 @@
             color: white;
             border: 0;
         }
+        
+          #selectBox
+       {
+           position: absolute;
+           float: left;
+           margin-left: 170px;
+           display: block;
+           z-index: 100;
+       }
 	        
 	</style>
 
@@ -64,16 +73,18 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div>
-                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
-                                         <div id="selectBox">
-                                             <select>
-                                                 <option value="전체보기">전체보기</option>
-                                                 <option value="회원">회원</option>
-                                                 <option value="비회원">비회원</option>
-                                             </select>
-                                         </div>
-                                 <!-- 셀렉트 끝 -->
-                                    </div>
+			                            <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
+			                               <div id="selectBox">
+			                                   <select>
+			                                       <option value="전체보기">전체보기</option>
+			                                       <option value="회원">회원</option>
+			                                       <option value="비회원">비회원</option>
+			                                   </select>
+			                                   
+			                               </div>
+			                               <!-- 셀렉트 끝 -->
+                      				  </div>
+
 
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                                         <thead>
