@@ -87,8 +87,8 @@
 	                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
                         <div class="collapse" id="collapseSpace" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">공간 현황</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">좌석 현황</a>
+                                <a class="nav-link" href="spaceMgmt.ad">공간 현황</a>
+                                <a class="nav-link" href="seatMgmt.ad">좌석 현황</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">예역 현황</a> 
                             </nav>
                         </div>
@@ -109,8 +109,8 @@
 	                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
                         <div class="collapse" id="collapseBoard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">공지사항 관리</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">이벤트 관리</a>
+                                <a class="nav-link" href="noticeMgmt.ad">공지사항 관리</a>
+                                <a class="nav-link" href="eventMgmt.ad">이벤트 관리</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">1:1문의 관리</a> 
                             </nav>
                         </div>
