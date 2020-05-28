@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery 라이브러리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 	.loginForm{
 	  position: absolute;
@@ -93,7 +95,7 @@
           <input type="submit" id="loginBox" name="login" value="네이버로 로그인(임시용)"><br>
           <div class="loginBtn">
             <button id="searchPwd">비밀번호 찾기</button>
-            <button id="enrollMember">회원가입</button>
+            <button type="submit" id="enrollMember">회원가입</button>
           </div>
         </form>
     </div>

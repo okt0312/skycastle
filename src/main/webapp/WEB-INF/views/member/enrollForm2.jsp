@@ -97,7 +97,7 @@
 <body data-spy="scroll" data-target="#navbar-example">
     <!-- 2.회원가입 -->
     <div class="outer">
-        <form action="" method="POST">
+        <form id="joinBtn" action="insert.me" method="POST">
            <div class="mainTitle">
                 <center>SKY CASTLE</center>
                 <h4 id="subTitle">SKY CASTLE 회원가입을 위한 정보를 입력해주세요.</h4>
@@ -107,20 +107,20 @@
             <div class="infoArea">
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
-                    <input type="email" class="memberInfo" name="email" placeholder="이메일">
+                    <input type="email" class="memberInfo" id="email" name="email" placeholder="이메일">
                     <span><button id="ckBtn">중복확인</button></span>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
-                    <input type="password" class="memberInfo" name="memPwd1" placeholder="6자리 이상 영문,숫자,특수문자를 사용">
+                    <input type="password" class="memberInfo" id="memPwd1" name="memPwd1" placeholder="6자리 이상 영문,숫자,특수문자를 사용">
                 </div>
                 <div class="inputArea">
                     <label for="memPwd2"><span>*</span> 비밀번호 확인</label><br>
-                    <input type="password" class="memberInfo" name="email" placeholder="비밀번호를 한번 더 입력">
+                    <input type="password" class="memberInfo" id="memPwd2" name="memberPwd2" placeholder="비밀번호를 한번 더 입력">
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 이름</label><br>
-                    <input type="text" class="memberInfo" name="email" >
+                    <input type="text" class="memberInfo" id="userName" name="userName" >
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 생년월일</label><br>
@@ -155,4 +155,34 @@
     </div>
 </body>
 
+<script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#joinBtn").on("click", function(){
+		if($("#email").val()==""){
+			alert("아이디(이메일)를 입력해주세요.");
+			$("#email").focus();
+			return false;
+		}
+		if($("#memPwd1").val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$("#memPwd1").focus();
+			return false;
+		}
+		if($("#memPwd2").val()==""){
+			alert("비밀번호를 확인란을 입력해주세요.");
+			$("#memPwd2").focus();
+			return false;
+		}
+		if($("#userName").val()==""){
+			alert("성명을 입력해주세요.");
+			$("#userName").focus();
+			return false;
+		}
+	});
+	
+})
+
+</script>
 </html>
