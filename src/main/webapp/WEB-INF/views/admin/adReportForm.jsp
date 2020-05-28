@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 조회</title>
+<title>신고 관리</title>
 </head>
 <body>
 	<jsp:include page="common/adminSidebar.jsp"/>
+
 </body>
 </html>

@@ -11,16 +11,4 @@ public class AdminController {
 	{
 		return "admin/adMain"; 
 	}
-	
-	@RequestMapping("memberList.ad")
-	public String adMemberListForm()
-	{
-		return "admin/adMemberListForm";
-	}
-	
-	@RequestMapping("gradeMgmt.ad")
-	public String adGradeMgmtForm()
-	{
-		return "admin/adGradeMgmtForm";
-	}
 }
