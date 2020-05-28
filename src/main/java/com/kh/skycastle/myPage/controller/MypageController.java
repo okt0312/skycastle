@@ -29,4 +29,14 @@ public class MypageController {
 		return "myPage/myPageOneOnOneList";
 	}
 	
+	@RequestMapping("seat.bo")
+	public String seat() {
+		return "myPage/myPageSeatReservation";
+	}
+	
+	@RequestMapping("myPageDetail.bo")
+	public String SpaceDetail() {
+		return "myPage/myPageSpaceReservationDetail";
+	}
+	
 }

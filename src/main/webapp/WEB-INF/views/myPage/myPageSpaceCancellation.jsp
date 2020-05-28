@@ -269,20 +269,14 @@ table {
 
 
 
-
-
-
-
-
 </style>
+
+
 </head>
 <body>
 
-<jsp:include page="common/myPageMenubar.jsp"/>
-
 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        
         
 		
 		<!-- 서브메뉴 우측 인덱스 -->
@@ -306,7 +300,7 @@ table {
 
 			<br><br>
             <hr style="width: 50%;">
-
+            
             <br><br>
 
             <h3 style="width: 50%; margin-left: 38px;">예약정보</h3>
@@ -395,116 +389,25 @@ table {
 
 		<br><br><br>
 
-		<h3 style="width: 50%; margin-left: 55px;">예약자정보</h3>
-
-		<br>
-
-		<table style= "width: 50%; border:1px solid black;">
-
-			<thead>
-
-				<tr>
-
-					<th class="jb-th-1">모임명</th>
-					<td colspan="2"></td>
-					
-					
-					
-					
-				  
-
-				</tr>
-
-
-			</thead>
-
-			<tbody>
-
-				<tr>
-
-					<th class="jb-th-1">예약자 명</th>
-					<td colspan="2"></td>
-					
-					
-				   
-
-
-				</tr>
-
-				<tr>
-
-					<th class="jb-th-1">연락처</th>
-					<td colspan="2"></td>
-					
-					
-					
-
-
-				</tr>
-
-				<tr>
-
-					<th class="jb-th-1">이메일</th>
-					<td colspan="2"></td>
-					
-					
-					
-
-
-				</tr>
-				
-
-				
-
-			   
-
-				
-			 
-
-			   
-
-
-
-
-
-
-			</tbody>
-
-
-
-		</table>
-		   
-
-
-
 		
-
         
       
-			
-		
-
-
-
-
-			
-
 		</div>
 				
 			
-		<br><br><br><br><br>
+		<br>
 
                
 		<div id="btns" style="padding-left: 20px;">
 				
-            <button type="submit" class="sky_btn2" id="" >예약취소</button> &nbsp;&nbsp;&nbsp;
-			<button type="submit" class="sky_btn1" id="" onclick="location.href=''" >홈으로></button>
+          
+			<button type="submit" class="sky_btn1" id="" >홈으로></button>
 
         </div>
 
 	
          
-		
+
 					
 			
             
@@ -515,8 +418,10 @@ table {
 		
 		</div>
 		
+	
+			
 		
-		<jsp:include page="../common/footer.jsp"/>
+
 
 </body>
 </html>

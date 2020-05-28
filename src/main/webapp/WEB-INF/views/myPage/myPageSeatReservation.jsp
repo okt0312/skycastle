@@ -389,12 +389,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 	<div class="outer">
         <!-- 서브메뉴 타이틀 -->
         
-        <br>
-		
-	
-		
-		<hr>
-		
+      
 		
 
 		<!-- inner영역에 콘텐츠 작성 -->
@@ -405,11 +400,11 @@ a:link, a:visited, a:hover, a:active, a:focus {
                     <ul>
 
                         <li>
-                            <a href="" class="">공간예약</a>
+                            <a href="myPage.bo" class="">공간예약</a>
                         </li>
 
                         <li>
-                            <a href="" class="active">좌석예약</a>
+                            <a href="seat.bo" class="active">좌석예약</a>
                         </li>
 
                     </ul>
@@ -433,12 +428,12 @@ a:link, a:visited, a:hover, a:active, a:focus {
                 <li class="use_status_item  clr">
                     <a href="">
                         <span class="col1 thumb align_center">
-                            <img src="룸2.png" style="height: 100%; width: 100%; object-fit: contain;">
+                            <img href="">
                         </span>
                         <span class="col2 room_info">
-                                   <p class="t1">xorud3290@naver.com</p>
-                                   <p class="t2">2020년 5월27일(수) 11:00~13:00</p>
-                            <p class="t3">지점문의: 02-34760118</p>
+                                   <p class="t1"></p>
+                                   <p class="t2"></p>
+                                   <p class="t3"></p>
                         </span>
                         <span class="col3 room_type align_center">
                             <strong class="reserve_type">
@@ -492,7 +487,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
         </div>
 
 
-        
+        <br><br><br><br><br><br><br><br><br><br>
 
        <jsp:include page="../common/footer.jsp"/>
         
