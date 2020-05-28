@@ -69,7 +69,7 @@
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
                         <div class="collapse" id="collapseMeeting" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">소모임 조회</a>
+                                <a class="nav-link" href="groupList.ad">소모임 조회</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">소모임 개설 관리</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">소모임 게시글 관리</a> 
                             </nav>
