@@ -5,7 +5,7 @@
 		<id column="USER_NO" property="userNo"/>
 		<result column="USER_ID" property="userId"/>
 		<result column="USER_PWD" property="userPwd"/>
-		<result column="UESR_NAME" property="userName"/>
+		<result column="USER_NAME" property="userName"/>
 		<result column="BIRTHDAY" property="birthday"/>
 		<result column="PHONE" property="phone"/>
 		<result column="ENROLL_DATE" property="enrollDate"/>
