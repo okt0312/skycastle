@@ -19,7 +19,14 @@ public class MypageController {
 	}
 	
 	
+	@RequestMapping("PwdCheck.bo")
+	public String PwdCheck() {
+		return "myPage/myPageInfoUpdateCheck";
+	}
 	
+	@RequestMapping("OneonOne.bo")
+	public String OneonOne() {
+		return "myPage/myPageOneOnOneList";
+	}
 	
-
 }

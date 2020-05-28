@@ -159,13 +159,12 @@ input[type=password]{font-family:'inherit';}
 
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
-        <br>
-		
-	
-		
-		<hr>
+      
 		<!-- 서브메뉴 우측 인덱스 -->
 		
+		
+		
+		<br><br><br>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
 			
