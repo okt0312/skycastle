@@ -381,11 +381,6 @@ a:link, a:visited, a:hover, a:active, a:focus {
 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         
-        <br>
-		
-	
-		
-		<hr>
 		
 		
 
@@ -397,11 +392,11 @@ a:link, a:visited, a:hover, a:active, a:focus {
                     <ul>
 
                         <li>
-                            <a href="" class="active">공간예약</a>
+                            <a href="myPage.bo" class="active">공간예약</a>
                         </li>
 
                         <li>
-                            <a href="">좌석예약</a>
+                            <a href="seat.bo">좌석예약</a>
                         </li>
 
                     </ul>
@@ -423,7 +418,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
             <ul class="use_status_list">
                 <li class="use_status_item  clr">
-                    <a href="">
+                    <a href="myPageDetail.bo">
                         <span class="col1 thumb align_center">
                             <img src="룸2.png" style="height: 100%; width: 100%; object-fit: contain;">
                         </span>
@@ -486,6 +481,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
         </div>
 
+		<br><br><br><br><br><br>
 	
 		<jsp:include page="../common/footer.jsp"/>
 
