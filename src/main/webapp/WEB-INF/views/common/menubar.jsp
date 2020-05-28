@@ -113,7 +113,7 @@
                 </li>
                 <li><a href="">좌석 예약</a></li>
                 <li><a href="">공간 예약</a></li>
-                <li><a href="">소모임</a></li>
+                <li><a href="groupList.gr">소모임</a></li>
                 <li><a href="">고객센터</a>
                     <ul class="submenu">
                         <li><a href="">공지사항</a></li>
