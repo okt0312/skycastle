@@ -6,8 +6,25 @@
 <head>
 <meta charset="UTF-8">
 <title>SKY CASTLE Admin Page</title>
-<style>
-</style>
+
+<!-- FullCalendar -->
+<link href='${pageContext.servletContext.contextPath}/resources/css/fullcalendar/core/main.css' rel='stylesheet' />
+<link href='${pageContext.servletContext.contextPath}/resources/css/fullcalendar/daygrid/main.css' rel='stylesheet' />
+
+<script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/core/main.js'></script>
+<script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/daygrid/main.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'dayGrid' ]
+    });
+
+    calendar.render();
+  });
+
+</script>
 </head>
 <body>
 	<div id="layoutSidenav">
@@ -100,6 +117,7 @@
                        </div>
 					</div>
 				</div>
+				<div id='calendar'></div>
 			</main>
 		</div>
    </div>
