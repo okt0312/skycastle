@@ -301,9 +301,9 @@ table {
               
             <br> <br> <br> <br> <br> <br> 
 
-			<h1>SKY CASTLE 공간예약이 취소되었습니다.</h1>
+			<h1>SKY CASTLE 공간예약이 완료되었습니다.</h1>
 			<span style="color: #888; line-height: 22px;">공간 이용과 관련된 문의는 예약하신 지점으로 해주시면 정확한 답변을 받으실 수 있습니다.</span>
-
+			
 			<br><br>
             <hr style="width: 50%;">
 
@@ -498,7 +498,7 @@ table {
 		<div id="btns" style="padding-left: 20px;">
 				
             <button type="submit" class="sky_btn2" id="" >예약취소</button> &nbsp;&nbsp;&nbsp;
-			<button type="submit" class="sky_btn1" id="" onclick="location.href=''" >홈으로></button>
+			<button type="submit" class="sky_btn1" id="" onclick="location.href='${pageContext.servletContext.contextPath}/'" >홈으로></button>
 
         </div>
 
