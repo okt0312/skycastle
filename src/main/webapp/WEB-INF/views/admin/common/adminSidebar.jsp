@@ -9,6 +9,12 @@
 <link href="${pageContext.servletContext.contextPath}/resources/css/styles.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function(){
+		$("#selectBox select").addClass('custom-select custom-select-sm form-control form-control-sm');
+	});
+</script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -122,6 +128,8 @@
 	            </div> 
 	        </nav>
 	    </div>
+
+
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 	<script src="${pageContext.servletContext.contextPath}/resources/js/scripts.js"></script>

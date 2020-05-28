@@ -7,28 +7,36 @@
 <meta charset="UTF-8">
 <title>회원 조회</title>
 <style>
-            /* 관리버튼 - 관리 공간 소모임  css*/
-            #tbBtn{
-                background-color: #343a40;;
-                color: white;
-                border-radius: 0.25rem;
-                border: 1px solid transparent;
-            }
-            /* 관리버튼 - 삭제 */
-            #tbBtn2{
-                background-color: #dc3545;
-                color: white;
-                border-radius: 0.25rem;
-                border: 1px solid transparent;
-            }
-          
-           /* 공간 테이블 모달 */
-           #spTable tr td {
-                text-align: center;
-                border:1px solid black;
-                width: 250px;
-                height: 100px;
-            }
+       /* 관리버튼 - 관리 공간 소모임  css*/
+       #tbBtn{
+           background-color: #343a40;;
+           color: white;
+           border-radius: 0.25rem;
+           border: 1px solid transparent;
+       }
+       /* 관리버튼 - 삭제 */
+       #tbBtn2{
+           background-color: #dc3545;
+           color: white;
+           border-radius: 0.25rem;
+           border: 1px solid transparent;
+       }
+     
+      /* 공간 테이블 모달 */
+      #spTable tr td {
+           text-align: center;
+           border:1px solid black;
+           width: 250px;
+           height: 100px;
+       }
+       #selectBox
+       {
+           position: absolute;
+           float: left;
+           margin-left: 170px;
+           display: block;
+           z-index: 100;
+       }
 </style>
 </head>
 <body>
@@ -56,8 +64,8 @@
                                         <div class="table-responsive">
                                             <div>
                                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
-                                                <div clss="slecet" >
-                                                    <select >
+                                                <div id="selectBox">
+                                                    <select>
                                                         <option value="전체보기">전체보기</option>
                                                         <option value="회원">회원</option>
                                                         <option value="비회원">비회원</option>
