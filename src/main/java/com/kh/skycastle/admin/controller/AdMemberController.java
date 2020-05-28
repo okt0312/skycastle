@@ -9,9 +9,13 @@ public class AdMemberController {
 	@RequestMapping("memberList.ad")
 	public String adMemberListForm()
 	{
+		
 		return "admin/adMemberListForm";
 	}
 	
+	
+	
+//	나중에 변경예정
 	@RequestMapping("gradeMgmt.ad")
 	public String adGradeMgmtForm()
 	{
