@@ -392,16 +392,16 @@ a:link, a:visited, a:hover, a:active, a:focus {
                     <ul>
 
                         <li>
-                            <a href="myPage.bo" class="active">공간예약</a>
+                            <a href="myPage.my" class="active">공간예약</a>
                         </li>
 
                         <li>
-                            <a href="seat.bo">좌석예약</a>
+                            <a href="seat.my">좌석예약</a>
                         </li>
 
                     </ul>
 
-
+	
                </div>
 		
 
