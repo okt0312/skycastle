@@ -93,7 +93,7 @@
                 <li><a href="">이용현황</a></li>
                 <li><a href="">소모임관리</a></li>
                 <li><a href="">1:1문의</a></li>
-                <li><a href="">쿠폰함</a></li>
+                <li><a href="Coupon.me">쿠폰함</a></li>
                 <li><a href="">개인정보수정</a></li>
                 
             </ul>
