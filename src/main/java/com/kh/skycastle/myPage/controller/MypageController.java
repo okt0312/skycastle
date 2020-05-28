@@ -7,34 +7,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MypageController {
 	
 	
-	@RequestMapping("myPage.bo")
+	@RequestMapping("myPage.my")
 	 public String myPage() {
 		 return "myPage/myPageSpaceReservation";
 	 }
 	
 	
-	@RequestMapping("Coupon.bo")
+	@RequestMapping("Coupon.my")
 	public String Coupon() {
 		return "myPage/myPageCoupon";
 	}
 	
 	
-	@RequestMapping("PwdCheck.bo")
+	@RequestMapping("PwdCheck.my")
 	public String PwdCheck() {
 		return "myPage/myPageInfoUpdateCheck";
 	}
 	
-	@RequestMapping("OneonOne.bo")
+	@RequestMapping("OneonOne.my")
 	public String OneonOne() {
 		return "myPage/myPageOneOnOneList";
 	}
 	
-	@RequestMapping("seat.bo")
+	@RequestMapping("seat.my")
 	public String seat() {
 		return "myPage/myPageSeatReservation";
 	}
 	
-	@RequestMapping("myPageDetail.bo")
+	@RequestMapping("myPageDetail.my")
 	public String SpaceDetail() {
 		return "myPage/myPageSpaceReservationDetail";
 	}

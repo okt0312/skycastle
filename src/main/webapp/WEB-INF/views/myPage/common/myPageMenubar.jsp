@@ -90,11 +90,11 @@
             <ul class="myPage_header_menu" style="margin-right: 10px;">
                
                
-                <li><a href="myPage.bo">이용현황</a></li>
-                <li><a href="">소모임관리</a></li>
-                <li><a href="OneonOne.bo">1:1문의</a></li>
-                <li><a href="Coupon.bo">쿠폰함</a></li>
-                <li><a href="PwdCheck.bo">개인정보수정</a></li>
+                <li><a href="myPage.my">이용현황</a></li>
+                <li><a href="mygroup.gr">소모임관리</a></li>
+                <li><a href="OneonOne.my">1:1문의</a></li>
+                <li><a href="Coupon.my">쿠폰함</a></li>
+                <li><a href="PwdCheck.my">개인정보수정</a></li>
                 
             </ul>
         </div>
