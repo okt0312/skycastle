@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GroupController {
 
 	@RequestMapping("groupList.gr")
-	public String groupList()
-	{
+	public String groupList() {
 		return "groups/groupList";
 	}
 	
 	
 	@RequestMapping("mygroupList.gr")
-	public String mygroupList()
-	{
+	public String mygroupList() {
 		return "myPage/myPageGroupListNow";
 	}
+	
 }
