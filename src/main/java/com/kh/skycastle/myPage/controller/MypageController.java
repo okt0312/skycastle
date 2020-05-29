@@ -58,7 +58,7 @@ public class MypageController {
 			 
 		 } else {  // 비밀번호 불일치!!
 			 model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
-			 return "redirect:PwdCheck.my";
+			 return "myPage/myPageInfoUpdateCheck";
 		 }
 		 
 	    
