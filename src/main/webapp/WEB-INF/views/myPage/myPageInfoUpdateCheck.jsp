@@ -195,6 +195,7 @@ input[type=password]{font-family:'inherit';}
 		
 		<div class="inner">
 			<form id="updateForm" action="PwdCheckk.my" method="post">
+			<input type="hidden" value="${ loginUser.userId }" name="userId">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
