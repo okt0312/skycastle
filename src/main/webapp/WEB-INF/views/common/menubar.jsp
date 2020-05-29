@@ -117,7 +117,7 @@
                 <li><a href="">고객센터</a>
                     <ul class="submenu">
                         <li><a href="">공지사항</a></li>
-                        <li><a href="">FAQ</a></li>
+                        <li><a href="faq.cs">FAQ</a></li>
                         <li><a href="">1:1문의</a></li>
                     </ul>
 

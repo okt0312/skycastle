@@ -59,7 +59,7 @@ public class MemberController {
 	 @RequestMapping("enrollForm.me")
 	 public String enrollForm() {
 			return "member/enrollForm";
-	}
+	 }
 	
 	 @RequestMapping("enrollForm2.me")
 	 public ModelAndView enrollForm2(@RequestParam(value="infoAgree", defaultValue="false") Boolean infoAgree) {
