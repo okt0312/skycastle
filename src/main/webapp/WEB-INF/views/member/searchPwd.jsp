@@ -81,7 +81,7 @@
    <!-- 비밀번호찾기 -->
    <div class="findPwdForm"> 
         <div id="pwdImg">
-          <img src="images/pwd.png">
+          <img src="resources/images/pwd.png">
           <span>비밀번호 찾기</span>
         </div>
         <form action="" method="POST">
