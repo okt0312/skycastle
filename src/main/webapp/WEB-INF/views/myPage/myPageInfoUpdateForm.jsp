@@ -264,12 +264,8 @@ table {
 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         
-        <br>
-		
-	
-		
-		<hr>
-		
+      
+		<br><br><br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		
 		<div class="sub-menu-area">
@@ -295,22 +291,22 @@ table {
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
-					<td colspan="2" style="width: 430px;">xorud3290@naver.com</td>
+					<td colspan="2" style="width: 430px;">${ loginUser.userId }</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>이태경</td>
+					<td>${ loginUser.userName}</td>
 				</tr>
 				<tr>
 					<th>생년월일</th>
-					<td>1992.1.17</td>
+					<td>${ loginUser.birthday}</td>
 				</tr>
 				</table>
 				
-			
+				
 				
 				<form id="updateAreaForm" action="" method="post">
-				<table style="text-align: left;">
+				<table style="text-align: left; padding-right: 135px">
 				
 				<tr>
 					<th>휴대전화</th>
@@ -325,65 +321,11 @@ table {
 						<input type="text" name="phone2" id="pel1" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
 						<input type="text" name="phone3" id="pel2" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 					</td>
-					<!-- <td> -->
-					<!-- <input type="text" id="pel2" size="4" /> -->
-					<!-- </td> -->
+					
 				</tr>
-				<tr>
-					<th>이메일</th>
-					<td colspan="2">
-                        <input type="email" name="email" size="10" value=""> @
-                        <input type="text" name="email2" size="10" value="">
-                        <select id="txtMobile1" name="email13" style="height:25px; width:80px;">
-							<option value="">직접입력</option>
-							<option value="">네이버</option>
-							<option value="">네이버</option>
-							<option value="">네이버</option>
-							<option value="">네이버</option>
-                        </select>
+				
 
-                        <button class="sky_btn2" id="#" style="font-size:smaller;  background-color:#fdce07; color: black; font-weight: bolder;">인증번호 발송</button> <br>
-                      
-                    </td>
-
-                </tr>
-
-                <tr>
-
-         
-                        <td></td>
-                        <td><input type="text" name="certifiedNumber" placeholder="인증번호 입력"><br></td>
-                        <td><button class="sky_btn3" id="#" style="font-size:smaller; background-color:#fdce07; color: black; font-weight: bolder;">인증완료</button></td>
-                </tr>
-               
-                
-                <tr>
-
-                 <th>관심분야</th>
-                 <td><input type="text" name="certifiedNumber" style="width: 288px;" placeholder="직업, 전공, 취미 등을 입력하세요"></td>
-
-                </tr>
-				<!--
-				<tr>
-					<th>인증번호 발송</th>
-					<td><input type="radio"> 이메일
-						<button class="small_btn" style="display: inline-block;" id="#">인증번호 발송</button>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<th colspan="5px"
-						style="font-size: 0.7em; color: gray; width: 400px; vertical-align: top;">
-						<label>휴대전화 번호 및 이메일 주소를 변경하셨을 경우에 한하여 인증절차를 거쳐야 정보수정이
-							완료됩니다.</label>
-					</th>
-				</tr>
-				<tr>
-					<th>인증번호 입력</th>
-					<td><input type="text">
-						<button class="small_btn" style="display: inline-block;" id="#">인증하기</button></td>
-				</tr>
-				 -->
+              
 			</table>
 			
 			<br><br><br>
