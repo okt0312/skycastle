@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery 라이브러리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 #utilityMembership {
 	width: 50%;
@@ -95,7 +97,7 @@
 				<center>SKY CASTLE</center>
 				<h4 id="subTitle">SKY CASTLE 회원가입을 위한 약관을 확인해주세요.</h4>
 			</div>
-
+		<form action="enrollForm2.me">
 			<h4 class="subTitle">이용약관</h4>
 			<div class="applyAgree">
 				<h5>제 1 장 총칙</h5>
@@ -107,7 +109,7 @@
 			</div>
 
 			<p class="agree">
-				위 이용약관에 동의합니다. <input type="checkbox" name="termsAgree" value="">
+				위 이용약관에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
 
 			<h4 class="subTitle">개인정보 수집 및 이용안내</h4>
@@ -141,18 +143,30 @@
 			</div>
 
 			<p class="agree">
-				개인정보 수집 및 이용에 동의합니다. <input type="checkbox" name="infoAgree"
-					value="">
+				개인정보 수집 및 이용에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
+
 
 			<center>
 				<div class="enrollBtn">
-					<span><button id="preBtn" class="btnsmb">취소</button></span> <span><button
-							id="nextBtn" class="btnsmb">확인</button></span>
+					<!-- 취소 시 메인으로 이동 -->
+					<span><button type="button" id="preBtn" class="btnsmb">취소</button></span> 
+					<span><button type="submit" id="nextBtn" class="btnsmb">확인</button></span>
 				</div>
 			</center>
+			
+		</form>	
 		</div>
 	</div>
+	
+	<script>
+		$(function(){
+			
+			$("#preBtn").click(function(){
+				location.href = "${pageContext.servletContext.contextPath}";
+			})
+		});		
+	</script>
 </body>
 
 

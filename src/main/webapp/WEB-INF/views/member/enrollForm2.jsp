@@ -6,10 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- jQuery 라이브러리 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style> 
   .outer{
     margin-top:50px;
-    width:100%;
+    margin-bottom:50px;
+    max-width:100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -30,7 +33,7 @@
   /* 정보 입력란 div 스타일 */
   .infoArea{
     width:100%;
-    height:500px;
+    height:550px;
   }
   .inputArea{
     margin: auto;
@@ -50,8 +53,8 @@
   }
   /* 생년월일 */
   #birthday{
-    width:50px;
-    height: 25px;
+    width:60px;
+    height: 30px;
     border-bottom-style: ridge;
   }
   select{
@@ -97,7 +100,7 @@
 <body data-spy="scroll" data-target="#navbar-example">
     <!-- 2.회원가입 -->
     <div class="outer">
-        <form id="joinBtn" action="insert.me" method="POST">
+        <form id="" action="insert.me" method="POST">
            <div class="mainTitle">
                 <center>SKY CASTLE</center>
                 <h4 id="subTitle">SKY CASTLE 회원가입을 위한 정보를 입력해주세요.</h4>
@@ -156,33 +159,70 @@
 </body>
 
 <script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	$("#joinBtn").on("click", function(){
-		if($("#email").val()==""){
-			alert("아이디(이메일)를 입력해주세요.");
-			$("#email").focus();
-			return false;
-		}
-		if($("#memPwd1").val()==""){
-			alert("비밀번호를 입력해주세요.");
-			$("#memPwd1").focus();
-			return false;
-		}
-		if($("#memPwd2").val()==""){
-			alert("비밀번호를 확인란을 입력해주세요.");
-			$("#memPwd2").focus();
-			return false;
-		}
-		if($("#userName").val()==""){
-			alert("성명을 입력해주세요.");
-			$("#userName").focus();
-			return false;
-		}
+	$(function(){
+		
+		$("#joinBtn").on("click", function(){
+			if($("#email").val()==""){
+				alert("아이디(이메일)를 입력해주세요.");
+				$("#email").focus();
+				return false;
+			}
+			if($("#memPwd1").val()==""){
+				alert("비밀번호를 입력해주세요.");
+				$("#memPwd1").focus();
+				return false;
+			}
+			if($("#memPwd2").val()==""){
+				alert("비밀번호를 확인란을 입력해주세요.");
+				$("#memPwd2").focus();
+				return false;
+			}
+			if($("#userName").val()==""){
+				alert("성명을 입력해주세요.");
+				$("#userName").focus();
+				return false;
+			}
+		});
+		
 	});
-	
-})
 
+	/* 중복확인 */
+	
+	/*
+	$(function(){
+		//중복확인 클릭시 
+		$("#ckBtn").click(function(){
+	
+			//사용자가 입력한 id값 조회
+			var email = $("#email"); 
+
+			$.ajax({
+				url:"idCheck.me",
+				data:{email:email.val()},
+				type:"post",
+				success:function(result){
+					if(result==0){
+						// 사용가능한 아아디
+						if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?")){
+							//아이디 더이상 수정이 불가 하게끔 해당 인풋요소
+							email.attr("readonly","true");
+							//회원가입 버튼 활성화
+							$("#joinBtn").removeAttr("disabled");
+						}else{
+							email.focus();
+						}
+					}else{
+						// 사용불가한 아이디
+						alert("사용불가한 아이디입니다. 다시 입력해주세요.");
+						email.focus();
+	
+					}
+				},error:function(){
+					console.log("ajax failed :( ")
+				} 
+			});
+		});
+	});
+	*/	
 </script>
 </html>
