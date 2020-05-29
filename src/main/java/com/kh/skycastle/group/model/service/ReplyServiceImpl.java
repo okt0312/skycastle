@@ -1,5 +1,5 @@
 package com.kh.skycastle.group.model.service;
 
-public class ReplyServiceImpl {
+public class ReplyServiceImpl implements ReplyService {
 
 }
