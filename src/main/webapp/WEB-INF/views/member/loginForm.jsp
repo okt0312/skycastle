@@ -88,16 +88,28 @@
 	<!-- 로그인폼 -->
     <div class="loginForm"> 
       <h3><a><img src="resources/images/logo.PNG"></a></h3>
-        <form action="login.me" method="POST">
+        <form action="login.me" id="postForm" method="POST">
           <input type="email" name="userId" id="email" placeholder="이메일을 입력하세요." maxlength="20" required><br> 
           <input type="password" name="userPwd" id="userPwd" placeholder="비밀번호를 입력하세요." maxlength="12" required><br>      
           <input type="submit" id="loginBox" name="login" value="로그인"><br>
           <input type="submit" id="loginBox" name="login" value="네이버로 로그인(임시용)"><br>
           <div class="loginBtn">
-            <button id="searchPwd">비밀번호 찾기</button>
-            <button type="submit" id="enrollMember">회원가입</button>
+            <button id="searchPwd" type="button" onclick="postFormSubmit(2);">비밀번호 찾기</button>
+            <button id="enrollMember" type="button" onclick="postFormSubmit(1);">회원가입</button>
           </div>
         </form>
     </div>
+    
+ <script>
+	function postFormSubmit(num){
+		if(num == 1){ // 회원가입
+			$("#postForm").attr("action", "enrollForm.me");
+		}else{ // 비번찾기 클릭시
+			$("#postForm").attr("action", "searchPwd.me");
+		}
+		
+		$("#postForm").submit();
+	}
+</script>
 </body>
 </html>
