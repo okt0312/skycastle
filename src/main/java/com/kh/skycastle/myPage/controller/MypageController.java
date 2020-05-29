@@ -68,6 +68,19 @@ public class MypageController {
 	     
 	}
 	
+	@RequestMapping("update.me") 
+	public String updateMember(Member m) {
+		
+		int result = pService.updateMember(m);
+		
+		if(result > 0) { // 회원정보수정 성공 
+			
+		} else { // 회원정보 수정 실패
+			
+		}
+		
+	}
+	
 	@RequestMapping("OneonOne.my")
 	public String OneonOne() {
 		return "myPage/myPageOneOnOneList";

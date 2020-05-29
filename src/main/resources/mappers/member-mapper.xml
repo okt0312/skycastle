@@ -43,4 +43,16 @@
 		
 	</update>
 	
+	
+	<update id="updateMember" parameterType="Member">
+		
+		
+	</update>
+	
+	
+	<update id="updateMember" parameterType="Member">
+		
+		
+	</update>
+	
 </mapper>

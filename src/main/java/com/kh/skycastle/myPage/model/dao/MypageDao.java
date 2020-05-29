@@ -13,4 +13,8 @@ public class MypageDao {
 		
 	}
 	
+	public int updateMember(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.update("memberMapper.updateMember",m);
+	}
+	
 }

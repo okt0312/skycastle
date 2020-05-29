@@ -27,6 +27,29 @@ public class MypageServiceImpl implements MypageService {
 		
 		
 	}
+
+
+	@Override
+	public int insertMember(Member m) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int updateMember(Member m) {
+		
+		return pDao.updateMember(sqlSession,m);
+	}
+
+
+	@Override
+	public int deleteMember(String userId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	
 	
 		

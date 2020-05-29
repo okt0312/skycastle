@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-	<div style="height: 70px"></div>
+	<div style="height: 100px"></div>
 	<footer id="adFooter" class="py-4 bg-light mt-auto">
 		<div class="container-fluid">
 		    <div class="d-flex align-items-center justify-content-between small">
