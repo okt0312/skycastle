@@ -7,6 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
@@ -48,11 +50,54 @@ public class MemberController {
 	}
 	
 	 @RequestMapping("logout.me")
-	    public String logoutMember(HttpSession session) 
-	    {
-	        session.invalidate();
-	        return "redirect:/";
-	    }
+	 public String logoutMember(HttpSession session) 
+	 {
+		 	session.invalidate();
+		 	return "redirect:/";
+	 }
 	 
+	 @RequestMapping("enrollForm.me")
+	 public String enrollForm() {
+			return "member/enrollForm";
+	}
+	
+	 @RequestMapping("enrollForm2.me")
+	 public ModelAndView enrollForm2(@RequestParam(value="infoAgree", defaultValue="false") Boolean infoAgree) {
+			
+		 if(!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 xxx
+			 ModelAndView mv = new ModelAndView("member/enrollForm");
+		 	return mv;
+		 }
+		 	ModelAndView mv = new ModelAndView("member/enrollForm2");
+		 	return mv;
+		}
+	 
+	//@ResponseBody
+	//@RequestMappign("idCheck.me")
+	
+	@RequestMapping("insert.me")
+	public String insertMember(Member m, Model model, HttpSession session) {
+		
+		// 암호화작업
+		String encPwd = bcryptPasswordEncoder.encode(m.getUserPwd());
+		//System.out.println("암호화후 : " + encPwd);
+		
+		m.setUserPwd(encPwd);
+		
+		int result = mService.insertMember(m);
+		
+		if(result > 0) { // 회원가입 성공
+			
+			return "member/enrollComplete";		
+			
+		}else { // 회원가입 실패
+			
+			model.addAttribute("msg", "회원가입 실패!!");
+			return "common/errorPage";
+		}
+		
+		
+	}
+	
 	
 }
