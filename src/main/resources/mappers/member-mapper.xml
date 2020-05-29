@@ -26,5 +26,9 @@
 	 	   AND STATUS = 'Y'
 	</select>
 	
-	
+	<select id="updateCheckPwd" resultMap="memberResultSet">
+		SELECT USER_PWD
+		  FROM MEMBER 
+		WHERE USER_ID=#{userPwd}
+	</select>
 </mapper>
