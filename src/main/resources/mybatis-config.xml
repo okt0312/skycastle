@@ -8,13 +8,13 @@
 	
 	<typeAliases>
 		<typeAlias type="com.kh.skycastle.member.model.vo.Member" alias="Member"/>
-		<typeAlias type="com.kh.skycastle.group.model.vo.Groups" alias="Groups"/>
+		
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/adMember-mapper.xml"/>
-		<mapper resource="mappers/adGroups-mapper.xml"/>
+		
 	</mappers>
 	
 	
