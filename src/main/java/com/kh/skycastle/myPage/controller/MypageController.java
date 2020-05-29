@@ -3,6 +3,7 @@ package com.kh.skycastle.myPage.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +22,9 @@ public class MypageController {
 	
 	@Autowired
 	private MypageService pService; 
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	
 	@RequestMapping("myPage.my")
@@ -44,22 +48,22 @@ public class MypageController {
 	
 	
 	@RequestMapping("PwdCheckk.my")
-	public String updateCheckPwd(String userId, String userPwd, HttpSession session, Model model) {
+	public ModelAndView updateCheckPwd(Member m, HttpSession session, ModelAndView mv) {
 		
 		// System.out.println(m.getUserPwd());
 		
 		// MypageService pService = new MypageServiceImpl();
 		
 	     // m에 사용자가 입력한 비밀번호 들어있다.
-		 String memberPwd  =  pService.updateCheckPwd(userId, userPwd);
+		 Member memberPwd  =  pService.updateCheckPwd(m); // 멤버 조회만 결과
 		 
 		 
 		 
 		 
-		 if(memberPwd != null) { // 비밀번호 일치!!
+		 if(memberPwd  && bCryptPasswordEncoder.matches(m.getUserPwd(), memberPwd.getUserPwd())) { // 비밀번호 일치!!
 			 
 			 session.setAttribute("memberPwd", memberPwd);
-			 return "redirect:/";
+			 mv.setViewName("redirect:/");
 			 
 		 } else {  // 비밀번호 불일치!!
 			 
