@@ -42,18 +42,18 @@
                                     <button type="submit" class="btn btn-primary">수정</button>
                                 </div>
                                     <br><br>
-                                    <table id="grTable" style="text-align: center;">
-                                        <thead id="grThead" style=" background-color: rgb(214, 212, 212);">
-                                            <tr>
-                                                <th style="width: 150px;">번호</th>
-                                                <th id="grTh">등급</th>
-                                                <th id="grTh">할인율</th>
-                                                <th id="grTh">회원 등급 현황(명)</th>
-                                                <th id="grTh">전년도 이용횟수</th>
+                                     <table class="table table-bordered" style="text-align: center;">
+									    <thead>
+											<tr>
+                                                <th>번호</th>
+                                                <th>등급</th>
+                                                <th>할인율</th>
+                                                <th>회원 등급 현황(명)</th>
+                                                <th>전년도 이용횟수</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr >
+									    </thead>
+									    <tbody>
+									      <tr >
                                                 <td>1</td>
                                                 <td>SKY</td>
                                                 <td>10%</td>
@@ -88,8 +88,8 @@
                                                 <td>30</td>
                                                 <td>3</td>
                                             </tr>
-                                        </tbody>
-                                    </table>
+									    </tbody>
+									  </table>
                                 <br><br>
                             </div>
                         </div> 
