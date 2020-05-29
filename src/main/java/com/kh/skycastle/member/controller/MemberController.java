@@ -95,9 +95,11 @@ public class MemberController {
 			model.addAttribute("msg", "회원가입 실패!!");
 			return "common/errorPage";
 		}
-		
-		
+			
 	}
 	
-	
+	 @RequestMapping("searchPwd.me")
+	 public String searchPwd() {
+			return "member/searchPwd";
+	}
 }
