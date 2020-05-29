@@ -9,16 +9,92 @@
 
 <!-- FullCalendar -->
 <link href='${pageContext.servletContext.contextPath}/resources/css/fullcalendar/core/main.css' rel='stylesheet' />
-<link href='${pageContext.servletContext.contextPath}/resources/css/fullcalendar/daygrid/main.css' rel='stylesheet' />
+<link href='${pageContext.servletContext.contextPath}/resources/css/fullcalendar/list/main.css' rel='stylesheet' />
 
 <script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/core/main.js'></script>
-<script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/daygrid/main.js'></script>
+<script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/list/main.js'></script>
 <script>
+
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'dayGrid' ]
+      plugins: [ 'list' ],
+
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'listDay,listWeek,dayGridMonth'
+      },
+
+      // customize the button names,
+      // otherwise they'd all just say "list"
+      views: {
+        listDay: { buttonText: 'list day' },
+        listWeek: { buttonText: 'list week' }
+      },
+
+      defaultView: 'listWeek',
+      defaultDate: '2020-05-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2020-05-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2020-05-07',
+          end: '2020-05-10'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-05-09T16:00:00'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-05-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2020-05-11',
+          end: '2020-05-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-05-12T10:30:00',
+          end: '2020-05-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2020-05-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-05-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2020-05-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2020-05-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2020-05-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2020-05-28'
+        }
+      ]
     });
 
     calendar.render();
@@ -117,7 +193,7 @@
                        </div>
 					</div>
 				</div>
-				<div id='calendar'></div>
+				<div id='calendar' style="width: 90%; margin: 70px auto 0"></div>
 			</main>
 		</div>
    </div>
