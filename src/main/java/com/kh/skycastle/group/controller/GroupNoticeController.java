@@ -6,7 +6,7 @@ public class GroupNoticeController {
 	
 	@RequestMapping("groupApplyForm.gr")
 	public String mygroupList() {
-		return "group/groupApplyForm";
+		return "groups/groupApplyForm";
 	}
 
 }
