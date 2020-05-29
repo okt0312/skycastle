@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.kh.skycastle.cs.model.dao.QnaDao;
 
 @Service("qService")
-public class QnaServiceImpl {
+public class QnaServiceImpl implements QnaService{
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
