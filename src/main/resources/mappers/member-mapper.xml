@@ -38,9 +38,14 @@
 	         SYSDATE, NULL, 'N', 'Y', NULL, NULL, NULL, 5, NULL)
 	  </insert>
 
-	<update id="updateMember" parameterType="Member">
+    <update id="updateMember" parameterType="Member">
 		
-		
+		update MEMBER 
+			set phone=#{phone}
+				MODIFY_DATE=#{sysdate}
+		where USER_ID=#{userId}
+			
+			
 	</update>
 	
 </mapper>

@@ -314,7 +314,7 @@ table {
 				<tr>
 					<th>휴대전화</th>
 					<td colspan="2">
-						<select id="txtMobile1" name="phone1" style="height:25px; width:80px;">
+						<select id="txtMobile1" name="phone" style="height:25px; width:80px;">
 							<option value="010">010</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
