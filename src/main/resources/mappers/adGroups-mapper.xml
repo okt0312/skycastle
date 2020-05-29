@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="adGroupsMapper"/>
+  
+  		<resultMap type="Groups" id="adGroupsResultSet">
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="LEADER_NO" property="leaderNo"/>
+		<result column="GROUP_TITLE" property="groupTitle"/>
+		<result column="GROUP_SUBTITLE" property="groupSubtitle"/>
+		<result column="GROUP_CATEGORY" property="groupCategory"/>
+		<result column="PLACE" property="place"/>
+		<result column="GRADE_LIMIT" property="gradeLimit"/>
+		<result column="MEMBER_LIMIT" property="memberLimit"/>
+		<result column="STATUS" property="status"/>
+		<result column="START_DATE" property="startDate"/>
+		<result column="END_DATE" property="endDate"/>
+	</resultMap>
+	
+	<select id="selectGroups" resultMap="adGroupsResultSet">
+		SELECT GROUP_NO, GROUP_CATEGORY, GROUP_TITLE, PLACE, GRADE_LIMIT, LEADER_NO,MEMBER_LIMIT,START_DATE,END_DATE,STATUS
+		FROM GROUPS
+	</select>
+  
+</mapper>

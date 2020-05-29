@@ -19,12 +19,12 @@
 
 
     <style>
-        /* 제일위에 th부분 제외하고.. 넣는 방법 모르겠습니다.. */
-        tr:hover{
-            background-color: rgba(204, 199, 199, 0.699);
-            cursor:pointer;
-        }
-        
+        /* 목록 호버 */
+        #boardList>tbody>tr:hover{
+        cursor:pointer;
+         background-color: rgba(204, 199, 199, 0.699);
+         }
+      
          #selectBox
        {
            position: absolute;
@@ -37,6 +37,7 @@
 
 </head>
 <body>
+<!--for 부트스트랩,, 닫지않는것이 포인트,,  -->
 	<div id="layoutSidenav"> 
 	<jsp:include page="common/adminSidebar.jsp"/>
 	
@@ -51,168 +52,85 @@
                 <li class="breadcrumb-item active"><a style="color:black">소모임 조회</a></li>
             </ol>
 
-    <!-- 회원조회 테이블 -->
+    <!-- 소모임 조회 테이블 -->
     
         <div class="card-body">
             <div class="card mb-4">
                 <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">소모임 조회</b></div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <div>
-                            <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
+                        
+                            <!-- 테이블 위에 띄워놓은 셀렉박스-->
                                <div id="selectBox">
                                    <select>
                                        <option value="전체보기">전체보기</option>
-                                       <option value="회원">회원</option>
-                                       <option value="비회원">비회원</option>
+                                       <option value="1">대입</option>
+                                       <option value="2">공무원임용</option>
+                                       <option value="3">어학회화</option>
+                                       <option value="4">자격증</option>
+                                       <option value="5">기타</option>
                                    </select>
-                                   
                                </div>
-                               <!-- 셀렉트 끝 -->
-                        </div>
+                            <!-- 셀렉트 끝 -->
+                        
 
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>번호</th>
-                                    <th>모임명</th>
+                                    <th>모임 번호</th>
                                     <th>카테고리</th>
+                                    <th>모임명</th>
+                                    <th>장소</th>
+                                    <th>신청등급</th>
+                                    <th>회원번호</th>
+                                    <th>정원</th>
                                     <th>시작일</th>
                                     <th>종료일</th>
-                                    <th>장소</th>
-                                    <th>인원</th>
+                                    <th>상태</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>61</td> 
+                               <c:forEach var="g" items="${ list }">
+                               	<tr >
+                                    <td>${ g.groupNo }</td>
+                                    <td>${ g.groupCategory }</td>
+                                    <td>${ g.groupTitle }</td>
+                                    <td>${ g.place }</td>
+                                    <td>${ g.gradeLimit }</td>
+                                    <td>${ g.leaderNo }</td>
+                                    <td>${ g.memberLimit }</td>
+                                    <td>${ g.startDate }</td>
+                                    <td>${ g.endDate }</td>
+                                    <td>${ g.status }</td>
                                 </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                    <td>$86,000</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012/03/29</td>
-                                    <td>$433,060</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>33</td>
-                                    <td>2008/11/28</td>
-                                    <td>$162,700</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Brielle Williamson</td>
-                                    <td>Integration Specialist</td>
-                                    <td>New York</td>
-                                    <td>61</td>
-                                    <td>2012/12/02</td>
-                                    <td>$372,000</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Herrod Chandler</td>
-                                    <td>Sales Assistant</td>
-                                    <td>San Francisco</td>
-                                    <td>59</td>
-                                    <td>2012/08/06</td>
-                                    <td>$137,500</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Rhona Davidson</td>
-                                    <td>Integration Specialist</td>
-                                    <td>Tokyo</td>
-                                    <td>55</td>
-                                    <td>2010/10/14</td>
-                                    <td>$327,900</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                    <td>2009/09/15</td>
-                                    <td>$205,500</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                    <td>2008/12/13</td>
-                                    <td>$103,600</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Jena Gaines</td>
-                                    <td>Office Manager</td>
-                                    <td>London</td>
-                                    <td>30</td>
-                                    <td>2008/12/19</td>
-                                    <td>$90,560</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr  data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Quinn Flynn</td>
-                                    <td>Support Lead</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2013/03/03</td>
-                                    <td>$342,000</td>
-                                    <td>61</td>
-                                </tr>
-                                <tr data-toggle="modal" data-target="#groupLiModal">
-                                    <td>Charde Marshall</td>
-                                    <td>Regional Director</td>
-                                    <td>San Francisco</td>
-                                    <td>36</td>
-                                    <td>2008/10/16</td>
-                                    <td>$470,600</td>
-                                    <td>61</td>
-                                </tr>
-       
+                               </c:forEach>
                             </tbody>
                         </table>
+                        
+             
+             
+		             <script>
+		            	$(function(){
+		            		
+		            		$("#dataTable tbody tr").click(function(){
+		            			location.href ="detail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+		            		
+		            		});
+		            	});
+		            </script>
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
                         
-
+									
                         
-            <!-- 관리 클릭 시 뜨는 모달 (기존에는 안보이다가 위의 a 클릭시 보임) -->
+            <!-- 소모임리스트 클릭 시 뜨는 모달 -->
             <div class="modal fade" id="groupLiModal" >
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content" style="width: 400px;">
@@ -227,18 +145,22 @@
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" readonly="readonly"><br><br>
                             <div clss="slecet" >
-                                처리유형 선택 &nbsp;&nbsp;
+                               카테고리 &nbsp;&nbsp;
                                 <select >
-                                    <option value="1">선택하기</option>
-                                    <option value="2">토크</option>
-                                    <option value="3">스터디</option>
-                                    <option value="4">토스</option>
+                                    <option value="1">대입</option>
+                                    <option value="2">공무원임용</option>
+                                    <option value="3">어학회화</option>
+                                    <option value="4">자격증</option>
+                                    <option value="5">기타</option>
                                 </select>
                            </div><br>
                            <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" ><br><br>
                             <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                                <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" readonly="readonly"><br><br>
                         </div>
                             
                         
