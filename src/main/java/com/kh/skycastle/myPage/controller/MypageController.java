@@ -1,7 +1,9 @@
 package com.kh.skycastle.myPage.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +75,8 @@ public class MypageController {
 	@RequestMapping("update.me") 
 	public String updateMember(Member m) {
 		
+		
+
 		int result = pService.updateMember(m);
 		
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
@@ -82,16 +86,14 @@ public class MypageController {
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
-			
-			response.setContentType("text/html; charset=UTF-8");
-			 
-			PrintWriter out = response.getWriter();
-			 
-			out.println("<script>alert('계정이 등록 되었습니다'); location.href='이동주소';</script>");
-			 
-			out.flush();
+			 response.setContentType("text/html; charset=UTF-8");
+	         
+	         PrintWriter out = response.getWriter();
+	         
+	         out.println("<script>alert('공지사항이 성공적으로 등록되었습니다'); location.href='/Meister/imNoticeBlist.nom';</script>");
+	         out.flush();
 
-
+	        		 
 		
 		}
 		
@@ -111,5 +113,8 @@ public class MypageController {
 	public String SpaceDetail() {
 		return "myPage/myPageSpaceReservationDetail";
 	}
+	
+	  
+
 	
 }
