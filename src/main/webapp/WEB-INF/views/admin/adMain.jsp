@@ -195,6 +195,9 @@
 				</div>
 				<div id='calendar' style="width: 90%; margin: 70px auto 0"></div>
 			</main>
+			
+			<jsp:include page="common/adFooter.jsp"/>
+			
 		</div>
    </div>
 </body>

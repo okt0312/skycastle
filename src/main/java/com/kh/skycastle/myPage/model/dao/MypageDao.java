@@ -8,7 +8,8 @@ import com.kh.skycastle.member.model.vo.Member;
 @Repository("pDao")
 public class MypageDao {
 
-	public Member memberPwd(SqlSessionTemplate sqlSession, Member m) {
+	public String updateCheckPwd(SqlSessionTemplate sqlSession, String userId, String userPwd) {
+		return sqlSession.selectOne("memberMapper.updateCheckPwd", userId, userPwd );
 		
 	}
 	

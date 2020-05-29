@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.member.model.service.MemberServiceImpl;
 import com.kh.skycastle.member.model.vo.Member;
@@ -41,17 +42,30 @@ public class MypageController {
 		return "myPage/myPageInfoUpdateCheck";
 	}
 	
-	@RequestMapping("PwdCheckk.my")
-	public String updateCheckPwd(Member m) {
 	
+	@RequestMapping("PwdCheckk.my")
+	public String updateCheckPwd(String userId, String userPwd, HttpSession session, Model model) {
+		
 		// System.out.println(m.getUserPwd());
 		
 		// MypageService pService = new MypageServiceImpl();
 		
 	     // m에 사용자가 입력한 비밀번호 들어있다.
-		 Member memberPwd  =  pService.updateCheckPwd(m);
+		 String memberPwd  =  pService.updateCheckPwd(userId, userPwd);
 		 
-	     return "myPage/myPageInfoUpdateForm";
+		 
+		 
+		 
+		 if(memberPwd != null) { // 비밀번호 일치!!
+			 
+			 session.setAttribute("memberPwd", memberPwd);
+			 return "redirect:/";
+			 
+		 } else {  // 비밀번호 불일치!!
+			 
+		 }
+		 
+	    
 	     
 	}
 	

@@ -19,11 +19,11 @@ public class MypageServiceImpl implements MypageService {
 	
 	
 	@Override
-	public Member updateCheckPwd(Member m) {
+	public String updateCheckPwd(String userId, String userPwd) {
 		
-		Member memberPwd = pDao.updateCheckPwd(sqlSession, m); 
+			return pDao.updateCheckPwd(sqlSession, userId, userPwd); 
 		
-		return memberPwd;
+		
 		
 		
 	}
