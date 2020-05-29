@@ -1,6 +1,5 @@
 package com.kh.skycastle.myPage.controller;
 
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,15 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.skycastle.member.model.service.MemberServiceImpl;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
-import com.kh.skycastle.myPage.model.service.MypageServiceImpl;
 
 
 @Controller
@@ -50,7 +44,7 @@ public class MypageController {
 	
 	
 	@RequestMapping("PwdCheckk.my")
-	public String updateCheckPwd(Member m, HttpSession session, ModelAndView mv) {
+	public String updateCheckPwd(Member m, HttpSession session, Model model) {
 		
 		// System.out.println(m.getUserPwd());
 		
@@ -63,7 +57,8 @@ public class MypageController {
 			 return "myPage/myPageInfoUpdateForm";
 			 
 		 } else {  // 비밀번호 불일치!!
-			 return "/";
+			 model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
+			 return "myPage/myPageInfoUpdateCheck";
 		 }
 		 
 	    
@@ -82,14 +77,15 @@ public class MypageController {
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
-			
-			response.setContentType("text/html; charset=UTF-8");
-			 
-			PrintWriter out = response.getWriter();
-			 
-			out.println("<script>alert('계정이 등록 되었습니다'); location.href='이동주소';</script>");
-			 
-			out.flush();
+			/*
+			 * response.setContentType("text/html; charset=UTF-8");
+			 * 
+			 * PrintWriter out = response.getWriter();
+			 * 
+			 * out.println("<script>alert('계정이 등록 되었습니다'); location.href='이동주소';</script>");
+			 * 
+			 * out.flush();
+			 */
 
 
 		
