@@ -71,6 +71,9 @@ p{
 </head>
 <body>
 <body>
+	<!-- 메뉴바  -->
+    <jsp:include page="../common/menubar.jsp"/>
+	
     <!-- FAQ 테이블 -->
     <div id="outer">
         <div class="mainTitle">이용자 FAQ</div>
@@ -145,6 +148,10 @@ p{
 
         });
     </script>
+    
+    <!-- 푸터바 -->
+    <jsp:include page="../common/footer.jsp"/>
+	
     
 </body>
 </html>
