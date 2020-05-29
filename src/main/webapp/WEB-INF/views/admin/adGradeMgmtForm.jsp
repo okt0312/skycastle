@@ -60,34 +60,6 @@
                                                 <td>3</td>
                                                 <td>20</td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>VIP</td>
-                                                <td>7%</td>
-                                                <td>10</td>
-                                                <td>15</td>
-                                            </tr>
-                                            <tr >
-                                                <td>3</td>
-                                                <td>GOLD</td>
-                                                <td>5%</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>SILVER</td>
-                                                <td>3%</td>
-                                                <td>20</td>
-                                                <td>5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>BRONZE</td>
-                                                <td>1%</td>
-                                                <td>30</td>
-                                                <td>3</td>
-                                            </tr>
 									    </tbody>
 									  </table>
                                 <br><br>
