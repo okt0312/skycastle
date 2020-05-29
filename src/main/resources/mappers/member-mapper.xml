@@ -31,4 +31,10 @@
 		  FROM MEMBER 
 		WHERE USER_ID=#{userId}
 	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		
+		
+	</update>
+	
 </mapper>

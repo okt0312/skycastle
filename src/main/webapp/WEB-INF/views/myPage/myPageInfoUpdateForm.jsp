@@ -287,7 +287,10 @@ table {
 
 		<br><br>
 			
-
+            <form action="update.me" method="post" onsubmit="">
+            <input type="hidden" value="${ loginUser.userId }" name="userId">
+            <input type="hidden" value="${ loginUser.userName }" name="userName">
+            <input type="hidden" value="${ loginUser.birthday }" name="birthday">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
@@ -305,7 +308,7 @@ table {
 				
 				
 				
-				<form id="updateAreaForm" action="" method="post">
+				
 				<table style="text-align: left; padding-right: 135px">
 				
 				<tr>
