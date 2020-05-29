@@ -48,7 +48,7 @@ public class MypageController {
 	
 	
 	@RequestMapping("PwdCheckk.my")
-	public ModelAndView updateCheckPwd(Member m, HttpSession session, ModelAndView mv) {
+	public String updateCheckPwd(Member m, HttpSession session, ModelAndView mv) {
 		
 		// System.out.println(m.getUserPwd());
 		
@@ -56,17 +56,12 @@ public class MypageController {
 		
 	     // m에 사용자가 입력한 비밀번호 들어있다.
 		 Member memberPwd  =  pService.updateCheckPwd(m); // 멤버 조회만 결과
-		 
-		 
-		 
-		 
-		 if(memberPwd  && bCryptPasswordEncoder.matches(m.getUserPwd(), memberPwd.getUserPwd())) { // 비밀번호 일치!!
+		 if(memberPwd != null && bCryptPasswordEncoder.matches(m.getUserPwd(), memberPwd.getUserPwd())) { // 비밀번호 일치!!
 			 
-			 session.setAttribute("memberPwd", memberPwd);
-			 mv.setViewName("redirect:/");
+			 return "myPage/myPageInfoUpdateForm";
 			 
 		 } else {  // 비밀번호 불일치!!
-			 
+			 return "/";
 		 }
 		 
 	    
