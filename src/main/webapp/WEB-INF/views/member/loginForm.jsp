@@ -87,7 +87,7 @@
 <body>
 	<!-- 로그인폼 -->
     <div class="loginForm"> 
-      <h3><a><img src="resources/images/logo.PNG"></a></h3>
+      <h3><a href="${pageContext.servletContext.contextPath}"><img src="resources/images/logo.PNG"></a></h3>
         <form action="login.me" id="postForm" method="POST">
           <input type="email" name="userId" id="email" placeholder="이메일을 입력하세요." maxlength="20" required><br> 
           <input type="password" name="userPwd" id="userPwd" placeholder="비밀번호를 입력하세요." maxlength="12" required><br>      
