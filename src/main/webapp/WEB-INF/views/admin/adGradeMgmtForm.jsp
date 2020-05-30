@@ -47,19 +47,21 @@
 											<tr>
                                                 <th style="width: 5%">번호</th>
                                                 <th style="width: 10%">등급</th>
-                                                <th style="width: 10%">할인율</th>
+                                                <th style="width: 10%">할인율(%)</th>
                                                 <th style="width: 20%">등급 기준(전년도 이용횟수 이상)</th>
                                                 <th style="width: 20%">회원 등급 현황(명)</th>
                                             </tr>
 									    </thead>
 									    <tbody>
-									      <tr >
-                                                <td>1</td>
-                                                <td>SKY</td>
-                                                <td>10%</td>
-                                                <td>3</td>
-                                                <td>20</td>
-                                            </tr>
+									    	<c:forEach var="g" items="${ list }">
+												<tr>
+												    <td>${ g.gradeCode }</td>
+												    <td>${ g.gradeName }</td>
+												    <td>${ g.discount * 100}</td>
+												    <td>${ g.standard }</td>
+												    <td>20</td>
+												</tr>
+									    	</c:forEach>
 									    </tbody>
 									  </table>
                                 <br><br>
