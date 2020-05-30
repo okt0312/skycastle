@@ -17,7 +17,7 @@
 		<result column="THIS_YEAR_USAGE" property="thisYearUsage"/>
 		<result column="GRADE_CODE" property="gradeCode"/>
 		<result column="REDCARD" property="redCard"/>
-		<result column="LEAVE_REASON" property="leaveReason"></result>
+		<result column="LEAVE_REASON" property="leaveReason"/>
 	</resultMap>
 
 	<select id="loginUser" resultMap="memberResultSet" parameterType="Member">
