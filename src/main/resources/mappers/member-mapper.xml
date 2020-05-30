@@ -48,4 +48,14 @@
 			
 	</update>
 	
+	<delete id="deleteMember" parameterType="string">
+		
+		UPDATE MEMBER 
+		 	set status='N'
+		WHERE USER_ID=#{userId}
+	
+	</delete>
+	
+	
+	
 </mapper>

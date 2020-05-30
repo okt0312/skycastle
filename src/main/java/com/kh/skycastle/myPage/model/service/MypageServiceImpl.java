@@ -45,8 +45,9 @@ public class MypageServiceImpl implements MypageService {
 
 	@Override
 	public int deleteMember(String userId) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return pDao.deleteMember(sqlSession, userId);
+		
 	}
 
 

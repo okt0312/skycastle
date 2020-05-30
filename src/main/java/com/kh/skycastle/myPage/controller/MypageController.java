@@ -104,6 +104,17 @@ public class MypageController {
 		
 	}
 	
+	@RequestMapping("delete.me")
+	public String deleteMember(String userId) {
+		int result = pService.deleteMember(userId);
+		
+		if(result > 0) {
+			
+		} else {
+			
+		}
+	}
+	
 	@RequestMapping("OneonOne.my")
 	public String OneonOne() {
 		return "myPage/myPageOneOnOneList";

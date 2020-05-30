@@ -343,14 +343,20 @@ table {
 			<table>
 				<tr>
 					<th>
-					<a href="" data-toggle="modal" data-target="#myModal" style="color: #888; text-decoration: none;"> 
+					<button type="button" onclick="$('#postForm').submit();" style="color: #888; text-decoration: none;"> 
 						<span style="text-decoration: none; font-size: 15px;">회원탈퇴</span>
-					</a>
+					</button>
 					</th>
 				</tr>
 			</table>
 		</div>
 		</div>
+		
+		<form id="postForm" action="delete.me" method="post">
+			<input type="hidden" name="userId" value="${ loginUser.userId }">
+		</form>
+		
+		
 	
 			<jsp:include page="../common/footer.jsp"/>
 		
