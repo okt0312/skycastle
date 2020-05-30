@@ -219,6 +219,12 @@ input[type=password]{font-family:'inherit';}
 			</form>
 		</div>
 	</div>
+	
+	<div class="row">
+		<div class="modal" id="modal" tabindex="-1">
+			
+		</div>
+	</div>
 
 <jsp:include page="../common/footer.jsp"/>
 

@@ -42,7 +42,7 @@
 		
 		UPDATE MEMBER 
 			set phone=#{phone}
-				MODIFY_DATE=#{sysdate}
+				
 		WHERE USER_ID=#{userId}
 			
 			

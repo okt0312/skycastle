@@ -57,6 +57,9 @@ public class MypageController {
 			 return "myPage/myPageInfoUpdateForm";
 			 
 		 } else {  // 비밀번호 불일치!!
+			 
+			 
+		
 			 model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
 			 return "myPage/myPageInfoUpdateCheck";
 		 }
@@ -66,16 +69,22 @@ public class MypageController {
 	}
 	
 	@RequestMapping("update.me") 
-	public String updateMember(Member m) {
+	public String updateMember(Member m, Model model, HttpSession session) {
 		
 		int result = pService.updateMember(m);
 		
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
 			
+			session.setAttribute("loginUser", pService.updateCheckPwd(m));
+			session.setAttribute("msg", "회원정보 수정 성공!!");
 			
-
+			
+			return "myPage/myPageInfoUpdateCheck";
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
+			
+			model.addAttribute("msg, 회원 정보수정 실패!!");
+			return "myPage/myPageInfoUpdateForm";
 			
 			/*
 			 * response.setContentType("text/html; charset=UTF-8");
@@ -86,6 +95,8 @@ public class MypageController {
 			 * 
 			 * out.flush();
 			 */
+			
+			
 
 
 		

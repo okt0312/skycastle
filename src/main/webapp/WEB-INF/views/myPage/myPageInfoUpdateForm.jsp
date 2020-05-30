@@ -314,15 +314,15 @@ table {
 				<tr>
 					<th>휴대전화</th>
 					<td colspan="2">
-						<select id="txtMobile1" name="phone" style="height:25px; width:80px;">
+						<select id="phone" name="phone" style="height:25px; width:80px;">
 							<option value="010">010</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="019">019</option>
 							<option value="011">011</option>
 						</select> - 
-						<input type="text" name="phone2" id="pel1" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
-						<input type="text" name="phone3" id="pel2" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+						<input type="text" name="phone" id="phone" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
+						<input type="text" name="phone" id="phone" size="10" value="" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 					</td>
 					
 				</tr>
@@ -336,7 +336,7 @@ table {
 			<div id="btns">
 				
                 <button type="submit" class="sky_btn1" id="mbtn">변경</button>
-
+					
 			</div>
 			</form>
 
