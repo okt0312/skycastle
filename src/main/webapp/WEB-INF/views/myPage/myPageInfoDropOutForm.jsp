@@ -183,6 +183,7 @@ height: 40px;
 			
 		
 			<form id="postForm" action="delete.me" method="post">
+			<input type="hidden" value="${ loginUser.userNo }" name="userNo">
 			<table id="middleTable" style="margin: auto;">
                 
 				<tr>
@@ -190,12 +191,12 @@ height: 40px;
 						style="padding-top: 3%; width: 80px; font-size: 20px; padding-left: 7px;">
 					</td>
 					<td style="padding-top: 3%; width: 920px; padding-right: 30px;" colspan="3">
-						<textarea class="aa" name="content" id="content" cols="100" rows="10"
+						<textarea class="aa" name="leaveReason" id="leaveReason" cols="100" rows="10"
 							style="resize:none; margin-left: 118px;"></textarea>
 					</td>
 				</tr>
 			</table>
-
+			
 			<div id="btns">
 				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn">취소</button>

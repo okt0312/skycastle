@@ -1,6 +1,7 @@
 package com.kh.skycastle.member.model.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +30,7 @@ public class Member {
 	private int lastYearUsage;
 	private int thisYearUsage;
 	private int gradeCode;
-	private String gradeName;
+	//private String gradeName;
 	private int redCard;
 	private String leaveReason;
 }

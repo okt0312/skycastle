@@ -49,13 +49,13 @@
 			
 	</update>
 	
-	<delete id="deleteMember" parameterType="string">
+	<update id="deleteMember" parameterType="Member">
 		
 		UPDATE MEMBER 
-		 	set LEAVE_REASON=#{content}, status='N', DROP_DATE='SYSDATE'
+		 	set LEAVE_REASON=#{leaveReason}, status='N'
 		WHERE USER_NO=#{userNo}
 		
-	</delete>
+	</update>
 	
 	
 	

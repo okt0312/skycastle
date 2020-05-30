@@ -19,5 +19,6 @@ public class MypageDao {
 	
 	public int deleteMember(SqlSessionTemplate sqlSession, Member m) {
 		return sqlSession.update("memberMapper.deleteMember", m);
+		
 	}
 }

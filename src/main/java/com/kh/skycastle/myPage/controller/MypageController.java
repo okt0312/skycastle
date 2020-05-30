@@ -116,6 +116,8 @@ public class MypageController {
 	public String deleteMember(Member m, Model model) {
 		int result = pService.deleteMember(m);
 		
+		System.out.println(m);
+		
 		if(result > 0) {
 			
 			return "redirect:logout.me";
