@@ -10,7 +10,7 @@ import com.kh.skycastle.admin.model.dao.AdMemberDao;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
-@Service
+@Service("admService")
 public class AdMemberServiceImpl implements AdMemberService{
 
 

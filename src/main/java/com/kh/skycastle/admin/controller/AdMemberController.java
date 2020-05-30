@@ -32,7 +32,7 @@ public class AdMemberController {
 	{
 		ArrayList<Grade> list = admService.selectGrade();
 		System.out.println(list);
-		mv.addObject("list", list).setViewName("admin/adMemberListForm");
+		mv.addObject("list", list).setViewName("admin/adGradeMgmtForm");
 		
 		return mv;
 	}
