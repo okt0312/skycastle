@@ -44,9 +44,9 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public int deleteMember(String userId) {
+	public int deleteMember(Member m) {
 		
-		return pDao.deleteMember(sqlSession, userId);
+		return pDao.deleteMember(sqlSession, m);
 		
 	}
 

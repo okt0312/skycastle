@@ -17,6 +17,7 @@
 		<result column="THIS_YEAR_USAGE" property="thisYearUsage"/>
 		<result column="GRADE_CODE" property="gradeCode"/>
 		<result column="REDCARD" property="redCard"/>
+		<result column="LEAVE_REASON" property="leaveReason"></result>
 	</resultMap>
 
 	<select id="loginUser" resultMap="memberResultSet" parameterType="Member">
@@ -51,9 +52,9 @@
 	<delete id="deleteMember" parameterType="string">
 		
 		UPDATE MEMBER 
-		 	set status='N'
-		WHERE USER_ID=#{userId}
-	
+		 	set LEAVE_REASON=#{content}, status='N', DROP_DATE='SYSDATE'
+		WHERE USER_NO=#{userNo}
+		
 	</delete>
 	
 	

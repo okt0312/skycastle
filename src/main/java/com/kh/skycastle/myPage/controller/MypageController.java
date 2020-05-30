@@ -104,14 +104,26 @@ public class MypageController {
 		
 	}
 	
+	
+	@RequestMapping("Drop.me")
+	public String Drop() {
+		return "myPage/myPageInfoDropOutForm";
+	}
+	
+	
+	
 	@RequestMapping("delete.me")
-	public String deleteMember(String userId) {
-		int result = pService.deleteMember(userId);
+	public String deleteMember(Member m, Model model) {
+		int result = pService.deleteMember(m);
 		
 		if(result > 0) {
 			
-		} else {
+			return "redirect:logout.me";
 			
+		} else {
+			 
+			model.addAttribute("msg","회원탈퇴실패!!");
+			return "myPage/myPageInfoDropOutForm";
 		}
 	}
 	

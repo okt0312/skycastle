@@ -15,7 +15,7 @@ public interface MypageService {
 		
 	// 4. 회원탈퇴용 서비스 
 	// 아이디만 전달 받음 된다.
-	int deleteMember(String userId);
+	int deleteMember(Member m);
 	
 	
 }

@@ -343,18 +343,16 @@ table {
 			<table>
 				<tr>
 					<th>
-					<button type="button" onclick="$('#postForm').submit();" style="color: #888; text-decoration: none;"> 
+					<a href="Drop.me" style="color: #888; text-decoration: none;"> 
 						<span style="text-decoration: none; font-size: 15px;">회원탈퇴</span>
-					</button>
+					</a>
 					</th>
 				</tr>
 			</table>
 		</div>
 		</div>
 		
-		<form id="postForm" action="delete.me" method="post">
-			<input type="hidden" name="userId" value="${ loginUser.userId }">
-		</form>
+		
 		
 		
 	

@@ -148,29 +148,26 @@ height: 40px;
 
 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <br>
+        
 		
-	
-		
-		<hr>
-	
+		<br><br><br><br><br><br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
 			
 		</div>
-
-
-
-
+		
+		
+		
+		
 
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<div id="order-info">
-				<img src="스터디룸이다요.jpg" style="height: 100%; width: 100%; object-fit: cover;">
+				<img src="resources/images/withdrawal.jpg" style="height: 100%; width: 100%; object-fit: cover;">
 			</div>
-  
+  			
         
         <br><br>
 
@@ -182,10 +179,10 @@ height: 40px;
         <h2 style="text-align: center;">Q. 서비스에 불편함이 있으셨나요?</h2> 
         <h4 style="text-align: center;">탈퇴 이유를 남겨주시면 다시 SKY CASTLE를 찾아주셨을 때 좀 더 만족스러운 서비스를 제공할 수 있도록 노력하겠습니다.</h4>
             
-
+		
 			
-
-			<form id="updateForm" action="" method="post">
+		
+			<form id="postForm" action="delete.me" method="post">
 			<table id="middleTable" style="margin: auto;">
                 
 				<tr>
@@ -193,7 +190,7 @@ height: 40px;
 						style="padding-top: 3%; width: 80px; font-size: 20px; padding-left: 7px;">
 					</td>
 					<td style="padding-top: 3%; width: 920px; padding-right: 30px;" colspan="3">
-						<textarea class="aa" name="content" id="" cols="100" rows="10"
+						<textarea class="aa" name="content" id="content" cols="100" rows="10"
 							style="resize:none; margin-left: 118px;"></textarea>
 					</td>
 				</tr>
@@ -202,7 +199,7 @@ height: 40px;
 			<div id="btns">
 				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn">취소</button>
-                <button type="submit" class="middle_btn" id="mbtn">변경</button>
+                <button type="submit" class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
 			</form>
 			
@@ -210,7 +207,14 @@ height: 40px;
 		</div>
 		
 		</div>
-
+		
+		
+		<!-- <form id="postForm" action="delete.me" method="post">
+			<input type="hidden" name="userId" value="${ loginUser.userId }">
+		 </form>
+		-->
+		
+		
 	<jsp:include page="../common/footer.jsp"/>
 
 </body>
