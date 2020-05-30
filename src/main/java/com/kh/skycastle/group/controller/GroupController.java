@@ -17,6 +17,9 @@ public class GroupController {
 		return "myPage/myPageGroupListNow";
 	}
 	
-	
+	@RequestMapping("groupApplyForm.gr")
+	public String groupApplyForm() {
+		return "groups/groupApplyForm";
+	}
 	
 }

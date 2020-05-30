@@ -60,7 +60,6 @@
 		  max-width: 900px;
 		  margin: 40px auto;
 		}
-        
     </style>
     <!-- fullcalender 4줄 -->
     <link href='https://unpkg.com/@fullcalendar/core@4.4.0/main.min.css' rel='stylesheet' />
@@ -70,21 +69,11 @@
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
-    <div class="content">
-      <div id="hd_outer">
-          <div id="hd_logo">
-              <div id="hd_logo_img">
-                      
-              </div>
-          </div>
-          <div id="hd_menu">
-              
-          </div>
+
           <div class="groupmenu" style="height: 500px;">
             <div id='calendar'></div>
           </div>
-      </div>
-    </div>
+
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
