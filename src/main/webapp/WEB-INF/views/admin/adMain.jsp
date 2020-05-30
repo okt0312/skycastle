@@ -34,7 +34,7 @@
         listWeek: { buttonText: 'list week' }
       },
 
-      defaultView: 'listWeek',
+      defaultView: 'listDay',
       defaultDate: '2020-05-12',
       navLinks: true, // can click day/week names to navigate views
       editable: true,
