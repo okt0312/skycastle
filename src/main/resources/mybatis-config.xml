@@ -9,6 +9,7 @@
 	<typeAliases>
 		<typeAlias type="com.kh.skycastle.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.kh.skycastle.group.model.vo.Groups" alias="Groups"/>
+		<typeAlias type="com.kh.skycastle.member.model.vo.Grade" alias="Grade"/>
 	</typeAliases>
 	
 	<mappers>

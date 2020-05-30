@@ -45,11 +45,11 @@
                                      <table class="table table-bordered" style="text-align: center;">
 									    <thead>
 											<tr>
-                                                <th>번호</th>
-                                                <th>등급</th>
-                                                <th>할인율</th>
-                                                <th>회원 등급 현황(명)</th>
-                                                <th>전년도 이용횟수</th>
+                                                <th style="width: 5%">번호</th>
+                                                <th style="width: 10%">등급</th>
+                                                <th style="width: 10%">할인율</th>
+                                                <th style="width: 20%">등급 기준(전년도 이용횟수 이상)</th>
+                                                <th style="width: 20%">회원 등급 현황(명)</th>
                                             </tr>
 									    </thead>
 									    <tbody>

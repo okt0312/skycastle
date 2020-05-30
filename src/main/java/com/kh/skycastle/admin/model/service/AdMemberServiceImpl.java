@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdMemberDao;
+import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
 @Service
@@ -23,9 +24,13 @@ public class AdMemberServiceImpl implements AdMemberService{
 	@Override
 	public ArrayList<Member> selectMember() {
 		
-		ArrayList<Member> list = admDao.selectMember(sqlSession);
-		
-		return list;
+		return admDao.selectMember(sqlSession);
+	}
+
+	@Override
+	public ArrayList<Grade> selectGrade() {
+				
+		return admDao.selectGrade(sqlSession);
 	}
 
 }

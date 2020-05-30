@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdMemberService;
+import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
 @Controller
@@ -26,13 +27,14 @@ public class AdMemberController {
 		return mv;
 	}
 	
-	
-	
-//	나중에 변경예정
 	@RequestMapping("gradeMgmt.ad")
-	public String adGradeMgmtForm()
+	public ModelAndView adGradeMgmtForm(ModelAndView mv)
 	{
-		return "admin/adGradeMgmtForm";
+		ArrayList<Grade> list = admService.selectGrade();
+		System.out.println(list);
+		mv.addObject("list", list).setViewName("admin/adMemberListForm");
+		
+		return mv;
 	}
 	
 	@RequestMapping("reportMgmt.ad")
