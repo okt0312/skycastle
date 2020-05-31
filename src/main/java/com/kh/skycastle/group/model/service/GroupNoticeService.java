@@ -1,5 +1,39 @@
 package com.kh.skycastle.group.model.service;
 
+import java.util.ArrayList;
+
+import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.group.model.vo.GroupNotice;
+import com.kh.skycastle.group.model.vo.Reply;
+
 public interface GroupNoticeService {
+	
+	// 1. 소모임 공지사항 리스트 조회용 서비스
+	// 1-1. 소모임 공지사항 총개수 조회용 서비스
+	int selectGroupNoticeListCount();
+	// 1-2. 요청한 페이지에 보여질 게시글 리스트 조회용 서비스
+	ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi);
+	
+	// 2. 게시판 작성용 서비스
+	int insertGroupNotice(GroupNotice gn);
+	
+	// 3. 게시판 상세조회용 서비스
+	// 3-1. 해당 게시글 조회수 증가용 서비스
+	int increaseGroupNoticeCount(int gnno);
+	// 3-2. 해당 게시글 조회용 서비스
+	GroupNotice selectGroupNotice(int gnno);
+	
+	// 4. 게시글 삭제용 서비스
+	int deleteGroupNotice(int gnno);
+	
+	// 5. 게시글 수정용 서비스
+	int updateGroupNotice(GroupNotice gn);
+	
+	// --------- ajax ----------
+	// 6. 해당 게시글에 딸려있는 댓글 리스트 조회용 서비스
+	ArrayList<Reply> selectReplyList(int bno);
+	
+	// 7. 댓글 작성용 서비스
+	int insertReply(Reply r);
 
 }

@@ -12,14 +12,14 @@ public class GroupController {
 	}
 	
 	
-	@RequestMapping("mygroupList.gr")
-	public String mygroupList() {
-		return "myPage/myPageGroupListNow";
-	}
-	
 	@RequestMapping("groupApplyForm.gr")
 	public String groupApplyForm() {
 		return "groups/groupApplyForm";
+	}
+	
+	@RequestMapping("mygroupList.gr")
+	public String mygroupList() {
+		return "myPage/myPageGroupListNow";
 	}
 	
 }
