@@ -35,6 +35,6 @@ public class NoticeController {
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		
-		return "cs/NoticeListView";
+		return "cs/noticeListView";
 	}
 }
