@@ -118,7 +118,7 @@
                     <ul class="submenu">
                         <li><a href="">공지사항</a></li>
                         <li><a href="faq.cs">FAQ</a></li>
-                        <li><a href="">1:1문의</a></li>
+                        <li><a href="list.cs?currentPage=1">1:1문의</a></li>
                     </ul>
 
                 </li>
