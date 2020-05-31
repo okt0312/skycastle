@@ -193,6 +193,10 @@
             <script>
             	$("#dataTable tbody tr td #tbBtn1").click(function(){
             		$("#userId").val($(this).parent("td").parent("tr").children().eq(3).text());
+            		$("#userName").val($(this).parent("td").parent("tr").children().eq(1).text());
+            		$("#userGrade").val($(this).parent("td").parent("tr").children().eq(6).text());
+            		$("#birth").val($(this).parent("td").parent("tr").children().eq(4).text());
+            		$("#phone").val($(this).parent("td").parent("tr").children().eq(5).text());
             	});
            	</script>
 
