@@ -2,4 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper>
   <cache-ref namespace="csMapper"/>
+  <resultMap id="noticeResultSet" type="Notice">
+		<id column="NOTICE_NO" property="noticeNo"/>
+		<result column="NOTICE_TITLE" property="noticeTitle"/>
+		<result column="NOTICE_CONTENT" property="noticeContent"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	<select id="selectListCount" resultType="_int">
+		select count(*)
+		  from board
+		 where status='Y'
+	</select>
+	
+	<select id="selectList" resultMap=noticeResultSet">
+		select * 
+		  from board
+		 where status='Y'
+		 order by board_no desc
+	</select>
+	
 </mapper>
