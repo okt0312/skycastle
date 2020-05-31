@@ -171,11 +171,15 @@
             <div id="option-btn" style="margin-top: 300px;">
                 <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
             </div>
-<!--                방장은
-                    <div id="option-btn" style="margin-top: 300px;">
-                        <button class="sky_btn2">회원관리</button>
-                    </div>
--->
+
+            <!-- 방장에게만 보여지는 버튼-->
+            <c:if test="${ loginUser == leaderNo }">
+	            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
+	            <div id="option-btn" style="margin-top: 300px;">
+                	<button class="sky_btn2">공지작성</button><br>
+                	<button class="sky_btn2">회원관리</button>
+                </div>
+	        </c:if>
         </div>
 
         <div id="mygroupContent">
