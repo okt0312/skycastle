@@ -84,156 +84,40 @@
 			                               </div>
 			                               <!-- 셀렉트 끝 -->
                       				  </div>
-
-
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
-                                        <thead>
-                                            
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <th>번호</th>
-                                                <th>모임명</th>
-                                                <th>카테고리</th>
-                                                <th>시작일</th>
-                                                <th>종료일</th>
-                                                <th>장소</th>
-                                                <th>인원</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
-                                                <td>61</td> 
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <th>dfdsa</th>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Airi Satou</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>33</td>
-                                                <td>2008/11/28</td>
-                                                <td>$162,700</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Brielle Williamson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>New York</td>
-                                                <td>61</td>
-                                                <td>2012/12/02</td>
-                                                <td>$372,000</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Herrod Chandler</td>
-                                                <td>Sales Assistant</td>
-                                                <td>San Francisco</td>
-                                                <td>59</td>
-                                                <td>2012/08/06</td>
-                                                <td>$137,500</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Rhona Davidson</td>
-                                                <td>Integration Specialist</td>
-                                                <td>Tokyo</td>
-                                                <td>55</td>
-                                                <td>2010/10/14</td>
-                                                <td>$327,900</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Colleen Hurst</td>
-                                                <td>Javascript Developer</td>
-                                                <td>San Francisco</td>
-                                                <td>39</td>
-                                                <td>2009/09/15</td>
-                                                <td>$205,500</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Sonya Frost</td>
-                                                <td>Software Engineer</td>
-                                                <td>Edinburgh</td>
-                                                <td>23</td>
-                                                <td>2008/12/13</td>
-                                                <td>$103,600</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Jena Gaines</td>
-                                                <td>Office Manager</td>
-                                                <td>London</td>
-                                                <td>30</td>
-                                                <td>2008/12/19</td>
-                                                <td>$90,560</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Quinn Flynn</td>
-                                                <td>Support Lead</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2013/03/03</td>
-                                                <td>$342,000</td>
-                                                <td>61</td>
-                                            </tr>
-                                            <tr>
-                                                <th><input type="checkbox" name="xxx" value="yyy"></th>
-                                                <td>Charde Marshall</td>
-                                                <td>Regional Director</td>
-                                                <td>San Francisco</td>
-                                                <td>36</td>
-                                                <td>2008/10/16</td>
-                                                <td>$470,600</td>
-                                                <td>61</td>
-                                            </tr>
-                   
-                                        </tbody>
-                                    </table>
+                      				  
+						<!-- 일단 보류 나중에 채워넣기 -->
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th>모임 번호</th>
+                                    <th>카테고리</th>
+                                    <th>모임명</th>
+                                    <th>장소</th>
+                                    <th>신청등급</th>
+                                    <th>회원번호</th>
+                                    <th>정원</th>
+                                    <th>시작일</th>
+                                    <th>종료일</th>
+                                    <th>상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <c:forEach var="g" items="${ list }">
+                               	<tr  onclick="groupLiModal( ${ g.groupNo });">
+                                    <td>${ g.groupNo }</td>
+                                    <td>${ g.groupCategory }</td>
+                                    <td>${ g.groupTitle }</td>
+                                    <td>${ g.place }</td>
+                                    <td>${ g.gradeLimit }</td>
+                                    <td>${ g.leaderNo }</td>
+                                    <td>${ g.memberLimit }</td>
+                                    <td>${ g.startDate }</td>
+                                    <td>${ g.endDate }</td>
+                                    <td>${ g.status }</td>
+                                </tr>
+                               </c:forEach>
+                            </tbody>
+                        </table>
                                     <div><button id="tbBtn">승인</button><button id="tbBtn2">거절</button></div>
                                 </div>
                             </div>
