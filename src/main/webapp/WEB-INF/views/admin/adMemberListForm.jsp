@@ -8,14 +8,14 @@
 <title>회원 조회</title>
 <style>
        /* 관리버튼 - 관리 공간 소모임  css*/
-       #tbBtn{
+       .tbBtn123{
            background-color: #343a40;;
            color: white;
            border-radius: 0.25rem;
            border: 1px solid transparent;
        }
        /* 관리버튼 - 삭제 */
-       #tbBtn2{
+       #tbBtn4{
            background-color: #dc3545;
            color: white;
            border-radius: 0.25rem;
@@ -86,7 +86,7 @@
                                                         <th>휴대폰</th>
                                                         <th>등급</th>
                                                         <th>가입일</th>
-                                                        <th>관리버튼</th>
+                                                        <th id="controll_btn">관리버튼</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -101,11 +101,11 @@
                                                         <td>${ m.gradeName }</td>
                                                         <td>${ m.enrollDate }</td>
                                                         <td>
-                                                        	<button id="tbBtn" data-toggle="modal" data-target="#manageModal">관리</button>
-                                                            <button id="tbBtn" data-toggle="modal" data-target="#spaceModal">공간</button>
-                                                            <button id="tbBtn" data-toggle="modal" data-target="#groupModal">소모임</button>
+                                                        	<button id="tbBtn1" class="tbBtn123" data-toggle="modal" data-target="#manageModal">관리</button>
+                                                            <button id="tbBtn2" class="tbBtn123" data-toggle="modal" data-target="#spaceModal">공간</button>
+                                                            <button id="tbBtn3" class="tbBtn123" data-toggle="modal" data-target="#groupModal">소모임</button>
                                                             <c:if test="${ m.status eq '회원' }">
-	                                                            <button id="tbBtn2">삭제</button>
+	                                                            <button id="tbBtn4">삭제</button>
                                                             </c:if>
                                                         </td>
                                                     </tr>
@@ -119,8 +119,11 @@
                         </div>
                         
                         <script>
-                        	$("#dataTable tbody tr td #tbBtn2").click(function(){
-                        		var result = "";
+	                     	$(document).ready(function(){
+	                        	$("#controll_btn").removeClass("sorting");
+	                    	});	
+                        
+                        	$("#dataTable tbody tr td #tbBtn4").click(function(){
                         		var num = $(this).parent("td").parent("tr").children().eq(0).text();
                         		
                         		alertify.confirm('회원 탈퇴', '해당 회원을 탈퇴처리 시키시겠습니까?', 
@@ -162,7 +165,7 @@
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <label for="userId" class="mr-sm-2">아이디 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="userId"> <br>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="userId" name="userId" readonly> <br>
                             <label for="userName" class="mr-sm-2">이름 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userName"><br>
                             <label for="userGrade" class="mr-sm-2">등급 :</label>
@@ -172,11 +175,11 @@
                             <label for="phone" class="mr-sm-2">핸드폰 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="phone">  
                         </div>
-                            <div class="model-button" style="padding: 10px;">
-                                임시 비밀번호 발급
-                                <button type="button">발급</button>
-                                <br>
-                            </div>
+                        <div class="model-button" style="padding: 10px;">
+                            	임시 비밀번호 발급
+                            <button type="button">발급</button>
+                            <br>
+                        </div>
                         
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -187,6 +190,11 @@
                     </div>
                 </div>
             </div>
+            <script>
+            	$("#dataTable tbody tr td #tbBtn1").click(function(){
+            		$("#userId").val($(this).parent("td").parent("tr").children().eq(3).text());
+            	});
+           	</script>
 
             <!-- 공간 클릭 시 뜨는 모달 (내역만 조회한다고해서 수정폼은 안넣음) -->
             <div class="modal fade" id="spaceModal" >
@@ -265,6 +273,7 @@
                     </div>
                 </div>
     </main>
+	</div>
 	</div>
 </body>
 </html>
