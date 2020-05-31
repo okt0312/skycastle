@@ -58,5 +58,14 @@
 	</update>
 	
 	
+	<update id="updatePwd" parameterType="Member">
+	
+		UPDATE MEMBER 
+			set USER_PWD=#{userPwd}
+		WHERE USER_NO=#{userNo}
+		
+	</update>
+	
+	
 	
 </mapper>
