@@ -128,7 +128,7 @@
                     </div>
                     <div id="space" align="center">
                       
-                        <img src="좌석.jpg" width="600px" height="400px">
+                        <img src="${pageContext.servletContext.contextPath}/resources/images/좌석.jpg" width="600px" height="400px">
                         <p style="color:gray">
                             <small>
                             안녕하세요 스카이캐슬 입니다.<br>
