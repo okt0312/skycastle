@@ -11,6 +11,8 @@ import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
+import oracle.net.aso.a;
+
 @Controller
 public class AdMemberController {
 
@@ -21,6 +23,18 @@ public class AdMemberController {
 	public ModelAndView adMemberListForm(ModelAndView mv)
 	{
 		ArrayList<Member> list = admService.selectMember();
+		
+		for(Member m : list)
+		{
+			if(m.getStatus().equals("Y"))
+			{
+				m.setStatus("회원");
+			}
+			else if(m.getStatus().equals("N"))
+			{
+				m.setStatus("비회원");
+			}
+		}
 		
 		mv.addObject("list", list).setViewName("admin/adMemberListForm");
 		
