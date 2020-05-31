@@ -116,7 +116,10 @@
 </style>
 </head>
 <body>
- <!-- 공지사항 테이블 -->
+
+ 	<jsp:include page="../common/menubar.jsp"/>
+ 
+ 	<!-- 공지사항 테이블 -->
     <div id="outer">
         <div class="mainTitle">공지사항
             <div class="subTitle">SKYCASTLE 새소식</div>
@@ -182,5 +185,9 @@
     </div>
     <br><br>
     </div>
+    
+    <jsp:include page="../common/footer.jsp"/>
+    
+    
 </body>
 </html>
