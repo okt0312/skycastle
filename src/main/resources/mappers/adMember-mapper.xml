@@ -35,6 +35,7 @@
 	<select id="selectGrade" resultMap="adGradeResultSet">
 		SELECT *
 		  FROM GRADE
+	  	 WHERE GRADE_CODE != 0 
 	</select>
 	
 	<update id="deleteMember" parameterType="_int">

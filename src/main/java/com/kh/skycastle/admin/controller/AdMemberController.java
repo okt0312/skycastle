@@ -61,7 +61,6 @@ public class AdMemberController {
 	public ModelAndView adGradeMgmtForm(ModelAndView mv)
 	{
 		ArrayList<Grade> list = admService.selectGrade();
-		System.out.println(list);
 		mv.addObject("list", list).setViewName("admin/adGradeMgmtForm");
 		
 		return mv;
