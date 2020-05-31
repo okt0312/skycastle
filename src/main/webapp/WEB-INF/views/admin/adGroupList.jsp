@@ -20,13 +20,12 @@
 
     <style>
         /* 목록 호버 */
-        #boardList>tbody>tr:hover{
+        #dataTable>tbody>tr:hover{
         cursor:pointer;
          background-color: rgba(204, 199, 199, 0.699);
          }
       
-         #selectBox
-       {
+         #selectBox{
            position: absolute;
            float: left;
            margin-left: 170px;
@@ -40,8 +39,8 @@
 <!--for 부트스트랩,, 닫지않는것이 포인트,,  -->
 	<div id="layoutSidenav"> 
 	<jsp:include page="common/adminSidebar.jsp"/>
-	
 	<div id="layoutSidenav_content">
+	
 	<!-- 시작 -->
 	<main>
         <div  class="container-fluid" style="padding-right: 10px;">
@@ -91,7 +90,7 @@
                             </thead>
                             <tbody>
                                <c:forEach var="g" items="${ list }">
-                               	<tr >
+                               	<tr  onclick="groupLiModal( ${ g.groupNo });">
                                     <td>${ g.groupNo }</td>
                                     <td>${ g.groupCategory }</td>
                                     <td>${ g.groupTitle }</td>
@@ -106,20 +105,14 @@
                                </c:forEach>
                             </tbody>
                         </table>
-                        
-             
-             
-		             <script>
-		            	$(function(){
-		            		
-		            		$("#dataTable tbody tr").click(function(){
-		            			location.href ="detail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
-		            		
-		            		});
-		            	});
-		            </script>
-                        
-                        
+             <script>
+             function groupLiModal(){
+   			 $('#groupLiModal').modal({
+		       
+		  	  });
+			};
+				             
+			</script>                  
                         
                         
                     </div>
@@ -130,7 +123,7 @@
                         
 									
                         
-            <!-- 소모임리스트 클릭 시 뜨는 모달 -->
+            <!-- 소모임 tr 클릭 시 뜨는 모달 -->
             <div class="modal fade" id="groupLiModal" >
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content" style="width: 400px;">
@@ -144,7 +137,7 @@
                     <form action="관리폼요청받아주는서버" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" value="${ g.groupTitle }"><br><br>
                             <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" readonly="readonly"><br><br>
                             <div clss="slecet" >
                                카테고리 &nbsp;&nbsp;

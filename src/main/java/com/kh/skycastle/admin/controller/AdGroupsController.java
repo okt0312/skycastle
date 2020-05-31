@@ -17,10 +17,9 @@ public class AdGroupsController {
 	@Autowired
 	private AdGroupsService adGrService;
 	
-	//메뉴바에서 소모임 조회 페이지 눌렀을때 이동
+	//메뉴바에서 소모임 조회 페이지 눌렀을때 이동 + 리스트나타남
 	@RequestMapping("groupList.ad")
-	public String adGroupList(Model model)
-	{
+	public String adGroupList(Model model){
 		ArrayList<Groups> list = adGrService.selectGroups();
 		model.addAttribute("list", list);
 		return "admin/adGroupList";
@@ -28,15 +27,13 @@ public class AdGroupsController {
 	
 	//메뉴바에서 소모임 개설관리 페이지 눌렀을때 이동
 	@RequestMapping("groupConfirm.ad")
-	public String adGroupConfirm()
-	{
+	public String adGroupConfirm(){
 		return "admin/adGroupConfirm";
 	}
 	
 	//메뉴바에서 소모임 게시판관리 페이지 눌렀을때 이동
 	@RequestMapping("groupBoMgmt.ad")
-	public String adGroupBoMgmt()
-	{
+	public String adGroupBoMgmt(){
 		return "admin/adGroupBoMgmt";
 	}
 	
