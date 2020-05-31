@@ -39,7 +39,7 @@
 	
 	<update id="deleteMember" parameterType="_int">
 		UPDATE MEMBER
-		   SET STATUS = 'N'
+		   SET STATUS = 'N', LEAVE_REASON = '관리자 권한 탈퇴처리'
 		 WHERE USER_NO = #{userNo} 
 	</update>
 </mapper>
