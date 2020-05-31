@@ -13,6 +13,8 @@ public interface GroupService {
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupList(PageInfo pi);
 	
+	// 검색 구현하려면 마이바티스 참조
+	
 	// 2. 소모임 신청용 서비스
 	int insertGroup(Groups g);
 	
@@ -21,5 +23,8 @@ public interface GroupService {
 	int increaseCount(int gno);
 	// 3-2. 해당 소모임 조회용 서비스
 	Groups selectGroup(int gno);
-
+	
+	// 4. 소모임 탈퇴용서비스
+	int deleteGroup(int gno);
+	
 }
