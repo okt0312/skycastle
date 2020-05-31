@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mygroupNoticeList</title>
+<title>mygroupNoticeListView</title>
 <style>
 	/* 마이소모임 메뉴바 */
 	#mygroupMenubar{

@@ -26,7 +26,7 @@ public class GroupNoticeServiceImpl implements GroupNoticeService {
 
 	@Override
 	public ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi) {
-		return null;
+		return gnDao.selectGroupNoticeList(sqlSession, pi);
 	}
 
 	@Override
