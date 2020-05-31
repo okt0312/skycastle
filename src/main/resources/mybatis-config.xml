@@ -9,13 +9,15 @@
 	<typeAliases>
 		<typeAlias type="com.kh.skycastle.member.model.vo.Member" alias="Member"/>
 		<typeAlias type="com.kh.skycastle.group.model.vo.Groups" alias="Groups"/>
-		<typeAlias type="com.kh.skycastle.member.model.vo.Grade" alias="Grade"/>
+		<typeAlias type="com.kh.skycastle.member.model.vo.Grade" alias="Grade"/>		
+		<typeAlias type="com.kh.skycastle.cs.model.vo.Notice" alias="Notice"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/adMember-mapper.xml"/>
-		<mapper resource="mappers/adGroups-mapper.xml"/>
+		<mapper resource="mappers/adGroups-mapper.xml"/>		
+		<mapper resource="mappers/cs-mapper.xml"/>
 	</mappers>
 	
 	
