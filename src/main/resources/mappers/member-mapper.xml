@@ -62,7 +62,8 @@
 	
 		UPDATE MEMBER 
 			set USER_PWD=#{userPwd}
-		WHERE USER_NO=#{userNo}
+		WHERE  USER_PWD=#{userPwd}
+		AND USER_ID=#{userId}
 		
 	</update>
 	

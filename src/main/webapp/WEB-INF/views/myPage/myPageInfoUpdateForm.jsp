@@ -277,10 +277,10 @@ table {
 		<div class="inner">
 			
                <div class="faqBtns">
-
+				
                 <button id="active1" style="background-color:#fdce07;">회원정보변경</button>
-				<button id="active2">비밀번호변경</button>
-
+				<button id="active2" onclick="myPageInfoUpdatePwd();">비밀번호변경</button>
+					
 
                </div>
 		
@@ -358,6 +358,13 @@ table {
 	
 			<jsp:include page="../common/footer.jsp"/>
 		
+		<script>
+			
+		function myPageInfoUpdatePwd() {
+			location.href="Pwd.me";
+		}
+		
+		</script>
 
 </body>
 </html>

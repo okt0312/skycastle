@@ -17,5 +17,9 @@ public interface MypageService {
 	// 아이디만 전달 받음 된다.
 	int deleteMember(Member m);
 	
+	// 5. 비밀번호 변경 
+	int updatePwd(Member m);
+	
+	
 	
 }

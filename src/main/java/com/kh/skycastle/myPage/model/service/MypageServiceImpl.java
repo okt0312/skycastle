@@ -51,6 +51,13 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 
+	@Override
+	public int updatePwd(Member m) {
+		
+		return pDao.updatePwd(sqlSession, m);
+	}
+
+
 	
 	
 		

@@ -86,20 +86,33 @@ public class MypageController {
 			model.addAttribute("msg, 회원 정보수정 실패!!");
 			return "myPage/myPageInfoUpdateForm";
 			
-			/*
-			 * response.setContentType("text/html; charset=UTF-8");
-			 * 
-			 * PrintWriter out = response.getWriter();
-			 * 
-			 * out.println("<script>alert('계정이 등록 되었습니다'); location.href='이동주소';</script>");
-			 * 
-			 * out.flush();
-			 */
 			
-			
-
-
+			}
 		
+	}
+	
+	
+	@RequestMapping("Pwd.me")
+	public String Pwd() {
+		return "myPage/myPageInfoUpdatePwd";
+	}
+	
+	
+	@RequestMapping("upPwd.me")
+	public String updatePwd(Member m, Model model, HttpSession session) {
+		
+		// 현재비밀번호
+		// 새로운 비밀번호 (newPwd) 어디로??
+		
+		int result = pService.updatePwd(m);
+			
+		
+		if(result > 0) {
+			session.setAttribute("loginUser", pService.updateCheckPwd(m));
+			
+			return "myPage/myPageInfoUpdateCheck";
+		} else {
+			return "myPage/myPageInfoUpdateCheck";
 		}
 		
 	}

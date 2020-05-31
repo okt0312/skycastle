@@ -247,20 +247,21 @@ table {
                 <button id="active1" style="background-color:#fdce07;">회원정보변경</button>
 				<button id="active2">비밀번호변경</button>
 
-
+					
                </div>
 		
-
+	
 		<br><br>
 
+		<form action="upPwd.me" id="pwdPorm" method="POST">
 		<table>
 			<tr>
 				<td></td>
 				<td>
 					
 					<span class="inputs">
-
-					<input type="password" size="80" placeholder="현재비밀번호" style="font-size: 10px;">
+					
+					<input type="password"  id="userPwd" name="userPwd" size="80" placeholder="현재비밀번호" style="font-size: 10px;">
 				
 					</span>
 				
@@ -270,7 +271,7 @@ table {
 				<td></td>
 				<td>
 					<span class="inputs">
-					<input type="password" size="80" placeholder="새 비밀번호(6자리 이상 영문,숫자,특수문자를 사용"  style="font-size: 10px;">
+					<input type="password" id="newPwd"  name="newPwd" size="80" placeholder="새 비밀번호(6자리 이상 영문,숫자,특수문자를 사용"  style="font-size: 10px;">
 				   </span>
 				</td>
 			</tr>
@@ -278,32 +279,15 @@ table {
 				<td></td>
 				<td>
 					<span class="inputs">
-					<input type="password" size="80" placeholder="비밀번호 재확인"  style="font-size: 10px;">
+					<input type="password"  size="80" placeholder="비밀번호 재확인"  style="font-size: 10px;">
 				    </span>
 				</td>
 				
 			</tr>
 		</table>
 			
-		
-
-
-
-
-			
-
-		</div>
+       </div>
 				
-			
-				
-
-               
-
-         
-
-					
-			
-            
 			
 			<br><br><br>
 
@@ -313,7 +297,8 @@ table {
 
 			</div>
 			
-
+			</form>
+			
 			<table>
 				<tr>
 					<th>
@@ -323,7 +308,7 @@ table {
 				</tr>
 			</table>
 		</div>
-		</div>
+		
 	
 		
 		<jsp:include page="../common/footer.jsp"/>

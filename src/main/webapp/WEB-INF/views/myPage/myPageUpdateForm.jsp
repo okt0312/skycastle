@@ -359,14 +359,9 @@ a {
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 	
-		<br>
-		
-	
-		
-		<hr>
 
 
-
+		<br><br><br><br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 				
@@ -392,21 +387,25 @@ a {
                                         </li>
                                     </ul>
                                 </div>
-
+								
+								<form action="update.me" method="post" onsubmit="">
+								 <input type="hidden" value="${ loginUser.userId }" name="userId">
+            					 <input type="hidden" value="${ loginUser.userName }" name="userName">
+            					 <input type="hidden" value="${ loginUser.birthday }" name="birthday">
                                 <div class="step2">
                                    <div class="row" style="max-width: 600px;">
                                     <div class="col infoType">
                                         <div class="mod_infos first">
                                             <span class="in_tit">이메일</span>
-                                            <div class="info">sdfdsfs</div>
+                                            <div class="info">${ loginUser.userId }</div>
                                         </div>
                                         <div class="mod_infos">
                                             <span class="in_tit">이름</span>
-                                            <div class="info">sdfsdfd</div>
+                                            <div class="info">${ loginUser.userName}</div>
                                         </div>
                                         <div class="mod_infos">
                                             <span class="in_tit">생년월일</span>
-                                            <div class="info birthday">sdfdf</div>
+                                            <div class="info birthday">${ loginUser.birthday}</div>
                                         </div>
 
                                         <div class="mod_infos">
@@ -416,7 +415,7 @@ a {
                                                 <div class="phone">
                                                     <input type="hidden" name="originalMemberPhone">
                                                     <span class="inputs num_type">
-                                                        <input type="text" name="memberPhone" class="number"
+                                                        <input type="text" id="phone" name="phone" class="number"
                                                         maxlength="11" placeholder="핸드폰번호 입력">
                                                     </span>
                                                     
@@ -438,9 +437,13 @@ a {
                                             </div>
                                             </div>
                                         
+                                        
 
                                         <div class="bts">
                                             <a href="" class="dark">변경</a>
+                                        </div>
+                                        </form>
+                                        <div class="bts">
                                             <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
                                         </div>
                                     </div>
@@ -456,22 +459,10 @@ a {
 
 
 
-				<br>
-				<br>
-
-				
-            
 			
-                
-				<br>
-				<br>
-				<br>
-
 				
 
-			</div>
-		</div>
-		</div>
+			
 
 	
 	
