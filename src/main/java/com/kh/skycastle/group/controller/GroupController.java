@@ -15,7 +15,7 @@ public class GroupController {
 	@RequestMapping("groupList.gr")
 	public String selectGroupList(int currentPage) {
 		
-		int groupListCount = 
+		int groupListCount = gService.selectGroupListCount();
 		
 		return "groups/groupList";
 	}

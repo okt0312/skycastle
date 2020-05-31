@@ -2,17 +2,26 @@ package com.kh.skycastle.group.model.service;
 
 import java.util.ArrayList;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.group.model.dao.GroupDao;
+import com.kh.skycastle.group.model.dao.GroupNoticeDao;
 import com.kh.skycastle.group.model.vo.Groups;
 
 @Service("gService")
 public class GroupServiceImpl implements GroupService {
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	@Autowired
+	private GroupDao gDao;
 
 	@Override
 	public int selectGroupListCount() {
-		return 0;
+		return gDao.selectGroupListCount(sqlSession);
 	}
 
 	@Override

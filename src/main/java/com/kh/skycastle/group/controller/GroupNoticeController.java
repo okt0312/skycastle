@@ -16,7 +16,7 @@ public class GroupNoticeController {
 	@RequestMapping("groupNoticeList.gr")
 	public String selectGroupNoticeList(int currentPage) {
 		
-		int groupNoticeListCount = 
+		int groupNoticeListCount = gnService.selectGroupNoticeListCount();
 		
 		return "groups/mygroupNoticeList";
 	}
