@@ -1,13 +1,22 @@
 package com.kh.skycastle.group.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kh.skycastle.group.model.service.GroupService;
+
 @Controller
 public class GroupController {
+	
+	@Autowired
+	private GroupService gService;
 
 	@RequestMapping("groupList.gr")
-	public String groupList() {
+	public String selectGroupList(int currentPage) {
+		
+		int groupListCount = 
+		
 		return "groups/groupList";
 	}
 	
