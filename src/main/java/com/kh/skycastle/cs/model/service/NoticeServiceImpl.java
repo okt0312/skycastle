@@ -21,12 +21,12 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public int selectListCount() {
-		return 0;
+		return nDao.selectListCount(sqlSession);
 	}
 
 	@Override
 	public ArrayList<Notice> selectList(PageInfo pi) {
-		return null;
+		return nDao.selectList(sqlSession, pi);
 	}
 
 	@Override
