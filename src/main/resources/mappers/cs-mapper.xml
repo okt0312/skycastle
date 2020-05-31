@@ -12,15 +12,15 @@
 	
 	<select id="selectListCount" resultType="_int">
 		select count(*)
-		  from board
+		  from notice
 		 where status='Y'
 	</select>
 	
 	<select id="selectList" resultMap=noticeResultSet">
 		select * 
-		  from board
+		  from notice
 		 where status='Y'
-		 order by board_no desc
+		 order by notice_no desc
 	</select>
 	
 </mapper>
