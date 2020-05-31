@@ -19,7 +19,7 @@
 		select * 
 		  from notice
 		 where status='Y'
-		 order by notice_no desc
+		 order by notice_no asc
 	</select>
 	
 </mapper>
