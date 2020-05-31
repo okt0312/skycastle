@@ -198,13 +198,13 @@
             </table>
 
             <!-- 페이징바 -->
-            <div class="paging" align="center">          
+			<div class="paging" align="center">          
 				<c:choose>
 					<c:when test="${ pi.currentPage eq 1 }">          
 						<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
 					</c:when>
 					<c:otherwise>	  
-						<a href="list.cs?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+						<a href="groupNoticeList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
 					</c:otherwise>	
 				</c:choose>    
 					
@@ -214,23 +214,20 @@
 							<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
 						</c:when>
 						<c:otherwise>
-							<a href="list.cs?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							<a href="groupNoticeList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
 						</c:otherwise>
 					</c:choose>
-				</c:forEach>    			
-						<!--    <a href="#">2</a>
-						   <a href="#">3</a>
-						   <a href="#">4</a>
-						   <a href="#">5</a> -->
+				</c:forEach>
+				
 				<c:choose>   
 					<c:when test="${ pi.currentPage eq pi.maxPage }">
 						<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
 					</c:when>
 					<c:otherwise>
-						<a href="list.cs?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+						<a href="groupNoticeList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
 					</c:otherwise> 	
-				</c:choose>            
-            </div>
+				</c:choose>
+			</div>
             <br><br><br><br><br>
         </div>
     </div>
