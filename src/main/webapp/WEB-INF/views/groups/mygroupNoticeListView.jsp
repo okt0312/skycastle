@@ -184,43 +184,16 @@
             
             <table id="mygroupNoticeTable">
                 <tbody>
-                    <tr class="noticeTitle">
-                        <td class="title">등급별 혜택 안내</td>
-                        <td class="enrollDate">2020.05.09</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">소모임 이용에 관한 안내 사항</td>
-                        <td class="enrollDate">2020.05.06</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">부적절한 용어나 언행 사용, 회원에 대한 모욕 및 비방 등에 관한 신고 방법</td>
-                        <td class="enrollDate">2020.04.29</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">공간 운영 방침 안내</td>
-                        <td class="enrollDate">2020.04.25</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">소모임 개설에 관한 안내</td>
-                        <td class="enrollDate">2020.04.02</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">회원 등급제 시행 안내</td>
-                        <td class="enrollDate">2020.03.22</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">스터디 및 모임 공간 예약 시 주의사항</td>
-                        <td class="enrollDate">2020.02.27</td>
-                        
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">결제 및 환불 안내</td>
-                        <td class="enrollDate">2020.02.22</td>
-                    </tr>
-                    <tr class="noticeTitle">
-                        <td class="title">소모임 운영을 시작합니다.</td>
-                        <td class="enrollDate">2020.01.30</td>
-                    </tr>
+                
+                	<c:forEach items="${ list }" var="gn">
+                	
+	                    <tr class="noticeTitle">
+	                        <td class="title">${ gn.gnoticeTitle }</td>
+	                        <td class="enrollDate">${ gn.enrollDate }</td>
+	                    </tr>
+	                    
+	                </c:forEach>
+	                
                 </tbody>    
             </table>
 
