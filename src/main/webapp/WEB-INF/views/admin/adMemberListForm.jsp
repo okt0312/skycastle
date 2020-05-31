@@ -100,10 +100,13 @@
                                                         <td>${ m.phone }</td>
                                                         <td>${ m.gradeName }</td>
                                                         <td>${ m.enrollDate }</td>
-                                                        <td><button id="tbBtn" data-toggle="modal" data-target="#manageModal">관리</button>
+                                                        <td>
+                                                        	<button id="tbBtn" data-toggle="modal" data-target="#manageModal">관리</button>
                                                             <button id="tbBtn" data-toggle="modal" data-target="#spaceModal">공간</button>
                                                             <button id="tbBtn" data-toggle="modal" data-target="#groupModal">소모임</button>
-                                                            <button id="tbBtn2">삭제</button>
+                                                            <c:if test="${ m.status eq '회원' }">
+	                                                            <button id="tbBtn2">삭제</button>
+                                                            </c:if>
                                                         </td>
                                                     </tr>
                                                     </c:forEach>
@@ -115,6 +118,33 @@
                             </div>
                         </div>
                         
+                        <script>
+                        	$("#dataTable tbody tr td #tbBtn2").click(function(){
+                        		var result = "";
+                        		var num = $(this).parent("td").parent("tr").children().eq(0).text();
+                        		
+                        		alertify.confirm('회원 탈퇴', '해당 회원을 탈퇴처리 시키시겠습니까?', 
+                        						 function()
+                        						 {
+                        							$.ajax({
+                        								url:"deleteMember.ad",
+                        								data:{"userNo" : num},
+                        								type:"post",
+                        								success:function(msg)
+                        								{
+                        									alertify.alert("회원 관리", msg, function(){ location.reload();});
+                        								},
+                        								error:function()
+                        								{
+                        									console.log("ajax통신 실패");
+                        								}
+                        								
+                        							});
+                       							 }, 
+                       							 function(){});
+                        		
+                        	});
+                       	</script>
 
 
             <!-- 관리 클릭 시 뜨는 모달 (기존에는 안보이다가 위의 a 클릭시 보임) -->
@@ -234,14 +264,6 @@
                         </div>
                     </div>
                 </div>
-                            
-
-
-
-
-             
-                        
-    
     </main>
 	</div>
 </body>

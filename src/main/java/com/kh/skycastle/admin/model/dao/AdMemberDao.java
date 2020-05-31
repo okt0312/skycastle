@@ -16,6 +16,11 @@ public class AdMemberDao {
 		return (ArrayList)sqlSession.selectList("adMemberMapper.selectMember");
 	}
 	
+	public int deleteMember(SqlSessionTemplate sqlSession, int userNo)
+	{
+		return sqlSession.delete("adMemberMapper.deleteMember", userNo);
+	}
+	
 	public ArrayList<Grade> selectGrade(SqlSessionTemplate sqlSession)
 	{
 		return (ArrayList)sqlSession.selectList("adMemberMapper.selectGrade");

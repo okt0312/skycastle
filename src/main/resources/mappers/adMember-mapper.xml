@@ -36,4 +36,10 @@
 		SELECT *
 		  FROM GRADE
 	</select>
+	
+	<update id="deleteMember" parameterType="_int">
+		UPDATE MEMBER
+		   SET STATUS = 'N'
+		 WHERE USER_NO = #{userNo} 
+	</update>
 </mapper>

@@ -28,9 +28,15 @@ public class AdMemberServiceImpl implements AdMemberService{
 	}
 
 	@Override
+	public int deleteMember(int userNo) {
+		return admDao.deleteMember(sqlSession, userNo);
+	}
+	
+	@Override
 	public ArrayList<Grade> selectGrade() {
 				
 		return admDao.selectGrade(sqlSession);
 	}
+
 
 }

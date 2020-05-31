@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
-
-import oracle.net.aso.a;
 
 @Controller
 public class AdMemberController {
@@ -39,6 +39,22 @@ public class AdMemberController {
 		mv.addObject("list", list).setViewName("admin/adMemberListForm");
 		
 		return mv;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "deleteMember.ad", produces = "text/html; charset=utf-8")
+	public String deleteMember(int userNo, Model model)
+	{
+		int result = admService.deleteMember(userNo);
+		
+		if(result > 0)
+		{
+			return "회원 탈퇴 성공";
+		}
+		else
+		{
+			return "회원 탈퇴 실패";
+		}
 	}
 	
 	@RequestMapping("gradeMgmt.ad")
