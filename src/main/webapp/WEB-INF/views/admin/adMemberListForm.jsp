@@ -119,10 +119,6 @@
                         </div>
                         
                         <script>
-	                     	$(document).ready(function(){
-	                        	$("#controll_btn").removeClass("sorting");
-	                    	});	
-                        
                         	$("#dataTable tbody tr td #tbBtn4").click(function(){
                         		var num = $(this).parent("td").parent("tr").children().eq(0).text();
                         		
@@ -277,6 +273,7 @@
                     </div>
                 </div>
     </main>
+    <jsp:include page="common/adFooter.jsp"/>
 	</div>
 	</div>
 </body>
