@@ -105,7 +105,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="spaceMgmt.ad">공간 현황</a>
                                 <a class="nav-link" href="seatMgmt.ad">좌석 현황</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">예역 현황</a> 
+                                <a class="nav-link" href="layout-sidenav-light.html">예약 현황</a> 
                             </nav>
                         </div>
 	                    <!-- 결제관리-->
