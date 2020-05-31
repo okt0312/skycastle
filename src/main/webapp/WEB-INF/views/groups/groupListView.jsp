@@ -55,6 +55,24 @@
 	    </div>
 	    <br><br><br><br><br><br>
 	    
+	    <!-- 수업때 쓴 검색 폼 -->
+		<form id="searchForm" action="" method="Get" align="center">
+			<div class="select">
+				<select class="custom-select" name="condition">
+					<option value="writer">작성자</option>
+					<option value="title">제목</option>
+					<option value="content">내용</option>
+				</select>
+			</div>
+			<div class="text">
+				<input type="text" class="form-control" name="keyword">
+			</div>
+			<button type="submit" class="searchBtn btn btn-secondary">검색</button>
+		</form>
+	    
+	    
+	    
+	    
 	    <c:forEach items="${ list }" var="g">
 		    <div class="grouplist">
 		        <div class="groupThumbnailArea">
@@ -92,6 +110,18 @@
 		        </div>
 		    </div>
 	    </c:forEach>
+	    
+	    
+		<script>
+			$(function(){
+				$("#boardList tbody tr").click(function(){
+					location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
+				});
+			});
+		</script>
+		<br>
+	    
+	    
 	    
         <!-- 페이징바 -->
 		<div class="paging" align="center">          
