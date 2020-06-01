@@ -25,6 +25,15 @@ public class GroupDao {
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
 	}
 	
+	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
+		// rowbounds 생성하기 위해서 offset만들기
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupThumbnailList", null, rowBounds);
+	}
+	
 	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
 		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
 	}

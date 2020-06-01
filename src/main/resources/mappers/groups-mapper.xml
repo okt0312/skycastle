@@ -31,6 +31,10 @@
 		ORDER BY START_DATE DESC
 	</select>
 	
+	<select id="selectGroupThumbnailList" resultMap="groupResultSet">
+		<!-- sql문 다시 짜기 -->
+	</select>
+	
 	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
 		SELECT *
 		  FROM GROUPS
@@ -64,7 +68,11 @@
 		ORDER BY GNOTICE_NO DESC
 	</select>
 	
-	
+	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{gnno}
+	</select>
 
 	
 	

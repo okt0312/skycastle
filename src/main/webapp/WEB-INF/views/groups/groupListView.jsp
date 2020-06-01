@@ -112,7 +112,7 @@
 	    
 	    
         <!-- 페이징바 -->
-		<div class="paging" align="center">          
+		<div class="paging" align="center">
 			<c:choose>
 				<c:when test="${ pi.currentPage eq 1 }">          
 					<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
