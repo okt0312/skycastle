@@ -70,12 +70,13 @@ public class QnaController {
 			q.setChangeName(changeName);
 			
 		}
+			System.out.println(q);
 		
 		int result = qService.insertMemberInquiry(q);
 		
 		if(result > 0) {
 		
-			return "redirect:OneonOne.my";
+			return "redirect/OneOnOne.my";
 			
 		}else {
 			
