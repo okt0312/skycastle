@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,7 +137,7 @@ div {
                     <span style="color: lightgray; font-size: 17px;">|</span> 
                     <a href="">나의 등급 내역</a>
                     
-
+		
                 </div>
 
             </div>
@@ -152,36 +155,20 @@ div {
 						</tr>
 					</thead>
 					<tbody>
-						
+					
+						<c:forEach items="${ list }" var="o">
+							
 							<tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-                            <tr>
-								<td></td>
-                                <td></td>
+								<td>${o.couponName}</td>
+                                <td>${o.expirationPeriod}</td>
                                 <td></td>
                             </tr>
                             
-                            <tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                         </c:forEach>
+                           
+                            
+                           
 
-                            <tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-							</tr>
                             
 					</tbody>
 				</table>
@@ -193,11 +180,39 @@ div {
 				
                 
                 <div class="pagination" align="center">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">&raquo;</a>
+                
+                	<c:choose>
+                	<c:when test="${ pi.currentPage eq 1 }">
+                    <a href="#" class="active disabled">&laquo;</a>
+                    </c:when>	
+                    <c:otherwise>
+                    <a href="list.bo?currentPage=${ pi.currentPage-1 }" class="active">&laquo;</a>
+                    </c:otherwise>
+                    </c:choose>
+                    
+                    <c:forEach var="p" begin="${pi.startPage}" end="${ pi.endPage }">
+                    
+                    <c:choose>
+                    	<c:when test="${ p eq pi.currentPage}">
+                    		<a href="" class="active disabled">${ p }</a>
+                    	</c:when>
+                    	<c:otherwise>
+                    		<a href="list.bo?currentPage=${ p }" class="active">${ p }</a>
+                    	</c:otherwise>
+                    </c:choose>
+                    
+                    </c:forEach>
+                    
+                    <c:choose>
+                     <c:when test="${ pi.currentPage eq pi.maxPage }">
+                    <a href="#" class="active disabled">&raquo;</a>
+                     </c:when>
+                     <c:otherwise>
+                    <a href="list.bo?currentPage${ pi.currentPage+1 }" class="active">&raquo;</a>
+                     </c:otherwise>
+                    </c:choose>
                 </div>
-
+				
 				
 				<br>
 				<br>

@@ -1,6 +1,9 @@
 package com.kh.skycastle.myPage.model.service;
 
+import java.util.ArrayList;
+
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Member;
 
 public interface MypageService {
@@ -21,7 +24,11 @@ public interface MypageService {
 	// 5. 비밀번호 변경 
 	int updatePwd(Member m);
 	
-	
+	// 6. 게시판 리스트 조회용 서비스 
+	// 1_1. 게시판 총갯수 조회용 서비스 
+	int selectListCount();
+	// 1_2. 요청한 페이지에 보여질 게시글 리스트 조회용 서비스 
+	ArrayList<Coupon> selectList(PageInfo pi);
 	
 	
 	

@@ -1,6 +1,8 @@
 package com.kh.skycastle.myPage.controller;
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
 
@@ -29,8 +34,18 @@ public class MypageController {
 	 }
 	
 	
-	@RequestMapping("Coupon.my")
-	public String Coupon() {
+	@RequestMapping("list.bo")
+	public String selectList(int currentPage, Model model) {
+		
+		int listCount = pService.selectListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
+		
+		ArrayList<Coupon> list = pService.selectList(pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		
 		return "myPage/myPageCoupon";
 	}
 	
@@ -141,6 +156,8 @@ public class MypageController {
 			return "myPage/myPageInfoDropOutForm";
 		}
 	}
+	
+
 	
 	@RequestMapping("OneonOne.my")
 	public String OneonOne() {
