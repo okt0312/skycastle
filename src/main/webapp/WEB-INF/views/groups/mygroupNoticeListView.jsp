@@ -176,9 +176,14 @@
             <c:if test="${ loginUser == leaderNo }">
 	            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
 	            <div id="option-btn" style="margin-top: 300px;">
-                	<button class="sky_btn2">공지작성</button><br>
-                	<button class="sky_btn2">회원관리</button>
+                	<button class="sky_btn2" onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button><br>
+                	<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
                 </div>
+                
+	            <form action="" id="postForm" method="post">
+	            	<input type="hidden" name="gnno" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="fileName" value="${ b.changeName }">
+	            </form>
 	        </c:if>
         </div>
 
@@ -223,6 +228,15 @@
             			location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
             		});
             	});
+            	
+            	function postFormSubmit(num){
+            		if(num == 1){	// 공지작성 클릭시
+            			$("#postForm").attr("action", "updateForm.bo");
+            		}else {			// 회원관리 클릭시
+            			$("#postForm").attr("action", "delete.bo");
+            		}
+            		$("#postForm").submit();
+            	}
             </script>
             <br>
 

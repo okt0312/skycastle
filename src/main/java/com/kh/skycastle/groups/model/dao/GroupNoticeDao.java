@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.model.dao;
+package com.kh.skycastle.groups.model.dao;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
-import com.kh.skycastle.group.model.vo.GroupNotice;
+import com.kh.skycastle.groups.model.vo.GroupNotice;
 
 @Repository("gnDao")
 public class GroupNoticeDao {

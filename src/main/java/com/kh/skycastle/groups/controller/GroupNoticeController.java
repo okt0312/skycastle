@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.controller;
+package com.kh.skycastle.groups.controller;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.group.model.service.GroupNoticeService;
-import com.kh.skycastle.group.model.vo.GroupNotice;
+import com.kh.skycastle.groups.model.service.GroupNoticeService;
+import com.kh.skycastle.groups.model.vo.GroupNotice;
 
 @Controller
 public class GroupNoticeController {
@@ -33,6 +33,10 @@ public class GroupNoticeController {
 		return "groups/mygroupNoticeListView";
 	}
 	
-
-
+	@RequestMapping("mygroupNoticeEnrollForm.gr")
+	public String groupApplyForm() {
+		return "groups/mygroupNoticeEnrollForm";
+	}
+	
+	
 }
