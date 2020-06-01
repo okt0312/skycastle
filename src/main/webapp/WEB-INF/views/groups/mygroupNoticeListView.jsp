@@ -203,7 +203,6 @@
             
             <table id="mygroupNoticeTable">
                 
-                
                 <tbody>
                 
                 	<c:forEach items="${ list }" var="gn">
