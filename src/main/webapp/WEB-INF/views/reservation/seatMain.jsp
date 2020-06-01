@@ -4,64 +4,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
- <style>
-     div{
-        /* border: 1px solid red; */
-        box-sizing: border-box;
-     }
-     .content{
-         max-width: 1700px;
-         margin:auto;
-     }
-     
-     .content_1{
-         max-width: 1200px;
-         margin:auto;
-     }
+	<style>
+		div{
+		   /* border: 1px solid red; */
+		   box-sizing: border-box;
+		}
+		.content{
+		    max-width: 1700px;
+		    margin:auto;
+		}
+		
+		.content_1{
+		    max-width: 1200px;
+		    margin:auto;
+		}
+		
+		#seatStateMain{
+		   width: 100%;
+		   height: 70px;
+		   background-color: #fdce07;
+		   color:white;
+		   font-weight: bold;
+		   font-size: 25px;
+		   line-height: 65px;
+		}
+		
+		#dateState{
+		   border-top: 2px solid gray;
+		   border-bottom: 2px solid gray;
+		   height: 70px;
+		   font-size: 20px;
+		   font-weight: bold;
+		   text-align: center;
+		   line-height: 55px;
+		}
+	</style> 
+	
+	<!-- 좌석 표 css-->
+	<style type="text/css">
+		.Style1 {border: 1px; border-style:solid; color: white;background-color:#fdce07;font-weight:bold;}
+		.Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
+		.Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
+		.Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
+	</style>
+	
+	<style>
+		#seatTable td:hover{
+		    cursor: pointer;
+		}
+	</style>
 
-     #seatStateMain{
-        width: 100%;
-        height: 70px;
-        background-color: #fdce07;
-        color:white;
-        font-weight: bold;
-        font-size: 25px;
-        line-height: 65px;
-     }
-
-     #dateState{
-        border-top: 2px solid gray;
-        border-bottom: 2px solid gray;
-        height: 70px;
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        line-height: 55px;
-     }
- </style> 
-
-<!-- 좌석 표 css-->
-<style type="text/css">
-    .Style1 {border: 1px; border-style:solid; color: white;background-color:#fdce07;font-weight:bold;}
-    .Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
-    .Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
-    .Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
-    </style>
-
-<style>
-    #seatTable td:hover{
-        cursor: pointer;
-    }
-</style>
-
-    
 </head>
 <body>
 	
