@@ -66,7 +66,15 @@
 <body>
 	
 	<jsp:include page="../common/menubar.jsp"/>
-
+<style>
+	.sky_btn1{
+		padding:0px;
+		boder:0px;
+		margin-top:4px;
+		line-height:10px;
+	}
+	
+</style>
     <div class="content">
         <div class="content_1">
         <div style="height: 50px;">
