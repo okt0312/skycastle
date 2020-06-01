@@ -79,7 +79,7 @@
 	
 	<select id="selectListCount" resultType="_int">
 	
-		SELECT COUPON(*)
+		SELECT count(*)
 		 FROM COUPON
 		
 		 

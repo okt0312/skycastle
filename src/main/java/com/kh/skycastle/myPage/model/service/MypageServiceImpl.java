@@ -62,6 +62,20 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 
+	@Override
+	public int selectListCount() {
+		
+		return pDao.selectListCount(sqlSession);
+	}
+
+
+	@Override
+	public ArrayList<Coupon> selectList(PageInfo pi) {
+	
+		return pDao.selectList(sqlSession, pi);
+	}
+
+
 
 
 	
