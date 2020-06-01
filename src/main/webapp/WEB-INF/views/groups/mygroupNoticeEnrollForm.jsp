@@ -146,55 +146,55 @@
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
-            <div id="mygroup">
-                <div id="mygroupMenubar">
-                    <h2>소모임명</h2>
-
-                    <table id="groupMenuTable" style="border-collapse:collapse;">
-                        <tr>
-                            <td>공지사항</td>
-                        </tr>
-                        <tr>
-                            <td style="border-bottom: 1px solid;">캘린더</td>
-                        </tr>
-                    </table>
-
-                    <div id="chat-btn">
-                        <button class="sky_btn1">채팅</button>
-                    </div>
-                    <div id="option-btn" style="margin-top: 300px;">
-                        <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
-                    </div>
-    <!--                방장은
-                    <div id="option-btn" style="margin-top: 300px;">
-                        <button class="sky_btn2">회원관리</button>
-                    </div>
-    -->
-                </div>
-
-
-
-                <!-- mygroupContent 영역에 콘텐츠 작성 -->
-                <div id="mygroupContent">
-                    <h2>공지사항</h2>
-                    <hr><br><br>
-                    
-                        <div id="noticeTitle">
-                            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
-                        </div>
-                        <hr>
-                        <div id="noticeContent" style="margin-top: 50px;">
-                            <textarea cols="78" rows="10" placeholder="내용을 입력하세요"></textarea>
-                        </div>
-
-                        <br><br>
-
-                        <div align="center">
-                            <button class="listBtn sky_btn1">등록하기</button>
-                        </div>
-                        <br><br><br><br><br>
-                </div>
-            </div>
+	<div id="mygroup">
+		<div id="mygroupMenubar">
+		    <h2>소모임명</h2>
+		
+		    <table id="groupMenuTable" style="border-collapse:collapse;">
+		        <tr>
+		            <td>공지사항</td>
+		        </tr>
+		        <tr>
+		            <td style="border-bottom: 1px solid;">캘린더</td>
+		        </tr>
+		    </table>
+		
+		    <div id="chat-btn">
+		        <button class="sky_btn1">채팅</button>
+		    </div>
+		    <div id="option-btn" style="margin-top: 300px;">
+		        <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
+		    </div>
+		<!--                방장은
+		                <div id="option-btn" style="margin-top: 300px;">
+		                    <button class="sky_btn2">회원관리</button>
+		                </div>
+		-->
+		</div>
+		
+		
+		
+		<!-- mygroupContent 영역에 콘텐츠 작성 -->
+		<div id="mygroupContent">
+		    <h2>공지사항</h2>
+		    <hr><br><br>
+		    
+	        <div id="noticeTitle">
+	            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
+	        </div>
+	        <hr>
+	        <div id="noticeContent" style="margin-top: 50px;">
+	            <textarea cols="78" rows="10" placeholder="내용을 입력하세요"></textarea>
+			</div>
+		
+			<br><br>
+		
+	        <div align="center">
+	            <button class="listBtn sky_btn1">등록하기</button>
+	        </div>
+			<br><br><br><br><br>
+		</div>
+	</div>
     <jsp:include page="../common/footer.jsp"/>
             
     <script>

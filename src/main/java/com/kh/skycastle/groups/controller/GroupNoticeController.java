@@ -32,4 +32,11 @@ public class GroupNoticeController {
 		
 		return "groups/mygroupNoticeListView";
 	}
+	
+	@RequestMapping("mygroupNoticeEnrollForm.gr")
+	public String groupApplyForm() {
+		return "groups/mygroupNoticeEnrollForm";
+	}
+	
+	
 }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.GroupDao;
-import com.kh.skycastle.groups.model.dao.GroupNoticeDao;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 @Service("gService")
