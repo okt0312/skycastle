@@ -113,7 +113,7 @@
                 </li>
                 <li><a href="seatMain.re">좌석 예약</a></li>
                 <li><a href="">공간 예약</a></li>
-                <li><a href="groupList.gr">소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1">소모임</a></li>
                 <li><a href="">고객센터</a>
                     <ul class="submenu">
                         <li><a href="list.cs?currentPage=1">공지사항</a></li>
@@ -121,10 +121,10 @@
                         
                <c:choose>
                		<c:when test="${ empty loginUser }">         
-                        <li><a href="insert.cs">1:1문의</a></li>
+                        <li><a href="insertForm.cs">1:1문의</a></li>
                		</c:when>
 					<c:otherwise>                
-                        <li><a href="meminsert.cs">1:1문의</a></li>
+                        <li><a href="meminsertForm.cs">1:1문의</a></li>
                		</c:otherwise>         
                </c:choose>           
                           

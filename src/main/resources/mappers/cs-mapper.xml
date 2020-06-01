@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="csMapper">
-  <resultMap id="noticeResultSet" type="Notice">
-		<id column="NOTICE_NO" property="noticeNo"/>
-		<result column="NOTICE_TITLE" property="noticeTitle"/>
-		<result column="NOTICE_CONTENT" property="noticeContent"/>
-		<result column="ENROLL_DATE" property="enrollDate"/>
-		<result column="STATUS" property="status"/>
+	<resultMap id="noticeResultSet" type="Notice">
+	<id column="NOTICE_NO" property="noticeNo"/>
+	<result column="NOTICE_TITLE" property="noticeTitle"/>
+	<result column="NOTICE_CONTENT" property="noticeContent"/>
+	<result column="ENROLL_DATE" property="enrollDate"/>
+	<result column="STATUS" property="status"/>
 	</resultMap>
 	
+	<resultMap id="qnaResultSet" type="Qna">
+		<id column="QNA_NO" property="qnaNo"/>
+		<result column="MEMBER_YN" property="memberYn"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="EMAIL" property="email"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="QNA_TITLE" property="qnaTitle"/>
+		<result column="QNA_CONTENT" property="qnaContent"/>
+		<result column="QNA_REPLY" property="qnaReply"/>
+		<result column="ORIGIN_NAME" property="originName"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+
 	<select id="selectListCount" resultType="_int">
 		select count(*)
 		  from notice
@@ -27,4 +41,10 @@
 		  from notice
 		 where notice_no=#{nno}
 	</select>
+	
+	<insert id="insertNonMemberInquiry" parameterType="Qna">
+		insert into qna
+		values(seq_qna.nextval, 'N', #{userName}, #{email}, #{userNo},
+		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, default) 
+	</insert>
 </mapper>

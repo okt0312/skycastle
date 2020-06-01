@@ -105,7 +105,7 @@
                                </c:forEach>
                             </tbody>
                         </table>
-             <script>
+            <script>
              function groupLiModal(){
    			 $('#groupLiModal').modal({
 		       
@@ -137,11 +137,11 @@
                     <form action="관리폼요청받아주는서버" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" value="${ g.groupTitle }"><br><br>
-                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" readonly="readonly"><br><br>
+                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle"><br><br>
+                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo"><br><br>
                             <div clss="slecet" >
-                               카테고리 &nbsp;&nbsp;
-                                <select >
+                             	  카테고리 &nbsp;&nbsp;
+                                <select id="groupCategory">
                                     <option value="1">대입</option>
                                     <option value="2">공무원임용</option>
                                     <option value="3">어학회화</option>
@@ -149,11 +149,11 @@
                                     <option value="5">기타</option>
                                 </select>
                            </div><br>
-                           <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                            <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" readonly="readonly"><br><br>
+                           <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" id="startDate"><br><br>
+                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" id="endDate"><br><br>
+                            <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" id="place"><br><br>
+                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" id="memberLimit"><br><br>
+                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" id="status" ><br><br>
                         </div>
                             
                         
@@ -167,7 +167,19 @@
                     </div>
                 </div>
             </div>
-                    
+           <!--모달 종료  --> 
+           <script>
+            	$("#dataTable tbody tr").click(function(){
+            		$("#groupTitle").val($(this).children().eq(2).text());
+            		$("#memberNo").val($(this).children().eq(5).text());
+            		$("#groupCategory").val($(this).children().eq(1).text());
+            		$("#startDate").val($(this).children().eq(7).text());
+            		$("#endDate").val($(this).children().eq(8).text());
+            		$("#place").val($(this).children().eq(3).text());
+            		$("#memberLimit").val($(this).children(6).eq(5).text());
+            		$("#status").val($(this).children().eq(9).text());
+            	});
+           	</script> 
                 </main>
                 </div>
                

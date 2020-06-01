@@ -22,6 +22,16 @@ public class QnaController {
 	@Autowired 
 	private QnaService qService;
 	
+	@RequestMapping("insertForm.cs")
+	public String insertNonMemberInquiryForm() {
+		return "cs/non-memberInquiry";
+	}
+	
+	@RequestMapping("meminsertForm.cs")
+	public String insertMemberInquiryForm() {
+		return "cs/memberInquiry";
+	}
+	
 	@RequestMapping("insert.cs")
 	public String insertNonMemberInquiry(Qna q, HttpServletRequest request, 
 			                             @RequestParam(name="uploadFile", required=false) MultipartFile file) {
@@ -39,6 +49,31 @@ public class QnaController {
 		if(result > 0) {
 		
 			return "redirect:insert.cs";
+			
+		}else {
+			
+			return "common/errorPage";
+		}
+	
+	}
+	
+	@RequestMapping("meminsert.cs")
+	public String insertMemberInquiry(Qna q, HttpServletRequest request, 
+			                             @RequestParam(name="uploadFile", required=false) MultipartFile file) {
+		if(!file.getOriginalFilename().equals("")) {
+		
+			String changeName = saveFile(file, request);
+			
+			q.setOriginName(file.getOriginalFilename());
+			q.setChangeName(changeName);
+			
+		}
+		
+		int result = qService.insertMemberInquiry(q);
+		
+		if(result > 0) {
+		
+			return "redirect:OneonOne.my";
 			
 		}else {
 			
