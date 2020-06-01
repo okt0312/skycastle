@@ -9,7 +9,7 @@
 </head>
 <style>
 /* div{border: 1px solid black} */
-#outer{"/Users/shinyoung/Desktop/파이널/2_6.문의하기(회원).html"
+#outer{
     margin:auto;
     margin-top: 50px;
     width: 700px;
@@ -128,7 +128,7 @@
 	            <tr>
 	                <td colspan="2">
 	                    <div class="inputContent">
-							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000" name="qnaContent"></textarea><br>
+							<textarea placeholder="내용을 입력해주세요." id="textContent" maxlength="4000" name="qnaContent"></textarea><br>
 	                    </div>
 	                </td>
 	            </tr>
