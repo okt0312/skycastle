@@ -64,7 +64,7 @@
 	    <c:forEach items="${ list }" var="g">
 		    <div class="grouplist">
 		        <div class="groupThumbnailArea">
-		            <img src="img/squaresize.PNG" alt="" class="" width="150px">
+		            <img src="img/${ g.thumbnail }" alt="" class="" width="150px">
 		        </div>
 		        <div class="groupTextArea">
 		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>
