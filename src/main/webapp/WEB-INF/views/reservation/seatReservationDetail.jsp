@@ -249,11 +249,7 @@
 <script>
 	$(function(){
 		
-		$("#date").change(function(){
-			$("#start").val('');
-			$("#end").val('');
-			$("#time").children().eq(0).prop('selected', true)
-		});
+		$("#date").val(new Date().toISOString().substring(0, 10));
 
 		$("#time").click(function(){
 			$("#start").val($(this).val());

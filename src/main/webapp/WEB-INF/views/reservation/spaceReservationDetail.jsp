@@ -164,7 +164,7 @@
                             <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;이용 공간 : <span>A부스</span>
                             <br><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date"  type="date" value="2020-05-22" min="2020-05-22" max="2020-07-31">
+                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date"  type="date" value="" min="" max="">
                             <br><br>
                             &nbsp;&nbsp; &nbsp;&nbsp;시작시간 : 
                             <select id="time" name="national">
@@ -248,6 +248,12 @@
 </body>
 <script>
 	$(function(){
+		
+		$("#date").val(new Date().toISOString().substring(0, 10));
+        $("#date").attr("min",new Date().toISOString().substring(0, 10));
+        var date = new Date();
+        date.setMonth(date.getMonth()+2);
+        $("#date").attr("max",date.toISOString().substring(0, 10));
 		
 		$("#date").change(function(){
 			$("#start").val('');
