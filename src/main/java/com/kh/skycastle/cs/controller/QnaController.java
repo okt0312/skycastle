@@ -47,6 +47,31 @@ public class QnaController {
 	
 	}
 	
+	@RequestMapping("meminsert.cs")
+	public String insertMemberInquiry(Qna q, HttpServletRequest request, 
+			                             @RequestParam(name="uploadFile", required=false) MultipartFile file) {
+		if(!file.getOriginalFilename().equals("")) {
+		
+			String changeName = saveFile(file, request);
+			
+			q.setOriginName(file.getOriginalFilename());
+			q.setChangeName(changeName);
+			
+		}
+		
+		int result = qService.insertMemberInquiry(q);
+		
+		if(result > 0) {
+		
+			return "redirect:OneonOne.my";
+			
+		}else {
+			
+			return "common/errorPage";
+		}
+	
+	}
+	
 	public String saveFile(MultipartFile file, HttpServletRequest request) {
 		
 		String resources = request.getSession().getServletContext().getRealPath("resources");
