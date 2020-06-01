@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdGroupsService;
-import com.kh.skycastle.group.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.member.model.vo.Member;
 
 //소모임(소모임조회, 개설관리, 소모임게시글관리) 페이지 관련 컨트롤러 입니다
