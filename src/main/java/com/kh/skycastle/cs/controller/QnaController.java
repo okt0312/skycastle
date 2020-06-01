@@ -44,11 +44,13 @@ public class QnaController {
 			
 		}
 		
+		System.out.println(q);
+		
 		int result = qService.insertNonMemberInquiry(q);
 		
 		if(result > 0) {
 		
-			return "redirect:insert.cs";
+			return "redirect:/";
 			
 		}else {
 			

@@ -1,0 +1,58 @@
+Member
+---------------
+userNo:int
+userId:String
+userPwd:String
+userName:String
+birthday:String
+phone:String
+enrollDate:Date
+modifyDate:Date
+blacklist:String
+status:String
+dropDate:Date
+lastYearUsage:int
+thisYearUsage:int
+gradeCode:int
+redcard:int
+
++Member()
++Member(all fields)
++getter()
++setter()
++toString
+
+MemberController
+----------------
+-mService:MemberService
+-bcryptPasswordEncoder:BCryptPasswordEncoder
+
+loginMember():Member(Member, ModelAndView, HttpSession):String
+logoutMember(HttpSession):String
+insertMember(Member, Model, HttpSession):String
+updateMember(Member, Model, HttpSession):String
+deleteMember(String, Model, HttpSession):String
+searchPwd(String):String
+* enrollForm():String (회원가입폼)
+* myPage():String (마이페이지)
+
+
+MemberService(MemberServiceImpl)
+-----------------
+-mDao:MemberDao
+
+loginMember(Member):Member
+insertMember(Member):int
+updateMmember(Member):int
+deleteMember(String):int
+searchPwd(String):String
+
+MemberDao
+-----------------
+loginMember(Member):Member
+insertMember(Member):int
+updateMember(Member):int
+deleteMember(String):int
+searchPwd(String):Member
+
+
