@@ -1,9 +1,13 @@
 package com.kh.skycastle.myPage.model.service;
 
+import java.util.ArrayList;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.dao.MypageDao;
 
@@ -56,6 +60,8 @@ public class MypageServiceImpl implements MypageService {
 		
 		return pDao.updatePwd(sqlSession, m);
 	}
+
+
 
 
 	
