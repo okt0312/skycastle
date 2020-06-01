@@ -18,7 +18,8 @@ public class GroupController {
 	
 	@Autowired
 	private GroupService gService;
-
+	
+/*
 	@RequestMapping("groupList.gr")
 	public String selectGroupList(int currentPage, Model model) {
 		
@@ -33,7 +34,7 @@ public class GroupController {
 		
 		return "groups/groupListView";
 	}
-	
+	*/
 	
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, ModelAndView mv) {
