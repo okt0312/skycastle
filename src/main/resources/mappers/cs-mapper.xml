@@ -22,4 +22,9 @@
 		 order by notice_no asc
 	</select>
 	
+	<select id="selectNotice" parameterType="_int" resultMap="noticeResultSet">
+		select *
+		  from notice
+		 where notice_no=#{nno}
+	</select>
 </mapper>
