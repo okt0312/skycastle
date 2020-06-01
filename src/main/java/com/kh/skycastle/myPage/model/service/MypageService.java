@@ -21,11 +21,8 @@ public interface MypageService {
 	// 5. 비밀번호 변경 
 	int updatePwd(Member m);
 	
-	// 6. 쿠폰 리스트 조회용 
-	// 1_1. 게시판 총갯수 조회용 서비스 
-	int selectListCount();
-	// 1_2. 요청한 페이지에 보여질 게시글 리스트 조회용 서비스 
-	ArrayList<Coupon> selectList(PageInfo pi);
+	
+	
 	
 	
 	
