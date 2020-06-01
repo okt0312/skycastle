@@ -61,7 +61,12 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>개설신청번호</th>
+                                    <th>
+                                    	<div>
+                   							<label><input class="checkbox " type="checkbox" name="grCoCheck"  style="vertical-align: middle; transform: scale(1.4);"></label>
+                  						</div>
+                                    </th>
+                                    <th>소모임번호</th>
                                     <th>소모임명</th>
                                     <th>소제목</th>
                                     <th>카테고리</th>
@@ -72,25 +77,26 @@
                                     <th>상태</th>
                                 </tr>
                             </thead>
-                            <!-- <tbody>
+                            <tbody>
                                <c:forEach var="g" items="${ list }">
-                               	<tr  onclick="groupLiModal( ${ g.groupNo });">
-                                     <td>
-                                    	<div class="" >
-                   							 <label><input class="checkbox " type="checkbox" name="uNo" value="1" style="vertical-align: middle; transform: scale(1.4);"></label>
-                  						</div></td>
-                                    <td>${ g.groupCategory }</td>
+                               	<tr>
+                                    <td>
+                                    	<div>
+                   							<label><input class="checkbox " type="checkbox" name="grCoCheck" value="${g.groupNo }" style="vertical-align: middle; transform: scale(1.4);"></label>
+                  						</div>
+               						</td>
+               						<td>${ g.groupNo }</td>
                                     <td>${ g.groupTitle }</td>
-                                    <td>${ g.place }</td>
-                                    <td>${ g.gradeLimit }</td>
-                                    <td>${ g.leaderNo }</td>
-                                    <td>${ g.memberLimit }</td>
+                                    <td>${ g.groupSubtitle }</td>
+                                    <td>${ g.groupCategory }</td>
                                     <td>${ g.startDate }</td>
                                     <td>${ g.endDate }</td>
+                                    <td>${ g.place }</td>
+                                    <td>${ g.memberLimit }</td>
                                     <td>${ g.status }</td>
                                 </tr>
                                </c:forEach>
-                            </tbody> -->
+                            </tbody> 
                         </table>
                                     <div><button id="tbBtn" class="btn btn-primary">승인</button><button id="tbBtn2" class="btn btn-danger">거절</button></div>
                                 </div>
