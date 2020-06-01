@@ -43,9 +43,35 @@
 	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
 		SELECT *
 		  FROM GROUPS
-		 WHERE GROUPS_NO=#{gno}
+		 WHERE GROUPS_NO=#{groupNo}
 	</select>
 	
+	
+	
+	
+	<select id="selectGroupU" parameterType="_int" resultMap="groupResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{groupNo} AND STATUS='U'
+	</select>
+	
+	<select id="selectGroupY" parameterType="_int" resultMap="groupResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{groupNo} AND STATUS='Y'
+	</select>
+	
+	<select id="selectGroupA" parameterType="_int" resultMap="groupResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{groupNo} AND STATUS='A'
+	</select>
+	
+	<select id="selectGroupN" parameterType="_int" resultMap="groupResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{groupNo} AND STATUS='N'
+	</select>
 	
 	
 	

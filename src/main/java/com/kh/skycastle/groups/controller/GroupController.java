@@ -19,7 +19,6 @@ public class GroupController {
 	@Autowired
 	private GroupService gService;
 	
-/*
 	@RequestMapping("groupList.gr")
 	public String selectGroupList(int currentPage, Model model) {
 		
@@ -27,14 +26,13 @@ public class GroupController {
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		ArrayList<Groups> list = gService.selectGroupList(pi);
-		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
+//		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		
 		return "groups/groupListView";
 	}
-	*/
 	
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, ModelAndView mv) {

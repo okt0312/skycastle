@@ -26,7 +26,7 @@ public class GroupDao {
 	}
 	/*
 	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
-		// rowbounds 생성하기 위해서 offset만들기
+		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
@@ -37,4 +37,5 @@ public class GroupDao {
 	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
 		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
 	}
+
 }

@@ -49,9 +49,11 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectGroup(sqlSession, gno);
 	}
 
+	
 	@Override
 	public int deleteGroup(int gno) {
 		return 0;
 	}
+
 
 }
