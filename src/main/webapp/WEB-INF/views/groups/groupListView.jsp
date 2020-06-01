@@ -45,33 +45,20 @@
 	    <br><hr><br>
 	
 	    <div align="center">
-	        <form action="" method="POST" style="margin:0 auto">
-	            <select>
-	                <option value="title" selected>모임명</option>
-	                <option value="content">내용</option>
-	            </select>
-	            <input type="text" name="search">
+	        <form action="" method="Get" style="margin:0 auto">
+	        	<div class="select">
+		            <select name="condition">
+		                <option value="groupTitle" selected>모임명</option>
+		                <option value="groupContent">소제목</option>
+		            </select>
+		        </div>
+		        <div class="text">
+	            	<input type="text" name="search">
+	            </div>
 	            <button type="submit">검색</button>
 	        </form>
 	    </div>
 	    <br><br><br><br><br><br>
-	    
-	    <!-- 수업때 쓴 검색 폼 -->
-		<form id="searchForm" action="" method="Get" align="center">
-			<div class="select">
-				<select class="custom-select" name="condition">
-					<option value="writer">작성자</option>
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-				</select>
-			</div>
-			<div class="text">
-				<input type="text" class="form-control" name="keyword">
-			</div>
-			<button type="submit" class="searchBtn btn btn-secondary">검색</button>
-		</form>
-	    
-	    
 	    
 	    
 	    <c:forEach items="${ list }" var="g">
@@ -115,8 +102,8 @@
 	    
 		<script>
 			$(function(){
-				$("#boardList tbody tr").click(function(){
-					location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
+				$(".grouplist").click(function(){
+					location.href = "groupDetail.gr?gno=" + $(this).children().eq(0).text();
 				});
 			});
 		</script>
