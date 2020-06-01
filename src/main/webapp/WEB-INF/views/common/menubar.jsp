@@ -111,7 +111,7 @@
                         <li><a href="">오시는 길</a></li>
                     </ul>
                 </li>
-                <li><a href="">좌석 예약</a></li>
+                <li><a href="seatMain.re">좌석 예약</a></li>
                 <li><a href="">공간 예약</a></li>
                 <li><a href="groupList.gr">소모임</a></li>
                 <li><a href="">고객센터</a>
