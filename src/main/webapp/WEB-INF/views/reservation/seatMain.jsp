@@ -72,7 +72,6 @@
 			margin-top:4px;
 			line-height:10px;
 		}
-		
 	</style>
     <div class="content">
         <div class="content_1">
