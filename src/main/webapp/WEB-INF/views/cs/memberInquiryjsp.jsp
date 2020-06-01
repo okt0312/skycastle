@@ -115,44 +115,47 @@
                 쉽고, 빠르게 해결해 드리겠습니다.
             </p>                                                                                                    
         </div>
-        <table id="noticeTable">
-            <tr>
-                <td>
-                    <select name="questionType" id="category">
-                        <option value="" selected>-- Question Type --</option>
-                        <option value="contactUs">이용문의</option>
-                        <option value="consumption">소모임문의</option>
-                        <option value="suggestions">건의사항</option>
-                        <option value="etc">기타문의</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2">
-                    <input type="text" id="question" placeholder="제목을 입력해주세요">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="inputContent">
-						<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
-                    </div>
-                </td>
-            </tr>
-            <tr> 
-                <td colspan="2">
-                    <div class="attach">
-                        <label>첨부파일 | </label>
-                        <input type="file" name="uploadFile">
-                    </div>
-                </td>
-            </tr>
-        </table><br>
-
-        <div class="btns">
-            <button id="enrollBtn">등록</button>
-        </div>
+        
+        <form id="enrollForm" method="post" action="meminsert.cs" enctype="multipart/form-data"> 
+	        <table id="noticeTable">
+	            <tr>
+	                <td>
+	                    <select name="questionType" id="category">
+	                        <option value="" selected>-- Question Type --</option>
+	                        <option value="contactUs">이용문의</option>
+	                        <option value="consumption">소모임문의</option>
+	                        <option value="suggestions">건의사항</option>
+	                        <option value="etc">기타문의</option>
+	                    </select>
+	                </td>
+	            </tr>
+	
+	            <tr>
+	                <td colspan="2">
+	                    <input type="text" id="question" placeholder="제목을 입력해주세요">
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="2">
+	                    <div class="inputContent">
+							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
+	                    </div>
+	                </td>
+	            </tr>
+	            <tr> 
+	                <td colspan="2">
+	                    <div class="attach">
+	                        <label>첨부파일 | </label>
+	                        <input type="file" name="uploadFile">
+	                    </div>
+	                </td>
+	            </tr>
+	        </table><br>
+		
+	        <div class="btns">
+	            <button type="submit" id="enrollBtn">등록</button>
+	        </div>
+		</form>        
     </div>
     
     <jsp:include page="../common/footer.jsp"/>

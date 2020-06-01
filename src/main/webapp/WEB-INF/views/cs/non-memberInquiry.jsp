@@ -108,41 +108,44 @@
                 쉽고, 빠르게 해결해 드리겠습니다.
             </p>                                                                                                    
         </div>
-        <table id="noticeTable">
-            <tr>
-                <td width=60>* 이름</td>
-                <td><input type="text" class="infoTitle"></td>
-            </tr>
-            <tr>
-                <td width=60>* 이메일</td>
-                <td><input type="email" class="infoTitle"></td>
-            </tr>
+        
+        <form id="enrollForm" method="post" action="insert.cs" enctype="multipart/form-data">
+	        <table id="noticeTable">
+	            <tr>
+	                <td width=60>* 이름</td>
+	                <td><input type="text" class="infoTitle"></td>
+	            </tr>
+	            <tr>
+	                <td width=60>* 이메일</td>
+	                <td><input type="email" class="infoTitle"></td>
+	            </tr>
+	
+	            <tr>
+	                <td colspan="2">
+	                    <input type="text" id="question" placeholder="제목을 입력해주세요">
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="2">
+	                    <div class="inputContent">
+							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
+	                    </div>
+	                </td>
+	            </tr>
+	            <tr> 
+	                <td colspan="2">
+	                    <div class="attach">
+	                        <label>첨부파일 | </label>
+	                        <input type="file" name="uploadFile">
+	                    </div>
+	                </td>
+	            </tr>
+	        </table><br>
 
-            <tr>
-                <td colspan="2">
-                    <input type="text" id="question" placeholder="제목을 입력해주세요">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="inputContent">
-						<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
-                    </div>
-                </td>
-            </tr>
-            <tr> 
-                <td colspan="2">
-                    <div class="attach">
-                        <label>첨부파일 | </label>
-                        <input type="file" name="uploadFile">
-                    </div>
-                </td>
-            </tr>
-        </table><br>
-
-        <div class="btns">
-            <button id="enrollBtn">등록</button>
-        </div>
+	        <div class="btns">
+	            <button type="submit" id="enrollBtn">등록</button>
+	        </div>
+        </form>
     </div>
     
     <jsp:include page="../common/footer.jsp"/>
