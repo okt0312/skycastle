@@ -118,7 +118,16 @@
                     <ul class="submenu">
                         <li><a href="list.cs?currentPage=1">공지사항</a></li>
                         <li><a href="faq.cs">FAQ</a></li>
-                        <li><a href="">1:1문의</a></li>
+                        
+               <c:choose>
+               		<c:when test="${ empty loginUser }">         
+                        <li><a href="insert.cs">1:1문의</a></li>
+               		</c:when>
+					<c:otherwise>                
+                        <li><a href="meminsert.cs">1:1문의</a></li>
+               		</c:otherwise>         
+               </c:choose>           
+                          
                     </ul>
 
                 </li>
