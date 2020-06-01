@@ -19,6 +19,16 @@
 		<result column="REDCARD" property="redCard"/>
 		<result column="LEAVE_REASON" property="leaveReason"/>
 	</resultMap>
+	
+	<resultMap type="Coupon" id="couponResultSet">
+		<id column="COUPON_CODE" property="couponCode"></id>
+		 <result column="COUPON_NAME" property="couponName"/>
+		 <result column="START_DATE" property="startDate"/>
+		 <result column="EXPIRATION_PERIOD" property="expirationPeriod"/>
+		 <result column="DISCOUNT_RATE" property="discountRate"/>
+	</resultMap>
+	
+	
 
 	<select id="loginUser" resultMap="memberResultSet" parameterType="Member">
  	   	SELECT * 
@@ -67,6 +77,20 @@
 		
 	</update>
 	
+	<select id="selectListCount" resultType="_int">
+	
+		SELECT COUPON(*)
+		 FROM COUPON
+		
+		 
+		 
+	</select>	
+	
+	<select id="selectList" resultMap="couponResultSet">
+		SELECT *
+		 FROM COUPON
+		 ORDER BY COUPON_CODE DESC 
+	</select>
 	
 	
 </mapper>

@@ -150,7 +150,7 @@
 			<center>
 				<div class="enrollBtn">
 					<!-- 취소 시 메인으로 이동 -->
-					<span><button type="button" id="preBtn" class="btnsmb">취소</button></span> 
+					<span><button type="button" id="preBtn" class="btnsmb" onclick="javascript:history.go(-1);">취소</button></span> 
 					<span><button type="submit" id="nextBtn" class="btnsmb">확인</button></span>
 				</div>
 			</center>
@@ -159,13 +159,13 @@
 		</div>
 	</div>
 	
-	<script>
+	<!-- <script>
 		$(function(){
 			
 			$("#preBtn").click(function(){
 				location.href = "${pageContext.servletContext.contextPath}";
 			})
-		});		
+		});		 -->
 	</script>
 </body>
 
