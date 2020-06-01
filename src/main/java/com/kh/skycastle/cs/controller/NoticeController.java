@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
@@ -36,5 +37,16 @@ public class NoticeController {
 		model.addAttribute("list", list);
 		
 		return "cs/noticeListView";
+	}
+	
+	@RequestMapping("detail.cs")
+	public ModelAndView selectNotice(int nno, ModelAndView mv) {
+		
+		Notice n = nService.selectNotice(nno);
+		mv.addObject("n", n);
+		mv.setViewName("cs/noticeDetailView");
+		
+		return mv;
+		
 	}
 }

@@ -31,7 +31,7 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public Notice selectNotice(int nno) {
-		return null;
+		return nDao.selectNotice(sqlSession, nno);
 	}
 
 }
