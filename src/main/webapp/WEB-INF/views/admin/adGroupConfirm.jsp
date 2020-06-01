@@ -8,7 +8,35 @@
 <title>소모임 개설 관리</title>
 
 	<style>
-   
+   /* 관리버튼 - 승인 css*/
+        #tbBtn{
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background: #fdce07;
+            color: #000000;
+            border: 0;
+      		  }
+        
+        /* 관리버튼 - 거절 */
+        #tbBtn2{
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background: #333333;
+            color: white;
+            border: 0;
+        }
         
           #selectBox
        {
@@ -90,7 +118,7 @@
                                </c:forEach>
                             </tbody>
                         </table>
-                                    <div><button id="tbBtn" class="btn btn-primary">승인</button><button id="tbBtn2" class="btn btn-danger">거절</button></div>
+                                    <div><button id="tbBtn">승인</button><button id="tbBtn2">거절</button></div>
                                 </div>
                             </div>
                         </div>
