@@ -162,7 +162,7 @@
                         </div>
                         <div>
                             <br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>13번</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seatNo}</span>번
                             <br><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" value="2020-05-22" min="2020-05-22" max="2020-07-31">
                             <br><br>

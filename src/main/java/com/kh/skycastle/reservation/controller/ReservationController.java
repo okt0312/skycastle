@@ -2,6 +2,7 @@ package com.kh.skycastle.reservation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,11 +20,18 @@ public class ReservationController {
 	public String seatMain(){	
 		return "reservation/seatMain";
 	}
+
+	@RequestMapping("seatRdetail.re")
+	public String seatRdetail(int seatNo,Model model){
+		model.addAttribute("seatNo",seatNo);
+		return "reservation/seatReservationDetail";
+	}
 	
 	@RequestMapping("seatPayDetail.re")
 	public String seatPayDetail(){
 		return "reservation/seatPayDetail";
 	}
+	
 	
 
 	@ResponseBody
