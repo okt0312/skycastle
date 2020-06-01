@@ -40,9 +40,9 @@
 	
 	<select id="selectGroupList" resultMap="groupResultSet">
 		SELECT *
-		FROM GROUP_NOTICE
+		FROM GROUPS
 		WHERE STATUS='Y'
-		ORDER BY GNOTICE_NO DESC
+		ORDER BY START_DATE DESC
 	</select>
 
 	<select id="selectGroupNoticeList" resultMap="groupNoticeResultSet">
