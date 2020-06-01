@@ -13,5 +13,8 @@ public interface AdMemberService {
 	// 관리페이지 회원 탈퇴
 	int deleteMember(int userNo);
 	
+	// 관리페이지 회원 수정
+	int updateMember(Member m);
+	
 	ArrayList<Grade> selectGrade();
 }

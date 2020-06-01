@@ -57,6 +57,20 @@ public class AdMemberController {
 		}
 	}
 	
+	@RequestMapping(value = "updateMember.ad", produces = "text/html; charset=utf-8")
+	public ModelAndView updateMember(Member m, ModelAndView mv)
+	{	System.out.println(m);
+		int result = admService.updateMember(m);
+		
+		System.out.println(result);
+		if(result > 0)
+		{
+//			model.addAttribute("msg", "회원정보 수정 완료");
+			mv.addObject("msg", "회원정보 수정 완료").setViewName("redirect:memberList.ad");
+		}
+		return mv;
+	}
+	
 	@RequestMapping("gradeMgmt.ad")
 	public ModelAndView adGradeMgmtForm(ModelAndView mv)
 	{

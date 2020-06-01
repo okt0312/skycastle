@@ -43,4 +43,15 @@
 		   SET STATUS = 'N', LEAVE_REASON = '관리자 권한 탈퇴처리'
 		 WHERE USER_NO = #{userNo} 
 	</update>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE MEMBER
+	       SET USER_NAME = #{userName},
+               GRADE_CODE = (SELECT GRADE_CODE
+		 					 FROM GRADE
+		 					 WHERE GRADE_NAME = #{gradeName}),
+               BIRTHDAY = #{birthday},
+               PHONE = #{phone}
+		 WHERE USER_ID = #{userId}
+	</update>
 </mapper>

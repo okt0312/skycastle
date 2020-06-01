@@ -40,6 +40,14 @@
 </style>
 </head>
 <body>
+
+	<c:if test="${ !empty msg }">
+		<script>
+			alertify.alert("${msg}");
+		</script>
+		<c:remove var="msg" scope="session"/>
+	</c:if>
+	
 	<div id="layoutSidenav">
 		<jsp:include page="common/adminSidebar.jsp"/>
 		 <div id="layoutSidenav_content">
@@ -157,19 +165,19 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form action="관리폼요청받아주는서버" method="post" class="form-horizontal">
+                    <form action="updateMember.ad" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <label for="userId" class="mr-sm-2">아이디 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userId" name="userId" readonly> <br>
                             <label for="userName" class="mr-sm-2">이름 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="userName"><br>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="userName" name="userName"><br>
                             <label for="userGrade" class="mr-sm-2">등급 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="userGrade"> <br>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeName" name="gradeName"> <br>
                             <label for="birth" class="mr-sm-2">생년월일 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="birth"><br>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="birthday" name="birthday"><br>
                             <label for="phone" class="mr-sm-2">핸드폰 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="phone">  
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="phone" name="phone">  
                         </div>
                         <div class="model-button" style="padding: 10px;">
                             	임시 비밀번호 발급
@@ -179,7 +187,7 @@
                         
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">수정</button>
+                        <button id="update_member_btn" type="submit" class="btn btn-primary">수정</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
                     </div>
                     </form>
@@ -190,10 +198,11 @@
             	$("#dataTable tbody tr td #tbBtn1").click(function(){
             		$("#userId").val($(this).parent("td").parent("tr").children().eq(3).text());
             		$("#userName").val($(this).parent("td").parent("tr").children().eq(1).text());
-            		$("#userGrade").val($(this).parent("td").parent("tr").children().eq(6).text());
-            		$("#birth").val($(this).parent("td").parent("tr").children().eq(4).text());
+            		$("#gradeName").val($(this).parent("td").parent("tr").children().eq(6).text());
+            		$("#birthday").val($(this).parent("td").parent("tr").children().eq(4).text());
             		$("#phone").val($(this).parent("td").parent("tr").children().eq(5).text());
             	});
+            	
            	</script>
 
             <!-- 공간 클릭 시 뜨는 모달 (내역만 조회한다고해서 수정폼은 안넣음) -->

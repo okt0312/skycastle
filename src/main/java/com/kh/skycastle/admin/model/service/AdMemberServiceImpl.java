@@ -13,8 +13,6 @@ import com.kh.skycastle.member.model.vo.Member;
 @Service("admService")
 public class AdMemberServiceImpl implements AdMemberService{
 
-
-	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
@@ -36,6 +34,11 @@ public class AdMemberServiceImpl implements AdMemberService{
 	public ArrayList<Grade> selectGrade() {
 				
 		return admDao.selectGrade(sqlSession);
+	}
+
+	@Override
+	public int updateMember(Member m) {
+		return admDao.updateMember(sqlSession, m);
 	}
 
 
