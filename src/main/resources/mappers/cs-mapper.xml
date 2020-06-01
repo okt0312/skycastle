@@ -10,10 +10,16 @@
 	</resultMap>
 	
 	<resultMap id="qnaResultSet" type="Qna">
-		<id column="NOTICE_NO" property="noticeNo"/>
-		<result column="NOTICE_TITLE" property="noticeTitle"/>
-		<result column="NOTICE_CONTENT" property="noticeContent"/>
-		<result column="ENROLL_DATE" property="enrollDate"/>
+		<id column="QNA_NO" property="qnaNo"/>
+		<result column="MEMBER_YN" property="memberYn"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="EMAIL" property="email"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="QNA_TITLE" property="qnaTitle"/>
+		<result column="QNA_CONTENT" property="qnaContent"/>
+		<result column="QNA_REPLY" property="qnaReply"/>
+		<result column="ORIGIN_NAME" property="originName"/>
+		<result column="CHANGE_NAME" property="changeName"/>
 		<result column="STATUS" property="status"/>
 	</resultMap>
 
@@ -35,4 +41,10 @@
 		  from notice
 		 where notice_no=#{nno}
 	</select>
+	
+	<insert id="insertNonMemberInquiry" parameterType="Qna">
+		insert into qna
+		values(seq_qna.nextval, 'N', #{userName}, #{email}, #{userNo},
+		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, default) 
+	</insert>
 </mapper>
