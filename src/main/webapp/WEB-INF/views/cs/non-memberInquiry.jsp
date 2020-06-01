@@ -113,22 +113,22 @@
 	        <table id="noticeTable">
 	            <tr>
 	                <td width=60>* 이름</td>
-	                <td><input type="text" class="infoTitle"></td>
+	                <td><input type="text" class="infoTitle" name="userName"></td>
 	            </tr>
 	            <tr>
 	                <td width=60>* 이메일</td>
-	                <td><input type="email" class="infoTitle"></td>
+	                <td><input type="email" class="infoTitle" name="email"></td>
 	            </tr>
 	
 	            <tr>
 	                <td colspan="2">
-	                    <input type="text" id="question" placeholder="제목을 입력해주세요">
+	                    <input type="text" id="question" placeholder="제목을 입력해주세요" name="qnaTitle">
 	                </td>
 	            </tr>
 	            <tr>
 	                <td colspan="2">
 	                    <div class="inputContent">
-							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
+							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000" name="qnaContent"></textarea><br>
 	                    </div>
 	                </td>
 	            </tr>

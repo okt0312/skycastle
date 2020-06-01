@@ -22,6 +22,16 @@ public class QnaController {
 	@Autowired 
 	private QnaService qService;
 	
+	@RequestMapping("insertForm.cs")
+	public String insertNonMemberInquiryForm() {
+		return "cs/non-memberInquiry";
+	}
+	
+	@RequestMapping("meminsertForm.cs")
+	public String insertMemberInquiryForm() {
+		return "cs/memberInquiry";
+	}
+	
 	@RequestMapping("insert.cs")
 	public String insertNonMemberInquiry(Qna q, HttpServletRequest request, 
 			                             @RequestParam(name="uploadFile", required=false) MultipartFile file) {

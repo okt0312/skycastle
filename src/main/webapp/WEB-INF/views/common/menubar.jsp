@@ -121,10 +121,10 @@
                         
                <c:choose>
                		<c:when test="${ empty loginUser }">         
-                        <li><a href="insert.cs">1:1문의</a></li>
+                        <li><a href="insertForm.cs">1:1문의</a></li>
                		</c:when>
 					<c:otherwise>                
-                        <li><a href="meminsert.cs">1:1문의</a></li>
+                        <li><a href="meminsertForm.cs">1:1문의</a></li>
                		</c:otherwise>         
                </c:choose>           
                           
