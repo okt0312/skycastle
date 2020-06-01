@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReservationController {
 	
 	@RequestMapping("seatMain.re")
-	public String seatMain(){
+	public String seatMain(){	
 		return "reservation/seatMain";
 	}
 	
