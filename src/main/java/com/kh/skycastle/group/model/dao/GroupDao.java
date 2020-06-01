@@ -13,7 +13,7 @@ import com.kh.skycastle.group.model.vo.Groups;
 public class GroupDao {
 	
 	public int selectGroupListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("boardMapper.selectGroupListCount");
+		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
 	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi){
@@ -22,7 +22,7 @@ public class GroupDao {
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("boardMapper.selectGroupList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
 	}
 
 }

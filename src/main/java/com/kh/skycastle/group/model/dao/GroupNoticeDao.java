@@ -13,7 +13,7 @@ import com.kh.skycastle.group.model.vo.GroupNotice;
 public class GroupNoticeDao {
 	
 	public int selectGroupNoticeListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("boardMapper.selectGroupNoticeListCount");
+		return sqlSession.selectOne("groupsMapper.selectGroupNoticeListCount");
 	}
 	
 	public ArrayList<GroupNotice> selectGroupNoticeList(SqlSessionTemplate sqlSession, PageInfo pi){
@@ -22,7 +22,7 @@ public class GroupNoticeDao {
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("boardMapper.selectGroupNoticeList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupNoticeList", null, rowBounds);
 	}
 	
 	
