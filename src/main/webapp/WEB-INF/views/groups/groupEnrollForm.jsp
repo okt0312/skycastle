@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>groupApply</title>
+    <title>groupEnrollForm</title>
     <style>
         .inner{
             width: 100%;
