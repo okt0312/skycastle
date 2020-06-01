@@ -25,9 +25,9 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	@Override
 	public ArrayList<Groups> selectGroups() {
 		
-		ArrayList<Groups> list = adGrDao.selectGroups(sqlSession);
+		return  adGrDao.selectGroups(sqlSession);
 				
-				return list;
+				
 	}
 	
 	//소모임 조회페이지  선택
