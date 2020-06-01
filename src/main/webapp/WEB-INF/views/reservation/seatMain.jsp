@@ -53,6 +53,7 @@
 		.Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
 		.Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
 		.Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
+		.Style_10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
 	</style>
 	
 	<style>
@@ -85,7 +86,7 @@
 	        <div id="dateState">
 	            <table style="width:100%">
 	                <tr>
-	                    <th style="width: 47%; text-align: left;">&nbsp;&nbsp;&nbsp; 2020.05.20</th>
+	                    <th style="width: 47%; text-align: left;">&nbsp;&nbsp;&nbsp;${}</th>
 	                    <th style="width: 53%; text-align:left;">전체 좌석 현황</th>
 	                </tr>
 	            </table>
@@ -99,14 +100,16 @@
 						<tr>
 						  <th>전체좌석</th>
 						  <th>사용좌석</th>
-						  <th>이용좌석</th>
+						  <th>이용가능좌석</th>
+						  <th>수리중</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 						  <td>100</td>
 						  <td>50</td>
-						  <td>50</td>
+						  <td>47</td>
+						  <td>3</td>
 						</tr>
 					</tbody>
 				</table>
@@ -814,10 +817,13 @@
 				            <!-- Todo : 남녀구분할 경우 처리 -->
 				            <table cellpadding="2" style="width:100px; border-color:black">
 					            <tr style="height:15px">
-									<td style="width:100px;text-align: center; font-size:12px" class='Style_1'>이용가능</td>
+									<td style="width:100px;text-align: center; font-size:12px" class='Style_1'>사용중</td>
 								</tr>
 								<tr style="height:15px">
-									<td style="width:100px;text-align: center; font-size:12px" class='Style_9'>이용불가</td>
+									<td style="width:100px;text-align: center; font-size:12px" class='Style_9'>이용가능</td>
+								</tr>
+								<tr style="height:15px">
+									<td style="width:100px;text-align: center; font-size:12px" class='Style_10'>수리중</td>
 								</tr>
 				            </table>
 			            </center>
@@ -828,5 +834,12 @@
         </div>
     </div>
     <jsp:include page="../common/footer.jsp"/>
+    
+    <script>
+    	$(function(){
+    		day = new Date();
+    		
+    	});
+    </script>
 </body>
 </html>

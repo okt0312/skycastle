@@ -15,6 +15,7 @@
 		.content{
 		    max-width: 1700px;
 		    margin:auto;
+		    margin-bottom:200px;
 		}
 		
 		.content_1{
@@ -788,7 +789,7 @@
 	            	</table>
 				</div>
 			</div>
-     
+     		<br><br><br>
        
 			<center>
             	<div id="payD">
