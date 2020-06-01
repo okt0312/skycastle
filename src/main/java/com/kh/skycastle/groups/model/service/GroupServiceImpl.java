@@ -40,7 +40,7 @@ public class GroupServiceImpl implements GroupService {
 
 	@Override
 	public Groups selectGroup(int gno) {
-		return null;
+		return gDao.selectGroup(sqlSession, gno);
 	}
 
 	@Override

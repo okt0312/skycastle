@@ -16,14 +16,6 @@
 		<result column="END_DATE" property="endDate"/>
 	</resultMap>
 
-	<resultMap id="groupNoticeResultSet" type="GroupNotice">
-		<id column="GNOTICE_NO" property="gnoticeNo"/>
-		<result column="GROUP_NO" property="groupNo"/>
-		<result column="GNOTICE_TITLE" property="gnoticeTitle"/>
-		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
-		<result column="ENROLL_DATE" property="enrollDate"/>
-		<result column="STATUS" property="status"/>
-	</resultMap>
 
 
 	<select id="selectGroupListCount" resultType="_int">
@@ -32,18 +24,38 @@
 		WHERE STATUS='Y'
 	</select>
 
-	<select id="selectGroupNoticeListCount" resultType="_int">
-		SELECT COUNT(*)
-		FROM GROUP_NOTICE
-		WHERE STATUS='Y'
-	</select>
-	
 	<select id="selectGroupList" resultMap="groupResultSet">
 		SELECT *
 		FROM GROUPS
 		WHERE STATUS='Y'
 		ORDER BY START_DATE DESC
 	</select>
+	
+	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
+		SELECT *
+		  FROM GROUPS
+		 WHERE GROUPS_NO=#{gno}
+	</select>
+	
+	
+	
+	
+	
+	<resultMap id="groupNoticeResultSet" type="GroupNotice">
+		<id column="GNOTICE_NO" property="gnoticeNo"/>
+		<result column="GROUP_NO" property="groupNo"/>
+		<result column="GNOTICE_TITLE" property="gnoticeTitle"/>
+		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	<select id="selectGroupNoticeListCount" resultType="_int">
+		SELECT COUNT(*)
+		FROM GROUP_NOTICE
+		WHERE STATUS='Y'
+	</select>
+	
 
 	<select id="selectGroupNoticeList" resultMap="groupNoticeResultSet">
 		SELECT *
@@ -51,6 +63,9 @@
 		WHERE STATUS='Y'
 		ORDER BY GNOTICE_NO DESC
 	</select>
+	
+	
+
 	
 	
 	

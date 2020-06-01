@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
@@ -31,6 +32,26 @@ public class GroupController {
 		model.addAttribute("list", list);
 		
 		return "groups/groupListView";
+	}
+	
+	
+	@RequestMapping("groupDetail.gr")
+	public ModelAndView selectGroup(int gno, ModelAndView mv) {
+		
+		int result = gService.increaseCount(gno);
+		
+		if(result > 0) {// 제대로 찾은 경우
+			
+			Groups g = gService.selectGroup(gno);
+			mv.addObject("g", g);
+			mv.setViewName("groups/groupDetail");
+			
+		}else {// 게시글 상세 조회 실패. 제대로 찾지 못함
+			
+			mv.addObject("msg", "소모임 상세조회 실패");
+			mv.setViewName("common/errorPage");
+		}
+		return mv;
 	}
 	
 	

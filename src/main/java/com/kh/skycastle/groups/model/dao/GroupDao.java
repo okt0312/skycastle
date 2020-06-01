@@ -24,5 +24,8 @@ public class GroupDao {
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
 	}
-
+	
+	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
+		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
+	}
 }
