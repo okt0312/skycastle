@@ -52,13 +52,13 @@
 	<style type="text/css">
 		.Style1 {border: 1px; border-style:solid; color: white;background-color:#fdce07;font-weight:bold;}
 		.Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
-		.Style1 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
+		.Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
 		.Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
 		.Style_10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
 	</style>
 	
 	<style>
-		#seatTable td:hover{
+		#seatTable .Style9:hover,.Style1:hover{
 		    cursor: pointer;
 		}
 	</style>
@@ -860,8 +860,14 @@
 	
 	$(function(){
 		
-		
+		//좌석현황 카운트 함수 호출
 		selectSeatStatusList();
+		
+		
+		$("#seatTable Style9,.Style1").click(function(){
+			location.href="seatRdetail.re?seatNo="+ $(this).text();
+			//console.log($(this));
+		});
 		
 	});
     </script>

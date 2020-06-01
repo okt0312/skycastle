@@ -47,10 +47,16 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 		return 0;
 	}
 	
+	//소모임 개설 리스트 불러오기
+	@Override
+	public ArrayList<Groups> selectGrConfirm() {
+		return  adGrDao.selectGrConfirm(sqlSession);
+	}
+	
+	
 	//소모임 개설 수락
 	@Override
 	public int acceptGroups(int gno) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -63,11 +69,7 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 
 
 
-	@Override
-	public ArrayList<Groups> selectGrConfirm() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public ArrayList<GroupNotice> selectGrBoard() {
