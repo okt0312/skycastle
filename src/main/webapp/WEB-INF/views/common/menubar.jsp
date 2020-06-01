@@ -132,7 +132,7 @@
 	               <script>
 	               		alert('${ msg }');
 	               </script>           
-	               <c:remove var "msg" scope="session"/>
+	               <c:remove var="msg" scope="session"/>
                </c:if>
                     </ul>
                 </li>
