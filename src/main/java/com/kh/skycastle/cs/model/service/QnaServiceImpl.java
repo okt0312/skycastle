@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.cs.model.dao.QnaDao;
+import com.kh.skycastle.cs.model.vo.Qna;
 
 @Service("qService")
 public class QnaServiceImpl implements QnaService{
@@ -14,6 +15,16 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Autowired
 	private QnaDao qDao;
+
+	@Override
+	public int insertNonMemberInquiry(Qna q) {
+		return qDao.insertNonMemberInquiry(sqlSession, q);
+	}
+
+	@Override
+	public int insertMemberInquiry(Qna q) {
+		return qDao.insertMemberInquiry(sqlSession, q);
+	}
 	
 	
 }
