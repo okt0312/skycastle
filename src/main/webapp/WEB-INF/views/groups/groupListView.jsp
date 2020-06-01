@@ -33,6 +33,39 @@
 		    padding-left: 30px;
 		    box-sizing: border-box;
 		}
+		/* 페이징바 css */
+		.paging{
+		    padding:19px;
+		    text-align:center;
+		}
+		.paging a{
+		    width:23px;
+		    height:23px;
+		    padding-top:2px;
+		    display:inline-block;
+		    vertical-align:middle;
+		    text-decoration: none;
+		    color: #333333;
+		}
+		.paging a:hover{text-decoration:underline;}
+		.paging .btn_arr{text-decoration:none;}
+		.paging .btn_arr{
+		    margin:0 3px;
+		    padding-top:0;
+		    border:1px solid #ddd;
+		    background: #fdce07;
+		    border-radius:30px;
+		    font-size: 9px;
+		    line-height: 20px;
+		}
+		.paging .on{
+		    padding-top:1px;
+		    height:22px;
+		    border-radius:30px;
+		    font-weight:bold;
+		    text-decoration: underline;
+		}
+		.paging .on:hover{text-decoration:none;}
 	</style>
 </head>
 <body>
@@ -70,29 +103,30 @@
 		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>
 		            <p style="margin: 0px 0px;">
 		            
-		         	<c:choose>
-		         		<c:when test="${ g.groupCategory == 1 }">
-		         대입 | ${ g.groupSubtitle }<br>
-		         		</c:when>
-		         		<c:when test="${ g.groupCategory == 2 }">
-		         공무원,임용 | ${ g.groupSubtitle }<br>
-		         		</c:when>
-		         		<c:when test="${ g.groupCategory == 3 }">
-		         어학,회화 | ${ g.groupSubtitle }<br>
-		         		</c:when>
-		         		<c:when test="${ g.groupCategory == 4 }">
-		         자격증 | ${ g.groupSubtitle }<br>
-		         		</c:when>
-		         		<c:when test="${ g.groupCategory == 5 }">
-		         기타 | ${ g.groupSubtitle }<br>
-		         		</c:when>
-		         		<c:otherwise>
-		         없음 | ${ g.groupSubtitle }<br>
-		         		</c:otherwise>
-		         	</c:choose>
-		                신청일정 : ${ g.startDate } ~ ${ g.endDate }<br>
-		                장소 : ${ g.place }<br>
-		                정원 : ${ g.memberLimit }명
+			         	<c:choose>
+			         		<c:when test="${ g.groupCategory == 1 }">
+								대입 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 2 }">
+								공무원,임용 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 3 }">
+								어학,회화 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 4 }">
+								자격증 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 5 }">
+								기타 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:otherwise>
+								없음 | ${ g.groupSubtitle }<br>
+			         		</c:otherwise>
+			         	</c:choose>
+			         	
+						신청일정 : ${ g.startDate } ~ ${ g.endDate }<br>
+						장소 : ${ g.place }<br>
+						정원 : ${ g.memberLimit }명
 		            </p>
 		            <br><br><br>
 		        </div>
@@ -131,11 +165,8 @@
 						<a href="groupList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
 					</c:otherwise>
 				</c:choose>
-			</c:forEach>    			
-					<!--    <a href="#">2</a>
-					   <a href="#">3</a>
-					   <a href="#">4</a>
-					   <a href="#">5</a> -->
+			</c:forEach>
+			
 			<c:choose>   
 				<c:when test="${ pi.currentPage eq pi.maxPage }">
 					<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  

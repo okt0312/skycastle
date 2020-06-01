@@ -336,6 +336,66 @@
             }
             console.log(memStatus);
         }
+        
+        
+    	$(function(){
+    		selectReplyList();
+    		
+    		$("#addReply").click(function(){
+    			
+    			$.ajax({
+        			url:"rinsert.gr",
+        			data:{replyContent:$("#content").val(),
+        				  refBoardNo:${gn.groupNoticeNo},
+        				  replyWriter:"${loginUser.userId}"},
+        			type:"post",
+        			success:function(status){
+
+        				if(status == "success"){
+        					
+        					$("#content").val("");
+        					
+        					selectReplyList();
+        					
+        				}else{
+        					alert("댓글 등록 실패");
+        				}
+        			}, error:function(){
+        				console.log("댓글 작성용 ajax 통신 실패!!");
+        			}
+        		});
+    		});
+    	});
+    	
+    	// 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
+    	function selectReplyList(){
+    		
+    		$.ajax({
+    			url:"rlist.bo",
+    			data:{gnno:${gn.groupNoticeNo}},
+    			success:function(list){
+
+//    				console.log(list);
+    				
+    				// 댓글개수
+    				$("#rcount").text(list.length);
+    				
+    				var value = "";
+    				
+    				for(var i in list){
+    					value += "<tr>" +
+    								"<th>" + list[i].replyWriter + "</th>" +
+    								"<td>" + list[i].replyContent + "</td>" +
+    								"<td>" + list[i].createDate + "</td>" +
+    							 "</tr>";
+    				}
+    				$("#replyArea tbody").html(value);
+    				
+    			}, error:function(){
+    				console.log("댓글리스트 조회용 ajax 통신 실패!!");
+    			}
+    		});
+    	}
     </script>
 </body>
 </html>

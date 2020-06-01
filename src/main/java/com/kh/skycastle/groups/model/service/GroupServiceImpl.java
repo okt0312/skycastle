@@ -55,5 +55,53 @@ public class GroupServiceImpl implements GroupService {
 		return 0;
 	}
 
+	@Override
+	public int selectUGroupListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Groups> selectUGroupList(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int selectYGroupListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Groups> selectYGroupList(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int selectAGroupListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Groups> selectAGroupList(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int selectNGroupListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ArrayList<Groups> selectNGroupList(PageInfo pi) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

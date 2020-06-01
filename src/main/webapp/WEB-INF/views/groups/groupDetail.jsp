@@ -49,16 +49,34 @@
 		    	<img src="img/squaresize.PNG" alt="" width="250px" height="250px">
 			</div>
 			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
-		        <h2>소모임제목</h2>
-		        <p>
-		            카테고리 : <br>
-		            소제목 : <br><br>
-		            소모임 진행 일정 : <br>
-		            소모임 신청 일정 : <br>
-		            장소 : <br>
-		            자격 : <br>
-		            정원 : <br>
-		        </p>
+		        <h2>${ g.groupTitle }</h2>
+				<p>
+					카테고리 : ${ g.groupCategory }<br>
+					소제목 : ${ g.groupSubtitle }<br><br>
+					소모임 신청 일정 : ${ g.startDate } ~ ${ g.endDate }<br>
+					장소 : ${ g.place }<br>
+					<c:choose>
+		         		<c:when test="${ g.gradeLimit == 1 }">
+							자격 : VVIP만 신청 가능<br>
+		            	</c:when>
+		            	<c:when test="${ g.gradeLimit == 2 }">
+							자격 : VIP 이상 신청 가능<br>
+		            	</c:when>
+		            	<c:when test="${ g.gradeLimit == 3 }">
+							자격 : GOLD 이상 신청 가능<br>
+		            	</c:when>
+		            	<c:when test="${ g.gradeLimit == 4 }">
+							자격 : SILVER 이상 신청 가능<br>
+		            	</c:when>
+		            	<c:when test="${ g.gradeLimit == 5 }">
+							자격 : BRONZE 이상 신청 가능<br>
+		            	</c:when>
+		            	<c:otherwise>
+		            		자격 : 신청 자격 제한이 없습니다.<br>
+		            	</c:otherwise>
+		            </c:choose>
+					정원 : ${ g.memberLimit }명<br>
+				</p>
 		        <br><br><br><br><br>
 	    	</div>
 		</div>
@@ -98,41 +116,20 @@
 		        <li></li>
 		        <li></li>
 		    </ul>
-		
-		    <pre style="width: 100%; text-align: left;"><!-- jsp로 넘어가면 p태그로 -->
-	<이런분들에게 좋아요>
-	
-	    단순한 사진이 아니라 이야기가 담긴 프로필 사진을 찍으시고 싶은 분 
-	    다른 사람들과 이야기 하며 프로필 사진을 남기고 싶으신 분
-	    다양한 프로필 사진이 필요하나 스튜디오 까지 가기에는 비용과 시간이 부담되시는 분
-	
-	
-	<참가비>
-	
-	    39,000원 (장비 대여, 조명 대여, 간단한 소품, 사진 제공)
-	
-	
-	<준비물 >
-	
-	    담고 싶은 나의 모습에 대한 생각 (필수)
-	    오마주를 하고 싶은 이미지, 스마트폰에 캡쳐 (필수)
-	
-	
-	<제공사진>
-	
-	    당일 촬영한 촬영원본 40~50컷 (디지털)
-	    추후 촬영본 선택 및 보정본 2컷 (디지털)
-	
-	
-	<공지 및 주의 사항>
-	
-	    촬영은 강남점 작업실에서 이뤄집니다.
-	    베스트 샷은 Insta : Kwak_de 에 업로드 됩니다.
-	    * 요청시 얼굴이 안나오는 사진으로 업로드 됩니다.
-	    * 이전 촬영 과정이 궁금하시다면 인스타그램 " kwak_de"  에서 확인해주세요.
-			</pre>
+			<!-- pre태그 수정할것 -->
+		    <pre style="width: 100%; text-align: left;">${ g.groupContent }</pre>
 		</div>
 	</div>
     <jsp:include page="../common/footer.jsp"/>
+    
+    <script>
+		var result = confirm('신청하시겠습니까?');
+		
+		if(result){ //확인 클릭시
+			
+			var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text(); // 선택된 해당 회원번호? 소모임번호? 둘다?
+			location.href="groupApplyForm.gr"+memNo;
+		}
+    </script>
 </body>
 </html>
