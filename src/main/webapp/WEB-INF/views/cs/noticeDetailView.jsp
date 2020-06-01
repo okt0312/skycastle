@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,24 +117,10 @@
             </thead>
             <tbody>
                 <tr id="noticeDetail">
-                   <td>
-                       <p>
-                            <!-- 안녕하세요. 스카이캐슬입니다. <br>
-                            항상 저희 스카이캐슬을 이용해 주시는 고객님께 깊은 감사를 드립니다.  <br>
-                            스카이캐슬의 개인정보 처리방침이 변경되어, 아래와 같이 안내 드리오니 이용에 참고하시기 바랍니다. <br><br>       
-                        
-                            [개인정보 처리방침 변경 사항] <br><br>
-                            ■ 주요 변경사항 <br>
-
-                            1. 개인정보 처리방침 추가 <br>
-                            2. 소모임 개인정보 처리방침 추가 <br>              
-                            3. 홈페이지 비회원 제휴 및 상담 개인정보 처리방침 추가 <br><br>
-                            ■ 변경일시 : (시행일) 2020년 6월 1일
-                            <br>
-                            ※ 세부 내용은 개인정보 처리방침 전문을 참조하시기 바랍니다.    -->
-                            ${ n.noticeContent }
-                       </p>
-                   </td>
+               
+                   <% pageContext.setAttribute("line", "\n"); %>
+                   <td colspan="2">${ fn:replace(n.noticeContent, line, "<br/>")}</td>
+                  
                 </tr>
             </tbody>    
         </table>
