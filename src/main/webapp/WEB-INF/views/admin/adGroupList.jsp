@@ -139,14 +139,15 @@
                         <div class="modal-body">
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle"><br><br>
                             <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo"><br><br>
-                            <div clss="slecet" >
+                            <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
-                                <select id="groupCategory">
-                                    <option value="1">대입</option>
+                                <select id="groupCategory" name="groupCategory">
+                                    <option value="1" selected>대입</option>
                                     <option value="2">공무원임용</option>
                                     <option value="3">어학회화</option>
                                     <option value="4">자격증</option>
                                     <option value="5">기타</option>
+                                    
                                 </select>
                            </div><br>
                            <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" id="startDate"><br><br>

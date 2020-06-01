@@ -13,7 +13,7 @@
 		<typeAlias type="com.kh.skycastle.member.model.vo.Grade" alias="Grade"/>		
 		<typeAlias type="com.kh.skycastle.cs.model.vo.Notice" alias="Notice"/>
 		<typeAlias type="com.kh.skycastle.cs.model.vo.Qna" alias="Qna"/>
-		<typeAlias type="com.kh.skycastle.reservation.vo.Reservation" alias="reservation"/>
+		<typeAlias type="com.kh.skycastle.coupon.model.vo.Coupon" alias="Coupon"/>
 	</typeAliases>
 	
 	<mappers>
@@ -22,7 +22,6 @@
 		<mapper resource="mappers/adMember-mapper.xml"/>
 		<mapper resource="mappers/adGroups-mapper.xml"/>		
 		<mapper resource="mappers/cs-mapper.xml"/>
-		<mapper resource="mappers/Reservation-mapper.xml"/>
 	</mappers>
 	
 	

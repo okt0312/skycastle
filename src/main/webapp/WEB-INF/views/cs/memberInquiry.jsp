@@ -116,9 +116,13 @@
             </p>                                                                                                    
         </div>
         
-        <form id="enrollForm" method="post" action="meminsert.cs" enctype="multipart/form-data"> 
+        <form id="enrollForm" method="post" action="meminsert.cs" enctype="multipart/form-data">
+        	<input type="hidden" name="userNo" value=${ loginUser.userNo }>
+        	<input type="hidden" name="userName" value=${ loginUser.userName }>
+        	<input type="hidden" name="userId" value=${ loginUser.userId }>
+        	
 	        <table id="noticeTable">
-	            <tr>
+	            <!-- <tr>
 	                <td>
 	                    <select name="questionType" id="category">
 	                        <option value="" selected>-- Question Type --</option>
@@ -128,17 +132,17 @@
 	                        <option value="etc">기타문의</option>
 	                    </select>
 	                </td>
-	            </tr>
+	            </tr> -->
 	
 	            <tr>
 	                <td colspan="2">
-	                    <input type="text" id="question" placeholder="제목을 입력해주세요">
+	                    <input type="text" id="question" placeholder="제목을 입력해주세요" name="qnaTitle">
 	                </td>
 	            </tr>
 	            <tr>
 	                <td colspan="2">
 	                    <div class="inputContent">
-							<textarea name="contents" placeholder="내용을 입력해주세요." id="textContent" maxlength="4000"></textarea><br>
+							<textarea placeholder="내용을 입력해주세요." id="textContent" maxlength="4000" name="qnaContent"></textarea><br>
 	                    </div>
 	                </td>
 	            </tr>

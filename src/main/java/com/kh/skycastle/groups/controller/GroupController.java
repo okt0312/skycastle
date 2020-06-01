@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.controller;
+package com.kh.skycastle.groups.controller;
 
 import java.util.ArrayList;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.group.model.service.GroupService;
-import com.kh.skycastle.group.model.vo.Groups;
+import com.kh.skycastle.groups.model.service.GroupService;
+import com.kh.skycastle.groups.model.vo.Groups;
 
 @Controller
 public class GroupController {
@@ -25,6 +25,7 @@ public class GroupController {
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		ArrayList<Groups> list = gService.selectGroupList(pi);
+		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);

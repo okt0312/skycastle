@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.model.service;
+package com.kh.skycastle.groups.model.service;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
-import com.kh.skycastle.group.model.dao.GroupNoticeDao;
-import com.kh.skycastle.group.model.vo.GroupNotice;
-import com.kh.skycastle.group.model.vo.Reply;
+import com.kh.skycastle.groups.model.dao.GroupNoticeDao;
+import com.kh.skycastle.groups.model.vo.GroupNotice;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 @Service("gnService")
 public class GroupNoticeServiceImpl implements GroupNoticeService {

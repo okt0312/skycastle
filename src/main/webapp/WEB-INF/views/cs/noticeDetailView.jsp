@@ -139,7 +139,7 @@
         </table>
 
         <div class="noticeList" align="center">          
-           <button id="noticeList">목록</button>
+           <button id="noticeList" onclick="location.href='list.cs?currentPage=1';">목록</button>
         </div>
 
     </div>

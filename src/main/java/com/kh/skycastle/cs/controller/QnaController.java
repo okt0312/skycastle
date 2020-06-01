@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ public class QnaController {
 	}
 	
 	@RequestMapping("insert.cs")
-	public String insertNonMemberInquiry(Qna q, HttpServletRequest request, 
+	public String insertNonMemberInquiry(Qna q, HttpServletRequest request, HttpSession session,
 			                             @RequestParam(name="uploadFile", required=false) MultipartFile file) {
 		if(!file.getOriginalFilename().equals("")) {
 		
@@ -44,11 +45,14 @@ public class QnaController {
 			
 		}
 		
+		System.out.println(q);
+		
 		int result = qService.insertNonMemberInquiry(q);
 		
 		if(result > 0) {
-		
-			return "redirect:insert.cs";
+			
+			session.setAttribute("msg", "문의사항이 등록되었습니다. 답변은 5일 내에 남겨주신 이메일로 보내드리겠습니다.");
+			return "redirect:/";
 			
 		}else {
 			
@@ -68,12 +72,13 @@ public class QnaController {
 			q.setChangeName(changeName);
 			
 		}
+			System.out.println(q);
 		
 		int result = qService.insertMemberInquiry(q);
 		
 		if(result > 0) {
 		
-			return "redirect:OneonOne.my";
+			return "redirect/OneOnOne.my";
 			
 		}else {
 			

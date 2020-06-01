@@ -45,6 +45,12 @@
 	<insert id="insertNonMemberInquiry" parameterType="Qna">
 		insert into qna
 		values(seq_qna.nextval, 'N', #{userName}, #{email}, #{userNo},
-		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, default) 
+		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, '0') 
+	</insert>
+	
+	<insert id="insertMemberInquiry" parameterType="Qna">
+		insert into qna
+		values(seq_qna.nextval, 'Y' , #{userName}, #{email}, #{userNo},
+		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, '0') 
 	</insert>
 </mapper>

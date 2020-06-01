@@ -128,15 +128,20 @@
                		</c:otherwise>         
                </c:choose>           
                           
+               <c:if test="${ !empty msg }">
+	               <script>
+	               		alert('${ msg }');
+	               </script>           
+	               <c:remove var="msg" scope="session"/>
+               </c:if>
                     </ul>
-
                 </li>
                 
                 <c:choose>
                 	<c:when test="${ empty loginUser }">
 		                <li><button class="sky_btn1" onclick="location.href='loginForm.me';">로그인</button>
 		                    <ul class="submenu">
-		                        <li><a href="">회원가입</a></li>
+		                        <li><a href="enrollForm.me">회원가입</a></li>
 		                    </ul>
 		                </li>
                 	</c:when>

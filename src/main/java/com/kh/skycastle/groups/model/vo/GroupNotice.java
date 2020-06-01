@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.model.vo;
+package com.kh.skycastle.groups.model.vo;
 
 import java.sql.Date;
 
@@ -13,13 +13,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Report {
+public class GroupNotice {
 	
-	private int reportNo;
-	private int replyNo;
-	private int reporterNo;
-	private String reportContent;
-	private Date reportDate;
+	private int gnoticeNo;
+	private int groupNo;
+	private String gnoticeTitle;
+	private String gnoticeContent;
+	private Date enrollDate;
 	private String status;
 
 }
