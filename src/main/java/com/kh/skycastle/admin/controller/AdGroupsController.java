@@ -55,8 +55,38 @@ public class AdGroupsController {
 	
 	//메뉴바에서 소모임 개설관리 페이지 눌렀을때 이동
 	@RequestMapping("groupConfirm.ad")
-	public String adGroupConfirm(){
-		return "admin/adGroupConfirm";
+	public ModelAndView adGroupConfirm(ModelAndView mv){
+		
+		ArrayList<Groups> list = adGrService.selectGrConfirm();
+		
+		for(Groups g : list)
+		{
+			if(g.getGroupCategory().equals("1"))
+			{
+				g.setGroupCategory("대입");
+			}
+			else if(g.getGroupCategory().equals("2"))
+			{
+				g.setGroupCategory("공무원임용");
+			}
+			else if(g.getGroupCategory().equals("3"))
+			{
+				g.setGroupCategory("어학회화");
+			}
+			else if(g.getGroupCategory().equals("4"))
+			{
+				g.setGroupCategory("자격증");
+			}
+			else if(g.getGroupCategory().equals("5"))
+			{
+				g.setGroupCategory("기타");
+			}
+		}
+		
+		mv.addObject("list", list).setViewName("admin/adGroupConfirm");
+		
+		return mv;
+		
 	}
 	
 	//메뉴바에서 소모임 게시판관리 페이지 눌렀을때 이동

@@ -15,4 +15,11 @@ public class AdGroupsDao {
 	public ArrayList<Groups> selectGroups(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGroups");
 	}
+	
+	
+	//게시글 리스트 불러오는 메소드
+		public ArrayList<Groups> selectGrConfirm(SqlSessionTemplate sqlSession){
+			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGrConfirm");
+		}
+	
 }
