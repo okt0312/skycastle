@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.model.vo;
+package com.kh.skycastle.groups.model.vo;
 
 import java.sql.Date;
 

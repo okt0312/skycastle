@@ -1,4 +1,4 @@
-package com.kh.skycastle.group.model.service;
+package com.kh.skycastle.groups.model.service;
 
 public class ReportServiceImpl implements ReportService {
 

@@ -1,9 +1,9 @@
-package com.kh.skycastle.group.model.service;
+package com.kh.skycastle.groups.model.service;
 
 import java.util.ArrayList;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
-import com.kh.skycastle.group.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Groups;
 
 public interface GroupService {
 	
