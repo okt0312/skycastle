@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.group.model.vo.GroupNotice;
 
 @Repository("gnDao")
