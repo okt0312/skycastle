@@ -108,16 +108,6 @@
                                 <a class="nav-link" href="layout-sidenav-light.html">예약 현황</a> 
                             </nav>
                         </div>
-	                    <!-- 결제관리-->
-	                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="false" aria-controls="collapseLayouts">
-	                    <div class="sb-nav-link-icon"><i class="fas fa-dollar-sign"></i></div>
-	               		     결제 관리
-	                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
-                        <div class="collapse" id="collapsePayment" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">결제 현황</a>
-                            </nav>
-                        </div>
 	                    <!-- 게시판관리 -->
 	                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoard" aria-expanded="false" aria-controls="collapseLayouts">
 	                    <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
