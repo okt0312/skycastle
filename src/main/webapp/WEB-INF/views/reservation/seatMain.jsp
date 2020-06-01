@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +65,7 @@
 
 </head>
 <body>
+	<c:set var="current" value="<%= new java.util.Date() %>"/>
 	
 	<jsp:include page="../common/menubar.jsp"/>
 	<style>
@@ -86,7 +88,7 @@
 	        <div id="dateState">
 	            <table style="width:100%">
 	                <tr>
-	                    <th style="width: 47%; text-align: left;">&nbsp;&nbsp;&nbsp;${}</th>
+	                    <th style="width: 47%; text-align: left;">&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${current }" type="date"/></th>
 	                    <th style="width: 53%; text-align:left;">전체 좌석 현황</th>
 	                </tr>
 	            </table>
@@ -95,22 +97,17 @@
 	        <br><br>
 	
 	        <div id="seatState">
-	            <table class="table" border="1px" style="text-align: center; border-color:#e9ecef;">
+	            <table id ="stats" class="table" border="1px" style="text-align: center; border-color:#e9ecef;">
 					<thead class="thead-light">
 						<tr>
 						  <th>전체좌석</th>
-						  <th>사용좌석</th>
-						  <th>이용가능좌석</th>
+						  <th>사용중 좌석</th>
+						  <th>미사용중 좌석</th>
 						  <th>수리중</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-						  <td>100</td>
-						  <td>50</td>
-						  <td>47</td>
-						  <td>3</td>
-						</tr>
+						
 					</tbody>
 				</table>
 	        </div>
@@ -820,7 +817,7 @@
 									<td style="width:100px;text-align: center; font-size:12px" class='Style_1'>사용중</td>
 								</tr>
 								<tr style="height:15px">
-									<td style="width:100px;text-align: center; font-size:12px" class='Style_9'>이용가능</td>
+									<td style="width:100px;text-align: center; font-size:12px" class='Style_9'>미사용중</td>
 								</tr>
 								<tr style="height:15px">
 									<td style="width:100px;text-align: center; font-size:12px" class='Style_10'>수리중</td>
@@ -836,10 +833,37 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-    	$(function(){
-    		day = new Date();
-    		
-    	});
+    	
+	function selectSeatStatusList(){
+		$.ajax({
+			url:"SeatStatusCount.re",
+			success:function(status){
+				//console.log(status);
+				
+				var value = "";
+
+					value += "<tr>" +
+        						"<th>" + status.seatAllCount + "</th>" +
+       							"<th>" + status.seatUsedCount + "</th>" +
+       							"<th>" + status.seatUnUsedCount + "</th>" +
+       							"<th>" + status.seatRepairingCount + "</th>" +
+   							  "</tr>"; 
+				
+			
+				$("#stats tbody").html(value);
+				
+			},error:function(){	
+				console.log("좌석현황 ajax 통신 실패!!");
+			}
+		});
+	}
+	
+	$(function(){
+		
+		
+		selectSeatStatusList();
+		
+	});
     </script>
 </body>
 </html>
