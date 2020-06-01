@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.kh.skycastle.group.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Groups;
 
 //소모임 관리(소모임조회, 개설관리, 소모임게시글관리)관련 Dao입니다
 @Repository
