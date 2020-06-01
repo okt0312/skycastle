@@ -26,5 +26,7 @@ public class Groups {
 	private String status;
 	private Date startDate;
 	private Date endDate;
+	
+	private String thumbnail;
 
 }
