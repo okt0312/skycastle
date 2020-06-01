@@ -135,6 +135,7 @@
             <tbody>
             	<c:forEach items="${ list }" var="n">
 	                <tr class="noticeTitle">
+	                	<td style="display:none">${ n.noticeNo }</td>
 	                    <td class="title">${ n.noticeTitle }</td>
 	                    <td class="enrollDate">${ n.enrollDate }</td>
 	                </tr>
