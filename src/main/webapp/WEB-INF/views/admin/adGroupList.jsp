@@ -142,7 +142,7 @@
                             <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
                                 <select id="groupCategory" name="groupCategory">
-                                    <option value="1" selected>대입</option>
+                                    <option value="1">대입</option>
                                     <option value="2">공무원임용</option>
                                     <option value="3">어학회화</option>
                                     <option value="4">자격증</option>
@@ -173,12 +173,36 @@
             	$("#dataTable tbody tr").click(function(){
             		$("#groupTitle").val($(this).children().eq(2).text());
             		$("#memberNo").val($(this).children().eq(5).text());
-            		$("#groupCategory").val($(this).children().eq(1).text());
             		$("#startDate").val($(this).children().eq(7).text());
             		$("#endDate").val($(this).children().eq(8).text());
             		$("#place").val($(this).children().eq(3).text());
             		$("#memberLimit").val($(this).children(6).eq(5).text());
             		$("#status").val($(this).children().eq(9).text());
+            		$("#groupCategory").val($(this).children().eq(1).text());
+            		
+            		var category = $(this).children().eq(1).text();
+            		var selnum = "";
+            		
+            		switch(category)
+            		{
+            		case "대입":
+            			selnum = 1;
+            			break;
+            		case "공무원임용":
+            			selnum = 2;
+            			break;
+            		case "어학회화":
+            			selnum = 3;
+            			break;
+            		case "자격증":
+            			selnum = 4;
+            			break;
+            		case "기타": 
+            			selnum = 5;
+            			break;
+            		}
+            		console.log(selnum);
+            		$("#groupCategory option[value="+ selnum + "]").attr("selected", true);
             	});
            	</script> 
                 </main>
