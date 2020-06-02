@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Groups;
 
@@ -37,19 +38,10 @@ public class GroupController {
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, ModelAndView mv) {
 		
-		int result = gService.increaseCount(gno);
-		
-		if(result > 0) {// 제대로 찾은 경우
-			
-			Groups g = gService.selectGroup(gno);
-			mv.addObject("g", g);
-			mv.setViewName("groups/groupDetail");
-			
-		}else {// 게시글 상세 조회 실패. 제대로 찾지 못함
-			
-			mv.addObject("msg", "소모임 상세조회 실패");
-			mv.setViewName("common/errorPage");
-		}
+		Groups g = gService.selectGroup(gno);
+		mv.addObject("g", g);
+		mv.setViewName("groups/groupDetail");
+
 		return mv;
 	}
 	
@@ -60,7 +52,7 @@ public class GroupController {
 	
 	@RequestMapping("mygroupList.gr")
 	public String mygroupList() {
-		return "myPage/myPageGroupListNow";
+		return "myPage/myPageGroupListView";
 	}
 	
 }

@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
     <title>mygroupListView</title>
     <style>
+		body {
+		    max-width: 1700px;
+		    margin: auto;
+		}
         .inner{
             width: 100%;
         }
@@ -27,22 +32,20 @@
         }
 
         /* 소모임 리스트 메뉴바 */
-        #mygroupListMenubar{
+/*         #mygroupListMenubar{
             width:80%;
             height:200px;
             margin:auto;
             margin-top:50px;
-        }
+        } */
         #mygroupListMenubar{
             width:100%;
             height:20%;
             border-top:1px solid lightgray;
             border-bottom:1px solid lightgray;
         }
-        #mygroupListMenubar{
-            padding-left:50px
-        }
-        #mygroupListMenubar > a{
+        #mygroupListMenubar{ padding-left:50px; }
+        #mygroupListMenubar a{
             text-decoration:none;
             margin:10px;
             line-height: 40px;
@@ -50,45 +53,36 @@
         }
         
         /* 소모임메뉴바 바꿀거 */
-		body {
-		    max-width: 1700px;
-		    margin: auto;
-		}
-		#header2{
-		    margin-top: 20px;
-		    border-top: 2px #d1d1d1 solid;
-		    border-bottom: 2px #d1d1d1 solid;
-		}
-		.groups_header_menu {
+		/* .groups_header_menu {
 		    margin: auto; 
 		    padding: 0; 
 		    width: 1400px; 
 		    font-size: 23px;
 		    font-weight: bold;
 		    text-align: right;
-		}
-		.groups_header_menu ul {  
+		} */
+		#groups_header_menu ul {
 		    list-style:none; 
 		    margin: 7px 0; 
 		    padding:0; 
 		    text-align: right;
 		}
-		.groups_header_menu > li { 
+		#groups_header_menu > li { 
 		    height: 60px; 
 		    display:inline-block; 
-		    width:200px; 
-		    padding:5px 10px; 
+		    width:150px; 
+		    padding:5px 0px;
 		    text-align: center; 
 		    line-height: 60px;
 		}
-		.myPage_header_menus > li .submenu {
+		#groups_header_menu > li .submenu {
 		    width:200px; 
 		    height: 100px;
 		    display:none; 
 		    position: absolute; 
 		}
 		.submenu li { background-color: whitesmoke; }
-		.groups_header_menu > li:hover ul.submenu { display:block; }
+		#groups_header_menu > li:hover ul.submenu { display:block; }
 		a {
 		    text-decoration: none;
 		    color: black;
@@ -124,18 +118,16 @@
 	    
 	    <!-- 이걸로 바꾸기 -->
         <div id="mygroupListMenubar">
-           
-            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
-           	
-            <ul class="groups_header_menu" style="margin-right: 10px;">
-               
-                <li><a href="groupList.gr?currentPage=1&status=Y">참가중인 소모임</a></li>
-                <li> | </li>
+        
+            <ul id="groups_header_menu" style="margin-right: 10px;">
+            
+                <li><a href="groupList.gr?currentPage=1&status='Y'">참가중인 소모임</a></li>
+                <li style="width:3px"> | </li>
                 <li><a href="groupList.gr?currentPage=1&status=">찜한 소모임</a></li>
-                <li> | </li>
-                <li><a href="groupList.gr?currentPage=1&status=U">대기중인 소모임</a></li>
-                <li> | </li>
-                <li><a href="groupList.gr?currentPage=1&status=N">지난 소모임</a></li>
+                <li style="width:3px"> | </li>
+                <li><a href="groupList.gr?currentPage=1&status='U'">대기중인 소모임</a></li>
+                <li style="width:3px"> | </li>
+                <li><a href="groupList.gr?currentPage=1&status='N'">지난 소모임</a></li>
             </ul>
         </div>
 		<br><br><br><br>
