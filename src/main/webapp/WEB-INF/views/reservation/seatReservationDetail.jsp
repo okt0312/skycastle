@@ -157,7 +157,7 @@
            
             <div id="content_2" >
                 <div id="detail">
-                	<form action="seatPayDetail" method="post">
+                	<form action="seatPayDetail.re" method="post">
                         <div  style="background-color:#fdce07;" align="center">
                                 <h2>좌석 세부 선택</h2>
                         </div>
@@ -165,9 +165,10 @@
                             <br>
                             <input type="hidden" name="userNo" value="${loginUser.userNo}">
                             <input type="hidden" name="refNo" value="${seat.seatNo}">
+                            <input  type="hidden"  id="usedDate"  type="date" name="usedDate">
                             &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seat.seatNo}</span>번
                             <br><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" name="usedDate" value="2020-05-22" min="2020-05-22" max="2020-07-31">
+                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" >
                             <br><br>
                             &nbsp;&nbsp; &nbsp;&nbsp;시작시간 : 
                             <select id="time" name="national">
@@ -182,7 +183,9 @@
                             </select>
                             <br><br>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;시작</span>
-                        <input type="text" disabled id="start" name="startTime" size="5px">~종료<input type="text" disabled id="end" name="endTime" size="5px">
+                        <input type="hidden" id="startH" name="startTime" size="5px">
+                        <input type="hidden"  id="endH" name="endTime" size="5px">
+                        <input type="text" disabled id="start" size="5px">~종료<input type="text" disabled id="end" size="5px">
                         <br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="button" id="timeAdd">2시간연장</button>
@@ -198,7 +201,10 @@
 	                        <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
 	                        <div style="border:0px;">
 	                            &nbsp;&nbsp;
-	                             <select id="copon" name="couponCode">
+	                            <input type="hidden" id="couponName" name="couponName">
+	                            <input type="hidden" id="couponCode" name="couponCode">
+	                            <input type="hidden" id="discountRate" name="discountRate">
+	                             <select id="copon">
 	                                <c:choose>
 	                                	<c:when test="${ !empty loginUser}">
 												<option>선택 없음</option>
@@ -264,13 +270,14 @@
 	$(function(){
 		
 		$("#date").val(new Date().toISOString().substring(0, 10));
-
+		$("#usedDate").val(new Date().toISOString().substring(0, 10));
 		$("#time").click(function(){
 			$("#start").val($(this).val());
-
+			$("#startH").val($(this).val());
+			
 			startTime = $(this).val().substr(0,2);
 			$("#end").val(Number(startTime)+2 +':00');
-
+			$("#endH").val(Number(startTime)+2 +':00');
 			
 			totalTime();
 		});
@@ -298,13 +305,7 @@
 			$("#total").val($("#totalCost").text());
 		});
 
-		function totalTime(){
-			start = $("#start").val().substr(0,2);
-			end = $("#end").val().substr(0,2);
-			$("#totalTime").text(end-start);
-			
-		}
-
+		
 		count =1;
 		$("#addTime").click(function(){
             if(count != 2){
@@ -329,23 +330,18 @@
 		});
 		
 		
-		/* 예약 버튼클릭 */
-		function reservation(){
-			$("#reservationBtn").click(function(){
-				var loginUser = '${loginUser}';
-				if(loginUser == ''){
-					alert("로그인이 필요한 서비스입니다.");
-					return false;
-				}
-					return true;
-			});
-		}
+		
 		
 		 $("#copon").change(function(){
-
+				
+			 	 var couponName =  $(this).find(":selected").text();
+			 	 var couponCode =  $(this).find(":selected").val();
 				 var discountRate = $(this).find(":selected").attr("price");
 					
-				 //console.log(discountRate);
+				$("#couponName").val(couponName);
+				$("#couponCode").val(couponCode);
+				$("#discountRate").val(discountRate);
+				 
 				if(discountRate != undefined){
 					$("#totalCost").text($("#total").val()-$("#total").val() * discountRate);
 				} 
@@ -355,6 +351,34 @@
 		
 		
 		
-	})
+	});
+	
+	
+	function totalTime(){
+		start = $("#start").val().substr(0,2);
+		end = $("#end").val().substr(0,2);
+		$("#totalTime").text(end-start);
+		
+	}
+
+	
+	/* 예약 버튼클릭 */
+	function reservation(){
+		
+			
+			var loginUser = '${loginUser}';
+			if(loginUser == ''){
+				alert("로그인이 필요한 서비스입니다.");
+				return false;
+			}else if($("#tileList").text()==''){
+				alert("시간 선택을 확인해주세요.");
+				return false;
+			}else{
+				return true;
+			}
+				
+			
+	
+	}
 </script>
 </html>
