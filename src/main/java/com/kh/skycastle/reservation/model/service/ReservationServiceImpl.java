@@ -41,8 +41,8 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public Seat selectSeat(int userNo) {
-		return rDao.selectSeat(sqlSession, userNo);
+	public Seat selectSeat(int seatNo) {
+		return rDao.selectSeat(sqlSession, seatNo);
 	}
 
 }

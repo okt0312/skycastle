@@ -18,7 +18,12 @@
 	  	<result column="grade_name" property="gradeName"/>
 	  	<result column="standard" property="standard"/>
 	  	<result column="discount" property="discount"/>
-	  	
+	</resultMap>
+	
+	<resultMap type="Seat" id="SeatResultSet">
+		<id column="seat_no" property="seatNo"/>
+	  	<result column="seat_price" property="seatPrice"/>
+	  	<result column="status" property="status"/>
 	</resultMap>
 	
 	<select id="seatAllCount" resultType="_int">
@@ -35,6 +40,12 @@
 		select grade_code,grade_Name,standard,discount 
 		from member 
 		join grade using(grade_code) where user_no = #{userNo}
+	</select>
+	
+	<select id="selectSeat" parameterType="_int" resultMap="SeatResultSet">
+		select seat_no, seat_price, status
+		from seat 
+		where seat_no = #{seat_no}
 	</select>
 	
 	

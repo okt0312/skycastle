@@ -15,6 +15,7 @@
 		<typeAlias type="com.kh.skycastle.cs.model.vo.Qna" alias="Qna"/>
 		<typeAlias type="com.kh.skycastle.coupon.model.vo.Coupon" alias="Coupon"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Reservation" alias="Reservation"/>
+		<typeAlias type="com.kh.skycastle.reservation.model.vo.Seat" alias="Seat"/>
 	</typeAliases>
 	
 	<mappers>

@@ -157,15 +157,15 @@
            
             <div id="content_2" >
                 <div id="detail">
-                	<form action="seatRinsert.re" method="post">
+                	<form action="seatPayDetail" method="post">
                         <div  style="background-color:#fdce07;" align="center">
                                 <h2>좌석 세부 선택</h2>
                         </div>
                         <div>
                             <br>
                             <input type="hidden" name="userNo" value="${loginUser.userNo}">
-                            <input type="hidden" name="refNo" value="${seatNo}">
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seatNo}</span>번
+                            <input type="hidden" name="refNo" value="${seat.seatNo}">
+                            &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seat.seatNo}</span>번
                             <br><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" name="usedDate" value="2020-05-22" min="2020-05-22" max="2020-07-31">
                             <br><br>
@@ -190,34 +190,36 @@
                         &nbsp;&nbsp;&nbsp;&nbsp; 총 사용시간 : <span id="totalTime">&nbsp;</span>
                         <br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="addTime">선택</button>
+                        <button id="addTime" type="button">선택</button>
                         <div align="center" id="tileList" style="border:0px ;width:100%"></div>	
                         
                         <br><br>
-                        <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
-                        <div style="border:0px;">
-                            &nbsp;&nbsp;
-                             <select id="copon" name="couponCode">
-                                <c:choose>
-                                	<c:when test="${ !empty loginUser}">
-											<option>선택 없음</option>
-		                                <c:forEach var="c" items="${couponList }" varStatus="status" >
-											<option>${c.couponName }</option>
-										</c:forEach>
-		                            </c:when>
-		                            <c:otherwise>
-		                            	<option>선택 없음</option>
-		                            </c:otherwise>
-                                </c:choose>
-                            </select>
+                        <div id="discountDiv" style="display:none">
+	                        <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
+	                        <div style="border:0px;">
+	                            &nbsp;&nbsp;
+	                             <select id="copon" name="couponCode">
+	                                <c:choose>
+	                                	<c:when test="${ !empty loginUser}">
+												<option>선택 없음</option>
+			                                <c:forEach var="c" items="${couponList }" varStatus="status" >
+												<option value="${ c.couponCode }" price="${ c.discountRate }">${c.couponName }</option>
+											</c:forEach>
+			                            </c:when>
+			                            <c:otherwise>
+			                            	<option>선택 없음</option>
+			                            </c:otherwise>
+	                                </c:choose>
+	                            </select>
+                          </div>  
                             <br><br>
                         </div>
                         </div>
-                        <input type="hidden" id="total" name="totalCost" value=300000>
+                        <input type="hidden" id="total" name="totalCost" value="${seat.seatPrice}">
                         <div style="background-color: lightgray;">
-                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">300000</span>원</p>
-                        </div>
-                        <button id="reservationBtn" type="submit">바로 예약하기</button>
+                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">${seat.seatPrice} </span>원</p>
+                        </div> 
+                        <button id="reservationBtn" type="submit" onclick="return reservation();">바로 예약하기</button>
                 	</form> 
                 </div>
                
@@ -273,6 +275,7 @@
 			totalTime();
 		});
 
+		
 		$("#timeAdd").click(function(){
 			if($("#start").val() == ''){
 				alert("시작시간은 선택해주세요");
@@ -287,6 +290,12 @@
 			endTime =  $("#end").val().substr(0,2);
 			$("#end").val(Number(endTime)+2 +':00');
 			totalTime();
+			
+			
+			/* 가격계산 */
+			var seatPrice = ${seat.seatPrice};
+			$("#totalCost").text(Number($("#totalCost").text())+seatPrice);
+			$("#total").val($("#totalCost").text());
 		});
 
 		function totalTime(){
@@ -296,7 +305,7 @@
 			
 		}
 
-		count = 1;
+		count =1;
 		$("#addTime").click(function(){
             if(count != 2){
                 if(!$("#start").val() == ''){
@@ -305,16 +314,42 @@
 					
 				 a= $("#tileList p")	
 				
-
 				count++;
-				$("#tileList").append(addTime)
-
-
+				$("#tileList").append(addTime);
+				$("#discountDiv").css("display","block");
+	
 			}else{
 				alert("시작시간을 선택해주세요");
 			}
+                
+                
             }
 			
+			
+		});
+		
+		
+		/* 예약 버튼클릭 */
+		function reservation(){
+			$("#reservationBtn").click(function(){
+				var loginUser = '${loginUser}';
+				if(loginUser == ''){
+					alert("로그인이 필요한 서비스입니다.");
+					return false;
+				}
+					return true;
+			});
+		}
+		
+		 $("#copon").change(function(){
+
+				 var discountRate = $(this).find(":selected").attr("price");
+					
+				 //console.log(discountRate);
+				if(discountRate != undefined){
+					$("#totalCost").text($("#total").val()-$("#total").val() * discountRate);
+				} 
+
 			
 		});
 		

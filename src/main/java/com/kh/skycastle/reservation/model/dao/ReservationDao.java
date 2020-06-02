@@ -34,8 +34,8 @@ public class ReservationDao {
 		return sqlSession.selectOne("reservationMapper.selectGrade",userNo);
 	}
 	
-	public Seat selectSeat(SqlSessionTemplate sqlSession, int userNo) {
-		return sqlSession.selectOne("reservationMapper.selectSeat",userNo);
+	public Seat selectSeat(SqlSessionTemplate sqlSession, int seatNo) {
+		return sqlSession.selectOne("reservationMapper.selectSeat",seatNo);
 	}
 	
 	

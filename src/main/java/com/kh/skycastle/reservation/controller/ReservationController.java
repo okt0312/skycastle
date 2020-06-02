@@ -45,12 +45,12 @@ public class ReservationController {
 			grade = rService.selectGrade(userNo);
 		}
 		
-		
+		//System.out.println(seat);
 		//System.out.println(couponList);
 		//System.out.println(grade);
 		model.addAttribute("couponList",couponList);
 		model.addAttribute("grade",grade);
-		model.addAttribute("seatNo",seatNo);
+		model.addAttribute("seat",seat);
 		return "reservation/seatReservationDetail";
 	}
 	

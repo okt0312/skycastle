@@ -20,6 +20,6 @@ public class Coupon {
 	private String couponName;
 	private Date startDate;
 	private int expirationPeriod;
-	private int discountRate;
+	private double discountRate;
 
 }
