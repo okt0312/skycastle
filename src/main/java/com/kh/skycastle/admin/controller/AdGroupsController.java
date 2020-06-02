@@ -2,15 +2,18 @@ package com.kh.skycastle.admin.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdGroupsService;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
+
 
 //소모임(소모임조회, 개설관리, 소모임게시글관리) 페이지 관련 컨트롤러 입니다
 @Controller
@@ -54,19 +57,15 @@ public class AdGroupsController {
 	}
 	
 	//소모임조회에서 모달창 소모임정보 수정하는거
-	@RequestMapping(value = "updateGroups.ad", produces = "text/html; charset=utf-8")
-	public ModelAndView updateGrMgmt(Groups g, ModelAndView mv)
+	@ResponseBody
+	@RequestMapping(value = "updateGroups.ad", produces = "application/json; charset=utf-8")
+	public int updateGrMgmt(Groups g, HttpSession session)
 	{	
-		System.out.println(g); //테스트용
 		int result = adGrService.updateGrMgmt(g);
-		
-		System.out.println(result); //테스트용
-		if(result > 0)
-		{
-			//model.addAttribute("msg", "회원정보 수정 완료");
-			mv.addObject("msg", "소모임 수정 완료").setViewName("redirect:groupList.ad");
-		}
-		return mv;
+				
+				System.out.println(result);
+				
+				return result;
 	}
 	
 	
