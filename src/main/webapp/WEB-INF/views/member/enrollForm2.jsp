@@ -239,8 +239,6 @@
 	});
 
 	// 중복확인
-	
-	var idck = 0;
 	$(function(){
 		
 		$("#ckBtn").click(function(){ // 중복체크 클릭했을 때 
@@ -252,14 +250,12 @@
 				data: email,
 				type:"post",
 				success:function(data){
-					if(data.cnt > 0){
-						// 사용불가
-						alert("사용중 이메일입니다. 다시 입력해주세요.");
-						email.focus();
-					}else{
+					if(data == 0){
 						alert("사용 가능한 이메일입니다.");
 						$("#memPwd1").focus();
-						idck = 1;
+					}else{
+						alert("사용중인 이메일입니다. 다시 입력해주세요.");
+						email.focus();
 					}
 				},error:function(error){
 					
