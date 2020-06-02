@@ -50,12 +50,12 @@ public class MypageDao {
 	}
 	
 	
-	public ArrayList<Qna> qselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+	public ArrayList<Qna> qselectList(SqlSessionTemplate sqlSession, PageInfo pi, Member m) {
 		
 		int offset =(pi.getCurrentPage() -1) * pi.getPageLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
 		
-		return (ArrayList)sqlSession.selectList("csMapper.qselectList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("csMapper.qselectList", m, rowBounds);
 	}
 }

@@ -7,25 +7,33 @@
 <meta charset="UTF-8">
 <title>소모임관리</title>
  
-
-    <style>
-        /* 목록 호버 */
-        #dataTable>tbody>tr:hover{
-        cursor:pointer;
-         background-color: rgba(204, 199, 199, 0.699);
-         }
-      
-         #selectBox{
-           position: absolute;
-           float: left;
-           margin-left: 170px;
-           display: block;
-           z-index: 100;
-       }
-    </style>
+ <style>
+     /* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
+   
+      #selectBox{
+        position: absolute;
+        float: left;
+        margin-left: 170px;
+        display: block;
+        z-index: 100;
+    }
+ </style>
 
 </head>
 <body>
+	<!-- 알럴트 문자 -->
+    <c:if test="${ !empty msg }">
+		<script>
+			alertify.alert("${msg}");
+		</script>
+		<c:remove var="msg" scope="session"/>
+	</c:if>
+
+
 <!--for 부트스트랩,, 닫지않는것이 포인트,,  -->
 	<div id="layoutSidenav"> 
 	<jsp:include page="common/adminSidebar.jsp"/>
@@ -124,9 +132,10 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form action="updateGroups.ad" method="post" class="form-horizontal">
+                    <form id="updateGroups_form" action="" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
+                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="text" id="groupNo" name="groupNo"><br><br>
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
                             <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo" name="memberNo"><br><br>
                             <div class="slecet" >
@@ -150,7 +159,7 @@
                         
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">수정</button>
+                        <button type="button" class="btn btn-primary" id="updateGroupList_Btn">수정</button>
                         <button type="button" class="btn btn-danger" >삭제</button>
                         <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
                      </div>
@@ -161,6 +170,7 @@
            <!--모달 종료  --> 
            <script>
             	$("#dataTable tbody tr").click(function(){
+            		$("#groupNo").val($(this).children().eq(0).text());
             		$("#groupTitle").val($(this).children().eq(2).text());
             		$("#memberNo").val($(this).children().eq(5).text());
             		$("#startDate").val($(this).children().eq(7).text());
@@ -170,6 +180,7 @@
             		$("#status").val($(this).children().eq(9).text());
             		$("#groupCategory").val($(this).children().eq(1).text());
             		
+            		 
             		var category = $(this).children().eq(1).text();
             		var selnum = "";
             		
@@ -197,6 +208,35 @@
             	$('#groupLiModal').on('hidden.bs.modal', function () {
             		$("#groupCategory option").attr("selected", false);
             		})
+            	
+            		
+            		
+            		//수정버튼 에이작스
+            		$("#updateGroupList_Btn").click(function(){
+            		var formData = $("#updateGroups_form").serialize();
+            		console.log(formData); //테스트과정
+            		$.ajax({
+	            		url:"updateGroups.ad",
+	            		data: $("#updateGroups_form").serialize(),
+	            		type:"post",
+	            		success : function(result)
+	            		{
+	            			if(result > 0)
+            				{
+	            				alertify.alert("소모임 관리", "소모임 수정 성공", function(){ location.reload();});
+            				}
+	            			else
+            				{
+	            				alertify.alert("소모임 관리", "소모임 수정 실패", function(){ location.reload();});
+            				}
+	            		},
+	            		error: function()
+	            		{
+	            			console.log("ajax통신 실패");
+	            		}
+	            	}); 
+            	}) 
+            	
            	</script> 
                 </main>
                 <jsp:include page="common/adFooter.jsp"/>

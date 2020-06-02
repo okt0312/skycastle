@@ -111,7 +111,7 @@
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
                     <input type="email" class="memberInfo" id="email" name="email" placeholder="이메일">
-                    <span><button id="ckBtn">중복확인</button></span>
+                    <span><button type="button" id="ckBtn">중복확인</button></span>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
@@ -239,8 +239,6 @@
 	});
 
 	// 중복확인
-	
-	var idck = 0;
 	$(function(){
 		
 		$("#ckBtn").click(function(){ // 중복체크 클릭했을 때 
@@ -252,18 +250,16 @@
 				data: email,
 				type:"post",
 				success:function(data){
-					if(data.cnt > 0){
-						// 사용불가
-						alert("사용중 이메일입니다. 다시 입력해주세요.");
-						email.focus();
-					}else{
+					if(data == 0){
 						alert("사용 가능한 이메일입니다.");
 						$("#memPwd1").focus();
-						idck = 1;
+					}else{
+						alert("사용중인 이메일입니다. 다시 입력해주세요.");
+						email.focus();
 					}
-				},error:function(error){
+				},error:function(){
 					
-					alert("error : " + error);
+					alert("오류입니다. 다시 시도해주세요.");
 				}
 				
 			});

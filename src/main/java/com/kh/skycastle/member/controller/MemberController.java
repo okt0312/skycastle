@@ -1,17 +1,21 @@
 package com.kh.skycastle.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
+import com.sun.javafx.collections.MappingChange.Map;
 
 
 @Controller
@@ -72,8 +76,15 @@ public class MemberController {
 		 	return mv;
 		}
 	 
-	//@ResponseBody
-	//@RequestMappign("idCheck.me")
+	@ResponseBody
+	@RequestMapping("idCheck.me")
+	public String idCheck(HttpServletRequest request, Model model){
+		
+		String email = request.getParameter("email");
+		int count = mService.idCheck(email);
+		
+		return String.valueOf(count);
+	}
 	
 	@RequestMapping("insert.me")
 	public String insertMember(Member m, Model model, HttpSession session) {

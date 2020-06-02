@@ -62,7 +62,7 @@
 		
     </select>	
     
-    <select id="qselectList" resultMap="qnaResultSet">
+    <select id="qselectList" parameterType="Member" resultMap="qnaResultSet">
 		SELECT *
 		 FROM QNA
 		WHERE USER_NO=#{userNo}
