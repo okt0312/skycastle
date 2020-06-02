@@ -30,16 +30,16 @@
 		SELECT *
 		FROM GROUPS
 			<choose>
-				<when test="status == Y">
+				<when test="status = 'Y'">
 					WHERE STATUS='Y'
 				</when>
-				<when test="status == ">
+				<when test="status = "><!-- 찜 -->
 					WHERE STATUS=''
 				</when>
-				<when test="status == U">
+				<when test="status = 'U'">
 					WHERE STATUS='U'
 				</when>
-				<when test="status == N">
+				<when test="status = 'N'">
 					WHERE STATUS='N'
 				</when>
 			</choose>
@@ -58,35 +58,10 @@
 	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
 		SELECT *
 		  FROM GROUPS
-		 WHERE GROUPS_NO=#{groupNo}
+		 WHERE GROUP_NO=#{gno}
 	</select>
 	
 	
-	
-	
-	<select id="selectGroupU" parameterType="_int" resultMap="groupResultSet">
-		SELECT *
-		  FROM GROUPS
-		 WHERE GROUPS_NO=#{groupNo} AND STATUS='U'
-	</select>
-	
-	<select id="selectGroupY" parameterType="_int" resultMap="groupResultSet">
-		SELECT *
-		  FROM GROUPS
-		 WHERE GROUPS_NO=#{groupNo} AND STATUS='Y'
-	</select>
-	
-	<select id="selectGroupA" parameterType="_int" resultMap="groupResultSet">
-		SELECT *
-		  FROM GROUPS
-		 WHERE GROUPS_NO=#{groupNo} AND STATUS='A'
-	</select>
-	
-	<select id="selectGroupN" parameterType="_int" resultMap="groupResultSet">
-		SELECT *
-		  FROM GROUPS
-		 WHERE GROUPS_NO=#{groupNo} AND STATUS='N'
-	</select>
 	
 	
 	
