@@ -33,6 +33,11 @@
 		    padding-left: 30px;
 		    box-sizing: border-box;
 		}
+		.grouplist:hover{
+		    text-decoration: underline;
+		    color: #fdce07;
+		    cursor: pointer;
+		}
 		/* 페이징바 css */
 		.paging{
 		    padding:19px;
@@ -133,13 +138,7 @@
 		    </div>
 	    </c:forEach>
 	    
-	    
 		<script>
-/* 			$(function(){
-				$(".grouplist").click(function(){
-					location.href = "groupDetail.gr?gno=" + $("#group_no").val();
-				});
-			}); */
 			$(function(){
 				$(".grouplist").click(function(){
 					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val();

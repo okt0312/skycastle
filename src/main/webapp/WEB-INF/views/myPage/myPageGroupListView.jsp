@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>mygroupListDips</title>
+    <title>mygroupListView</title>
     <style>
         .inner{
             width: 100%;
@@ -137,7 +137,7 @@
 		               
 		                <li><a href="myPage.my">참가중인 소모임</a></li>
 		                <li> | </li>
-		                <li><a href="mygroupList.gr">찜한 소모임</a></li>
+		                <li><a href="mygroupList.gr?currentPage=1">찜한 소모임</a></li>
 		                <li> | </li>
 		                <li><a href="OneonOne.my">대기중인 소모임</a></li>
 		                <li> | </li>
