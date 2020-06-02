@@ -128,19 +128,19 @@
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 생년월일</label><br>
                     <input type="text" id="birthday" name="birthday" placeholder="생년 4자리"> &nbsp;&nbsp;  
-                    <select name="month">
-                        <option selected>1월</option>
-                        <option>2월</option>
-                        <option>3월</option>
-                        <option>4월</option>
-                        <option>5월</option>
-                        <option>6월</option>
-                        <option>7월</option>
-                        <option>8월</option>
-                        <option>9월</option>
-                        <option>10월</option>
-                        <option>11월</option>
-                        <option>12월</option>
+                    <select name="birthday">
+                        <option value="01" selected>1월</option>
+                        <option value="02">2월</option>
+                        <option value="03">3월</option>
+                        <option value="04">4월</option>
+                        <option value="05">5월</option>
+                        <option value="06">6월</option>
+                        <option value="07">7월</option>
+                        <option value="08">8월</option>
+                        <option value="09">9월</option>
+                        <option value="10">10월</option>
+                        <option value="11">11월</option>
+                        <option value="12">12월</option>
                     </select>&nbsp;&nbsp;
                     <input type="text" id="birthday" name="day" placeholder="생일 2자리"> &nbsp;&nbsp;
                 </div>
@@ -187,35 +187,30 @@
 	});
 
 	/* 중복확인 */
-	
-	/*
 	$(function(){
 		//중복확인 클릭시 
 		$("#ckBtn").click(function(){
 	
-			//사용자가 입력한 id값 조회
 			var email = $("#email"); 
-
 			$.ajax({
 				url:"idCheck.me",
-				data:{email:email.val()},
+				data:{email:email.val()},/* input요소에 담겨있는 value값 */
 				type:"post",
 				success:function(result){
 					if(result==0){
-						// 사용가능한 아아디
-						if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?")){
-							//아이디 더이상 수정이 불가 하게끔 해당 인풋요소
+						// 사용가능 
+						if(confirm("사용가능한 이메일입니다. 사용하시겠습니까?")){
+							// 더 이상 수정 불가 
 							email.attr("readonly","true");
-							//회원가입 버튼 활성화
+							// 회원가입 버튼 활성화
 							$("#joinBtn").removeAttr("disabled");
 						}else{
 							email.focus();
 						}
 					}else{
-						// 사용불가한 아이디
-						alert("사용불가한 아이디입니다. 다시 입력해주세요.");
+						// 사용불가
+						alert("사용중 이메일입니다. 다시 입력해주세요.");
 						email.focus();
-	
 					}
 				},error:function(){
 					console.log("ajax failed :( ")
@@ -223,6 +218,6 @@
 			});
 		});
 	});
-	*/	
-</script>
+	</script>
+
 </html>
