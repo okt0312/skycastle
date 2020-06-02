@@ -15,6 +15,7 @@ import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.reservation.model.service.ReservationService;
+import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.StatusCount;
 
@@ -32,9 +33,9 @@ public class ReservationController {
 	@RequestMapping("seatRdetail.re")
 	public String seatRdetail(int seatNo,Model model, HttpSession session){
 		ArrayList<Coupon> couponList = new ArrayList<>();
-		Grade grade = new Grade(); 
+		
 		Seat seat = new Seat();
-		double gradeDiscount = 0;
+		
 		
 		
 		Member loginUser =  (Member)session.getAttribute("loginUser");
@@ -42,20 +43,29 @@ public class ReservationController {
 		if(loginUser != null) {
 			int userNo = loginUser.getUserNo();
 			couponList = rService.selectCouponList(userNo);
-			grade = rService.selectGrade(userNo);
+			
 		}
 		
 		//System.out.println(seat);
 		//System.out.println(couponList);
-		//System.out.println(grade);
+		
 		model.addAttribute("couponList",couponList);
-		model.addAttribute("grade",grade);
 		model.addAttribute("seat",seat);
 		return "reservation/seatReservationDetail";
 	}
 	
 	@RequestMapping("seatPayDetail.re")
-	public String seatPayDetail(){
+	public String seatPayDetail(Reservation reserv,Coupon coupon,Model model){
+		Grade grade = new Grade(); 
+		grade = rService.selectGrade(reserv.getUserNo());
+		System.out.println(grade);
+		System.out.println(reserv);
+		System.out.println(coupon);
+		
+		model.addAttribute("grade",grade);
+		model.addAttribute("reserv",reserv);
+	
+		
 		return "reservation/seatPayDetail";
 	}
 	
