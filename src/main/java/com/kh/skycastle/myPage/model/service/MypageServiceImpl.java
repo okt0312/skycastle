@@ -85,9 +85,9 @@ public class MypageServiceImpl implements MypageService {
 	
 
 	@Override
-	public ArrayList<Qna> qselectList(PageInfo pi) {
+	public ArrayList<Qna> qselectList(PageInfo pi, Member m) {
 		
-		return pDao.qselectList(sqlSession, pi);
+		return pDao.qselectList(sqlSession, pi, m);
 	}
 
 
