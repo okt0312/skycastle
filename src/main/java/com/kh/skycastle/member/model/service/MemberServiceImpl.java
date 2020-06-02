@@ -29,8 +29,14 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int updateMember(Member m) {
-		// TODO Auto-generated method stub
+		
 		return 0;
+	}
+
+
+	@Override
+	public int idCheck(String email) {
+		return mDao.idCheck(sqlSession, email);
 	}
 
     
