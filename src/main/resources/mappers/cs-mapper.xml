@@ -65,7 +65,8 @@
     <select id="qselectList" resultMap="qnaResultSet">
 		SELECT *
 		 FROM QNA
-		WHERE 
+		WHERE USER_NO=#{userNo}
+		AND STATUS='O'
 		 ORDER BY QNA_NO DESC 
 	</select>
    
