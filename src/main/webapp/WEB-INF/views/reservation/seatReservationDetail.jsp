@@ -157,14 +157,17 @@
            
             <div id="content_2" >
                 <div id="detail">
+                	<form action="seatRinsert.re" method="post">
                         <div  style="background-color:#fdce07;" align="center">
                                 <h2>좌석 세부 선택</h2>
                         </div>
                         <div>
                             <br>
+                            <input type="hidden" name="userNo" value="${loginUser.userNo}">
+                            <input type="hidden" name="refNo" value="${seatNo}">
                             &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seatNo}</span>번
                             <br><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" value="2020-05-22" min="2020-05-22" max="2020-07-31">
+                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" name="usedDate" value="2020-05-22" min="2020-05-22" max="2020-07-31">
                             <br><br>
                             &nbsp;&nbsp; &nbsp;&nbsp;시작시간 : 
                             <select id="time" name="national">
@@ -179,7 +182,7 @@
                             </select>
                             <br><br>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;시작</span>
-                        <input type="text" disabled id="start" size="5px">~종료<input type="text" disabled id="end" size="5px">
+                        <input type="text" disabled id="start" name="startTime" size="5px">~종료<input type="text" disabled id="end" name="endTime" size="5px">
                         <br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="button" id="timeAdd">2시간연장</button>
@@ -194,7 +197,7 @@
                         <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
                         <div style="border:0px;">
                             &nbsp;&nbsp;
-                             <select id="copon" name="coupon">
+                             <select id="copon" name="couponCode">
                                 <option>선택 없음</option>
                                 <option>쿠폰 1</option>
                                 <option>쿠폰 2</option>
@@ -202,11 +205,12 @@
                             </select>
                         </div>
                         </div>
+                        <input type="hidden" id="total" name="totalCost" value=300000>
                         <div style="background-color: lightgray;">
-                            <p style="font-size:30px ;width:100%; " >결제금액: 300,000</p>
+                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">300000</span>원</p>
                         </div>
-                        <button id="reservationBtn">바로 예약하기</button>
-                        
+                        <button id="reservationBtn" type="submit">바로 예약하기</button>
+                	</form> 
                 </div>
                
             </div>
@@ -305,6 +309,9 @@
 			
 			
 		});
+		
+		
+		
 	})
 </script>
 </html>

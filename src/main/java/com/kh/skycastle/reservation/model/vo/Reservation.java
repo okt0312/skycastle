@@ -23,4 +23,7 @@ public class Reservation {
 	private Date bookEnrollDate;
 	private String status;
 	private int gradeDiscount;
+	private Date usedDate;
+	private String startTime;
+	private String endTime;
 }
