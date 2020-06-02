@@ -46,13 +46,13 @@
 	<insert id="insertNonMemberInquiry" parameterType="Qna">
 		insert into qna
 		values(seq_qna.nextval, 'N', #{userName}, #{email}, #{userNo},
-		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, '0') 
+		       #{qnaTitle}, #{qnaContent}, SYSDATE ,  NULL , #{originName}, #{changeName}, '0') 
 	</insert>
 	
 	<insert id="insertMemberInquiry" parameterType="Qna">
 		insert into qna
 		values(seq_qna.nextval, 'Y' , #{userName}, #{email}, #{userNo},
-		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, '0') 
+		       #{qnaTitle}, #{qnaContent}, SYSYDATE ,  NULL , #{originName}, #{changeName}, '0') 
 	</insert>
 	
 	<select id="qselectListCount" resultType="_int">
