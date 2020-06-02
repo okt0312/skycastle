@@ -29,11 +29,14 @@ public class ReservationController {
 
 	@RequestMapping("seatRdetail.re")
 	public String seatRdetail(int seatNo,Model model, HttpSession session){
-		
+		ArrayList<Coupon> couponList = new ArrayList<>();
 		Member loginUser =  (Member)session.getAttribute("loginUser");
-		int userNo = loginUser.getUserNo();
-		ArrayList<Coupon> couponList = rService.couponList(userNo);
-		
+		if(loginUser != null) {
+			int userNo = loginUser.getUserNo();
+			couponList = rService.selectCouponList(userNo);
+		}
+		System.out.println(couponList);
+		model.addAttribute("couponList",couponList);
 		model.addAttribute("seatNo",seatNo);
 		return "reservation/seatReservationDetail";
 	}

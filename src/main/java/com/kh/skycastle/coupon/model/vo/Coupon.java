@@ -16,7 +16,6 @@ import lombok.ToString;
 @ToString
 
 public class Coupon {
-	
 	private String couponCode;
 	private String couponName;
 	private Date startDate;

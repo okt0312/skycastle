@@ -5,22 +5,24 @@
 		
 	</resultMap>
 	
+	<resultMap type="Coupon" id="couponResultSet">
+		<id column="coupon_code" property="couponCode"/>
+	  	<result column="coupon_name" property="couponName"/>
+	  	<result column="start_date" property="startDate"/>
+	  	<result column="expiration_period" property="expirationPeriod"/>
+	  	<result column="discount_rate" property="discountRate"/>
+	</resultMap>
+	
 	<select id="seatAllCount" resultType="_int">
 		select count(*) 
 		from seat
 	</select>
 	
-	<select id="seatUsedCount" resultType="_int">
-		
+	<select id="selectCouponList" resultMap="couponResultSet">
+		select coupon_code,coupon_name, start_date, expiration_period,discount_rate
+		from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
 	</select>
 	
-	<select id="seatUnUsedCount" resultType="_int">
-		
-	</select>
-	
-	<select id="seatRepairingCount" resultType="_int">
-		
-	</select>
 	
 	
 	

@@ -25,10 +25,8 @@ public class ReservationDao {
 //	}
 	
 	
-	
-//	
-//	public ArrayList<Coupon> couponList(SqlSessionTemplate sqlSession){
-//		return sqlSession.selectList();
-//	}
+	public ArrayList<Coupon> selectCouponList(SqlSessionTemplate sqlSession, int userNo){
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectCouponList",userNo);
+	}
 	
 }
