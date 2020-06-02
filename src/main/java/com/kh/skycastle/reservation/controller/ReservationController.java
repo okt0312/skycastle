@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.kh.skycastle.coupon.model.vo.Coupon;
+import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.reservation.model.service.ReservationService;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.StatusCount;
 
 @Controller
@@ -30,13 +32,24 @@ public class ReservationController {
 	@RequestMapping("seatRdetail.re")
 	public String seatRdetail(int seatNo,Model model, HttpSession session){
 		ArrayList<Coupon> couponList = new ArrayList<>();
+		Grade grade = new Grade(); 
+		Seat seat = new Seat();
+		double gradeDiscount = 0;
+		
+		
 		Member loginUser =  (Member)session.getAttribute("loginUser");
+		seat = rService.selectSeat(seatNo);
 		if(loginUser != null) {
 			int userNo = loginUser.getUserNo();
 			couponList = rService.selectCouponList(userNo);
+			grade = rService.selectGrade(userNo);
 		}
-		System.out.println(couponList);
+		
+		
+		//System.out.println(couponList);
+		//System.out.println(grade);
 		model.addAttribute("couponList",couponList);
+		model.addAttribute("grade",grade);
 		model.addAttribute("seatNo",seatNo);
 		return "reservation/seatReservationDetail";
 	}

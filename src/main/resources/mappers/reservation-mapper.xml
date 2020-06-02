@@ -13,14 +13,28 @@
 	  	<result column="discount_rate" property="discountRate"/>
 	</resultMap>
 	
+	<resultMap type="Grade" id="gradeResultSet">
+		<id column="grade_code" property="gradeCode"/>
+	  	<result column="grade_name" property="gradeName"/>
+	  	<result column="standard" property="standard"/>
+	  	<result column="discount" property="discount"/>
+	  	
+	</resultMap>
+	
 	<select id="seatAllCount" resultType="_int">
 		select count(*) 
 		from seat
 	</select>
 	
-	<select id="selectCouponList" resultMap="couponResultSet">
+	<select id="selectCouponList"   parameterType="_int" resultMap="couponResultSet">
 		select coupon_code,coupon_name, start_date, expiration_period,discount_rate
 		from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
+	</select>
+	
+	<select id="selectGrade" parameterType="_int" resultMap="gradeResultSet">
+		select grade_code,grade_Name,standard,discount 
+		from member 
+		join grade using(grade_code) where user_no = #{userNo}
 	</select>
 	
 	

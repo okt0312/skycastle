@@ -210,6 +210,7 @@
 		                            </c:otherwise>
                                 </c:choose>
                             </select>
+                            <br><br>
                         </div>
                         </div>
                         <input type="hidden" id="total" name="totalCost" value=300000>

@@ -3,6 +3,8 @@ package com.kh.skycastle.reservation.model.service;
 import java.util.ArrayList;
 
 import com.kh.skycastle.coupon.model.vo.Coupon;
+import com.kh.skycastle.member.model.vo.Grade;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.StatusCount;
 
 public interface ReservationService {
@@ -12,4 +14,10 @@ public interface ReservationService {
 	
 	//2. 좌석 예약시 사용가능 쿠폰 조회
 	ArrayList<Coupon> selectCouponList(int userNo);
+	
+	//3. 회원 등급 조회 
+	Grade selectGrade(int userNo);
+	
+	//4. 좌석 정보 조회 
+	Seat selectSeat(int userNo);
 }
