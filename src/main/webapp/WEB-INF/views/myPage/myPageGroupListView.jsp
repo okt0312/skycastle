@@ -53,18 +53,13 @@
 		body {
 		    max-width: 1700px;
 		    margin: auto;
-		} 
-		#mypage_main_Header {
-		    max-width: 1700px;
-		    margin: 30px auto 0;
-		    
 		}
 		#header2{
 		    margin-top: 20px;
 		    border-top: 2px #d1d1d1 solid;
 		    border-bottom: 2px #d1d1d1 solid;
 		}
-		.myPage_header_menu {
+		.groups_header_menu {
 		    margin: auto; 
 		    padding: 0; 
 		    width: 1400px; 
@@ -72,13 +67,13 @@
 		    font-weight: bold;
 		    text-align: right;
 		}
-		.myPage_header_menu ul {  
+		.groups_header_menu ul {  
 		    list-style:none; 
 		    margin: 7px 0; 
 		    padding:0; 
 		    text-align: right;
 		}
-		.myPage_header_menu > li { 
+		.groups_header_menu > li { 
 		    height: 60px; 
 		    display:inline-block; 
 		    width:200px; 
@@ -93,8 +88,7 @@
 		    position: absolute; 
 		}
 		.submenu li { background-color: whitesmoke; }
-		.myPage_header_menu > li:hover ul.submenu { display:block; }
-		
+		.groups_header_menu > li:hover ul.submenu { display:block; }
 		a {
 		    text-decoration: none;
 		    color: black;
@@ -103,97 +97,129 @@
     </style>
 </head>
 <body>
-<jsp:include page="common/myPageMenubar.jsp"/>
-            <div id="inner" style="width: 800px; margin: auto;">
-                <br><br><br>
-                <h2>소모임</h2>
-                <br><hr><br>
-
-                <div align="center">
-                    <form action="" method="POST" style="margin:0 auto">
-                        <select>
-                            <option value="title" selected>모임명</option>
-                            <option value="content">내용</option>
-                        </select>
-                        <input type="text" name="search">
-                        <button type="submit">검색</button>
-                    </form>
-                </div>
-                <br><br>
-                <!-- 원래 -->
-                <div id="mygroupListMenubar">
-                    <a href="#">참가중인 소모임</a> | 
-                    <a href="#" style="font-weight: 600;">찜한 소모임</a> | 
-                    <a href="#">대기중인 소모임</a> | 
-                    <a href="#">지난 소모임</a> 
-                </div>
-                
-                <!-- 이걸로 바꾸기 -->
-		        <div id="header2">
-		           
-		            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
-		           	
-		            <ul class="myPage_header_menu" style="margin-right: 10px;">
-		               
-		                <li><a href="myPage.my">참가중인 소모임</a></li>
-		                <li> | </li>
-		                <li><a href="mygroupList.gr?currentPage=1">찜한 소모임</a></li>
-		                <li> | </li>
-		                <li><a href="OneonOne.my">대기중인 소모임</a></li>
-		                <li> | </li>
-		                <li><a href="list.bo?currentPage=1">지난 소모임</a></li>
-		            </ul>
+	<jsp:include page="common/myPageMenubar.jsp"/>
+	<div id="inner" style="width: 800px; margin: auto;">
+	    <br><br><br>
+	    <h2>소모임</h2>
+	    <br><hr><br>
+	
+	    <div align="center">
+	        <form action="" method="POST" style="margin:0 auto">
+	            <select>
+	                <option value="title" selected>모임명</option>
+	                <option value="content">내용</option>
+	            </select>
+	            <input type="text" name="search">
+	            <button type="submit">검색</button>
+	        </form>
+	    </div>
+	    <br><br>
+	    <!-- 원래
+	    <div id="mygroupListMenubar">
+	        <a href="#">참가중인 소모임</a> | 
+	        <a href="#" style="font-weight: 600;">찜한 소모임</a> | 
+	        <a href="#">대기중인 소모임</a> | 
+	        <a href="#">지난 소모임</a> 
+	    </div> -->
+	    
+	    <!-- 이걸로 바꾸기 -->
+        <div id="mygroupListMenubar">
+           
+            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
+           	
+            <ul class="groups_header_menu" style="margin-right: 10px;">
+               
+                <li><a href="myPage.my">참가중인 소모임</a></li>
+                <li> | </li>
+                <li><a href="mygroupList.gr">찜한 소모임</a></li>
+                <li> | </li>
+                <li><a href="OneonOne.my">대기중인 소모임</a></li>
+                <li> | </li>
+                <li><a href="list.bo?currentPage=1">지난 소모임</a></li>
+            </ul>
+        </div>
+		<br><br><br><br>
+		
+	    <c:forEach items="${ list }" var="g">
+		    <div class="grouplist">
+	            <input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
+		        <div class="groupThumbnailArea">
+		            <img src="img/${ g.thumbnail }" alt="" class="" width="150px">
 		        </div>
-                
-                <br><br><br><br>
-                <div class="grouplist">
-                    <div class="groupThumbnailArea">
-                        <img src="img/squaresize.PNG" alt="" class="" width="150px">
-                    </div>
-                    <div class="groupTextArea">
-                        <h3 style="margin: 4px 0px;">소모임 제목</h3>
-                        <p style="margin: 0px 0px;">
-                            카테고리 | 소제목소제목소제목소제목소제목<br>
-                            진행일정 : 2020-11-20 ~ 2020-12-20<br>
-                            신청일정 : 2020-11-20 ~ 2020-12-20<br>
-                            장소 : 예서방<br>
-                            정원 : 8명
-                        </p>
-                        <br><br><br>
-                    </div>
-                </div>
-                <div class="grouplist">
-                    <div class="groupThumbnailArea">
-                        <img src="img/squaresize.PNG" alt="" class="" width="150px">
-                    </div>
-                    <div class="groupTextArea">
-                        <h3 style="margin: 4px 0px;">소모임 제목</h3>
-                        <p style="margin: 0px 0px;">
-                            카테고리 | 소제목소제목소제목소제목소제목<br>
-                            진행일정 : 2020-11-20 ~ 2020-12-20<br>
-                            신청일정 : 2020-11-20 ~ 2020-12-20<br>
-                            장소 : 예서방<br>
-                            정원 : 8명
-                        </p>
-                        <br><br><br>
-                    </div>
-                </div>
-                <div class="grouplist">
-                    <div class="groupThumbnailArea">
-                        <img src="img/squaresize.PNG" alt="" class="" width="150px">
-                    </div>
-                    <div class="groupTextArea">
-                        <h3 style="margin: 4px 0px;">소모임 제목</h3>
-                        <p style="margin: 0px 0px;">
-                            카테고리 | 소제목소제목소제목소제목소제목<br>
-                            진행일정 : 2020-11-20 ~ 2020-12-20<br>
-                            신청일정 : 2020-11-20 ~ 2020-12-20<br>
-                            장소 : 예서방<br>
-                            정원 : 8명
-                        </p>
-                        <br><br><br>
-                    </div>
-                </div>
-            </div>
+		        <div class="groupTextArea">
+		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>
+		            <p style="margin: 0px 0px;">
+			         	<c:choose>
+			         		<c:when test="${ g.groupCategory == 1 }">
+								대입 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 2 }">
+								공무원,임용 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 3 }">
+								어학,회화 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 4 }">
+								자격증 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:when test="${ g.groupCategory == 5 }">
+								기타 | ${ g.groupSubtitle }<br>
+			         		</c:when>
+			         		<c:otherwise>
+								없음 | ${ g.groupSubtitle }<br>
+			         		</c:otherwise>
+			         	</c:choose>
+			         	
+						신청일정 : ${ g.startDate } ~ ${ g.endDate }<br>
+						장소 : ${ g.place }<br>
+						정원 : ${ g.memberLimit }명
+		            </p>
+		            <br><br><br>
+		        </div>
+		    </div>
+	    </c:forEach>
+	    
+		<script>
+			$(function(){
+				$(".grouplist").click(function(){
+					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val();
+				});
+			});
+		</script>
+		<br>
+
+	    
+        <!-- 페이징바 -->
+		<div class="paging" align="center">
+			<c:choose>
+				<c:when test="${ pi.currentPage eq 1 }">          
+					<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+				</c:when>
+				<c:otherwise>	  
+					<a href="groupList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+				</c:otherwise>	
+			</c:choose>    
+				
+			<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+				<c:choose>
+					<c:when test="${ p eq pi.currentPage }">
+						<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+					</c:when>
+					<c:otherwise>
+						<a href="groupList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			
+			<c:choose>   
+				<c:when test="${ pi.currentPage eq pi.maxPage }">
+					<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+				</c:when>
+				<c:otherwise>
+					<a href="groupList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+				</c:otherwise> 	
+			</c:choose>
+		</div>
+	</div>
 </body>
 </html>
