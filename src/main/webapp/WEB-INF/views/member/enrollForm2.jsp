@@ -152,11 +152,63 @@
             
             <!-- 회원가입 버튼 -->
             <div>
-                <center><td><button type="submit" id="joinBtn">회원가입</button></td></center>
+                <center><td><button type="submit" id="joinBtn" onclick="return validate();">회원가입</button></td></center>
             </div>
         </form>
     </div>
 </body>
+
+<!-- 유효성 검사 -->
+<script>
+	function validate(){
+		
+		var email = document.getElemenById("email");	// 이메일
+		var pwd1 = document.getElemenById("memPwd1");   // 비밀번호
+		var pwd2 = document.getElemenById("memPwd2");   // 비밀번호 확인 
+		var name = document.getElemenById("userName");  // 이름
+		
+		// 이메일 검사 
+		var regExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		
+		if(!regExp.test(email.value)){
+			alert("이메일 주소가 유효하지 않습니다.");
+			email.value = "";
+			email.focus();
+			return false;
+		}
+		
+		// 비밀번호 검사
+		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
+		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
+		if (!regExp.test(pwd1.value)) {
+			alert("비밀번호가 유효하지 않습니다.");
+			pwd1.value = "";
+			pwd1.focus();
+			return false;
+		}
+	
+		// 비밀번호값과 비밀번호확인값이 일치하는지 검사
+		if (pwd1.value != pwd2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			pwd2.value = "";
+			pwd2.focus();
+			return false;
+		}
+		
+		// 이름 검사
+		// 한글로만 2글자 이상
+		var regExp = /^[가-힣]{2,}$/;
+		if (!regExp.test(name.value)) {
+			alert("한글로만 2글자 이상 입력해주세요.");
+			name.value = "";
+			name.focus();
+			return false;
+		}
+		
+		return true;
+		
+	}
+</script>
 
 <script>
 	$(function(){
@@ -186,35 +238,34 @@
 		
 	});
 
-	/* 중복확인 */
-	$(function(){
-		//중복확인 클릭시 
-		$("#ckBtn").click(function(){
+	// 중복확인
 	
-			var email = $("#email"); 
+	var idck = 0;
+	$(function(){
+		
+		$("#ckBtn").click(function(){ // 중복체크 클릭했을 때 
+		
+			var email = $("#email").val(); 
+		
 			$.ajax({
 				url:"idCheck.me",
-				data:{email:email.val()},/* input요소에 담겨있는 value값 */
+				data: email,
 				type:"post",
-				success:function(result){
-					if(result==0){
-						// 사용가능 
-						if(confirm("사용가능한 이메일입니다. 사용하시겠습니까?")){
-							// 더 이상 수정 불가 
-							email.attr("readonly","true");
-							// 회원가입 버튼 활성화
-							$("#joinBtn").removeAttr("disabled");
-						}else{
-							email.focus();
-						}
-					}else{
+				success:function(data){
+					if(data.cnt > 0){
 						// 사용불가
 						alert("사용중 이메일입니다. 다시 입력해주세요.");
 						email.focus();
+					}else{
+						alert("사용 가능한 이메일입니다.");
+						$("#memPwd1").focus();
+						idck = 1;
 					}
-				},error:function(){
-					console.log("ajax failed :( ")
-				} 
+				},error:function(error){
+					
+					alert("error : " + error);
+				}
+				
 			});
 		});
 	});
