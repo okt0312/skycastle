@@ -65,7 +65,7 @@
                 						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll"  style="vertical-align: middle; transform: scale(1.4);"></label>
                						</div>
                                  </th>
-                                 <th>소모임번호</th>
+                                 <th>번호</th>
                                  <th>소모임명</th>
                                  <th>소제목</th>
                                  <th>카테고리</th>

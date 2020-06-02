@@ -10,7 +10,7 @@ public interface AdGroupsService {
 		// 소모임리스트 조회용 서비스
 		ArrayList<Groups> selectGroups();
 	
-		// 소모임 개별 조회용 서비스
+		// 소모임 개별(tr눌렀을때) 조회용 서비스
 		Groups selectGroups(int gno);
 		
 		// 소모임조회모달 삭제용 서비스
@@ -19,7 +19,10 @@ public interface AdGroupsService {
 		// 소모임조회모달 수정용 서비스
 		int updateGrMgmt(Groups g);
 		
-		// 소모임리스트 조회용 서비스
+		
+		
+		
+		// 소모임개설리스트 조회용 서비스
 		ArrayList<Groups> selectGrConfirm();
 		
 		// 소모임 개설 수락용 서비스
@@ -27,6 +30,9 @@ public interface AdGroupsService {
 		
 		// 소모임 개설 거절용 서비스
 		int rejectionGroups(int gno);
+		
+		
+		
 		
 		// 소모임게시판리스트 조회용 서비스
 		ArrayList<GroupNotice> selectGrBoard();

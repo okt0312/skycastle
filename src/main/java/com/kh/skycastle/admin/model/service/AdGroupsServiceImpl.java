@@ -29,7 +29,7 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 				
 	}
 	
-	//소모임 조회페이지  선택
+	//소모임 조회페이지  tr선택(한줄정보들)
 	@Override
 	public Groups selectGroups(int gno) {
 		return null;
@@ -46,6 +46,9 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	public int updateGrMgmt(Groups g) {
 		return 0;
 	}
+	
+	
+	
 	
 	//소모임 개설 리스트 불러오기
 	@Override
@@ -70,19 +73,21 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 
 
 	
-
+	//소모임게시판 관리페이지 리스트불러오기
 	@Override
 	public ArrayList<GroupNotice> selectGrBoard() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	//소모임게시판 관리 페이지 각각 tr눌러서 불러오기
 	@Override
 	public GroupNotice selectGrBoard(int gno) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	//소모임 게시글 상세페이지에서 게시글 삭제하기
 	@Override
 	public int deleteGrBoard(int gno) {
 		// TODO Auto-generated method stub

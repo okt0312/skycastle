@@ -20,6 +20,7 @@ public class Qna {
 	private int userNo;
 	private String qnaTitle;
 	private String qnaContent;
+	private String qnaDate;
 	private String qnaReply;
 	private String originName;
 	private String changeName;
