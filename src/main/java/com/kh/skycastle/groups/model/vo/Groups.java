@@ -19,6 +19,7 @@ public class Groups {
 	private int leaderNo;
 	private String groupTitle;
 	private String groupSubtitle;
+	private String groupContent;
 	private String groupCategory;
 	private String place;
 	private int gradeLimit;

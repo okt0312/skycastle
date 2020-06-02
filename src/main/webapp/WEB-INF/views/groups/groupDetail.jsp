@@ -106,15 +106,13 @@
 		<br><br>
 	
 		<div id="groupDetail">
-		    <ul>
-		        <li>
-		            모집마감 > 참가자 선정
+			<ul>
+				<li>
+					모집마감 > 참가자 선정
 		        </li>
 		        <li>
-		            선정 후 마이페이지 '참여중인 소모임' 메뉴에서 확인하실 수 있습니다.
+					선정 후 마이페이지 '참여중인 소모임' 메뉴에서 확인하실 수 있습니다.
 		        </li>
-		        <li></li>
-		        <li></li>
 		    </ul>
 			<!-- pre태그 수정할것 -->
 		    <pre style="width: 100%; text-align: left;">${ g.groupContent }</pre>
