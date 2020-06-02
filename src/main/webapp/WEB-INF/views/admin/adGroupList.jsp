@@ -134,7 +134,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form action="관리폼요청받아주는서버" method="post" class="form-horizontal">
+                    <form action="updateGroups.ad" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle"><br><br>
@@ -209,6 +209,7 @@
             		})
            	</script> 
                 </main>
+                <jsp:include page="common/adFooter.jsp"/>
                 </div>
              </div>
 

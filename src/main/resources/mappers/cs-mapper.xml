@@ -54,4 +54,20 @@
 		values(seq_qna.nextval, 'Y' , #{userName}, #{email}, #{userNo},
 		       #{qnaTitle}, #{qnaContent}, NULL , #{originName}, #{changeName}, '0') 
 	</insert>
+	
+	<select id="qselectListCount" resultType="_int">
+	
+		SELECT count(*)
+		 FROM QNA
+		
+    </select>	
+    
+    <select id="qselectList" resultMap="qnaResultSet">
+		SELECT *
+		 FROM QNA
+		WHERE 
+		 ORDER BY QNA_NO DESC 
+	</select>
+   
+	
 </mapper>
