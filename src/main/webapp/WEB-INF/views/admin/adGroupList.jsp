@@ -15,7 +15,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
         <!-- alertify라이브러리 -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 
     <style>
@@ -162,7 +162,7 @@
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">수정</button>
                         <button type="button" class="btn btn-danger" >삭제</button>
-                        <button type="button"  class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
+                        <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
                      </div>
                 </form>
                     </div>
@@ -201,13 +201,16 @@
             			selnum = 5;
             			break;
             		}
-            		console.log(selnum);
             		$("#groupCategory option[value="+ selnum + "]").attr("selected", true);
             	});
+            	
+            	$('#groupLiModal').on('hidden.bs.modal', function () {
+            		$("#groupCategory option").attr("selected", false);
+            		})
            	</script> 
                 </main>
                 </div>
-               
-	
+             </div>
+
 </body>
 </html>
