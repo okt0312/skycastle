@@ -48,6 +48,17 @@
 		where seat_no = #{seat_no}
 	</select>
 	
+	<insert id="insertReservation" parameterType="Reservation">
+		insert into reservation
+		values(seq_reserveno.nextval, #{userNo}, 1, 
+		#{refNo}, #{couponCode}, #{totalCost}, sysdate, 'X', #{gradeDiscount})
+	</insert>
+	
+	<insert id="insertReservationTime" parameterType="Reservation">
+		insert into reservation_time
+		values(seq_reserveno.currval, #{usedDate}, #{startTime}, #{endTime})
+	</insert>
+	
 	
 	
 	

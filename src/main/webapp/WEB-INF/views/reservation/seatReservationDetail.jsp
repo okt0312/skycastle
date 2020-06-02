@@ -201,9 +201,9 @@
 	                        <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
 	                        <div style="border:0px;">
 	                            &nbsp;&nbsp;
-	                            <input type="hidden" id="couponName" name="couponName">
-	                            <input type="hidden" id="couponCode" name="couponCode">
-	                            <input type="hidden" id="discountRate" name="discountRate">
+	                            <input type="hidden" id="couponName" name="couponName" value='선택없음'>
+	                            <input type="hidden" id="couponCode" name="couponCode" value="0">
+	                            <input type="hidden" id="discountRate" name="discountRate" value="0">
 	                             <select id="copon">
 	                                <c:choose>
 	                                	<c:when test="${ !empty loginUser}">
@@ -334,14 +334,21 @@
 		
 		 $("#copon").change(function(){
 				
-			 	 var couponName =  $(this).find(":selected").text();
-			 	 var couponCode =  $(this).find(":selected").val();
-				 var discountRate = $(this).find(":selected").attr("price");
-					
-				$("#couponName").val(couponName);
-				$("#couponCode").val(couponCode);
-				$("#discountRate").val(discountRate);
-				 
+			 	var couponName =  $(this).find(":selected").text();
+			 	var couponCode =  $(this).find(":selected").val();
+				var discountRate = $(this).find(":selected").attr("price");
+			 	
+				if(couponName = '선택없음'){
+					$("#couponName").val(couponName);
+					$("#couponCode").val(0);
+					$("#discountRate").val(0);
+			 	}else{
+			 		$("#couponName").val(couponName);
+					$("#couponCode").val(couponCode);
+					$("#discountRate").val(Number(discountRate));
+			 	}
+			 	
+			 	
 				if(discountRate != undefined){
 					$("#totalCost").text($("#total").val()-$("#total").val() * discountRate);
 				} 

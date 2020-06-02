@@ -58,15 +58,29 @@ public class ReservationController {
 	public String seatPayDetail(Reservation reserv,Coupon coupon,Model model){
 		Grade grade = new Grade(); 
 		grade = rService.selectGrade(reserv.getUserNo());
-		System.out.println(grade);
-		System.out.println(reserv);
-		System.out.println(coupon);
-		
+//		System.out.println(grade);
+//		System.out.println(reserv);
+//		System.out.println(coupon);
+//		
 		model.addAttribute("grade",grade);
-		model.addAttribute("reserv",reserv);
-	
+		model.addAttribute("reservation",reserv);
+		model.addAttribute("coupon",coupon);
 		
 		return "reservation/seatPayDetail";
+	}
+	
+	@RequestMapping("reservInsert.re")
+	public String seatPayDetail(Reservation reservation, Model model){
+		
+		//System.out.println(reservation);
+		int result = rService.insertReservation(reservation);
+		if(result > 0 ) {
+			return "reservation/ReservationComplate";
+		}else {
+			 model.addAttribute("msg", "로그인 실패");
+	         return "common/errorPage";
+		}
+		
 	}
 	
 	

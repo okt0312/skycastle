@@ -49,13 +49,17 @@
 	border: 0;
     margin: 15px;
 }
+
+	#complate{
+		margin-top:150px;
+		margin-bottom:150px;
+	}
     </style>
 </head>
 <body>
 <jsp:include page="../common/menubar.jsp"/>
     <div class="content" align="center">
-        <div style="height: 50px;">
-        </div>
+        
         <div id="complate">
           
             <div id="complate1" align="center">
@@ -66,8 +70,8 @@
                 <p>3초뒤 홈으로 이동합니다.</p>
             </div>
             <div  align="center">
-                <button class="sky_btn1">홈으로 바로가기</button>
-                <button class="sky_btn1">예약현황 바로가기</button>
+                <button class="sky_btn1" onclick="location.href='${pageContext.servletContext.contextPath}/'">홈으로</button>
+                <button class="sky_btn1">예약현황</button>
             </div>
             
         </div>
@@ -75,4 +79,10 @@
     </div>
        <jsp:include page="../common/footer.jsp"/>
 </body>
+
+	<script>
+		setTimeout(function() {
+		  location.href="${pageContext.servletContext.contextPath}/";
+		}, 3000);
+	</script>
 </html>

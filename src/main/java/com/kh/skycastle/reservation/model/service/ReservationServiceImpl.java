@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.dao.ReservationDao;
+import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.StatusCount;
 
@@ -44,5 +45,14 @@ public class ReservationServiceImpl implements ReservationService{
 	public Seat selectSeat(int seatNo) {
 		return rDao.selectSeat(sqlSession, seatNo);
 	}
+
+	@Override
+	public int insertReservation(Reservation reservation) {
+		int result1 = rDao.insertReservation(sqlSession, reservation);
+		int result2 =  rDao.insertReservationTime(sqlSession, reservation);
+		return result1*result2;
+	}
+
+	
 
 }

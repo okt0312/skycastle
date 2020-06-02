@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
+import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
 
 @Repository("rDao")
@@ -37,6 +38,15 @@ public class ReservationDao {
 	public Seat selectSeat(SqlSessionTemplate sqlSession, int seatNo) {
 		return sqlSession.selectOne("reservationMapper.selectSeat",seatNo);
 	}
+	
+	public int insertReservation(SqlSessionTemplate sqlSession, Reservation reservation) {
+		return sqlSession.insert("reservationMapper.insertReservation",reservation);
+	}
+	
+	public int insertReservationTime(SqlSessionTemplate sqlSession, Reservation reservation) {
+		return sqlSession.insert("reservationMapper.insertReservationTime",reservation);
+	}
+	
 	
 	
 }
