@@ -2,6 +2,8 @@ package com.kh.skycastle.admin.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,9 @@ public class AdMemberController {
 	@RequestMapping("memberList.ad")
 	public ModelAndView adMemberListForm(ModelAndView mv)
 	{
-		ArrayList<Member> list = admService.selectMember();
-		for(Member m : list)
+		ArrayList<Member> list1 = admService.selectMember();
+		ArrayList<Grade> list2 = admService.selectGrade();
+		for(Member m : list1)
 		{
 			if(m.getStatus().equals("Y"))
 			{
@@ -35,8 +38,9 @@ public class AdMemberController {
 			}
 		}
 		
-		mv.addObject("list", list).setViewName("admin/adMemberListForm");
-		
+		mv.addObject("list", list1);
+		mv.addObject("gradeList", list2);
+		mv.setViewName("admin/adMemberListForm");
 		return mv;
 	}
 	
@@ -56,18 +60,15 @@ public class AdMemberController {
 		}
 	}
 	
-	@RequestMapping(value = "updateMember.ad", produces = "text/html; charset=utf-8")
-	public ModelAndView updateMember(Member m, ModelAndView mv)
-	{	System.out.println(m);
+	@ResponseBody
+	@RequestMapping(value = "updateMember.ad", produces = "application/json; charset=utf-8")
+	public int updateMember(Member m, HttpSession session)
+	{	
 		int result = admService.updateMember(m);
 		
 		System.out.println(result);
-		if(result > 0)
-		{
-//			model.addAttribute("msg", "회원정보 수정 완료");
-			mv.addObject("msg", "회원정보 수정 완료").setViewName("redirect:memberList.ad");
-		}
-		return mv;
+		
+		return result;
 	}
 	
 	@RequestMapping("gradeMgmt.ad")
