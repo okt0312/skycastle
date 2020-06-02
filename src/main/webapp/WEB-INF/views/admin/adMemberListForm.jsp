@@ -172,7 +172,8 @@
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userId" name="userId" readonly> <br>
                             <label for="userName" class="mr-sm-2">이름 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userName" name="userName"><br>
-                            <select class="form-control" id="sel1" name="gradeName">
+                            <label for="gradeName" class="mr-sm-2">등급 :</label>
+                            <select class="form-control" id="gradeName" name="gradeName">
 						        <c:forEach var="g" items="${ gradeList }">
 						        	<option value="${ g.gradeName }">${ g.gradeName }</option>
 						        </c:forEach>
@@ -208,11 +209,11 @@
             		$("#phone").val($(this).parent("td").parent("tr").children().eq(5).text());
             		
             		var gradeName = $(this).parent("td").parent("tr").children().eq(6).text();
-            		$("#sel1 option[value="+ gradeName + "]").attr("selected", true);
+            		$("#gradeName option[value="+ gradeName + "]").attr("selected", true);
             	});
             	
             	$('#manageModal').on('hidden.bs.modal', function () {
-            		$("#sel1 option").attr("selected", false);
+            		$("#gradeName option").attr("selected", false);
             		})
             	
             	$("#update_member_btn").click(function(){
