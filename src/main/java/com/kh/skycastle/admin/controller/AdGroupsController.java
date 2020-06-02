@@ -55,7 +55,7 @@ public class AdGroupsController {
 	
 	//소모임조회에서 모달창 소모임정보 수정하는거
 	@RequestMapping(value = "updateGroups.ad", produces = "text/html; charset=utf-8")
-	public ModelAndView acceptGroups(Groups g, ModelAndView mv)
+	public ModelAndView updateGrMgmt(Groups g, ModelAndView mv)
 	{	
 		System.out.println(g); //테스트용
 		int result = adGrService.updateGrMgmt(g);
@@ -64,7 +64,7 @@ public class AdGroupsController {
 		if(result > 0)
 		{
 			//model.addAttribute("msg", "회원정보 수정 완료");
-			mv.addObject("msg", "회원정보 수정 완료").setViewName("redirect:groupList.ad");
+			mv.addObject("msg", "소모임 수정 완료").setViewName("redirect:groupList.ad");
 		}
 		return mv;
 	}

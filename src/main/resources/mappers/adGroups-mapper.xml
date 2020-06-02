@@ -18,16 +18,39 @@
 
 	<!--소모임조회 게시글리스트 하나하나 불러오는sql -->
 	<select id="selectGroups" resultMap="adGroupsResultSet">
-		SELECT GROUP_NO, GROUP_CATEGORY, GROUP_TITLE, PLACE, GRADE_LIMIT, LEADER_NO,MEMBER_LIMIT,START_DATE,END_DATE,STATUS
-		FROM GROUPS
+		SELECT GROUP_NO, GROUP_CATEGORY, GROUP_TITLE, PLACE, 
+			   GRADE_LIMIT, LEADER_NO,MEMBER_LIMIT,
+			   START_DATE,END_DATE,STATUS
+		  FROM GROUPS
 	</select>
+	
+	<!-- 소모임 조회 모달에서 소모임정보 수정 -->
+	<update id="updateGrMgmt" parameterType="Groups">
+		UPDATE GROUPS
+		   SET GROUP_TITLE = #{groupTitle},
+		   	   LEADER_NO = #{leaderNo},
+			   GROUP_CATEGORY = #{groupCategory},
+			   START_DATE = #{startDate},
+			   END_DATE = #{endDate},
+			   PLACE = #{place},
+			   MEMBER_LIMIT = #{memberLimit},
+			   STATUS = #{status}
+	   	 WHERE GROUP_NO = #{groupNo}
+	</update>
+	
+	
+	
 	
 	<!--소모임개설 게시글리스트 하나하나 불러오는sql -->
 	<select id="selectGrConfirm" resultMap="adGroupsResultSet">
-		SELECT GROUP_NO, GROUP_CATEGORY, GROUP_TITLE,GROUP_SUBTITLE, PLACE,MEMBER_LIMIT,START_DATE,END_DATE,STATUS
-		FROM GROUPS
-		WHERE STATUS='U'
+		SELECT GROUP_NO, GROUP_CATEGORY, GROUP_TITLE,
+			   GROUP_SUBTITLE, PLACE,MEMBER_LIMIT,
+			   TART_DATE,END_DATE,STATUS
+		  FROM GROUPS
+		 WHERE STATUS='U'
 	</select>
+	
+	
 	
 	
 </mapper>
