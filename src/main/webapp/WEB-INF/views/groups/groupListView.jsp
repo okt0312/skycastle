@@ -96,13 +96,13 @@
 	    
 	    <c:forEach items="${ list }" var="g">
 		    <div class="grouplist">
+	            <input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 		        <div class="groupThumbnailArea">
 		            <img src="img/${ g.thumbnail }" alt="" class="" width="150px">
 		        </div>
 		        <div class="groupTextArea">
 		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>
 		            <p style="margin: 0px 0px;">
-		            
 			         	<c:choose>
 			         		<c:when test="${ g.groupCategory == 1 }">
 								대입 | ${ g.groupSubtitle }<br>
@@ -135,9 +135,14 @@
 	    
 	    
 		<script>
+/* 			$(function(){
+				$(".grouplist").click(function(){
+					location.href = "groupDetail.gr?gno=" + $("#group_no").val();
+				});
+			}); */
 			$(function(){
 				$(".grouplist").click(function(){
-					location.href = "groupDetail.gr?gno=" + $(this).children().eq(0).text();
+					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val();
 				});
 			});
 		</script>
