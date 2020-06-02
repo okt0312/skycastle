@@ -17,8 +17,8 @@ public class MemberDao {
     	return sqlSession.insert("memberMapper.insertMember", m);
     }
     
-    public int idCheck(SqlSessionTemplate sqlSession, String email) {
-    	return sqlSession.selectOne("memberMapper.idCheck", email); 			
+    public int idCheck(SqlSessionTemplate sqlSession, String userId) {
+    	return sqlSession.selectOne("memberMapper.idCheck", userId); 			
     }
 
 }

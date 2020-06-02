@@ -13,5 +13,5 @@ public interface MemberService {
     int updateMember(Member m);
     
     // 4. 아이디 중복체크 서비스
-    int idCheck(String email);
+    int idCheck(String userId);
 }

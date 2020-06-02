@@ -80,8 +80,8 @@ public class MemberController {
 	@RequestMapping("idCheck.me")
 	public String idCheck(HttpServletRequest request, Model model){
 		
-		String email = request.getParameter("email");
-		int count = mService.idCheck(email);
+		String userId = request.getParameter("userId");
+		int count = mService.idCheck(userId);
 		
 		return String.valueOf(count);
 	}
