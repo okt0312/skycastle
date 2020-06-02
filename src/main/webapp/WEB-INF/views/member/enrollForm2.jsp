@@ -110,8 +110,8 @@
             <div class="infoArea">
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
-                    <input type="email" class="memberInfo" id="email" name="email" placeholder="이메일">
-                    <span><button id="ckBtn">중복확인</button></span>
+                    <input type="email" class="memberInfo" id="email" name="userId" placeholder="이메일">
+                    <span><button type="button" id="ckBtn">중복확인</button></span>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
@@ -162,10 +162,10 @@
 <script>
 	function validate(){
 		
-		var email = document.getElemenById("email");	// 이메일
-		var pwd1 = document.getElemenById("memPwd1");   // 비밀번호
-		var pwd2 = document.getElemenById("memPwd2");   // 비밀번호 확인 
-		var name = document.getElemenById("userName");  // 이름
+		var email = document.getElementById("email");	// 이메일
+		var pwd1 = document.getElementById("memPwd1");   // 비밀번호
+		var pwd2 = document.getElementById("memPwd2");   // 비밀번호 확인 
+		var name = document.getElementById("userName");  // 이름
 		
 		// 이메일 검사 
 		var regExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -257,9 +257,9 @@
 						alert("사용중인 이메일입니다. 다시 입력해주세요.");
 						email.focus();
 					}
-				},error:function(error){
+				},error:function(){
 					
-					alert("error : " + error);
+					alert("오류입니다. 다시 시도해주세요.");
 				}
 				
 			});

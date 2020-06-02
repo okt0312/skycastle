@@ -51,18 +51,15 @@ public class MypageController {
 	}
 	
 	@RequestMapping("qlist.bo")
-	public String qselectList(int currentPage, Model model) {
-		
+	public String qselectList(int currentPage, Member m, Model model, HttpSession session) {
 		int listOneCount = pService.qselectListCount();
-		
-		
-		
 		PageInfo pi = Pagination.getPageInfo(listOneCount, currentPage, 10, 5);
 		
-		ArrayList<Qna> list =  pService.qselectList(pi);
-		//System.out.println(list);
+		ArrayList<Qna> list =  pService.qselectList(pi, m);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
+		
+		
 		
 		return "myPage/myPageOneOnOneList";
 		

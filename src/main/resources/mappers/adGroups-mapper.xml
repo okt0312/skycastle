@@ -27,15 +27,16 @@
 	<!-- 소모임 조회 모달에서 소모임정보 수정 -->
 	<update id="updateGrMgmt" parameterType="Groups">
 		UPDATE GROUPS
-		   SET GROUP_TITLE = #{groupTitle},
-		   	   LEADER_NO = #{leaderNo},
-			   GROUP_CATEGORY = #{groupCategory},
-			   START_DATE = #{startDate},
-			   END_DATE = #{endDate},
-			   PLACE = #{place},
-			   MEMBER_LIMIT = #{memberLimit},
-			   STATUS = #{status}
-	   	 WHERE GROUP_NO = #{groupNo}
+		   SET GROUP_NO =#{groupNo},
+		   	   GROUP_TITLE =#{groupTitle},
+		   	   LEADER_NO =#{leaderNo},
+			   GROUP_CATEGORY =#{groupCategory},
+			   START_DATE =#{startDate},
+			   END_DATE =#{endDate},
+			   PLACE =#{place},
+			   MEMBER_LIMIT =#{memberLimit},
+			   STATUS =#{status}
+	   	 WHERE GROUP_NO =#{groupNo}
 	</update>
 	
 	
