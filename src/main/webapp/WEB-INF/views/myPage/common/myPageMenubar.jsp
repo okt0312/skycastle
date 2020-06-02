@@ -108,7 +108,7 @@
                
                 <li><a href="myPage.my">이용현황</a></li>
                 <li><a href="mygroupList.gr">소모임관리</a></li>
-                <li><a href="OneonOne.my">1:1문의</a></li>
+                <li><a href="qlist.bo?currentPage=1">1:1문의</a></li>
                 <li><a href="list.bo?currentPage=1">쿠폰함</a></li>
                 <li><a href="PwdCheck.my">개인정보수정</a></li>
                 

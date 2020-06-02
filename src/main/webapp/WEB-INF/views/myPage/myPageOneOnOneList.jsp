@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,6 +134,7 @@ div {
             
             <br>
 			
+			
 			<div class="inner">
 				<br> <br>
 				<table id="noticeList" align="center" width="1000px;">
@@ -144,16 +148,26 @@ div {
 					</thead>
 					<tbody>
 						
+						
+						<c:forEach items="${ list }" var="y">
 							<tr>
 
-								<td></td>
-                                <td></td>
-                                <td></td>
-								<td></td>
-							
+								<td>${y.qnaNo}</td>
+                                <td>${y.qnaTitle}</td>
+                                <td>${y.qnaDate }</td>
+                                
+                                <c:set var="st" value="O"/>
+                                <c:choose>
+                                	<c:when test="${st eq 'O'}">
+								<td>처리중</td>
+									</c:when>
+								<c:when test="${st eq 'Y' }">
+								<td>답변완료</td>
+								</c:when>
+								</c:choose>
 								
 							</tr>
-
+						</c:forEach>
 
 							
 						
@@ -171,14 +185,41 @@ div {
 				<br>
 				<br>
 
+				<div class="pagination" align="center">
 				
+                <c:choose>
+                <c:when test="${ pi.currentPage eq 1 }">
+                	<a href="#" class="active disabled">&laquo;</a>
+                </c:when>
+                   
+                <c:otherwise>
+                	<a href="qlist.bo?currentPage=${ pi.currentPage-1 }" class="active">&laquo;</a>
+                </c:otherwise>
+                </c:choose>
                 
-                <div class="pagination" align="center">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">&raquo;</a>
+                <c:forEach var="e" begin="${pi.startPage}" end="${ pi.endPage }">
+                
+                <c:choose>
+                	<c:when test="${ e eq pi.currentPage }">
+                    <a href="#" class="active disabled">${ e }</a>
+                    </c:when>
+                    <c:otherwise>
+                    <a href="qlist.bo?currentPage=${ e }" class="active">${ e }</a>
+                    </c:otherwise>
+                    </c:choose>
+                    
+                    </c:forEach>
+                    
+                    <c:choose>
+                    <c:when test="${pi. currentPage eq pi.maxPage }">
+                    <a href="#" class="active disabled">&raquo;</a>
+                    </c:when>
+                    <c:otherwise>
+                     <a href="qlist.bo?currentPage${pi.currentPage+1 }" class="active">&raquo;</a>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
-
+				
 				
 				<br>
 				<br>

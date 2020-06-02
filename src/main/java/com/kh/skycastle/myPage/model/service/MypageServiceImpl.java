@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
+import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.dao.MypageDao;
 
@@ -74,6 +75,23 @@ public class MypageServiceImpl implements MypageService {
 	
 		return pDao.selectList(sqlSession, pi);
 	}
+
+
+	@Override
+	public int qselectListCount() {
+		
+		return pDao.qselectListCount(sqlSession);
+	}
+	
+
+	@Override
+	public ArrayList<Qna> qselectList(PageInfo pi) {
+		
+		return pDao.qselectList(sqlSession, pi);
+	}
+
+
+	
 
 
 

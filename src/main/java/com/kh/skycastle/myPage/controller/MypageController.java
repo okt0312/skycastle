@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.coupon.model.vo.Coupon;
+import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
 
@@ -47,6 +48,27 @@ public class MypageController {
 		model.addAttribute("list", list);
 		
 		return "myPage/myPageCoupon";
+	}
+	
+	@RequestMapping("qlist.bo")
+	public String qselectList(int currentPage, Model model) {
+		
+		int listOneCount = pService.qselectListCount();
+		
+		
+		
+		PageInfo pi = Pagination.getPageInfo(listOneCount, currentPage, 10, 5);
+		
+		ArrayList<Qna> list =  pService.qselectList(pi);
+		//System.out.println(list);
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		
+		return "myPage/myPageOneOnOneList";
+		
+		
+		
+		
 	}
 	
 	
@@ -159,10 +181,7 @@ public class MypageController {
 	
 
 	
-	@RequestMapping("OneonOne.my")
-	public String OneonOne() {
-		return "myPage/myPageOneOnOneList";
-	}
+	
 	
 	@RequestMapping("seat.my")
 	public String seat() {
