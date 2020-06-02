@@ -55,24 +55,17 @@ div {
 }
 
 
-#noticeList>tbody td {
-	text-align: center;
-}
-
-#noticeList * {
-	height: 30px;
-	font-size: 12px;
-	border-bottom: 1px solid lightgray;
-}
-
-#noticeList {
-	border-top: 1px solid black;
-}
-
-#noticeList>thead th {
-	font-size: 14px;
-	font-weight: 750;
-}
+ #noticeList>tbody td{text-align: center;}
+        #noticeList *{
+            height:30px;
+            font-size:12px;
+            border-bottom:1px solid lightgray;
+        }
+        #noticeList{border-top:1px solid black;}
+        #noticeList>thead th{
+            font-size:14px;
+            font-weight:750;
+        }
 
 .pagination a {
             color: black;
@@ -143,22 +136,20 @@ div {
 				<table id="noticeList" align="center" width="1000px;">
 					<thead>
 						<tr>
-							<th style="width: 20%; text-align: center;">번호</th>
-                            <th style="width: 20%; text-align: center;">카테고리</th>
-                            <th style="width: 20%; text-align: center;">제목</th>
-							<th style="width: 20%; text-align: center;">작성자</th>
-							<th style="width: 20%; text-align: center;">작성일</th>
+							<th style="width: 25%; text-align: center;">번호</th>
+                            <th style="width: 25%; text-align: center;">제목</th>
+							<th style="width: 25%; text-align: center;">작성일</th>
+							<th style="width: 25%; text-align: center;">문의상태</th>
 						</tr>
 					</thead>
 					<tbody>
 						
 							<tr>
 
-								<td>1</td>
-                                <td>[기타문의]</td>
-                                <td>좋아요</td>
-								<td>xorud3290</td>
-								<td>2020-05-16</td>
+								<td></td>
+                                <td></td>
+                                <td></td>
+								<td></td>
 							
 								
 							</tr>
@@ -170,37 +161,9 @@ div {
 							
 				   
 							
-                            <tr>
-								<td>2</td>
-                                <td>[기타문의]</td>
-                                <td>좋아요2</td>
-								<td>xorud3290</td>
-								<td>2020-05-16</td>
-                            </tr>
-                            
-                            <tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-								<td></td>
-								<td></td>
-                            </tr>
+                        
 
-                            <tr>
-								<td></td>
-                                <td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-                            </tr>
-
-                            <tr>
-								<td></td>
-                                <td></td>
-                                <td></td>
-								<td></td>
-								<td></td>
-							</tr>
+                        
                             
 					</tbody>
 				</table>
@@ -216,13 +179,7 @@ div {
                     <a href="#">&raquo;</a>
                 </div>
 
-				<!--
-                <div class="pagination" align="center">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">&raquo;</a>
-                </div>
-                -->
+				
 				<br>
 				<br>
 				<br>

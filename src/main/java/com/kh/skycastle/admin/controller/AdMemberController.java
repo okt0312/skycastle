@@ -23,7 +23,6 @@ public class AdMemberController {
 	public ModelAndView adMemberListForm(ModelAndView mv)
 	{
 		ArrayList<Member> list = admService.selectMember();
-		
 		for(Member m : list)
 		{
 			if(m.getStatus().equals("Y"))

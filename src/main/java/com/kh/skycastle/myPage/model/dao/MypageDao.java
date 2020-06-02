@@ -26,7 +26,7 @@ public class MypageDao {
 		return sqlSession.update("memberMapper.deleteMember", m);
 		
 	}
-	
+		
 	public int updatePwd(SqlSessionTemplate sqlSession, Member m) {
 		return sqlSession.update("memberMapper.updatePwd", m);
 	}
