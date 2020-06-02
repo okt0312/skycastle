@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 조회</title>
+
 <style>
        /* 관리버튼 - 관리 공간 소모임  css*/
        .tbBtn123{
@@ -40,7 +41,6 @@
 </style>
 </head>
 <body>
-
 	<c:if test="${ !empty msg }">
 		<script>
 			alertify.alert("${msg}");
@@ -165,15 +165,21 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form action="updateMember.ad" method="post" class="form-horizontal">
+                    <form id="updateMember_form" action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <label for="userId" class="mr-sm-2">아이디 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userId" name="userId" readonly> <br>
                             <label for="userName" class="mr-sm-2">이름 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="userName" name="userName"><br>
-                            <label for="userGrade" class="mr-sm-2">등급 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeName" name="gradeName"> <br>
+                            <label for="gradeName" class="mr-sm-2">등급 :</label>
+                            <select class="form-control" id="gradeName" name="gradeName">
+						        <c:forEach var="g" items="${ gradeList }">
+						        	<option value="${ g.gradeName }">${ g.gradeName }</option>
+						        </c:forEach>
+					   	    </select><br>
+<!--                             <label for="userGrade" class="mr-sm-2">등급 :</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeName" name="gradeName"> <br> -->
                             <label for="birth" class="mr-sm-2">생년월일 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="birthday" name="birthday"><br>
                             <label for="phone" class="mr-sm-2">핸드폰 :</label>
@@ -187,7 +193,7 @@
                         
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button id="update_member_btn" type="submit" class="btn btn-primary">수정</button>
+                        <button id="update_member_btn" type="button" class="btn btn-primary">수정</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
                     </div>
                     </form>
@@ -198,10 +204,42 @@
             	$("#dataTable tbody tr td #tbBtn1").click(function(){
             		$("#userId").val($(this).parent("td").parent("tr").children().eq(3).text());
             		$("#userName").val($(this).parent("td").parent("tr").children().eq(1).text());
-            		$("#gradeName").val($(this).parent("td").parent("tr").children().eq(6).text());
+            		//$("#gradeName").val($(this).parent("td").parent("tr").children().eq(6).text());
             		$("#birthday").val($(this).parent("td").parent("tr").children().eq(4).text());
             		$("#phone").val($(this).parent("td").parent("tr").children().eq(5).text());
+            		
+            		var gradeName = $(this).parent("td").parent("tr").children().eq(6).text();
+            		$("#gradeName option[value="+ gradeName + "]").attr("selected", true);
             	});
+            	
+            	$('#manageModal').on('hidden.bs.modal', function () {
+            		$("#gradeName option").attr("selected", false);
+            		})
+            	
+            	$("#update_member_btn").click(function(){
+            		var formData = $("#updateMember_form").serialize();
+            		console.log(formData);
+            		$.ajax({
+	            		url:"updateMember.ad",
+	            		data: $("#updateMember_form").serialize(),
+	            		type:"post",
+	            		success : function(result)
+	            		{
+	            			if(result > 0)
+            				{
+	            				alertify.alert("회원 관리", "회원 수정 성공", function(){ location.reload();});
+            				}
+	            			else
+            				{
+	            				alertify.alert("회원 관리", "회원 수정 실패", function(){ location.reload();});
+            				}
+	            		},
+	            		error: function()
+	            		{
+	            			console.log("ajax통신 실패");
+	            		}
+	            	}); 
+            	})
             	
            	</script>
 

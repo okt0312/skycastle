@@ -53,7 +53,6 @@ public class GroupController {
 		return mv;
 	}
 	
-	
 	@RequestMapping("groupApplyForm.gr")
 	public String groupApplyForm() {
 		return "groups/groupApplyForm";

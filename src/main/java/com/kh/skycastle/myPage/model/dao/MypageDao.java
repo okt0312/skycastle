@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
+import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 
 @Repository("pDao")
@@ -42,5 +43,19 @@ public class MypageDao {
 		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
 		
 		return (ArrayList)sqlSession.selectList("memberMapper.selectList", null , rowBounds);
+	}
+	
+	public int qselectListCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("csMapper.qselectListCount");
+	}
+	
+	
+	public ArrayList<Qna> qselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+		
+		int offset =(pi.getCurrentPage() -1) * pi.getPageLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
+		
+		return (ArrayList)sqlSession.selectList("csMapper.qselectList", null, rowBounds);
 	}
 }

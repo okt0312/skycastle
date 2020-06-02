@@ -1,5 +1,7 @@
 package com.kh.skycastle.cs.model.vo;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ public class Qna {
 	private int userNo;
 	private String qnaTitle;
 	private String qnaContent;
-	private String qnaDate;
+	private Date qnaDate;
 	private String qnaReply;
 	private String originName;
 	private String changeName;

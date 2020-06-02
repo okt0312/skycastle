@@ -44,7 +44,7 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	//소모임 조회페이지 수정
 	@Override
 	public int updateGrMgmt(Groups g) {
-		return 0;
+		return adGrDao.updateGrMgmt(sqlSession, g);
 	}
 	
 	

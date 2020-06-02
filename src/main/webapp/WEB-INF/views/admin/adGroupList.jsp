@@ -7,16 +7,6 @@
 <meta charset="UTF-8">
 <title>소모임관리</title>
  
- <!-- jQuery 라이브러리 (선생님것)-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!-- 부트스트랩에서 제공하고 있는 스타일 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <!-- 부트스트랩에서 제공하고 있는 스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-        <!-- alertify라이브러리 -->
-    	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
 
     <style>
         /* 목록 호버 */
@@ -134,11 +124,11 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form action="관리폼요청받아주는서버" method="post" class="form-horizontal">
+                    <form action="updateGroups.ad" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle"><br><br>
-                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo"><br><br>
+                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
+                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo" name="memberNo"><br><br>
                             <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
                                 <select id="groupCategory" name="groupCategory">
@@ -150,11 +140,11 @@
                                     
                                 </select>
                            </div><br>
-                           <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" id="startDate"><br><br>
-                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" id="endDate"><br><br>
-                            <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" id="place"><br><br>
-                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" id="memberLimit"><br><br>
-                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" id="status" ><br><br>
+                           <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" id="startDate" name="startDate"><br><br>
+                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" id="endDate"  name="endDate"><br><br>
+                            <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" id="place" name="place"><br><br>
+                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" id="memberLimit" name="memberLimit"><br><br>
+                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" id="status" name="status"><br><br>
                         </div>
                             
                         
@@ -209,6 +199,7 @@
             		})
            	</script> 
                 </main>
+                <jsp:include page="common/adFooter.jsp"/>
                 </div>
              </div>
 

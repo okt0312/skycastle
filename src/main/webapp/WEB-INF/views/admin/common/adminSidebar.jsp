@@ -10,7 +10,6 @@
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-
 <!-- alertify -->
 
 <!-- JavaScript -->
@@ -25,6 +24,7 @@
 <!-- Bootstrap theme -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 <!-- /alertify -->
+
 
 <script>
 	$(document).ready(function(){
@@ -145,5 +145,6 @@
 	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 	<script src="${pageContext.servletContext.contextPath}/resources/js/demo/datatables-demo.js"></script>
+	
 </body>
 </html>

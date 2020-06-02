@@ -24,10 +24,25 @@
 		WHERE STATUS='Y'
 	</select>
 
-	<select id="selectGroupList" resultMap="groupResultSet">
+	
+	<!-- select문은 그대로라서 똑같이 사용할 수 있음 -->
+	<select id="selectGroupList" parameterType="Groups" resultMap="groupResultSet">
 		SELECT *
 		FROM GROUPS
-		WHERE STATUS='Y'
+			<choose>
+				<when test="status == Y">
+					WHERE STATUS='Y'
+				</when>
+				<when test="status == ">
+					WHERE STATUS=''
+				</when>
+				<when test="status == U">
+					WHERE STATUS='U'
+				</when>
+				<when test="status == N">
+					WHERE STATUS='N'
+				</when>
+			</choose>
 		ORDER BY START_DATE DESC
 	</select>
 	

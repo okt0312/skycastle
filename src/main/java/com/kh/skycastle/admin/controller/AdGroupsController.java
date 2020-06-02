@@ -19,7 +19,7 @@ public class AdGroupsController {
 	@Autowired
 	private AdGroupsService adGrService;
 	
-	//메뉴바에서 소모임 조회 페이지 눌렀을때 이동 + 리스트나타남+카테고리 글자로바꿈
+	//메뉴바에서 소모임 조회 페이지 눌렀을때 이동 + 리스트나타남+카테고리값인 숫자를 글자로바꿈
 	@RequestMapping("groupList.ad")
 	public ModelAndView adGroupList(ModelAndView mv){
 		
@@ -52,6 +52,25 @@ public class AdGroupsController {
 		
 		return mv;
 	}
+	
+	//소모임조회에서 모달창 소모임정보 수정하는거
+	@RequestMapping(value = "updateGroups.ad", produces = "text/html; charset=utf-8")
+	public ModelAndView updateGrMgmt(Groups g, ModelAndView mv)
+	{	
+		System.out.println(g); //테스트용
+		int result = adGrService.updateGrMgmt(g);
+		
+		System.out.println(result); //테스트용
+		if(result > 0)
+		{
+			//model.addAttribute("msg", "회원정보 수정 완료");
+			mv.addObject("msg", "소모임 수정 완료").setViewName("redirect:groupList.ad");
+		}
+		return mv;
+	}
+	
+	
+	
 	
 	//메뉴바에서 소모임 개설관리 페이지 눌렀을때 이동
 	@RequestMapping("groupConfirm.ad")

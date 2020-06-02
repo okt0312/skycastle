@@ -114,7 +114,7 @@
 	        </form>
 	    </div>
 	    <br><br>
-	    <!-- 원래
+	    <!-- 원래 메뉴바
 	    <div id="mygroupListMenubar">
 	        <a href="#">참가중인 소모임</a> | 
 	        <a href="#" style="font-weight: 600;">찜한 소모임</a> | 
@@ -129,13 +129,13 @@
            	
             <ul class="groups_header_menu" style="margin-right: 10px;">
                
-                <li><a href="myPage.my">참가중인 소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1&status=Y">참가중인 소모임</a></li>
                 <li> | </li>
-                <li><a href="mygroupList.gr">찜한 소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1&status=">찜한 소모임</a></li>
                 <li> | </li>
-                <li><a href="OneonOne.my">대기중인 소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1&status=U">대기중인 소모임</a></li>
                 <li> | </li>
-                <li><a href="list.bo?currentPage=1">지난 소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1&status=N">지난 소모임</a></li>
             </ul>
         </div>
 		<br><br><br><br>
