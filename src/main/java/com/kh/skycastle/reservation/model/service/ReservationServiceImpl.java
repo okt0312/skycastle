@@ -29,8 +29,8 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public ArrayList<Coupon> couponList(int userNo) {
-		return null;
+	public ArrayList<Coupon> selectCouponList(int userNo) {
+		return rDao.selectCouponList(sqlSession, userNo);
 	}
 
 }

@@ -11,5 +11,5 @@ public interface ReservationService {
 	StatusCount seatStatusCount();
 	
 	//2. 좌석 예약시 사용가능 쿠폰 조회
-	ArrayList<Coupon> couponList(int userNo);
+	ArrayList<Coupon> selectCouponList(int userNo);
 }

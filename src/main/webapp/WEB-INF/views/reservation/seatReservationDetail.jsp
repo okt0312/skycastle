@@ -198,10 +198,17 @@
                         <div style="border:0px;">
                             &nbsp;&nbsp;
                              <select id="copon" name="couponCode">
-                                <option>선택 없음</option>
-                                <option>쿠폰 1</option>
-                                <option>쿠폰 2</option>
-                                <option>쿠폰 3</option>
+                                <c:choose>
+                                	<c:when test="${ !empty loginUser}">
+											<option>선택 없음</option>
+		                                <c:forEach var="c" items="${couponList }" varStatus="status" >
+											<option>${c.couponName }</option>
+										</c:forEach>
+		                            </c:when>
+		                            <c:otherwise>
+		                            	<option>선택 없음</option>
+		                            </c:otherwise>
+                                </c:choose>
                             </select>
                         </div>
                         </div>
