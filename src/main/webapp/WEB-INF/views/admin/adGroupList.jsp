@@ -135,9 +135,9 @@
                     <form id="updateGroups_form" action="" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
-                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="text" id="groupNo" name="groupNo"><br><br>
+                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="text" id="groupNo" name="groupNo" readonly><br><br>
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
-                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo" name="memberNo"><br><br>
+                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo" name="memberNo" readonly><br><br>
                             <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
                                 <select id="groupCategory" name="groupCategory">
