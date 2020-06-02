@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <!-- jQuery 라이브러리 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--  네이버로 로그인 라이브러리 
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
 <style>
 	.loginForm{
 	  position: absolute;
@@ -43,7 +45,7 @@
 	/* 로그인 버튼 관련 스타일 */
 	#loginBox{
 	  width:100%;
-	  height:40px;
+	  height:55px;
 	  margin-top: 10px;
 	  font-size: 14px;
 	  color : #ffffff;
@@ -53,12 +55,19 @@
 	}
 	#loginBox:hover{
 	  width:100%;
-	  height:40px;
+	  height:55px;
 	  margin-top: 10px;
 	  border:1px solid#fdce07;
 	  color:rgb(231, 166, 44);
 	  background-color: white;
 	}
+	#naverLogin{
+	  width:300px;
+	  height:55px;
+	  margin-top: 10px;
+	  font-size: 14px;	
+	}
+	
 	/* 비밀번호찾기,회원가입버튼 관련 스타일 */
 	.loginBtn{
 	  text-align: center;
@@ -92,7 +101,10 @@
           <input type="email" name="userId" id="email" placeholder="이메일을 입력하세요." maxlength="20" required><br> 
           <input type="password" name="userPwd" id="userPwd" placeholder="비밀번호를 입력하세요." maxlength="12" required><br>      
           <input type="submit" id="loginBox" name="login" value="로그인"><br>
-          <input type="submit" id="loginBox" name="login" value="네이버로 로그인(임시용)"><br>
+          <!-- 네이버로 로그인 버튼 노출 영역 -->
+          <div>
+        	<a href=><img id="naverLogin" src="resources/images/naverlogo.PNG"></a>
+          </div>	
           <div class="loginBtn">
             <button id="searchPwd" type="button" onclick="postFormSubmit(2);">비밀번호 찾기</button>
             <button id="enrollMember" type="button" onclick="postFormSubmit(1);">회원가입</button>
@@ -111,5 +123,7 @@
 		$("#postForm").submit();
 	}
 </script>
+
+
 </body>
 </html>
