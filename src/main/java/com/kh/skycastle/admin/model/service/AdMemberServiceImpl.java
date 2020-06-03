@@ -20,9 +20,9 @@ public class AdMemberServiceImpl implements AdMemberService{
 	private AdMemberDao admDao;
 	
 	@Override
-	public ArrayList<Member> selectMember() {
+	public ArrayList<Member> selectMember(String status) {
 		
-		return admDao.selectMember(sqlSession);
+		return admDao.selectMember(sqlSession, status);
 	}
 
 	@Override
@@ -39,6 +39,11 @@ public class AdMemberServiceImpl implements AdMemberService{
 	@Override
 	public int updateMember(Member m) {
 		return admDao.updateMember(sqlSession, m);
+	}
+
+	@Override
+	public ArrayList<Member> choiceMember(Member m) {
+		return null;
 	}
 
 

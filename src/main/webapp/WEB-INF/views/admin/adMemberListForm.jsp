@@ -73,16 +73,69 @@
                                             <div>
                                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
                                                 <div id="selectBox">
-                                                    <select>
+                                                    <select id="list_mem" name="list_mem">
                                                         <option value="전체보기">전체보기</option>
                                                         <option value="회원">회원</option>
                                                         <option value="비회원">비회원</option>
                                                     </select>
-                                                    
                                                 </div>
+                                                <!-- <script>
+                                               		$("#list_mem").change(function(){
+                                               			var status = $("#list_mem").val();
+                                               			switch(status)
+                                               			{
+                                               			case "회원":
+                                               				status = "Y";
+                                               				break;
+                                               			case "비회원":
+                                               				status = "N";
+                                               				break;
+                                           				default :
+                                           					ststus = null;
+                                           					break;
+                                               			}
+                                               			
+                                               			
+                                               			$.ajax({
+                                               				url:"choiceList.ad",
+                                               				data: {"status":status},
+                                               				type:"post",
+                                               				success:function(list)
+                                               				{
+                                               					console.log(list);
+                                               					$("#dataTable tbody").empty();
+                                               					
+                                               					var value = "";
+                                               					for(var i in list)
+                                        						{
+	                                               					value += "<tr>" +
+				                                                                "<td>" +  list[i].userNo + "</td>" +
+				                                                                "<td>" +  list[i].userName + "</td>" +
+				                                                                "<td>" +  list[i].status + "</td>" +
+				                                                                "<td>" +  list[i].userId + "</td>" +
+				                                                                "<td>" +  list[i].birthday + "</td>" +
+				                                                                "<td>" +  list[i].phone + "</td>" +
+				                                                                "<td>" +  list[i].gradeName + "</td>" +
+				                                                                "<td>" +  list[i].enrollDate + "</td>" +
+				                                                                "<td>" +
+				                                                                	"<button id='tbBtn1' class='tbBtn123' data-toggle='modal' data-target='#manageModal'>관리</button>" +
+				                                                                    "<button id='tbBtn2' class='tbBtn123' data-toggle='modal' data-target=''#spaceModal'>공간</button>" +
+				                                                                    "<button id='tbBtn3' class='tbBtn123' data-toggle='modal' data-target=''#groupModal'>소모임</button>" +
+				                                                         
+				                                                                "</td>" +
+			                                                            	"</tr>";
+                                        						}
+	                                               					$("#dataTable tbody").html(value);
+                                               				},
+                                               				error:function()
+                                               				{
+                            									console.log("ajax통신 실패");
+                                               				}
+                                               			});
+                                               		});
+                                               	</script> -->
                                                 <!-- 셀렉트 끝 -->
                                             </div>
-
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                                                 <thead>
                                                     <tr>
@@ -99,7 +152,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <c:forEach var="m" items="${ list }">
-                                                    	<tr>
+                                                   	<tr>
                                                         <td>${ m.userNo }</td>
                                                         <td>${ m.userName }</td>
                                                         <td>${ m.status }</td>
@@ -178,8 +231,6 @@
 						        	<option value="${ g.gradeName }">${ g.gradeName }</option>
 						        </c:forEach>
 					   	    </select><br>
-<!--                             <label for="userGrade" class="mr-sm-2">등급 :</label>
-                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeName" name="gradeName"> <br> -->
                             <label for="birth" class="mr-sm-2">생년월일 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="birthday" name="birthday"><br>
                             <label for="phone" class="mr-sm-2">핸드폰 :</label>

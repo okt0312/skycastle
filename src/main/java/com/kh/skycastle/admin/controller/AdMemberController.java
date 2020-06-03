@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
@@ -22,9 +23,9 @@ public class AdMemberController {
 	private AdMemberService admService;
 	
 	@RequestMapping("memberList.ad")
-	public ModelAndView adMemberListForm(ModelAndView mv)
+	public ModelAndView adMemberListForm(String status, ModelAndView mv)
 	{
-		ArrayList<Member> list1 = admService.selectMember();
+		ArrayList<Member> list1 = admService.selectMember(status);
 		ArrayList<Grade> list2 = admService.selectGrade();
 		for(Member m : list1)
 		{
@@ -66,9 +67,29 @@ public class AdMemberController {
 	{	
 		int result = admService.updateMember(m);
 		
-		System.out.println(result);
-		
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="choiceList.ad",  produces = "application/json; charset=utf-8")
+	public String choiceMember(String status)
+	{
+		System.out.println(status);
+		ArrayList<Member> list1 = admService.selectMember(status);
+		ArrayList<Grade> list2 = admService.selectGrade();
+		for(Member m : list1)
+		{
+			if(m.getStatus().equals("Y"))
+			{
+				m.setStatus("회원");
+			}
+			else if(m.getStatus().equals("N"))
+			{
+				m.setStatus("비회원");
+			}
+		}
+		
+		return new Gson().toJson(list1);
 	}
 	
 	@RequestMapping("gradeMgmt.ad")
@@ -79,6 +100,7 @@ public class AdMemberController {
 		
 		return mv;
 	}
+	
 	
 	@RequestMapping("reportMgmt.ad")
 	public String adReporList()

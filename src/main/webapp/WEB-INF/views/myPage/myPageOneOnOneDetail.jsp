@@ -157,9 +157,9 @@ td {
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="495px" style="padding-left: 2px; text-align: center;">
-							<b style="font-weight: bold; font-size: 1.5em;"></b>님께서 문의하신 내용입니다.
+							<b style="font-weight: bold; font-size: 1.5em;">${ loginUser.userName }</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">님께서 문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color: black;">문의하신 내용은 총 1건입니다.</p>
 						</th>
 						
 						
@@ -191,14 +191,14 @@ td {
 
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.userName }</td>
                     </tr>
 
                   
                     
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
                     </tr>
    
                    
