@@ -240,17 +240,21 @@
             	
             	//삭제버튼 에이작스
             		$("#deleteGroupList_Btn").click(function(){
-            		var gNo = document.getElementById("groupNo").value;
-            		var grNo= gNo.value;
+            			//var grNo =$("#dataTable tbody tr").children().eq(0).text();
+           			
+           			
+           			var grNo = document.getElementById("groupNo").value;
+            		//var grNo= gNo.value;
+            		
 
-
-            		console.log(gNo); 
+            		console.log(grNo);
+            		
             				alertify.confirm('소모임 삭제', '해당 소모임을 삭제하시겠습니까?', 
            						 function()
            						 {
            							$.ajax({
            								url:"deleteGroups.ad",
-           								data:{"groupNo" : grNo},
+           								data:{"grNo" : grNo},
            								type:"post",
            								success:function(msg)
            								{

@@ -42,7 +42,7 @@
 		<update id="deleteGrMgmt" parameterType="_int">
 		UPDATE GROUPS
 		   SET STATUS = 'N'
-		 WHERE GROUP_NO = #{groupNo} 
+		 WHERE GROUP_NO = #{grNo} 
 	</update>
 	
 	
