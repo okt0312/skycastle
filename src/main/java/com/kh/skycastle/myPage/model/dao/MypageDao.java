@@ -58,4 +58,13 @@ public class MypageDao {
 		
 		return (ArrayList)sqlSession.selectList("csMapper.qselectList", m, rowBounds);
 	}
+	
+//	public int increaseCount(SqlSessionTemplate sqlSession, int bno) {
+//		
+//	}
+	
+	public Qna selectQna(SqlSessionTemplate sqlSession, int qno) {
+		
+		return sqlSession.selectOne("csMapper.selectQna", qno);
+	}
 }

@@ -119,13 +119,15 @@
 				<!-- 버튼이 위아래 가운데에 오게 -->
 				<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 				<input type="button" value="신청하기" class="sky_btn1" onclick="applyBtn();">
+				<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
+				<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 			</p>
 		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
 	    </div>
 		</div>
 		<br><br>
-	
+		
 		<div id="groupDetail">
 			<ul>
 				<li>
@@ -148,8 +150,7 @@
 			
 			if(result){ //확인 클릭시
 				
-				var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text(); // 선택된 해당 회원번호? 소모임번호? 둘다?
-				location.href="groupApplyForm.gr"+memNo;
+				location.href = "groupApplyForm.gr?groupNo=" + $(this).children("#group_no").val() + "&userNo=" + $(this).children("#user_no").val();
 			}
 		}
     </script>

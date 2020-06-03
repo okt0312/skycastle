@@ -91,6 +91,33 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 
+//	@Override
+//	public int increaseCount(int qno) {
+//	
+//		return pDao.increaseCount(sqlSession,qno);
+//	}
+
+
+	@Override
+	public Qna selectQna(int qno) {
+		return pDao.selectQna(sqlSession, qno);
+	}
+
+
+	@Override
+	public int deleteQna(int qno) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int updateQna(Qna q) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	
 
 

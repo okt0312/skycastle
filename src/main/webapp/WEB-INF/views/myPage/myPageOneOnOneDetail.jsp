@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,24 +58,7 @@ div {
 }
 
 
-#noticeList>tbody td {
-	text-align: center;
-}
 
-#noticeList * {
-	height: 30px;
-	font-size: 12px;
-	border-bottom: 1px solid lightgray;
-}
-
-#noticeList {
-	border-top: 1px solid black;
-}
-
-#noticeList>thead th {
-	font-size: 14px;
-	font-weight: 750;
-}
 
 td {
 
@@ -205,34 +191,31 @@ td {
 
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">이태경</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
                     </tr>
 
                   
                     
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">xorud3290@naver.com</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
                     </tr>
    
-                    <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">문의유형</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">단순문의</td>
-                    </tr>
+                   
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">제목</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">왜 이렇게 맛있나요??</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${q.qnaTitle}</td>
                     </tr>
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.1em; background-color: white;" disabled>스터디하기 너무 좋네요</textarea>
+                            <textarea id="contentArea" style="font-size: 1.1em; background-color: white;" disabled>${q.qnaContent}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">답변</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.0em; color:cornflowerblue; background-color: white;" disabled>감사합니다</textarea>
+                            <textarea id="contentArea" style="font-size: 1.0em; color:cornflowerblue; background-color: white;" disabled>${q.qnaReply}</textarea>
                         </td>
                     </tr>
                   
@@ -241,14 +224,16 @@ td {
 
 
                 <br><br><br>
-                
+                <!-- 수정하기, 삭제하기 버튼은 이글이 본인글일 경우만 보여져야됨 -->
+                <c:if test="${ loginUser.userNo eq q.userNo }">
                 <div id="btns"> 
                     
                     <button class="sky_btn1" id="dbtn">삭제</button>
                     <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn">수정</button>
                     <button class="sky_btn2" id="lbtn">목록</button>
-
+					
                 </div>
+                </c:if>
 
                
     
@@ -257,13 +242,7 @@ td {
 				<br>
 				<br>
 
-				<!--
-                <div class="pagination" align="center">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">&raquo;</a>
-                </div>
-                -->
+				
 				<br>
 				<br>
 				<br>
