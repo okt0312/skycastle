@@ -58,17 +58,21 @@ div {
 }
 
 
- #noticeList>tbody td{text-align: center;}
-        #noticeList *{
+ #qnoticeList>tbody td{text-align: center;}
+        #qnoticeList *{
             height:30px;
             font-size:12px;
             border-bottom:1px solid lightgray;
         }
-        #noticeList{border-top:1px solid black;}
-        #noticeList>thead th{
+ #qnoticeList{border-top:1px solid black;}
+ #qnoticeList>thead th{
             font-size:14px;
             font-weight:750;
         }
+        
+ #qnoticeList>tbody>tr:hover{
+ 	cursor: pointer;
+ }
 
 .pagination a {
             color: black;
@@ -137,7 +141,7 @@ div {
 			
 			<div class="inner">
 				<br> <br>
-				<table id="noticeList" align="center" width="1000px;">
+				<table id="qnoticeList" align="center" width="1000px;">
 					<thead>
 						<tr>
 							<th style="width: 25%; text-align: center;">번호</th>
@@ -181,10 +185,24 @@ div {
                             
 					</tbody>
 				</table>
-
+				
+				<!-- 클릭 했을 때 해당 글 번호 넘겨주자  -->
+				
+				
+				<script>
+					$(function() {
+						$("#qnoticeList tbody tr").click(function(){
+								location.href= "qdetail.bo?qno=" + $(this).children().eq(0).text();
+						});	
+					}); 
+				</script>
+				
+				
+			
+				
 				<br>
 				<br>
-
+	
 				<div class="pagination" align="center">
 				
                 <c:choose>

@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
@@ -188,6 +189,31 @@ public class MypageController {
 	@RequestMapping("myPageDetail.my")
 	public String SpaceDetail() {
 		return "myPage/myPageSpaceReservationDetail";
+	}
+	
+	@RequestMapping("qdetail.bo")
+	// 조회하고자하는 글 번호 담김 qno
+	public ModelAndView selectQna(int qno, ModelAndView mv) {
+		
+		// 조회수 
+		
+		// 조회수 없음 
+//		int result = pService.increaseCount(qno);
+		
+		
+		
+		if(q != null) {
+			Qna q = pService.selectQna(qno);
+			mv.addObject("q", q);
+			mv.setViewName("myPage/myPageOneOnOneDetail");
+			
+			
+		} else {
+			
+			
+		}
+		
+		return mv;
 	}
 	
 }

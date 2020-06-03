@@ -37,5 +37,16 @@ public interface MypageService {
 	// 1_2. 1:1문의 요청한 페이지에 보여질 게시글 리스트 조회용 서비스 
 	ArrayList<Qna> qselectList(PageInfo pi, Member m);
 	
+	// 8. 조회수 증가용 서비스 
+//	int increaseCount(int qno);
 	
+	// 9. 해당 게시글 조회용 서비스 
+	Qna selectQna(int qno);
+	
+	// 10. 게시글 삭제용 서비스 
+	int deleteQna(int qno);
+	
+	// 11. 게시글 수정용 서비스
+	int updateQna(Qna q);
+
 }
