@@ -50,7 +50,7 @@
 		from reservation r
 		join reservation_time rt on (rt.used_date = to_char(sysdate, 'YYYY-MM-DD')
 		                                and to_char(sysdate, 'HH24') >= substr(start_time, 1, 2)
-		                                and to_char(sysdate, 'HH24') <= substr(end_time, 1, 2) 
+		                                and to_char(sysdate, 'HH24') < substr(end_time, 1, 2) 
 		                                and r.book_no = rt.book_no)
 		 ]]>
 	</select>
@@ -67,7 +67,7 @@
 		from reservation r
 		join reservation_time rt on (rt.used_date = to_char(sysdate, 'YYYY-MM-DD')
 		                                and to_char(sysdate, 'HH24') >= substr(start_time, 1, 2)
-		                                and to_char(sysdate, 'HH24') <= substr(end_time, 1, 2) 
+		                                and to_char(sysdate, 'HH24') < substr(end_time, 1, 2) 
 		                                and r.book_no = rt.book_no)
 		right join seat s on(r.ref_no = s.seat_no)
 		order by s.seat_no
