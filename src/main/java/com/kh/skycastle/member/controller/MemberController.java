@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
@@ -26,6 +27,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
+
+	@Autowired
+	private MailHandler mailSender;
 
 	@RequestMapping("loginForm.me")
 	public String loginForm()
@@ -109,6 +113,23 @@ public class MemberController {
 			
 	}
 	
+	@RequestMapping("emailConfirm")
+	public String emailConfirm(Member m, Model model, RedirectAttributes rttr) {
+		
+		Member vo = new Member();
+		vo = mService.userAuth(m);
+		
+		if(vo == null) {
+			
+			rttr.addAttribute("msg", "비정상적인 접근 입니다. 다시 인증해주세요.");
+			return "redirect:/enrollForm2";
+		
+		}
+		
+		model.addAttribute("login", vo);
+		return "member/enrollComplete";
+		
+	}
 	 @RequestMapping("searchPwd.me")
 	 public String searchPwd() {
 			return "member/searchPwd";

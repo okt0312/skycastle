@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
   .insertMember{
     box-sizing: border-box;
@@ -28,14 +29,14 @@
     font-size: 18px;
     font-weight: 400;
   }
-  #mainBtn{
+  #sendBtn{
     width:150px;
     height:50px;
     background:#fdce07;
     border-radius: 4px;
     font-size: 14px;
   }
-  #mainBtn a{
+  #sendBtn a{
     color: rgb(51, 51, 51) ;
     font-weight: 900;
   }
@@ -43,14 +44,26 @@
 </head>
 <body>
 <body data-spy="scroll" data-target="#navbar-example">
-    <!-- 3.회원가입완료 -->
+
+    <!-- 메일보내기 -->
     <div class="insertMember"> 
       <div class="title"><center>SKY CASTLE</center></div>
-        <center><p>환영합니다.</p></center><br>
-        <center><span><p>SKY CASTLE의 회원이 되셨습니다.</p>
+        <center><p>인증메일 발송 이메일주소</p></center><br>
+        	<input type="email" id="email" name="receiver" value="${ userId }" readOnly="readonly">
         <br><br>
-        <center><button id="mainBtn"><a href="${pageContext.servletContext.contextPath}">메인으로가기</a></button></center>
+        <center><button id="sendBtn" onclick="sendmail();">메인으로가기</button></center>
     </div>
+    
+    <script>
+    
+    	email = document.getElementById("email");
+    	$(function(){
+    		$("#sendBtn").click(function(){
+    			email.removeAttribute("readonly");
+    		});
+    	}
+    	email.add
+    </script>
 </body>
 </body>
 </html>
