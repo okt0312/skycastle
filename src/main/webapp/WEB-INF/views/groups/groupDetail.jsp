@@ -104,8 +104,7 @@
 	
 		<div class="statusBar" style="width:100%; height: 50px; vertical-align: middle; border: 1px solid black;">
 		<div style="text-align:right; height: 50px;">
-			<p style="margin: 5px 5px">
-				
+			<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px">	
 				<c:choose>
 					<c:when test="${ g.groupCategory == 0 }">
 						<button class="sky_btn1">찜하기</button>
@@ -118,10 +117,10 @@
 				현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- 버튼이 위아래 가운데에 오게 -->
 				<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
-				<input type="button" value="신청하기" class="sky_btn1" onclick="applyBtn();">
 				<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
 				<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-			</p>
+				<input id="apply_btn" type="button" value="신청하기" class="sky_btn1">
+			</form>
 		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
 	    </div>
@@ -144,7 +143,7 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-		function applyBtn(){
+/* 		function applyBtn(){
 			
 	    	var result = confirm('신청하시겠습니까?');
 			
@@ -152,7 +151,13 @@
 				
 				location.href = "groupApplyForm.gr?groupNo=" + $(this).children("#group_no").val() + "&userNo=" + $(this).children("#user_no").val();
 			}
-		}
+		} */
+		
+		$("#apply_btn").click(function(){
+			
+			alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
+            , function(){});
+		});
     </script>
 </body>
 </html>
