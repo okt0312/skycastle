@@ -54,11 +54,12 @@
 		.Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
 		.Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
 		.Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
+		.Style10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
 		.Style_10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
 	</style>
 	
 	<style>
-		#seatTable .Style9:hover,.Style9:hover{
+		#seatTable .Style9:hover,.Style1:hover,.Style10:hover{
 		    cursor: pointer;
 		}
 	</style>
@@ -861,6 +862,7 @@
 	function selectSeatStatusList(){
 		$.ajax({
 			url:"SeatStatus.re",
+			async: false,
 			success:function(status){
 				//console.log(status);
 				
@@ -880,7 +882,8 @@
 			            }else if(status[i].status == 'N'){
 			            	for(var j=0; j<items.length; j++){
 					             if( items[j].innerText == status[i].seatNo ){
-					            	 items[j].style.backgroundColor = "red";					               
+					            	 items[j].classList.add('Style10');	 
+					            	 items[j].classList.remove('Style9');	 
 					           	 }
 				            }
 			            	seatRepairingCount++;
@@ -908,12 +911,18 @@
 	
 	//좌석현황 조회 함수 호출
 	selectSeatStatusList();
-	
+	setInterval(function() {
+		selectSeatStatusList();
+	}, 3000);
 	$(function(){
 
 		$("#seatTable .Style9").click(function(){
 			location.href="seatRdetail.re?seatNo="+ $(this).text();
 			//console.log($(this));
+		});
+		
+		$("#seatTable .Style10").click(function(){
+			alert("수리중으로 사용불가합니다.");
 		});
 		
 	});
