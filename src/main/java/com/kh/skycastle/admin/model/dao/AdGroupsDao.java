@@ -27,6 +27,7 @@ public class AdGroupsDao {
 	
 	public int deleteGrMgmt(SqlSessionTemplate sqlSession, int grNo) {
 		
+		return sqlSession.delete("adGroupsMapper.deleteGrMgmt", grNo);
 	}
 	
 	

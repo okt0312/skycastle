@@ -135,7 +135,7 @@
                     <form id="updateGroups_form" action="" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body">
-                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="text" id="groupNo" name="groupNo" readonly><br><br>
+                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="number" id="groupNo" name="groupNo" readonly><br><br>
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
                             <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="leaderNo" name="leaderNo" ><br><br>
                             <div class="slecet" >
@@ -240,14 +240,21 @@
             	
             	//삭제버튼 에이작스
             		$("#deleteGroupList_Btn").click(function(){
-            		var grNo = $("#groupNo");
+            			//var grNo =$("#dataTable tbody tr").children().eq(0).text();
+           			
+           			
+           			var grNo = document.getElementById("groupNo").value;
+            		//var grNo= gNo.value;
             		
-            				alertify.confirm('회원 탈퇴', '해당 회원을 탈퇴처리 시키시겠습니까?', 
+
+            		console.log(grNo);
+            		
+            				alertify.confirm('소모임 삭제', '해당 소모임을 삭제하시겠습니까?', 
            						 function()
            						 {
            							$.ajax({
            								url:"deleteGroups.ad",
-           								data:{"groupNo" : grNo},
+           								data:{"grNo" : grNo},
            								type:"post",
            								success:function(msg)
            								{
@@ -260,7 +267,7 @@
            								
            							});
           							 }, 
-          							 );
+          							 function(){} );
            		
            	});
             	

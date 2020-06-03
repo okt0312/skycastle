@@ -72,7 +72,7 @@ public class AdGroupsController {
 	@ResponseBody
 	@RequestMapping(value = "deleteGroups.ad", produces = "text/html; charset=utf-8")
 	public String deleteMember(int grNo, Model model)
-	{
+	{	System.out.println(grNo);
 		int result = adGrService.deleteGrMgmt(grNo);
 		
 		if(result > 0)
