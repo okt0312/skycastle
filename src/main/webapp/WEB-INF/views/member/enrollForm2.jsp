@@ -110,9 +110,10 @@
             <div class="infoArea">
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
-                    <input type="email" class="memberInfo" id="email" name="userId" placeholder="이메일">
-                    <span><button type="button" id="ckBtn">중복확인</button></span>
-                    <a href="sendEmail.me?userId=${m.userId}">메일발송</a>
+                    <input type="email" class="memberInfo" id="userId" name="userId" placeholder="이메일">
+                    <span><button type="button" id="ckBtn" onclick="emailChk();">중복확인</button></span><br>
+                    <input type="text" class="memberInfo" name="inputVeriCode" placeholder="인증번호 입력">
+                    <button type="button" id="sendCode">이메일인증하기</button>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
@@ -163,7 +164,7 @@
 <script>
 	function validate(){
 		
-		var email = document.getElementById("email");	// 이메일
+		var userId = document.getElementById("userId");	// 이메일
 		var pwd1 = document.getElementById("memPwd1");   // 비밀번호
 		var pwd2 = document.getElementById("memPwd2");   // 비밀번호 확인 
 		var name = document.getElementById("userName");  // 이름
@@ -171,10 +172,10 @@
 		// 이메일 검사 
 		var regExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 		
-		if(!regExp.test(email.value)){
+		if(!regExp.test(userId.value)){
 			alert("이메일 주소가 유효하지 않습니다.");
-			email.value = "";
-			email.focus();
+			userId.value = "";
+			userId.focus();
 			return false;
 		}
 		
@@ -215,9 +216,9 @@
 	$(function(){
 		
 		$("#joinBtn").on("click", function(){
-			if($("#email").val()==""){
+			if($("#userId").val()==""){
 				alert("아이디(이메일)를 입력해주세요.");
-				$("#email").focus();
+				$("#userId").focus();
 				return false;
 			}
 			if($("#memPwd1").val()==""){
@@ -240,32 +241,51 @@
 	});
 
 	// 중복확인
-	$(function(){
-		
-		$("#ckBtn").click(function(){ // 중복체크 클릭했을 때 
-		
-			var email = $("#email").val(); 
-		
-			$.ajax({
-				url:"idCheck.me",
-				data: email,
-				type:"post",
-				success:function(data){
-					if(data == 0){
-						alert("사용 가능한 이메일입니다.");
-						$("#memPwd1").focus();
-					}else{
-						alert("사용중인 이메일입니다. 다시 입력해주세요.");
-						email.focus();
-					}
-				},error:function(){
-					
-					alert("오류입니다. 다시 시도해주세요.");
+	function emailChk(){
+			
+		var result = false;
+	
+		$.ajax({
+			url:"idCheck.me",
+			type: "post",
+			data: { userId : $('#userId').val()},
+			async: false,
+			success:function(value){
+				if(value == "exist"){
+					alert("이미 사용중이거나 탈퇴한 계정입니다. 다시 입력해주세요.");
+					result = false;
+				}else{
+					alert("사용가능한 이메일입니다.");
+					result = true;
 				}
-				
-			});
-		});
+			}
+			,error:function(){
+				alert("이메일 중복검사 중 오류 발생");
+			}
+		})
+		return result;
+	}	
+
+	// 인증번호 전송 
+	$("#sendCode").click(function(){
+		var emailVal = $("#userId").val();
+		
+		if(emailChk() == true){
+			$.ajax({
+				url: "sendCode.me",
+				type : "post",
+				data : { email : emailVal},
+				success : function(ranNum){
+					alert("입력하신 이메일로 인증번호를 전송하였습니다.");
+				},
+				error : function(){
+					alert("전송 중 오류 발생");
+				}
+			})	
+		}
+		
 	});
-	</script>
+
+</script>
 
 </html>

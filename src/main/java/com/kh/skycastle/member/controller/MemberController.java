@@ -27,9 +27,9 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
-
-//	@Autowired
-//	private MailHandler mailSender;
+	
+	@Autowired 
+	private TempKey tempkey;
 
 	@RequestMapping("loginForm.me")
 	public String loginForm()
@@ -112,15 +112,21 @@ public class MemberController {
 		}
 			
 	}
-	
-	@RequestMapping("sendEmail.me")
-	public String emailConfirm(@RequestParam(value="userId") String userId, Model model) {
+
+	@ResponseBody
+	@RequestMapping(value="sendCode.me", produces="application/json; charset=utf-8")
+	public String emailConfirm(HttpServletRequest request, ModelAndView mv ) {
 		
-		model.addAttribute("userId", userId);
+		String userId = request.getParameter("userId");
+		String authCode = "";
+		
+		authCode = tempkey.init();
+		//sendEmail(userId, authCode);
 		
 		return "member/enrollComplete";
 		
 	}
+	
 	 @RequestMapping("searchPwd.me")
 	 public String searchPwd() {
 			return "member/searchPwd";
