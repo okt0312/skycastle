@@ -35,4 +35,9 @@ public class AdMemberDao {
 	{
 		return (ArrayList)sqlSession.selectList("adMemberMapper.selectGrade");
 	}
+	
+	public ArrayList<Member> selectBlacklist(SqlSessionTemplate sqlSession)
+	{
+		return (ArrayList)sqlSession.selectList("adMemberMapper.selectBlacklist");
+	}
 }

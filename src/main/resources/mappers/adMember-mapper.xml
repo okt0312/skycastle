@@ -59,14 +59,9 @@
 		 WHERE USER_ID = #{userId}
 	</update>
 	
-	<select id="choiceMember" parameterType="Member" resultMap="adMemberResultSet">
-		SELECT M.USER_NO, M.USER_NAME, M.STATUS, M.USER_ID, M.BIRTHDAY, M.PHONE, G.GRADE_NAME, M.ENROLL_DATE
-		  FROM MEMBER M
-		  JOIN GRADE G USING(GRADE_CODE)
-	    <where>
-			USER_ID != 'admin@naver.com'
-			AND USER_NO != 0
-			AND STATUS = #{status}
-	   </where>
+	<select id="selectBlacklist" resultMap="adMemberResultSet">
+		SELECT * 
+		  FROM MEMBER
+		 WHERE BLACKLIST = 'Y'
 	</select>
 </mapper>

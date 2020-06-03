@@ -42,9 +42,9 @@ public class AdMemberServiceImpl implements AdMemberService{
 	}
 
 	@Override
-	public ArrayList<Member> choiceMember(Member m) {
-		return null;
+	public ArrayList<Member> selectBlacklist() {
+		
+		return admDao.selectBlacklist(sqlSession);
 	}
-
 
 }

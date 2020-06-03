@@ -109,8 +109,12 @@ public class AdMemberController {
 	}
 	
 	@RequestMapping("blackListMgmt.ad")
-	public String adBlackListForm()
+	public ModelAndView adBlackListForm(ModelAndView mv)
 	{
-		return "admin/adBlacklistForm";
+		ArrayList<Member> list = admService.selectBlacklist();
+		
+		mv.addObject("list", list).setViewName("admin/adBlacklistForm");
+		
+		return mv;
 	}
 }
