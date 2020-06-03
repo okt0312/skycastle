@@ -28,8 +28,8 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 
-	@Autowired
-	private MailHandler mailSender;
+//	@Autowired
+//	private MailHandler mailSender;
 
 	@RequestMapping("loginForm.me")
 	public String loginForm()
@@ -113,20 +113,11 @@ public class MemberController {
 			
 	}
 	
-	@RequestMapping("emailConfirm")
-	public String emailConfirm(Member m, Model model, RedirectAttributes rttr) {
+	@RequestMapping("sendEmail.me")
+	public String emailConfirm(@RequestParam(value="userId") String userId, Model model) {
 		
-		Member vo = new Member();
-		vo = mService.userAuth(m);
+		model.addAttribute("userId", userId);
 		
-		if(vo == null) {
-			
-			rttr.addAttribute("msg", "비정상적인 접근 입니다. 다시 인증해주세요.");
-			return "redirect:/enrollForm2";
-		
-		}
-		
-		model.addAttribute("login", vo);
 		return "member/enrollComplete";
 		
 	}

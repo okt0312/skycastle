@@ -49,9 +49,9 @@
     <div class="insertMember"> 
       <div class="title"><center>SKY CASTLE</center></div>
         <center><p>인증메일 발송 이메일주소</p></center><br>
-        	<input type="email" id="email" name="receiver" value="${ userId }" readOnly="readonly">
+        	<input type="email" id="email" name="receiver" value="${userId}" readonly="readonly">
         <br><br>
-        <center><button id="sendBtn" onclick="sendmail();">메인으로가기</button></center>
+        <center><button id="sendBtn">메일 발송</button></center>
     </div>
     
     <script>
@@ -62,7 +62,6 @@
     			email.removeAttribute("readonly");
     		});
     	}
-    	email.add
     </script>
 </body>
 </body>

@@ -112,7 +112,7 @@
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
                     <input type="email" class="memberInfo" id="email" name="userId" placeholder="이메일">
                     <span><button type="button" id="ckBtn">중복확인</button></span>
-                    <a href="sendEamil.me?userId=${m.userId}">메일발송</a>
+                    <a href="sendEmail.me?userId=${m.userId}">메일발송</a>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
