@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>groupApply</title>
+    <title>groupApplyForm</title>
     <style>
         .inner{
             width: 100%;
@@ -14,7 +14,6 @@
             width: 200px;
             height: 40px;
         }
-
         .sky_btn1 /* 확인 버튼 */
         {
             width: 130px;
@@ -56,39 +55,42 @@
 		
 		<div id="detailSum" style="width:100%;">
 			<h1>소모임 신청하기</h1>
+			<br><br><br>
 			
-			<table id="groupDetailTable">
-			    <tbody>
-			        <tr>
-			            <th>카테고리</th>
-			            <td>해당내용 불러올 것</td>
-			        </tr>
-			        <tr>
-			            <th>소제목</th>
-			            <td><input type="text"></td>
-			        </tr>
-			        <tr>
-			            <th>진행일정</th>
-			            <td><input type="text"></td>
-			        </tr>
-			        <tr>
-			            <th>신청일정</th>
-			            <td><input type="text"></td>
-			        </tr>
-			        <tr>
-			            <th>장소</th>
-			            <td><input type="text"></td>
-			        </tr>
-			        <tr>
-			            <th>자격</th>
-			            <td><input type="text"></td>
-			        </tr>
-			        <tr>
-			            <th>정원</th>
-			            <td><input type="text"></td>
-			        </tr>
-			    </tbody>
-			</table>
+			<c:forEach items="${ list }" var="g">
+				<table id="groupDetailTable">
+				    <tbody>
+				        <tr>
+				            <th>카테고리</th>
+				            <td><input type="text" value="${ g.groupCategory }" readonly></td>
+				        </tr>
+				        <tr>
+				            <th>소제목</th>
+				            <td><input type="text" value="${ g.groupSubtitle }" readonly></td>
+				        </tr>
+				        <tr>
+				            <th>진행일정</th>
+				            <td><input type="text"></td>
+				        </tr>
+				        <tr>
+				            <th>신청일정</th>
+				            <td><input type="text"></td>
+				        </tr>
+				        <tr>
+				            <th>장소</th>
+				            <td><input type="text"></td>
+				        </tr>
+				        <tr>
+				            <th>자격</th>
+				            <td><input type="text"></td>
+				        </tr>
+				        <tr>
+				            <th>정원</th>
+				            <td><input type="text"></td>
+				        </tr>
+				    </tbody>
+				</table>
+			</c:forEach>
 			<br><br><br>
 			<h2>소모임 지원사유</h2>
 			<textarea name="content" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
