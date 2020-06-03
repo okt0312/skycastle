@@ -51,8 +51,28 @@
 			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
 		        <h2>${ g.groupTitle }</h2>
 				<p>
-					카테고리 : ${ g.groupCategory }<br>
-					소제목 : ${ g.groupSubtitle }<br><br>
+					<c:choose>
+		         		<c:when test="${ g.groupCategory == 1 }">
+							대입<br>
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 2 }">
+							공무원임용<br>
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 3 }">
+							어학회화<br>
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 4 }">
+							자격증<br>
+		            	</c:when>
+		            	<c:when test="${ g.gradeLgroupCategoryimit == 5 }">
+							기타<br>
+		            	</c:when>
+		            	<c:otherwise>
+		            		카테고리가 없습니다.<br>
+		            	</c:otherwise>
+		            </c:choose>
+					
+					&nbsp;|&nbsp;${ g.groupSubtitle }<br><br>
 					소모임 신청 일정 : ${ g.startDate } ~ ${ g.endDate }<br>
 					장소 : ${ g.place }<br>
 					<c:choose>
@@ -98,7 +118,7 @@
 				
 				현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- 버튼이 위아래 가운데에 오게 -->
-				<button class="sky_btn1">신청하기</button>
+				<button class="sky_btn1" id="applyBtn">신청하기</button>
 			</p>
 			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
 	    </div>
