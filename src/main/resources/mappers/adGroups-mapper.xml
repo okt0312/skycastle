@@ -39,7 +39,11 @@
 	   	 WHERE GROUP_NO =#{groupNo}
 	</update>
 	
-	
+		<update id="deleteGrMgmt" parameterType="_int">
+		UPDATE GROUPS
+		   SET STATUS = 'N'
+		 WHERE GROUP_NO = #{groupNo} 
+	</update>
 	
 	
 	<!--소모임개설 게시글리스트 하나하나 불러오는sql -->
