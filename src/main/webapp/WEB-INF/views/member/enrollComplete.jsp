@@ -29,14 +29,14 @@
     font-size: 18px;
     font-weight: 400;
   }
-  #sendBtn{
+  #mainBtn{
     width:150px;
     height:50px;
     background:#fdce07;
     border-radius: 4px;
     font-size: 14px;
   }
-  #sendBtn a{
+  #mainBtn a{
     color: rgb(51, 51, 51) ;
     font-weight: 900;
   }
@@ -45,24 +45,15 @@
 <body>
 <body data-spy="scroll" data-target="#navbar-example">
 
-    <!-- 메일보내기 -->
+    <!-- 3.회원가입완료 -->
     <div class="insertMember"> 
       <div class="title"><center>SKY CASTLE</center></div>
-        <center><p>인증메일 발송 이메일주소</p></center><br>
-        	<input type="email" id="email" name="receiver" value="${userId}" readonly="readonly">
+        <center><p>환영합니다.</p></center><br>
+        <center><span><p>SKY CASTLE의 회원이 되셨습니다.</p>
         <br><br>
-        <center><button id="sendBtn">메일 발송</button></center>
+        <center><button id="mainBtn"><a>메인으로가기</a></button></center>
     </div>
     
-    <script>
-    
-    	email = document.getElementById("email");
-    	$(function(){
-    		$("#sendBtn").click(function(){
-    			email.removeAttribute("readonly");
-    		});
-    	}
-    </script>
 </body>
 </body>
 </html>
