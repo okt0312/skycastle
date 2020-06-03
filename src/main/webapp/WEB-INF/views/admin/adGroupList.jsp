@@ -137,7 +137,7 @@
                         <div class="modal-body">
                         <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="text" id="groupNo" name="groupNo" readonly><br><br>
                             <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
-                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="memberNo" name="memberNo" readonly><br><br>
+                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="leaderNo" name="leaderNo" ><br><br>
                             <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
                                 <select id="groupCategory" name="groupCategory">
@@ -172,7 +172,7 @@
             	$("#dataTable tbody tr").click(function(){
             		$("#groupNo").val($(this).children().eq(0).text());
             		$("#groupTitle").val($(this).children().eq(2).text());
-            		$("#memberNo").val($(this).children().eq(5).text());
+            		$("#leaderNo").val($(this).children().eq(5).text());
             		$("#startDate").val($(this).children().eq(7).text());
             		$("#endDate").val($(this).children().eq(8).text());
             		$("#place").val($(this).children().eq(3).text());

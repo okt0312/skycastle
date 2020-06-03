@@ -20,6 +20,7 @@ public class AdGroupsDao {
 	//소모임 조회 모달에서 수정하는 메소드
 	public int updateGrMgmt(SqlSessionTemplate sqlSession, Groups g)
 	{
+		System.out.println("디에오 g는"+ g);
 		return sqlSession.update("adGroupsMapper.updateGrMgmt", g);
 	}
 	
