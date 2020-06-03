@@ -6,9 +6,20 @@
 <head>
 <meta charset="UTF-8">
 <title>블랙리스트 관리</title>
+<style>
+	 #selectBox
+		{
+		    position: absolute;
+		    float: left;
+		    margin-left: 170px;
+		    display: block;
+		    z-index: 100;
+		}
+</style>
 </head>
 <body>
 	<div id="layoutSidenav">
+			<jsp:include page="common/adminSidebar.jsp"/>
 	            <div id="layoutSidenav_content">
 
                 <!--시작-->
@@ -31,8 +42,8 @@
                                         <div class="table-responsive">
                                             <div>
                                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ블랙값은뭘로할지..-->
-                                                <div class="selectBox" >
-                                                    <select >
+                                                <div id="selectBox" >
+                                                    <select>
                                                         <option value="처리상태">처리상태</option>
                                                         <option value="미완료">미완료</option>
                                                         <option value="완료">완료</option>
@@ -153,7 +164,6 @@
                     </div>
                 </footer>
             </div>
-		<jsp:include page="common/adminSidebar.jsp"/>
 	</div>
 </body>
 </html>
