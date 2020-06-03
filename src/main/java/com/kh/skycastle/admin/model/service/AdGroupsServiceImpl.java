@@ -37,8 +37,8 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	
 	//소모임 조회페이지 삭제
 	@Override
-	public int deleteGrMgmt(int gno) {
-		return 0;
+	public int deleteGrMgmt(int grNo) {
+		return adGrDao.deleteGrMgmt(sqlSession, grNo);
 	}
 	
 	//소모임 조회페이지 수정

@@ -23,8 +23,11 @@ public class AdGroupsDao {
 		return sqlSession.update("adGroupsMapper.updateGrMgmt", g);
 	}
 	
+	//소모임 조회 모달에서 삭제하는 메소드
 	
-	
+	public int deleteGrMgmt(SqlSessionTemplate sqlSession, int grNo) {
+		
+	}
 	
 	
 	//소모임개설관리 리스트 불러오는 메소드

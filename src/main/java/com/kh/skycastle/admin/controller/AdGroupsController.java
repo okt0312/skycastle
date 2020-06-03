@@ -68,6 +68,24 @@ public class AdGroupsController {
 	}
 	
 	
+	//소모임조회에서 소모임 삭제할때
+	@ResponseBody
+	@RequestMapping(value = "deleteGroups.ad", produces = "text/html; charset=utf-8")
+	public String deleteMember(int grNo, Model model)
+	{
+		int result = adGrService.deleteGrMgmt(grNo);
+		
+		if(result > 0)
+		{
+			return "소모임 삭제 성공";
+		}
+		else
+		{
+			return "소모임 삭제 실패";
+		}
+	}
+	
+	
 	
 	
 	//메뉴바에서 소모임 개설관리 페이지 눌렀을때 이동
