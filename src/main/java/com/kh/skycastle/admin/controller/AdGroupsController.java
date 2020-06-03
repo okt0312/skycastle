@@ -63,7 +63,6 @@ public class AdGroupsController {
 	{	
 		int result = adGrService.updateGrMgmt(g);
 				
-				System.out.println(result);
 				
 				return result;
 	}

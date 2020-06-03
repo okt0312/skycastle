@@ -200,10 +200,10 @@ public class MypageController {
 		// 조회수 없음 
 //		int result = pService.increaseCount(qno);
 		
-		
+		Qna q = pService.selectQna(qno);
 		
 		if(q != null) {
-			Qna q = pService.selectQna(qno);
+			
 			mv.addObject("q", q);
 			mv.setViewName("myPage/myPageOneOnOneDetail");
 			

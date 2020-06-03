@@ -341,11 +341,13 @@
 			 	var couponCode =  $(this).find(":selected").val();
 				var discountRate = $(this).find(":selected").attr("price");
 			 	
-				if(couponName = '선택없음'){
+				if(couponName == '선택없음'){
+					//console.log(couponName);
 					$("#couponName").val(couponName);
 					$("#couponCode").val(0);
 					$("#discountRate").val(0);
 			 	}else{
+			 		//console.log(couponName);
 			 		$("#couponName").val(couponName);
 					$("#couponCode").val(couponCode);
 					$("#discountRate").val(Number(discountRate));
