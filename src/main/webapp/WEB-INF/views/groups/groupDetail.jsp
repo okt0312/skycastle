@@ -53,22 +53,22 @@
 				<p>
 					<c:choose>
 		         		<c:when test="${ g.groupCategory == 1 }">
-							대입<br>
+							대입
 		            	</c:when>
 		            	<c:when test="${ g.groupCategory == 2 }">
-							공무원임용<br>
+							공무원임용
 		            	</c:when>
 		            	<c:when test="${ g.groupCategory == 3 }">
-							어학회화<br>
+							어학회화
 		            	</c:when>
 		            	<c:when test="${ g.groupCategory == 4 }">
-							자격증<br>
+							자격증
 		            	</c:when>
 		            	<c:when test="${ g.groupCategory == 5 }">
-							기타<br>
+							기타
 		            	</c:when>
 		            	<c:otherwise>
-		            		카테고리가 없습니다.<br>
+		            		카테고리가 없습니다
 		            	</c:otherwise>
 		            </c:choose>
 					
