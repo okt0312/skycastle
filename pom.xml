@@ -212,6 +212,20 @@
 		    <version>2.8.5</version>
 		</dependency>
 		        
+		<!-- 이메일 인증 라이브러리 -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <!-- <version>5.2.5.RELEASE</version> -->
+		    <version>${org.springframework-version}</version>
+		</dependency>
+			        
 	</dependencies>
     <build>
         <plugins>
