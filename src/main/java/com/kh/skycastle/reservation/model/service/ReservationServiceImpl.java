@@ -11,7 +11,6 @@ import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.dao.ReservationDao;
 import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
-import com.kh.skycastle.reservation.model.vo.StatusCount;
 
 @Service("rService")
 public class ReservationServiceImpl implements ReservationService{
@@ -20,16 +19,15 @@ public class ReservationServiceImpl implements ReservationService{
 	@Autowired
 	private ReservationDao rDao;
 	
-	@Override
-	public StatusCount seatStatusCount() {
-		StatusCount sc = new StatusCount();
-		sc.setSeatAllCount(rDao.seatAllCount(sqlSession));
-//		sc.setSeatUsedCount(rDao.seatUsedCount(sqlSession));
-//		sc.setSeatUnUsedCount(rDao.seatUnUsedCount(sqlSession));
-//		sc.setSeatRepairingCount(rDao.seatRepairingCount(sqlSession));
-		
-		return sc;
-	}
+	/*
+	 * @Override public StatusCount seatStatusCount() { StatusCount sc = new
+	 * StatusCount(); sc.setSeatAllCount(rDao.seatAllCount(sqlSession));
+	 * sc.setSeatUsedCount(rDao.seatUsedCount(sqlSession));
+	 * //sc.setSeatUnUsedCount(rDao.seatUnUsedCount(sqlSession));
+	 * sc.setSeatRepairingCount(rDao.seatRepairingCount(sqlSession));
+	 * 
+	 * return sc; }
+	 */
 
 	@Override
 	public ArrayList<Coupon> selectCouponList(int userNo) {
@@ -51,6 +49,11 @@ public class ReservationServiceImpl implements ReservationService{
 		int result1 = rDao.insertReservation(sqlSession, reservation);
 		int result2 =  rDao.insertReservationTime(sqlSession, reservation);
 		return result1*result2;
+	}
+
+	@Override
+	public ArrayList<Reservation> seatStatus() {
+		return rDao.seatStatus(sqlSession);
 	}
 
 	

@@ -2,7 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="reservationMapper">
 	<resultMap type="Reservation" id="reservationResultSet">
-		
+		<id column="book_no" property="bookNo"/>
+	  	<result column="user_no" property="userNo"/>
+	  	<result column="category" property="category"/>
+	  	<result column="ref_no" property="refNo"/>
+	  	<result column="coupon_code" property="couponCode"/>
+	  	<result column="total_cost" property="totalCost"/>
+	  	<result column="book_enroll_date" property="bookEnrollDate"/>
+	  	<result column="status" property="status"/>
+	  	<result column="gradediscount" property="gradeDiscount"/>
+	  	<result column="used_date" property="usedDate"/>
+	  	<result column="start_time" property="startTime"/>
+	  	<result column="end_time" property="endTime"/>
+	  	<result column="seat_no" property="seatNo"/>
+	  	<result column="sstatus" property="seatStatus"/>
 	</resultMap>
 	
 	<resultMap type="Coupon" id="couponResultSet">
@@ -26,10 +39,41 @@
 	  	<result column="status" property="status"/>
 	</resultMap>
 	
-	<select id="seatAllCount" resultType="_int">
+<!-- 	<select id="seatAllCount" resultType="_int">
 		select count(*) 
 		from seat
 	</select>
+	
+	<select id="seatUsedCount" resultType="_int">
+		<![CDATA[
+		select count(*)
+		from reservation r
+		join reservation_time rt on (rt.used_date = to_char(sysdate, 'YYYY-MM-DD')
+		                                and to_char(sysdate, 'HH24') >= substr(start_time, 1, 2)
+		                                and to_char(sysdate, 'HH24') <= substr(end_time, 1, 2) 
+		                                and r.book_no = rt.book_no)
+		 ]]>
+	</select>
+	
+	<select id="seatRepairingCount" resultType="_int">
+		select count(*)
+		from seat where status='N'
+	</select> -->
+	
+	
+	<select id="selectSeatStatusList" resultMap="reservationResultSet">
+		<![CDATA[
+		select s.seat_no,r.ref_no,rt.used_date, rt.start_time, rt.end_time,s.status
+		from reservation r
+		join reservation_time rt on (rt.used_date = to_char(sysdate, 'YYYY-MM-DD')
+		                                and to_char(sysdate, 'HH24') >= substr(start_time, 1, 2)
+		                                and to_char(sysdate, 'HH24') <= substr(end_time, 1, 2) 
+		                                and r.book_no = rt.book_no)
+		right join seat s on(r.ref_no = s.seat_no)
+		order by s.seat_no
+		 ]]>
+	</select>
+	
 	
 	<select id="selectCouponList"   parameterType="_int" resultMap="couponResultSet">
 		select coupon_code,coupon_name, start_date, expiration_period,discount_rate

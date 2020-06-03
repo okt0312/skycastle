@@ -13,19 +13,19 @@ import com.kh.skycastle.reservation.model.vo.Seat;
 @Repository("rDao")
 public class ReservationDao {
 	
-	public int seatAllCount(SqlSessionTemplate sqlSession) {
-		return  sqlSession.selectOne("reservationMapper.seatAllCount");
+	/*
+	 * public int seatAllCount(SqlSessionTemplate sqlSession) { return
+	 * sqlSession.selectOne("reservationMapper.seatAllCount"); } public int
+	 * seatUsedCount(SqlSessionTemplate sqlSession) { return
+	 * sqlSession.selectOne("reservationMapper.seatUsedCount"); } public int
+	 * seatUnUsedCount(SqlSessionTemplate sqlSession) { return
+	 * sqlSession.selectOne("reservationMapper.seatUnUsedCount"); } public int
+	 * seatRepairingCount(SqlSessionTemplate sqlSession) { return
+	 * sqlSession.selectOne("reservationMapper.seatRepairingCount"); }
+	 */
+	public ArrayList<Reservation> seatStatus(SqlSessionTemplate sqlSession) {
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectSeatStatusList");
 	}
-//	public int seatUsedCount(SqlSessionTemplate sqlSession) {
-//		return  sqlSession.selectOne("reservationMapper.seatUsedCount");
-//	}
-//	public int seatUnUsedCount(SqlSessionTemplate sqlSession) {
-//		return  sqlSession.selectOne("reservationMapper.seatUnUsedCount");
-//	}
-//	public int seatRepairingCount(SqlSessionTemplate sqlSession) {
-//		return  sqlSession.selectOne("reservationMapper.seatRepairingCount");
-//	}
-	
 	
 	public ArrayList<Coupon> selectCouponList(SqlSessionTemplate sqlSession, int userNo){
 		return (ArrayList)sqlSession.selectList("reservationMapper.selectCouponList",userNo);

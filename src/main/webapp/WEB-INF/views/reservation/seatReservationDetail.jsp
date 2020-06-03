@@ -273,11 +273,11 @@
 		$("#usedDate").val(new Date().toISOString().substring(0, 10));
 		$("#time").click(function(){
 			$("#start").val($(this).val());
-			$("#startH").val($(this).val());
+			
 			
 			startTime = $(this).val().substr(0,2);
 			$("#end").val(Number(startTime)+2 +':00');
-			$("#endH").val(Number(startTime)+2 +':00');
+			
 			
 			totalTime();
 		});
@@ -312,12 +312,15 @@
                 if(!$("#start").val() == ''){
 				var addTime = $("<p>").text("선택 시간 : " +  $("#date").val() + " : " + $("#start").val() +" ~ " + $("#end").val());
 				
-					
-				 a= $("#tileList p")	
+				
 				
 				count++;
 				$("#tileList").append(addTime);
 				$("#discountDiv").css("display","block");
+				
+				$("#startH").val($("#start").val());
+				$("#endH").val($("#end").val());
+				
 	
 			}else{
 				alert("시작시간을 선택해주세요");
