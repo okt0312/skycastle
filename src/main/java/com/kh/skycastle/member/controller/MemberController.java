@@ -4,19 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
-import com.sun.javafx.collections.MappingChange.Map;
 
 
 @Controller
@@ -28,9 +27,15 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	@Autowired 
 	private TempKey tempkey;
 
+	// SimpleMailMessage를 이용한 메일 발송
+	private MailSender mailSender;
+	
+	public void setMainSender(MailSender mailSender) {
+		this.mailSender = mailSender;
+	}
+	
 	@RequestMapping("loginForm.me")
 	public String loginForm()
 	{
@@ -121,11 +126,32 @@ public class MemberController {
 		String authCode = "";
 		
 		authCode = tempkey.init();
-		//sendEmail(userId, authCode);
 		
-		return "member/enrollComplete";
+		// 가입 승인에 사용될 인증키 
+		sendEmail(userId, authCode);
+		
+		// 이메일 전송
+		
+		String str = authCode;
+		
+		return str;
 		
 	}
+	
+	public void sendEmail(String userId , String authCode ) {
+	    //이메일 발송 메소드
+	    SimpleMailMessage mailMessage = new SimpleMailMessage();
+	    mailMessage.setSubject("회원가입 안내 .[이메일 제목]");
+	    mailMessage.setFrom("skycastle0504@gmail.com");
+	    mailMessage.setText("[이메일 내용]회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
+	    mailMessage.setTo(userId);
+	    try {
+	        mailSender.send(mailMessage);
+	    } catch (Exception e) {
+	        System.out.println(e);
+	    }
+	}
+	 
 	
 	 @RequestMapping("searchPwd.me")
 	 public String searchPwd() {

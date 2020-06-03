@@ -15,4 +15,6 @@ public interface MemberService {
     // 4. 아이디 중복체크 서비스
     int idCheck(String userId);
     
+    
+    
 }

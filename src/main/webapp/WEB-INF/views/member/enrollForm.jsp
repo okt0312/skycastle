@@ -159,14 +159,16 @@
 		</div>
 	</div>
 	
-	<!-- <script>
+	<!-- 
+	<script>
 		$(function(){
 			
 			$("#preBtn").click(function(){
 				location.href = "${pageContext.servletContext.contextPath}";
 			})
-		});		 -->
+		});		 
 	</script>
+	-->
 </body>
 
 

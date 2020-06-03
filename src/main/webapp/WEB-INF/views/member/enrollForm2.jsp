@@ -113,7 +113,7 @@
                     <input type="email" class="memberInfo" id="userId" name="userId" placeholder="이메일">
                     <span><button type="button" id="ckBtn" onclick="emailChk();">중복확인</button></span><br>
                     <input type="text" class="memberInfo" name="inputVeriCode" placeholder="인증번호 입력">
-                    <button type="button" id="sendCode">이메일인증하기</button>
+                    <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
@@ -236,9 +236,19 @@
 				$("#userName").focus();
 				return false;
 			}
+			if( authEmail == true){
+				return location.href = "enrollComplete.me";
+			}else{
+				alert("이메일 인증을 완료하여 주세요.");
+				return false;
+			}
+			
 		});
 		
 	});
+</script>
+
+<script>	
 
 	// 중복확인
 	function emailChk(){
@@ -248,7 +258,7 @@
 		$.ajax({
 			url:"idCheck.me",
 			type: "post",
-			data: { userId : $('#userId').val()},
+			data: { userId : $("#userId").val()},			
 			async: false,
 			success:function(value){
 				if(value == "exist"){
@@ -264,13 +274,16 @@
 			}
 		})
 		return result;
-	}	
+	}
 
+</script>
+
+<script>
 	// 인증번호 전송 
-	$("#sendCode").click(function(){
+	function authEmail(){
 		var emailVal = $("#userId").val();
 		
-		if(emailChk() == true){
+		//if(emailChk() == result){
 			$.ajax({
 				url: "sendCode.me",
 				type : "post",
@@ -283,9 +296,6 @@
 				}
 			})	
 		}
-		
-	});
-
 </script>
 
 </html>
