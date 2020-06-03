@@ -124,10 +124,51 @@ public class AdGroupsController {
 		
 	}
 	
+	//소모임 개설관리 승인눌렀을때
+	@ResponseBody //뷰명아니고 응답데이터야!
+	@RequestMapping(value="confirmGroup.ad",produces="application/json; charset=utf-8")
+	public int acceptGroups() {
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		
+		int[] grCoCheck = request.getParameterValues("grCoCheck[]");
+		System.out.println(grCoCheck);
+		int result = 0;
+		for(int i=0; i<grCoCheck.length; i++) {
+			result += new AdGroupsServiceImpl.acceptGroups(grCoCheck[i]); //읽어오기위한것
+		}
+		
+		
+//		ArrayList<Member> list = mService.selectList();
+		ArrayList<Member> list =  new ArrayList<>();
+		list.add(new Member("user01","pass01","홍길동",20,"aaa@naver.com"));
+		list.add(new Member("user02","pass02","김말숙",21,"bbb@naver.com"));
+		list.add(new Member("user03","pass03","이순신",23,"ccc@naver.com"));
+
+		//JSONArray jArr =  new JSONArray();  [{},{},{}]
+		//객체배열로 만들어줘야함
+		
+	 return	new Gson().toJson(list); //ArrayList -->[{},{}] --String
+		*/
+		
+	}
+	
+	
+	
+	
+	
 	//메뉴바에서 소모임 게시판관리 페이지 눌렀을때 이동
 	@RequestMapping("groupBoMgmt.ad")
 	public String adGroupBoMgmt(){
 		return "admin/adGroupBoMgmt";
 	}
+	
 	
 }

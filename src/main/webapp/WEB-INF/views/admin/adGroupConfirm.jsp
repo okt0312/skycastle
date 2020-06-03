@@ -101,8 +101,9 @@
                      
                     <script>
                      
-                     //맨위 체크박스 전체클릭 전체해제 기능
+                     //맨위 체크박스 전체클릭 전체해제 기능...은 안됨
                  	function checkAll(){
+                    	 console.log("클릭함");
                  		if($("#th_checkAll").is(':checked')){
                  			$("input[name=grCoCheck]").prop("checked",true);
                  			
@@ -111,9 +112,55 @@
                  		}
                  	}
                  	
+                     
+                     //수락버튼클릭시
+				         function confirmGroup(){ 
+						var grCoCheck = new Array();
+						
+						$("input[name=grCoCheck]:checked").each(function(){
+							grCoCheck.push($(this).val());
+							
+						});
+						
+						console.log(grCoCheck);
+						
+						
+						if(grCoCheck == ""){
+							alertify("탈퇴할 회원을 선택해주세요.");
+						}else{
+							if(alertify.confirm("탈퇴 처리하시겠습니까?")){
+								$.ajax({
+									url:"confirmGroup.ad",
+									dataType:"json",
+									data:{grCoCheck:grCoCheck}, 
+									type:"post",
+									success:function(result){
+										
+										if(result > 0)
+			            				{
+				            				alertify.alert("소모임 관리", "성공", function(){ location.reload();});
+			            				}
+				            			else
+			            				{
+				            				alertify.alert("소모임 관리", "실패", function(){ location.reload();});
+			            				}
+										
+									},
+									error:function(){
+										console.log("ajax통신실패");
+									}
+									
+								});
+							}
+						}
+					 	
+					}
+                     
+                     
+                     
                     </script>
                              <div>
-	                             <button id="tbBtn" class="btn btn-primary">승인</button>
+	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup">승인</button>
 	                             <button id="tbBtn2" class="btn btn-danger">거절</button>
                              </div>
                          </div>
