@@ -69,6 +69,12 @@
 		AND STATUS='O'
 		 ORDER BY QNA_NO DESC 
 	</select>
+	
+	<select id="selectQna" parameterType="_int" resultMap="qnaResultSet">
+		SELECT *
+		 FROM QNA
+		WHERE QNA_NO=#{qno}
+	</select>
    
 	
 </mapper>
