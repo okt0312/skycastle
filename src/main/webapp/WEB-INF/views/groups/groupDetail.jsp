@@ -64,7 +64,7 @@
 		            	<c:when test="${ g.groupCategory == 4 }">
 							자격증<br>
 		            	</c:when>
-		            	<c:when test="${ g.gradeLgroupCategoryimit == 5 }">
+		            	<c:when test="${ g.groupCategory == 5 }">
 							기타<br>
 		            	</c:when>
 		            	<c:otherwise>
@@ -104,7 +104,6 @@
 	
 		<div class="statusBar" style="width:100%; height: 50px; vertical-align: middle; border: 1px solid black;">
 		<div style="text-align:right; height: 50px;">
-		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 			<p style="margin: 5px 5px">
 				
 				<c:choose>
@@ -118,8 +117,10 @@
 				
 				현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- 버튼이 위아래 가운데에 오게 -->
-				<button class="sky_btn1" id="applyBtn">신청하기</button>
+				<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
+				<input type="button" value="신청하기" class="sky_btn1" onclick="applyBtn();">
 			</p>
+		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
 	    </div>
 		</div>
@@ -141,12 +142,15 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-		var result = confirm('신청하시겠습니까?');
-		
-		if(result){ //확인 클릭시
+		function applyBtn(){
 			
-			var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text(); // 선택된 해당 회원번호? 소모임번호? 둘다?
-			location.href="groupApplyForm.gr"+memNo;
+	    	var result = confirm('신청하시겠습니까?');
+			
+			if(result){ //확인 클릭시
+				
+				var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text(); // 선택된 해당 회원번호? 소모임번호? 둘다?
+				location.href="groupApplyForm.gr"+memNo;
+			}
 		}
     </script>
 </body>
