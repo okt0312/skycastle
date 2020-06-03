@@ -101,7 +101,7 @@ public class ReservationController {
 	public String seatStatus(){
 		
 		ArrayList<Reservation> status = rService.seatStatus();
-		System.out.println(status);
+		//System.out.println(status);
 		return new Gson().toJson(status);
 	}
 

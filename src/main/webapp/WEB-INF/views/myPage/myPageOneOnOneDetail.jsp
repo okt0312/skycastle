@@ -191,14 +191,14 @@ td {
 
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.userName }</td>
                     </tr>
 
                   
                     
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ }</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
                     </tr>
    
                    
