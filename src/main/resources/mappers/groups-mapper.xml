@@ -34,9 +34,6 @@
 				<when test="status = 'Y'">
 					WHERE STATUS='Y'
 				</when>
-				<when test="status = "><!-- 찜 -->
-					WHERE STATUS=''
-				</when>
 				<when test="status = 'U'">
 					WHERE STATUS='U'
 				</when>

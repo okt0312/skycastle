@@ -13,25 +13,6 @@ public interface GroupService {
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupList(PageInfo pi);
 	
-	// 1-1. 소모임 총개수 조회용 서비스
-	int selectUGroupListCount();
-	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectUGroupList(PageInfo pi);
-	
-	// 1-1. 소모임 총개수 조회용 서비스
-	int selectYGroupListCount();
-	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectYGroupList(PageInfo pi);
-	
-	// 1-1. 소모임 총개수 조회용 서비스
-	int selectAGroupListCount();
-	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectAGroupList(PageInfo pi);
-	
-	// 1-1. 소모임 총개수 조회용 서비스
-	int selectNGroupListCount();
-	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectNGroupList(PageInfo pi);
 	
 	// 검색 구현하려면 마이바티스 참조
 	
