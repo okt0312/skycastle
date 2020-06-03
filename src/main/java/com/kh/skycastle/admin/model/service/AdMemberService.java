@@ -16,8 +16,7 @@ public interface AdMemberService {
 	// 관리페이지 회원 수정
 	int updateMember(Member m);
 	
-	// 전체보기, 회원/비회원 조회
-	ArrayList<Member> choiceMember(Member m);
-	
 	ArrayList<Grade> selectGrade();
+	
+	ArrayList<Member> selectBlacklist();
 }
