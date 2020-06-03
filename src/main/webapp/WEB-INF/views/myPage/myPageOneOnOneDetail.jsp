@@ -157,9 +157,9 @@ td {
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="495px" style="padding-left: 2px; text-align: center;">
-							<b style="font-weight: bold; font-size: 1.5em;"></b>님께서 문의하신 내용입니다.
+							<b style="font-weight: bold; font-size: 1.5em;">${ loginUser.userName }</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">님께서 문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color: black;">문의하신 내용은 총 1건입니다.</p>
 						</th>
 						
 						
