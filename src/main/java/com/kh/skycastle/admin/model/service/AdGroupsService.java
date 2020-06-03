@@ -14,7 +14,7 @@ public interface AdGroupsService {
 		Groups selectGroups(int gno);
 		
 		// 소모임조회모달 삭제용 서비스
-		int deleteGrMgmt(int gno);
+		int deleteGrMgmt(int grNo);
 		
 		// 소모임조회모달 수정용 서비스
 		int updateGrMgmt(Groups g);

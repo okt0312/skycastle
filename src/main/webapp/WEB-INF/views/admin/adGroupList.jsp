@@ -160,7 +160,7 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="updateGroupList_Btn">수정</button>
-                        <button type="button" class="btn btn-danger" >삭제</button>
+                        <button type="button" class="btn btn-danger" id="deleteGroupList_Btn">삭제</button>
                         <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
                      </div>
                 </form>
@@ -237,6 +237,35 @@
 	            	}); 
             	}) 
             	
+            	
+            	//삭제버튼 에이작스
+            		$("#deleteGroupList_Btn").click(function(){
+            		var grNo = $("#groupNo");
+            		
+            				alertify.confirm('회원 탈퇴', '해당 회원을 탈퇴처리 시키시겠습니까?', 
+           						 function()
+           						 {
+           							$.ajax({
+           								url:"deleteGroups.ad",
+           								data:{"groupNo" : grNo},
+           								type:"post",
+           								success:function(msg)
+           								{
+           									alertify.alert("소모임 관리", msg, function(){ location.reload();});
+           								},
+           								error:function()
+           								{
+           									console.log("ajax통신 실패");
+           								}
+           								
+           							});
+          							 }, 
+          							 );
+           		
+           	});
+            	
+            	
+            		
            	</script> 
                 </main>
                 <jsp:include page="common/adFooter.jsp"/>
