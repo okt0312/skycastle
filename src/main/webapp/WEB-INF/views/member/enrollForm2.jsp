@@ -33,7 +33,7 @@
   /* 정보 입력란 div 스타일 */
   .infoArea{
     width:100%;
-    height:550px;
+    height:600px;
   }
   .inputArea{
     margin: auto;
@@ -100,7 +100,7 @@
 <body data-spy="scroll" data-target="#navbar-example">
     <!-- 2.회원가입 -->
     <div class="outer">
-        <form id="" action="insert.me" method="POST">
+        <form id="enrollForm" action="insert.me" method="POST">
            <div class="mainTitle">
                 <center>SKY CASTLE</center>
                 <h4 id="subTitle">SKY CASTLE 회원가입을 위한 정보를 입력해주세요.</h4>
@@ -110,18 +110,25 @@
             <div class="infoArea">
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 통합이메일(아이디)</label><br>
-                    <input type="email" class="memberInfo" id="userId" name="userId" placeholder="이메일">
-                    <span><button type="button" id="ckBtn" onclick="emailChk();">중복확인</button></span><br>
-                    <input type="text" class="memberInfo" name="inputVeriCode" placeholder="인증번호 입력">
-                    <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button>
+                    <input type="email" class="memberInfo" id="userId" name="userId" placeholder="이메일" required>
+                  	
+                  	<!-- 이메일 인증번호 전송 버튼 -->
+                    <span><button type="button" id="ckBtn" onclick="authEmail();">이메일인증</button></span><br>
+                    
+                    <!-- 아이디 중복체크 결과 -->
+                    <div id="checkResult" style="display:none; font-size:0.8em">dd</div>
+                    
+                    <input type="text" class="memberInfo" name="inputVeriCode" placeholder="인증번호 입력" required>
+                    <!-- <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button> -->
                 </div>
+                
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
-                    <input type="password" class="memberInfo" id="memPwd1" name="memPwd1" placeholder="6자리 이상 영문,숫자,특수문자를 사용">
+                    <input type="password" class="memberInfo" id="memPwd1" name="memPwd1" placeholder="6자리 이상 영문,숫자,특수문자를 사용" required>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd2"><span>*</span> 비밀번호 확인</label><br>
-                    <input type="password" class="memberInfo" id="memPwd2" name="memberPwd2" placeholder="비밀번호를 한번 더 입력">
+                    <input type="password" class="memberInfo" id="memPwd2" name="memberPwd2" placeholder="비밀번호를 한번 더 입력" required>
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 이름</label><br>
@@ -250,31 +257,57 @@
 
 <script>	
 
-	// 중복확인
-	function emailChk(){
+	// 아이디(이메일) 중복체크 
+	function idCheckValidate(num){
+		
+		if(num == 1){ //  중복체크 아직 xxx : 메시지 보여지지 않음 버튼 비활성화
 			
-		var result = false;
-	
-		$.ajax({
-			url:"idCheck.me",
-			type: "post",
-			data: { userId : $("#userId").val()},			
-			async: false,
-			success:function(value){
-				if(value == "exist"){
-					alert("이미 사용중이거나 탈퇴한 계정입니다. 다시 입력해주세요.");
-					result = false;
-				}else{
-					alert("사용가능한 이메일입니다.");
-					result = true;
-				}
-			}
-			,error:function(){
-				alert("이메일 중복검사 중 오류 발생");
-			}
-		})
-		return result;
+			$("#checkResult").hide();
+			$("#enrollBtn").attr("disabled", true);
+			
+		}else if(num == 2){ // 사용 불가
+			
+			$("#checkResult").css("color", "red").text("이미 사용중이거나 탈퇴한 계정입니다. 다시 시도해주세요.");
+			$("#checkResult").show();
+			$("#joinBtn").attr("disabled", true);
+			
+		}else{ // 사용 가능 
+			
+			$("#checkResult").css("color", "green").text("사용 가능한 계정입니다.");
+			$("#checkResult").show();
+			$("#checkResult").removeAttr("disabled");
+			
+		}
+		
 	}
+	
+	$(function(){
+		
+		// 이벤트 걸고자 하는 input 요소 변수에 기록 
+		var $idInput = $("#enrollForm input[name=userId]");
+		
+		$idInput.keyup(function(){
+			if($idInput.val().length >= 10){
+				
+				$.ajax({
+					url:"idCheck.me",
+					data:{userId:$idInput.val()},
+					success:function(status){
+						
+						if(statue == "fail"{
+							idCheckValidate(2); // 사용불가
+						}else{
+							idCheckValidate(3); // 사용가능
+						}
+					},error:function(){
+						alert("중복체크 중 에러 발생");
+					}	
+				});
+			}else{
+				idCheckValidate(1);
+			}
+		});
+	});
 
 </script>
 
@@ -283,7 +316,6 @@
 	function authEmail(){
 		var emailVal = $("#userId").val();
 		
-		//if(emailChk() == result){
 			$.ajax({
 				url: "sendCode.me",
 				type : "post",
@@ -294,7 +326,7 @@
 				error : function(){
 					alert("전송 중 오류 발생");
 				}
-			})	
+			});	
 		}
 </script>
 
