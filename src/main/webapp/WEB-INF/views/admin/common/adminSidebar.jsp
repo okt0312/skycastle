@@ -127,7 +127,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="noticeMgmt.ad">공지사항 관리</a>
                                 <a class="nav-link" href="eventMgmt.ad">이벤트 관리</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">1:1문의 관리</a> 
+                                <a class="nav-link" href="adQnaForm.ad">1:1문의 관리</a> 
                             </nav>
                         </div>
 	                    <!-- 매출관리 -->

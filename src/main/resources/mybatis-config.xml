@@ -22,7 +22,8 @@
 		<mapper resource="mappers/member-mapper.xml"/>
 		<mapper resource="mappers/groups-mapper.xml"/>
 		<mapper resource="mappers/adMember-mapper.xml"/>
-		<mapper resource="mappers/adGroups-mapper.xml"/>		
+		<mapper resource="mappers/adGroups-mapper.xml"/>
+		<mapper resource="mappers/adQna-mapper.xml"/>
 		<mapper resource="mappers/cs-mapper.xml"/>
 		<mapper resource="mappers/reservation-mapper.xml"/>
 	</mappers>
