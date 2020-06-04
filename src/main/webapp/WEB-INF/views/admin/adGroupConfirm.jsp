@@ -62,7 +62,7 @@
                              <tr>
                                  <th>
                                  	<div>
-                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll"  style="vertical-align: middle; transform: scale(1.4);" onclick="checkAll();"></label>
+                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll" value="" style="vertical-align: middle; transform: scale(1.4);" onclick="checkAll();"></label>
                						</div>
                                  </th>
                                  <th>번호</th>
@@ -118,7 +118,7 @@
                     	 //클릭한 소모임번호 배열로 담음
 						var grCoCheck = new Array();
 						
-						$("input[name=grCoCheck]:checked").each(function(){
+						$("input[name=grCoCheck]:checked").each(function(i){
 							grCoCheck.push($(this).val());
 							
 						});
@@ -132,7 +132,8 @@
 							if(alertify.confirm("수락 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
-									data:{grCoCheck:grCoCheck}, 
+									data:{"grCoCheck":grCoCheck},
+								 	traditional : true,	
 									type:"post",
 									success:function(result){
 										
