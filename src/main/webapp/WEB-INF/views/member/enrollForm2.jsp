@@ -313,7 +313,7 @@
 			$.ajax({
 				url: "sendCode.me",
 				type : "post",
-				data : { email : emailVal},
+				data : { userId : emailVal},
 				success : function(ranNum){
 					alert("입력하신 이메일로 인증번호를 전송하였습니다.");
 				},

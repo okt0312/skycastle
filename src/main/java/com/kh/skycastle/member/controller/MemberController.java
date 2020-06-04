@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +28,15 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	private TempKey tempkey;
+	private TempKey tempkey = new TempKey();
 
 	// SimpleMailMessage를 이용한 메일 발송
-	private MailSender mailSender;
+	@Autowired
+	private JavaMailSender mailSender;
 	
-	public void setMainSender(MailSender mailSender) {
-		this.mailSender = mailSender;
-	}
+//	public void setMainSender(MailSender mailSender) {
+//		this.mailSender = mailSender;
+//	}
 	
 	@RequestMapping("loginForm.me")
 	public String loginForm()
@@ -122,7 +124,7 @@ public class MemberController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value="sendCode.me", produces="application/json; charset=utf-8")
+	@RequestMapping(value="sendCode.me")
 	public String emailConfirm(HttpServletRequest request, ModelAndView mv ) {
 		
 		String userId = request.getParameter("userId");
