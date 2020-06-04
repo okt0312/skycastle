@@ -27,6 +27,23 @@
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.4s;
         }
+        .sky_btn2   /* 취소, 첨부파일 버튼 */
+        {
+            width: 130px;
+            height: 40px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background: #333333;
+            color: white;
+            border: 0;
+            /* 두줄 넣으면서서히 그림자 생김 */
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
         .sky_btn1:hover {
             
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -112,6 +129,9 @@
 			        	<c:when test="${ count == 1 }">
 							<button class="sky_btn1" style="float: left;">찜취소</button>
 						</c:when>
+						<c:otherwise>
+							<button class="sky_btn2" style="float: left;" disabled>로그인</button>
+						</c:otherwise>
 					</c:choose>
 					
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
