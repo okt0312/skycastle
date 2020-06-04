@@ -137,7 +137,7 @@ public class AdGroupsController {
 		
 		
 		/*
-		
+		일단써봄,,
 		int[] grCoCheck = request.getParameterValues("grCoCheck[]");
 		System.out.println(grCoCheck);
 		int result = 0;
@@ -145,7 +145,7 @@ public class AdGroupsController {
 			result += new AdGroupsServiceImpl.acceptGroups(grCoCheck[i]); //읽어오기위한것
 		}
 		
-		
+		에이작스 참고용
 //		ArrayList<Member> list = mService.selectList();
 		ArrayList<Member> list =  new ArrayList<>();
 		list.add(new Member("user01","pass01","홍길동",20,"aaa@naver.com"));

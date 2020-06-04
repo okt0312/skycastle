@@ -62,7 +62,7 @@
                              <tr>
                                  <th>
                                  	<div>
-                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll"  style="vertical-align: middle; transform: scale(1.4);"></label>
+                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll"  style="vertical-align: middle; transform: scale(1.4);" onclick="checkAll();"></label>
                						</div>
                                  </th>
                                  <th>번호</th>
