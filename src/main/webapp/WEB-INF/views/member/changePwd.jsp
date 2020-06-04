@@ -72,7 +72,7 @@
    <!-- 비밀번호변경 -->
    <div class="changePwdForm"> 
         <div id="pwdImg">
-          <img src="images/pwd.png">
+          <img src="resources/images/pwd.png">
           <span>비밀번호 변경</span>
         </div>
         <form action="" method="POST">

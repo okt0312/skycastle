@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- jQuery 라이브러리 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
   .findPwdForm{
     width:320px;
@@ -31,7 +29,7 @@
     font-size: 11px;
     font-weight: bold;
   }
-  #email, #phone{
+  #authCode{
     font-size: 10pt;
     margin-top: 15px;
     width:305px; 
@@ -80,37 +78,21 @@
 </head>
 <body>
 <body data-spy="scroll" data-target="#navbar-example">
-   <!-- 비밀번호찾기 -->
+   <!-- 인증번호 입력 -->
    <div class="findPwdForm"> 
         <div id="pwdImg">
           <img src="resources/images/pwd.png">
-          <span>비밀번호 찾기</span>
+          <span>인증번호 확인</span>
         </div>
-        <form action="sendPwdMail.me" method="POST">
-        <input type="email" name="userId" id="email" placeholder="이메일을 입력하세요" maxlength="20" required><br> 
-        <input type="text" name="phone" id="phone" placeholder="휴대폰번호를 입력하세요" maxlength="20" required><br>
-        <button type="submit" id="findPwd" name="findPwd">비밀번호찾기</button><br>
+        <form action="pwdChange.me" method="POST"> 
+        <input type="hidden" value="${authCode}" name="authCode">
+        <input type="hidden" value="${email}" name="email">
+        <label style="color:red; font-size:0.8em";>입력하신 이메일로 인증번호를 발송하였습니다.</label>
+        <input type="text" name="passCode" id="authCode" placeholder="인증번호를 입력하세요" maxlength="20" required><br>
+        <button type="submit" id="findPwd" name="findPwd">확인</button><br>
         </form>
     </div>
 
-<script>
-	$(function(){
-		
-		$("#findPwd").on("click", function(){
-			
-			if($("#email").val()==""){
-				alert("아이디(이메일)를 입력해주세요.");
-				$("#email").focus();
-				return false;
-			}
-			if($("#phone").val()==""){
-				alert("휴대폰 번호를 입력해주세요.");
-				$("#phone").focus();
-				return false;
-			}
-		});
-	});
-</script>
 </body>
 </body>
 </html>

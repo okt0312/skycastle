@@ -1,6 +1,10 @@
 package com.kh.skycastle.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,7 +129,7 @@ public class MemberController {
 
 	@ResponseBody
 	@RequestMapping(value="sendCode.me")
-	public String emailConfirm(HttpServletRequest request, ModelAndView mv ) {
+	public String emailConfirm(HttpServletRequest request, ModelAndView mv) {
 		
 		String userId = request.getParameter("userId");
 		String authCode = "";
@@ -136,15 +140,13 @@ public class MemberController {
 		sendEmail(userId, authCode);
 		
 		// 이메일 전송
-		
 		String str = authCode;
-		
 		return str;
 		
 	}
 	
 	public void sendEmail(String userId , String authCode ) {
-	    //이메일 발송 메소드
+	    // 회원가입 이메일 발송 메소드
 	    SimpleMailMessage mailMessage = new SimpleMailMessage();
 	    mailMessage.setSubject("SKYCASTLE 회원가입 인증 코드");
 	    mailMessage.setFrom("skycastle0504@gmail.com");
@@ -156,10 +158,62 @@ public class MemberController {
 	        System.out.println(e);
 	    }
 	}
-	 
 	
-	 @RequestMapping("searchPwd.me")
-	 public String searchPwd() {
+//	public void sendAuthCode(String userId , String authCode) {
+//	    // 인증번호 발송
+//	    SimpleMailMessage mailMessage = new SimpleMailMessage();
+//	    mailMessage.setSubject("SKYCASTLE 인증 코드");
+//	    mailMessage.setFrom("skycastle0504@gmail.com");
+//	    mailMessage.setText("인증번호를 확인해주세요. [ "+authCode+" ]");
+//	    mailMessage.setTo(userId);
+//	    try {
+//	        mailSender.send(mailMessage);
+//	    } catch (Exception e) {
+//	        System.out.println(e);
+//	    }
+//	}
+	
+	@RequestMapping("searchPwd.me")
+	 public String seachPwdForm() {
 			return "member/searchPwd";
+	 }
+	
+	 @RequestMapping("sendPwdMail.me")
+	 public ModelAndView searchPwd(HttpServletRequest request, String userId, ModelAndView mv) {
+
+		String email = request.getParameter("userId");
+		String authCode = "";
+		authCode = tempkey.init();
+		
+		 // 인증번호 발송
+	    SimpleMailMessage mailMessage = new SimpleMailMessage();
+	    mailMessage.setSubject("SKYCASTLE 인증 코드");
+	    mailMessage.setFrom("skycastle0504@gmail.com");
+	    mailMessage.setText("인증번호를 확인해주세요. [ "+authCode+" ]");
+	    mailMessage.setTo(email);
+	    try {
+	        mailSender.send(mailMessage);
+	    } catch (Exception e) {
+	        System.out.println(e);
+	    }
+		
+		mv.setViewName("member/searchPwdAuthCode");
+		mv.addObject("authCode", authCode);
+		mv.addObject("email", email);
+	    return mv;
+		
 	}
+	 
+	 @RequestMapping("pwdChange.me")
+	 public ModelAndView changePwd(String passCode, String authCode, String email, ModelAndView mv) {
+		 
+		 // 인증번호가 일치할 경우 비밀번호 변경창 이동 
+		 if(passCode.equals(authCode)) {
+			 mv.setViewName("member/changePwd");
+			 return mv;
+		 }else {
+			 mv.setViewName("member/searchPwdAuthCode");
+			 return mv;		
+		 }
+	 }
 }
