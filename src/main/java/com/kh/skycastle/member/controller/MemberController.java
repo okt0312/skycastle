@@ -146,9 +146,9 @@ public class MemberController {
 	public void sendEmail(String userId , String authCode ) {
 	    //이메일 발송 메소드
 	    SimpleMailMessage mailMessage = new SimpleMailMessage();
-	    mailMessage.setSubject("회원가입 안내 .[이메일 제목]");
+	    mailMessage.setSubject("SKYCASTLE 회원가입 인증 코드");
 	    mailMessage.setFrom("skycastle0504@gmail.com");
-	    mailMessage.setText("[이메일 내용]회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
+	    mailMessage.setText("회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
 	    mailMessage.setTo(userId);
 	    try {
 	        mailSender.send(mailMessage);
