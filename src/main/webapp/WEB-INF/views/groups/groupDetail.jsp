@@ -104,13 +104,13 @@
 	
 		<div class="statusBar" style="width:100%; height: 50px; vertical-align: middle; border: 1px solid black;">
 		<div style="text-align:right; height: 50px;">
-			<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px">	
+			<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
 				<c:choose>
 					<c:when test="${ g.groupCategory == 0 }">
-						<button class="sky_btn1">찜하기</button>
+						<button class="sky_btn1" style="float: left;">찜하기</button>
 					</c:when>
 		        	<c:when test="${ g.groupCategory == 1 }">
-						<button class="sky_btn1">찜취소</button>
+						<button class="sky_btn1" style="float: left;">찜취소</button>
 					</c:when>
 				</c:choose>
 				

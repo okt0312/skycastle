@@ -33,21 +33,22 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectGroupThumbnailList(sqlSession, pi);
 	}
 	*/
+	
+	@Override
+	public Groups selectGroup(int gno) {
+		return gDao.selectGroup(sqlSession, gno);
+	}
 
+	@Override
+	public int countDips(int gno, int userNo) {
+		return gDao.countDips(sqlSession, gno, userNo);
+	}
+	
 	@Override
 	public int insertGroup(Groups g) {
 		return 0;
 	}
 
-	@Override
-	public int increaseCount(int gno) {
-		return 0;
-	}
-
-	@Override
-	public Groups selectGroup(int gno) {
-		return gDao.selectGroup(sqlSession, gno);
-	}
 
 	
 	@Override
@@ -55,53 +56,7 @@ public class GroupServiceImpl implements GroupService {
 		return 0;
 	}
 
-	@Override
-	public int selectUGroupListCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public ArrayList<Groups> selectUGroupList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int selectYGroupListCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public ArrayList<Groups> selectYGroupList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int selectAGroupListCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public ArrayList<Groups> selectAGroupList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int selectNGroupListCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public ArrayList<Groups> selectNGroupList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 }
