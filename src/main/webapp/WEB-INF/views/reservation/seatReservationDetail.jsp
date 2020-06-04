@@ -172,14 +172,14 @@
                             <br><br>
                             &nbsp;&nbsp; &nbsp;&nbsp;시작시간 : 
                             <select id="time" name="national">
-                                <option>08:00</option>
-                                <option>10:00</option>
-                                <option>12:00</option>
-                                <option>14:00</option>
-                                <option>16:00</option>
-                                <option>18:00</option>
-                                <option>20:00</option>
-                                <option>22:00</option>
+                                <option class="time" value="08:00">08:00</option>
+                                <option class="time" value="10:00">10:00</option>
+                                <option class="time" value="12:00">12:00</option>
+                                <option class="time" value="14:00">14:00</option>
+                                <option class="time" value="16:00">16:00</option>
+                                <option class="time" value="18:00">18:00</option>
+                                <option class="time" value="20:00">20:00</option>
+                                <option class="time" value="22:00">22:00</option>
                             </select>
                             <br><br>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;시작</span>
@@ -363,7 +363,26 @@
 		
 		
 		
+		 timeCheck();
 	});
+	
+	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
+	function timeCheck(){
+		var date = new Date().getHours();
+		timeSelect = $("#time").children();
+		
+		for(var i=0; i<timeSelect.length; i++){
+			if(timeSelect.eq(i).val().substring(0, 2) < date){
+				timeSelect.eq(i).attr("disabled","disabled");
+			}			
+		}
+		
+		 var showTimeSelect = $("option:enabled");
+		
+		 showTimeSelect.eq(0).attr("selected","selected");
+		
+		
+	}
 	
 	
 	function totalTime(){

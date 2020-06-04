@@ -869,7 +869,7 @@
 			var seatUsedCount = 0;
 			var seatRepairingCount = 0;	
 			var items = document.getElementsByClassName("Style9");
-			console.log(items);
+			//console.log(items);
 					for(var i=0; i<status.length; i++){
 						if(status[i].refNo != 0){
 							//console.log(status[i].refNo);
