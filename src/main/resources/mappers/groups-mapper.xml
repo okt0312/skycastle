@@ -62,8 +62,8 @@
 	<select id="countDips">
 		SELECT COUNT(*)
 		  FROM DIPS
-		 WHERE USER_NO = #{}
-		       AND GROUP_NO = #{};
+		 WHERE USER_NO = #{userNo}
+		       AND GROUP_NO = #{gno};
 	</select>
 	
 	
