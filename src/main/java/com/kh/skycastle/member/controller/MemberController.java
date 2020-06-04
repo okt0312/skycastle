@@ -101,11 +101,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("insert.me")
-	public String insertMember(Member m, Model model, HttpSession session) {
+	public String insertMember(Member m, Model model) {
 		
 		// 암호화작업
 		String encPwd = bcryptPasswordEncoder.encode(m.getUserPwd());
-		//System.out.println("암호화후 : " + encPwd);
+		System.out.println("암호화후 : " + encPwd);
 		
 		m.setUserPwd(encPwd);
 		
