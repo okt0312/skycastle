@@ -76,5 +76,10 @@
 		WHERE QNA_NO=#{qno}
 	</select>
    
+   	<update id="deleteQna" parameterType="_int">
+   		update QNA
+   			set STATUS='N'
+   				WHERE QNA_NO=#{qno}
+   	</update>
 	
 </mapper>

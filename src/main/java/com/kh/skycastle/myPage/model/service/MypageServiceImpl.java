@@ -106,8 +106,8 @@ public class MypageServiceImpl implements MypageService {
 
 	@Override
 	public int deleteQna(int qno) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return pDao.deleteQna(sqlSession, qno);
 	}
 
 

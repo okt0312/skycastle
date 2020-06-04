@@ -141,12 +141,7 @@ td {
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 	
-		<br>
-		
 	
-		
-		<hr>
-
 
 
 		<!-- inner영역에 콘텐츠 작성 -->
@@ -200,12 +195,30 @@ td {
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
                         <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
                     </tr>
-   
-                   
+   						
+                   	
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">제목</td>
                         <td style="padding-left: 1%; font-size: 1.3em;">${q.qnaTitle}</td>
                     </tr>
+                    
+                    <!-- 
+                    <tr>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">첨부파일</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">
+                        	
+                        	<c:choose>
+                        	<c:when test="${ !empty q.originName }">
+                        		<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/${q.changeName}" download="${ q.originName }">${ q.originName }</a>
+                        	</c:when>
+                        	<c:otherwise>
+                        	첨부파일 없습니다.
+                        	</c:otherwise>
+                        	</c:choose>
+                        </td>
+                    </tr>
+                     -->
+                    
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
@@ -218,22 +231,50 @@ td {
                             <textarea id="contentArea" style="font-size: 1.0em; color:cornflowerblue; background-color: white;" disabled>${q.qnaReply}</textarea>
                         </td>
                     </tr>
-                  
+                  	
                         
                 </table>
 
 
                 <br><br><br>
-                <!-- 수정하기, 삭제하기 버튼은 이글이 본인글일 경우만 보여져야됨 -->
-                <c:if test="${ loginUser.userNo eq q.userNo }">
+              	
+               
+                <c:if test="${ loginUser.userNo eq q.userNo}">
                 <div id="btns"> 
                     
-                    <button class="sky_btn1" id="dbtn">삭제</button>
-                    <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn">수정</button>
+                    <button class="sky_btn1" id="dbtn" onclick="postFormSubmit(2);">삭제</button>
+                    <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn"  onclick="postFormSubmit(1);">수정</button>
                     <button class="sky_btn2" id="lbtn">목록</button>
 					
                 </div>
-                </c:if>
+                
+                <form action="" id="postForm" method="post">
+	            	<input type="hidden" name="qno" value="${ q.qnaNo }">
+	            	
+	            </form>
+                
+                
+                 <script>
+	            	function postFormSubmit(num){
+	            		if(num == 1){ // 수정하기 클릭시
+	            			$("#postForm").attr("action", "qupdateForm.bo");
+	            		}else{ // 삭제하기 클릭시
+	            			$("#postForm").attr("action", "qdelete.bo");
+	            		}
+	            		
+	            		$("#postForm").submit();
+	            	}
+	            </script>
+                
+                
+               	</c:if>
+               	
+                
+              
+               
+                
+                
+           
 
                
     
