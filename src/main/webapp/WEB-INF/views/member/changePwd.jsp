@@ -75,13 +75,42 @@
           <img src="resources/images/pwd.png">
           <span>비밀번호 변경</span>
         </div>
-        <form action="" method="POST">
-        <input type="password" name="pwdChange1" id="pwdChange1" placeholder="새 비밀번호" maxlength="20" required><br> 
-        <input type="password" name="pwdChange2" id="pwdChange2" placeholder="한번 더 입력" maxlength="20" required><br>
-        <input type="submit" id="changePwd" name="changePwd" value="변경"><br>
+        <form action="changePwd.me" method="POST">
+        <input type="hidden" name="userId" value="${ email }">
+        <input type="password" name="pwdChange" id="pwdChange1" placeholder="새 비밀번호" maxlength="20" required><br> 
+        <input type="password" id="pwdChange2" placeholder="한번 더 입력" maxlength="20" required><br>
+        <button type="submit" id="changePwd" name="changePwd" onclick="return validate();">변경</button><br>
         </form>
     </div>
 
+<script>
+  	function validate() {
+  		
+  		var pwd1 = document.getElementById("pwdChange1"); // 비밀번호
+		var pwd2 = document.getElementById("pwdChange2"); // 비밀번호 확인 	
+  	
+  		// 비밀번호 검사
+		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
+		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
+		if (!regExp.test(pwd1.value)) {
+			alert("비밀번호가 유효하지 않습니다.");
+			pwd1.value = "";
+			pwd1.focus();
+			return false;
+		}
+
+		// 비밀번호값과 비밀번호확인값이 일치하는지 검사
+		if (pwd1.value != pwd2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			pwd2.value = "";
+			pwd2.focus();
+			return false;
+		}
+		
+		return true;
+		
+  	}
+</script>  	
 </body>
 </body>
 </html>

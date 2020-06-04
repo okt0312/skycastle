@@ -20,6 +20,10 @@ public class MemberDao {
     public int idCheck(SqlSessionTemplate sqlSession, String userId) {
     	return sqlSession.selectOne("memberMapper.idCheck", userId); 			
     }
+    
+    public int changePwd(SqlSessionTemplate sqlSession, Member m) {
+    	return sqlSession.update("memberMapper.changePwd", m);
+    }
 
 }
 

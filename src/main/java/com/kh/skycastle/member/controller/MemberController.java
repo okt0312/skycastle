@@ -22,198 +22,199 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
 
-
 @Controller
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService mService;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
-	
+
 	private TempKey tempkey = new TempKey();
 
 	// SimpleMailMessage를 이용한 메일 발송
 	@Autowired
 	private JavaMailSender mailSender;
-	
-//	public void setMainSender(MailSender mailSender) {
-//		this.mailSender = mailSender;
-//	}
-	
+
 	@RequestMapping("loginForm.me")
-	public String loginForm()
-	{
+	public String loginForm() {
 		return "member/loginForm";
 	}
-	
+
 	@RequestMapping("login.me")
-	public String loginMember(Member m, HttpSession session, Model model)
-	{
-        Member loginUser = mService.loginMember(m);
-        
-        
-        
-        if(loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd()))
-        {
-            session.setAttribute("loginUser", loginUser);
-            
-            return "redirect:/";
-        }
-        else
-        {
-            model.addAttribute("msg", "로그인 실패");
-            return "common/errorPage";
-        }
-	}
-	
-	 @RequestMapping("logout.me")
-	 public String logoutMember(HttpSession session) 
-	 {
-		 	session.invalidate();
-		 	return "redirect:/";
-	 }
-	 
-	 @RequestMapping("enrollForm.me")
-	 public String enrollForm() {
-			return "member/enrollForm";
-	 }
-	
-	 @RequestMapping("enrollForm2.me")
-	 public ModelAndView enrollForm2(@RequestParam(value="infoAgree", defaultValue="false") Boolean infoAgree) {
-			
-		 if(!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 xxx
-			 ModelAndView mv = new ModelAndView("member/enrollForm");
-		 	return mv;
-		 }
-		 	ModelAndView mv = new ModelAndView("member/enrollForm2");
-		 	return mv;
+	public String loginMember(Member m, HttpSession session, Model model) {
+		Member loginUser = mService.loginMember(m);
+
+		if (loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
+			session.setAttribute("loginUser", loginUser);
+
+			return "redirect:/";
+		} else {
+			model.addAttribute("msg", "로그인 실패");
+			return "common/errorPage";
 		}
-	 
+	}
+
+	@RequestMapping("logout.me")
+	public String logoutMember(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+
+	@RequestMapping("enrollForm.me")
+	public String enrollForm() {
+		return "member/enrollForm";
+	}
+
+	@RequestMapping("enrollForm2.me")
+	public ModelAndView enrollForm2(@RequestParam(value = "infoAgree", defaultValue = "false") Boolean infoAgree) {
+
+		if (!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 xxx
+			ModelAndView mv = new ModelAndView("member/enrollForm");
+			return mv;
+		}
+		ModelAndView mv = new ModelAndView("member/enrollForm2");
+		return mv;
+	}
+
+	// 아이디 중복체크
 	@ResponseBody
-	@RequestMapping(value="idCheck.me")
-	public String idCheck(String userId){
-		
+	@RequestMapping(value = "idCheck.me")
+	public String idCheck(String userId) {
+
 		int count = mService.idCheck(userId);
-		
-		if(count > 0) {
+
+		if (count > 0) {
 			return "fail";
-		}else {
+		} else {
 			return "success";
 		}
 	}
-	
+
+	// 회원가입
 	@RequestMapping("insert.me")
 	public String insertMember(Member m, Model model) {
-		
+
 		// 암호화작업
 		String encPwd = bcryptPasswordEncoder.encode(m.getUserPwd());
 		System.out.println("암호화후 : " + encPwd);
-		
+
 		m.setUserPwd(encPwd);
-		
+
 		int result = mService.insertMember(m);
-		
+
 		if(result > 0) { // 회원가입 성공
-			
-			return "member/enrollComplete";		
-			
-		}else { // 회원가입 실패
-			
+
+			return "member/enrollComplete";
+
+		} else { // 회원가입 실패
+
 			model.addAttribute("msg", "회원가입 실패!!");
 			return "common/errorPage";
 		}
-			
 	}
-
+	
+	// 회원가입 이메일인증 
 	@ResponseBody
-	@RequestMapping(value="sendCode.me")
+	@RequestMapping(value = "sendCode.me")
 	public String emailConfirm(HttpServletRequest request, ModelAndView mv) {
-		
+
 		String userId = request.getParameter("userId");
 		String authCode = "";
-		
+
 		authCode = tempkey.init();
-		
-		// 가입 승인에 사용될 인증키 
+
+		// 가입 승인에 사용될 인증키
 		sendEmail(userId, authCode);
-		
+
 		// 이메일 전송
 		String str = authCode;
 		return str;
+
+	}
+
+	// 회원가입 이메일 발송 메소드
+	public void sendEmail(String userId, String authCode) {
 		
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setSubject("SKYCASTLE 회원가입 인증 코드");
+		mailMessage.setFrom("skycastle0504@gmail.com");
+		mailMessage.setText("회원가입을 환영합니다. 인증번호를 확인해주세요. [ " + authCode + " ]");
+		mailMessage.setTo(userId);
+		try {
+			mailSender.send(mailMessage);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
-	public void sendEmail(String userId , String authCode ) {
-	    // 회원가입 이메일 발송 메소드
-	    SimpleMailMessage mailMessage = new SimpleMailMessage();
-	    mailMessage.setSubject("SKYCASTLE 회원가입 인증 코드");
-	    mailMessage.setFrom("skycastle0504@gmail.com");
-	    mailMessage.setText("회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
-	    mailMessage.setTo(userId);
-	    try {
-	        mailSender.send(mailMessage);
-	    } catch (Exception e) {
-	        System.out.println(e);
-	    }
-	}
-	
-//	public void sendAuthCode(String userId , String authCode) {
-//	    // 인증번호 발송
-//	    SimpleMailMessage mailMessage = new SimpleMailMessage();
-//	    mailMessage.setSubject("SKYCASTLE 인증 코드");
-//	    mailMessage.setFrom("skycastle0504@gmail.com");
-//	    mailMessage.setText("인증번호를 확인해주세요. [ "+authCode+" ]");
-//	    mailMessage.setTo(userId);
-//	    try {
-//	        mailSender.send(mailMessage);
-//	    } catch (Exception e) {
-//	        System.out.println(e);
-//	    }
-//	}
-	
+	// 비밀번호 찾기 폼
 	@RequestMapping("searchPwd.me")
-	 public String seachPwdForm() {
-			return "member/searchPwd";
-	 }
+	public String seachPwdForm() {
+		return "member/searchPwd";
+	}
 	
-	 @RequestMapping("sendPwdMail.me")
-	 public ModelAndView searchPwd(HttpServletRequest request, String userId, ModelAndView mv) {
+	// 비밀번호 찾기 인증 번호 
+	@RequestMapping("sendPwdMail.me")
+	public ModelAndView searchPwd(HttpServletRequest request, String userId, ModelAndView mv) {
 
 		String email = request.getParameter("userId");
 		String authCode = "";
 		authCode = tempkey.init();
-		
-		 // 인증번호 발송
-	    SimpleMailMessage mailMessage = new SimpleMailMessage();
-	    mailMessage.setSubject("SKYCASTLE 인증 코드");
-	    mailMessage.setFrom("skycastle0504@gmail.com");
-	    mailMessage.setText("인증번호를 확인해주세요. [ "+authCode+" ]");
-	    mailMessage.setTo(email);
-	    try {
-	        mailSender.send(mailMessage);
-	    } catch (Exception e) {
-	        System.out.println(e);
-	    }
-		
+
+		// 인증번호 발송 메일 
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setSubject("SKYCASTLE 인증 코드");
+		mailMessage.setFrom("skycastle0504@gmail.com");
+		mailMessage.setText("인증번호를 확인해주세요. [ " + authCode + " ]");
+		mailMessage.setTo(email);
+		try {
+			mailSender.send(mailMessage);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
 		mv.setViewName("member/searchPwdAuthCode");
 		mv.addObject("authCode", authCode);
 		mv.addObject("email", email);
-	    return mv;
+		return mv;
+
+	}
+
+	// 인증 결과 
+	@RequestMapping("pwdChange.me")
+	public ModelAndView changePwd(String passCode, String authCode, String email, ModelAndView mv) {
+
+		// 인증번호가 일치할 경우 비밀번호 변경창 이동
+		if(passCode.equals(authCode)) {
+			mv.setViewName("member/changePwd");
+			return mv;
+		} else {
+			mv.setViewName("member/searchPwdAuthCode");
+			return mv;
+		}
+	}
+	
+	// 비밀번호 변경
+	@RequestMapping("changePwd.me")
+	public String changePwd(HttpServletRequest request, Member m, Model model) {
+		
+		String userId = request.getParameter("userId");
+		String pwdChange = request.getParameter("pwdChange");
+		
+		String encPwd = bcryptPasswordEncoder.encode(pwdChange);
+		m.setUserPwd(encPwd);
+		m.setUserId(userId);
+		
+		int result = mService.changePwd(m);
+		
+		if(result > 0) {
+			return "member/loginForm";
+		}else {
+			model.addAttribute("msg", "에러 발생");
+			return "common/errorPage";
+		}
 		
 	}
-	 
-	 @RequestMapping("pwdChange.me")
-	 public ModelAndView changePwd(String passCode, String authCode, String email, ModelAndView mv) {
-		 
-		 // 인증번호가 일치할 경우 비밀번호 변경창 이동 
-		 if(passCode.equals(authCode)) {
-			 mv.setViewName("member/changePwd");
-			 return mv;
-		 }else {
-			 mv.setViewName("member/searchPwdAuthCode");
-			 return mv;		
-		 }
-	 }
 }
