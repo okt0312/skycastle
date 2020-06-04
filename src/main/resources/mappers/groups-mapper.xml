@@ -63,7 +63,7 @@
 		SELECT COUNT(*)
 		  FROM DIPS
 		 WHERE USER_NO = #{userNo}
-		       AND GROUP_NO = #{gno};
+		       AND GROUP_NO = #{gno}
 	</select>
 	
 	
