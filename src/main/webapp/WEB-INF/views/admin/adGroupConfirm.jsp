@@ -131,7 +131,6 @@
 							if(alertify.confirm("탈퇴 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
-									dataType:"json",
 									data:{grCoCheck:grCoCheck}, 
 									type:"post",
 									success:function(result){

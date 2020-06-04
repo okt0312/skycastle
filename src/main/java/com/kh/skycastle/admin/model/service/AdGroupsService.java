@@ -26,7 +26,7 @@ public interface AdGroupsService {
 		ArrayList<Groups> selectGrConfirm();
 		
 		// 소모임 개설 수락용 서비스
-		int acceptGroups(String grCoCheck);
+		int acceptGroups(int grCoCheck);
 		
 		// 소모임 개설 거절용 서비스
 		int rejectionGroups(int gno);

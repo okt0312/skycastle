@@ -59,8 +59,8 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	
 	//소모임 개설 수락
 	@Override
-	public int acceptGroups(String grCoCheck) {
-		return adGrDao.acceptGroups(sqlSession);
+	public int acceptGroups(int grCoCheck) {
+		return adGrDao.acceptGroups(sqlSession,grCoCheck);
 	}
 
 	//소모임 개설 거절

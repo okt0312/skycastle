@@ -31,9 +31,18 @@ public class AdGroupsDao {
 	}
 	
 	
+	
+	
+	
 	//소모임개설관리 리스트 불러오는 메소드
 		public ArrayList<Groups> selectGrConfirm(SqlSessionTemplate sqlSession){
 			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGrConfirm");
 		}
 	
+		
+		
+		
+		public int acceptGroups(SqlSessionTemplate sqlSession, int grNo ){
+			return sqlSession.delete("adGroupsMapper.acceptGroups", grNo);
+		}
 }
