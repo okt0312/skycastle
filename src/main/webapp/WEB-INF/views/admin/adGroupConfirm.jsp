@@ -131,7 +131,6 @@
 							if(alertify.confirm("탈퇴 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
-									dataType:"json",
 									data:{grCoCheck:grCoCheck}, 
 									type:"post",
 									success:function(result){
@@ -160,7 +159,7 @@
                      
                     </script>
                              <div>
-	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup">승인</button>
+	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup();">승인</button>
 	                             <button id="tbBtn2" class="btn btn-danger">거절</button>
                              </div>
                          </div>
