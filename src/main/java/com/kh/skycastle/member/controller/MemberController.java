@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +28,15 @@ public class MemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	private TempKey tempkey;
+	private TempKey tempkey = new TempKey();
 
 	// SimpleMailMessage를 이용한 메일 발송
-	private MailSender mailSender;
+	@Autowired
+	private JavaMailSender mailSender;
 	
-	public void setMainSender(MailSender mailSender) {
-		this.mailSender = mailSender;
-	}
+//	public void setMainSender(MailSender mailSender) {
+//		this.mailSender = mailSender;
+//	}
 	
 	@RequestMapping("loginForm.me")
 	public String loginForm()
@@ -122,7 +124,7 @@ public class MemberController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value="sendCode.me", produces="application/json; charset=utf-8")
+	@RequestMapping(value="sendCode.me")
 	public String emailConfirm(HttpServletRequest request, ModelAndView mv ) {
 		
 		String userId = request.getParameter("userId");
@@ -144,9 +146,9 @@ public class MemberController {
 	public void sendEmail(String userId , String authCode ) {
 	    //이메일 발송 메소드
 	    SimpleMailMessage mailMessage = new SimpleMailMessage();
-	    mailMessage.setSubject("회원가입 안내 .[이메일 제목]");
+	    mailMessage.setSubject("SKYCASTLE 회원가입 인증 코드");
 	    mailMessage.setFrom("skycastle0504@gmail.com");
-	    mailMessage.setText("[이메일 내용]회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
+	    mailMessage.setText("회원가입을 환영합니다. 인증번호를 확인해주세요. [ "+authCode+" ]");
 	    mailMessage.setTo(userId);
 	    try {
 	        mailSender.send(mailMessage);

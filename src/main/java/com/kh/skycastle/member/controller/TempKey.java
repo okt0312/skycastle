@@ -6,7 +6,7 @@ public class TempKey {
 
 	// 이메일 인증키 생성 
 	private boolean lowerCheck;
-	private int size;
+	private int size=6;
 	
 	public String getKey(int size, boolean lowerCheck) {
 		this.size = size;
@@ -26,6 +26,8 @@ public class TempKey {
 				continue;
 			}
 		}while(sb.length() < size);
+		
+		
 			if(lowerCheck) {
 				return sb.toString().toLowerCase();
 		}
