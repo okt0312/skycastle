@@ -106,10 +106,10 @@
 		<div style="text-align:right; height: 50px;">
 			<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
 				<c:choose>
-					<c:when test="${ countDips == 0 }">
+					<c:when test="${ count == 0 }">
 						<button class="sky_btn1" style="float: left;">찜하기</button>
 					</c:when>
-		        	<c:when test="${ countDips == 1 }">
+		        	<c:when test="${ count == 1 }">
 						<button class="sky_btn1" style="float: left;">찜취소</button>
 					</c:when>
 				</c:choose>

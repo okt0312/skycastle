@@ -3,6 +3,7 @@ package com.kh.skycastle.groups.model.service;
 import java.util.ArrayList;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 public interface GroupService {
@@ -23,7 +24,7 @@ public interface GroupService {
 	// 3. 해당 소모임 상세조회용 서비스
 	Groups selectGroup(int gno);
 	// 3-1. 회원 찜하기 여부 확인
-	int countDips(int gno, int userNo);
+	int countDips(Dips d);
 	
 
 	

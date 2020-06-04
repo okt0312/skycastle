@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.GroupDao;
+import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 @Service("gService")
@@ -40,8 +41,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int countDips(int gno, int userNo) {
-		return gDao.countDips(sqlSession, gno, userNo);
+	public int countDips(Dips d) {
+		return gDao.countDips(sqlSession, d);
 	}
 	
 	@Override

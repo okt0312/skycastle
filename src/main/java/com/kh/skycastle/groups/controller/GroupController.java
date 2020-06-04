@@ -12,6 +12,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.service.GroupService;
+import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 @Controller
@@ -39,7 +40,9 @@ public class GroupController {
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
 		
 		Groups g = gService.selectGroup(gno);
-		int countDips = gService.countDips(gno, userNo);
+		Dips d = new Dips(userNo, gno);
+		int countDips = gService.countDips(d);
+		System.out.println(countDips);
 		
 		mv.addObject("g", g);
 		mv.addObject("count", countDips);

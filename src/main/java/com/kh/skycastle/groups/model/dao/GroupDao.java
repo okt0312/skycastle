@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 @Repository("gDao")
@@ -38,8 +39,8 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
 	}
 	
-	public int countDips(SqlSessionTemplate sqlSession, int gno, int userNo) {
-		return sqlSession.selectOne("groupsMapper.countDips", gno, userNo);
+	public int countDips(SqlSessionTemplate sqlSession, Dips d) {
+		return sqlSession.selectOne("groupsMapper.countDips", d);
 	}
 
 }

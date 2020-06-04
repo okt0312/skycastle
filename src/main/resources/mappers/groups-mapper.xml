@@ -59,11 +59,11 @@
 		 WHERE GROUP_NO=#{gno}
 	</select>
 	
-	<select id="countDips" parameterType="_int">
+	<select id="countDips" parameterType="Dips" resultType="_int">
 		SELECT COUNT(*)
 		  FROM DIPS
 		 WHERE USER_NO = #{userNo}
-		       AND GROUP_NO = #{gno}
+		       AND GROUP_NO = #{groupNo}
 	</select>
 	
 	
