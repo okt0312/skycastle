@@ -241,10 +241,16 @@
 				$("#userName").focus();
 				return false;
 			}
-			if( authEmail == true){
+			/* if( authEmail == true){
 				return location.href = "enrollComplete.me";
 			}else{
 				alert("이메일 인증을 완료하여 주세요.");
+				return false;
+			} */
+			if(("#inpuVeriCode").va1() == ranNum){
+				return location.href = "enrollComplete.me";
+			}else{
+				alert("인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
 				return false;
 			}
 			
