@@ -172,16 +172,12 @@
 			if(userNo != "") {	// 로그인 했을때
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
 	            , function(){});
-			} else {	// 로그인 안했을때
+			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
 				location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
 								+ "&userNo=0";
 			}
-			
-			alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
-            , function(){});
 		});
     </script>
-
 
 </body>
 </html>
