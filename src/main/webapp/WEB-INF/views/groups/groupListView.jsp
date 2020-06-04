@@ -139,21 +139,17 @@
 	    </c:forEach>
 	    
 		<script>
-			$(function(){
-				$(".grouplist").click(function(){
-					var userNo = "${ loginUser.userNo }";
-					console.log(userNo);
-					if(userNo != "")
-					{
-						location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val() 
-										+ "&userNo=" + "${ loginUser.userNo }";
-					}
-					else
-					{
-						location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
-										+ "&userNo=0";
-					}
-				});
+			$(".grouplist").click(function(){
+				
+				var userNo = "${ loginUser.userNo }";
+				
+				if(userNo != "") {	// 로그인 했을때
+					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val() 
+									+ "&userNo=" + "${ loginUser.userNo }";
+				} else {	// 로그인 안했을때
+					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
+									+ "&userNo=0";
+				}
 			});
 		</script>
 		<br>

@@ -148,14 +148,6 @@
 		<br><br>
 		
 		<div id="groupDetail">
-			<ul>
-				<li>
-					모집마감 > 참가자 선정
-		        </li>
-		        <li>
-					선정 후 마이페이지 '참여중인 소모임' 메뉴에서 확인하실 수 있습니다.
-		        </li>
-		    </ul>
 			<!-- pre태그 수정할것 -->
 		    <pre style="width: 100%; text-align: left;">${ g.groupContent }</pre>
 		</div>
@@ -175,9 +167,21 @@
 		
 		$("#apply_btn").click(function(){
 			
+			var userNo = "${ loginUser.userNo }";
+			
+			if(userNo != "") {	// 로그인 했을때
+				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
+	            , function(){});
+			} else {	// 로그인 안했을때
+				location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
+								+ "&userNo=0";
+			}
+			
 			alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
             , function(){});
 		});
     </script>
+
+
 </body>
 </html>
