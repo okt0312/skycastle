@@ -124,11 +124,11 @@
                 
                 <div class="inputArea">
                     <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br>
-                    <input type="password" class="memberInfo" id="memPwd1" name="memPwd1" placeholder="6자리 이상 영문,숫자,특수문자를 사용" required>
+                    <input type="password" class="memberInfo" id="memPwd1" name="userPwd" placeholder="6자리 이상 영문,숫자,특수문자를 사용" required>
                 </div>
                 <div class="inputArea">
                     <label for="memPwd2"><span>*</span> 비밀번호 확인</label><br>
-                    <input type="password" class="memberInfo" id="memPwd2" name="memberPwd2" placeholder="비밀번호를 한번 더 입력" required>
+                    <input type="password" class="memberInfo" id="memPwd2" placeholder="비밀번호를 한번 더 입력" required>
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 이름</label><br>
@@ -136,8 +136,8 @@
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 생년월일</label><br>
-                    <input type="text" id="birthday" name="birthday" placeholder="생년 4자리"> &nbsp;&nbsp;  
-                    <select name="month">
+                    <input type="text" class="memberInfo" name="birthday" placeholder="-제외 8자리로 입력"> &nbsp;&nbsp;  
+                   <!--  <select name="month">
                         <option value="01" selected>1월</option>
                         <option value="02">2월</option>
                         <option value="03">3월</option>
@@ -151,11 +151,11 @@
                         <option value="11">11월</option>
                         <option value="12">12월</option>
                     </select>&nbsp;&nbsp;
-                    <input type="text" id="birthday" name="day" placeholder="생일 2자리"> &nbsp;&nbsp;
+                    <input type="text" id="birthday" name="day" placeholder="생일 2자리"> &nbsp;&nbsp; -->
                 </div>
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 휴대폰</label><br>
-                    <input type="text" class="memberInfo" name="email" placeholder="- 제외하고 입력">
+                    <input type="text" class="memberInfo" name="phone" placeholder="- 제외하고 입력">
                 </div>
             </div>
             
@@ -247,7 +247,7 @@
 				alert("이메일 인증을 완료하여 주세요.");
 				return false;
 			} */
-			if(("#inpuVeriCode").va1() == ranNum){
+			if(("#inputVeriCode").val() == ranNum){
 				return location.href = "enrollComplete.me";
 			}else{
 				alert("인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");

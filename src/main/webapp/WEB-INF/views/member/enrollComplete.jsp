@@ -51,7 +51,7 @@
         <center><p>환영합니다.</p></center><br>
         <center><span><p>SKY CASTLE의 회원이 되셨습니다.</p>
         <br><br>
-        <center><button id="mainBtn"><a>메인으로가기</a></button></center>
+        <center><button id="mainBtn"><a href="${pageContext.servletContext.contextPath}">메인으로가기</a></button></center>
     </div>
     
 </body>

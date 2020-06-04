@@ -46,7 +46,7 @@
 	<insert id="insertMember" parameterType="Member">
 	  INSERT INTO MEMBER 
 	  VALUES(SEQ_MEMBER.NEXTVAL, #{userId}, #{userPwd}, #{userName}, #{birthday}, #{phone}, 
-	         SYSDATE, NULL, 'N', 'Y', NULL, NULL, NULL, 5, NULL)
+	         SYSDATE, NULL, 'N', 'Y', NULL, NULL, NULL, 5, NULL, NULL)
 	  </insert>
 
     <update id="updateMember" parameterType="Member">
