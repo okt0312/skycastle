@@ -141,8 +141,18 @@
 		<script>
 			$(function(){
 				$(".grouplist").click(function(){
-					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val() +
-									"&userNo=" + ${ loginUser.userNo };
+					var userNo = "${ loginUser.userNo }";
+					console.log(userNo);
+					if(userNo != "")
+					{
+						location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val() 
+										+ "&userNo=" + "${ loginUser.userNo }";
+					}
+					else
+					{
+						location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
+										+ "&userNo=0";
+					}
 				});
 			});
 		</script>
