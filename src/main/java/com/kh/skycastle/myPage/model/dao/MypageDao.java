@@ -67,4 +67,8 @@ public class MypageDao {
 		
 		return sqlSession.selectOne("csMapper.selectQna", qno);
 	}
+	
+	public int deleteQna(SqlSessionTemplate sqlSession,  int qno)  {
+		return sqlSession.update("csMapper.deleteQna", qno);
+	}
 }
