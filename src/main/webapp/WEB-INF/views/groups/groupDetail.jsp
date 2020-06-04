@@ -123,10 +123,10 @@
 			<div style="text-align:right; height: 60px;">
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
 					<c:choose>
-						<c:when test="${ count == 0 }">
+						<c:when test="${ count == 0 }">		<!-- 로그인 했고, 찜 안했을 때 -->
 							<button class="sky_btn1" style="float: left;">찜하기</button>
 						</c:when>
-			        	<c:when test="${ count == 1 }">
+			        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 안했을 때 -->
 							<button class="sky_btn1" style="float: left;">찜취소</button>
 						</c:when>
 						<c:otherwise>
@@ -155,16 +155,6 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-/* 		function applyBtn(){
-			
-	    	var result = confirm('신청하시겠습니까?');
-			
-			if(result){ //확인 클릭시
-				
-				location.href = "groupApplyForm.gr?groupNo=" + $(this).children("#group_no").val() + "&userNo=" + $(this).children("#user_no").val();
-			}
-		} */
-		
 		$("#apply_btn").click(function(){
 			
 			var userNo = "${ loginUser.userNo }";
@@ -173,8 +163,7 @@
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
 	            , function(){});
 			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
-				location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val()
-								+ "&userNo=0";
+				location.href = "loginForm.me";
 			}
 		});
     </script>
