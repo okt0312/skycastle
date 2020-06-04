@@ -12,6 +12,6 @@ public class AdQnaDao {
 
 	public ArrayList<Qna> selectQnaList(SqlSessionTemplate sqlSession)
 	{
-		return (ArrayList)sqlSession.selectList(")
+		return (ArrayList)sqlSession.selectList("");
 	}
 }
