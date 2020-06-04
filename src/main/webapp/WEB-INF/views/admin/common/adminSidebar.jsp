@@ -31,6 +31,16 @@
 		$("#selectBox select").addClass('custom-select custom-select-sm form-control form-control-sm');
 	});
 </script>
+<style>
+	#selectBox
+	{
+	    position: absolute;
+	    float: left;
+	    margin-left: 170px;
+	    display: block;
+	    z-index: 100;
+	}
+</style>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
