@@ -49,10 +49,9 @@
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                                                 <thead>
                                                     <tr>
-                                                        <th>게시글 번호</th>
-                                                        <th>유형</th>
-                                                        <th>신고인</th>
-                                                        <th>피신고인</th>
+                                                        <th>신고 번호</th>
+                                                        <th>아이디</th>
+                                                        <th>댓글 번호</th>
                                                         <th>누적 신고 횟수</th>
                                                         <th>신고일</th>
                                                         <th>처리상태</th>
@@ -61,58 +60,12 @@
                                                 <tbody>
                                                    
                                                     <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>63</td>
-                                                        <td>2011/07/25</td>
-                                                        <td>$170,750</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>66</td>
-                                                        <td>2009/01/12</td>
-                                                        <td>$86,000</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>22</td>
-                                                        <td>2012/03/29</td>
-                                                        <td>$433,060</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>33</td>
-                                                        <td>2008/11/28</td>
-                                                        <td>$162,700</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>61</td>
-                                                        <td>2012/12/02</td>
-                                                        <td>$372,000</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                        <td>59</td>
-                                                        <td>2012/08/06</td>
-                                                        <td>$137,500</td>
-                                                        <td>61</td>
+                                                        <td>1</td>
+                                                        <td>user02@naver.com</td>
+                                                        <td>4</td>
+                                                        <td>2회</td>
+                                                        <td>2020-06-04</td>
+                                                        <td>처리 대기중</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -150,7 +103,6 @@
                                         <select >
                                             <option value="1">선택하기</option>
                                             <option value="2">신고 누적 추가</option>
-                                            <option value="3">블랙리스트 처리</option>
                                             <option value="4">신고 취소</option>
                                         </select>
                                    </div>
