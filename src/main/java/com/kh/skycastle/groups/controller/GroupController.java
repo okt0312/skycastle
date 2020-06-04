@@ -39,10 +39,10 @@ public class GroupController {
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
 		
 		Groups g = gService.selectGroup(gno);
-		int count = gService.countDips(gno, userNo);
+		int countDips = gService.countDips(gno, userNo);
 		
 		mv.addObject("g", g);
-		mv.addObject("count", count);
+		mv.addObject("count", countDips);
 		
 		mv.setViewName("groups/groupDetail");
 

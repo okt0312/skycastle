@@ -22,7 +22,7 @@ public interface GroupService {
 	
 	// 3. 해당 소모임 상세조회용 서비스
 	Groups selectGroup(int gno);
-	// 1-3. 회원 찜하기 여부 확인
+	// 3-1. 회원 찜하기 여부 확인
 	int countDips(int gno, int userNo);
 	
 
