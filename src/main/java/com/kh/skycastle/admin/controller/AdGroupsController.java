@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdGroupsService;
 import com.kh.skycastle.groups.model.vo.Groups;
 
@@ -127,12 +128,12 @@ public class AdGroupsController {
 	//소모임 개설관리 승인눌렀을때
 	@ResponseBody //뷰명아니고 응답데이터야!
 	@RequestMapping(value="confirmGroup.ad",produces="application/json; charset=utf-8")
-	public int acceptGroups() {
+	public String acceptGroups(String grCoCheck) {
 		
 		
+		int list = adGrService.acceptGroups(grCoCheck);
 		
-		
-		
+		return	new Gson().toJson(list);
 		
 		
 		

@@ -160,7 +160,7 @@
                      
                     </script>
                              <div>
-	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup">승인</button>
+	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup();">승인</button>
 	                             <button id="tbBtn2" class="btn btn-danger">거절</button>
                              </div>
                          </div>
