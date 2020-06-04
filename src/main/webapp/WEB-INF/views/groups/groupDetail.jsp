@@ -123,11 +123,18 @@
 			<div style="text-align:right; height: 60px;">
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
 					<c:choose>
-						<c:when test="${ count == 0 }">
-							<button class="sky_btn1" style="float: left;">찜하기</button>
-						</c:when>
-			        	<c:when test="${ count == 1 }">
-							<button class="sky_btn1" style="float: left;">찜취소</button>
+						<c:when test="${ loginUser.userNo ne '0' }">
+							<c:choose>
+								<c:when test="${ count == 0 }">		<!-- 로그인 했고, 찜 안했을 때 -->
+									<button class="sky_btn1" style="float: left;">찜하기</button>
+								</c:when>
+					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 안했을 때 -->
+									<button class="sky_btn1" style="float: left;">찜취소</button>
+								</c:when>
+					        	<%-- <c:when test="${ loginUser.userNo == 0 }">	<!-- 로그인 안했을때 왜 안대 ㅠㅜㅠㅜㅠㅜㅠ -->
+									<button class="sky_btn2" style="float: left;" disabled>로그인</button>
+								</c:when> --%>
+							</c:choose>
 						</c:when>
 						<c:otherwise>
 							<button class="sky_btn2" style="float: left;" disabled>로그인</button>
@@ -148,14 +155,6 @@
 		<br><br>
 		
 		<div id="groupDetail">
-			<ul>
-				<li>
-					모집마감 > 참가자 선정
-		        </li>
-		        <li>
-					선정 후 마이페이지 '참여중인 소모임' 메뉴에서 확인하실 수 있습니다.
-		        </li>
-		    </ul>
 			<!-- pre태그 수정할것 -->
 		    <pre style="width: 100%; text-align: left;">${ g.groupContent }</pre>
 		</div>
@@ -163,21 +162,21 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-/* 		function applyBtn(){
-			
-	    	var result = confirm('신청하시겠습니까?');
-			
-			if(result){ //확인 클릭시
-				
-				location.href = "groupApplyForm.gr?groupNo=" + $(this).children("#group_no").val() + "&userNo=" + $(this).children("#user_no").val();
-			}
-		} */
-		
 		$("#apply_btn").click(function(){
 			
-			alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
-            , function(){});
+			var userNo = "${ loginUser.userNo }";
+			
+			if(userNo != "") {	// 로그인 했을때
+				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
+	            , function(){});
+			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
+				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
+	            , function(){});
+				
+				location.href = "loginForm.me";
+			}
 		});
     </script>
+
 </body>
 </html>

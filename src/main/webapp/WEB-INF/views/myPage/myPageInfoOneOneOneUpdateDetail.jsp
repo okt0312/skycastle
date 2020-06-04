@@ -128,6 +128,31 @@ td {
         #dbtn{margin-right: 3%; margin-right: 2%; box-sizing:border-box;}
         #mbtn{margin-left: 3%; margin-right: 2%; box-sizing:border-box;} 
         #lbtn{margin-left: 3%; box-sizing:border-box;} 
+        
+        
+         #title1{
+
+         width:450px; 
+                   
+         resize:none;
+                    border-radius: 2%;
+                    padding-left: 10px;
+                    padding-top: 10px;
+
+       }
+       
+       #title2{
+
+                    width:450px; 
+                    height:150px;
+                    resize:none;
+                    border-radius: 2%;
+                    padding-left: 10px;
+                    padding-top: 10px;
+
+        }
+        
+       
 
 /* 중간버튼 스타일 */
 </style>
@@ -181,6 +206,8 @@ td {
 
                 <br><br><br>
 
+				<form id="qupdateForm" method="post" action="qupdate.bo" enctype="multipart/form-data">
+				
                 <table id="middleTable" width="900px" height="500px" align="center">
 
                     <tr>
@@ -197,8 +224,12 @@ td {
    						
                    	
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">제목</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;"></td>
+                        <td  width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
+                        
+                        <input id="title1" type="text" style="font-size: 1.1em; background-color: white;" disabled>
+                        
+                        </td>
                     </tr>
                     
                    
@@ -206,7 +237,7 @@ td {
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.1em; background-color: white;" disabled></textarea>
+                            <input id="title2" style="font-size: 1.1em; background-color: white;" disabled>
                         </td>
                     </tr>
                     <tr>
@@ -231,6 +262,8 @@ td {
                     <button class="sky_btn2" id="lbtn">목록</button>
 					
                 </div>
+                
+                </form>
                 
              
                 
