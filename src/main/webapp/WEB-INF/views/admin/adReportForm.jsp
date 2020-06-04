@@ -58,7 +58,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   
                                                     <tr data-toggle="modal" data-target="#reportModal">
                                                         <td>1</td>
                                                         <td>user02@naver.com</td>
