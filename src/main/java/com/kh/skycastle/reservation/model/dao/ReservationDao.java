@@ -13,16 +13,7 @@ import com.kh.skycastle.reservation.model.vo.Seat;
 @Repository("rDao")
 public class ReservationDao {
 	
-	/*
-	 * public int seatAllCount(SqlSessionTemplate sqlSession) { return
-	 * sqlSession.selectOne("reservationMapper.seatAllCount"); } public int
-	 * seatUsedCount(SqlSessionTemplate sqlSession) { return
-	 * sqlSession.selectOne("reservationMapper.seatUsedCount"); } public int
-	 * seatUnUsedCount(SqlSessionTemplate sqlSession) { return
-	 * sqlSession.selectOne("reservationMapper.seatUnUsedCount"); } public int
-	 * seatRepairingCount(SqlSessionTemplate sqlSession) { return
-	 * sqlSession.selectOne("reservationMapper.seatRepairingCount"); }
-	 */
+	
 	public ArrayList<Reservation> seatStatus(SqlSessionTemplate sqlSession) {
 		return (ArrayList)sqlSession.selectList("reservationMapper.selectSeatStatusList");
 	}
@@ -45,6 +36,10 @@ public class ReservationDao {
 	
 	public int insertReservationTime(SqlSessionTemplate sqlSession, Reservation reservation) {
 		return sqlSession.insert("reservationMapper.insertReservationTime",reservation);
+	}
+	
+	public ArrayList<Reservation> selectSeatReservationTime(SqlSessionTemplate sqlSession, int seatNo) {
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectSeatReservationTime",seatNo);
 	}
 	
 	

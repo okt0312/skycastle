@@ -85,16 +85,6 @@ public class ReservationController {
 	
 	
 
-	/*
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping(value="SeatStatusCount.re",
-	 * produces="aplication/json; charset=utf-8") public String SeatStatusCount(){
-	 * 
-	 * StatusCount sc = rService.seatStatusCount();
-	 * 
-	 * return new Gson().toJson(sc); }
-	 */
 	
 	@ResponseBody
 	@RequestMapping(value="SeatStatus.re",produces="aplication/json; charset=utf-8")
@@ -103,6 +93,15 @@ public class ReservationController {
 		ArrayList<Reservation> status = rService.seatStatus();
 		//System.out.println(status);
 		return new Gson().toJson(status);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="selectSeatReservationTime.re",produces="aplication/json; charset=utf-8")
+	public String selectSeatReservationTime(int seatNo){
+		
+		ArrayList<Reservation> ReservationTime = rService.selectSeatReservationTime(seatNo);
+		//System.out.println(status);
+		return new Gson().toJson(ReservationTime);
 	}
 
 	

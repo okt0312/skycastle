@@ -834,30 +834,7 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-   /*  	
-	function selectSeatStatusList(){
-		$.ajax({
-			url:"SeatStatusCount.re",
-			success:function(status){
-				//console.log(status);
-				
-				var value = "";
-
-					value += "<tr>" +
-        						"<th>" + status.seatAllCount + "</th>" +
-       							"<th>" + status.seatUsedCount + "</th>" +
-       							"<th>" + (status.seatAllCount-status.seatUsedCount-status.seatRepairingCount) + "</th>" +
-       							"<th>" + status.seatRepairingCount + "</th>" +
-   							  "</tr>"; 
-					
-				
-				$("#stats tbody").html(value);
-				
-			},error:function(){	
-				console.log("좌석현황 ajax 통신 실패!!");
-			}
-		});
-	} */
+  
  	
 	function selectSeatStatusList(){
 		$.ajax({
@@ -914,6 +891,8 @@
 	setInterval(function() {
 		selectSeatStatusList();
 	}, 3000);
+	
+	
 	$(function(){
 
 		$("#seatTable .Style9").click(function(){

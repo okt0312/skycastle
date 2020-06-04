@@ -11,7 +11,6 @@ import com.kh.skycastle.reservation.model.vo.StatusCount;
 public interface ReservationService {
 	
 	//1. 좌석 메인 현재 좌석 현황 
-	//StatusCount seatStatusCount();
 	ArrayList<Reservation> seatStatus();
 	
 	//2. 좌석 예약시 사용가능 쿠폰 조회
@@ -26,5 +25,7 @@ public interface ReservationService {
 	//5. 좌석 예약정보 인설트
 	int insertReservation(Reservation reservation);
 	
+	//6. 좌석별 해당날짜 예약시간조회
+	ArrayList<Reservation> selectSeatReservationTime(int seatNo);
 	
 }

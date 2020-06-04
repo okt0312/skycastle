@@ -104,6 +104,14 @@
 	</insert>
 	
 	
+	<select id="selectSeatReservationTime" parameterType="_int" resultMap="reservationResultSet">
+		select *
+		from reservation 
+		join reservation_time using(book_no)
+		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo}
+	</select>
+	
+	
 	
 	
 	

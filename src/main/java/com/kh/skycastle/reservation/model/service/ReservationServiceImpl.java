@@ -19,15 +19,7 @@ public class ReservationServiceImpl implements ReservationService{
 	@Autowired
 	private ReservationDao rDao;
 	
-	/*
-	 * @Override public StatusCount seatStatusCount() { StatusCount sc = new
-	 * StatusCount(); sc.setSeatAllCount(rDao.seatAllCount(sqlSession));
-	 * sc.setSeatUsedCount(rDao.seatUsedCount(sqlSession));
-	 * //sc.setSeatUnUsedCount(rDao.seatUnUsedCount(sqlSession));
-	 * sc.setSeatRepairingCount(rDao.seatRepairingCount(sqlSession));
-	 * 
-	 * return sc; }
-	 */
+	
 
 	@Override
 	public ArrayList<Coupon> selectCouponList(int userNo) {
@@ -54,6 +46,11 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public ArrayList<Reservation> seatStatus() {
 		return rDao.seatStatus(sqlSession);
+	}
+
+	@Override
+	public ArrayList<Reservation> selectSeatReservationTime(int seatNo) {
+		return rDao.selectSeatReservationTime(sqlSession,seatNo);
 	}
 
 	
