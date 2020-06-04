@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdMemberService;
+import com.kh.skycastle.groups.model.vo.Report;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -105,6 +106,7 @@ public class AdMemberController {
 	@RequestMapping("reportMgmt.ad")
 	public String adReporList()
 	{
+		ArrayList<Report> list = admService.selectReport();
 		return "admin/adReportForm";
 	}
 	

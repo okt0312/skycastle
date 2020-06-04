@@ -25,6 +25,15 @@
 		<result column="DISCOUNT" property="discount"/>
 	</resultMap>
 	
+	<resultMap type="Report" id="adReportResultSet">
+		<id column="REPORT_NO" property="reportNo"/>
+		<result column="REPLY_NO" property="replyNo"/>
+		<result column="REPORTER_NO" property="reporterNo"/>
+		<result column="REPORT_CONTENT" property="reportContent"/>
+		<result column="REPORT_DATE" property="reportDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
 	<select id="selectMember" resultMap="adMemberResultSet" parameterType="string">
 		SELECT M.USER_NO, M.USER_NAME, M.STATUS, M.USER_ID, M.BIRTHDAY, M.PHONE, G.GRADE_NAME, M.ENROLL_DATE
 		  FROM MEMBER M
@@ -63,5 +72,9 @@
 		SELECT * 
 		  FROM MEMBER
 		 WHERE BLACKLIST = 'Y'
+	</select>
+	
+	<select id="adMemberMapper">
+	
 	</select>
 </mapper>
