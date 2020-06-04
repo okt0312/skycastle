@@ -59,7 +59,11 @@
 		 WHERE STATUS='U'
 	</select>
 	
-	
+	<update id="acceptGroups" parameterType="_int">
+		UPDATE GROUPS
+		   SET STATUS = 'Y'
+		 WHERE GROUP_NO = #{grCoCheck} 
+	</update>
 	
 	
 </mapper>

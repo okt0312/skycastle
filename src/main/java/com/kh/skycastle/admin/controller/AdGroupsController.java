@@ -127,21 +127,21 @@ public class AdGroupsController {
 	
 	//소모임 개설관리 승인눌렀을때
 	@ResponseBody //뷰명아니고 응답데이터야!
-	@RequestMapping(value="confirmGroup.ad",produces="application/json; charset=utf-8")
+	@RequestMapping(value="confirmGroup.ad",produces= "application/json; charset=utf-8")
 	public String acceptGroups(int grCoCheck) {
 		
 		//String [] = adGrService.acceptGroups(grCoCheck);
-		
+		int[] grCoCheck = request.getParameterValues("grCoCheck[]");
 				
 				int result = adGrService.acceptGroups(grCoCheck);
-						
+						System.out.println(result);
 						if(result > 0)
 						{
-							return "소모임 삭제 성공";
+							return "소모임 수락 성공";
 						}
 						else
 						{
-							return "소모임 삭제 실패";
+							return "소모임 수락 실패";
 						}
 						
 		/*

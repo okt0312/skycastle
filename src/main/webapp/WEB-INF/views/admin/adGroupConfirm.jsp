@@ -115,6 +115,7 @@
                      
                      //수락버튼클릭시
 				         function confirmGroup(){ 
+                    	 //클릭한 소모임번호 배열로 담음
 						var grCoCheck = new Array();
 						
 						$("input[name=grCoCheck]:checked").each(function(){
@@ -124,11 +125,11 @@
 						
 						console.log(grCoCheck);
 						
-						
+						//배열값 넘기려고함
 						if(grCoCheck == ""){
-							alertify("탈퇴할 회원을 선택해주세요.");
+							alertify("수락할 소모임을 선택해주세요.");
 						}else{
-							if(alertify.confirm("탈퇴 처리하시겠습니까?")){
+							if(alertify.confirm("수락 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
 									data:{grCoCheck:grCoCheck}, 
