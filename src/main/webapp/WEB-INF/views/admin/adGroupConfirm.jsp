@@ -62,7 +62,7 @@
                              <tr>
                                  <th>
                                  	<div>
-                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll"  style="vertical-align: middle; transform: scale(1.4);" onclick="checkAll();"></label>
+                						<label><input class="checkbox " type="checkbox" name="grCoCheck" id="th_checkAll" value="" style="vertical-align: middle; transform: scale(1.4);" onclick="checkAll();"></label>
                						</div>
                                  </th>
                                  <th>번호</th>
@@ -115,23 +115,25 @@
                      
                      //수락버튼클릭시
 				         function confirmGroup(){ 
+                    	 //클릭한 소모임번호 배열로 담음
 						var grCoCheck = new Array();
 						
-						$("input[name=grCoCheck]:checked").each(function(){
+						$("input[name=grCoCheck]:checked").each(function(i){
 							grCoCheck.push($(this).val());
 							
 						});
 						
 						console.log(grCoCheck);
 						
-						
+						//배열값 넘기려고함
 						if(grCoCheck == ""){
-							alertify("탈퇴할 회원을 선택해주세요.");
+							alertify("수락할 소모임을 선택해주세요.");
 						}else{
-							if(alertify.confirm("탈퇴 처리하시겠습니까?")){
+							if(alertify.confirm("수락 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
-									data:{grCoCheck:grCoCheck}, 
+									data:{"grCoCheck":grCoCheck},
+								 	traditional : true,	
 									type:"post",
 									success:function(result){
 										

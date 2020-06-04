@@ -77,9 +77,12 @@
 	</select>
 	
 	<select id="selectReport" resultMap="adReportResultSet">
-		SELECT R.*, M.USER_ID, M.REDCARD
-		  FROM REPORT R
-		  JOIN MEMBER M ON(M.USER_NO  = R.REPORTER_NO)
-	  	 ORDER BY REPORT_NO
+		SELECT REPORT_NO, REPLY_NO, USER_ID,  R.REPORT_CONTENT, RE.NOTICE_NO, 
+	           REPORT_DATE, R.STATUS, M.REDCARD, (SELECT USER_ID 
+	           										FROM MEMBER 
+	           									   WHERE USER_NO = R.REPORTER_NO)
+		FROM REPORT R
+		JOIN REPLY RE USING(REPLY_NO)
+		JOIN MEMBER M USING (USER_NO)
 	</select>
 </mapper>
