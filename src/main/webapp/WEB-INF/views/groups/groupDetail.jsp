@@ -102,28 +102,28 @@
 		</div>
 		<br><br><br><br>
 	
-		<div class="statusBar" style="width:100%; height: 50px; vertical-align: middle; border: 1px solid black;">
-		<div style="text-align:right; height: 50px;">
-			<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
-				<c:choose>
-					<c:when test="${ count == 0 }">
-						<button class="sky_btn1" style="float: left;">찜하기</button>
-					</c:when>
-		        	<c:when test="${ count == 1 }">
-						<button class="sky_btn1" style="float: left;">찜취소</button>
-					</c:when>
-				</c:choose>
-				
-				현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<!-- 버튼이 위아래 가운데에 오게 -->
-				<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
-				<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
-				<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-				<input id="apply_btn" type="button" value="신청하기" class="sky_btn1">
-			</form>
-		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
-			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
-	    </div>
+		<div class="statusBar" style="width:100%; height: 60px; vertical-align: middle; border: 1px solid black;">
+			<div style="text-align:right; height: 60px;">
+				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
+					<c:choose>
+						<c:when test="${ count == 0 }">
+							<button class="sky_btn1" style="float: left;">찜하기</button>
+						</c:when>
+			        	<c:when test="${ count == 1 }">
+							<button class="sky_btn1" style="float: left;">찜취소</button>
+						</c:when>
+					</c:choose>
+					
+					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!-- 버튼이 위아래 가운데에 오게 -->
+					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
+					<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
+					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
+					<input id="apply_btn" type="button" value="신청하기" class="sky_btn1">
+				</form>
+			  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
+				<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
+		    </div>
 		</div>
 		<br><br>
 		
