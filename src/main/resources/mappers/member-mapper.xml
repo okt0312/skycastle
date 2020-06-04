@@ -92,7 +92,7 @@
 		 ORDER BY COUPON_CODE DESC 
 	</select>
 	
-	<select id="idCheck" resultType="_int">
+	<select id="idCheck" parameterType="string" resultType="_int">
 		SELECT COUNT(*)
 		FROM MEMBER
 		WHERE USER_ID = #{userId}

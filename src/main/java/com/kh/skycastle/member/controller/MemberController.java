@@ -86,13 +86,16 @@ public class MemberController {
 		}
 	 
 	@ResponseBody
-	@RequestMapping("idCheck.me")
-	public String idCheck(HttpServletRequest request, Model model){
+	@RequestMapping(value="idCheck.me")
+	public String idCheck(String userId){
 		
-		String userId = request.getParameter("userId");
 		int count = mService.idCheck(userId);
 		
-		return String.valueOf(count);
+		if(count > 0) {
+			return "fail";
+		}else {
+			return "success";
+		}
 	}
 	
 	@RequestMapping("insert.me")

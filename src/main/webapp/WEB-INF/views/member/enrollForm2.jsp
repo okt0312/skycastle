@@ -116,7 +116,7 @@
                     <span><button type="button" id="ckBtn" onclick="authEmail();">이메일인증</button></span><br>
                     
                     <!-- 아이디 중복체크 결과 -->
-                    <div id="checkResult" style="display:none; font-size:0.8em">dd</div>
+                    <div id="checkResult" style="display:none; font-size:0.8em; margin-top:5px"></div>
                     
                     <input type="text" class="memberInfo" name="inputVeriCode" placeholder="인증번호 입력" required>
                     <!-- <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button> -->
@@ -137,7 +137,7 @@
                 <div class="inputArea">
                     <label for="memId"><span>*</span> 생년월일</label><br>
                     <input type="text" id="birthday" name="birthday" placeholder="생년 4자리"> &nbsp;&nbsp;  
-                    <select name="birthday">
+                    <select name="month">
                         <option value="01" selected>1월</option>
                         <option value="02">2월</option>
                         <option value="03">3월</option>
@@ -177,9 +177,9 @@
 		var name = document.getElementById("userName");  // 이름
 		
 		// 이메일 검사 
-		var regExp = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-		
-		if(!regExp.test(userId.value)){
+		var getEmail = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/i;
+
+		if(!getEmail.test(userId.value)){
 			alert("이메일 주소가 유효하지 않습니다.");
 			userId.value = "";
 			userId.focus();
@@ -217,9 +217,7 @@
 		return true;
 		
 	}
-</script>
 
-<script>
 	$(function(){
 		
 		$("#joinBtn").on("click", function(){
@@ -253,9 +251,6 @@
 		});
 		
 	});
-</script>
-
-<script>	
 
 	// 아이디(이메일) 중복체크 
 	function idCheckValidate(num){
@@ -287,14 +282,14 @@
 		var $idInput = $("#enrollForm input[name=userId]");
 		
 		$idInput.keyup(function(){
-			if($idInput.val().length >= 10){
+			if($idInput.val().length >= 5 && $idInput.val().match(/@/) ){
 				
 				$.ajax({
 					url:"idCheck.me",
 					data:{userId:$idInput.val()},
 					success:function(status){
 						
-						if(statue == "fail"{
+						if(status == "fail"){
 							idCheckValidate(2); // 사용불가
 						}else{
 							idCheckValidate(3); // 사용가능
@@ -308,7 +303,6 @@
 			}
 		});
 	});
-
 </script>
 
 <script>
