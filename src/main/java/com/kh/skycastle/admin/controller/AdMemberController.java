@@ -104,10 +104,13 @@ public class AdMemberController {
 	
 	
 	@RequestMapping("reportMgmt.ad")
-	public String adReporList()
+	public ModelAndView adReporList(ModelAndView mv)
 	{
 		ArrayList<Report> list = admService.selectReport();
-		return "admin/adReportForm";
+		System.out.println(list);
+		mv.addObject("list", list);
+		mv.setViewName("admin/adReportForm");
+		return mv;
 	}
 	
 	@RequestMapping("blackListMgmt.ad")

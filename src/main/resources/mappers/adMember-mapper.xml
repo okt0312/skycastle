@@ -32,6 +32,8 @@
 		<result column="REPORT_CONTENT" property="reportContent"/>
 		<result column="REPORT_DATE" property="reportDate"/>
 		<result column="STATUS" property="status"/>
+		<result column="REDCARD" property="redcard"/>
+		<result column="USER_ID" property="userId"/>
 	</resultMap>
 	
 	<select id="selectMember" resultMap="adMemberResultSet" parameterType="string">
@@ -74,7 +76,10 @@
 		 WHERE BLACKLIST = 'Y'
 	</select>
 	
-	<select id="adMemberMapper">
-	
+	<select id="selectReport" resultMap="adReportResultSet">
+		SELECT R.*, M.USER_ID, M.REDCARD
+		  FROM REPORT R
+		  JOIN MEMBER M ON(M.USER_NO  = R.REPORTER_NO)
+	  	 ORDER BY REPORT_NO
 	</select>
 </mapper>

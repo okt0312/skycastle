@@ -21,5 +21,7 @@ public class Report {
 	private String reportContent;
 	private Date reportDate;
 	private String status;
+	private String userId;
+	private int redcard;
 
 }

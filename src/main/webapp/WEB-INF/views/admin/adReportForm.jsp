@@ -14,7 +14,6 @@
 	<div id="layoutSidenav">
 		<jsp:include page="common/adminSidebar.jsp"/>
 		<div id="layoutSidenav_content">
-
                 <!--시작-->
                 
                     <main>
@@ -58,14 +57,28 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr data-toggle="modal" data-target="#reportModal">
-                                                        <td>1</td>
-                                                        <td>user02@naver.com</td>
-                                                        <td>4</td>
-                                                        <td>2회</td>
-                                                        <td>2020-06-04</td>
-                                                        <td>처리 대기중</td>
-                                                    </tr>
+                                                	<c:forEach var="i" items="${ list }">
+	                                                    <tr data-toggle="modal" data-target="#reportModal">
+	                                                        <td>${ i.reportNo }</td>
+	                                                        <td>${ i.userId }</td>
+	                                                        <td>${ i.replyNo }</td>
+	                                                        <td>${ i.redcard }</td>
+	                                                        <td>${ i.reportDate }</td>
+	                                                        <td>
+	                                                        	<c:choose>
+	                                                        		<c:when test="${ i.status eq 'O'}">
+	                                                        			처리 대기중
+	                                                        		</c:when>
+	                                                        		<c:when test="${ i.status eq 'Y'}">
+	                                                        			완료
+	                                                        		</c:when>
+	                                                        		<c:when test="${ i.status eq 'N'}">
+	                                                        			반려
+	                                                        		</c:when>
+	                                                        	</c:choose>
+                                                        	</td>
+	                                                    </tr>
+                                                	</c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
