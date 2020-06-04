@@ -59,7 +59,12 @@
 		 WHERE GROUP_NO=#{gno}
 	</select>
 	
-	
+	<select id="countDips">
+		SELECT COUNT(*)
+		  FROM DIPS
+		 WHERE USER_NO = #{}
+		       AND GROUP_NO = #{};
+	</select>
 	
 	
 	

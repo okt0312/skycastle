@@ -12,8 +12,7 @@ public interface GroupService {
 	int selectGroupListCount();
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupList(PageInfo pi);
-	// 1-3. 회원 찜하기 여부 확인
-	int countDips(int gno, int userNo);
+
 	
 	
 	// 검색 구현하려면 마이바티스 참조
@@ -21,11 +20,10 @@ public interface GroupService {
 	// 2. 소모임 신청용 서비스
 	int insertGroup(Groups g);
 	
-	// 3. 소모임 상세조회용 서비스
-	// 3-1. 해당 소모임 조회수 증가용 서비스
-	int increaseCount(int gno);
-	// 3-2. 해당 소모임 조회용 서비스
+	// 3. 해당 소모임 상세조회용 서비스
 	Groups selectGroup(int gno);
+	// 1-3. 회원 찜하기 여부 확인
+	int countDips(int gno, int userNo);
 	
 
 	

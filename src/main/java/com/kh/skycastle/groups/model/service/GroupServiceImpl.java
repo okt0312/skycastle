@@ -33,6 +33,11 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectGroupThumbnailList(sqlSession, pi);
 	}
 	*/
+	
+	@Override
+	public Groups selectGroup(int gno) {
+		return gDao.selectGroup(sqlSession, gno);
+	}
 
 	@Override
 	public int countDips(int gno, int userNo) {
@@ -44,15 +49,6 @@ public class GroupServiceImpl implements GroupService {
 		return 0;
 	}
 
-	@Override
-	public int increaseCount(int gno) {
-		return 0;
-	}
-
-	@Override
-	public Groups selectGroup(int gno) {
-		return gDao.selectGroup(sqlSession, gno);
-	}
 
 	
 	@Override

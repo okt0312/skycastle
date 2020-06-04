@@ -40,8 +40,10 @@ public class GroupController {
 		
 		Groups g = gService.selectGroup(gno);
 		int count = gService.countDips(gno, userNo);
+		
 		mv.addObject("g", g);
 		mv.addObject("count", count);
+		
 		mv.setViewName("groups/groupDetail");
 
 		return mv;
