@@ -119,7 +119,7 @@
 				<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 				<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
 				<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-				<input id="apply_btn" type="button" value="신청하기" class="sky_btn1" style="width: 100px; height: 30px;">
+				<input id="apply_btn" type="button" value="신청하기" class="sky_btn1">
 			</form>
 		  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 			<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
