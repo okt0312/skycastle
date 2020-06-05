@@ -60,10 +60,10 @@
 	</select>
 	
 	<!-- 소모임 개설 수락하기 -->
-	<update id="acceptGroups" parameterType="HashMap">
+	<update id="acceptGroups" parameterType="HashMap" >
 		UPDATE GROUPS
 		   SET STATUS = 'Y'
-		 WHERE  GROUP_NO =
+		 WHERE  GROUP_NO IN
 		  <foreach collection="array" item="type"  open="(" close=")" separator=",">
            #{type}
         </foreach>
