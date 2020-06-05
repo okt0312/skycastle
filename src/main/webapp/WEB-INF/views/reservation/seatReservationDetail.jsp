@@ -443,7 +443,7 @@
 	}
 	
 	//좌석현황 조회 함수 호출
-	selectSeatReservationTime();
+	//selectSeatReservationTime();
 	/* setInterval(function() {
 		selectSeatStatusList();
 	}, 5000); */

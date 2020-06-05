@@ -125,12 +125,6 @@
 		where status='Y'
 	</select>
 	
-	<select id="rselectList" resultMap="">
-		select *
-			form space
-		where status='Y'
-		order by space_no desc
-	</select>
-	
+		
 	
 </mapper>
