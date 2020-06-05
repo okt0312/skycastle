@@ -76,7 +76,7 @@
           <span>비밀번호 변경</span>
         </div>
         <form action="changePwd.me" method="POST">
-        <input type="hidden" name="userId" value="${ email }">
+        <input type="hidden" name="userId" value="${ userId }">
         <input type="password" name="pwdChange" id="pwdChange1" placeholder="새 비밀번호" maxlength="20" required><br> 
         <input type="password" id="pwdChange2" placeholder="한번 더 입력" maxlength="20" required><br>
         <button type="submit" id="changePwd" name="changePwd" onclick="return validate();">변경</button><br>
