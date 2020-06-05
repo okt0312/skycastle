@@ -123,21 +123,21 @@
 			<div style="text-align:right; height: 60px;">
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
 					<c:choose>
-						<c:when test="${ loginUser.userNo ne '0' }">
+						<c:when test="${ loginUser.userNo = null }">
+							<button class="sky_btn2" style="float: left;" disabled>로그인</button>
+						</c:when>
+						<c:otherwise>
 							<c:choose>
 								<c:when test="${ count == 0 }">		<!-- 로그인 했고, 찜 안했을 때 -->
-									<button class="sky_btn1" style="float: left;">찜하기</button>
+									<button id="dipsIn" type="button" class="sky_btn1" style="float: left;">찜하기</button>
 								</c:when>
 					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 안했을 때 -->
-									<button class="sky_btn1" style="float: left;">찜취소</button>
+									<button id="dipsOut" type="button" class="sky_btn1" style="float: left;">찜취소</button>
 								</c:when>
 					        	<%-- <c:when test="${ loginUser.userNo == 0 }">	<!-- 로그인 안했을때 왜 안대 ㅠㅜㅠㅜㅠㅜㅠ -->
 									<button class="sky_btn2" style="float: left;" disabled>로그인</button>
 								</c:when> --%>
 							</c:choose>
-						</c:when>
-						<c:otherwise>
-							<button class="sky_btn2" style="float: left;" disabled>로그인</button>
 						</c:otherwise>
 					</c:choose>
 					
@@ -173,6 +173,20 @@
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
 	            , function(){});
 				
+				location.href = "loginForm.me";
+			}
+		});
+		
+		// 찜하기
+		$("#dipsIn").click(function(){
+				
+				location.href = "loginForm.me";
+			}
+		});
+		
+		//찜취소
+		$("#dipsOut").click(function(){
+
 				location.href = "loginForm.me";
 			}
 		});
