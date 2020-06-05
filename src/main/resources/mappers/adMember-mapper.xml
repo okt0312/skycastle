@@ -100,4 +100,23 @@
 		</set>
 		WHERE USER_ID = #{userId}
 	</update>
+	
+	<update id="updateReport" parameterType="Member">
+		UPDATE REPORT
+		   <set>
+		   		<choose>
+		   			<when test="reportStatus == 2">
+		   				STATUS = 'Y'
+		   			</when>
+		   			<when test="reportStatus == 3">
+		   				STATUS = 'N'
+		   			</when>
+		   		</choose>
+		   </set>
+	    WHERE REPLY_NO = (SELECT REPLY_NO
+						  FROM REPORT R
+				    	  JOIN REPLY RE USING(REPLY_NO)
+						  JOIN MEMBER M USING(USER_NO)
+						  WHERE USER_ID = #{userId})
+	</update>
 </mapper>

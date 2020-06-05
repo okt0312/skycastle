@@ -60,4 +60,10 @@ public class AdMemberServiceImpl implements AdMemberService{
 		return admDao.updateMemberReport(sqlSession, m);
 	}
 
+	@Override
+	public int updateReport(Member m) {
+
+		return admDao.updateReport(sqlSession, m);
+	}
+
 }

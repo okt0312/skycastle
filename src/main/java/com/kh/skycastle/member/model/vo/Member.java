@@ -33,4 +33,5 @@ public class Member {
 	private String gradeName;
 	private int redCard;
 	private String leaveReason;
+	private int reportStatus;
 }

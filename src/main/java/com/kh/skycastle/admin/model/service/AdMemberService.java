@@ -24,4 +24,6 @@ public interface AdMemberService {
 	ArrayList<Report> selectReport();
 	
 	int updateMemberReport(Member m);
+	
+	int updateReport(Member m);
 }

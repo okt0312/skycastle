@@ -115,8 +115,7 @@ public class AdMemberController {
 	@RequestMapping("updateReport.ad")
 	public String updateReport(Member m, String selNo)
 	{	
-		System.out.println(m);
-		System.out.println(selNo);
+		m.setReportStatus(Integer.parseInt(selNo));
 		if(selNo.equals("2"))
 		{
 			// 누적 신고 3회시 블랙리스트 처리
@@ -124,8 +123,8 @@ public class AdMemberController {
 			{
 				// MEMBER 테이블 값 수정
 				int result1 = admService.updateMemberReport(m);
-				System.out.println(result1);
 				// REPORT 테이블 값 수정
+				int result2 = admService.updateReport(m);
 				// REPLY 상태값 변경
 				return "";
 			}
@@ -139,6 +138,7 @@ public class AdMemberController {
 		else if(selNo.equals("3"))
 		{
 			// REPORT 상태값 수정
+			int result1 = admService.updateReport(m);
 		}
 		
 		return "";
