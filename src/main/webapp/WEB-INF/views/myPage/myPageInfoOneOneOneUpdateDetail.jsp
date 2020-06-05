@@ -77,7 +77,7 @@ td {
 	padding: 10px;
 	cursor: pointer;
 	background: #fdce07;
-	color: #000000;
+	color: black;
 	border: 0;
     margin: 0px auto;
 }
@@ -99,18 +99,6 @@ td {
 
 /* 중간버튼 스타일 */
 
-.middle_btn{
-                display: block;
-                height:40px;
-                width:150px;
-                margin: 0 auto;
-                font-size: 15px;
-                font-weight: bolder;
-                color:white;
-                background-color: rgb(76, 60, 60);
-                border:0;
-                border-radius: 5px;
-            }
 
 #contentArea{
             width:450px; 
@@ -237,7 +225,7 @@ td {
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <input id="title2" name="qnaContent" style="font-size: 1.1em; background-color: white;">
+                            <input id="title2" name="qnaContent" value="${q.qnaContent}" style="font-size: 1.1em; background-color: white;">
                         </td>
                     </tr>
                     <tr>
@@ -258,7 +246,7 @@ td {
                 <div id="btns" style="margin: 0 auto; width: 50%; padding-left: 270px;"> 
                     
                   
-                    <button type="submit" style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn">수정하기</button>
+                    <button type="submit" style= "border:1px solid darkgray" class="sky_btn1" id="mbtn">수정하기</button>
                     <button type="button" class="sky_btn2" id="lbtn" onclick="javascript:history.go(-1);">목록</button>
 					
                 </div>
