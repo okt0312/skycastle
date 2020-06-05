@@ -143,7 +143,7 @@ td {
 	
 	
 
-
+		<br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 				
@@ -244,7 +244,7 @@ td {
                     
                     <button class="sky_btn1" id="dbtn" onclick="postFormSubmit(2);">삭제</button>
                     <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn"  onclick="postFormSubmit(1);">수정</button>
-                    <button class="sky_btn2" id="lbtn">목록</button>
+                    <button type="button" class="sky_btn2" id="lbtn" onclick="javascript:history.go(-1);">목록</button>
 					
                 </div>
                 
