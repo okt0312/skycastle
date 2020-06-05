@@ -17,7 +17,8 @@
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Reservation" alias="Reservation"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Seat" alias="Seat"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Report" alias="Report"/>
-		<typeAlias type="com.kh.skycastle.groups.model.vo.Dips" alias="Dips"/>		
+		<typeAlias type="com.kh.skycastle.groups.model.vo.Dips" alias="Dips"/>
+		<typeAlias type="com.kh.skycastle.reservation.model.vo.Space" alias="Space"/>		
 		
 	</typeAliases>
 	
