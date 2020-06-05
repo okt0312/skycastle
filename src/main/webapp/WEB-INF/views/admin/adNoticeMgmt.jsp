@@ -40,18 +40,32 @@
 					                                    <th>공지사항 번호</th>
 					                                    <th>제목</th>
 					                                    <th>등록일</th>
+					                                    <th>상태</th>
 					                                </tr>
 					                            </thead>
 					                            <tbody>
-					                               <c:forEach var="g" items="${ list }">
-					                               	<tr  onclick="groupLiModal( ${ g.groupNo });">
-					                                    <td>${ g.groupNo }</td>
-					                                    <td>${ g.groupCategory }</td>
-					                                    <td>${ g.groupTitle }</td>
+					                               <c:forEach var="n" items="${ list }">
+					                               	<tr>
+					                                    <td>${ n.noticeNo }</td>
+					                                    <td>${ n.noticeTitle }</td>
+					                                    <td>${ n.enrollDate }</td>
+					                                    <td>${ n.status }</td>
 					                                </tr>
 					                               </c:forEach>
 					                            </tbody>
 					                        </table>
+					                        
+			                        <script>
+						            //테이블 tr눌러서 상세 불러오기
+						            	$(function(){
+						            		
+						            		$("#dataTable tbody tr").click(function(){
+						            			location.href ="adDetail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+						            		
+						            		});
+						            	});
+						            </script>
+						            
                                        <input type="button" value="등록" class="btn btn-primary">
                                    </div>
                                </div>

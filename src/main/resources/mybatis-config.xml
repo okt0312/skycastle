@@ -30,6 +30,7 @@
 		<mapper resource="mappers/adQna-mapper.xml"/>
 		<mapper resource="mappers/cs-mapper.xml"/>
 		<mapper resource="mappers/reservation-mapper.xml"/>
+		<mapper resource="mappers/adBoard-mapper.xml"/>
 	</mappers>
 	
 	

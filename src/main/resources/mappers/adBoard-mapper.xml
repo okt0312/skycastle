@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="adBoardMapper">
+  
+  <!-- 공지사항 디비 -->
+
+<resultMap type="Notice" id="adNoticeResultSet">
+	<id column="NOTICE_NO" property="noticeNo"/>
+		<result column="NOTICE_TITLE" property="noticeTitle"/>
+		<result column="NOTICE_CONTENT" property="noticeContent"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="STATUS" property="status"/>
+</resultMap>
+  
+  
+  <select id ="selectNotice" resultMap="adNoticeResultSet">
+  SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
+  FROM NOTICE
+  </select>
+  
+</mapper>
