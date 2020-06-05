@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>myPageCoupon</title>
+<title>공간 현황</title>
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
 

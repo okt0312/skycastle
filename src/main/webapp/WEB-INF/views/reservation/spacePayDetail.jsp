@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>예약 세부페이지</title>
     <style>
      div{
         /* border: 1px solid red; */
