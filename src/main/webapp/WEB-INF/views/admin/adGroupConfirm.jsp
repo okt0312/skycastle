@@ -146,7 +146,7 @@
 			                						"<label><input class='checkbox ' type='checkbox' name='grCoCheck' value='"+list[i].groupNo+"' style='vertical-align: middle; transform: scale(1.4);'></label>"+
 			               						"</div>"+
 			            						"</td>"+
-			            						"<td>"+list[i].groupNo+"</td>"
+			            						"<td>"+list[i].groupNo+"</td>"+
 			                                 "<td>"+list[i].groupTitle+"</td>"+
 			                                 "<td>"+list[i].groupSubtitle+"</td>"+
 			                                 "<td>"+list[i].groupCategory+"</td>"+
