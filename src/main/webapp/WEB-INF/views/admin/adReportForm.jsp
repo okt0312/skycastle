@@ -129,7 +129,13 @@
 				                   
 				                   <script>
 				                   		$("#dataTable tbody tr").click(function(){
-				                   			console.log("1");
+				                   			var num = $(this).children().eq(0).text();
+				                   			<c:forEach var="n" items="${ list }">
+				                   				if(${ n.reportNo } == num)
+			                   					{
+						                   			console.log("${ n.reportNo }");
+			                   					}
+						                   </c:forEach>
 				                   		});
 				                   </script>
 		                    </div>
