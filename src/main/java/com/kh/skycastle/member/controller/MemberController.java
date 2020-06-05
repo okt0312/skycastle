@@ -156,11 +156,18 @@ public class MemberController {
 	
 	// 비밀번호 찾기 인증 번호 
 	@RequestMapping("sendPwdMail.me")
-	public ModelAndView searchPwd(HttpSession session, Member m, ModelAndView mv) {
-
+	public ModelAndView searchPwd(HttpSession session, HttpServletRequest request, String userId, String phone, Member m, ModelAndView mv) {
+		
+		String id = request.getParameter("userId");
+		String ph = request.getParameter("phone");
+		
+		System.out.println("테스트" + id + ph );
+		
+		m.setUserId(id);
+		m.setPhone(ph);
+		
 		Member user = mService.searchPwd(m);
 		
-		//String userId = request.getParameter("userId");
 		String authCode = "";
 		authCode = tempkey.init();
 		

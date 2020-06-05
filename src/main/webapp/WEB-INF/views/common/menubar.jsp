@@ -126,7 +126,7 @@
                 </li>
                 <li><a href="seatMain.re">좌석 예약</a></li>
                 <li><a href="">공간 예약</a></li>
-                <li><a href="groupList.gr?currentPage=1">소모임</a></li>
+                <li><a href="groupList.gr?currentPage=1&status=''">소모임</a></li>
                 <li><a href="">고객센터</a>
                     <ul class="submenu">
                         <li><a href="list.cs?currentPage=1">공지사항</a></li>
