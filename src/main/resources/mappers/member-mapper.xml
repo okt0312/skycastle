@@ -98,11 +98,18 @@
 		WHERE USER_ID = #{userId}
 	</select>
 	
+	<select id="searchPwd" resultMap="memberResultSet" parameterType="Member">
+ 	   	SELECT USER_PWD
+		  FROM MEMBER
+		 WHERE USER_ID = #{userId}
+		   AND PHONE = #{phone} 
+	 	   AND STATUS = 'Y'
+	</select>
+	
 	<update id="changePwd" parameterType="Member">
 		UPDATE MEMBER
 		   SET UESR_PWD = #{userPwd}
-		 WHERE USER_PWD = #{userPwd}
-		 AND USER_ID = #{userId};  
+		 WHERE USER_ID = #{userId};  
 	</update>
 	
 </mapper>

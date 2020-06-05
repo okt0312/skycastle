@@ -48,7 +48,6 @@ public class MemberController {
 
 		if (loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
 			session.setAttribute("loginUser", loginUser);
-
 			return "redirect:/";
 		} else {
 			model.addAttribute("msg", "로그인 실패");
@@ -157,34 +156,48 @@ public class MemberController {
 	
 	// 비밀번호 찾기 인증 번호 
 	@RequestMapping("sendPwdMail.me")
-	public ModelAndView searchPwd(HttpServletRequest request, String userId, ModelAndView mv) {
+	public ModelAndView searchPwd(HttpSession session, Member m, ModelAndView mv) {
 
-		String email = request.getParameter("userId");
+		Member user = mService.searchPwd(m);
+		
+		//String userId = request.getParameter("userId");
 		String authCode = "";
 		authCode = tempkey.init();
+		
+		System.out.println(user);
+		
+		if(user != null) {
+			session.setAttribute("user", user);
+			
+			// 인증번호 발송 메일 
+			SimpleMailMessage mailMessage = new SimpleMailMessage();
+			mailMessage.setSubject("SKYCASTLE 인증 코드");
+			mailMessage.setFrom("skycastle0504@gmail.com");
+			mailMessage.setText("인증번호를 확인해주세요. [ " + authCode + " ]");
+			//mailMessage.setTo(userId);
+			mailMessage.setTo(m.getUserId());
+			try {
+				mailSender.send(mailMessage);
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 
-		// 인증번호 발송 메일 
-		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		mailMessage.setSubject("SKYCASTLE 인증 코드");
-		mailMessage.setFrom("skycastle0504@gmail.com");
-		mailMessage.setText("인증번호를 확인해주세요. [ " + authCode + " ]");
-		mailMessage.setTo(email);
-		try {
-			mailSender.send(mailMessage);
-		} catch (Exception e) {
-			System.out.println(e);
+			mv.setViewName("member/searchPwdAuthCode");
+			mv.addObject("authCode", authCode);
+			mv.addObject("userId", m.getUserId());
+			return mv;
+			
+		}else {
+			mv.setViewName("member/searchPwd");
+			mv.addObject("msg", "정보가 일치하지 않습니다.");		
+			return mv;
 		}
-
-		mv.setViewName("member/searchPwdAuthCode");
-		mv.addObject("authCode", authCode);
-		mv.addObject("email", email);
-		return mv;
 
 	}
 
 	// 인증 결과 
 	@RequestMapping("pwdChange.me")
-	public ModelAndView changePwd(String passCode, String authCode, String email, ModelAndView mv) {
+	public ModelAndView changePwd(String passCode, String authCode, String userId, ModelAndView mv) {
 
 		// 인증번호가 일치할 경우 비밀번호 변경창 이동
 		if(passCode.equals(authCode)) {
@@ -207,6 +220,7 @@ public class MemberController {
 		m.setUserPwd(encPwd);
 		m.setUserId(userId);
 		
+		System.out.println(m);
 		int result = mService.changePwd(m);
 		
 		if(result > 0) {
