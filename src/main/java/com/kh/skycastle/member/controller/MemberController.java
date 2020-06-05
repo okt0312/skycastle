@@ -240,7 +240,7 @@ public class MemberController {
 		int result = mService.changePwd(m);
 		
 		if(result > 0) {
-			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동니다.");
+			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동합니다.");
 			return "member/loginForm";
 		}else {
 			model.addAttribute("msg", "에러 발생");
