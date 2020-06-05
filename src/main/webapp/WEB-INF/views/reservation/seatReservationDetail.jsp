@@ -422,18 +422,22 @@
 			async: false,
 			data: {seatNo:${seat.seatNo}},
 			success:function(ReservationTime){
-				console.log(ReservationTime);
-				//console.log(ReservationTime[0].startTime.substring(0, 2));
-				//console.log(ReservationTime[0].endTime.substring(0, 2));
-				//console.log(timeSelect.eq(0).val().substring(0, 2));
-				 for(var i=0; i<ReservationTime.length; i++){
+				if(ReservationTime != ''){
+					console.log(ReservationTime);
+					console.log(ReservationTime[0].startTime.substring(0, 2));
+					console.log(ReservationTime[0].endTime.substring(0, 2));
+					console.log(timeSelect.eq(0).val().substring(0, 2));
+					
+				}
+				
+				  for(var i=0; i<ReservationTime.length; i++){
 					for(var j=0; j<timeSelect.length; j++){
 						if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
 								|| timeSelect.eq(j).val().substring(0, 2) < ReservationTime[i].endTime.substring(0, 2) ){
 							timeSelect.eq(j).attr("disabled","disabled");
 						}			
 					}
-				} 
+				}  
 				
 			},error:function(){	
 				console.log("좌석예약시간 조회 ajax 통신 실패!!");
@@ -443,7 +447,7 @@
 	}
 	
 	//좌석현황 조회 함수 호출
-	//selectSeatReservationTime();
+	selectSeatReservationTime();
 	/* setInterval(function() {
 		selectSeatStatusList();
 	}, 5000); */

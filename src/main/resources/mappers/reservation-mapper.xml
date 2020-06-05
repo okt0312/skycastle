@@ -47,26 +47,7 @@
 		<result column="status" property="status"/>
 	</resultMap>
 	
-<!-- 	<select id="seatAllCount" resultType="_int">
-		select count(*) 
-		from seat
-	</select>
-	
-	<select id="seatUsedCount" resultType="_int">
-		<![CDATA[
-		select count(*)
-		from reservation r
-		join reservation_time rt on (rt.used_date = to_char(sysdate, 'YYYY-MM-DD')
-		                                and to_char(sysdate, 'HH24') >= substr(start_time, 1, 2)
-		                                and to_char(sysdate, 'HH24') < substr(end_time, 1, 2) 
-		                                and r.book_no = rt.book_no)
-		 ]]>
-	</select>
-	
-	<select id="seatRepairingCount" resultType="_int">
-		select count(*)
-		from seat where status='N'
-	</select> -->
+
 	
 	
 	<select id="selectSeatStatusList" resultMap="reservationResultSet">
