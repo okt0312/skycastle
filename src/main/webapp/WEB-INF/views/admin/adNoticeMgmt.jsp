@@ -37,16 +37,9 @@
 	                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
 					                            <thead>
 					                                <tr>
-					                                    <th>모임 번호</th>
-					                                    <th>카테고리</th>
-					                                    <th>모임명</th>
-					                                    <th>장소</th>
-					                                    <th>신청등급</th>
-					                                    <th>회원번호</th>
-					                                    <th>정원</th>
-					                                    <th>시작일</th>
-					                                    <th>종료일</th>
-					                                    <th>상태</th>
+					                                    <th>공지사항 번호</th>
+					                                    <th>제목</th>
+					                                    <th>등록일</th>
 					                                </tr>
 					                            </thead>
 					                            <tbody>
@@ -55,13 +48,6 @@
 					                                    <td>${ g.groupNo }</td>
 					                                    <td>${ g.groupCategory }</td>
 					                                    <td>${ g.groupTitle }</td>
-					                                    <td>${ g.place }</td>
-					                                    <td>${ g.gradeLimit }</td>
-					                                    <td>${ g.leaderNo }</td>
-					                                    <td>${ g.memberLimit }</td>
-					                                    <td>${ g.startDate }</td>
-					                                    <td>${ g.endDate }</td>
-					                                    <td>${ g.status }</td>
 					                                </tr>
 					                               </c:forEach>
 					                            </tbody>
