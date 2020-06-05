@@ -113,8 +113,8 @@ public class MypageServiceImpl implements MypageService {
 
 	@Override
 	public int updateQna(Qna q) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return pDao.updateQna(sqlSession, q);
 	}
 
 

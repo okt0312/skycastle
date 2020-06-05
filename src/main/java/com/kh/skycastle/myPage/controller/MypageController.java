@@ -295,4 +295,30 @@ public class MypageController {
 //			
 //		}
 	
+	
+	@RequestMapping("qupdateForm.bo")
+	public String qupdateForm(int qno, Model model) {
+		
+		model.addAttribute("q", pService.selectQna(qno));
+		return "myPage/myPageInfoOneOneOneUpdateDetail";
+		
+	}
+	
+	
+	@RequestMapping("qqupdate.bo")
+	public String updateQna(Qna q) {
+		
+		// 경로 알아올 때 필요한 것 HttpSetvletRequest request
+		// q = 게시글 번호, 게시글 제목, 게시글 내용
+		
+		int result = pService.updateQna(q);
+		
+		if(result > 0) {
+			
+			return "redirect:qdetail.bo?qno=" + q.getQnaNo();
+			
+		} else {
+			return "myPage/myPageInfoOneOneOneUpdateDetail";
+		}
+	}
 }

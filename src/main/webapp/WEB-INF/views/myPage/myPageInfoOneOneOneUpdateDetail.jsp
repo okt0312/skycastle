@@ -206,8 +206,8 @@ td {
 
                 <br><br><br>
 
-				<form id="qupdateForm" method="post" action="qupdate.bo" enctype="multipart/form-data">
-				
+				<form id="qupdateForm" method="post" action="qqupdate.bo">
+				<input type="hidden" name="qnaNo" value="${ q.qnaNo }">
                 <table id="middleTable" width="900px" height="500px" align="center">
 
                     <tr>
@@ -227,7 +227,7 @@ td {
                         <td  width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
                         
-                        <input id="title1" type="text" style="font-size: 1.1em; background-color: white;" disabled>
+                        <input id="title1" type="text" name="qnaTitle" value="${ q.qnaTitle }" style="font-size: 1.1em; background-color: white;">
                         
                         </td>
                     </tr>
@@ -237,7 +237,7 @@ td {
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
                         <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <input id="title2" style="font-size: 1.1em; background-color: white;" disabled>
+                            <input id="title2" name="qnaContent" style="font-size: 1.1em; background-color: white;">
                         </td>
                     </tr>
                     <tr>
@@ -258,8 +258,8 @@ td {
                 <div id="btns" style="margin: 0 auto; width: 50%; padding-left: 270px;"> 
                     
                   
-                    <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn"  onclick="postFormSubmit(1);">수정하기</button>
-                    <button class="sky_btn2" id="lbtn">목록</button>
+                    <button type="submit" style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn">수정하기</button>
+                    <button type="button" class="sky_btn2" id="lbtn">목록</button>
 					
                 </div>
                 
