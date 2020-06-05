@@ -39,6 +39,14 @@
 	  	<result column="status" property="status"/>
 	</resultMap>
 	
+	<resultMap type="Space" id="SpaceResultSet">
+		<id column="space_no" property="spaceNo"/>
+		<result column="space_name" property="spaceName"/>
+		<result column="personnel" property="personnel"/>
+		<result column="space_price" property="spacePrice"/>
+		<result column="status" property="status"/>
+	</resultMap>
+	
 <!-- 	<select id="seatAllCount" resultType="_int">
 		select count(*) 
 		from seat
@@ -117,11 +125,11 @@
 		where status='Y'
 	</select>
 	
-	<select id="rselectList">
+	<select id="rselectList" resultMap="">
 		select *
 			form space
 		where status='Y'
-		order by 
+		order by space_no desc
 	</select>
 	
 	
