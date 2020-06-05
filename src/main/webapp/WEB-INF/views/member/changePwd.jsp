@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 재설정</title>
 <style>
   .changePwdForm{
     width:320px;
@@ -73,7 +73,7 @@
    <div class="changePwdForm"> 
         <div id="pwdImg">
           <img src="resources/images/pwd.png">
-          <span>비밀번호 변경</span>
+          <span>비밀번호 재설정</span>
         </div>
         <form action="changePwd.me" method="POST">
         <input type="hidden" name="userId" value="${userId}">

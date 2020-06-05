@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인</title>
 <!-- jQuery 라이브러리 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--  네이버로 로그인 라이브러리 
@@ -112,18 +112,23 @@
         </form>
     </div>
     
- <script>
-	function postFormSubmit(num){
-		if(num == 1){ // 회원가입
-			$("#postForm").attr("action", "enrollForm.me");
-		}else{ // 비번찾기 클릭시
-			$("#postForm").attr("action", "searchPwd.me");
+	<c:if test="${ !empty msg }">
+		<script>
+			alert("${msg}");  
+		</script>
+		<c:remove var="msg" scope="session"/>
+	</c:if>
+    
+	<script>
+		function postFormSubmit(num){
+			if(num == 1){ // 회원가입
+				$("#postForm").attr("action", "enrollForm.me");
+			}else{ // 비번찾기 클릭시
+				$("#postForm").attr("action", "searchPwd.me");
+			}
+			
+			$("#postForm").submit();
 		}
-		
-		$("#postForm").submit();
-	}
-</script>
-
-
+	</script>	
 </body>
 </html>

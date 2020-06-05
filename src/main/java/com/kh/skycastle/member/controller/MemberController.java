@@ -225,7 +225,7 @@ public class MemberController {
 	
 	// 비밀번호 변경
 	@RequestMapping("changePwd.me")
-	public String changePwd(HttpServletRequest request, String userId, String pwdChagne, Member m, Model model) {
+	public String changePwd(HttpServletRequest request, HttpSession session,  String userId, String pwdChagne, Member m, Model model) {
 		
 		String email = request.getParameter("userId");
 		String pwdChange = request.getParameter("pwdChange");
@@ -240,6 +240,7 @@ public class MemberController {
 		int result = mService.changePwd(m);
 		
 		if(result > 0) {
+			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동니다.");
 			return "member/loginForm";
 		}else {
 			model.addAttribute("msg", "에러 발생");
