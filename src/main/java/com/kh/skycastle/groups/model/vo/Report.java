@@ -17,11 +17,13 @@ public class Report {
 	
 	private int reportNo;
 	private int replyNo;
+	private int noticeNo;
 	private int reporterNo;
 	private String reportContent;
 	private Date reportDate;
 	private String status;
-	private String userId;
+	private String replyWriter;
+	private String reporterId;
 	private int redcard;
 
 }

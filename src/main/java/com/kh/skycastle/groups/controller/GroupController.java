@@ -58,7 +58,17 @@ public class GroupController {
 	}
 	
 	@RequestMapping("mygroupList.gr")
-	public String mygroupList() {
+	public String mygroupList(int currentPage, String status, Model model) {
+			
+		int groupListCount = gService.selectGroupListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
+		ArrayList<Groups> list = gService.selectMyGroupList(pi, status);
+//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		
 		return "myPage/myPageGroupListView";
 	}
 	
