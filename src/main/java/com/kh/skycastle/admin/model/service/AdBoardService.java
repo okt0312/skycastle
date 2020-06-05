@@ -1,5 +1,5 @@
 package com.kh.skycastle.admin.model.service;
 
-public class AdBoardService {
+public interface AdBoardService {
 
 }
