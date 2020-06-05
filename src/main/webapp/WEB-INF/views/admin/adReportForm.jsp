@@ -101,7 +101,7 @@
 		                        </div>
 		                            <!-- Modal Body -->
 		                            <form action="신고요청받아주는서버" method="post" class="form-horizontal"   >
-		                              
+		                              	<input type="hidden" id="reportNo" name="reportNo">
 		                                <div class="modal-body" disply="inline-block">
 		                                    <label>작성 회원&nbsp;  :&nbsp; </label>
 		                                    <input id="reporterId" class="form-control mb-2 mr-sm-2" type="text" readonly="readonly"><br>
@@ -119,7 +119,7 @@
 		                                   		     처리유형 선택 &nbsp;&nbsp;
 		                                   		     <p style="height: 1px;"></p>
 		                                        <select id="report_apply" name="report_apply" class="form-control">
-		                                            <option value="1">선택하기</option>
+		                                            <option value="1" selected="selected">선택하기</option>
 		                                            <option value="2">신고 누적 추가</option>
 		                                            <option value="3">신고 취소</option>
 		                                        </select>
@@ -141,13 +141,15 @@
 			                   				}
 				                   			else
 			                   				{
+				                   				var reportNo = $("#reportNo").val();
 				                   				var redcard = $("#redcard").text();
 				                   				var userId = $("#replyWriter").val();
 				                   				var selNo = $("#report_apply").val();
 				                   				
 				                   				$.ajax({
 				                   					url:"updateReport.ad",
-				                   					data:{"redcard":redcard,
+				                   					data:{"reportNo" : reportNo,
+				                   						  "redCard":redcard,
 				                   						  "userId" : userId,
 				                   						  "selNo" : selNo},
 		                   						  	type:"post",
@@ -168,6 +170,7 @@
 				                   			<c:forEach var="n" items="${ list }">
 				                   				if(${ n.reportNo } == num)
 			                   					{
+				                   					$("#reportNo").val("${n.reportNo}");
 				                   					$("#replyWriter").val("${n.replyWriter}");
 				                   					$("#reporterId").val("${n.reporterId}");
 				                   					$("#reportContent").val("${n.reportContent}");
@@ -175,6 +178,11 @@
 			                   					}
 						                   </c:forEach>
 				                   		});
+				                   		
+				                   		$('#reportModal').on('hidden.bs.modal', function () {
+				                    		$("#report_apply option").attr("selected", false);
+				                    		$("#report_apply option:eq(0)").attr("selected", true);
+			                    		});
 				                   </script>
 		                    </div>
 		                </div>

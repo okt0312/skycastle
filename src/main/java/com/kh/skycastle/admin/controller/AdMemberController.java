@@ -107,10 +107,24 @@ public class AdMemberController {
 	public ModelAndView adReporList(ModelAndView mv)
 	{
 		ArrayList<Report> list = admService.selectReport();
-		System.out.println(list);
 		mv.addObject("list", list);
 		mv.setViewName("admin/adReportForm");
 		return mv;
+	}
+	
+	@RequestMapping("updateReport.ad")
+	public String updateReport(Member m, String selNo)
+	{
+		if(selNo.equals("2"))
+		{
+			
+		}
+		else if(selNo.equals("3"))
+		{
+			
+		}
+		
+		return "";
 	}
 	
 	@RequestMapping("blackListMgmt.ad")
