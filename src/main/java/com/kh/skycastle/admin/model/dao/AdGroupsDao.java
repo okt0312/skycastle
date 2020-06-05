@@ -42,7 +42,7 @@ public class AdGroupsDao {
 		
 		
 		
-		public int acceptGroups(SqlSessionTemplate sqlSession, int grNo ){
-			return sqlSession.delete("adGroupsMapper.acceptGroups", grNo);
+		public int acceptGroups(SqlSessionTemplate sqlSession, String[] grCoCheck ){
+			return sqlSession.update("adGroupsMapper.acceptGroups", grCoCheck);
 		}
 }
