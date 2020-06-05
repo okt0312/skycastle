@@ -53,7 +53,6 @@ public class AdMemberDao {
 	}
 	public int updateReport(SqlSessionTemplate sqlSession, Member m)
 	{
-		System.out.println(m);
 		return sqlSession.update("adMemberMapper.updateReport", m);
 	}
 }
