@@ -117,6 +117,13 @@
 		where status='Y'
 	</select>
 	
+	<select id="rselectList">
+		select *
+			form space
+		where status='Y'
+		order by SPACE_NO desc
+	</select>
+	
 	
 	
 </mapper>
