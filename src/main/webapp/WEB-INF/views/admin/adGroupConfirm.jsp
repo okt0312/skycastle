@@ -135,8 +135,8 @@
 									data:{"grCoCheck":grCoCheck},
 								 	traditional : true,	
 									type:"post",
-									success:function(result){
-										
+									success:function(msg){
+										console.log(msg);
 										if(result > 0)
 			            				{
 				            				alertify.alert("소모임 관리", "성공", function(){ location.reload();});
