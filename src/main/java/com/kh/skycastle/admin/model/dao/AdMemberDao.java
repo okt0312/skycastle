@@ -46,4 +46,9 @@ public class AdMemberDao {
 	{
 		return (ArrayList)sqlSession.selectList("adMemberMapper.selectReport");
 	}
+	
+	public int updateMemberReport(SqlSessionTemplate sqlSession, Member m)
+	{
+		return sqlSession.update("adMemberMapper.updateMemberReport", m);
+	}
 }

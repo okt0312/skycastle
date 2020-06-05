@@ -87,4 +87,17 @@
 		JOIN REPLY RE USING(REPLY_NO)
 		JOIN MEMBER M USING (USER_NO)
 	</select>
+	
+	<update id="updateMemberReport" parameterType="Member">
+		UPDATE MEMBER
+		<set>
+			<if test="redCard >= 2">
+       		   BLACKLIST = 'Y',
+               STATUS = 'N',
+               LEAVE_REASON = '블랙리스트 회원',
+			</if>
+			REDCARD = REDCARD + 1
+		</set>
+		WHERE USER_ID = #{userId}
+	</update>
 </mapper>

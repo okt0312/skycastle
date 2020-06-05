@@ -22,4 +22,6 @@ public interface AdMemberService {
 	ArrayList<Member> selectBlacklist();
 	
 	ArrayList<Report> selectReport();
+	
+	int updateMemberReport(Member m);
 }
