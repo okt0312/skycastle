@@ -67,10 +67,16 @@
 		  <foreach collection="array" item="type"  open="(" close=")" separator=",">
            #{type}
         </foreach>
-
-
-		 	 
 	</update>
 	
+	<!-- 소모임 개설 거절하기 -->
+	<update id="rejectionGroups" parameterType="HashMap" >
+		UPDATE GROUPS
+		   SET STATUS = 'N'
+		 WHERE  GROUP_NO IN
+		  <foreach collection="array" item="type"  open="(" close=")" separator=",">
+           #{type}
+        </foreach>
+	</update>
 	
 </mapper>

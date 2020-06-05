@@ -41,8 +41,14 @@ public class AdGroupsDao {
 	
 		
 		
-		
+		//소모임개설관리 수락메소드
 		public int acceptGroups(SqlSessionTemplate sqlSession, String[] grCoCheck ){
 			return sqlSession.update("adGroupsMapper.acceptGroups", grCoCheck);
 		}
+		
+		//소모임개설관리 거절메소드
+				public int rejectionGroups(SqlSessionTemplate sqlSession, String[] grCoCheck ){
+					return sqlSession.update("adGroupsMapper.rejectionGroups", grCoCheck);
+				}
+		
 }

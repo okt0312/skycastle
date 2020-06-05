@@ -91,6 +91,8 @@ public class AdGroupsController {
 	
 	
 	
+	
+	
 	//메뉴바에서 소모임 개설관리 페이지 눌렀을때 이동
 	@RequestMapping("groupConfirm.ad")
 	public ModelAndView adGroupConfirm(ModelAndView mv){
@@ -164,12 +166,62 @@ public class AdGroupsController {
 						
 		}
 			
-			System.out.println(list);
+			
 			return new Gson().toJson(list);
 			
 	
 		
 	}
+	
+	
+	//소모임 개설관리 거절눌렀을때
+		@ResponseBody //뷰명아니고 응답데이터야!
+		@RequestMapping(value="rejectionGroup.ad",produces= "application/json; charset=utf-8")
+		public String rejectionGroup(String[] grCoCheck, Model model) {
+			System.out.println(Arrays.toString(grCoCheck));
+		
+			
+			int result = adGrService.rejectionGroups(grCoCheck);
+			//System.out.println(result);
+			
+				ArrayList<Groups> list = adGrService.selectGrConfirm();
+				
+				for(Groups g : list)
+				{
+					if(g.getGroupCategory().equals("1"))
+					{
+						g.setGroupCategory("대입");
+					}
+					else if(g.getGroupCategory().equals("2"))
+					{
+						g.setGroupCategory("공무원임용");
+					}
+					else if(g.getGroupCategory().equals("3"))
+					{
+						g.setGroupCategory("어학회화");
+					}
+					else if(g.getGroupCategory().equals("4"))
+					{
+						g.setGroupCategory("자격증");
+					}
+					else if(g.getGroupCategory().equals("5"))
+					{
+						g.setGroupCategory("기타");
+					}
+							
+			}
+				
+				
+				return new Gson().toJson(list);
+				
+		
+			
+		}
+	
+	
+	
+	
+	
 	
 	
 	

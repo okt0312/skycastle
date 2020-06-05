@@ -29,7 +29,7 @@ public interface AdGroupsService {
 		int acceptGroups(String[] grCoCheck);
 		
 		// 소모임 개설 거절용 서비스
-		int rejectionGroups(int gno);
+		int rejectionGroups(String[] grCoCheck);
 		
 		
 		

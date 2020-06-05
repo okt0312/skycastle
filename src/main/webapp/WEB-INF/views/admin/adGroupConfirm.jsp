@@ -180,12 +180,77 @@
 					 	
 					}
                      
-                     
+                     //개설 거절버튼 클릭시
+				         function rejectionGroups(){ 
+                    	 //클릭한 소모임번호 배열로 담음
+						var grCoCheck = new Array();
+						
+						$("input[name=grCoCheck]:checked").each(function(i){
+							grCoCheck.push($(this).val());
+							
+						});
+						
+						console.log(grCoCheck);
+						
+						//배열값 넘기려고함
+						if(grCoCheck == ""){
+							alertify("수락할 소모임을 선택해주세요.");
+						}else{
+						//	if(alertify.confirm("수락 처리하시겠습니까?")){
+								$.ajax({
+									url:"rejectionGroup.ad",
+									data:{"grCoCheck":grCoCheck},
+								 	traditional : true,	
+									type:"post",
+									success:function(list){
+										console.log(list);
+										
+										var value ="";
+										for(var i in list){
+											value += "<tr>"+
+			                                 "<td>" +
+			                                 "<div>"+
+			                						"<label><input class='checkbox ' type='checkbox' name='grCoCheck' value='"+list[i].groupNo+"' style='vertical-align: middle; transform: scale(1.4);'></label>"+
+			               						"</div>"+
+			            						"</td>"+
+			            						"<td>"+list[i].groupNo+"</td>"+
+			                                 "<td>"+list[i].groupTitle+"</td>"+
+			                                 "<td>"+list[i].groupSubtitle+"</td>"+
+			                                 "<td>"+list[i].groupCategory+"</td>"+
+			                                 "<td>"+list[i].startDate+"</td>"+
+			                                 "<td>"+list[i].endDate+"</td>"+
+			                                 "<td>"+list[i].place+"</td>"+
+			                                 "<td>"+list[i].memberLimit+"</td>"+
+			                                 "<td>"+list[i].status+"</td>"+
+			                             "</tr>"
+					    				}
+					    			
+					    				$("#dataTable tbody").html(value);
+										
+										/* if(result > 0)
+			            				{
+				            				alertify.alert("소모임 관리", "성공", function(){ location.reload();});
+			            				}
+				            			else
+			            				{
+				            				alertify.alert("소모임 관리", "실패", function(){ location.reload();});
+			            				} */
+										
+									},
+									error:function(){
+										console.log("ajax통신실패");
+									}
+									
+								});
+							//}
+						}
+					 	
+					}
                      
                     </script>
                              <div>
 	                             <button id="confirmBtn" class="btn btn-primary" onclick="confirmGroup();">승인</button>
-	                             <button id="tbBtn2" class="btn btn-danger">거절</button>
+	                             <button id="tbBtn2" class="btn btn-danger" onclick="rejectionGroups();">거절</button>
                              </div>
                          </div>
                      </div>

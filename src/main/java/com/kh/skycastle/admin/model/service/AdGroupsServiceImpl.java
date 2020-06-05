@@ -65,9 +65,8 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 
 	//소모임 개설 거절
 	@Override
-	public int rejectionGroups(int gno) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int rejectionGroups(String[] grCoCheck) {
+		return adGrDao.rejectionGroups(sqlSession,grCoCheck);
 	}
 
 
