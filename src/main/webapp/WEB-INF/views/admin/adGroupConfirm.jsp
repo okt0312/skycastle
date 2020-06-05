@@ -129,7 +129,7 @@
 						if(grCoCheck == ""){
 							alertify("수락할 소모임을 선택해주세요.");
 						}else{
-							if(alertify.confirm("수락 처리하시겠습니까?")){
+						//	if(alertify.confirm("수락 처리하시겠습니까?")){
 								$.ajax({
 									url:"confirmGroup.ad",
 									data:{"grCoCheck":grCoCheck},
@@ -175,7 +175,7 @@
 									}
 									
 								});
-							}
+							//}
 						}
 					 	
 					}

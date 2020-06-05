@@ -34,48 +34,38 @@
                                          
                                        </div>
 
-                                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
-                                           <thead>
-                                               <tr>
-                                                   <th>번호</th>
-                                                   <th>제목 </th>
-                                                   <th>작성일</th>
-                                               </tr>
-                                           </thead>
-                                           <tbody>
-                                              
-                                               <tr>
-                                                   <td>Garrett Winters</td>
-                                                   <td>Accountant</td>
-                                                   <td>Tokyo</td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Ashton Cox</td>
-                                                   <td>Junior Technical Author</td>
-                                                   <td>San Francisco</td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Cedric Kelly</td>
-                                                   <td>Senior Javascript Developer</td>
-                                                   <td>Edinburgh</td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Airi Satou</td>
-                                                   <td>Accountant</td>
-                                                   <td>Tokyo</td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Brielle Williamson</td>
-                                                   <td>Integration Specialist</td>
-                                                   <td>New York</td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Herrod Chandler</td>
-                                                   <td>Sales Assistant</td>
-                                                   <td>San Francisco</td>
-                                               </tr>
-                                           </tbody>
-                                       </table>
+	                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+					                            <thead>
+					                                <tr>
+					                                    <th>모임 번호</th>
+					                                    <th>카테고리</th>
+					                                    <th>모임명</th>
+					                                    <th>장소</th>
+					                                    <th>신청등급</th>
+					                                    <th>회원번호</th>
+					                                    <th>정원</th>
+					                                    <th>시작일</th>
+					                                    <th>종료일</th>
+					                                    <th>상태</th>
+					                                </tr>
+					                            </thead>
+					                            <tbody>
+					                               <c:forEach var="g" items="${ list }">
+					                               	<tr  onclick="groupLiModal( ${ g.groupNo });">
+					                                    <td>${ g.groupNo }</td>
+					                                    <td>${ g.groupCategory }</td>
+					                                    <td>${ g.groupTitle }</td>
+					                                    <td>${ g.place }</td>
+					                                    <td>${ g.gradeLimit }</td>
+					                                    <td>${ g.leaderNo }</td>
+					                                    <td>${ g.memberLimit }</td>
+					                                    <td>${ g.startDate }</td>
+					                                    <td>${ g.endDate }</td>
+					                                    <td>${ g.status }</td>
+					                                </tr>
+					                               </c:forEach>
+					                            </tbody>
+					                        </table>
                                        <input type="button" value="등록" class="btn btn-primary">
                                    </div>
                                </div>
