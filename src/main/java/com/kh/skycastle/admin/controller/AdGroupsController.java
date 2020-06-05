@@ -133,7 +133,6 @@ public class AdGroupsController {
 	@ResponseBody //뷰명아니고 응답데이터야!
 	@RequestMapping(value="confirmGroup.ad",produces= "application/json; charset=utf-8")
 	public String acceptGroups(String[] grCoCheck, Model model) {
-		System.out.println(Arrays.toString(grCoCheck));
 	
 		
 		int result = adGrService.acceptGroups(grCoCheck);
@@ -178,7 +177,6 @@ public class AdGroupsController {
 		@ResponseBody //뷰명아니고 응답데이터야!
 		@RequestMapping(value="rejectionGroup.ad",produces= "application/json; charset=utf-8")
 		public String rejectionGroup(String[] grCoCheck, Model model) {
-			System.out.println(Arrays.toString(grCoCheck));
 		
 			
 			int result = adGrService.rejectionGroups(grCoCheck);

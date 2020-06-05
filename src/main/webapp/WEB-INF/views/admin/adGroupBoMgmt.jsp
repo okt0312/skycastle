@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <title>소모임 게시판 관리</title>
 <style>
+	 #boardList>tbody>tr:hover{
+			 cursor:pointer;
+			 }
+
 	  #selectBox
        {
            position: absolute;
@@ -39,66 +43,52 @@
                                     <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">소모임 게시글 조회</b></div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <div>
-                                        <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
-                                         <div id="selectBox">
-                                             <select>
-                                                 <option value="전체보기">전체보기</option>
-                                                 <option value="회원">회원</option>
-                                                 <option value="비회원">비회원</option>
-                                             </select>
-                                         </div>
-                               			 <!-- 셀렉트 끝 -->
-                                            </div>
-
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
-                                                <thead>
-                                                    <tr>
-                                                        <th>번호</th>
-                                                        <th>소모임명</th>
-                                                        <th>제목</th>
-                                                        <th>등록일</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>63</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>66</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>33</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>61</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                        <td>59</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <!-- 테이블 위에 띄워놓은 셀렉박스-->
+				                               <div id="selectBox">
+				                                   <select>
+				                                       <option value="전체보기">전체보기</option>
+				                                       <option value="1">대입</option>
+				                                       <option value="2">공무원임용</option>
+				                                       <option value="3">어학회화</option>
+				                                       <option value="4">자격증</option>
+				                                       <option value="5">기타</option>
+				                                   </select>
+				                               </div>
+				                            <!-- 셀렉트 끝 -->
+				                        
+				
+				                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+				                            <thead>
+				                                <tr>
+				                                    <th>공지사항 번호</th>
+				                                    <th>소모임명</th>
+				                                    <th>제목</th>
+				                                    <th>등록일</th>
+				                                    <th>상태</th>
+				                                </tr>
+				                            </thead>
+				                            <tbody>
+				                               <c:forEach var="g" items="${ list }">
+								            	<tr>
+				                                    <td>${ g.groupNo }</td>
+				                                    <td>${ g.groupTitle }</td>
+				                                    <td>${ g.status }</td>
+				                                </tr>
+				                               </c:forEach>
+				                            </tbody>
+				                        </table>
+				                        
+			            <script>
+			            //테이블 tr눌러서 상세 불러오기
+			            	$(function(){
+			            		
+			            		$("#dataTable tbody tr").click(function(){
+			            			location.href ="adDetail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+			            		
+			            		});
+			            	});
+			            </script>
+				                        
                                         </div>
                                     </div>
                                 </div>

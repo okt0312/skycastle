@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="adGroupsMapper">
 
+<!-- 소모임 디비 -->
 <resultMap type="Groups" id="adGroupsResultSet">
 	<id column="GROUP_NO" property="groupNo"/>
 		<result column="LEADER_NO" property="leaderNo"/>
@@ -15,6 +16,17 @@
 		<result column="START_DATE" property="startDate"/>
 		<result column="END_DATE" property="endDate"/>
 </resultMap>
+
+<!-- 소모임 공지사항 디비 
+<resultMap type="GroupsNotice" id="adGroupsNoticeResultSet">
+	<id column="GNOTICE_NO" property="gNoticeNo"/>
+		<result column="GROUP_NO" property="groupNo"/>
+		<result column="GNOTICE_TITLE" property="gNoticeTitle"/>
+		<result column="GNOTICE_CONTENT" property="gNoticeContent"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="STATUS" property="status"/>
+</resultMap>
+-->
 
 	<!--소모임조회 게시글리스트 하나하나 불러오는sql -->
 	<select id="selectGroups" resultMap="adGroupsResultSet">
