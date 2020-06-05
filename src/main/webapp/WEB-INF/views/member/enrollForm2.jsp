@@ -268,7 +268,7 @@ select::-ms-expand {
 					alert("이메일 인증을 완료하여 주세요.");
 					return false;
 				} */
-				if (("#inputVeriCode").val() == ranNum) {
+				if (("#inputVeriCode").val() == ranNum.value) {
 					return location.href = "enrollComplete.me";
 				} else {
 					alert("인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
@@ -289,8 +289,7 @@ select::-ms-expand {
 	
 			} else if (num == 2) { // 사용 불가
 	
-				$("#checkResult").css("color", "red").text(
-						"이미 사용중이거나 탈퇴한 계정입니다. 다시 시도해주세요.");
+				$("#checkResult").css("color", "red").text("이미 사용중이거나 탈퇴한 계정입니다. 다시 시도해주세요.");
 				$("#checkResult").show();
 				$("#joinBtn").attr("disabled", true);
 	
@@ -314,11 +313,9 @@ select::-ms-expand {
 	
 					$.ajax({
 						url : "idCheck.me",
-						data : {
-							userId : $idInput.val()
+						data : {userId : $idInput.val()
 						},
 						success : function(status) {
-	
 							if (status == "fail") {
 								idCheckValidate(2); // 사용불가
 							} else {
@@ -344,8 +341,7 @@ select::-ms-expand {
 			$.ajax({
 				url : "sendCode.me",
 				type : "post",
-				data : {
-					userId : emailVal
+				data : {userId : emailVal
 				},
 				success : function(ranNum) {
 					alert("입력하신 이메일로 인증번호를 전송하였습니다.");
