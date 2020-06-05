@@ -391,7 +391,7 @@
 		
 	});
 	
-	//timeCheck();
+	timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();
@@ -471,9 +471,9 @@
 	
 	// 예약된 좌석시간현황 조회 함수 호출
 	selectSeatReservationTime();
-	/* setInterval(function() {
+	 setInterval(function() {
 		selectSeatStatusList();
-	}, 5000); */
+	}, 5000); 
 	
 	
 </script>
