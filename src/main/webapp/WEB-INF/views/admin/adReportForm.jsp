@@ -106,11 +106,11 @@
 		                                    <label>작성 회원&nbsp;  :&nbsp; </label>
 		                                    <input id="reporterId" class="form-control mb-2 mr-sm-2" type="text" readonly="readonly"><br>
 		                                    <label>피신고인 :&nbsp; </label>
-		                                    <input type="text" id="replyWriter" class="form-control mb-2 mr-sm-2" readonly="readonly"><br>
+		                                    <input type="text" id="replyWriter" name="userId" class="form-control mb-2 mr-sm-2" readonly="readonly"><br>
 		                               		     누적신고 횟수 :&nbsp;&nbsp;<span id="redcard" style="font-weight: bold"></span>
 		                                    <br><br>
                       						<label>신고 내용 :&nbsp;&nbsp; </label>
-											  <textarea id="reportContent" class="form-control" rows="5" cols="5" id="comment" style="resize: none;"></textarea><br>
+											  <textarea id="reportContent" class="form-control" rows="5" cols="5" id="comment" style="resize: none; background: white;"readonly="readonly"></textarea><br>
 		                                    <div>
 		                                    		    신고게시글 확인 :&nbsp;&nbsp;
 		                                        <button type="button" class="btn btn-outline-dark" id="reBtn" style="height: 30px; line-height: 1px;">내용 보기</button> 
@@ -118,22 +118,51 @@
 		                                    <div id="select_result" >
 		                                   		     처리유형 선택 &nbsp;&nbsp;
 		                                   		     <p style="height: 1px;"></p>
-		                                        <select  class="form-control">
+		                                        <select id="report_apply" name="report_apply" class="form-control">
 		                                            <option value="1">선택하기</option>
 		                                            <option value="2">신고 누적 추가</option>
-		                                            <option value="4">신고 취소</option>
+		                                            <option value="3">신고 취소</option>
 		                                        </select>
 		                                   </div>
 		                                </div>
 		                                   
 				                        <!-- Modal footer -->
 				                        <div class="modal-footer">
-				                            <button type="submit" class="btn btn-primary">수정</button>
+				                            <button type="button" id="modal_modify_btn" class="btn btn-primary">수정</button>
 				                            <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 				                        </div>
 				                   </form>
 				                   
 				                   <script>
+				                   		$("#modal_modify_btn").click(function(){
+				                   			if($("#report_apply").val() == 1)
+			                   				{
+				                   				alertify.alert('오류', '처리유형을 선택해주세요.');		
+			                   				}
+				                   			else
+			                   				{
+				                   				var redcard = $("#redcard").text();
+				                   				var userId = $("#replyWriter").val();
+				                   				var selNo = $("#report_apply").val();
+				                   				
+				                   				$.ajax({
+				                   					url:"updateReport.ad",
+				                   					data:{"redcard":redcard,
+				                   						  "userId" : userId,
+				                   						  "selNo" : selNo},
+		                   						  	type:"post",
+		                   						  	success:function()
+		                   						  	{
+		                   						  		
+		                   						  	},
+		                   						  	error:function()
+		                   						  	{
+		                   						  		console.log("ajax 통신 실패");
+		                   						  	}
+				                   				});
+			                   				}
+				                   		});
+				                   
 				                   		$("#dataTable tbody tr").click(function(){
 				                   			var num = $(this).children().eq(0).text();
 				                   			<c:forEach var="n" items="${ list }">
