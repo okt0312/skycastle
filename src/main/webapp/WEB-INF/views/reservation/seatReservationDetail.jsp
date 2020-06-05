@@ -269,11 +269,14 @@
 <script>
 	$(function(){
 		
+		
+		
 		$("#date").val(new Date().toISOString().substring(0, 10));
 		$("#usedDate").val(new Date().toISOString().substring(0, 10));
+		
 		$("#time").click(function(){
-			$("#start").val($(this).val());
 			
+			$("#start").val($(this).val());
 			
 			startTime = $(this).val().substr(0,2);
 			$("#end").val(Number(startTime)+2 +':00');
@@ -284,6 +287,9 @@
 
 		
 		$("#timeAdd").click(function(){
+			
+			var nextDisabled = $("#time option:selected").next().prop("disabled");
+			
 			if($("#start").val() == ''){
 				alert("시작시간은 선택해주세요");
 				return;
@@ -292,6 +298,9 @@
 				return;
 			}else if($("#end").val() == '24:00'){
 				alert("마지막타임입니다.");
+				return;
+			}else if(nextDisabled == true){
+				alert("시간 연장이 불가합니다.");
 				return;
 			}
 			endTime =  $("#end").val().substr(0,2);
@@ -361,12 +370,9 @@
 			
 		});
 		
-		
-		
-		 
 	});
 	
-	timeCheck();
+	//timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();
@@ -412,9 +418,8 @@
 	}
 	
 	
-	
+	// 예약된 좌석시간현황 조회 함수
 	function selectSeatReservationTime(){
-		
 		timeSelect = $("#time").children();
 		
 		$.ajax({
@@ -423,22 +428,21 @@
 			data: {seatNo:${seat.seatNo}},
 			success:function(ReservationTime){
 				if(ReservationTime != ''){
-					console.log(ReservationTime);
+					/* console.log(ReservationTime);
 					console.log(ReservationTime[0].startTime.substring(0, 2));
 					console.log(ReservationTime[0].endTime.substring(0, 2));
-					console.log(timeSelect.eq(0).val().substring(0, 2));
-					
+					console.log(timeSelect.eq(0).val().substring(0, 2)); */
+					  for(var i=0; i<ReservationTime.length; i++){
+							for(var j=0; j<timeSelect.length; j++){
+								if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
+										&& timeSelect.eq(j).val().substring(0, 2) < ReservationTime[i].endTime.substring(0, 2) ){
+									timeSelect.eq(j).attr("disabled","disabled");
+								}			
+							}
+						} 
 				}
 				
-				  for(var i=0; i<ReservationTime.length; i++){
-					for(var j=0; j<timeSelect.length; j++){
-						if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
-								|| timeSelect.eq(j).val().substring(0, 2) < ReservationTime[i].endTime.substring(0, 2) ){
-							timeSelect.eq(j).attr("disabled","disabled");
-						}			
-					}
-				}  
-				
+	
 			},error:function(){	
 				console.log("좌석예약시간 조회 ajax 통신 실패!!");
 			}
@@ -446,7 +450,7 @@
 
 	}
 	
-	//좌석현황 조회 함수 호출
+	// 예약된 좌석시간현황 조회 함수 호출
 	selectSeatReservationTime();
 	/* setInterval(function() {
 		selectSeatStatusList();
