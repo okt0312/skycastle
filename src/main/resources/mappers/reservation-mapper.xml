@@ -111,7 +111,11 @@
 		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo}
 	</select>
 	
-	
+	<select id=" rselectListCount" resultType="_int">
+		select count(*)
+			form space
+		where status='Y'
+	</select>
 	
 	
 	
