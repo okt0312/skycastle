@@ -25,6 +25,7 @@ public class GroupDao {
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
 	}
+	
 	/*
 	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
 		
@@ -33,7 +34,8 @@ public class GroupDao {
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupThumbnailList", null, rowBounds);
-	}*/
+	}
+	*/
 	
 	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
 		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
@@ -41,6 +43,15 @@ public class GroupDao {
 	
 	public int countDips(SqlSessionTemplate sqlSession, Dips d) {
 		return sqlSession.selectOne("groupsMapper.countDips", d);
+	}
+	
+	public ArrayList<Groups> selectMyGroupList(SqlSessionTemplate sqlSession, PageInfo pi, String status){
+		// rowbounds 생성하기 위해서 offset만들기
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
 	}
 
 }
