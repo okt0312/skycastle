@@ -94,7 +94,7 @@
 	color: #000000;
 	border: 0;
 }
-#timeAdd,#addTime{
+#timeAdd,#addTime,#removeTime{
     width: 90px;
 	height: 40px;
 	text-align: center;
@@ -190,10 +190,11 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="button" id="timeAdd">2시간연장</button>
                         <br><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp; 총 사용시간 : <span id="totalTime">&nbsp;</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp; 총 사용시간 : <span id="totalTime">2</span>
                         <br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button id="addTime" type="button">선택</button>
+                        <button id="removeTime" type="button">해제</button>
                         <div align="center" id="tileList" style="border:0px ;width:100%"></div>	
                         
                         <br><br>
@@ -207,7 +208,7 @@
 	                             <select id="copon">
 	                                <c:choose>
 	                                	<c:when test="${ !empty loginUser}">
-												<option>선택 없음</option>
+												<option>선택없음</option>
 			                                <c:forEach var="c" items="${couponList }" varStatus="status" >
 												<option value="${ c.couponCode }" price="${ c.discountRate }">${c.couponName }</option>
 											</c:forEach>
@@ -284,7 +285,7 @@
 			
 			totalTime();
 		});
-
+		count =1;
 		
 		$("#timeAdd").click(function(){
 			
@@ -302,6 +303,9 @@
 			}else if(nextDisabled == true){
 				alert("시간 연장이 불가합니다.");
 				return;
+			}else if(count == 2){
+				alert("선택을 해제해 주세요.");
+				return;
 			}
 			endTime =  $("#end").val().substr(0,2);
 			$("#end").val(Number(endTime)+2 +':00');
@@ -315,7 +319,7 @@
 		});
 
 		
-		count =1;
+	
 		$("#addTime").click(function(){
             if(count != 2){
                 if(!$("#start").val() == ''){
@@ -330,15 +334,28 @@
 				$("#startH").val($("#start").val());
 				$("#endH").val($("#end").val());
 				
-	
-			}else{
-				alert("시작시간을 선택해주세요");
-			}
-                
-                
+		
+				}else{
+					alert("시작시간을 선택해주세요");
+				}
+     
             }
 			
 			
+		});
+		
+		$("#removeTime").click(function(){
+			count=1;
+			$("#start").val('');
+			$("#end").val('');
+			$("#totalTime").text(2);
+			$("#tileList").text('');
+			$("#copon").children().eq(0).attr("selected","selected")
+			$("#discountDiv").css("display","none");
+			$("#totalCost").text(${seat.seatPrice});
+			$("#couponName").val(couponName);
+			$("#couponCode").val(0);
+			$("#discountRate").val(0);
 		});
 		
 		
@@ -365,7 +382,9 @@
 			 	
 				if(discountRate != undefined){
 					$("#totalCost").text($("#total").val()-$("#total").val() * discountRate);
-				} 
+				} else{
+					$("#totalCost").text($("#total").val());
+				}
 
 			
 		});
