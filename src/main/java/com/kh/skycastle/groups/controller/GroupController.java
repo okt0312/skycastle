@@ -52,6 +52,30 @@ public class GroupController {
 		return mv;
 	}
 	
+	@RequestMapping("dipsIn.gr")
+	public ModelAndView dipsIn(int gno, int userNo, ModelAndView mv) {
+		
+		Groups g = gService.selectGroup(gno);
+		Dips d = new Dips(userNo, gno);
+		
+		mv.addObject("g", g);
+		mv.setViewName("groups/groupDetail");
+		
+		return mv;
+	}
+	
+	@RequestMapping("dipsOut.gr")
+	public ModelAndView dipsOut(int gno, int userNo, ModelAndView mv) {
+		
+		Groups g = gService.selectGroup(gno);
+		Dips d = new Dips(userNo, gno);
+		
+		mv.addObject("g", g);
+		mv.setViewName("groups/groupDetail");
+		
+		return mv;
+	}
+	
 	@RequestMapping("groupApplyForm.gr")
 	public String groupApplyForm() {
 		return "groups/groupApplyForm";

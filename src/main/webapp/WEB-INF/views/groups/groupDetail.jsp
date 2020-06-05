@@ -176,17 +176,50 @@
 		
 		// 찜하기
 		$("#dipsIn").click(function(){
-				
-				location.href = "dipsInnOut.me";
+				location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
+				+ "&userNo=" + "${ loginUser.userNo }";
 			}
 		});
 		
 		//찜취소
 		$("#dipsOut").click(function(){
-
-				location.href = "loginForm.me";
-			}
+		
+		      location.href = "dipsOut.gr";
+		   }
 		});
+		
+		// 페이지로딩시 로그인한 유저의 위시리스트 목록조회
+		<%-- $(function(){
+			selectWishList();
+		});
+		
+		function selectWishList(){
+			
+			var icon = $('.like_icon');
+			var loginUser = "<%=loginUser%>";
+			if(loginUser != null){
+				$.ajax({
+					url:"selectWish.st",
+					type:"post",
+					success:function(list){
+						for(var i=0; i<12; i++){
+							var p = '.pcode'+i;	
+							for(var j=0; j<list.length; j++){
+								if($(p).val()==list[j].pcode){
+									var heart =$(p).parent().siblings().eq(1).children();
+									heart.removeClass("empty");
+									heart.addClass("full");
+									heart.attr("src","<%=contextPath %>/resources/img/store/heart_full.png");
+								}
+							}
+						}
+					},error:function(){
+						//console.log("사용자 위시리스트 조회용 ajax실패")
+					}
+				})
+			}
+		} --%>
+		
 		
 		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
 		$("#loginBtn").click(function(){
