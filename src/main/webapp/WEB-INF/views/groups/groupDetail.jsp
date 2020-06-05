@@ -131,13 +131,10 @@
 					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 안했을 때 -->
 									<button id="dipsOut" type="button" class="sky_btn1" style="float: left;">찜취소</button>
 								</c:when>
-					        	<%-- <c:when test="${ loginUser.userNo == 0 }">	<!-- 로그인 안했을때 왜 안대 ㅠㅜㅠㅜㅠㅜㅠ -->
-									<button class="sky_btn2" style="float: left;" disabled>로그인</button>
-								</c:when> --%>
 							</c:choose>
 						</c:when>
-						<c:otherwise>
-							<button class="sky_btn2" style="float: left;" disabled>로그인</button>
+						<c:otherwise>	<!-- 로그인 안했을때 -->
+							<button id="loginBtn" class="sky_btn2" style="float: left;" disabled>로그인</button>
 						</c:otherwise>
 					</c:choose>
 					
@@ -180,7 +177,7 @@
 		// 찜하기
 		$("#dipsIn").click(function(){
 				
-				location.href = "loginForm.me";
+				location.href = "dipsInnOut.me";
 			}
 		});
 		
@@ -190,6 +187,12 @@
 				location.href = "loginForm.me";
 			}
 		});
+		
+		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
+		$("#loginBtn").click(function(){
+			location.href = "loginForm.me";
+		}
+	});
     </script>
 
 </body>
