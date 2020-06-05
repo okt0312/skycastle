@@ -103,16 +103,23 @@
 		                            <form action="신고요청받아주는서버" method="post" class="form-horizontal"   >
 		                              
 		                                <div class="modal-body" disply="inline-block">
-		                                    <label>&nbsp;&nbsp;신고인&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-		                                    <label>피신고인 :&nbsp; </label><input type="text" ><br><br>
-		                                    <label>누적신고 횟수 :&nbsp; </label><input type="text" style="width: 40px;" ><br><br>
+		                                    <label>작성 회원&nbsp;  :&nbsp; </label>
+		                                    <input id="reporterId" class="form-control mb-2 mr-sm-2" type="text" readonly="readonly"><br>
+		                                    <label>피신고인 :&nbsp; </label>
+		                                    <input type="text" id="replyWriter" class="form-control mb-2 mr-sm-2" readonly="readonly"><br>
+		                               		     누적신고 횟수 : <input type="text" value="3" style="border: 0;">
+		                                    <br><br>
+                      						<label>신고 내용 :&nbsp;&nbsp; </label>
+                      						<!-- <input id="reportContent" class="form-control mb-2 mr-sm-2" type="text"><br> -->
+											  <textarea id="reportContent" class="form-control" rows="5" cols="5" id="comment" style="resize: none;"></textarea><br>
 		                                    <div>
-		                                    		    신고내용 확인
-		                                        <button type="button" id="reBtn" >내용 보기</button> 
+		                                    		    신고게시글 확인 :&nbsp;&nbsp;
+		                                        <button type="button" class="btn btn-outline-dark" id="reBtn" style="height: 30px; line-height: 1px;">내용 보기</button> 
 		                                    </div><br>  
 		                                    <div id="select_result" >
 		                                   		     처리유형 선택 &nbsp;&nbsp;
-		                                        <select >
+		                                   		     <p style="height: 1px;"></p>
+		                                        <select  class="form-control">
 		                                            <option value="1">선택하기</option>
 		                                            <option value="2">신고 누적 추가</option>
 		                                            <option value="4">신고 취소</option>
@@ -133,7 +140,10 @@
 				                   			<c:forEach var="n" items="${ list }">
 				                   				if(${ n.reportNo } == num)
 			                   					{
-						                   			console.log("${ n.reportNo }");
+				                   					$("#replyWriter").val("${n.replyWriter}");
+				                   					$("#reporterId").val("${n.reporterId}");
+				                   					$("#reportContent").val("${n.reportContent}");
+				                   					$("#redcard").val(${n.redcard});
 			                   					}
 						                   </c:forEach>
 				                   		});
