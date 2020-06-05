@@ -171,7 +171,7 @@ public class MemberController {
 		String authCode = "";
 		authCode = tempkey.init();
 		
-		System.out.println(user);
+		System.out.println(m);
 		
 		if(user != null) {
 			session.setAttribute("user", user);
@@ -204,11 +204,17 @@ public class MemberController {
 
 	// 인증 결과 
 	@RequestMapping("pwdChange.me")
-	public ModelAndView changePwd(String passCode, String authCode, String userId, ModelAndView mv) {
+	public ModelAndView changePwd(HttpServletRequest request, String passCode, String authCode, String userId, Member m ,ModelAndView mv) {
 
+		String email = request.getParameter("userId");
+		String code = request.getParameter("passCode");
+		
+		System.out.println(email + " " + code);
+		
 		// 인증번호가 일치할 경우 비밀번호 변경창 이동
 		if(passCode.equals(authCode)) {
 			mv.setViewName("member/changePwd");
+			mv.addObject("userId");
 			return mv;
 		} else {
 			mv.setViewName("member/searchPwdAuthCode");
@@ -218,14 +224,16 @@ public class MemberController {
 	
 	// 비밀번호 변경
 	@RequestMapping("changePwd.me")
-	public String changePwd(HttpServletRequest request, Member m, Model model) {
+	public String changePwd(HttpServletRequest request, String userId, String pwdChagne, Member m, Model model) {
 		
-		String userId = request.getParameter("userId");
+		String email = request.getParameter("userId");
 		String pwdChange = request.getParameter("pwdChange");
+		
+		System.out.println(email + pwdChange);
 		
 		String encPwd = bcryptPasswordEncoder.encode(pwdChange);
 		m.setUserPwd(encPwd);
-		m.setUserId(userId);
+		m.setUserId(email);
 		
 		System.out.println(m);
 		int result = mService.changePwd(m);

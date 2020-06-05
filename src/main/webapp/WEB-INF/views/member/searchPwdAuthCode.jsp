@@ -86,7 +86,7 @@
         </div>
         <form action="pwdChange.me" method="POST"> 
         <input type="hidden" value="${authCode}" name="authCode">
-        <input type="hidden" value="${email}" name="email">
+        <input type="hidden" value="${m.userId}" name="userId">
         <label style="color:red; font-size:0.8em";>입력하신 이메일로 인증번호를 발송하였습니다.</label>
         <input type="text" name="passCode" id="authCode" placeholder="인증번호를 입력하세요" maxlength="20" required><br>
         <button type="submit" id="findPwd" name="findPwd">확인</button><br>
