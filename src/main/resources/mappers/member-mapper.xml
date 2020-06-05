@@ -108,8 +108,8 @@
 	
 	<update id="changePwd" parameterType="Member">
 		UPDATE MEMBER
-		   SET UESR_PWD = #{userPwd}
-		 WHERE USER_ID = #{userId};  
+		   SET USER_PWD = #{userPwd}
+		 WHERE USER_ID = #{userId}
 	</update>
 	
 </mapper>

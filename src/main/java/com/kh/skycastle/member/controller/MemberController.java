@@ -209,12 +209,13 @@ public class MemberController {
 		String email = request.getParameter("userId");
 		String code = request.getParameter("passCode");
 		
-		System.out.println(email + " " + code);
+		System.out.println(authCode);
+		System.out.println(code);
 		
 		// 인증번호가 일치할 경우 비밀번호 변경창 이동
-		if(passCode.equals(authCode)) {
+		if(code.equals(authCode)) {
 			mv.setViewName("member/changePwd");
-			mv.addObject("userId");
+			mv.addObject("userId", userId);
 			return mv;
 		} else {
 			mv.setViewName("member/searchPwdAuthCode");
