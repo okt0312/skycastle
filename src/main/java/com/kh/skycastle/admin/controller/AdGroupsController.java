@@ -120,7 +120,7 @@ public class AdGroupsController {
 				g.setGroupCategory("기타");
 			}
 		}
-		
+		System.out.println(list);
 		mv.addObject("list", list).setViewName("admin/adGroupConfirm");
 		
 		return mv;
@@ -135,36 +135,39 @@ public class AdGroupsController {
 	
 		
 		int result = adGrService.acceptGroups(grCoCheck);
-		System.out.println(result);
-		if(result > 0)
-		{
-			return "소모임 수락 성공";
-		}
-		else
-		{
-			return "소모임 수락 실패";
-		}
-		/*
-		일단써봄,,
-		int[] grCoCheck = request.getParameterValues("grCoCheck[]");
-		System.out.println(grCoCheck);
-		int result = 0;
-		for(int i=0; i<grCoCheck.length; i++) {
-			result += new AdGroupsServiceImpl.acceptGroups(grCoCheck[i]); //읽어오기위한것
-		}
+		//System.out.println(result);
 		
-		에이작스 참고용
-//		ArrayList<Member> list = mService.selectList();
-		ArrayList<Member> list =  new ArrayList<>();
-		list.add(new Member("user01","pass01","홍길동",20,"aaa@naver.com"));
-		list.add(new Member("user02","pass02","김말숙",21,"bbb@naver.com"));
-		list.add(new Member("user03","pass03","이순신",23,"ccc@naver.com"));
-
-		//JSONArray jArr =  new JSONArray();  [{},{},{}]
-		//객체배열로 만들어줘야함
-		
-	 return	new Gson().toJson(list); //ArrayList -->[{},{}] --String
-		*/
+			ArrayList<Groups> list = adGrService.selectGrConfirm();
+			
+			for(Groups g : list)
+			{
+				if(g.getGroupCategory().equals("1"))
+				{
+					g.setGroupCategory("대입");
+				}
+				else if(g.getGroupCategory().equals("2"))
+				{
+					g.setGroupCategory("공무원임용");
+				}
+				else if(g.getGroupCategory().equals("3"))
+				{
+					g.setGroupCategory("어학회화");
+				}
+				else if(g.getGroupCategory().equals("4"))
+				{
+					g.setGroupCategory("자격증");
+				}
+				else if(g.getGroupCategory().equals("5"))
+				{
+					g.setGroupCategory("기타");
+				}
+						
+		}
+			
+			System.out.println(list);
+			return new Gson().toJson(list);
+			
+	
 		
 	}
 	

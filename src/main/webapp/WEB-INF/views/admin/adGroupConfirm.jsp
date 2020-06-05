@@ -135,16 +135,39 @@
 									data:{"grCoCheck":grCoCheck},
 								 	traditional : true,	
 									type:"post",
-									success:function(msg){
-										console.log(msg);
-										if(result > 0)
+									success:function(list){
+										console.log(list);
+										
+										var value ="";
+										for(var i in list){
+											value += "<tr>"+
+			                                 "<td>" +
+			                                 "<div>"+
+			                						"<label><input class='checkbox ' type='checkbox' name='grCoCheck' value='"+list[i].groupNo+"' style='vertical-align: middle; transform: scale(1.4);'></label>"+
+			               						"</div>"+
+			            						"</td>"+
+			            						"<td>"+list[i].groupNo+"</td>"
+			                                 "<td>"+list[i].groupTitle+"</td>"+
+			                                 "<td>"+list[i].groupSubtitle+"</td>"+
+			                                 "<td>"+list[i].groupCategory+"</td>"+
+			                                 "<td>"+list[i].startDate+"</td>"+
+			                                 "<td>"+list[i].endDate+"</td>"+
+			                                 "<td>"+list[i].place+"</td>"+
+			                                 "<td>"+list[i].memberLimit+"</td>"+
+			                                 "<td>"+list[i].status+"</td>"+
+			                             "</tr>"
+					    				}
+					    			
+					    				$("#dataTable tbody").html(value);
+										
+										/* if(result > 0)
 			            				{
 				            				alertify.alert("소모임 관리", "성공", function(){ location.reload();});
 			            				}
 				            			else
 			            				{
 				            				alertify.alert("소모임 관리", "실패", function(){ location.reload();});
-			            				}
+			            				} */
 										
 									},
 									error:function(){
