@@ -60,7 +60,7 @@
                                                 	<c:forEach var="i" items="${ list }">
 	                                                    <tr data-toggle="modal" data-target="#reportModal">
 	                                                        <td>${ i.reportNo }</td>
-	                                                        <td>${ i.userId }</td>
+	                                                        <td>${ i.replyWriter }</td>
 	                                                        <td>${ i.replyNo }</td>
 	                                                        <td>${ i.redcard }</td>
 	                                                        <td>${ i.reportDate }</td>
@@ -89,49 +89,52 @@
                       
 
 
-              <!--버튼이없어서.. 어떻게 넣어야할지..(data-toggle="modal" data-target="#reportModal")  클릭 시 뜨는 모달  -->
-              <div class="modal fade" id="reportModal" >
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content" style="width: 350px;">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">신고 상세 내용</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button> 
-                        </div>
-                            <!-- Modal Body -->
-                            <form action="신고요청받아주는서버" method="post" class="form-horizontal"   >
-                              
-                                <div class="modal-body" disply="inline-block">
-                                    <label>&nbsp;&nbsp;신고인&nbsp;  :&nbsp; </label><input type="text" ><br><br>
-                                    <label>피신고인 :&nbsp; </label><input type="text" ><br><br>
-                                    <label>누적신고 횟수 :&nbsp; </label><input type="text" style="width: 40px;" ><br><br>
-                                    <div>
-                                        신고내용 확인
-                                        <button type="button" id="reBtn" >내용 보기</button> 
-                                    </div><br>  
-                                    <div clss="slecet" >
-                                        처리유형 선택 &nbsp;&nbsp;
-                                        <select >
-                                            <option value="1">선택하기</option>
-                                            <option value="2">신고 누적 추가</option>
-                                            <option value="4">신고 취소</option>
-                                        </select>
-                                   </div>
-                                </div>
-                                   
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">수정</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
-                        </div>
-                   </form>
-                    </div>
-                </div>
-            </div>
-
-
-                    
+		              <!--버튼이없어서.. 어떻게 넣어야할지..(data-toggle="modal" data-target="#reportModal")  클릭 시 뜨는 모달  -->
+		              <div class="modal fade" id="reportModal" >
+		                <div class="modal-dialog modal-sm">
+		                    <div class="modal-content" style="width: 350px;">
+		
+		                        <!-- Modal Header -->
+		                        <div class="modal-header">
+		                            <h4 class="modal-title">신고 상세 내용</h4>
+		                            <button type="button" class="close" data-dismiss="modal">&times;</button> 
+		                        </div>
+		                            <!-- Modal Body -->
+		                            <form action="신고요청받아주는서버" method="post" class="form-horizontal"   >
+		                              
+		                                <div class="modal-body" disply="inline-block">
+		                                    <label>&nbsp;&nbsp;신고인&nbsp;  :&nbsp; </label><input type="text" ><br><br>
+		                                    <label>피신고인 :&nbsp; </label><input type="text" ><br><br>
+		                                    <label>누적신고 횟수 :&nbsp; </label><input type="text" style="width: 40px;" ><br><br>
+		                                    <div>
+		                                    		    신고내용 확인
+		                                        <button type="button" id="reBtn" >내용 보기</button> 
+		                                    </div><br>  
+		                                    <div id="select_result" >
+		                                   		     처리유형 선택 &nbsp;&nbsp;
+		                                        <select >
+		                                            <option value="1">선택하기</option>
+		                                            <option value="2">신고 누적 추가</option>
+		                                            <option value="4">신고 취소</option>
+		                                        </select>
+		                                   </div>
+		                                </div>
+		                                   
+				                        <!-- Modal footer -->
+				                        <div class="modal-footer">
+				                            <button type="submit" class="btn btn-primary">수정</button>
+				                            <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+				                        </div>
+				                   </form>
+				                   
+				                   <script>
+				                   		$("#dataTable tbody tr").click(function(){
+				                   			console.log("1");
+				                   		});
+				                   </script>
+		                    </div>
+		                </div>
+		            </div>
                 </main>
                 <jsp:include page="common/adFooter.jsp"/>
             </div>
