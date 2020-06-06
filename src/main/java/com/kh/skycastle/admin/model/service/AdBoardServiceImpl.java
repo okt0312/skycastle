@@ -24,8 +24,7 @@ public class AdBoardServiceImpl implements AdBoardService {
 	}
 	//공지사항 상세페이지 조회
 	@Override
-	public Notice selectNotice(int bno) {
-		// TODO Auto-generated method stub
-		return null;
+	public Notice selectNoDetail(int bno) {
+		return adBoDao.selectNoDetail(sqlSession,bno);
 	}
 }

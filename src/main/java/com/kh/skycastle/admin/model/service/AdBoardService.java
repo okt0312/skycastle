@@ -10,6 +10,6 @@ public interface AdBoardService {
 	ArrayList<Notice> selectNotice();
 	
 	//공지사항 상세조회용 서비스
-	Notice selectNotice(int bno);
+	Notice selectNoDetail(int bno);
 	
 }

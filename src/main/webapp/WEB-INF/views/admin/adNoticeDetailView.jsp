@@ -52,11 +52,11 @@
                                 <table class="boardList">
                                     <tr>
                                         
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  placeholder="제목" style="width: 628px; float: left;"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; value="${ n.noticeTitle }" float: left;"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="contents" id="contents" placeholder="내용"></textarea>
+                                            <textarea rows=20 cols=85 name="contents" id="contents" value="${ n.noticeContent }"></textarea>
                                         </td>
                                     </tr>
                                 </table>    

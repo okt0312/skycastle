@@ -16,5 +16,9 @@ public class AdBoardDao {
 	}
 	
 	
-	
+	public Notice selectNoDetail(SqlSessionTemplate sqlSession,int bno) {
+		
+		return sqlSession.selectOne("adBoardMapper.selectNoDetail", bno);
+		
+	}
 }
