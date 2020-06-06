@@ -1,6 +1,7 @@
 package com.kh.skycastle.admin.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpSession;
 
@@ -98,7 +99,7 @@ public class AdMemberController {
 	{
 		ArrayList<Grade> list = admService.selectGrade();
 		ArrayList<GradeDto> countList = admService.countGrade();
-		System.out.println(countList);
+		System.out.println(countList.get(0).getGradeCount());
 		mv.addObject("list", list).setViewName("admin/adGradeMgmtForm");
 		
 		return mv;

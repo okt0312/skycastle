@@ -37,6 +37,11 @@
 		<result column="REPLY_WRITER" property="replyWriter"/>
 	</resultMap>
 	
+	<resultMap type="GradeDto" id="adGradeCountResultSet">
+		<result column="GRADE_CODE" property="gradeCode"/>
+		<result column="GRADE_COUNT" property="gradeCount"/>
+	</resultMap>
+	
 	<select id="selectMember" resultMap="adMemberResultSet" parameterType="string">
 		SELECT M.USER_NO, M.USER_NAME, M.STATUS, M.USER_ID, M.BIRTHDAY, M.PHONE, G.GRADE_NAME, M.ENROLL_DATE
 		  FROM MEMBER M
@@ -128,8 +133,8 @@
                             WHERE REPORT_NO = #{reportNo})
 	</update>
 	
-	<select id="countGrade" resultType="integer">
-		SELECT GRADE_CODE, COUNT(*)
+	<select id="countGrade" resultMap="adGradeCountResultSet">
+		SELECT GRADE_CODE, COUNT(*) GRADE_COUNT
 		  FROM MEMBER M
 		  JOIN GRADE G USING(GRADE_CODE)
 		 WHERE GRADE_CODE != 0

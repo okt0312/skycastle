@@ -13,6 +13,7 @@ import lombok.ToString;
 @ToString
 public class GradeDto {
 	
-	private int gradeCount1, gradeCount2, gradeCount3, gradeCount4, gradeCount5;
+	private int gradeCode;
+	private int gradeCount;
 	
 }
