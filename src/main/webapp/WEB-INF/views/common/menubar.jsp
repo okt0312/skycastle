@@ -94,7 +94,7 @@
                                         <li><a href="groupList.gr?currentPage=1&status=''" style="font-weight: 600;">소모임</a></li>
                                         <li><a href="list.cs?currentPage=1" style="font-weight: 600;">고객센터</a>
                                             <ul class="dropdown">
-                                                <li><a href="list.cs?currentPage=1" style="font-weight: bold;">공지사항</a></li>
+                                                <li><a href="list.cs?currentPage=1" style="font-weight: 600;">공지사항</a></li>
                                                 <li><a href="faq.cs">FAQ</a></li>
 	                                            <c:choose>
 								               		<c:when test="${ empty loginUser }">         

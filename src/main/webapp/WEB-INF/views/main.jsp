@@ -62,31 +62,23 @@
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag">Lifestyle</a>
-                            <h4><a href="#" class="post-headline">Welcome to this Lifestyle blog</a></h4>
+                            <a href="#" class="post-tag" style="font-weight: 600;">소모임</a>
+                            <h4><a href="#" class="post-headline">소모임 관련</a></h4>
                             <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                            <a href="#" class="btn original-btn">Read More</a>
+                            <a href="#" class="btn original-btn">소모임 둘러보기</a>
                         </div>
                     </div>
                 </div>
                 <!-- Single Blog Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-catagory-area clearfix mb-100">
-                        <img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/blog-img/1.jpg" alt="">
-                        <!-- Catagory Title -->
-                        <div class="catagory-title">
-                            <a href="#">Lifestyle posts</a>
-                        </div>
+                        <img src="https://lh3.googleusercontent.com/proxy/A84GlDBp20T5A-toavAM4BQ3jSKscHzogV28y1dtj5fw46ovRwCTUD9pIflgVjhoFYyGh0XctrA5r6jxX59o2nmq_MxMqzAYBT1DkuWnu2j8Zanww4A" alt="">
                     </div>
                 </div>
                 <!-- Single Blog Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-catagory-area clearfix mb-100">
-                        <img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/blog-img/2.jpg" alt="">
-                        <!-- Catagory Title -->
-                        <div class="catagory-title">
-                            <a href="#">latest posts</a>
-                        </div>
+                        <img src="https://lh3.googleusercontent.com/proxy/-93boWrhk-PBo2CBEnPmXOm7_EXlAQkQRH8qm8vUW3mxO0ENzsjzkFqhs7vA6DY09QIHv3lQzHYODfedVyuLbiheRE7DvQ-7VlOcIPju7-E" alt="">
                     </div>
                 </div>
             </div>
@@ -94,7 +86,40 @@
         
     </div>
     <!-- ##### Blog Wrapper End ##### -->
-
+	 <!-- ##### Blog Wrapper Start ##### -->
+     <div class="blog-wrapper section-padding-50 clearfix">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-catagory-area clearfix mb-100">
+                        <img src="https://t1.daumcdn.net/cfile/blog/2128073E57BBF7F540" alt="">
+                        <!-- Catagory Title -->
+                    </div>
+                </div>
+                <!-- Single Blog Area -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-catagory-area clearfix mb-100">
+                        <img src="https://t1.daumcdn.net/cfile/blog/266F243E57BBF80103" alt="">
+                    </div>
+                </div>
+                <!-- Single Blog Area -->
+                <div class="col-12 col-lg-4">
+                    <div class="single-blog-area clearfix mb-100">
+                        <!-- Blog Content -->
+                        <div class="single-blog-content">
+                            <div class="line"></div>
+                            <a href="#" class="post-tag" style="font-weight: 600;">공간</a>
+                            <h4><a href="#" class="post-headline">공간 관련</a></h4>
+                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                            <a href="#" class="btn original-btn">공간 둘러보기</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Blog Area -->
+            </div>
+        </div>
+    </div>
+    <!-- ##### Blog Wrapper End ##### -->
     <!-- ##### Instagram Feed Area Start ##### -->
     <div class="instagram-feed-area">
         <div class="container">
