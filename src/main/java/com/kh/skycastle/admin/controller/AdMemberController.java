@@ -75,7 +75,6 @@ public class AdMemberController {
 	@RequestMapping(value="choiceList.ad",  produces = "application/json; charset=utf-8")
 	public String choiceMember(String status)
 	{
-		System.out.println(status);
 		ArrayList<Member> list1 = admService.selectMember(status);
 		ArrayList<Grade> list2 = admService.selectGrade();
 		for(Member m : list1)
