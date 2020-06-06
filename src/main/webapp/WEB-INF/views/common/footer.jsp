@@ -71,5 +71,6 @@
 	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/plugins.js"></script>
 	    <!-- Active js -->
 	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/active.js"></script>
+	    
 </body>
 </html>

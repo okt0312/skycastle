@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/jquery/jquery-2.2.4.min.js"></script>
+
 <title>Insert title here</title>
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/favicon.ico">
@@ -19,6 +20,19 @@
             margin-right: 50px;
         }
     </style>
+    <!-- alertify CDN -->
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+	<!-- Semantic UI theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+	<!-- alertify CDN 종료 -->
 </head>
 <body>
 
