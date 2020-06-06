@@ -95,6 +95,7 @@
        		   BLACKLIST = 'Y',
                STATUS = 'N',
                LEAVE_REASON = '블랙리스트 회원',
+               DROP_DATE = SYSDATE,
 			</if>
 			REDCARD = REDCARD + 1
 		</set>

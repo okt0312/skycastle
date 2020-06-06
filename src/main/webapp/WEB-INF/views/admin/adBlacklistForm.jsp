@@ -40,27 +40,13 @@
                                     <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">블랙리스트 조회</b></div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <div>
-                                                <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ블랙값은뭘로할지..-->
-                                                <div id="selectBox" >
-                                                    <select>
-                                                        <option value="처리상태">처리상태</option>
-                                                        <option value="미완료">미완료</option>
-                                                        <option value="완료">완료</option>
-                                                    </select>
-                                                    
-                                                </div>
-                                                <!-- 셀렉트 끝 -->
-                                            </div>
-
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                                                 <thead>
                                                     <tr>
-                                                        <th>번호</th>
+                                                        <th>회원 번호</th>
                                                         <th>회원 아이디</th>
                                                         <th>이름</th>
                                                         <th>누적 신고 횟수</th>
-                                                        <th>블랙리스트 이력</th>
                                                         <th>블랙 처리 일짜</th> 
                                                     </tr>
                                                 </thead>
@@ -71,7 +57,6 @@
 	                                                        <td>${ i.userId }</td>
 	                                                        <td>${ i.userName }</td>
 	                                                        <td>${ i.redCard }</td>
-	                                                        <td>${ i.leaveReason }</td>
 	                                                        <td>${ i.dropDate }</td>
 	                                                    </tr>
                                                 	</c:forEach>

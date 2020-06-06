@@ -152,7 +152,6 @@ public class AdMemberController {
 	public ModelAndView adBlackListForm(ModelAndView mv)
 	{
 		ArrayList<Member> list = admService.selectBlacklist();
-		
 		mv.addObject("list", list).setViewName("admin/adBlacklistForm");
 		
 		return mv;
