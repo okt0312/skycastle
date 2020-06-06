@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/jquery/jquery-2.2.4.min.js"></script>
 <title>Insert title here</title>
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/favicon.ico">
