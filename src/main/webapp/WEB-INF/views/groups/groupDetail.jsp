@@ -143,7 +143,7 @@
 					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 					<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-					<button id="apply_btn" type="submit" class="sky_btn1">신청하기</button>
+					<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
 				</form>
 			  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 				<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
@@ -157,19 +157,19 @@
 		</div>
 	</div>
     <jsp:include page="../common/footer.jsp"/>
-    
+	
+		
     <script>
     	$("#apply_btn").click(function(){
 			
-			var userNo = "${ loginUser.userNo }";
+			 var userNo = "${ loginUser.userNo }";
 			
-			if(userNo != "") {	// 로그인 했을때
+			if(userNo != 0) {	// 로그인 했을때
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
 	            , function(){});
 			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
-				alertify("회원만 신청할 수 있습니다. 로그인 페이지로 이동합니다.");
-				location.href = "loginForm.me";
-			}
+				alertify.alert("회원 전용 서비스", "회원만 신청할 수 있습니다. 로그인 페이지로 이동합니다.", function(){ location.href = "loginForm.me"; });
+			} 
 		});
 		
 /*
