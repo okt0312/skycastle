@@ -189,6 +189,7 @@ ol, ul, li {
 
 
 .ls_result.on {
+	width:1200px;
     display: block;
 }
 
@@ -416,15 +417,7 @@ a {
 
             </div>
 
-
-            
-        </div>
-
-
-            <br><br>
-           
-
-            <div class="result_groups">
+<div class="result_groups">
 
                 <div class="group">
 
@@ -463,6 +456,16 @@ a {
 
                 </div>
 
+
+
+            
+        </div>
+
+
+            <br><br>
+           
+
+            
 
               
           <!-- 페이징바 -->    
