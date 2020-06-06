@@ -2,6 +2,8 @@ package com.kh.skycastle.groups.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,8 +54,10 @@ public class GroupController {
 		return mv;
 	}
 	
+	
+
 	@RequestMapping("dipsIn.gr")
-	public ModelAndView dipsIn(int gno, int userNo, ModelAndView mv) {
+	public ModelAndView dipsIn(int gno, int userNo, ModelAndView mv, HttpServletResponse response) {
 		
 		Groups g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
@@ -65,7 +69,7 @@ public class GroupController {
 	}
 	
 	@RequestMapping("dipsOut.gr")
-	public ModelAndView dipsOut(int gno, int userNo, ModelAndView mv) {
+	public ModelAndView dipsOut(int gno, int userNo, ModelAndView mv, HttpServletResponse response) {
 		
 		Groups g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
@@ -75,6 +79,7 @@ public class GroupController {
 		
 		return mv;
 	}
+
 	
 	@RequestMapping("groupApplyForm.gr")
 	public String groupApplyForm() {

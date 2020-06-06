@@ -126,10 +126,10 @@
 						<c:when test="${ loginUser != null }">
 							<c:choose>
 								<c:when test="${ count == 0 }">		<!-- 로그인 했고, 찜 안했을 때 -->
-									<button id="dipsIn" type="button" class="sky_btn1" style="float: left;">찜하기</button>
+									<button id="dipsIn" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
 								</c:when>
-					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 안했을 때 -->
-									<button id="dipsOut" type="button" class="sky_btn1" style="float: left;">찜취소</button>
+					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 했을 때 -->
+									<button id="dipsOut" type="button" class="sky_btn1 dipsOut" style="float: left;">찜취소</button>
 								</c:when>
 							</c:choose>
 						</c:when>
@@ -167,13 +167,12 @@
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
 	            , function(){});
 			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
-				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
-	            , function(){});
-				
+				alertify("회원만 신청할 수 있습니다. 로그인 페이지로 이동합니다.");
 				location.href = "loginForm.me";
 			}
 		});
 		
+/*
 		// 찜하기
 		$("#dipsIn").click(function(){
 				location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
@@ -187,39 +186,65 @@
 		      location.href = "dipsOut.gr";
 		   }
 		});
+*/
 		
-		// 페이지로딩시 로그인한 유저의 위시리스트 목록조회
-		<%-- $(function(){
-			selectWishList();
-		});
-		
-		function selectWishList(){
-			
-			var icon = $('.like_icon');
-			var loginUser = "<%=loginUser%>";
-			if(loginUser != null){
-				$.ajax({
-					url:"selectWish.st",
-					type:"post",
-					success:function(list){
-						for(var i=0; i<12; i++){
-							var p = '.pcode'+i;	
-							for(var j=0; j<list.length; j++){
-								if($(p).val()==list[j].pcode){
-									var heart =$(p).parent().siblings().eq(1).children();
-									heart.removeClass("empty");
-									heart.addClass("full");
-									heart.attr("src","<%=contextPath %>/resources/img/store/heart_full.png");
-								}
+		/*
+    	// 위시리스트 등록 ajax
+    	$(function(){
+    		$('#dipsIn').click(function(){
+    			
+    			var pcode1 = $(this).parent().siblings([".product_img"]).children().eq(0).val();
+    			console.log(pcode1);
+    			
+				var icon = $(this);
+				
+				if(icon.attr("class") == "like_icon empty"){ // 빈 하트일 경우 --> 위시리스트 등록
+        			$.ajax({
+        				url:"dipsIn.gr",
+        				data:{pcode:pcode1},
+        				success:function(result){
+        					if(result > 0){
+			        			 icon.removeClass("empty");
+			        			 icon.addClass("full");
+			        			 icon.attr("src","찬하트주소");
+			        			 var bool = window.confirm("위시리스로 등록되었습니다. 위시리스트로 이동하시겠습니까?");
+			        			 if(bool){
+			        				 location.href="wishList.me";
+			        			 }
+        					} else if(result<0){
+        						$("#dPcode").val(pcode1);
+        						$("#duplicateDeletePcode").submit();
+        						
+        					} else if(result == 0){
+        						window.alert("로그인이 필요한 서비스입니다.");
+        					}
+        				}, error:function(){
+        					window.alert("통신에러1");
+        				}
+    				});
+    			
+				}else{ // 채워진 하트일 경우 --> 위시리스트 삭제
+					
+					$.ajax({
+						url:"dipsOut.gr", 
+						data:{pcode:pcode1},
+						success:function(result){
+							if(result > 0){
+			        			 icon.removeClass("full");
+			        			 icon.addClass("empty");
+								 icon.attr("src","빈하트추소");
+								 window.alert("위시리스트에서 삭제되었습니다.")
+							}else{
+								
 							}
+						},error:function(){
+							window.alert("통신에러2");
 						}
-					},error:function(){
-						//console.log("사용자 위시리스트 조회용 ajax실패")
-					}
-				})
-			}
-		} --%>
-		
+					})
+				}
+    		 });
+    	});
+		*/
 		
 		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
 		$("#loginBtn").click(function(){
