@@ -112,7 +112,7 @@
                
                
                 <li><a href="rlist.bo">이용현황</a></li>
-                <li><a href="mygroupList.gr">소모임관리</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='Y'">소모임관리</a></li>
                 <li><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
                 <li><a href="list.bo?currentPage=1">쿠폰함</a></li>
                 <li><a href="PwdCheck.my">개인정보수정</a></li>

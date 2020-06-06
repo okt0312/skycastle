@@ -134,7 +134,7 @@
 							</c:choose>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn" class="sky_btn2" style="float: left;" disabled>로그인</button>
+							<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
 						</c:otherwise>
 					</c:choose>
 					
@@ -143,7 +143,7 @@
 					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 					<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-					<input id="apply_btn" type="button" value="신청하기" class="sky_btn1">
+					<button id="apply_btn" type="submit" class="sky_btn1">신청하기</button>
 				</form>
 			  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
 				<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
@@ -159,7 +159,7 @@
     <jsp:include page="../common/footer.jsp"/>
     
     <script>
-		$("#apply_btn").click(function(){
+    	$("#apply_btn").click(function(){
 			
 			var userNo = "${ loginUser.userNo }";
 			
@@ -249,8 +249,7 @@
 		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
 		$("#loginBtn").click(function(){
 			location.href = "loginForm.me";
-		}
-	});
+		});
     </script>
 
 </body>

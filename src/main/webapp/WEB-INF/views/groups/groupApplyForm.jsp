@@ -62,39 +62,34 @@
 				<table id="groupDetailTable">
 				    <tbody>
 				        <tr>
-				            <th>카테고리</th>
-				            <td><input type="text" value="${ g.groupCategory }" readonly></td>
+				            <td><input type="text" value="${ g.groupTitle }" readonly></td>
+				            <td><input type="text" value=" | ${ g.groupCategory }" readonly></td>
 				        </tr>
 				        <tr>
-				            <th>소제목</th>
-				            <td><input type="text" value="${ g.groupSubtitle }" readonly></td>
+				            <td colspan="2"><input type="text" value="${ g.groupSubtitle }" readonly></td>
 				        </tr>
 				        <tr>
-				            <th>진행일정</th>
-				            <td><input type="text"></td>
+				            <td colspan="2"><input type="text" value="${ g.groupContent }" readonly></td>
 				        </tr>
 				        <tr>
 				            <th>신청일정</th>
-				            <td><input type="text"></td>
+				            <td><input type="text" value="${ g.startDate } ~ ${ g.endDate }" readonly></td>
 				        </tr>
 				        <tr>
 				            <th>장소</th>
-				            <td><input type="text"></td>
-				        </tr>
-				        <tr>
-				            <th>자격</th>
-				            <td><input type="text"></td>
+				            <td><input type="text" value="${ g.place }" readonly></td>
 				        </tr>
 				        <tr>
 				            <th>정원</th>
-				            <td><input type="text"></td>
+				            <td><input type="text" value="${ g.memberLimit }" readonly></td>
 				        </tr>
 				    </tbody>
 				</table>
 			</c:forEach>
 			<br><br><br>
+			
 			<h2>소모임 지원사유</h2>
-			<textarea name="content" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
+			<textarea name="passion" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
 			<br><br>
 			
 			<div style="text-align:right;">
