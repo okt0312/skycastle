@@ -137,7 +137,7 @@
 	                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div></a>
                         <div class="collapse" id="collapseSales" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">매출 조회</a> 
+                                <a class="nav-link" href="adSalesForm.ad">매출 조회</a> 
                             </nav>
                         </div>
 	                </div>
