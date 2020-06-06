@@ -79,10 +79,10 @@
 	</select>
 	
 	<select id="selectReport" resultMap="adReportResultSet">
-		SELECT REPORT_NO, REPLY_NO, USER_ID,  R.REPORT_CONTENT, RE.NOTICE_NO, 
+		SELECT REPORT_NO, REPLY_NO, USER_ID REPLY_WRITER,  R.REPORT_CONTENT, RE.NOTICE_NO, 
 		       REPORT_DATE, R.STATUS, M.REDCARD, (SELECT USER_ID 
-		                                            FROM MEMBER 
-		                                           WHERE USER_NO = R.REPORTER_NO) REPLY_WRITER
+                                                  FROM MEMBER 
+                                                  WHERE USER_NO = R.REPORTER_NO) USER_ID
 		FROM REPORT R
 		JOIN REPLY RE USING(REPLY_NO)
 		JOIN MEMBER M USING (USER_NO)
@@ -118,5 +118,13 @@
 				    	  JOIN REPLY RE USING(REPLY_NO)
 						  JOIN MEMBER M USING(USER_NO)
 						  WHERE USER_ID = #{userId})
+	</update>
+	
+	<update id="updateReply" parameterType="_int">
+		UPDATE REPLY
+	       SET STATUS = 'C'
+		 WHERE REPLY_NO = (SELECT REPLY_NO
+                             FROM REPORT
+                            WHERE REPORT_NO = #{reportNo})
 	</update>
 </mapper>

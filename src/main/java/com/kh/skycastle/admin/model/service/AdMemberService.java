@@ -26,4 +26,6 @@ public interface AdMemberService {
 	int updateMemberReport(Member m);
 	
 	int updateReport(Member m);
+	
+	int updateReply(int reportNo);
 }

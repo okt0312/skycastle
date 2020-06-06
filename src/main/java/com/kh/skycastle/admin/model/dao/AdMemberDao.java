@@ -55,4 +55,9 @@ public class AdMemberDao {
 	{
 		return sqlSession.update("adMemberMapper.updateReport", m);
 	}
+	
+	public int updateReply(SqlSessionTemplate sqlSession, int reportNo)
+	{
+		return sqlSession.update("adMemberMapper.updateReply", reportNo);
+	}
 }

@@ -112,9 +112,12 @@ public class AdMemberController {
 		return mv;
 	}
 	
+	@ResponseBody
 	@RequestMapping("updateReport.ad")
-	public String updateReport(Member m, String selNo)
+	public int updateReport(Member m, String selNo, String reportNo)
 	{	
+		int result = 0;
+		
 		m.setReportStatus(Integer.parseInt(selNo));
 		if(selNo.equals("2"))
 		{
@@ -126,22 +129,24 @@ public class AdMemberController {
 				// REPORT 테이블 값 수정
 				int result2 = admService.updateReport(m);
 				// REPLY 상태값 변경
-				return "";
+				int result3 = admService.updateReply(Integer.parseInt(reportNo));
+				
+				result = result1 * result2 * result3;
 			}
 			// 누적 신고량 +1
 			else
 			{
 				// MEMBER 테이블 값 수정
-				int result1 = admService.updateMemberReport(m);
+				result = admService.updateMemberReport(m);
 			}
 		}
 		else if(selNo.equals("3"))
 		{
 			// REPORT 상태값 수정
-			int result1 = admService.updateReport(m);
+			result= admService.updateReport(m);
 		}
 		
-		return "";
+		return result;
 	}
 	
 	@RequestMapping("blackListMgmt.ad")

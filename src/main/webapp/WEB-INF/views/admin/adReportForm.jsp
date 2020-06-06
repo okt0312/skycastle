@@ -153,9 +153,16 @@
 				                   						  "userId" : userId,
 				                   						  "selNo" : selNo},
 		                   						  	type:"post",
-		                   						  	success:function()
+		                   						  	success:function(result)
 		                   						  	{
-		                   						  		
+			                   						  	if(result > 0)
+		                   						  		{
+			                   						  		alertify.alert('신고 관리', '신고처리 완료', function(){ location.reload(); });
+		                   						  		}
+			                   						  	else
+		                   						  		{
+			                   						  		alertify.alert('신고 관리', '신고처리 실패', function(){ location.reload(); });
+		                   						  		}
 		                   						  	},
 		                   						  	error:function()
 		                   						  	{
