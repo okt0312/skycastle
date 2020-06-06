@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.reservation.model.service.ReservationService;
 import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
-import com.kh.skycastle.reservation.model.vo.StatusCount;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 @Controller
 public class ReservationController {
@@ -104,6 +106,28 @@ public class ReservationController {
 		return new Gson().toJson(ReservationTime);
 	}
 	
+	//공간 예약 파트
+	
+	
+	@RequestMapping("spaceMain.re")
+	public String spaceMain(int currentPage, Model model){	
+		
+		int spaceCount = rService.selectSpaceCount();
+		int pageLimit = 10;
+		int boardLimit = 8;
+		PageInfo pi = Pagination.getPageInfo(spaceCount, currentPage, pageLimit, boardLimit);
+		
+		ArrayList<Space> spaceList = rService.selectSpaceList(pi);
+		
+		model.addAttribute("pi",pi);
+		model.addAttribute("spaceList", spaceList);
+		//System.out.println(pi);
+		//System.out.println(spaceList);
+		return "reservation/spaceMain";
+	}
+	
+	
+
 	
 	  
 

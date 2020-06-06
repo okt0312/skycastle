@@ -2,13 +2,16 @@ package com.kh.skycastle.reservation.model.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 @Repository("rDao")
 public class ReservationDao {
@@ -42,6 +45,24 @@ public class ReservationDao {
 		return (ArrayList)sqlSession.selectList("reservationMapper.selectSeatReservationTime",seatNo);
 	}
 	
+	//공간쪽 시작
+	public int selectSpaceCount(SqlSessionTemplate sqlSession ) {
+		return sqlSession.selectOne("reservationMapper.selectSpaceCount");
+	}
+	
+	public ArrayList<Space> selectSpaceList(SqlSessionTemplate sqlSession, PageInfo pi) {
+				
+				
+				int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+				
+			
+				RowBounds rowBounds = new RowBounds(offset,pi.getBoardLimit());
+				
+				
+				
+
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectSpaceList",null, rowBounds);
+	}
 	
 	
 }

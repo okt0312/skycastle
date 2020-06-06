@@ -6,11 +6,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.dao.ReservationDao;
 import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 @Service("rService")
 public class ReservationServiceImpl implements ReservationService{
@@ -51,6 +53,19 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public ArrayList<Reservation> selectSeatReservationTime(int seatNo) {
 		return rDao.selectSeatReservationTime(sqlSession,seatNo);
+	}
+
+	
+	//공간쪽 시작 
+	
+	@Override
+	public int selectSpaceCount() {
+		return rDao.selectSpaceCount(sqlSession);
+	}
+
+	@Override
+	public ArrayList<Space> selectSpaceList(PageInfo pi) {
+		return rDao.selectSpaceList(sqlSession,pi);
 	}
 
 	

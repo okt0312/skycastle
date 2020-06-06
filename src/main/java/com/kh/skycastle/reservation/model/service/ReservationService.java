@@ -2,11 +2,12 @@ package com.kh.skycastle.reservation.model.service;
 
 import java.util.ArrayList;
 
+import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.vo.Reservation;
 import com.kh.skycastle.reservation.model.vo.Seat;
-import com.kh.skycastle.reservation.model.vo.StatusCount;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 public interface ReservationService {
 	
@@ -27,5 +28,13 @@ public interface ReservationService {
 	
 	//6. 좌석별 해당날짜 예약시간조회
 	ArrayList<Reservation> selectSeatReservationTime(int seatNo);
+	
+	//공간쪽 시작
+	
+	//7. 공간 갯수 카운트 
+	int selectSpaceCount();
+	
+	//8. 공간 리스트 조회
+	ArrayList<Space> selectSpaceList(PageInfo pi);
 	
 }

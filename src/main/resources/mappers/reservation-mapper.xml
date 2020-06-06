@@ -45,6 +45,7 @@
 		<result column="personnel" property="personnel"/>
 		<result column="space_price" property="spacePrice"/>
 		<result column="status" property="status"/>
+		<result column="change_name" property="changeName"/>
 	</resultMap>
 	
 	<resultMap type="Reservation" id="ReservationTimeResultSet">
@@ -107,6 +108,24 @@
 		join reservation_time using(book_no)
 		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo}
 	</select>
+	
+	
+	<!-- 공간쪽 시작  -->
+	
+	<select id="selectSpaceCount" resultType="_int">
+		select count(*)
+		from tb_space
+	</select>
+	
+	<select id="selectSpaceList" resultMap="SpaceResultSet">
+		select space_no,space_name,personnel,space_price, tb.status, change_name
+		from tb_space tb
+		join attachment on(space_no=ref_bno)
+	</select>
+	
+	
+	
+	
 	
 	
 	

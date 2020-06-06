@@ -17,4 +17,5 @@ public class Space {
 	private int personnel;
 	private int spacePrice;
 	private String status;
+	private String changeName;
 }

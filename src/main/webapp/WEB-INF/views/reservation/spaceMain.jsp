@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -316,30 +317,39 @@ a {
 	color: white;
 	border: 0;
 }
- /*Pagination*/
- #paging {float:left; width:100%; height:50px; margin-top:50px;}
-
-.pagination {
-    display: inline-block;
-    vertical-align: middle;
+ /* 페이징바 css */
+.paging{
+    padding:19px;
+    text-align:center;
 }
-
-.pagination a {
-    border-radius: 50%;
-    color: black;
-    padding: 8px 20px;
+.paging a{
+    width:23px;
+    height:23px;
+    padding-top:2px;
+    display:inline-block;
+    vertical-align:middle;
     text-decoration: none;
-    transition-duration: 0.4s;
+    color: #333333;
 }
-.pagination a.active {
-    background-color: rgb(252, 216, 151);
-    color: black;
-    border-radius: 55%;
+.paging a:hover{text-decoration:underline;}
+.paging .btn_arr{text-decoration:none;}
+.paging .btn_arr{
+    margin:0 3px;
+    padding-top:0;
+    border:1px solid #ddd;
+    background: #fdce07;
+    border-radius:30px;
+    font-size: 9px;
+    line-height: 20px;
 }
-.pagination a:hover:not(.active) {
-    background-color: rgb(252, 216, 151);
-    border-radius: 55%;
+.paging .on{
+    padding-top:1px;
+    height:22px;
+    border-radius:30px;
+    font-weight:bold;
+    text-decoration: underline;
 }
+.paging .on:hover{text-decoration:none;}
 
 
 /* 중간버튼 스타일 */
@@ -419,7 +429,7 @@ a {
                 <div class="group">
 
                     <div class="result_tab" align="center" >
-                        전체 수 <span style="color:red">50</span>
+                        전체 수 <span style="color:red">${pi.listCount}</span>
                     </div>
 
                     <div class="ls_result on">
@@ -428,133 +438,17 @@ a {
                        <div class="list">
 
                         <ul class="item">
-
+							<c:forEach var="s" items="${spaceList }" >
                            <li class="list_item">
-
-                                <a href="" class="thumb">
-
-                                    <img src="">
-
-
-                                </a>
-
-                                <span class="name_booth">가상오피스</span>
-                                
-                                <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
+                             <a href="" class="thumb">
+                                    <img style="width:257px; height:175px" src="${pageContext.servletContext.contextPath}/resources/uploadFiles/space/${s.changeName}">
+                             </a>
+                                <span class="name_booth">${s.spaceName}</span>                            
+                                <p class="option" style="font-size: 10px;">기본가격 2시간(${s.spacePrice }) / 이용인원 ${s.personnel }인</p>
                            </li>
-
-                           <li class="list_item">
-
-                            <a href="" class="thumb">
-
-                                <img src="">
-
-
-                            </a>
-
-                            <span class="name_booth">가상오피스</span>
-                            <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-                       </li>
-
-                       <li class="list_item">
-
-                        <a href="" class="thumb">
-
-                            <img src="">
-
-
-                        </a>
-
-                        <span class="name_booth">가상오피스</span>
-                        <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-                   </li>
-
-                   <li class="list_item">
-
-                    <a href="" class="thumb">
-
-                        <img src="">
-
-
-                    </a>
-
-                    <span class="name_booth">가상오피스</span>
-                    <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-               </li>
-
-               <li class="list_item">
-
-                <a href="" class="thumb">
-
-                    <img src="">
-
-
-                </a>
-
-                <span class="name_booth">가상오피스</span>
-                <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-           </li>
-
-           <li class="list_item">
-
-            <a href="" class="thumb">
-
-                <img src="">
-
-
-            </a>
-
-            <span class="name_booth">가상오피스</span>
-            <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-       </li>
-
-       <li class="list_item">
-
-        <a href="" class="thumb">
-
-            <img src="">
-
-
-        </a>
-
-        <span class="name_booth">가상오피스</span>
-        <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-   </li>
-
-   <li class="list_item">
-
-    <a href="" class="thumb">
-
-        <img src="">
-
-
-    </a>
-
-    <span class="name_booth">가상오피스</span>
-    <p class="option" style="font-size: 10px;">기본가격 2시간(60,000)</p>
-
-
-</li>
-
-    
-
-
-
-            </ul>
+						  </c:forEach>
+          
+            			</ul>
 
                </div>
 
@@ -563,11 +457,7 @@ a {
                     </div>
 
 
-                    <div>
-
-
-
-                    </div>
+                  
 
 
 
@@ -575,21 +465,42 @@ a {
 
 
               
-        <div id="paging" class="pagination" align="center">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">&raquo;</a>
-        </div>
+          <!-- 페이징바 -->    
+        <div class="paging" align="center">
+        
+        <c:choose>
+        	<c:when test="${ pi.currentPage eq 1 }">          
+            	<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+            </c:when>
+            <c:otherwise>	  
+            	<a href="spaceMain.re?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+            </c:otherwise>	
+        </c:choose>    
+            
+        <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+        	<c:choose>
+        		<c:when test="${ p eq pi.currentPage }">
+            		<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+            	</c:when>
+            	<c:otherwise>
+            		<a href="spaceMain.re?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+            	</c:otherwise>
+            </c:choose>
+        </c:forEach>    			
 
+         <c:choose>   
+         	<c:when test="${ pi.currentPage eq pi.maxPage }">
+            	<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+            </c:when>
+            <c:otherwise>
+             	<a href="spaceMain.re?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+            </c:otherwise> 	
+         </c:choose>               
 
             </div>
 
 		</div>
-		</div>
+		
 	<br clear="both">
 	  <jsp:include page="../common/footer.jsp"/>
 </body>
