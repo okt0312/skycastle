@@ -58,7 +58,7 @@
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
-                            <a href="${pageContext.servletContext.contextPath}/" class="original-logo"><img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/로고2.JPG" alt="" style="height: 70px;"></a>
+                            <a href="${pageContext.servletContext.contextPath}/" class="original-logo"><img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/로고.PNG" alt="" style="height: 11em;"></a>
                         </div>
                     </div>
                 </div>
