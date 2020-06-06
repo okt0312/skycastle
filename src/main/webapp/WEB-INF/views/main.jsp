@@ -14,45 +14,36 @@
         <!-- Hero Slides Area -->
         <div class="hero-slides owl-carousel">
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(${pageContext.servletContext.contextPath}/resources/bootstrap/img/bg-img/b2.png);">
+            <div class="single-hero-slide bg-img" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/214AB63856E182E620);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">소모임 운영<br>지식을 모아 꿈을 이루세요</a></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(${pageContext.servletContext.contextPath}/resources/bootstrap/img/bg-img/b1.png);">
+            <div class="single-hero-slide bg-img" style="background-image: url(https://st-c2c-conectspass.s3.amazonaws.com/prod/uploads/attachment/3/1%EC%9D%B8%EC%A2%8C%EC%84%9D.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">쾌적한 실내공기, 독립된 좌석<br> 집중력 향상!!</a></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Single Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(${pageContext.servletContext.contextPath}/resources/bootstrap/img/bg-img/b3.jpg);">
+            <div class="single-hero-slide bg-img" style="background-image: url(https://campusu.co.kr/wp-content/uploads/2016/12/%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98_KENN4462-1.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <div class="post-tag">
-                                    <a href="#" data-animation="fadeInUp">lifestyle</a>
-                                </div>
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">Take a look at last night’s party!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">회의 공간 대여 서비스</a></h2>
                             </div>
                         </div>
                     </div>
