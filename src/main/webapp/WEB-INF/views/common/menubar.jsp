@@ -39,11 +39,11 @@
                             <div class="breaking-news-area">
                                 <div id="breakingNewsTicker" class="ticker">
                                     <ul>
-                                        <li><a href="#">Hello World!</a></li>
-                                        <li><a href="#">Hello Universe!</a></li>
-                                        <li><a href="#">Hello Original!</a></li>
-                                        <li><a href="#">Hello Earth!</a></li>
-                                        <li><a href="#">Hello Colorlib!</a></li>
+                                        <li><a href="#" style="font-weight: 600;">당신의 노력을 존중하라.</a></li>
+                                        <li><a href="#" style="font-weight: 600;">당신 자신을 존중하라.</a></li>
+                                        <li><a href="#" style="font-weight: 600;">자존감은 자제력을 낳는다.</a></li>
+                                        <li><a href="#" style="font-weight: 600;">이 둘을 모두 겸비하면,</a></li>
+                                        <li><a href="#" style="font-weight: 600;">진정한 힘을 갖게 된다.</a></li>
                                     </ul>
                                 </div>
                             </div>
