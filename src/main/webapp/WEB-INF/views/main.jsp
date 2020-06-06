@@ -19,7 +19,7 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">소모임 운영<br>지식을 모아 꿈을 이루세요</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="groupList.gr?currentPage=1&status=''">소모임 운영<br>지식을 모아 꿈을 이루세요</a></h2>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">쾌적한 실내공기, 독립된 좌석<br> 집중력 향상!!</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="seatMain.re">쾌적한 실내공기, 독립된 좌석<br> 집중력 향상!!</a></h2>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="slide-content text-center">
-                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="single-post.html">회의 공간 대여 서비스</a></h2>
+                                <h2 data-animation="fadeInUp" data-delay="250ms"><a href="spaceMain.re?currentPage=1">회의 공간 대여 서비스</a></h2>
                             </div>
                         </div>
                     </div>
