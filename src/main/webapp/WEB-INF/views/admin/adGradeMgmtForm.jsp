@@ -54,14 +54,14 @@
                                             </tr>
 									    </thead>
 									    <tbody>
-									    	<c:forEach var="g" items="${ list }">
+									    	<c:forEach var="g" items="${ list }" varStatus="status">
 												<tr>
 												    <td>${ g.gradeCode }</td>
 												    <td>${ g.gradeName }</td>
 												    <fmt:parseNumber var="discount" value="${ g.discount * 100}" integerOnly="true"/>
 												    <td>${ discount}</td>
 												    <td>${ g.standard }</td>
-												    <td>20</td>
+												    <td>${ countList[status.index].gradeCount }</td>
 												</tr>
 									    	</c:forEach>
 									    </tbody>
