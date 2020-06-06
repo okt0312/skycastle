@@ -82,8 +82,19 @@ public class GroupController {
 
 	
 	@RequestMapping("groupApplyForm.gr")
-	public String groupApplyForm() {
-		return "groups/groupApplyForm";
+	public ModelAndView groupApplyForm(int gno, int userNo, ModelAndView mv) {
+		
+		Groups g = gService.selectGroup(gno);
+		Dips d = new Dips(userNo, gno);
+		int countDips = gService.countDips(d);
+		System.out.println(countDips);
+		
+		mv.addObject("g", g);
+		mv.addObject("count", countDips);
+		
+		mv.setViewName("groups/groupApplyForm");
+
+		return mv;
 	}
 	
 	@RequestMapping("mygroupList.gr")
