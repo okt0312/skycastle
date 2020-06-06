@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,8 @@
 												<tr>
 												    <td>${ g.gradeCode }</td>
 												    <td>${ g.gradeName }</td>
-												    <td>${ g.discount * 100}</td>
+												    <fmt:parseNumber var="discount" value="${ g.discount * 100}" integerOnly="true"/>
+												    <td>${ discount}</td>
 												    <td>${ g.standard }</td>
 												    <td>20</td>
 												</tr>
