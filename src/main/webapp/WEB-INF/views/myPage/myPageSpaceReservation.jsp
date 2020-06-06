@@ -226,7 +226,7 @@ element.style {
     height: 126px;
 }
 .use_status_item a>span.col2 {
-    width: 500px;
+    width: 450px;
     padding-top: 50px;
     font-size: 20px;
     font-weight: bolder;
@@ -245,7 +245,7 @@ p {
     line-height: 100%;
 }
 .use_status_item a>span.col3 {
-    width: 500px;
+    width: 200px;
     padding-top: 78px;
 }
 .align_center {
@@ -294,6 +294,11 @@ p {
 }
 .pagination{
     border-top: 1px solid black;
+   	top: 50%;
+   	left: 50%;
+   	margin: auto;
+   	
+    
 }
 
 .pagination a {
@@ -371,6 +376,20 @@ a:link, a:visited, a:hover, a:active, a:focus {
     position: absolute;
     left: 0;
     top: 0;
+}
+
+ul{
+    display: flex;
+    align-content: flex-start;
+   
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.use_status_item {
+    border-top: 1px solid #d5d5d5;
+   
+    overflow: hidden;
 }
 
 
@@ -451,7 +470,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
                         
                     </a>
 
-                        <span class="col4 align_center">
+                        <span class="col4 align_center" style="padding-top:90px;">
                             <span class="reserve_status" style="float: right;">
                                 이용예정
                             </span>
@@ -466,7 +485,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
         </div>
 
-        <br><br><br><br><br><br><br><br><br><br>
+        
      
 
        <!-- 페이징바 -->
