@@ -6,175 +6,140 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700" rel="stylesheet">	
-<style>
-	#main_Header
-	{
-	    max-width: 1700px;
-	    margin: 30px auto 0;   
-	}
-	#header2 a
-	{
-	    text-decoration: none;
-	    color: black;
-	}
-	#header1
-	{
-	    width: 100%;
-	    height: 150px;
-	    background-color: white;
-	    margin: auto;
-	}
-	#main_logo
-	{
-	    display: block;
-	    height: 150px;
-	    margin: auto;
-	}
-	#header2
-	{
-	    margin: 20px auto 0;
-	    border-top: 2px #d1d1d1 solid;
-	    border-bottom: 2px #d1d1d1 solid;
-	}
-	.header_menu
-	{
-	    margin: auto; 
-	    padding: 0; 
-	    width: 1400px; 
-	    font-size: 17px;
-	    font-family: 'Noto Sans KR', sans-serif;
-	    font-weight: bold;
-	}
-	.header_menu ul
-	{  
-	    list-style:none; 
-	    margin: 7px 0; 
-	    padding:0; 
-	}
-	.header_menu > li 
-	{ 
-	    height: 65px; 
-	    display:inline-block; 
-	    width:200px; 
-	    margin:0 10px; 
-	    text-align: center; 
-	    line-height: 60px;
-	}
-	.header_menu > li .submenu
-	{  
-	    width:200px; 
-	    height: 100px;
-	    display:none; 
-	    position: absolute; 
-	}
-	.submenu li
-	{
-	    background-color: rgba( 255, 255, 255, 0.5 );;
-	}
-	.header_menu > li:hover ul.submenu 
-	{
-		display:block;  
-		transform:scale(1.1);
-	}
-	
-	/* 로그인 버튼 */
-	.sky_btn1 /* 확인 버튼 */
-	{
-		width: 150px;
-		height: 50px;
-		text-align: center;
-		border-radius: 5px;
-		padding: 10px;
-		cursor: pointer;
-		background: #fdce07;
-		color: #000000;
-		border: 2px solid #F79F81;
-		font-size: 17px;
-	    font-family: 'Noto Sans KR', sans-serif;
-	    font-weight: bold;
-	    color:white;
-	}
-	
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/favicon.ico">
 
-<!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<!-- Default theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-<!-- Semantic UI theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
-<!-- Bootstrap theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap/style.css">
+
+    <style>
+        .classynav li
+        {
+            margin-right: 50px;
+        }
+    </style>
 </head>
 <body>
-	    <div id="main_Header">
-        <div id="header1">
-            <a href=""><img id="main_logo" src="${pageContext.servletContext.contextPath}/resources/images/logo.PNG"></a>
+
+<!-- Preloader -->
+        <div id="preloader">
+            <div class="preload-content">
+                <div id="original-load"></div>
+            </div>
         </div>
-        <div id="header2">
-            <ul class="header_menu">
-                <li><a href="">소개</a>
-                    <ul class="submenu">
-                        <li><a href="">CASTLE 소개</a></li>
-                        <li><a href="">이용안내</a></li>
-                        <li><a href="">오시는 길</a></li>
-                    </ul>
-                </li>
-                <li><a href="seatMain.re">좌석 예약</a></li>
-                <li><a href="">공간 예약</a></li>
-                <li><a href="groupList.gr?currentPage=1&status=''">소모임</a></li>
-                <li><a href="">고객센터</a>
-                    <ul class="submenu">
-                        <li><a href="list.cs?currentPage=1">공지사항</a></li>
-                        <li><a href="faq.cs">FAQ</a></li>
+        <!-- ##### Header Area Start ##### -->
+        <header class="header-area">
+    
+            <!-- Top Header Area -->
+            <div class="top-header">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Breaking News Area -->
+                        <div class="col-12 col-sm-8">
+                            <div class="breaking-news-area">
+                                <div id="breakingNewsTicker" class="ticker">
+                                    <ul>
+                                        <li><a href="#">Hello World!</a></li>
+                                        <li><a href="#">Hello Universe!</a></li>
+                                        <li><a href="#">Hello Original!</a></li>
+                                        <li><a href="#">Hello Earth!</a></li>
+                                        <li><a href="#">Hello Colorlib!</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         
-               <c:choose>
-               		<c:when test="${ empty loginUser }">         
-                        <li><a href="insertForm.cs">1:1문의</a></li>
-               		</c:when>
-					<c:otherwise>                
-                        <li><a href="meminsertForm.cs">1:1문의</a></li>
-               		</c:otherwise>         
-               </c:choose>           
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Logo Area -->
+            <div class="logo-area text-center">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12">
+                            <a href="${pageContext.servletContext.contextPath}/" class="original-logo"><img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/로고2.JPG" alt="" style="height: 70px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Nav Area -->
+            <div class="original-nav-area" id="stickyNav">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Classy Menu -->
+                        <nav class="classy-navbar justify-content-between">
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul>
+                                        <li><a href="${pageContext.servletContext.contextPath}/" style='font-weight: 600;'>홈</a></li>
+                                        <li><a href="seatMain.re" style="font-weight: 600;">좌석예약</a></li>
+                                        <li><a href="#" style="font-weight: 600;">공간예약</a></li>
+                                        <li><a href="groupList.gr?currentPage=1&status=''" style="font-weight: 600;">소모임</a></li>
+                                        <li><a href="list.cs?currentPage=1" style="font-weight: 600;">고객센터</a>
+                                            <ul class="dropdown">
+                                                <li><a href="list.cs?currentPage=1" style="font-weight: bold;">공지사항</a></li>
+                                                <li><a href="faq.cs">FAQ</a></li>
+	                                            <c:choose>
+								               		<c:when test="${ empty loginUser }">         
+								                        <li><a href="insertForm.cs" style="font-weight: 600;">1:1문의</a></li>
+								               		</c:when>
+													<c:otherwise>                
+								                        <li><a href="meminsertForm.cs" style="font-weight: 600;">1:1문의</a></li>
+								               		</c:otherwise>         
+								               </c:choose>         
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                    	<c:choose>
+                                    		<c:when test="${ empty loginUser }">
+                                    			<li></li>
+                                    		</c:when>
+                                    		<c:when test="${ loginUser.userNo eq 1 }">
+		                                    	<li><a href="adminMain.ad" style="font-weight: 600;">관리페이지</a></li>
+                                    		</c:when>
+                                    		<c:otherwise>
+                                    			<li><a href="rlist.bo?currentPage=1" style="font-weight: 600;">마이페이지</a></li>
+                                    		</c:otherwise>
+                                    	</c:choose>
+                                    </ul>
+    
+                                </div>
+                                <!-- Nav End -->
                           
-               <c:if test="${ !empty msg }">
-	               <script>
-	               		alert('${ msg }');
-	               </script>           
-	               <c:remove var="msg" scope="session"/>
-               </c:if>
-                    </ul>
-                </li>
-                
-                <c:choose>
-                	<c:when test="${ empty loginUser }">
-		                <li><button class="sky_btn1" onclick="location.href='loginForm.me';">로그인</button>
-		                    <ul class="submenu">
-		                        <li><a href="enrollForm.me">회원가입</a></li>
-		                    </ul>
-		                </li>
-                	</c:when>
-                	<c:when test="${ loginUser.userNo eq 1}">
-						<li><button class="sky_btn1" onclick="location.href='adminMain.ad'">관리페이지</button>
-		                    <ul class="submenu">
-		                        <li><a href="logout.me">로그아웃</a></li>
-		                    </ul>
-		                </li>
-                	</c:when>
-                	<c:otherwise>
-						<li><button class="sky_btn1" onclick="location.href='rlist.bo?currentPage=1'">마이페이지</button>
-		                    <ul class="submenu">
-		                        <li><a href="logout.me">로그아웃</a></li>
-		                    </ul>
-		                </li>
-                	</c:otherwise>
-                </c:choose>
-            </ul>
-        </div>
-    </div>
+    
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+    
+                            <!-- Menu -->
+                            <div class="classy-menu" id="originalNav">
+                                <!-- close btn -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+    
+    
+                                  <!-- Subscribe btn -->
+                            <div class="subscribe-btn">
+                            	<c:choose>
+                            		<c:when test="${ empty loginUser }">
+		                                <a href="loginForm.me" class="btn subscribe-btn">로그인</a>
+                            		</c:when>
+                            		<c:otherwise>
+                            			    <a href="logout.me" class="btn subscribe-btn">로그아웃</a>
+                            		</c:otherwise>
+                            	</c:choose>
+                            </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ##### Header Area End ##### -->
 </body>
 </html>

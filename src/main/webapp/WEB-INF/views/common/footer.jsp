@@ -6,49 +6,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-	/* ===== footer ===== */
-	.footer
-	{
-	    max-width: 1700px;
-	    height: 300px;
-	    background-color: #333333;
-	    margin: auto;
-	}
-	#footer_left, #footer_right
-	{
-	    display: inline-block;
-	    color: white;
-	}
-	#footer_left
-	{
-	    float: left;
-	    width: 600px;
-	    height: 150px;
-	    margin-top: 75px;
-	    margin-left: 80px;
-	}
-	#footer_right
-	{
-	    float: right;
-	    width: 400px;
-	    margin-top: 160px;
-	}
-</style>
+<!-- Favicon -->
+    <link rel="icon" href="${pageContext.servletContext.contextPath}/resources/bootstrap/img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/bootstrap/style.css">
 </head>
 <body>
-	<div class="footer">
-        <div id="footer_left">
-			(주) 열정 <br><br>
-			대표이사 : 김열정       |       사업자번호 000-00-00000 <br>
-			본사주소 : 서울시 강남구 열정로 00-0 <br>
-            TEL . 본사 : 010-0000-0000       |       가맹문의 : 070-0000-0000 <br>
-			FAX : 02-000-0000       |       E-MAIL : skycastle0504@gmail.com <br>
-        </div>
-        <div id="footer_right">
-			통신판매업 신고 : 제 2020-서울강남-0000호<br>
-			copyright @ sky castle all rights reserved
-        </div>
-	</div>
+ <!-- ##### Footer Area Start ##### -->
+        <footer class="footer-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                       
+                        <!-- Footer Nav Area -->
+                        <div class="classy-nav-container breakpoint-off">
+                            <!-- Classy Menu -->
+                            <nav class="classy-navbar justify-content-center">
+    
+                                <!-- Navbar Toggler -->
+                                <div class="classy-navbar-toggler">
+                                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                                </div>
+    
+                                <!-- Menu -->
+                                <div class="classy-menu">
+    
+                                    <!-- close btn -->
+                                    <div class="classycloseIcon">
+                                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                    </div>
+    
+                                    <!-- Nav Start -->
+                                    <div class="classynav">
+                                        <ul>
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Lifestyle</a></li>
+                                            <li><a href="#">travel</a></li>
+                                            <li><a href="#">Music</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Nav End -->
+                                </div>
+                            </nav>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> Sky Castle All rights reserved 
+    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    
+        </footer>
+            	         <!-- jQuery (Necessary for All JavaScript Plugins) -->
+	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/jquery/jquery-2.2.4.min.js"></script>
+	    <!-- Popper js -->
+	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/popper.min.js"></script>
+	    <!-- Bootstrap js -->
+	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	    <!-- Plugins js -->
+	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/plugins.js"></script>
+	    <!-- Active js -->
+	    <script src="${pageContext.servletContext.contextPath}/resources/bootstrap/js/active.js"></script>
 </body>
 </html>
