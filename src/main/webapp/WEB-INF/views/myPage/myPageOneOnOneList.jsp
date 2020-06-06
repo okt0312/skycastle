@@ -55,16 +55,17 @@ div {
 	height: 2px;
 	border: 0px;
 	width: 370px;
+	margin: auto;
 }
 
 
  #qnoticeList>tbody td{text-align: center;}
-        #qnoticeList *{
-            height:30px;
-            font-size:12px;
-            border-bottom:1px solid lightgray;
-        }
- #qnoticeList{border-top:1px solid black;}
+ #qnoticeList *{
+     height:30px;
+     font-size:12px;
+     border-bottom:1px solid lightgray;
+ }
+ #qnoticeList{border-top:1px solid black;margin:auto;}
  #qnoticeList>thead th{
             font-size:14px;
             font-weight:750;
@@ -73,6 +74,8 @@ div {
  #qnoticeList>tbody>tr:hover{
  	cursor: pointer;
  }
+
+.pagination{margin:auto;width:200px;}
 
 .pagination a {
             color: black;
