@@ -40,12 +40,11 @@
                                     <!-- Nav Start -->
                                     <div class="classynav">
                                         <ul>
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">Lifestyle</a></li>
-                                            <li><a href="#">travel</a></li>
-                                            <li><a href="#">Music</a></li>
-                                            <li><a href="#">Contact</a></li>
+                                            <li><a href="${pageContext.servletContext.contextPath}/">홈</a></li>
+                                            <li><a href="seatMain.re">좌석예약</a></li>
+                                            <li><a href="spaceMain.re?currentPage=1">공간예약</a></li>
+                                            <li><a href="groupList.gr?currentPage=1&status=''">소모임</a></li>
+                                            <li><a href="list.cs?currentPage=1">고객센터</a></li>
                                         </ul>
                                     </div>
                                     <!-- Nav End -->
