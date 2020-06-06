@@ -145,7 +145,7 @@ td {
 /* 중간버튼 스타일 */
 </style>
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 
 <jsp:include page="common/myPageMenubar.jsp"/>
@@ -190,13 +190,13 @@ td {
 			<div class="inner">
                 <br> <br>
 
-                <hr width="50%">
+                <hr>
 
                 <br><br><br>
 
 				<form id="qupdateForm" method="post" action="qqupdate.bo">
 				<input type="hidden" name="qnaNo" value="${ q.qnaNo }">
-                <table id="middleTable" width="900px" height="500px" align="center">
+                <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
 
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>

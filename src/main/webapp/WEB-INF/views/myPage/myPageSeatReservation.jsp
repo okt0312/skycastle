@@ -382,16 +382,16 @@ a:link, a:visited, a:hover, a:active, a:focus {
 </style>
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 	
 	<div class="outer">
         <!-- 서브메뉴 타이틀 -->
         
-      
+      	
 		
-
+		
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="container">
 
@@ -419,17 +419,15 @@ a:link, a:visited, a:hover, a:active, a:focus {
                
             </li>
         </ul>
-
-       
-
+		
+       	
+		
         <div>
 
             <ul class="use_status_list">
                 <li class="use_status_item  clr">
                     <a href="">
-                        <span class="col1 thumb align_center">
-                            <img href="">
-                        </span>
+                       
                         <span class="col2 room_info">
                                    <p class="t1"></p>
                                    <p class="t2"></p>
@@ -441,7 +439,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
                             </strong>
                         </span>
                     </a>
-
+	
                         <span class="col4 align_center">
                             <span class="reserve_status" style="float: right;">
                                

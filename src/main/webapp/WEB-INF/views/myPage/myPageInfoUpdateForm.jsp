@@ -257,7 +257,7 @@ table {
 /* 모달 스타일 끝*/
 </style>
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 

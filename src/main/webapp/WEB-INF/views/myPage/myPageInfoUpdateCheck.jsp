@@ -18,6 +18,7 @@ div {
     max-width: 1700px;
 	margin: auto;
     margin-bottom: 150px;
+   
 }
 
 .outer * {
@@ -155,7 +156,7 @@ input[type=password]{font-family:'inherit';}
 </style>
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 	<c:if test="${ !empty msg }">
 		<script>
 			alertify.alert("오류", "${msg}");

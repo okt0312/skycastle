@@ -18,6 +18,7 @@ div {
 	max-width: 1700px;
 	margin: auto;
     margin-bottom: 150px;
+    
 }
 
 
@@ -99,7 +100,7 @@ div {
 
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 
@@ -111,7 +112,7 @@ div {
 
 	<br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
-		<div class="inner">
+		<div class="inner" style="width: 100%; height: 100%; margin:auto;">
 				
 			<div id="order-info">
 				
@@ -146,7 +147,7 @@ div {
 
 			<div class="inner">
 				<br> <br>
-				<table id="noticeList" align="center" width="1000px;">
+				<table id="noticeList" align="center" width="1000px;" style="margin:auto;" >
 					<thead>
 						<tr>
 							<th style="width: 30%; text-align: center;">쿠폰명</th>
@@ -179,7 +180,7 @@ div {
 				
 				
                 
-                <div class="pagination" align="center">
+                <div class="pagination" align="center" style="width: 100%; height: 100%; margin:auto;">
                 
                 	<c:choose>
                 	<c:when test="${ pi.currentPage eq 1 }">

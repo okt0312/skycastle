@@ -21,6 +21,7 @@ div {
     max-width: 1700px;
 	margin: auto;
     margin-bottom: 150px;
+    
 }
 
 .outer * {
@@ -376,7 +377,7 @@ a:link, a:visited, a:hover, a:active, a:focus {
 </style>
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 

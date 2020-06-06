@@ -142,7 +142,7 @@ height: 40px;
 }
 </style>
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 
@@ -192,7 +192,7 @@ height: 40px;
 					</td>
 					<td style="padding-top: 3%; width: 920px; padding-right: 30px;" colspan="3">
 						<textarea class="aa" name="leaveReason" id="leaveReason" cols="100" rows="10"
-							style="resize:none; margin-left: 118px;"></textarea>
+							style="resize:none;"></textarea>
 					</td>
 				</tr>
 			</table>

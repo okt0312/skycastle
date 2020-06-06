@@ -11,13 +11,24 @@
 
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
+
+
+
+
+
 div {
 	box-sizing: border-box;
+	
+
+
+
 }
 .outer {
 	max-width: 1700px;
 	margin: auto;
     margin-bottom: 150px;
+   
+   
 }
 
 
@@ -100,7 +111,7 @@ div {
 </style>
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 

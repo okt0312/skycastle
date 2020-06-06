@@ -354,7 +354,7 @@ a {
 </style>
 
 </head>
-<body>
+<body style="width: 100%; height: 100%; margin:auto;">
 
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
