@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.groups.model.vo.Report;
+import com.kh.skycastle.member.model.dto.GradeDto;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -59,5 +60,10 @@ public class AdMemberDao {
 	public int updateReply(SqlSessionTemplate sqlSession, int reportNo)
 	{
 		return sqlSession.update("adMemberMapper.updateReply", reportNo);
+	}
+	
+	public ArrayList<GradeDto> countGrade(SqlSessionTemplate sqlSession)
+	{
+		return (ArrayList)sqlSession.selectList("adMemberMapper.countGrade");
 	}
 }

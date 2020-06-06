@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.groups.model.vo.Report;
+import com.kh.skycastle.member.model.dto.GradeDto;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -96,6 +97,8 @@ public class AdMemberController {
 	public ModelAndView adGradeMgmtForm(ModelAndView mv)
 	{
 		ArrayList<Grade> list = admService.selectGrade();
+		ArrayList<GradeDto> countList = admService.countGrade();
+		System.out.println(countList);
 		mv.addObject("list", list).setViewName("admin/adGradeMgmtForm");
 		
 		return mv;

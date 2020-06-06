@@ -35,7 +35,6 @@
 		<result column="REDCARD" property="redcard"/>
 		<result column="USER_ID" property="reporterId"/>
 		<result column="REPLY_WRITER" property="replyWriter"/>
-		
 	</resultMap>
 	
 	<select id="selectMember" resultMap="adMemberResultSet" parameterType="string">
@@ -128,4 +127,13 @@
                              FROM REPORT
                             WHERE REPORT_NO = #{reportNo})
 	</update>
+	
+	<select id="countGrade" resultType="integer">
+		SELECT GRADE_CODE, COUNT(*)
+		  FROM MEMBER M
+		  JOIN GRADE G USING(GRADE_CODE)
+		 WHERE GRADE_CODE != 0
+		 GROUP BY GRADE_CODE
+		 ORDER BY GRADE_CODE
+	</select>
 </mapper>
