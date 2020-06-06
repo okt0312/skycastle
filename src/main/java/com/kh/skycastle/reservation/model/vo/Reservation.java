@@ -26,6 +26,7 @@ public class Reservation {
 	private Date usedDate;
 	private String startTime;
 	private String endTime;
+	private String spaceName;	// 마이페이지 공간 조회용
 	
 	private int seatNo; //좌석현황 조회시 사용
 	private String seatStatus; // 좌석 사용가능/불가능 확인용

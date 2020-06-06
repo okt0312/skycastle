@@ -47,7 +47,15 @@
 		<result column="status" property="status"/>
 	</resultMap>
 	
-
+	<resultMap type="Reservation" id="ReservationTimeResultSet">
+		<id column="book_no" property="bookNo"/>
+		<result column="used_date" property="usedDate"/>
+		<result column="start_time" property="startTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="space_name" property="spaceName"/>
+	</resultMap>
+	
+	
 	
 	
 	<select id="selectSeatStatusList" resultMap="reservationResultSet">
@@ -100,12 +108,39 @@
 		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo}
 	</select>
 	
-	<select id=" rselectListCount" resultType="_int">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 총 게시글 갯수   -->
+	<select id="spaceselectListCount" resultType="_int">
 		select count(*)
-			form space
+			from tb_space
 		where status='Y'
 	</select>
 	
+	
+	<select id="spaceselectList" resultMap="ReservationTimeResultSet">
+	SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, (SELECT SPACE_NAME
+		FROM RESERVATION R
+		JOIN TB_SPACE TS ON(R.REF_NO = TS.SPACE_NO)) SPACE_NAME
+		FROM RESERVATION R
+		JOIN RESERVATION_TIME RT USING(BOOK_NO)
+  	</select>
 		
 	
 </mapper>

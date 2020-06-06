@@ -6,6 +6,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 public interface MypageService {
 	
@@ -38,7 +39,7 @@ public interface MypageService {
 	ArrayList<Qna> qselectList(PageInfo pi, Member m);
 	
 	// 8. 조회수 증가용 서비스 
-//	int increaseCount(int qno);
+    // int increaseCount(int qno);
 	
 	// 9. 해당 게시글 조회용 서비스 
 	Qna selectQna(int qno);
@@ -48,5 +49,12 @@ public interface MypageService {
 	
 	// 11. 게시글 수정용 서비스
 	int updateQna(Qna q);
+	
+	// 12. 공간예약 리스트 조회용 서비스
+	// 1_1. 공간예약 총 갯수 조회용 서비스 
+	int spaceselectListCount();
+	// 1_2. 공간예약 리스트 조회용 서비스 
+	ArrayList<Space> spaceselectList(PageInfo pi);
+	
 
 }

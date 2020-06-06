@@ -23,6 +23,7 @@ import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
+import com.kh.skycastle.reservation.model.vo.Space;
 
 
 @Controller
@@ -35,10 +36,6 @@ public class MypageController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	
-	@RequestMapping("myPage.my")
-	 public String myPage() {
-		 return "myPage/myPageSpaceReservation";
-	 }
 	
 	
 	@RequestMapping("list.bo")
@@ -320,5 +317,24 @@ public class MypageController {
 		} else {
 			return "myPage/myPageInfoOneOneOneUpdateDetail";
 		}
+	}
+	
+	
+	@RequestMapping("rlist.bo")
+	public String spaceselectList(int currentPage, Model model) {
+		
+		int rlistCount = pService.spaceselectListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(rlistCount, currentPage, 10, 5);
+		
+		
+		
+		ArrayList<Space> rlist = pService.spaceselectList(pi);
+		
+		System.out.println(rlist);
+		model.addAttribute("pi", pi);
+		model.addAttribute("rlist", rlist);
+		
+		return "myPage/myPageSpaceReservation";
 	}
 }

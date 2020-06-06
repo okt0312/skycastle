@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -415,23 +417,37 @@ a:link, a:visited, a:hover, a:active, a:focus {
        
 
         <div>
-	
+					
+			
+			
             <ul class="use_status_list">
+            
+            	<c:forEach items="${ rlist }" var="r">  	
                 <li class="use_status_item  clr">
+                	
+                	 
                     <a href="myPageDetail.my">
+                    
+                    	
+                    	   
                         <span class="col1 thumb align_center">
                             <img src="resources/images/room1.png" style="height: 100%; width: 100%; object-fit: contain;">
                         </span>
+                        
+                        
                         <span class="col2 room_info">
-                            <p class="t1">- 부스1 - 10인</p>
-                            <p class="t2">2020년 5월27일(수) 11:00~13:00</p>
-                            <p class="t3">지점문의: 02-34760118</p>
+                            <p class="t1">${ r.spaceName }</p>
+                            <p class="t2">${ r.usedDate }</p>
+                            <p class="t3">${ r.startTime } ~ ${ r.endTime }</p> 
+                           
                         </span>
+                       
                         <span class="col3 room_type align_center">
                             <strong class="reserve_type">
 
                             </strong>
                         </span>
+                        
                     </a>
 
                         <span class="col4 align_center">
@@ -439,8 +455,13 @@ a:link, a:visited, a:hover, a:active, a:focus {
                                 이용예정
                             </span>
                         </span>
+                          
                 </li>
+                </c:forEach>   
+                
+                
             </ul>
+           
 
         </div>
 
@@ -451,16 +472,41 @@ a:link, a:visited, a:hover, a:active, a:focus {
 
        <div class="pagination" align="center" style="padding-top: 20px;">
 
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">&raquo;</a>
+		<c:choose>
+		  <c:when test="${ pi.currentPage eq 1 }">
+        	<a href="#" class="page-link disabled">&laquo;</a>
+          </c:when>
+          <c:otherwise>
+        	<a href="list.bo?currentPage=${ pi.currentPage-1 }" class="page-link">&laquo;</a>
+          </c:otherwise>
+        </c:choose>
+        
+        <c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+        	<c:choose>
+        	 <c:when test="${ p eq pi.currentPage }">
+         	 	<a href="#" class="active disabled">${ p }</a>
+             </c:when>
+             <c:otherwise>
+          	 <a href="list.bo?currentPage=${ p }" class="active">${ p }</a>
+          	 </c:otherwise>
+            </c:choose>
+        </c:forEach>
+        
+       	<c:choose>
+       	 <c:when test="${ pi.currentPage eq pi.maxPage }">
+        	<a href="#" class="page-link disabled">&raquo;</a>
+         </c:when>
+         <c:otherwise>
+        	<a href="list.bo?currentPage=${ pi.currentPage-1 }" class="page-link">&raquo;</a>
+         </c:otherwise>	
+        </c:choose>
        </div>
 
        <!-- 페이징바 끝 -->
 
 		<br><br><br>
 		
-
+		
 		<div class="tips">
             <p class="tips_title" style="float: left;">꼭 확인하세요!</p>
 

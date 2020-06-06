@@ -111,7 +111,7 @@
             <ul class="myPage_header_menu" style="margin-right: 10px;">
                
                
-                <li><a href="myPage.my">이용현황</a></li>
+                <li><a href="rlist.bo">이용현황</a></li>
                 <li><a href="mygroupList.gr">소모임관리</a></li>
                 <li><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
                 <li><a href="list.bo?currentPage=1">쿠폰함</a></li>
