@@ -45,7 +45,7 @@
 					                            </thead>
 					                            <tbody>
 					                               <c:forEach var="n" items="${ list }">
-					                               	<tr>
+					                               	<tr onclick="adNoticeDetail(${ n.noticeNo });">
 					                                    <td>${ n.noticeNo }</td>
 					                                    <td>${ n.noticeTitle }</td>
 					                                    <td>${ n.enrollDate }</td>

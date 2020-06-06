@@ -12,10 +12,16 @@
 		<result column="STATUS" property="status"/>
 </resultMap>
   
-  
+  <!-- 공지사항 리스트조회 -->
   <select id ="selectNotice" resultMap="adNoticeResultSet">
   SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
   FROM NOTICE
+  </select>
+  <!--공지사항 상세페이지  -->
+  <select id="selectNoDetail" resultMap="adNoticeResultSet">
+  SELECT  NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,NOTICE_CONTENT
+  FROM NOTICE
+  WHERE NOTICE_NO =#{bno}
   </select>
   
 </mapper>

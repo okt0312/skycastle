@@ -27,6 +27,15 @@ public class AdBoardController {
 			return mv;
 		}
 		
+		@RequestMapping("adDetail.bo")
+		public ModelAndView selectNoDetail(int bno, ModelAndView mv) {
+			
+			Notice n = adBoService.selectNoDetail(bno);
+			mv.addObject("n", n);
+			mv.setViewName("admin/adNoticeDetailView");
+			
+			return mv;
+		}
 		
 		
 		
