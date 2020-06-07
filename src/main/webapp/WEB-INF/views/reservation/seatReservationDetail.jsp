@@ -195,6 +195,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <button id="addTime" type="button">선택</button>
                         <button id="removeTime" type="button">해제</button>
+                         <br>
                         <div align="center" id="tileList" style="border:0px ;width:100%"></div>	
                         
                         <br><br>
@@ -224,7 +225,7 @@
                         </div>
                         <input type="hidden" id="total" name="totalCost" value="${seat.seatPrice}">
                         <div style="background-color: lightgray;">
-                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">${seat.seatPrice} </span>원</p>
+                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">${seat.seatPrice}</span>원</p>
                         </div> 
                         <button id="reservationBtn" type="submit" onclick="return reservation();">바로 예약하기</button>
                 	</form> 
@@ -271,11 +272,17 @@
 	$(function(){
 		
 		
+		count =1;
 		
 		$("#date").val(new Date().toISOString().substring(0, 10));
 		$("#usedDate").val(new Date().toISOString().substring(0, 10));
 		
 		$("#time").click(function(){
+			if(count!=2){
+				$("#total").val(${seat.seatPrice});
+				$("#totalCost").text($("#total").val());
+			}
+		
 			
 			$("#start").val($(this).val());
 			
@@ -285,7 +292,6 @@
 			
 			totalTime();
 		});
-		count =1;
 		
 		$("#timeAdd").click(function(){
 			
@@ -391,7 +397,7 @@
 		
 	});
 	
-	timeCheck();
+	//timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();

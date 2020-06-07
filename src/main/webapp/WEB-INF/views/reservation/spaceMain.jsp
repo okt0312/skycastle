@@ -389,19 +389,19 @@ a {
                                 <tr>
                                     <th>인원</th>
                                     <td id="userCntOpt" class="opt" colspan="3" style="text-align: center;">
-                                        <span class="btn_opt" >1인</span>
-                                        <span class="btn_opt" >2인</span>
-                                        <span class="btn_opt" >3인</span>
-                                        <span class="btn_opt" >4인</span>
-                                        <span class="btn_opt" >6인</span>
-                                        <span class="btn_opt" >8인</span>
-                                        <span class="btn_opt" >10인</span>
-                                        <span class="btn_opt" >15인</span>
-                                        <span class="btn_opt" >20인</span>
+                                        <span class="btn_opt" keyword="1" >1인</span>
+                                        <span class="btn_opt" keyword="2">2인</span>
+                                        <span class="btn_opt" keyword="3">3인</span>
+                                        <span class="btn_opt" keyword="4">4인</span>
+                                        <span class="btn_opt" keyword="6">6인</span>
+                                        <span class="btn_opt" keyword="8">8인</span>
+                                        <span class="btn_opt" keyword="10">10인</span>
+                                        <span class="btn_opt" keyword="15">15인</span>
+                                        <span class="btn_opt" keyword="20">20인</span>
                                         
                                         <span class="btn_opt_member">
-                                            <span class="inp inpt_txt"><input type="text" class="userCntInput number" maxlength="2" placeholder="직접입력" style="padding-top: 8px;" /></span> 인&nbsp;&nbsp;
-                                            <button class="sky_btn2" type="button" style="width: 80px;">적용</button>
+                                            <span class="inp inpt_txt"><input type="number" id="searchInput" min="0" placeholder="직접입력" style="padding-top: 8px;" /></span> 인&nbsp;&nbsp;
+                                            <button keyword="search" class="sky_btn2 btn_opt" type="button" style="width: 80px;">적용</button>
                                         </span>
                                     </td>
                                 </tr>
@@ -422,7 +422,7 @@ a {
                 <div class="group">
 
                     <div class="result_tab" align="center" >
-                        전체 수 <span style="color:red">${pi.listCount}</span>
+                        전체 수 <span style="color:red" id="spaceCount">${pi.listCount}</span>
                     </div>
 
                     <div class="ls_result on">
@@ -433,8 +433,15 @@ a {
                         <ul class="item">
 							<c:forEach var="s" items="${spaceList }" >
                            <li class="list_item">
-                             <a href="" class="thumb">
-                                    <img style="width:257px; height:175px" src="${pageContext.servletContext.contextPath}/resources/uploadFiles/space/${s.changeName}">
+                             <a href="spaceReservationDetail.re?spaceNo=${s.spaceNo}" class="thumb">
+								<c:choose>
+								<c:when test="${s.status eq 'N' }">
+									<img style="width:257px; height:175px" src="${pageContext.servletContext.contextPath}/resources/uploadFiles/space/수리중.jpg">	                             
+	                             </c:when>
+	                             <c:otherwise>
+                                    <img style="width:257px; height:175px" src="${pageContext.servletContext.contextPath}/resources/uploadFiles/space/${s.changeName}">	                             
+	                             </c:otherwise>
+								</c:choose>
                              </a>
                                 <span class="name_booth">${s.spaceName}</span>                            
                                 <p class="option" style="font-size: 10px;">기본가격 2시간(${s.spacePrice }) / 이용인원 ${s.personnel }인</p>
@@ -507,4 +514,49 @@ a {
 	<br clear="both">
 	  <jsp:include page="../common/footer.jsp"/>
 </body>
+
+<script>
+	$(function(){
+		$(".btn_opt").click(function(){
+			keyword = $(this).attr("keyword");
+			if(keyword == 'search'){
+				//console.log(keyword);
+				keyword = $("#searchInput").val();
+			}
+			
+			$.ajax({
+    			url:"spaceSearchMain.re",
+    			data:{"keyword":keyword},
+    			success:function(spaceSearchList){
+    				console.log(spaceSearchList);
+    				
+    				//방 갯수(조회된 배열의 길이가 댓글 갯수이다.)
+    				 $("#spaceCount").text(spaceSearchList.length);
+    				
+    				var value = "";
+    				
+    				for(var i in spaceSearchList){
+    					value += 
+		                         	"<li class='list_item'>"+
+		                          		"<a href='spaceReservationDetail.re?spaceNo="+spaceSearchList[i].spaceNo+"'class='thumb'>"+
+
+		                                 "<img style='width:257px; height:175px' src='${pageContext.servletContext.contextPath}/resources/uploadFiles/space/"+spaceSearchList[i].changeName+"'>"+	                             
+			                            
+		                          		"</a>"+
+		                             "<span class='name_booth'>"+spaceSearchList[i].spaceName+"</span>"+                            
+		                             "<p class='option' style='font-size: 10px;'>기본가격 2시간("+spaceSearchList[i].spacePrice+") / 이용인원"+ spaceSearchList[i].personnel+"인</p>"+
+		                            "</li>"; 
+    				}
+    			
+    				$(".item").html(value); 
+    				$(".paging").html(""); 
+    			},error:function(){	
+    				console.log("인원별 리스트 조회용 ajax 통신 실패!!");
+    			}
+    		});
+			
+		});
+	});
+</script>
+
 </html>

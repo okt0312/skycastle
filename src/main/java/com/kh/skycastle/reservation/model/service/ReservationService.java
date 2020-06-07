@@ -21,7 +21,7 @@ public interface ReservationService {
 	Grade selectGrade(int userNo);
 	
 	//4. 좌석 정보 조회 
-	Seat selectSeat(int userNo);
+	Seat selectSeat(int seatNo);
 	
 	//5. 좌석 예약정보 인설트
 	int insertReservation(Reservation reservation);
@@ -36,5 +36,11 @@ public interface ReservationService {
 	
 	//8. 공간 리스트 조회
 	ArrayList<Space> selectSpaceList(PageInfo pi);
+	
+	//9. 공간 인원별 검색 리스트 조회
+	ArrayList<Space> spaceSearchList(int keyword);
+	
+	//10. 공간 정보 조회
+	Space selectSpace(int spaceNo);
 	
 }

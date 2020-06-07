@@ -123,6 +123,20 @@
 		join attachment on(space_no=ref_bno)
 	</select>
 	
+	<select id="spaceSearchList" resultMap="SpaceResultSet">
+		select space_no,space_name,personnel,space_price, tb.status, change_name
+		from tb_space tb
+		join attachment on(space_no=ref_bno)
+		where personnel=#{keyword}
+	</select>
+	
+	<select id="selectSpace" parameterType="_int" resultMap="SpaceResultSet">
+		select space_no,space_name,personnel,space_price, tb.status, change_name
+		from tb_space tb
+		join attachment on(space_no=ref_bno)
+		where space_no=#{spaceNo}
+	</select>
+	
 	
 	
 	

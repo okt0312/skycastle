@@ -51,18 +51,21 @@ public class ReservationDao {
 	}
 	
 	public ArrayList<Space> selectSpaceList(SqlSessionTemplate sqlSession, PageInfo pi) {
-				
-				
+		
 				int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
-				
-			
 				RowBounds rowBounds = new RowBounds(offset,pi.getBoardLimit());
-				
-				
-				
-
 		return (ArrayList)sqlSession.selectList("reservationMapper.selectSpaceList",null, rowBounds);
 	}
+	
+	public ArrayList<Space> spaceSearchList(SqlSessionTemplate sqlSession, int keyword) {
+		return (ArrayList)sqlSession.selectList("reservationMapper.spaceSearchList",keyword);
+	}
+	
+	public Space selectSpace(SqlSessionTemplate sqlSession, int spaceNo) {
+		return sqlSession.selectOne("reservationMapper.selectSpace",spaceNo);
+	}
+	
+	
 	
 	
 }

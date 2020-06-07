@@ -72,7 +72,7 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("reservInsert.re")
-	public String seatPayDetail(Reservation reservation, Model model){
+	public String seatPayDetailInsert(Reservation reservation, Model model){
 		
 		//System.out.println(reservation);
 		int result = rService.insertReservation(reservation);
@@ -124,6 +124,42 @@ public class ReservationController {
 		//System.out.println(pi);
 		//System.out.println(spaceList);
 		return "reservation/spaceMain";
+	}
+	
+	
+	
+	@ResponseBody
+	@RequestMapping(value="spaceSearchMain.re",produces="aplication/json; charset=utf-8")
+	public String spaceSearchList(int keyword){
+		
+		ArrayList<Space> spaceSearchList = rService.spaceSearchList(keyword);
+		//System.out.println(status);
+		return new Gson().toJson(spaceSearchList);
+	}
+	
+	
+	@RequestMapping("spaceReservationDetail.re")
+	public String spaceReservationDetail(int spaceNo, Model model,HttpSession session){	
+		ArrayList<Coupon> couponList = new ArrayList<>();
+		
+		Space space = new Space();
+		
+
+		Member loginUser =  (Member)session.getAttribute("loginUser");
+		space = rService.selectSpace(spaceNo);
+		if(loginUser != null) {
+			int userNo = loginUser.getUserNo();
+			couponList = rService.selectCouponList(userNo);
+			
+		}
+		
+		//System.out.println(space);
+		//System.out.println(couponList);
+		
+		model.addAttribute("couponList",couponList);
+		model.addAttribute("space",space);
+		
+		return "reservation/spaceReservationDetail";
 	}
 	
 	
