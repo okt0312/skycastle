@@ -81,24 +81,27 @@
 	      </div>
 	<center>
 	  <div class="eventBox">
-	      <div class="thumbnail">
+	  <c:forEach items="${eventList}" var="e">
+	      <div class="thumbnail">	
 	          <div class="thumbImg">
-	              <img src="images/event.png">
+	              <img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${e.changeName}">
+	          </div>
+	          <div class="eventInfo">
+	              <label>${e.eventTitle}</label><br>
+	              <label>${e.eventOpenTime} ~ ${e.eventCloseTime}</label>
+	          </div>
+	      </div>
+	   </c:forEach>   
+	   	  <div class="thumbnail">
+	          <div class="thumbImg">
+	              <img src="resources/uploadFiles/event/1월이벤트.png">
 	          </div>
 	          <div class="eventInfo">
 	              <label>재난지원금 사용 가능</label><br>
 	              <label>2020.05.10~2020.08.31</label>
 	          </div>
 	      </div>
-	      <div class="thumbnail">
-	          <div class="thumbImg">
-	              <img src="images/event.png">
-	          </div>
-	          <div class="eventInfo">
-	              <label>재난지원금 사용 가능</label><br>
-	              <label>2020.05.10~2020.08.31</label>
-	          </div>
-	      </div>
+	     <!--  
 	      <div class="thumbnail">
 	          <div class="thumbImg">
 	              <img src="images/event.png">
@@ -134,7 +137,7 @@
 	              <label>재난지원금 사용 가능</label><br>
 	              <label>2020.05.10~2020.08.31</label>
 	          </div>
-	      </div>
+	      </div> -->
 	  </div>
 	</center>
 	</div>

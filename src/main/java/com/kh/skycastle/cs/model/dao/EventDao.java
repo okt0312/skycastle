@@ -11,7 +11,7 @@ import com.kh.skycastle.cs.model.vo.Event;
 public class EventDao {
 	
 	public ArrayList<Event> selectEventList(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("caMapper.selectEventList");
+		return (ArrayList)sqlSession.selectList("csMapper.selectEventList");
 	}
 	
 	public Event selectEvent(SqlSessionTemplate sqlSession, int eno) {

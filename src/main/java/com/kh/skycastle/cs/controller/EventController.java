@@ -21,9 +21,9 @@ public class EventController {
 	@RequestMapping("event.cs")
 	public String selectEventList(Model model) {
 		
-		ArrayList<Event> list = eService.selectEventList();
+		ArrayList<Event> eventList = eService.selectEventList();
 		
-		model.addAttribute("list", list);
+		model.addAttribute("eventList", eventList);
 		
 		return "cs/eventListView";
 	}

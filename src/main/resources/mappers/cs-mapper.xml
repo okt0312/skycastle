@@ -97,7 +97,11 @@
 		where QNA_NO=#{qnaNo}
 	</update>
 	
-	<select>
-	
+	<select id="selectEventList" resultMap="eventResultSet">
+		select event_no, event_title, event_open_time, event_close_time, event_status, change_name, file_level, group_category
+		  from event 
+		  join attachment on(event_no=ref_bno)
+		 where file_level = 1 
+		   and group_category = 2
 	</select>
 </mapper>
