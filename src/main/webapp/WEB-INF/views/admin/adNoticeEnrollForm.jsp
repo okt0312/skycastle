@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 공지사항 상세페이지</title>
-	<style>
+<title>관리자 공지사항 등록</title>
+<style>
            
     
  
@@ -32,9 +32,6 @@
 
 </head>
 <body>
-
-
- <!-- 메뉴와 푸터는 인클루드 할거니 내용만 수정하겠음-->
 <div id="layoutSidenav"> 
 	<jsp:include page="common/adminSidebar.jsp"/>
 
@@ -44,18 +41,18 @@
                         <h1 class="mt-4"><b>공지사항  관리</b></h1>
                         <ol class="breadcrumb mb-4" >
                             <li class="breadcrumb-item"><a href="index.html" style="color:black"><b>HOME</b></a></li>
-                            <li class="breadcrumb-item active"><a style="color:black">공지사항 관리</a></li>
+                            <li class="breadcrumb-item active"><a style="color:black">공지사항 등록</a></li>
                         </ol>
-                        <!-- 게시글 수정 시작 -->
-                        <form id="noticeUpdateForm" action="noticeUpdate.ad">
+                        <!-- 게시글  시작 -->
+                        <form id="noticeEnrollForm" action="noticeInsert.ad">
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" value="${ n.noticeTitle }"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" name="noticeTitle" placeholder="제목"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="contents" id="contents" placeholder="내용">${ n.noticeContent }</textarea>
+                                            <textarea rows=20 cols=85 name="noticeContent" id="contents" placeholder="내용"></textarea>
                                         </td>
                                     </tr>
                                 </table>    
@@ -66,12 +63,17 @@
                                 </p>
                             </div>
                             </table>
-                           <%--  <input type="hidden" value="${ n.noticeNo }"> --%>
+                          
                         </form> 
                        
                        
                     </div>
                 </main>
 		</div>
+
+
+
+
+
 </body>
 </html>
