@@ -23,6 +23,7 @@ import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 
@@ -184,14 +185,24 @@ public class MypageController {
 	
 	
 	@RequestMapping("seat.my")
-	public String seat() {
+	public String seatselectList(int currentPage, Model model) {
+			
+		int slistCount = pService.seatselectListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(slistCount, currentPage, 10, 5);
+		
+		ArrayList<Seat> slist = pService.seatselectList(pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("slist", slist);
+		
 		return "myPage/myPageSeatReservation";
 	}
 	
-	@RequestMapping("myPageDetail.my")
-	public String SpaceDetail() {
-		return "myPage/myPageSpaceReservationDetail";
-	}
+//	@RequestMapping("myPageDetail.my")
+//	public String SpaceDetail() {
+//		return "myPage/myPageSpaceReservationDetail";
+//	}
 	
 	@RequestMapping("qdetail.bo")
 	// 조회하고자하는 글 번호 담김 qno

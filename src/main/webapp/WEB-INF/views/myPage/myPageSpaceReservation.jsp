@@ -416,10 +416,10 @@ ul{
         
 		
 		
-
+		
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="container">
-
+				
                <div class="default_tabs t3">
 
                     <ul>
@@ -429,7 +429,7 @@ ul{
                         </li>
 
                         <li>
-                            <a href="seat.my">좌석예약</a>
+                            <a href="seat.my?currentPage=1">좌석예약</a>
                         </li>
 
                     </ul>
@@ -457,7 +457,7 @@ ul{
                 <li class="use_status_item  clr">
                 	
                 	 
-                    <a href="myPageDetail.my">
+                    <a href="">
                     
                     	
                     	   
@@ -483,7 +483,7 @@ ul{
 
                         <span class="col4 align_center" style="padding-top:90px;">
                             <span class="reserve_status" style="float: right;">
-                                이용예정
+                               	이용대기
                             </span>
                         </span>
                           

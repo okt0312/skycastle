@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -418,18 +419,20 @@ ul{
         <div>
 
             <ul class="use_status_list">
+            
+            	<c:forEach items="${ slist }" var="s"> 
                 <li class="use_status_item  clr">
                     <a href="">
-                    
+                    	
                      	<span class="col1 thumb align_center" style="padding-top: 50px;">
                             <p style="font-size: larger; margin-bottom: 5px;"> 좌석번호 </p>
-                            <p style="font-size:50px; font-weight: 900; margin-top: 0px;">243</p>
+                            <p style="font-size:50px; font-weight: 900; margin-top: 0px;">${ s.seatNo }</p>
                         </span>
-                       
+                       	
                         <span class="col2 room_info">
-                                   <p class="t1">2020-06-07</p>
-                                   <p class="t2">16:00 ~ 24:00</p>
-                                   <p class="t3">8시간</p>
+                                   <p class="t1">${ s.usedDate }</p>
+                                   <p class="t2">${ s.startTime } ~ ${ s.endTime }</p>
+                                   <p class="t3">지점문의: 02-7777-7777</p>
                         </span>
                         <span class="col3 room_type align_center">
                             <strong class="reserve_type">
@@ -444,6 +447,7 @@ ul{
                             </span>
                         </span>
                 </li>
+                </c:forEach>  
             </ul>
 
         </div>
@@ -453,14 +457,14 @@ ul{
 
        <!-- 페이징바 -->
 	
-		 <div class="paging" align="center" style="padding-top: 20px;">
+		<div class="paging" align="center" style="padding-top: 20px;">
         
         <c:choose>
         	<c:when test="${ pi.currentPage eq 1 }">          
             	<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
             </c:when>
             <c:otherwise>	  
-            	<a href="rlist.bo?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+            	<a href="seat.my?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
             </c:otherwise>	
         </c:choose>    
             
@@ -470,7 +474,7 @@ ul{
             		<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
             	</c:when>
             	<c:otherwise>
-            		<a href="rlist.bo?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+            		<a href="seat.my?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
             	</c:otherwise>
             </c:choose>
         </c:forEach>    			
@@ -483,7 +487,7 @@ ul{
             	<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
             </c:when>
             <c:otherwise>
-             	<a href="rlist.bo?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+             	<a href="seat.my?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
             </c:otherwise> 	
          </c:choose>               
         </div>

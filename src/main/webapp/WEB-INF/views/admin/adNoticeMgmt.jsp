@@ -54,19 +54,23 @@
 					                               </c:forEach>
 					                            </tbody>
 					                        </table>
-					                        
+					                   <!--  <input type="button" value="등록" class="btn btn-primary" id="adNoEnroll"> -->
+					                    <a class="btn btn-secondary"  href="noticeEnrollForm.ad">등록</a>
 			                        <script>
 						            //테이블 tr눌러서 상세 불러오기
 						            	$(function(){
 						            		
 						            		$("#dataTable tbody tr").click(function(){
-						            			location.href ="adDetail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+						            			location.href ="noticeDetail.ad?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
 						            		
 						            		});
 						            	});
+						            
+						            
 						            </script>
 						            
-                                       <input type="button" value="등록" class="btn btn-primary">
+                                      
+                                       
                                    </div>
                                </div>
                            </div>

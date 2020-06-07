@@ -108,14 +108,14 @@
            
             <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
            	
-            <ul class="myPage_header_menu" style="margin-right: 10px;">
+            <ul class="myPage_header_menu" style="margin:auto;">
                
                
-                <li><a href="rlist.bo">이용현황</a></li>
-                <li><a href="mygroupList.gr?currentPage=1&status='Y'">소모임관리</a></li>
-                <li><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
-                <li><a href="list.bo?currentPage=1">쿠폰함</a></li>
-                <li><a href="PwdCheck.my">개인정보수정</a></li>
+                <li style="width: 20%; text-align: center;"><a href="rlist.bo?currentPage=1">이용현황</a></li>
+                <li style="width: 20%; text-align: center;"><a href="mygroupList.gr?currentPage=1&status='Y'">소모임관리</a></li>
+                <li style="width: 20%; text-align: center;"><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
+                <li style="width: 20%; text-align: center;"><a href="list.bo?currentPage=1">쿠폰함</a></li>
+                <li style="width: 20%; text-align: center;"><a href="PwdCheck.my">개인정보수정</a></li>
                 
             </ul>
         </div>
