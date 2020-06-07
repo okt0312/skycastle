@@ -26,8 +26,17 @@ public class AdBoardController {
 			mv.addObject("list", list).setViewName("admin/adNoticeMgmt");
 			return mv;
 		}
+		//공지사항 등록
+		@RequestMapping("noticeEnrollForm.ad")
+		public String adNoEnrollForm() {
+			return ("admin/adNoticeEnrollForm");
+		}
 		
-		@RequestMapping("adDetail.bo")
+		
+		
+		
+		//공지사항 상세페이지
+		@RequestMapping("noticeDetail.ad")
 		public ModelAndView selectNoDetail(int bno, ModelAndView mv) {
 			
 			Notice n = adBoService.selectNoDetail(bno);
