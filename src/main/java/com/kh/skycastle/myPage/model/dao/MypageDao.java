@@ -39,9 +39,9 @@ public class MypageDao {
 	
 	public ArrayList<Coupon> selectList(SqlSessionTemplate sqlSession, PageInfo pi) {
 		
-		int offset = (pi.getCurrentPage() - 1) * pi.getPageLimit();
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
-		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
 		return (ArrayList)sqlSession.selectList("memberMapper.selectList", null , rowBounds);
 	}
@@ -53,9 +53,9 @@ public class MypageDao {
 	
 	public ArrayList<Qna> qselectList(SqlSessionTemplate sqlSession, PageInfo pi, Member m) {
 		
-		int offset =(pi.getCurrentPage() -1) * pi.getPageLimit();
+		int offset =(pi.getCurrentPage() -1) * pi.getBoardLimit();
 		
-		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
 		return (ArrayList)sqlSession.selectList("csMapper.qselectList", m, rowBounds);
 	}
