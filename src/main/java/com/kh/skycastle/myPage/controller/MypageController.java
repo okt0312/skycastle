@@ -331,7 +331,7 @@ public class MypageController {
 		
 		ArrayList<Space> rlist = pService.spaceselectList(pi);
 		
-		System.out.println(rlist);
+		
 		model.addAttribute("pi", pi);
 		model.addAttribute("rlist", rlist);
 		

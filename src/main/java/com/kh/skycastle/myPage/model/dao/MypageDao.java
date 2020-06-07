@@ -84,9 +84,9 @@ public class MypageDao {
 	public ArrayList<Space> spaceselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
 		
 		
-		int offset = (pi.getCurrentPage() -1) * pi.getPageLimit();
+		int offset = (pi.getCurrentPage() -1) * pi.getBoardLimit();
 		
-		RowBounds rowBounds = new RowBounds(offset, pi.getPageLimit());
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
 		return (ArrayList)sqlSession.selectList("reservationMapper.spaceselectList",null, rowBounds);
 		
