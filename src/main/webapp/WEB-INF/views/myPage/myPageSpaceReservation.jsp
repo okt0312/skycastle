@@ -416,10 +416,10 @@ ul{
         
 		
 		
-
+		
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="container">
-
+				
                <div class="default_tabs t3">
 
                     <ul>
@@ -429,7 +429,7 @@ ul{
                         </li>
 
                         <li>
-                            <a href="seat.my">좌석예약</a>
+                            <a href="seat.my?currentPage=1">좌석예약</a>
                         </li>
 
                     </ul>

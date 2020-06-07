@@ -10,6 +10,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 @Repository("pDao")
@@ -89,6 +90,22 @@ public class MypageDao {
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
 		return (ArrayList)sqlSession.selectList("reservationMapper.spaceselectList",null, rowBounds);
+		
+	}
+	
+	public int seatselectListCount(SqlSessionTemplate sqlSession) {
+		return sqlSession.selectOne("reservationMapper.seatselectListCount");
+	}
+	
+	
+	public ArrayList<Seat> seatselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+		
+		
+		int offset = (pi.getCurrentPage() -1) * pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("reservationMapper.seatselectList",null, rowBounds);
 		
 	}
 	

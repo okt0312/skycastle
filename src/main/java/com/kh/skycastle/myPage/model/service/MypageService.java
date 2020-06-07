@@ -6,6 +6,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 public interface MypageService {
@@ -56,5 +57,10 @@ public interface MypageService {
 	// 1_2. 공간예약 리스트 조회용 서비스 
 	ArrayList<Space> spaceselectList(PageInfo pi);
 	
+	// 13. 좌석예약 리스트 조회용 서비스 
+	// 1_1. 좌석예약 총 갯수 조회용 서비스 
+	int seatselectListCount();
+	// 1_2. 좌석예약 리스트 조회용 서비스 
+	ArrayList<Seat> seatselectList(PageInfo pi);
 
 }

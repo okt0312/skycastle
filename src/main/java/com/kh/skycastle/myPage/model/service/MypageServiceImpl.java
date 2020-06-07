@@ -11,6 +11,7 @@ import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.dao.MypageDao;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 
@@ -129,6 +130,20 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public ArrayList<Space> spaceselectList(PageInfo pi) {
 		return pDao.spaceselectList(sqlSession, pi);
+	}
+
+
+	@Override
+	public int seatselectListCount() {
+		
+		return pDao.seatselectListCount(sqlSession);
+	}
+
+
+	@Override
+	public ArrayList<Seat> seatselectList(PageInfo pi) {
+		
+		return pDao.seatselectList(sqlSession, pi);
 	}
 
 
