@@ -51,24 +51,36 @@
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" value="${ n.noticeTitle }"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text"  name="noticeTitle" style="width: 628px; float: left;" value="${ n.noticeTitle }"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="contents" id="contents" placeholder="내용">${ n.noticeContent }</textarea>
+                                            <textarea rows=20 cols=85 name="noticeContent" id="contents" placeholder="내용">${ n.noticeContent }</textarea>
                                         </td>
                                     </tr>
-                                </table>    
+                                </table> 
+                                <div>
                                 <p align="center">
-                                    <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
+                                    <input type="button" value="목록" onclick="history.back(-1)" class="btn btn-dark">
                                     <input type="submit" id="" value="수정" class="btn btn-primary" >
-                                    <input type="button" value="삭제" class="btn btn-danger">
-                                </p>
+                                    <!-- <input type="submit" value="삭제" class="btn btn-danger" id="adNoDeleteBtn" > -->
+                                    </p>
+                                
                             </div>
                             </table>
-                           <%--  <input type="hidden" value="${ n.noticeNo }"> --%>
+                            <input type="hidden" name="status" id="adStatus" value="${ n.status }">
+                           <input type="hidden" name="noticeNo" id="noticeNo" value="${ n.noticeNo }">
+                          <%--  <input type="hidden" name="enrollDate" value="${ n.enrollDate }">
+                            --%>
                         </form> 
                        
+                        <form action="deleteNotice.ad">
+                        <input type="hidden" name="noticeNo" id="noticeNo" value="${ n.noticeNo }">
+                        <input type="submit" value="삭제" class="btn btn-danger" id="adNoDeleteBtn" >
+                        </form> 
+                        
+                      
+                       </div>   
                        
                     </div>
                 </main>

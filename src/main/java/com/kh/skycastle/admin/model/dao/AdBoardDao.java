@@ -21,4 +21,13 @@ public class AdBoardDao {
 		return sqlSession.selectOne("adBoardMapper.selectNoDetail", bno);
 		
 	}
+	
+	
+	public int updateAdNotice(SqlSessionTemplate sqlSession, Notice n) {
+		return sqlSession.update("adBoardMapper.updateAdNotice",n);
+	}
+	
+	public int deleteAdNotice(SqlSessionTemplate sqlSession,int bno) {
+		return sqlSession.delete("adBoardMapper.deleteAdNotice",bno);
+	}
 }

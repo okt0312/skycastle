@@ -16,7 +16,9 @@
   <select id ="selectNotice" resultMap="adNoticeResultSet">
   SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
   FROM NOTICE
+  WHERE STATUS='Y'
   </select>
+  
   <!--공지사항 상세페이지  -->
   <select id="selectNoDetail" resultMap="adNoticeResultSet">
   SELECT  NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,NOTICE_CONTENT
@@ -24,4 +26,18 @@
   WHERE NOTICE_NO =#{bno}
   </select>
   
+ 	<!--공지사항 수정용  -->
+ 	<update id="updateAdNotice" parameterType="Notice">
+ 	UPDATE NOTICE
+ 	   SET NOTICE_TITLE =#{noticeTitle},
+ 		   NOTICE_CONTENT =#{noticeContent},
+ 		   ENROLL_DATE =sysdate
+	WHERE NOTICE_NO =#{noticeNo}
+ 	</update>
+ 	
+ 	<delete id="deleteAdNotice" parameterType="_int">
+ 	UPDATE NOTICE
+ 	   SET STATUS='N'
+   WHERE NOTICE_NO =#{noticeNo}
+ 	</delete>
 </mapper>

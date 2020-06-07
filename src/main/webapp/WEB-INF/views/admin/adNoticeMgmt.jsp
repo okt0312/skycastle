@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 관리</title>
+<style>
+ /* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
+   
+
+</style>
+
 </head>
 <body>
 

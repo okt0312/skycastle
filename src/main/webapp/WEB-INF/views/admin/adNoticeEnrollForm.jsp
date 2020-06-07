@@ -58,8 +58,8 @@
                                 </table>    
                                 <p align="center">
                                     <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
-                                    <input type="submit" id="" value="수정" class="btn btn-primary" >
-                                    <input type="button" value="삭제" class="btn btn-danger">
+                                    <input type="submit" id="" value="등록" class="btn btn-primary" >
+                                   
                                 </p>
                             </div>
                             </table>
