@@ -13,6 +13,7 @@
 		<typeAlias type="com.kh.skycastle.member.model.vo.Grade" alias="Grade"/>		
 		<typeAlias type="com.kh.skycastle.cs.model.vo.Notice" alias="Notice"/>
 		<typeAlias type="com.kh.skycastle.cs.model.vo.Qna" alias="Qna"/>
+		<typeAlias type="com.kh.skycastle.cs.model.vo.Event" alias="Event"/>
 		<typeAlias type="com.kh.skycastle.coupon.model.vo.Coupon" alias="Coupon"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Reservation" alias="Reservation"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Seat" alias="Seat"/>

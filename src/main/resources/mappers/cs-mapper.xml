@@ -24,6 +24,16 @@
 		<result column="STATUS" property="status"/>
 	</resultMap>
 
+	<resultMap id="eventResultSet" type="Event">
+		<id column="EVNET_NO" property="evnetNo"/>
+		<result column="EVENT_TITLE" property="eventTitle"/>
+		<result column="EVENT_OPEN_TIME" property="eventOpenTime"/>
+		<result column="EVENT_CLOSE_TIME" property="eventCloseTime"/>
+		<result column="EVENT_REGISTER_DATE" property="eventRegisterDate"/>
+		<result column="STATUS" property="status"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+	</resultMap>
+	
 	<select id="selectListCount" resultType="_int">
 		select count(*)
 		  from notice
@@ -56,10 +66,8 @@
 	</insert>
 	
 	<select id="qselectListCount" resultType="_int">
-	
 		SELECT count(*)
 		 FROM QNA
-		
     </select>	
     
     <select id="qselectList" parameterType="Member" resultMap="qnaResultSet">
@@ -87,6 +95,9 @@
 			set QNA_TITLE=#{qnaTitle}, 
 				QNA_CONTENT=#{qnaContent}
 		where QNA_NO=#{qnaNo}
-	
 	</update>
+	
+	<select>
+	
+	</select>
 </mapper>

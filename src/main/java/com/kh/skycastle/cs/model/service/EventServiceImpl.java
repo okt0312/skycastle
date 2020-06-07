@@ -19,8 +19,8 @@ public class EventServiceImpl implements EventService {
 	private EventDao eDao;
 	
 	@Override
-	public ArrayList<Event> selectList() {
-		return eDao.selectList(sqlSession);
+	public ArrayList<Event> selectEventList() {
+		return eDao.selectEventList(sqlSession);
 	}
 
 	@Override
