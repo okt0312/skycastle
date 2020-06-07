@@ -27,16 +27,21 @@ public class AdBoardServiceImpl implements AdBoardService {
 	public Notice selectNoDetail(int bno) {
 		return adBoDao.selectNoDetail(sqlSession,bno);
 	}
+	
+	//공지사항 등록용
 	@Override
 	public int insertAdNotice(Notice n) {
-		// TODO Auto-generated method stub
-		return 0;
+		return adBoDao.insertAdNotice(sqlSession,n);
 	}
+	
+	//공지사항 수정용
 	@Override
 	public int updateAdNotice(Notice n) {
 		return adBoDao.updateAdNotice(sqlSession,n);
 		
 	}
+	
+	//공지사항 삭제용
 	@Override
 	public int deleteAdNotice(int noticeNo) {
 		return adBoDao.deleteAdNotice(sqlSession,noticeNo);
