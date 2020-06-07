@@ -48,11 +48,11 @@
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" name="noticeTitle" placeholder="제목"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text" id="noticeTitle" name="noticeTitle"  style="width: 628px; float: left;"  placeholder="제목"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="noticeContent" id="contents" placeholder="내용"></textarea>
+                                            <textarea rows=20 cols=85 name="noticeContent" id="noticeContent" placeholder="내용"></textarea>
                                         </td>
                                     </tr>
                                 </table>    

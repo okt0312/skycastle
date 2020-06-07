@@ -35,9 +35,15 @@
 	WHERE NOTICE_NO =#{noticeNo}
  	</update>
  	
+ 	<!-- 공지사항 삭제요 -->
  	<delete id="deleteAdNotice" parameterType="_int">
  	UPDATE NOTICE
  	   SET STATUS='N'
    WHERE NOTICE_NO =#{noticeNo}
  	</delete>
+ 	
+ 	<insert id="insertAdNotice">
+ 	INSERT INTO NOTICE
+ 	VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{noticeContent}, sysdate, 'Y')
+ 	</insert>
 </mapper>

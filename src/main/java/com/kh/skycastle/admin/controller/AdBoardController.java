@@ -74,6 +74,23 @@ public class AdBoardController {
 			}
 		}
 		
+		//공지사항 등록
+		@RequestMapping("noticeInsert.ad")
+		public String insertAdNotice(Notice n, Model model, HttpSession session) {
+			int result = adBoService.insertAdNotice(n);
+			
+			if(result > 0)
+			{
+				
+				return "redirect:noticeMgmt.ad";
+			}
+			else
+			{
+				return "삭제 실패";
+			}
+		}
+		
+		
 		//공지사항 상세페이지
 		@RequestMapping("noticeDetail.ad")
 		public ModelAndView selectNoDetail(int bno, ModelAndView mv) {
