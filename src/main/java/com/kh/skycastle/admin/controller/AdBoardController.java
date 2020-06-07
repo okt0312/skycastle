@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdBoardService;
+import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
 
 //게시판관리(공지사항,이벤트) 페이지 관련 컨트롤러입니다 
@@ -110,6 +110,13 @@ public class AdBoardController {
 		public String adEventMgmt(){
 			return "admin/adEventMgmt";
 		}
-				
+		
+		public ModelAndView adEventMgmt(ModelAndView mv){
+			
+			ArrayList<Event> list = adBoService.selectEvent();
+			
+			mv.addObject("list", list).setViewName("admin/adNoticeMgmt");
+			return mv;
+		}
 		
 }
