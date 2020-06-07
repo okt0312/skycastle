@@ -423,9 +423,9 @@ ul{
                <div class="default_tabs t3">
 
                     <ul>
-
+	
                         <li>
-                            <a href="myPage.my" class="active">공간예약</a>
+                            <a href="rlist.bo" class="active">공간예약</a>
                         </li>
 
                         <li>
