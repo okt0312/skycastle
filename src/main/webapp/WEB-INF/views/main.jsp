@@ -72,13 +72,13 @@
                 <!-- Single Blog Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-catagory-area clearfix mb-100">
-                        <img src="https://lh3.googleusercontent.com/proxy/A84GlDBp20T5A-toavAM4BQ3jSKscHzogV28y1dtj5fw46ovRwCTUD9pIflgVjhoFYyGh0XctrA5r6jxX59o2nmq_MxMqzAYBT1DkuWnu2j8Zanww4A" alt="">
+                        <img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/blog-img/메인_소모임1.jpg" alt="">
                     </div>
                 </div>
                 <!-- Single Blog Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-catagory-area clearfix mb-100">
-                        <img src="https://lh3.googleusercontent.com/proxy/-93boWrhk-PBo2CBEnPmXOm7_EXlAQkQRH8qm8vUW3mxO0ENzsjzkFqhs7vA6DY09QIHv3lQzHYODfedVyuLbiheRE7DvQ-7VlOcIPju7-E" alt="">
+                        <img src="${pageContext.servletContext.contextPath}/resources/bootstrap/img/blog-img/메인_소모임2.jpg" style="height: 237.78px" alt="">
                     </div>
                 </div>
             </div>
