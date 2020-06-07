@@ -199,10 +199,10 @@ public class MypageController {
 		return "myPage/myPageSeatReservation";
 	}
 	
-	@RequestMapping("myPageDetail.my")
-	public String SpaceDetail() {
-		return "myPage/myPageSpaceReservationDetail";
-	}
+//	@RequestMapping("myPageDetail.my")
+//	public String SpaceDetail() {
+//		return "myPage/myPageSpaceReservationDetail";
+//	}
 	
 	@RequestMapping("qdetail.bo")
 	// 조회하고자하는 글 번호 담김 qno
