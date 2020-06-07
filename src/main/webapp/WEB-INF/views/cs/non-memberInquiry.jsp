@@ -49,9 +49,8 @@
     width:100%;
     height:30px;
     margin-top:15px;
-    /* padding: 10px; */
     border-radius: 4px;
-    border-style: ridge;
+    border:1px solid rgb(175,175,175);
 }
 /* 내용창 css */
 .inputContent{

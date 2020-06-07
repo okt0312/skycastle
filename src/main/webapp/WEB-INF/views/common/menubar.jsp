@@ -103,7 +103,8 @@
 													<c:otherwise>                
 								                        <li><a href="meminsertForm.cs" style="font-weight: 600;">1:1문의</a></li>
 								               		</c:otherwise>         
-								               </c:choose>         
+								               	</c:choose>
+								                 <li><a href="event.cs" style="font-weight: 600;">이벤트</a></li>        
                                             </ul>
                                         </li>
                                     </ul>

@@ -44,7 +44,7 @@
     height:20px;
     margin-top: 5px;
 }
-/* 질문 유형 선택 */
+/* 질문 유형 선택 xxx */
 #category{
     width: 200px;
     height:30px;
@@ -58,7 +58,7 @@
     height:30px;
     margin-top:15px;
     border-radius: 4px;
-    border-style: ridge;
+    border:1px solid rgb(175,175,175);
 }
 /* 내용창 css */
 .inputContent{
