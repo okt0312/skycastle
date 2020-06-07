@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +76,14 @@
 	                			<c:forEach var="i" items="${ list }">
 				                 	<tr>
 			                            <td>${ i.bookNo }</td>
-			                            <td>${ i.category }</td>
+		                            	<c:choose>
+		                            		<c:when test="${ i.category eq '1'}">
+		                            			<td>${ i.refNo }번 좌석</td>
+		                            		</c:when>
+		                            		<c:when test="${ i.category eq '2'}">
+		                            			<td>${ i.refNo }번 공간</td>
+		                            		</c:when>
+	                            		</c:choose>
 			                            <td>${ i.totalCost }</td>
 			                            <td>${ i.bookEnrollDate }</td>
 			                        </tr>
@@ -120,25 +128,48 @@
 	                    <div class="card mb-4"> 
 	                        <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>최근 7일 매출 현황</div>
 	                        <div class="card-body"><canvas id="myBarChart" width="100%" height="50" ></canvas></div>
-	                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 	                    </div>
 	                </div>
 	            </div>
 	        </div>
 	        <script>
 				var ctx = document.getElementById("myBarChart");
+				var today = new Date(); 
+				today.setDate(today.getDate() + 1);
+				today = today.toISOString().substring(0, 10);
+				var day1 = new Date();  
+				day1.setDate(day1.getDate());
+				day1 = day1.toISOString().substring(0, 10);
+				var day2 = new Date();  
+				day2.setDate(day2.getDate() - 1);
+				day2 = day2.toISOString().substring(0, 10);
+				var day3 = new Date();  
+				day3.setDate(day3.getDate() - 2);
+				day3 = day3.toISOString().substring(0, 10);
+				var day4 = new Date();  
+				day4.setDate(day4.getDate() - 3);
+				day4 = day4.toISOString().substring(0, 10);
+				var day5 = new Date();  
+				day5.setDate(day5.getDate() - 4);
+				day5 = day5.toISOString().substring(0, 10);
+				var day6 = new Date();  
+				day6.setDate(day6.getDate() - 5);
+				day6 = day6.toISOString().substring(0, 10);
+				
+				
 				var myBarChart = new Chart(ctx, {
 				    type: 'bar',
 				    data: {
-				        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+				        labels: [day6, day5, day4, day3, day2, day1, today],
 				        datasets: [{
-				            label: '# of Votes',
-				            data: [12, 19, 3, 5, 2, 3],
+				            label: '매출 금액(원)',
+				            data: [50000, 40000, 20000, 30000, 25000, 55000, 65000],
 				            backgroundColor: [
 				                'rgba(255, 99, 132, 0.2)',
 				                'rgba(54, 162, 235, 0.2)',
 				                'rgba(255, 206, 86, 0.2)',
 				                'rgba(75, 192, 192, 0.2)',
+				                'rgba(153, 102, 255, 0.2)',
 				                'rgba(153, 102, 255, 0.2)',
 				                'rgba(255, 159, 64, 0.2)'
 				            ],
@@ -147,6 +178,7 @@
 				                'rgba(54, 162, 235, 1)',
 				                'rgba(255, 206, 86, 1)',
 				                'rgba(75, 192, 192, 1)',
+				                'rgba(153, 102, 255, 1)',
 				                'rgba(153, 102, 255, 1)',
 				                'rgba(255, 159, 64, 1)'
 				            ],
@@ -164,6 +196,7 @@
 				    }
 				});
 				</script>
+
 	           </main>
 		<jsp:include page="common/adFooter.jsp"/>
 	    </div>
