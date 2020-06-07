@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="adSalesMapper">
+
+	<resultMap type="AdSales" id="SalesResultSet">
+		<id column="BOOK_NO" property="bookNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="CATEGORY" property="category"/>
+		<result column="REF_NO" property="refNo"/>
+		<result column="COUPON_CODE" property="couponCode"/>
+		<result column="TOTAL_COST" property="totalCost"/>
+		<result column="BOOK_ENROLL_DATE" property="bookEnrollDate"/>
+		<result column="STATUS" property="status"/>
+		<result column="GRADE_DISCOUNT" property="gradeDiscount"/>
+	</resultMap>
+
+	<select id="adSelectSalesList" parameterType="AdSales" resultMap="SalesResultSet">
+		SELECT *
+		  FROM RESERVATION
+		  <where>
+	    	   BOOK_ENROLL_DATE BETWEEN #{startDate} AND TO_DATE(#{endDate}, 'YY-MM-DD') + 1
+			   <if test="category != 0">
+			       AND CATEGORY = #{category}
+			   </if>
+		  </where>
+	</select>
 </mapper>

@@ -21,7 +21,7 @@
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Dips" alias="Dips"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Space" alias="Space"/>
 		<typeAlias type="com.kh.skycastle.member.model.dto.GradeDto" alias="GradeDto"/>		
-		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdReservationDto"/>		
+		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdSales"/>		
 	</typeAliases>
 	
 	<mappers>

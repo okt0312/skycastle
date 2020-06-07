@@ -32,7 +32,10 @@
                 	<table id="chTable" style=" background: #e9ecef; text-align:center; width: 100%; height: 50px;">
 	                    <tr>
 	                        <td style="font-weight: bold; width: 25%;">예약일</td>
-	                        <td style="width: 30%;"><input type="date" name="startDate">&nbsp;~&nbsp;<input type="date" name="endDate"></td>
+	                        <td style="width: 30%;">
+	                        	<input type="date" name="startDate" value="${ adr.startDate }">&nbsp;~&nbsp;
+             					<input type="date" name="endDate" value="${ adr.endDate }">
+           					</td>
 	                        <td style="font-weight: bold; width: 25%;">예약 공간</td>
 	                        <td>
 	                        	<select class="form-control" name="category" style="width: 50%; margin: auto 0;">
@@ -67,20 +70,40 @@
                         </tr>
 	                </thead>
 	                <tbody>
-	                 	<tr>
-                            <td>1</td>
-                            <td>좌석1번</td>
-                            <td>10000</td>
-                            <td>2020.04.20</td>
-                        </tr>
-                        <tr>
-                        	<td colspan="4">조회 기간을 선택해주세요.</td>
-                        </tr>
+	                	<c:choose>
+	                		<c:when test="${ list ne null }">
+	                			<c:forEach var="i" items="${ list }">
+				                 	<tr>
+			                            <td>${ i.bookNo }</td>
+			                            <td>${ i.category }</td>
+			                            <td>${ i.totalCost }</td>
+			                            <td>${ i.bookEnrollDate }</td>
+			                        </tr>
+	                			</c:forEach>
+	                		</c:when>
+	                		<c:when test="${ list eq null }">
+	                			<tr>
+	                				<td>조회된 데이터가 없습니다.</td>
+	                			</tr>
+	                		</c:when>
+	                		<c:otherwise>
+		                        <tr>
+		                        	<td colspan="4">조회 기간을 선택해주세요.</td>
+		                        </tr>
+	                		</c:otherwise>
+	                	</c:choose>
 	                </tbody>
 	                <tfoot>
 	                	<tr >
 	                		<td colspan="2">소계</td>
-	                		<td colspan="2">80000원</td>
+	                		<c:choose>
+	                			<c:when test="${ list ne null }">
+			                		<td colspan="2">${ sumCost }원</td>
+	                			</c:when>
+	                			<c:otherwise>
+	                				<td colspan="2">0원</td>
+	                			</c:otherwise>
+	                		</c:choose>
 	                	</tr>
 	                </tfoot>
 	            </table>
