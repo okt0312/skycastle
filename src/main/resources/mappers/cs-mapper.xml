@@ -104,4 +104,13 @@
 		 where file_level = 1 
 		   and group_category = 2
 	</select>
+	
+	<select id="selectEvent" resultMap="eventResultSet">
+		select event_no, event_status, event_title, event_open_time, event_close_time, group_category, change_name, file_level
+		  from event 
+		  join attachment on(event_no=ref_bno)
+		 where group_category = 2
+		   and file_level = 2
+		   and event_no = #{eno} and event_status='Y'
+	</select>
 </mapper>

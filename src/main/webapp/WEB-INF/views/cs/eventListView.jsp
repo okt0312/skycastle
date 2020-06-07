@@ -83,6 +83,7 @@
 	  <c:forEach items="${eventList}" var="e">
 	      <div class="thumbnail">	
 	          <div class="thumbImg">
+	          	  <input type="hidden" value="${e.eventNo}">
 	              <img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${e.changeName}">
 	          </div>
 	          <div class="eventInfo">
@@ -132,6 +133,15 @@
 	  </div>
 	</center>
 	</div>
+	
+	<script>
+	$(function(){
+       		$(".thumbImg").click(function(){
+       			var eno = $(this).children().eq(0).val();
+       			location.href = "eventDetail.cs?eno=" + eno;
+       		});
+		});
+	</script>
 	
 	<jsp:include page="../common/footer.jsp"/>
 	

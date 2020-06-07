@@ -104,29 +104,30 @@
 		<div class="mainTitle">이벤트
 			<div class="subTitle">진행중인 이벤트</div>
 	    </div>
-	
+	 
 		<center> 
 			<div class="eventDetail">
 		      <table id="titleArea">
 		          <thead>
 		              <tr class="eventInfo">
-		                  <td class="title">재난지원금 사용 가능</td>
-		                  <td class="eventPeriod">2020.05.10 ~ 2020.08.31</td>
+		                  <td class="title">${e.eventTitle }</td>
+		                  <td class="eventPeriod">${e.eventOpenTime} ~ ${e.eventCloseTime}</td>
 		              </tr>
 		          </thead>    
 		      </table> 
 		
 		      <div class="infoContent">
 		          <div class="infoImg">
-		              <img src="images/detailpage.png">
+		              <img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${e.changeName}">
 		          </div>
 		      </div>
 			</div>
 		  </center>
 	
 		<div class="footer" align="center">
-			<button id="listBtn">목록</button>
+			<button id="listBtn" onclick="location.href='event.cs';">목록</button>
 		</div>
+		
 	</div>
 
 	<jsp:include page="../common/footer.jsp"/>
