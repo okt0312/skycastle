@@ -25,12 +25,12 @@
 	</resultMap>
 
 	<resultMap id="eventResultSet" type="Event">
-		<id column="EVNET_NO" property="evnetNo"/>
+		<id column="EVENT_NO" property="eventNo"/>
 		<result column="EVENT_TITLE" property="eventTitle"/>
 		<result column="EVENT_OPEN_TIME" property="eventOpenTime"/>
 		<result column="EVENT_CLOSE_TIME" property="eventCloseTime"/>
 		<result column="EVENT_REGISTER_DATE" property="eventRegisterDate"/>
-		<result column="STATUS" property="status"/>
+		<result column="EVENT_STATUS" property="eventStatus"/>
 		<result column="CHANGE_NAME" property="changeName"/>
 	</resultMap>
 	

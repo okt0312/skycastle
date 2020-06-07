@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <style>
-/* div{border:1px solid black}  */
 .outer{
     max-width: 1700px;
     height: 750px;
@@ -92,15 +91,7 @@
 	          </div>
 	      </div>
 	   </c:forEach>   
-	   	  <div class="thumbnail">
-	          <div class="thumbImg">
-	              <img src="resources/uploadFiles/event/1월이벤트.png">
-	          </div>
-	          <div class="eventInfo">
-	              <label>재난지원금 사용 가능</label><br>
-	              <label>2020.05.10~2020.08.31</label>
-	          </div>
-	      </div>
+	   	 
 	     <!--  
 	      <div class="thumbnail">
 	          <div class="thumbImg">
