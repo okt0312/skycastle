@@ -51,22 +51,22 @@
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; value="${ n.noticeTitle }" float: left;"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" value="${ n.noticeTitle }"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="contents" id="contents" value="${ n.noticeContent }"></textarea>
+                                            <textarea rows=20 cols=85 name="contents" id="contents" placeholder="내용">${ n.noticeContent }</textarea>
                                         </td>
                                     </tr>
                                 </table>    
                                 <p align="center">
                                     <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
-                                    <input type="submit" value="등록" class="btn btn-primary">
-                                    
+                                    <input type="submit" id="" value="수정" class="btn btn-primary" >
+                                    <input type="button" value="삭제" class="btn btn-danger">
                                 </p>
                             </div>
                             </table>
+                            <input type="hidden" value="${ n.noticeNo }">
                         </form> 
                        
                        
