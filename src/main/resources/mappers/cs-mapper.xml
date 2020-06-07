@@ -112,5 +112,6 @@
 		 where group_category = 2
 		   and file_level = 2
 		   and event_no = #{eno} and event_status='Y'
+		   order by event_no desc
 	</select>
 </mapper>
