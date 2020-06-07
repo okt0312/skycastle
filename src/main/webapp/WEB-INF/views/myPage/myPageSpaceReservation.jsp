@@ -457,7 +457,7 @@ ul{
                 <li class="use_status_item  clr">
                 	
                 	 
-                    <a href="myPageDetail.my">
+                    <a href="">
                     
                     	
                     	   
@@ -483,7 +483,7 @@ ul{
 
                         <span class="col4 align_center" style="padding-top:90px;">
                             <span class="reserve_status" style="float: right;">
-                                이용예정
+                               	이용대기
                             </span>
                         </span>
                           
