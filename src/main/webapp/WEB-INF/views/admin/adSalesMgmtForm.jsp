@@ -28,17 +28,17 @@
                         </ol>
                 <!-- 매출통계표 -->
                 <h2 style="font-weight: bold; color: gray;">&nbsp;매출 통계</h2>
-                <form action="">
+                <form id="salesListForm" action="selectSalesList.ad" method="post">
                 	<table id="chTable" style=" background: #e9ecef; text-align:center; width: 100%; height: 50px;">
 	                    <tr>
 	                        <td style="font-weight: bold; width: 25%;">예약일</td>
-	                        <td style="width: 30%;"><input type="date" >&nbsp;~&nbsp;<input type="date"></td>
+	                        <td style="width: 30%;"><input type="date" name="startDate">&nbsp;~&nbsp;<input type="date" name="endDate"></td>
 	                        <td style="font-weight: bold; width: 25%;">예약 공간</td>
 	                        <td>
-	                        	<select class="form-control" style="width: 50%; margin: auto 0;">
-	                        		<option >전체보기</option>
-	                        		<option >좌석</option>
-	                        		<option>공간</option>
+	                        	<select class="form-control" name="category" style="width: 50%; margin: auto 0;">
+	                        		<option value="0">전체보기</option>
+	                        		<option value="1">좌석</option>
+	                        		<option value="2">공간</option>
 	                        	</select>
 	                        </td>
 	                    </tr>
@@ -48,8 +48,14 @@
                 <br>
                 
                 <div align="center">
-                    <button class="searchBtn btn btn-secondary" >검색</button>
+                    <button class="searchBtn btn btn-secondary" id="searchBtn">검색</button>
                 </div>
+                
+                <script>
+                	$("#searchBtn").click(function(){
+                		$("#salesListForm").submit();
+                	});
+                </script>
                 <br><br>
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
 	                <thead>
