@@ -36,6 +36,7 @@
 	                        <td style="font-weight: bold; width: 25%;">예약 공간</td>
 	                        <td>
 	                        	<select class="form-control" style="width: 50%; margin: auto 0;">
+	                        		<option >전체보기</option>
 	                        		<option >좌석</option>
 	                        		<option>공간</option>
 	                        	</select>
