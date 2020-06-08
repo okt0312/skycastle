@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>네이버 로그인 성공</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"></script>
+<script src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
 <style>
   .insertMember{
     box-sizing: border-box;
@@ -49,19 +49,15 @@
     <!-- 3.회원가입완료 -->
     <div class="insertMember"> 
       <div class="title"><center>SKY CASTLE</center></div>
-        <center><p id="name"></p></center><br>
-        <center><span><p>네이버로 로그인 하셨습니다.</p>
+		<c:choose>
+			<c:when test="${ result != null }">
+				<center><span><p>네이버로 로그인 하셨습니다.</p></span></center>
+			</c:when>
+		</c:choose>
+       	
         <br><br>
         <center><button id="mainBtn"><a href="${pageContext.servletContext.contextPath}">메인으로가기</a></button></center>
     </div>
-    
-    <script>
-    	$(document.ready(function(){
-    		var name = ${result}.resonse.name;
-    		$("#name").html("환영합니다. " + name + "님");
-    	});
-    	
-    </script>
     
     <script>
     	$(function(){
@@ -69,8 +65,9 @@
         	$("body").fadeIn(1000);
         	
         	setTimeout(function(){$("body").fadeOut(1000);},1000);
-        	setTimeout(function(){location.href= "${pageContext.servletContext.contextPath}", 2000);
-    	})
+        	setTimeout(function(){
+        		location.href= "${pageContext.servletContext.contextPath}"}, 2000);
+    	});
     </script>
     
 </body>

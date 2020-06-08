@@ -21,5 +21,7 @@ public class Coupon {
 	private Date startDate;
 	private int expirationPeriod;
 	private double discountRate;
+	private Date endDate;
+	
 
 }

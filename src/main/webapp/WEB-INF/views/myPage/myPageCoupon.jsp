@@ -181,10 +181,10 @@ div {
 							
 							<tr>
 								<td>${o.couponName}</td>
-                                <td>${o.expirationPeriod}</td>
+                                <td>${o.startDate} ~ ${o.endDate}</td>
                                 <td></td>
                             </tr>
-                            
+                       	     
                          </c:forEach>
                            
                             

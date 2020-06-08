@@ -70,7 +70,8 @@
 				                            <tbody>
 				                               <c:forEach var="g" items="${ list }">
 								            	<tr>
-				                                    <td>${ g.groupNo }</td>
+				                                    <td>${ g.gnoticeNo }</td>
+				                                    <td>${ g.groupName }</td>
 				                                    <td>${ g.groupTitle }</td>
 				                                    <td>${ g.status }</td>
 				                                </tr>

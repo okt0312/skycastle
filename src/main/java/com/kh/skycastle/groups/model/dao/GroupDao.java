@@ -50,8 +50,8 @@ public class GroupDao {
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
-		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
+		System.out.println(status);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", status, rowBounds);
 	}
 	
 	/*

@@ -26,6 +26,7 @@
 		 <result column="START_DATE" property="startDate"/>
 		 <result column="EXPIRATION_PERIOD" property="expirationPeriod"/>
 		 <result column="DISCOUNT_RATE" property="discountRate"/>
+		 <result column="END_DATE" property="endDate"/>
 	</resultMap>
 	
 	
@@ -87,9 +88,10 @@
 	</select>	
 	
 	<select id="selectList" resultMap="couponResultSet">
-		SELECT *
-		 FROM COUPON
-		 ORDER BY COUPON_CODE DESC 
+		SELECT COUPON_CODE, COUPON_NAME, START_DATE, 
+            (START_DATE + EXPIRATION_PERIOD ) END_DATE, EXPIRATION_PERIOD, DISCOUNT_RATE
+			FROM COUPON
+			ORDER BY COUPON_CODE DESC
 	</select>
 	
 	<select id="idCheck" parameterType="string" resultType="_int">

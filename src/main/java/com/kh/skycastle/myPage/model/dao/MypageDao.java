@@ -82,7 +82,7 @@ public class MypageDao {
 		return sqlSession.selectOne("reservationMapper.spaceselectListCount");
 	}
 	
-	public ArrayList<Space> spaceselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+	public ArrayList<Space> spaceselectList(SqlSessionTemplate sqlSession, PageInfo pi, Member m) {
 		
 		
 		int offset = (pi.getCurrentPage() -1) * pi.getBoardLimit();

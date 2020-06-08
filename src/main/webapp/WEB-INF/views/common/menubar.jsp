@@ -91,7 +91,7 @@
                                         <li><a href="${pageContext.servletContext.contextPath}/" style='font-weight: 600;'>홈</a></li>
                                         <li><a href="seatMain.re" style="font-weight: 600;">좌석예약</a></li>
                                         <li><a href="spaceMain.re?currentPage=1" style="font-weight: 600;">공간예약</a></li>
-                                        <li><a href="groupList.gr?currentPage=1&status=''" style="font-weight: 600;">소모임</a></li>
+                                        <li><a href="groupList.gr?currentPage=1" style="font-weight: 600;">소모임</a></li>
                                         <li><a href="list.cs?currentPage=1" style="font-weight: 600;">고객센터</a>
                                             <ul class="dropdown">
                                                 <li><a href="list.cs?currentPage=1" style="font-weight: 600;">공지사항</a></li>
@@ -142,7 +142,7 @@
                                   <!-- Subscribe btn -->
                             <div class="subscribe-btn">
                             	<c:choose>
-                            		<c:when test="${ empty loginUser and empty result}">
+                            		<c:when test="${ empty loginUser && empty result}">
 		                                <a href="loginForm.me" class="btn subscribe-btn">로그인</a>
                             		</c:when>
                             		<c:otherwise>
