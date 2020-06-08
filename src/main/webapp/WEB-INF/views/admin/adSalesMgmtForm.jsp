@@ -34,8 +34,8 @@
 	                    <tr>
 	                        <td style="font-weight: bold; width: 25%;">예약일</td>
 	                        <td style="width: 30%;">
-	                        	<input type="date" name="startDate" value="${ adr.startDate }">&nbsp;~&nbsp;
-             					<input type="date" name="endDate" value="${ adr.endDate }">
+	                        	<input type="date" id="startDate" name="startDate" value="${ adr.startDate }">&nbsp;~&nbsp;
+             					<input type="date" id="endDate" name="endDate" value="${ adr.endDate }">
            					</td>
 	                        <td style="font-weight: bold; width: 25%;">예약 공간</td>
 	                        <td>
@@ -57,7 +57,18 @@
                 
                 <script>
                 	$("#searchBtn").click(function(){
-                		$("#salesListForm").submit();
+                		if($("#startDate").val() == "")
+               			{
+                			alertify.alert('오류', '날짜를 선택해주세요.');
+               			}
+                		else if($("#endDate").val() == "")
+               			{
+                			alertify.alert('오류', '날짜를 선택해주세요.');
+               			}
+                		else
+               			{
+               				$("#salesListForm").submit();
+               			}
                 	});
                 </script>
                 <br><br>
@@ -102,7 +113,7 @@
 	                	</c:choose>
 	                </tbody>
 	                <tfoot>
-	                	<tr >
+	                	<tr  style="background: #F6F6F6">
 	                		<td colspan="2">소계</td>
 	                		<c:choose>
 	                			<c:when test="${ list ne null }">
