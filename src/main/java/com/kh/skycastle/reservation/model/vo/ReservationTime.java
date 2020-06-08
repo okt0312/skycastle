@@ -1,5 +1,7 @@
 package com.kh.skycastle.reservation.model.vo;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,9 +13,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class StatusCount {
-	private int seatAllCount;
-	private int seatUsedCount;
-	private int seatUnUsedCount;
-	private int seatRepairingCount;
+public class ReservationTime {
+	private String usedDate;
+	private String startTime;
+	private String endTime;
 }

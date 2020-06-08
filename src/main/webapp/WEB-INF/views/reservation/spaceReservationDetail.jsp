@@ -165,7 +165,8 @@
                             <br>
                             <input type="hidden" name="userNo" value="${loginUser.userNo}">
                             <input type="hidden" name="refNo" value="${space.spaceNo}">
-                        
+                        	<input type="hidden" name="spaceName" value="${space.spaceName}">
+                        	<input type="hidden" name="changeName" value="${space.changeName}">
                             &nbsp;&nbsp;&nbsp;&nbsp;이용 공간 : <span>${space.spaceName}</span>
                             <br><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date"  type="date" value="" min="" max="">
@@ -350,9 +351,9 @@
 				//console.log(addTimeList.eq(0).text().substr(29,2));
 				console.log($("#start").val().substr(0,2));
 				for(var i=0; i<addTimeList.length; i++){
-					var includeDay =addTimeList.eq(i).text().substr(8,10);
-					var includeStartTime =addTimeList.eq(i).text().substr(21,2);
-					var includeEndTime =addTimeList.eq(i).text().substr(29,2);
+					var includeDay = addTimeList.eq(i).text().substr(8,10);
+					var includeStartTime = addTimeList.eq(i).text().substr(21,2);
+					var includeEndTime = addTimeList.eq(i).text().substr(29,2);
 					
 					if(addTimeList.eq(i).text() == addTimeText){
 						alert("이미 선택되었습니다.");	
@@ -391,7 +392,7 @@
 		
 		$("#final").click(function(){
 			if(addflag == true){
-				finalChoose =true;
+				finalChoose = true;
 				$("#total").val($("#totalCost").text());
 				$("#discountDiv").css("display","block");
 				console.log($("#total").val());
@@ -485,9 +486,9 @@
 			}else if($("#tileList").text()==''){
 				alert("시간 선택을 확인해주세요.");
 				return false;
-			}else if(finalChoose != 1){
+			}else if(finalChoose != true){
 				alert("최종선택을 해주세요.");
-				return true;
+				return false;
 			}
 	}
 	
