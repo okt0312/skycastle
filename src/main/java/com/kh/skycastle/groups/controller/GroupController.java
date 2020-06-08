@@ -111,17 +111,7 @@ public class GroupController {
 		
 		return "myPage/myPageGroupListView";
 	}
-	
-	@RequestMapping("detail.cs")
-	public ModelAndView selectNotice(int nno, ModelAndView mv) {
-		
-		Notice n = gService.selectNotice(nno);
-		mv.addObject("n", n);
-		mv.setViewName("groups/mygroupNoticeListView");
-		
-		return mv;
-		
-	}
+
 	
 	
 }
