@@ -11,12 +11,24 @@
 		<result column="ENROLL_DATE" property="enrollDate"/>
 		<result column="STATUS" property="status"/>
 </resultMap>
+
+<resultMap id="adEventResultSet" type="Event">
+		<id column="EVENT_NO" property="eventNo"/>
+		<result column="EVENT_TITLE" property="eventTitle"/>
+		<result column="EVENT_OPEN_TIME" property="eventOpenTime"/>
+		<result column="EVENT_CLOSE_TIME" property="eventCloseTime"/>
+		<result column="EVENT_REGISTER_DATE" property="eventRegisterDate"/>
+		<result column="EVENT_STATUS" property="eventStatus"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+	</resultMap>
   
   <!-- 공지사항 리스트조회 -->
   <select id ="selectNotice" resultMap="adNoticeResultSet">
   SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
   FROM NOTICE
+  WHERE STATUS='Y'
   </select>
+  
   <!--공지사항 상세페이지  -->
   <select id="selectNoDetail" resultMap="adNoticeResultSet">
   SELECT  NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,NOTICE_CONTENT
@@ -24,4 +36,25 @@
   WHERE NOTICE_NO =#{bno}
   </select>
   
+ 	<!--공지사항 수정용  -->
+ 	<update id="updateAdNotice" parameterType="Notice">
+ 	UPDATE NOTICE
+ 	   SET NOTICE_TITLE =#{noticeTitle},
+ 		   NOTICE_CONTENT =#{noticeContent},
+ 		   ENROLL_DATE =sysdate
+	WHERE NOTICE_NO =#{noticeNo}
+ 	</update>
+ 	
+ 	<!-- 공지사항 삭제요 -->
+ 	<delete id="deleteAdNotice" parameterType="_int">
+ 	UPDATE NOTICE
+ 	   SET STATUS='N'
+   WHERE NOTICE_NO =#{noticeNo}
+ 	</delete>
+ 	
+ 	<!-- 공지사항 등록용 -->
+ 	<insert id="insertAdNotice">
+ 	INSERT INTO NOTICE
+ 	VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{noticeContent}, sysdate, 'Y')
+ 	</insert>
 </mapper>

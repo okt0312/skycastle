@@ -80,6 +80,7 @@
     a:hover {
         color: #fdce07;
     }
+  
    
     </style>
 
@@ -111,11 +112,11 @@
             <ul class="myPage_header_menu" style="margin:auto;">
                
                
-                <li style="width: 20%; text-align: center;"><a href="rlist.bo?currentPage=1">이용현황</a></li>
-                <li style="width: 20%; text-align: center;"><a href="mygroupList.gr?currentPage=1&status='Y'">소모임관리</a></li>
-                <li style="width: 20%; text-align: center;"><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
-                <li style="width: 20%; text-align: center;"><a href="list.bo?currentPage=1">쿠폰함</a></li>
-                <li style="width: 20%; text-align: center;"><a href="PwdCheck.my">개인정보수정</a></li>
+                <li style="width: 20%; "><a href="rlist.bo?currentPage=1">이용현황</a></li>
+                <li style="width: 20%; "><a href="mygroupList.gr?currentPage=1&status='Y'">소모임관리</a></li>
+                <li style="width: 20%; "><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
+                <li style="width: 20%; "><a href="list.bo?currentPage=1">쿠폰함</a></li>
+                <li style="width: 10%; margin-left: 50px; "><a href="PwdCheck.my">개인정보수정</a></li>
                 
             </ul>
         </div>

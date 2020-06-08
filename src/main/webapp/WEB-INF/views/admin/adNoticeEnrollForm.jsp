@@ -48,18 +48,18 @@
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        <td style="text-align: center; font-size: x-large;"><input type="text"  style="width: 628px; float: left;" name="noticeTitle" placeholder="제목"></>
+                                        <td style="text-align: center; font-size: x-large;"><input type="text" id="noticeTitle" name="noticeTitle"  style="width: 628px; float: left;"  placeholder="제목"></>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="noticeContent" id="contents" placeholder="내용"></textarea>
+                                            <textarea rows=20 cols=85 name="noticeContent" id="noticeContent" placeholder="내용"></textarea>
                                         </td>
                                     </tr>
                                 </table>    
                                 <p align="center">
                                     <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
-                                    <input type="submit" id="" value="수정" class="btn btn-primary" >
-                                    <input type="button" value="삭제" class="btn btn-danger">
+                                    <input type="submit" id="" value="등록" class="btn btn-primary" >
+                                   
                                 </p>
                             </div>
                             </table>

@@ -52,15 +52,7 @@
             color: black;
         }
         
-        /* 소모임메뉴바 바꿀거 */
-		/* .groups_header_menu {
-		    margin: auto; 
-		    padding: 0; 
-		    width: 1400px; 
-		    font-size: 23px;
-		    font-weight: bold;
-		    text-align: right;
-		} */
+        /* 소모임메뉴바 */
 		#groups_header_menu ul {
 		    list-style:none; 
 		    margin: 7px 0; 
@@ -88,6 +80,46 @@
 		    color: black;
 		}
 		a:hover { color: #fdce07; }
+		
+		/*  */
+		.grouplist:hover{
+		    text-decoration: underline;
+		    color: #fdce07;
+		    cursor: pointer;
+		}
+		/* 페이징바 css */
+		.paging{
+		    padding:19px;
+		    text-align:center;
+		}
+		.paging a{
+		    width:23px;
+		    height:23px;
+		    padding-top:2px;
+		    display:inline-block;
+		    vertical-align:middle;
+		    text-decoration: none;
+		    color: #333333;
+		}
+		.paging a:hover{text-decoration:underline;}
+		.paging .btn_arr{text-decoration:none;}
+		.paging .btn_arr{
+		    margin:0 3px;
+		    padding-top:0;
+		    border:1px solid #ddd;
+		    background: #fdce07;
+		    border-radius:30px;
+		    font-size: 9px;
+		    line-height: 20px;
+		}
+		.paging .on{
+		    padding-top:1px;
+		    height:22px;
+		    border-radius:30px;
+		    font-weight:bold;
+		    text-decoration: underline;
+		}
+		.paging .on:hover{text-decoration:none;}
     </style>
 </head>
 <body>
@@ -121,13 +153,13 @@
         
             <ul id="groups_header_menu" style="margin-right: 10px;">
             
-                <li><a href="groupList.gr?currentPage=1&status='Y'">참가중인 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='Y'">참가중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status=">찜한 소모임</a></li>
+                <li><a href="">찜한 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status='U'">대기중인 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='U'">대기중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status='N'">지난 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='N'">지난 소모임</a></li>
             </ul>
         </div>
 		<br><br><br><br>
@@ -172,10 +204,9 @@
 	    </c:forEach>
 	    
 		<script>
-			$(function(){
-				$(".grouplist").click(function(){
-					location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val();
-				});
+			$(".grouplist").click(function(){
+				location.href = "groupDetail.gr?gno=" + $(this).children("#group_no").val() 
+				+ "&userNo=" + "${ loginUser.userNo }";
 			});
 		</script>
 		<br>

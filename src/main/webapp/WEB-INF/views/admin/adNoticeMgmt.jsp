@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 관리</title>
+<style>
+ /* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
+   
+
+</style>
+
 </head>
 <body>
 
@@ -30,9 +40,7 @@
                                <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">공지사항 조회</b></div>
                                <div class="card-body">
                                    <div class="table-responsive">
-                                       <div>
-                                         
-                                       </div>
+                                      
 
 	                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
 					                            <thead>

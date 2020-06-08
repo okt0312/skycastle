@@ -21,7 +21,8 @@
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Dips" alias="Dips"/>
 		<typeAlias type="com.kh.skycastle.reservation.model.vo.Space" alias="Space"/>
 		<typeAlias type="com.kh.skycastle.member.model.dto.GradeDto" alias="GradeDto"/>		
-		
+		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdSales"/>	
+		<typeAlias type="com.kh.skycastle.admin.model.dto.SalesChart" alias="SalesChart"/>	
 	</typeAliases>
 	
 	<mappers>
@@ -33,6 +34,7 @@
 		<mapper resource="mappers/cs-mapper.xml"/>
 		<mapper resource="mappers/reservation-mapper.xml"/>
 		<mapper resource="mappers/adBoard-mapper.xml"/>
+		<mapper resource="mappers/adSales-mapper.xml"/>
 	</mappers>
 	
 	

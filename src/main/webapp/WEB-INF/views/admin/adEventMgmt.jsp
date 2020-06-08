@@ -33,48 +33,44 @@
                                           
 
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
-                                                <thead>
-                                                    <tr>
-                                                        <th>번호</th>
-                                                        <th>제목 </th>
-                                                        <th>작성일</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                   
-                                                    <tr>
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <input type="button" value="등록" class="btn btn-primary">
+					                            <thead>
+					                                <tr>
+					                                    <th>번호</th>
+					                                    <th>이벤트 제목</th>
+					                                    <th>시작일</th>
+					                                    <th>종료일</th>
+					                                    <th>등록일</th>
+					                                    <th>상태</th>
+					                                </tr>
+					                            </thead>
+					                            <tbody>
+					                               <c:forEach var="e" items="${ list }">
+					                               	<tr onclick="adEventDetail(${ e.eventNo });">
+					                                    <td>${ e.eventNo }</td>
+					                                    <td>${ e.eventOpenTime }</td>
+					                                    <td>${ e.eventCloseTime }</td>
+					                                    <td>${ e.eventRegisterDate }</td>
+					                                    <td>${ e.eventStatus }</td>
+					                                    <td>${ e.changeName }</td>
+					                                </tr>
+					                               </c:forEach>
+					                            </tbody>
+					                        </table>
+					                   <!--  <input type="button" value="등록" class="btn btn-primary" id="adNoEnroll"> -->
+					                    <a class="btn btn-secondary"  href="eventEnrollForm.ad">등록</a>
+			                        <script>
+						            //테이블 tr눌러서 상세 불러오기
+						            	$(function(){
+						            		
+						            		$("#dataTable tbody tr").click(function(){
+						            			location.href ="eventDetail.ad?eno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+						            		
+						            		});
+						            	});
+						            
+						            
+						            </script>
+                                            
                                         </div>
                                     </div>
                                 </div>

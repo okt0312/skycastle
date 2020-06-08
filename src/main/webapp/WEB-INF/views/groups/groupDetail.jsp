@@ -160,6 +160,11 @@
 	
 		
     <script>
+		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
+		$("#loginBtn").click(function(){
+			location.href = "loginForm.me";
+		});
+		
     	$("#apply_btn").click(function(){
 			
 			 var userNo = "${ loginUser.userNo }";
@@ -245,11 +250,6 @@
     		 });
     	});
 		*/
-		
-		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
-		$("#loginBtn").click(function(){
-			location.href = "loginForm.me";
-		});
     </script>
 
 </body>

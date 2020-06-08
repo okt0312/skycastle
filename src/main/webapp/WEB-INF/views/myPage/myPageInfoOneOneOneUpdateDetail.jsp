@@ -54,6 +54,7 @@ div {
 	height: 2px;
 	border: 0px;
 	width: 370px;
+	margin:auto;
 }
 
 
@@ -166,7 +167,7 @@ td {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${ loginUser.userName }</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color: black; margin-top: 10px;">문의하신 내용은 총 1건입니다.</p>
 						</th>
 						
 						
@@ -190,8 +191,8 @@ td {
 			<div class="inner">
                 <br> <br>
 
-                <hr>
-
+                <hr width="50%;" style="margin: auto;">
+				
                 <br><br><br>
 
 				<form id="qupdateForm" method="post" action="qqupdate.bo">
@@ -199,23 +200,29 @@ td {
                 <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
 
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.userName }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">아이디</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
+                    </tr>
+                    
+                    <tr>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">연락처</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.phone }</td>
                     </tr>
 
                   
-                    
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; font-weight: bolder;">${loginUser.userName }</td>
                     </tr>
    						
                    	
                     <tr>
                         <td  width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
+                        <td style="padding-left: 1%;  padding-top: 1%;" valign="top">
                         
-                        <input id="title1" type="text" name="qnaTitle" value="${ q.qnaTitle }" style="font-size: 1.1em; background-color: white;">
+                        <textarea  id="title1" name="qnaTitle">
+                        ${ q.qnaTitle }
+                        </textarea>
                         
                         </td>
                     </tr>
@@ -224,16 +231,13 @@ td {
                     
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <input id="title2" name="qnaContent" value="${q.qnaContent}" style="font-size: 1.1em; background-color: white;">
-                        </td>
+						<td style="padding-left: 1%;  padding-top: 1%;" valign="top">
+                            <textarea id="title2" name="qnaContent">
+                            	${q.qnaContent}
+                            </textarea>
+                       	</td>
                     </tr>
-                    <tr>
-                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">답변</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.0em; color:cornflowerblue; background-color: white;" disabled>${q.qnaReply}</textarea>
-                        </td>
-                    </tr>
+                  
                   	
                         
                 </table>
