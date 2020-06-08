@@ -142,7 +142,7 @@
                                   <!-- Subscribe btn -->
                             <div class="subscribe-btn">
                             	<c:choose>
-                            		<c:when test="${ empty loginUser }">
+                            		<c:when test="${ empty loginUser and empty result}">
 		                                <a href="loginForm.me" class="btn subscribe-btn">로그인</a>
                             		</c:when>
                             		<c:otherwise>

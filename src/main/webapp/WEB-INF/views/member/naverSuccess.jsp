@@ -44,7 +44,6 @@
   }
   </style>
 </head>
-<body>
 <body data-spy="scroll" data-target="#navbar-example">
 
     <!-- 3.회원가입완료 -->
@@ -57,11 +56,22 @@
     </div>
     
     <script>
-    	$(function(){
+    	$(document.ready(function(){
     		var name = ${result}.resonse.name;
     		$("#name").html("환영합니다. " + name + "님");
     	});
+    	
     </script>
-</body>
+    
+    <script>
+    	$(function(){
+    		$("body").hide();
+        	$("body").fadeIn(1000);
+        	
+        	setTimeout(function(){$("body").fadeOut(1000);},1000);
+        	setTimeout(function(){location.href= "${pageContext.servletContext.contextPath}", 2000);
+    	})
+    </script>
+    
 </body>
 </html>
