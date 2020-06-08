@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdGroupsService;
+import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 
@@ -227,8 +228,14 @@ public class AdGroupsController {
 	
 	//메뉴바에서 소모임 게시판관리 페이지 눌렀을때 이동
 	@RequestMapping("groupBoMgmt.ad")
-	public String adGroupBoMgmt(){
-		return "admin/adGroupBoMgmt";
+	public ModelAndView adGroupBoMgmt(ModelAndView mv){
+		ArrayList<GroupNotice> list = adGrService.selectGrBoard();
+		
+		mv.addObject("list", list).setViewName("admin/adGroupBoMgmt");
+		
+		return mv;
+		
+		
 	}
 	
 	

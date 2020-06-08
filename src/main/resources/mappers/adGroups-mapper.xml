@@ -17,16 +17,17 @@
 		<result column="END_DATE" property="endDate"/>
 </resultMap>
 
-<!-- 소모임 공지사항 디비 
-<resultMap type="GroupsNotice" id="adGroupsNoticeResultSet">
-	<id column="GNOTICE_NO" property="gNoticeNo"/>
+<!-- 소모임 공지사항 디비 -->
+<resultMap type="GroupNotice" id="adGroupsNoticeResultSet">
+	<id column="GNOTICE_NO" property="gnoticeNo"/>
 		<result column="GROUP_NO" property="groupNo"/>
-		<result column="GNOTICE_TITLE" property="gNoticeTitle"/>
-		<result column="GNOTICE_CONTENT" property="gNoticeContent"/>
+		<result column="GNOTICE_TITLE" property="gnoticeTitle"/>
+		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
 		<result column="ENROLL_DATE" property="enrollDate"/>
 		<result column="STATUS" property="status"/>
+		<result column="GROUP_TITLE" property="groupTitle"/>
 </resultMap>
--->
+
 
 	<!--소모임조회 게시글리스트 하나하나 불러오는sql -->
 	<select id="selectGroups" resultMap="adGroupsResultSet">
@@ -90,5 +91,11 @@
            #{type}
         </foreach>
 	</update>
+	
+	<select id="selectGrBoard" resultMap="adGroupsNoticeResultSet" >
+	SELECT N.GNOTICE_NO, G.GROUP_TITLE, N.GNOTICE_TITLE, N.ENROLL_DATE, N.STATUS
+	FROM GROUP_NOTICE N
+	JOIN GROUPS G USING(GROUP_NO)
+	</select>
 	
 </mapper>

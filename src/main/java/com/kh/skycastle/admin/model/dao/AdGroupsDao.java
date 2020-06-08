@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
 
 //소모임 관리(소모임조회, 개설관리, 소모임게시글관리)관련 Dao입니다
 @Repository
@@ -47,8 +47,15 @@ public class AdGroupsDao {
 		}
 		
 		//소모임개설관리 거절메소드
-				public int rejectionGroups(SqlSessionTemplate sqlSession, String[] grCoCheck ){
-					return sqlSession.update("adGroupsMapper.rejectionGroups", grCoCheck);
-				}
+		public int rejectionGroups(SqlSessionTemplate sqlSession, String[] grCoCheck ){
+			return sqlSession.update("adGroupsMapper.rejectionGroups", grCoCheck);
+		}
 		
+		
+		//소모임 공지사항 관리
+		
+		public ArrayList<GroupNotice> selectGrBoard(SqlSessionTemplate sqlSession){
+			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGrBoard");
+		}		
+				
 }

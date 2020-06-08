@@ -21,5 +21,6 @@ public class GroupNotice {
 	private String gnoticeContent;
 	private Date enrollDate;
 	private String status;
+	private String groupTitle;
 
 }

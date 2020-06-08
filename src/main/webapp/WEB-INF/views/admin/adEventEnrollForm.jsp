@@ -16,6 +16,9 @@
         width:100%;
     }
     .boardList{
+    background-color:gray;
+    	width:700px;
+    	hight:500px;
         margin: auto;
         border-top:1px solid rgb(175, 175, 175);
         margin:10px;

@@ -71,8 +71,9 @@
 				                               <c:forEach var="g" items="${ list }">
 								            	<tr>
 				                                    <td>${ g.gnoticeNo }</td>
-				                                    <td>${ g.groupName }</td>
 				                                    <td>${ g.groupTitle }</td>
+				                                    <td>${ g.gnoticeTitle }</td>
+				                                    <td>${ g.enrollDate }</td>
 				                                    <td>${ g.status }</td>
 				                                </tr>
 				                               </c:forEach>
@@ -84,7 +85,7 @@
 			            	$(function(){
 			            		
 			            		$("#dataTable tbody tr").click(function(){
-			            			location.href ="adDetail.bo?bno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+			            			location.href ="adDetail.bo?gno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
 			            		
 			            		});
 			            	});
