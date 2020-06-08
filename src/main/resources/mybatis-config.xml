@@ -36,6 +36,8 @@
 		<mapper resource="mappers/reservation-mapper.xml"/>
 		<mapper resource="mappers/adBoard-mapper.xml"/>
 		<mapper resource="mappers/adSales-mapper.xml"/>
+		<mapper resource="mappers/adSpace-mapper.xml"/>
+		
 	</mappers>
 	
 	

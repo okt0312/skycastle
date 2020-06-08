@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="adSpaceMapper">
+
+<resultMap type="Space" id="adSpaceResultSet">
+		<id column="SPACE_NO" property="spaceNo"/>
+		<result column="SPACE_NAME" property="spaceName"/>
+		<result column="PERSONNEL" property="personnel"/>
+		<result column="SPACE_PRICE" property="spacePrice"/>
+		<result column="STATUS" property="status"/>
+		<result column="change_name" property="changeName"/>
+	</resultMap>
+
+<select id="selectSpace" resultMap="adSpaceResultSet">
+SELECT SPACE_NO, SPACE_NAME, PERSONNEL, SPACE_PRICE, STATUS
+FROM TB_SPACE
+</select>
+
+</mapper>
