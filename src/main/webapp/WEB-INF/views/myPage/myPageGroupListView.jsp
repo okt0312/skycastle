@@ -121,13 +121,13 @@
         
             <ul id="groups_header_menu" style="margin-right: 10px;">
             
-                <li><a href="groupList.gr?currentPage=1&status='Y'">참가중인 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='Y'">참가중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status=">찜한 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status=">찜한 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status='U'">대기중인 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='U'">대기중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="groupList.gr?currentPage=1&status='N'">지난 소모임</a></li>
+                <li><a href="mygroupList.gr?currentPage=1&status='N'">지난 소모임</a></li>
             </ul>
         </div>
 		<br><br><br><br>
