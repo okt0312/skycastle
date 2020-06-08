@@ -55,6 +55,7 @@ div {
 	height: 2px;
 	border: 0px;
 	width: 370px;
+	margin:auto;
 }
 
 
@@ -154,7 +155,7 @@ td {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${ loginUser.userName }</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color: black; margin-top: 10px;">문의하신 내용은 총 1건입니다.</p>
 						</th>
 						
 						
@@ -178,11 +179,11 @@ td {
 			<div class="inner">
                 <br> <br>
 
-                <hr width="50%">
+                <hr width="50%" style="margin:auto;">
 
                 <br><br><br>
 
-                <table id="middleTable" width="900px" height="500px" align="center">
+                <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
 
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
