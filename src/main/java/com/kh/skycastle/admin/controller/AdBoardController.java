@@ -116,4 +116,11 @@ public class AdBoardController {
 			return mv;
 		}
 		
+		//이벤트 페이지 상세조회
+		//@RequestMapping("eventDetail.ad")
+		
+		
+		
+		
+		
 }

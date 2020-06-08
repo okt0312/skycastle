@@ -53,11 +53,13 @@ public class AdBoardServiceImpl implements AdBoardService {
 	public ArrayList<Event> selectEvent() {
 		return adBoDao.selectEvent(sqlSession);
 	}
+	//이벤트 상세페이지 조회
 	@Override
 	public Notice selectEvDetail(int eno) {
-		// TODO Auto-generated method stub
-		return null;
+		return adBoDao.selectEvDetail(sqlSession,eno);
+	
 	}
+	
 	@Override
 	public int insertAdEvent(Event e) {
 		// TODO Auto-generated method stub
