@@ -120,6 +120,9 @@ div {
 }
 .paging .on:hover{text-decoration:none;}
 
+
+
+
 /* 중간버튼 스타일 */
 
 /* 중간버튼 스타일 */
@@ -146,7 +149,7 @@ div {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${loginUser.userName}</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color: black; margin-top: 10px;">문의하신 내용은 총 1건 입니다.</p>
 						</th>
 						
 						
