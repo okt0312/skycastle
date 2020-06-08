@@ -76,20 +76,8 @@ public class MemberController {
 		// 로그인 사용자 정보 읽어오기 
 		apiResult = naverLoginBO.getUserProfile(oauthToken);
 		
-		/* String 형식의 apiResult를 json 형태로 바꿈 
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(apiResult);
-		JSONObject jsonObj = (JSONObject)obj;
-		
-		// 데이터 파싱
-		JSONObject response_obj = (JSONObject)jsonObj.get("response");
-		String nickname = (String)response_obj.get("nickname");
-		
-		session.setAttribute("sessionId", nickname);
-		session.setAttribute("msg", "네이버 아이디로 로그인 하셨습니다.");
-		*/
 		model.addAttribute("result", apiResult);
-		
+		session.setAttribute("result", apiResult);
 		return "member/naverSuccess";
 	}
 
