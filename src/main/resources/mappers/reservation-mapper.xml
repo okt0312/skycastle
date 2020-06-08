@@ -174,11 +174,13 @@
 	
 	<!-- 공간 예약 조회 -->
 	<select id="spaceselectList" resultMap="ReservationTimeResultSet">
-	SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, (SELECT SPACE_NAME
-		FROM RESERVATION R
-		JOIN TB_SPACE TS ON(R.REF_NO = TS.SPACE_NO)) SPACE_NAME
-		FROM RESERVATION R
-		JOIN RESERVATION_TIME RT USING(BOOK_NO)
+			SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, (SELECT SPACE_NAME
+					 FROM RESERVATION R
+					JOIN TB_SPACE TS ON(R.REF_NO = TS.SPACE_NO)
+					WHERE R.USER_NO = #{userNo} ) SPACE_NAME
+			FROM RESERVATION R
+			JOIN RESERVATION_TIME RT USING(BOOK_NO)
+			WHERE USER_NO = #{userNo} AND CATEGORY = 2
   	</select>
   	
   	<!-- 좌석 총 게시글 갯수 -->
@@ -190,10 +192,13 @@
   	
   	<!-- 좌석 예약 조회 -->
 	<select id="seatselectList" resultMap="ReservationTimeResultSet">
-	 SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, (SELECT SEAT_NO
-		FROM RESERVATION S
-		JOIN SEAT TS ON(S.REF_NO = TS.SEAT_NO)) SEAT_NO
-		FROM RESERVATION S
-		JOIN RESERVATION_TIME RT USING(BOOK_NO)
+		SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, (SELECT SEAT_NO
+                                                		        FROM RESERVATION S
+                                             		       		JOIN SEAT TS ON(S.REF_NO = TS.SEAT_NO)
+                                           			            WHERE USER_NO = #{userNo} ) SEAT_NO
+			FROM RESERVATION S
+			JOIN RESERVATION_TIME RT USING(BOOK_NO)
+			WHERE USER_NO = #{userNo} AND CATEGORY = 1
+        
 	</select> 
 </mapper>

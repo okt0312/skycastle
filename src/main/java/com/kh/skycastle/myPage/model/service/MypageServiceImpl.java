@@ -128,8 +128,8 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public ArrayList<Space> spaceselectList(PageInfo pi) {
-		return pDao.spaceselectList(sqlSession, pi);
+	public ArrayList<Space> spaceselectList(PageInfo pi, Member m) {
+		return pDao.spaceselectList(sqlSession, pi, m);
 	}
 
 

@@ -394,11 +394,11 @@ ul{
                     <ul>
 
                         <li>
-                            <a href="rlist.bo" class="">공간예약</a>
+                            <a href="rlist.bo?currentPage=1" class="">공간예약</a>
                         </li>
 
                         <li>
-                            <a href="seat.my" class="active">좌석예약</a>
+                            <a href="seat.my?currentPage=1" class="active">좌석예약</a>
                         </li>
 
                     </ul>

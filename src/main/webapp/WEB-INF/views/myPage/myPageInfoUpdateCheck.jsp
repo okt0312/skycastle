@@ -63,6 +63,7 @@ div {
 	height: 2px;
 	border: 0px;
 	width: 370px;
+	margin:auto;
 	
 }
 
@@ -191,7 +192,7 @@ input[type=password]{font-family:'inherit';}
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;"></b>개인정보보호를 위한 확인절차 단계입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">회원정보를 수정하시려면 비밀번호를 입력해주세요.</p>
+							<p style="font-size: 0.7em; color: black; margin-top: 15px;">회원정보를 수정하시려면 비밀번호를 입력해주세요.</p>
 						</th>
 						
 					</tr>

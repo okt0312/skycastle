@@ -187,10 +187,8 @@ height: 40px;
 			<table id="middleTable" style="margin: auto;">
                 
 				<tr>
-					<td valign="top"
-						style="padding-top: 3%; width: 80px; font-size: 20px; padding-left: 7px;">
-					</td>
-					<td style="padding-top: 3%; width: 920px; padding-right: 30px;" colspan="3">
+					
+					<td style="padding-top: 3%; width: 100%; padding-right: 30px;" colspan="3">
 						<textarea class="aa" name="leaveReason" id="leaveReason" cols="100" rows="10"
 							style="resize:none;"></textarea>
 					</td>

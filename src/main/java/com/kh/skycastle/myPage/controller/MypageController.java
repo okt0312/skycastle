@@ -48,6 +48,8 @@ public class MypageController {
 		
 		ArrayList<Coupon> list = pService.selectList(pi);
 		
+		
+		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		
@@ -167,7 +169,7 @@ public class MypageController {
 	public String deleteMember(Member m, Model model) {
 		int result = pService.deleteMember(m);
 		
-		System.out.println(m);
+	
 		
 		if(result > 0) {
 			
@@ -332,7 +334,10 @@ public class MypageController {
 	
 	
 	@RequestMapping("rlist.bo")
-	public String spaceselectList(int currentPage, Model model) {
+	public String spaceselectList(int currentPage, Model model, HttpSession session, Member m) {
+		
+		
+		
 		
 		int rlistCount = pService.spaceselectListCount();
 		
@@ -340,11 +345,12 @@ public class MypageController {
 		
 		
 		
-		ArrayList<Space> rlist = pService.spaceselectList(pi);
+		ArrayList<Space> rlist = pService.spaceselectList(pi,m);
 		
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("rlist", rlist);
+		
 		
 		return "myPage/myPageSpaceReservation";
 	}
