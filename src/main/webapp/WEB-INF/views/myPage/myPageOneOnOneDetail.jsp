@@ -186,21 +186,27 @@ td {
                 <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
 
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.userName }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">아이디</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
                     </tr>
-
-                  
+					
+                  	
                     
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">연락처</td>
+                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.phone}</td>
                     </tr>
    						
                    	
+                   	
+                   	<tr>
+                   	 	<td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; font-weight: bolder;">${ loginUser.userName }</td>
+                   	</tr>
+                   	
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">제목</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${q.qnaTitle}</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; font-weight: bolder;">${q.qnaTitle}</td>
                     </tr>
                     
                     <!-- 
@@ -222,14 +228,14 @@ td {
                     
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.1em; background-color: white;" disabled>${q.qnaContent}</textarea>
+                        <td style="padding-left: 1%;   padding-top: 1%;" valign="top">
+                            <textarea id="contentArea" style=" font-weight:bolder; background-color: white;" disabled>${q.qnaContent}</textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">답변</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-                            <textarea id="contentArea" style="font-size: 1.0em; color:cornflowerblue; background-color: white;" disabled>${q.qnaReply}</textarea>
+                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%; padding-left: 3px;">답변</td>
+                        <td style="padding-left: 1%; padding-top: 1%;" valign="top">
+                            <textarea id="contentArea" style="font-weight:bolder; color:cornflowerblue; background-color: white;" disabled>${q.qnaReply}</textarea>
                         </td>
                     </tr>
                   	
