@@ -38,22 +38,26 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4"><b>공지사항  관리</b></h1>
+                        <h1 class="mt-4"><b>이벤트  관리</b></h1>
                         <ol class="breadcrumb mb-4" >
                             <li class="breadcrumb-item"><a href="index.html" style="color:black"><b>HOME</b></a></li>
-                            <li class="breadcrumb-item active"><a style="color:black">공지사항 등록</a></li>
+                            <li class="breadcrumb-item active"><a style="color:black">이벤트 등록</a></li>
                         </ol>
                         <!-- 게시글  시작 -->
-                        <form id="noticeEnrollForm" action="noticeInsert.ad">
+                        <form id="eventEnrollForm" action="eventInsert.ad">
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
                                         <td style="text-align: center; font-size: x-large;"><input type="text" id="noticeTitle" name="noticeTitle"  style="width: 628px; float: left;"  placeholder="제목"></>
                                     </tr>
+                                    
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="noticeContent" id="noticeContent" placeholder="내용"></textarea>
+                                            <input type="file" id="upfile" class="form-control-file border" name="uploadFile">
                                         </td>
+                                        <tr>
+                                    	시작일:<input type="date" name="eventOpenTime">&nbsp; 종료일:<input type="date" name="eventCloseTime">
+                                    </tr>
                                     </tr>
                                 </table>    
                                 <p align="center">

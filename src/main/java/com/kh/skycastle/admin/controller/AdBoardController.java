@@ -30,7 +30,7 @@ public class AdBoardController {
 			mv.addObject("list", list).setViewName("admin/adNoticeMgmt");
 			return mv;
 		}
-		//공지사항 등록
+		//공지사항 등록폼
 		@RequestMapping("noticeEnrollForm.ad")
 		public String adNoEnrollForm() {
 			return ("admin/adNoticeEnrollForm");
@@ -114,6 +114,12 @@ public class AdBoardController {
 			
 			mv.addObject("list", list).setViewName("admin/adEventMgmt");
 			return mv;
+		}
+		
+		//이벤트 등록폼
+		@RequestMapping("eventEnrollForm.ad")
+		public String adEvEnrollForm() {
+			return ("admin/adEventEnrollForm");
 		}
 		
 		//이벤트 페이지 상세조회
