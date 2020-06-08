@@ -91,7 +91,7 @@
                                         <li><a href="${pageContext.servletContext.contextPath}/" style='font-weight: 600;'>홈</a></li>
                                         <li><a href="seatMain.re" style="font-weight: 600;">좌석예약</a></li>
                                         <li><a href="spaceMain.re?currentPage=1" style="font-weight: 600;">공간예약</a></li>
-                                        <li><a href="groupList.gr?currentPage=1&status=''" style="font-weight: 600;">소모임</a></li>
+                                        <li><a href="groupList.gr?currentPage=1" style="font-weight: 600;">소모임</a></li>
                                         <li><a href="list.cs?currentPage=1" style="font-weight: 600;">고객센터</a>
                                             <ul class="dropdown">
                                                 <li><a href="list.cs?currentPage=1" style="font-weight: 600;">공지사항</a></li>
