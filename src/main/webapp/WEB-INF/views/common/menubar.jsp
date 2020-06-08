@@ -149,6 +149,7 @@
                             			    <a href="logout.me" class="btn subscribe-btn">로그아웃</a>
                             		</c:otherwise>
                             	</c:choose>
+                         
                             </div>
                             </div>
                         </nav>

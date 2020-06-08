@@ -103,7 +103,7 @@
           <input type="submit" id="loginBox" name="login" value="로그인"><br>
           <!-- 네이버로 로그인 버튼 노출 영역 -->
           <div>
-        	<a href=><img id="naverLogin" src="resources/images/naverlogo.PNG"></a>
+        	<a href="${url}"><img id="naverLogin" src="resources/images/naverlogo.PNG"></a>
           </div>	
           <div class="loginBtn">
             <button id="searchPwd" type="button" onclick="postFormSubmit(2);">비밀번호 찾기</button>

@@ -1,14 +1,14 @@
 package com.kh.skycastle.member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -37,9 +38,59 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender mailSender;
 
+	// NaverLoginBO 
+	private NaverLoginBO naverLoginBO;
+	private String apiResult = null;
+	
+	@Autowired
+	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
+		this.naverLoginBO = naverLoginBO;
+	}
+	
+	/*
 	@RequestMapping("loginForm.me")
 	public String loginForm() {
 		return "member/loginForm";
+	}
+	*/
+	
+	@RequestMapping("loginForm.me")
+	public String login(Model model, HttpSession session) {
+		
+		// 네이버 아이디로 인증 url을 생성하기 위하여 naverLoginBO 클래스의 getAuthorizationUrl 메소드 호출
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		
+		System.out.println("네이버" + naverAuthUrl);
+		
+		// 네이버 
+		model.addAttribute("url", naverAuthUrl);
+		
+		return "member/loginForm";
+	}
+	
+	@RequestMapping("/callback")
+	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
+		System.out.println("callback");
+		OAuth2AccessToken oauthToken;
+		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		// 로그인 사용자 정보 읽어오기 
+		apiResult = naverLoginBO.getUserProfile(oauthToken);
+		
+		/* String 형식의 apiResult를 json 형태로 바꿈 
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(apiResult);
+		JSONObject jsonObj = (JSONObject)obj;
+		
+		// 데이터 파싱
+		JSONObject response_obj = (JSONObject)jsonObj.get("response");
+		String nickname = (String)response_obj.get("nickname");
+		
+		session.setAttribute("sessionId", nickname);
+		session.setAttribute("msg", "네이버 아이디로 로그인 하셨습니다.");
+		*/
+		model.addAttribute("result", apiResult);
+		
+		return "member/naverSuccess";
 	}
 
 	@RequestMapping("login.me")
