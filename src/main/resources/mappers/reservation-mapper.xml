@@ -93,7 +93,7 @@
 	
 	<insert id="insertReservation" parameterType="Reservation">
 		insert into reservation
-		values(seq_reserveno.nextval, #{userNo}, 1, 
+		values(seq_reserveno.nextval, #{userNo}, #{category}, 
 		#{refNo}, #{couponCode}, #{totalCost}, sysdate, 'X', #{gradeDiscount})
 	</insert>
 	
@@ -137,6 +137,11 @@
 		join attachment on(space_no=ref_bno)
 		where  group_category=1 and space_no=#{spaceNo}
 	</select>
+	
+	<insert id="insertReservationTimeArray" parameterType="ReservationTime">
+		insert into reservation_time
+		values(seq_reserveno.currval, #{usedDate}, #{startTime}, #{endTime})
+	</insert>
 	
 	
 	

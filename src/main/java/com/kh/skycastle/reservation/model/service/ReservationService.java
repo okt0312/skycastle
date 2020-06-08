@@ -43,4 +43,6 @@ public interface ReservationService {
 	//10. 공간 정보 조회
 	Space selectSpace(int spaceNo);
 	
+	//11. 공간 예약 정보 인설트 
+	int insertSpaceReservation(Reservation reservation);
 }

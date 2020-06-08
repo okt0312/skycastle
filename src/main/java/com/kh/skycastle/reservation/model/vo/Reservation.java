@@ -23,7 +23,7 @@ public class Reservation {
 	private Date bookEnrollDate;
 	private String status; //관리자페이지에서 확인 상태용
 	private double gradeDiscount;
-	private Date usedDate;
+	private String usedDate;
 	private String startTime;
 	private String endTime;
 	private String spaceName;	// 마이페이지 공간 조회용
@@ -31,4 +31,5 @@ public class Reservation {
 	
 	private int seatNo; //좌석현황 조회시 사용
 	private String seatStatus; // 좌석 사용가능/불가능 확인용
+	private String changeName; //공간결제 상세페이지에서 사용
 }
