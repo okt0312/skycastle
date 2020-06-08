@@ -100,6 +100,12 @@ public class ReservationServiceImpl implements ReservationService{
 		
 	}
 
+	@Override
+	public ArrayList<Reservation> selectSpaceReservationTime(Reservation reservation) {
+		
+		return rDao.selectSpaceReservationTime(sqlSession,reservation);
+	}
+
 	
 
 }

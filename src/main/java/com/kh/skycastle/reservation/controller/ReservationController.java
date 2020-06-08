@@ -199,6 +199,16 @@ public class ReservationController {
 		
 	}
 	
+
+	@ResponseBody
+	@RequestMapping(value="selectSpaceReservationTime.re",produces="aplication/json; charset=utf-8")
+	public String selectSpaceReservationTime(Reservation reservation){
+		
+		ArrayList<Reservation> ReservationTime = rService.selectSpaceReservationTime(reservation);
+		//System.out.println(ReservationTime);
+		return new Gson().toJson(ReservationTime);
+		
+	}
 	
 
 	

@@ -45,4 +45,7 @@ public interface ReservationService {
 	
 	//11. 공간 예약 정보 인설트 
 	int insertSpaceReservation(Reservation reservation);
+	
+	//12 . 공간 해당날짜 예약 정보조회
+	ArrayList<Reservation> selectSpaceReservationTime(Reservation reservation);
 }

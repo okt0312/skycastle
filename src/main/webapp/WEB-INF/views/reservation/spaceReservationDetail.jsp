@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>좌석예약</title>
+    <title>공간예약</title>
     <style>
     div{
         /* border: 1px solid red; */
@@ -286,7 +286,8 @@
         $("#date").change(function(){
 			$("#start").val('');
 			$("#end").val('');
-			showTimeSelect();
+			timeCheck();
+			selectSpaceReservationTime();
 
 		});
         
@@ -448,22 +449,34 @@
 
 			
 		});
-		
+		 timeCheck();
+		 selectSpaceReservationTime();
 	});
 	
-	timeCheck();
+	
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
-		var date = new Date().getHours();
-		timeSelect = $("#time").children();
+		if($("#date").val() == new Date().toISOString().substring(0, 10)){
+			var date = new Date().getHours();
+			timeSelect = $("#time").children();
+			
+			for(var i=0; i<timeSelect.length; i++){
+				if(timeSelect.eq(i).val().substring(0, 2) < date){
+					timeSelect.eq(i).attr("disabled","disabled");
+				}			
+			}
+		    //showTimeSelect();
 		
-		for(var i=0; i<timeSelect.length; i++){
-			if(timeSelect.eq(i).val().substring(0, 2) < date){
-				timeSelect.eq(i).attr("disabled","disabled");
-			}			
+		}else{
+			for(var i=0; i<timeSelect.length; i++){
+				
+					timeSelect.eq(i).attr("disabled",false);
+							
+			}
+		    //showTimeSelect();
 		}
 		
-		showTimeSelect();
+		
 		
 		
 	}
@@ -493,20 +506,22 @@
 	}
 	
 	
-	// 예약된 좌석시간현황 조회 함수
-	function selectspaceReservationTime(){
+	// 예약된 공간 시간현황 조회 함수
+	function selectSpaceReservationTime(){
 		timeSelect = $("#time").children();
-		
+		chooseDay = $("#date").val();
+		//console.log(day);
 		$.ajax({
-			url:"selectspaceReservationTime.re",
+			url:"selectSpaceReservationTime.re",
 			async: false,
-			data: {spaceNo:${space.spaceNo}},
+			data: {refNo:${space.spaceNo},usedDate:chooseDay},
 			success:function(ReservationTime){
+				//console.log(ReservationTime);
 				if(ReservationTime != ''){
-					/* console.log(ReservationTime);
+					 console.log(ReservationTime);
 					console.log(ReservationTime[0].startTime.substring(0, 2));
 					console.log(ReservationTime[0].endTime.substring(0, 2));
-					console.log(timeSelect.eq(0).val().substring(0, 2)); */
+					console.log(timeSelect.eq(0).val().substring(0, 2)); 
 					  for(var i=0; i<ReservationTime.length; i++){
 							for(var j=0; j<timeSelect.length; j++){
 								if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
@@ -516,11 +531,13 @@
 							}
 						} 
 					  showTimeSelect();
+				}else{
+					  showTimeSelect();
 				}
 				
 	
 			},error:function(){	
-				console.log("좌석예약시간 조회 ajax 통신 실패!!");
+				console.log("공간예약시간 조회 ajax 통신 실패!!");
 			}
 		});
 

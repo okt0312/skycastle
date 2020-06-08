@@ -70,6 +70,10 @@ public class ReservationDao {
 		return sqlSession.insert("reservationMapper.insertReservationTimeArray",reservTime);
 	}
 	
+	public ArrayList<Reservation> selectSpaceReservationTime(SqlSessionTemplate sqlSession, Reservation reservation) {
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectSpaceReservationTime",reservation);
+	}
+	
 	
 	
 	

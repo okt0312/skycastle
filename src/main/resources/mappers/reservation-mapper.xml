@@ -144,6 +144,14 @@
 	</insert>
 	
 	
+	<select id="selectSpaceReservationTime" parameterType="Reservation" resultMap="reservationResultSet">
+		select * 
+		from reservation 
+		join reservation_time using(book_no)
+		where ref_no=#{refNo} and used_date = #{usedDate}
+	</select>
+	
+	
 	
 	
 	
