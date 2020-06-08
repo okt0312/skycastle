@@ -21,7 +21,6 @@ public class AdSalesController {
 	public ModelAndView adSalesMgmtForm(ModelAndView mv)
 	{
 		ArrayList<SalesChart> list = adsService.selectSalesChart();
-		System.out.println(list);
 		mv.addObject("chartList", list).setViewName("admin/adSalesMgmtForm");
 		return mv;
 	}
