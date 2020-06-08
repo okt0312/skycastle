@@ -124,9 +124,9 @@ td {
          width:450px; 
                    
          resize:none;
-                    border-radius: 2%;
-                    padding-left: 10px;
-                    padding-top: 10px;
+         border-radius: 2%;
+         padding-left: 10px;
+         padding-top: 10px;
 
        }
        
@@ -217,17 +217,17 @@ td {
    						
                    	
                     <tr>
-                        <td  width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
+                        <td  width="300px" height="30px" align="center"  valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
                         <td style="padding-left: 1%;  padding-top: 1%;" valign="top">
                         
-                        <textarea  id="title1" name="qnaTitle">
+                        <textarea  id="title1" name="qnaTitle" style="margin-top: 45px;">
                         ${ q.qnaTitle }
                         </textarea>
                         
                         </td>
                     </tr>
                     
-                   
+                   	
                     
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
