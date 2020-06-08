@@ -143,7 +143,6 @@
 	                </div>
 	            </div>
 	        </div>
-	        ${ chartList[0].sumCost }
 	        <script>
 				var ctx = document.getElementById("myBarChart");
 				var today = new Date(); 
@@ -175,14 +174,15 @@
 				        labels: [day6, day5, day4, day3, day2, day1, today],
 				        datasets: [{
 				            label: '매출 금액(원)',
-				            data: [50000, 40000, 20000, 30000, 25000, 55000, 65000],
+				            data: [${ chartList[0].sumCost }, ${ chartList[1].sumCost }, ${ chartList[2].sumCost }, 
+				            	   ${ chartList[3].sumCost }, ${ chartList[4].sumCost }, ${ chartList[5].sumCost }, ${ chartList[6].sumCost }],
 				            backgroundColor: [
 				                'rgba(255, 99, 132, 0.2)',
 				                'rgba(54, 162, 235, 0.2)',
 				                'rgba(255, 206, 86, 0.2)',
 				                'rgba(75, 192, 192, 0.2)',
 				                'rgba(153, 102, 255, 0.2)',
-				                'rgba(153, 102, 255, 0.2)',
+				                'rgba(23, 23, 23, 0.2)',
 				                'rgba(255, 159, 64, 0.2)'
 				            ],
 				            borderColor: [
@@ -191,7 +191,7 @@
 				                'rgba(255, 206, 86, 1)',
 				                'rgba(75, 192, 192, 1)',
 				                'rgba(153, 102, 255, 1)',
-				                'rgba(153, 102, 255, 1)',
+				                'rgba(23, 23, 23, 1)',
 				                'rgba(255, 159, 64, 1)'
 				            ],
 				            borderWidth: 1
