@@ -93,13 +93,13 @@ public class GroupController {
 		mv.addObject("count", countDips);
 		
 		mv.setViewName("groups/groupApplyForm");
-
+		
 		return mv;
 	}
 	
 	@RequestMapping("mygroupList.gr")
 	public String mygroupList(int currentPage, String status, Model model) {
-			
+		
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
