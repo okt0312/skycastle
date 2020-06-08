@@ -10,6 +10,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.vo.Reservation;
+import com.kh.skycastle.reservation.model.vo.ReservationTime;
 import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
@@ -63,6 +64,10 @@ public class ReservationDao {
 	
 	public Space selectSpace(SqlSessionTemplate sqlSession, int spaceNo) {
 		return sqlSession.selectOne("reservationMapper.selectSpace",spaceNo);
+	}
+	
+	public int insertReservationTimeArray(SqlSessionTemplate sqlSession, ReservationTime reservTime) {
+		return sqlSession.insert("reservationMapper.insertReservationTimeArray",reservTime);
 	}
 	
 	

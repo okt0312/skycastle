@@ -64,4 +64,6 @@
  	  FROM EVENT
  	 WHERE  EVENT_STATUS='Y'
  	</select>
+ 	
+ 	
 </mapper>

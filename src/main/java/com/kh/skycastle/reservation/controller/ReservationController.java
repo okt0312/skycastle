@@ -18,6 +18,7 @@ import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.reservation.model.service.ReservationService;
 import com.kh.skycastle.reservation.model.vo.Reservation;
+import com.kh.skycastle.reservation.model.vo.ReservationTime;
 import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
@@ -73,13 +74,13 @@ public class ReservationController {
 	
 	@RequestMapping("reservInsert.re")
 	public String seatPayDetailInsert(Reservation reservation, Model model){
-		
+		reservation.setCategory("1");
 		//System.out.println(reservation);
 		int result = rService.insertReservation(reservation);
 		if(result > 0 ) {
 			return "reservation/ReservationComplate";
 		}else {
-			 model.addAttribute("msg", "로그인 실패");
+			 model.addAttribute("msg", "예약 실패");
 	         return "common/errorPage";
 		}
 		
@@ -160,6 +161,42 @@ public class ReservationController {
 		model.addAttribute("space",space);
 		
 		return "reservation/spaceReservationDetail";
+	}
+	
+	@RequestMapping("spacePayDetail.re")
+	public String spacePayDetail(Reservation reserv,Coupon coupon,Model model){
+		
+		Grade grade = new Grade(); 
+		grade = rService.selectGrade(reserv.getUserNo());
+//		System.out.println(grade);
+//		System.out.println(reserv);
+//		System.out.println(coupon);
+		String[] usedDate = reserv.getUsedDate().split(",");
+		String[] startTime = reserv.getStartTime().split(",");
+		String[] endTime = reserv.getEndTime().split(",");
+		model.addAttribute("grade",grade);
+		model.addAttribute("reservation",reserv);
+		model.addAttribute("coupon",coupon);
+		model.addAttribute("usedDate",usedDate);
+		model.addAttribute("startTime",startTime);
+		model.addAttribute("endTime",endTime);
+		
+		return "reservation/spacePayDetail";
+	}
+	
+	@RequestMapping("reservSpaceInsert.re")
+	public String spacePayDetailInsert(Reservation reservation, Model model){
+		
+		reservation.setCategory("2");
+		//System.out.println(reservation);
+		int result = rService.insertSpaceReservation(reservation);
+		if(result > 0 ) {
+			return "reservation/ReservationComplate";
+		}else {
+			 model.addAttribute("msg", "예약실패");
+	         return "common/errorPage";
+		}
+		
 	}
 	
 	

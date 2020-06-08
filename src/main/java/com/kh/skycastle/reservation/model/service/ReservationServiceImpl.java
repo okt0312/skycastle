@@ -11,6 +11,7 @@ import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.member.model.vo.Grade;
 import com.kh.skycastle.reservation.model.dao.ReservationDao;
 import com.kh.skycastle.reservation.model.vo.Reservation;
+import com.kh.skycastle.reservation.model.vo.ReservationTime;
 import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
@@ -76,6 +77,27 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public Space selectSpace(int spaceNo) {
 		return rDao.selectSpace(sqlSession,spaceNo);
+	}
+
+	@Override
+	public int insertSpaceReservation(Reservation reservation) {
+		int result1 = rDao.insertReservation(sqlSession, reservation);
+		String[] usedDate = reservation.getUsedDate().split(",");
+		String[] startTime = reservation.getStartTime().split(",");
+		String[] endTime = reservation.getEndTime().split(",");
+		
+		ReservationTime reservTime = new ReservationTime();
+		int result2 =0;
+		for(int i=0; i<usedDate.length; i++) {
+			reservTime.setUsedDate(usedDate[i]);
+			reservTime.setStartTime(startTime[i]);
+			reservTime.setEndTime(endTime[i]);
+			result2 = rDao.insertReservationTimeArray(sqlSession, reservTime);
+			result1 = result1*result2;
+		}
+		
+		return result1;
+		
 	}
 
 	

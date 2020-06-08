@@ -808,7 +808,7 @@
 	                    <br>
 	                	<div id="detail">
 	                        <div>
-	                            <p>${reservation.usedDate}  ${reservation.startTime}~ ${reservation.endTime}</p> 
+	                            <p>${reservation.usedDate} &nbsp;&nbsp;${reservation.startTime}~ ${reservation.endTime}</p> 
 	                          
 	                        </div>
 	                        <div>
