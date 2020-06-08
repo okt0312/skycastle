@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdBoardDao;
+import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
 
 @Service("adBoService")
@@ -45,5 +46,31 @@ public class AdBoardServiceImpl implements AdBoardService {
 	@Override
 	public int deleteAdNotice(int noticeNo) {
 		return adBoDao.deleteAdNotice(sqlSession,noticeNo);
+	}
+	
+	//이벤트 조회
+	@Override
+	public ArrayList<Event> selectEvent() {
+		return adBoDao.selectEvent(sqlSession);
+	}
+	@Override
+	public Notice selectEvDetail(int eno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public int insertAdEvent(Event e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int updateAdEvent(Event e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int deleteAdEvent(int eventNo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

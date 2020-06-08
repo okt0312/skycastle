@@ -105,17 +105,14 @@ public class AdBoardController {
 		
 		
 		
-		//메뉴바에서 이벤트관리 페이지 눌렀을때 이동
-		@RequestMapping("eventMgmt.ad")
-		public String adEventMgmt(){
-			return "admin/adEventMgmt";
-		}
 		
-		public ModelAndView adEventMgmt(ModelAndView mv){
+		//이벤트 페이지 리스트 조회
+		@RequestMapping("eventMgmt.ad")
+		public ModelAndView adEventMgmtList(ModelAndView mv){
 			
 			ArrayList<Event> list = adBoService.selectEvent();
 			
-			mv.addObject("list", list).setViewName("admin/adNoticeMgmt");
+			mv.addObject("list", list).setViewName("admin/adEventMgmt");
 			return mv;
 		}
 		

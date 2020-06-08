@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 관리</title>
+
+<style>
+ /* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
+   
+</style>
 </head>
 <body>
 
@@ -47,11 +56,11 @@
 					                               <c:forEach var="e" items="${ list }">
 					                               	<tr onclick="adEventDetail(${ e.eventNo });">
 					                                    <td>${ e.eventNo }</td>
+					                                    <td>${ e.eventTitle }</td>
 					                                    <td>${ e.eventOpenTime }</td>
 					                                    <td>${ e.eventCloseTime }</td>
 					                                    <td>${ e.eventRegisterDate }</td>
 					                                    <td>${ e.eventStatus }</td>
-					                                    <td>${ e.changeName }</td>
 					                                </tr>
 					                               </c:forEach>
 					                            </tbody>
