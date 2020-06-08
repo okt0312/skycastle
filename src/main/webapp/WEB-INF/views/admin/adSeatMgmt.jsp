@@ -15,13 +15,13 @@
 
 </head>
 <body>
-
+<div id="layoutSidenav"> 
 <jsp:include page="common/adminSidebar.jsp"/>
 		 <div id="layoutSidenav_content">
 		 	 <!--시작-->
                 
-            <main>
-               <div  class="container-fluid" style="padding-right: 10px;">
+            <main style="width:100%;">
+               <div  class="container-fluid" style="padding-right: 10px; ">
                    <h1 class="mt-4"><b>좌석 현황</b></h1>
                    <!--작은 회색 네모-->
                    <ol class="breadcrumb mb-4" >
@@ -725,6 +725,8 @@
 	            		</tr>
 	            	</table>
 
+				</div>
+				</main>
 				</div>
 </body>
 </html>

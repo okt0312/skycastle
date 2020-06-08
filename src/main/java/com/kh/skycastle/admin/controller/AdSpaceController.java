@@ -26,4 +26,13 @@ public class AdSpaceController {
 	mv.addObject("list", list).setViewName("admin/adSpaceMgmt");
 	return mv;
 		}
+	
+	
+	
+	//공지사항 등록폼
+			@RequestMapping("seatMgmt.ad")
+			public String adSeatMgmt() {
+				return ("admin/adSeatMgmt");
+			}
+	
 }
