@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.dto.AdReservationDto;
+import com.kh.skycastle.admin.model.dto.SalesChart;
 import com.kh.skycastle.admin.model.service.AdSalesService;
 
 @Controller
@@ -17,9 +18,12 @@ public class AdSalesController {
 	private AdSalesService adsService;
 
 	@RequestMapping("adSalesForm.ad")
-	public String adSalesMgmtForm()
+	public ModelAndView adSalesMgmtForm(ModelAndView mv)
 	{
-		return "admin/adSalesMgmtForm";
+		ArrayList<SalesChart> list = adsService.selectSalesChart();
+		
+		mv.addObject("chartList", list).setViewName("admin/adSalesMgmtForm");
+		return mv;
 	}
 	
 	@RequestMapping("selectSalesList.ad")

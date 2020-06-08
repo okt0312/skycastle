@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdSalesDao;
 import com.kh.skycastle.admin.model.dto.AdReservationDto;
+import com.kh.skycastle.admin.model.dto.SalesChart;
 
 @Service("adsService")
 public class AdSalesServiceImpl implements AdSalesService{
@@ -19,9 +20,15 @@ public class AdSalesServiceImpl implements AdSalesService{
 	private AdSalesDao adsDao;
 	
 	@Override
+	public ArrayList<SalesChart> selectSalesChart() {
+		return adsDao.selectSalesChart(sqlSession);
+	}
+
+	@Override
 	public ArrayList<AdReservationDto> adSelectSalesList(AdReservationDto adr) {
 		return adsDao.adSelectSalesList(sqlSession, adr);
 	}
+
 
 
 }
