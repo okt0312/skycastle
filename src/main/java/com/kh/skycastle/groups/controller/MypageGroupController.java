@@ -13,7 +13,7 @@ import com.kh.skycastle.groups.model.service.GroupNoticeService;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 
 @Controller
-public class GroupNoticeController {
+public class MypageGroupController {
 	
 	@Autowired
 	private GroupNoticeService gnService;

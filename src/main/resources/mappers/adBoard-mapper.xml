@@ -12,7 +12,7 @@
 		<result column="STATUS" property="status"/>
 </resultMap>
 
-<resultMap id="adEventResultSet" type="Event">
+<resultMap type="Event" id="adEventResultSet" >
 		<id column="EVENT_NO" property="eventNo"/>
 		<result column="EVENT_TITLE" property="eventTitle"/>
 		<result column="EVENT_OPEN_TIME" property="eventOpenTime"/>
@@ -57,4 +57,11 @@
  	INSERT INTO NOTICE
  	VALUES (SEQ_NOTICE.NEXTVAL, #{noticeTitle}, #{noticeContent}, sysdate, 'Y')
  	</insert>
+ 	
+ 	<!-- 이벤트 리스트 조회 -->
+ 	<select id="selectEvent" resultMap="adEventResultSet">
+ 	SELECT EVENT_NO, EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, EVENT_REGISTER_DATE, EVENT_STATUS
+ 	  FROM EVENT
+ 	 WHERE  EVENT_STATUS='Y'
+ 	</select>
 </mapper>

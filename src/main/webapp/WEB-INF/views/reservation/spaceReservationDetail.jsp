@@ -165,7 +165,7 @@
                             <br>
                             <input type="hidden" name="userNo" value="${loginUser.userNo}">
                             <input type="hidden" name="refNo" value="${space.spaceNo}">
-                            <input  type="hidden"  id="usedDate"  type="date" name="usedDate">
+                        
                             &nbsp;&nbsp;&nbsp;&nbsp;이용 공간 : <span>${space.spaceName}</span>
                             <br><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date"  type="date" value="" min="" max="">
@@ -183,8 +183,7 @@
                             </select>
                             <br><br>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;시작</span>
-                        <input type="hidden" id="startH" name="startTime" size="5px">
-                        <input type="hidden"  id="endH" name="endTime" size="5px">
+                       
                         <input type="text" disabled id="start" size="5px">~종료<input type="text" disabled id="end" size="5px">
                         <br><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -280,17 +279,18 @@
         var date = new Date();
         date.setMonth(date.getMonth()+2);
         $("#date").attr("max",date.toISOString().substring(0, 10));
-        
+       
         
         
         $("#date").change(function(){
 			$("#start").val('');
 			$("#end").val('');
-			$("#time").children().eq(0).prop('selected', true)
+			showTimeSelect();
+
 		});
         
         
-		$("#usedDate").val(new Date().toISOString().substring(0, 10));
+		
 		
 		var addflag = false;
 		
@@ -337,23 +337,49 @@
 		finalChoose = false;
 		$("#addTime").click(function(){
            	if(finalChoose == false){
-                if(!$("#start").val() == ''){
-				var addTime = $("<p>").text("선택 시간 : " +  $("#date").val() + " : " + $("#start").val() +" ~ " + $("#end").val());
-				
+           		
+                if(!$("#start").val() == '' ){
+				var addTimeNode = $("<p>").text("선택 시간 : " +  $("#date").val() + " : " + $("#start").val() +" ~ " + $("#end").val());
+				var addTimeText ="선택 시간 : " +  $("#date").val() + " : " + $("#start").val() +" ~ " + $("#end").val(); 
+				var usedDate = '<input  type="hidden"  name="usedDate" value='+$("#date").val()+'>';
+				var startTime = '<input  type="hidden" name="startTime" value='+$("#start").val()+'>';
+				var endTime = '<input  type="hidden" name="endTime" value='+$("#end").val()+'>';
 				addflag = true;
 				
-				$("#tileList").append(addTime);
-				$("#startH").val($("#start").val());
-				$("#endH").val($("#end").val());
+				var addTimeList = $("#tileList p");
+				//console.log(addTimeList.eq(0).text().substr(29,2));
+				console.log($("#start").val().substr(0,2));
+				for(var i=0; i<addTimeList.length; i++){
+					var includeDay =addTimeList.eq(i).text().substr(8,10);
+					var includeStartTime =addTimeList.eq(i).text().substr(21,2);
+					var includeEndTime =addTimeList.eq(i).text().substr(29,2);
+					
+					if(addTimeList.eq(i).text() == addTimeText){
+						alert("이미 선택되었습니다.");	
+						return;
+					}else if((includeDay == $("#date").val() && includeStartTime <= $("#start").val().substr(0,2) 
+							&& includeEndTime > $("#start").val().substr(0,2)) || (includeDay == $("#date").val() &&
+							 $("#start").val().substr(0,2) <= includeStartTime && $("#end").val().substr(0,2) > includeStartTime)){
+						alert("선택 시간이 중첩되었습니다.");
+						return;
+					}
+				}
+				
+				$("#tileList").append(addTimeNode);
+				$("#tileList").append(usedDate);
+				$("#tileList").append(startTime);
+				$("#tileList").append(endTime);
+				
 				$("#start").val('');
 				$("#end").val('');
 				$("#totalTime").text(2);
-				if(count == 0){
-					count++;
-					$("#totalCost").text(spacePrice);
-				}else{
-					$("#totalCost").text(Number($("#totalCost").text())+spacePrice);					
-				}
+					if(count == 0){
+						count++;
+						$("#totalCost").text(spacePrice);
+					}else{
+						$("#totalCost").text(Number($("#totalCost").text())+spacePrice);					
+					}
+				
 				}else{
 					alert("시작시간을 선택해주세요");
 				}
@@ -424,7 +450,7 @@
 		
 	});
 	
-	//timeCheck();
+	timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();
@@ -436,9 +462,7 @@
 			}			
 		}
 		
-		 var showTimeSelect = $("option:enabled");
-		
-		 showTimeSelect.eq(0).attr("selected","selected");
+		showTimeSelect();
 		
 		
 	}
@@ -490,6 +514,7 @@
 								}			
 							}
 						} 
+					  showTimeSelect();
 				}
 				
 	
@@ -505,6 +530,13 @@
 	 setInterval(function() {
 		selectspaceStatusList();
 	}, 5000);  */
+	
+	//사용가능한 시간옵션중 가장빠른것을 셀렉트하는 함수
+	function showTimeSelect(){
+		var showTimeSelect = $("#time option:enabled");	
+		 showTimeSelect.eq(0).attr("selected","selected");
+	}
+	 
 	
 	
 </script>

@@ -141,7 +141,7 @@ div {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${loginUser.userName}</b>님께서 보유하고있는 할인쿠폰 내역입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black;">쿠폰을 사용하여 스터디룸을 예약하세요.</p>
+							<p style="font-size: 0.7em; color: black; margin-top: 10px;">쿠폰을 사용하여 스터디룸을 예약하세요.</p>
 						</th>
 						
 						

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
 
 @Repository
@@ -34,5 +35,10 @@ public class AdBoardDao {
 	//공지사항 삭제용
 	public int deleteAdNotice(SqlSessionTemplate sqlSession,int noticeNo) {
 		return sqlSession.delete("adBoardMapper.deleteAdNotice",noticeNo);
+	}
+	
+	//이벤트 리트스 조회용
+	public ArrayList<Event> selectEvent(SqlSessionTemplate sqlSession){
+		return (ArrayList)sqlSession.selectList("adBoardMapper.selectEvent");
 	}
 }

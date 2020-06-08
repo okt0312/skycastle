@@ -135,7 +135,7 @@
 		select space_no,space_name,personnel,space_price, tb.status, change_name
 		from tb_space tb
 		join attachment on(space_no=ref_bno)
-		where space_no=#{spaceNo}
+		where  group_category=1 and space_no=#{spaceNo}
 	</select>
 	
 	

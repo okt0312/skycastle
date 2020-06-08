@@ -111,5 +111,7 @@ public class GroupController {
 		
 		return "myPage/myPageGroupListView";
 	}
+
+	
 	
 }

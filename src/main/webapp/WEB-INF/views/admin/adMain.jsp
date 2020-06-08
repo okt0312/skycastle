@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,8 @@
 <script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/core/main.js'></script>
 <script src='${pageContext.servletContext.contextPath}/resources/js/fullcalendar/list/main.js'></script>
 <script>
-
+	<jsp:useBean id="toDay" class="java.util.Date" />
+	<fmt:formatDate value='${toDay}' pattern='yyyy-MM-dd' var="nowDate"/>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -35,7 +37,7 @@
       },
 
       defaultView: 'listDay',
-      defaultDate: '2020-05-12',
+      defaultDate: '${nowDate}',
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events
@@ -46,8 +48,8 @@
         },
         {
           title: 'Long Event',
-          start: '2020-05-07',
-          end: '2020-05-10'
+          start: '2020-06-08',
+          end: '2020-06-08'
         },
         {
           groupId: 999,
@@ -66,12 +68,23 @@
         },
         {
           title: 'Meeting',
-          start: '2020-05-12T10:30:00',
-          end: '2020-05-12T12:30:00'
+          start: '2020-06-08T10:30:00',
+          end: '2020-06-08T12:30:00'
         },
         {
-          title: 'Lunch',
-          start: '2020-05-12T12:00:00'
+            title: 'Meeting2',
+            start: '2020-06-08T10:30:00',
+            end: '2020-06-08T12:30:00'
+        },
+        {
+            title: 'Meeting',
+            start: '2020-06-08T11:30:00',
+            end: '2020-06-08T12:30:00'
+        },
+        {
+            title: 'Meeting',
+            start: '2020-06-09 10:30:00',
+            end: '2020-06-09T12:30:00'
         },
         {
           title: 'Meeting',
