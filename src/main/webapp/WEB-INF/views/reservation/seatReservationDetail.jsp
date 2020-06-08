@@ -397,7 +397,7 @@
 		
 	});
 	
-	//timeCheck();
+	timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();
@@ -409,7 +409,7 @@
 			}			
 		}
 		
-		 var showTimeSelect = $("option:enabled");
+		 var showTimeSelect = $("#time option:enabled");
 		
 		 showTimeSelect.eq(0).attr("selected","selected");
 		
@@ -464,7 +464,10 @@
 									timeSelect.eq(j).attr("disabled","disabled");
 								}			
 							}
-						} 
+						}
+					  var showTimeSelect = $("#time option:enabled");
+						
+						 showTimeSelect.eq(0).attr("selected","selected");
 				}
 				
 	
@@ -478,7 +481,7 @@
 	// 예약된 좌석시간현황 조회 함수 호출
 	selectSeatReservationTime();
 	 setInterval(function() {
-		selectSeatStatusList();
+		 selectSeatReservationTime();
 	}, 5000); 
 	
 	
