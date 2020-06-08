@@ -56,6 +56,10 @@ public class AdGroupsDao {
 		
 		public ArrayList<GroupNotice> selectGrBoard(SqlSessionTemplate sqlSession){
 			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGrBoard");
+		}
+
+		public GroupNotice selectGrBoard(SqlSessionTemplate sqlSession, int gno) {
+			return sqlSession.selectOne("adGroupsMapper.selectGrBoard", gno);
 		}		
 				
 }

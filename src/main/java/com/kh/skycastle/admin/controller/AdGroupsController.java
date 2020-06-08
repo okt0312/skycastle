@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.kh.skycastle.admin.model.service.AdGroupsService;
+import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
 
@@ -238,5 +239,16 @@ public class AdGroupsController {
 		
 	}
 	
+	
+	//소모임 게시글 관리에서 tr눌렀을때 상세페이지ㄱㄱ
+	@RequestMapping("adGrDetail.bo")
+	public  ModelAndView selectNoDetail(int gno, ModelAndView mv) {
+		
+		GroupNotice g = adGrService.selectGrBoard(gno);
+		mv.addObject("g", g);
+		mv.setViewName("admin/adGrDetailView");
+		
+		return mv;
+	}
 	
 }

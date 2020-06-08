@@ -88,21 +88,22 @@
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
-                                        <td>내일 뒷산으로 오세요 별봐요</td>
+                                        <td><p>${ g.gnoticeTitle}</p></td>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="contents" id="contents"></textarea>
+                                            <textarea rows=20 cols=85 name="gnoticeContent" id="gnoticeContent">${ g.gnoticeContent}</textarea>
                                         </td>
                                     </tr>
                                 </table>    
                                 <p align="center">
                                     <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
-                                    <input type="submit" value="수정" class="btn btn-primary">
+                                   <!--  <input type="submit" value="수정" class="btn btn-primary"> -->
                                     <input type="submit" value="삭제" class="btn btn-danger">
                                 </p>
                             </div>
                             </table>
+                            <input type="hidden" name="gnoticeNo" value="${ g.gnoticeNo}">
                         </form> 
                         <!-- 댓글관리 -->
                         <div class="reply" align="center">

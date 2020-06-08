@@ -85,7 +85,7 @@
 			            	$(function(){
 			            		
 			            		$("#dataTable tbody tr").click(function(){
-			            			location.href ="adDetail.bo?gno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
+			            			location.href ="adGrDetail.bo?gno=" + $(this).children().eq(0).text() //eq(0)은 첫번째 글 	
 			            		
 			            		});
 			            	});
