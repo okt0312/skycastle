@@ -143,6 +143,7 @@
 	                </div>
 	            </div>
 	        </div>
+	        ${ chartList[0].sumCost }
 	        <script>
 				var ctx = document.getElementById("myBarChart");
 				var today = new Date(); 

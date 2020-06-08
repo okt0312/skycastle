@@ -30,7 +30,7 @@
 		  </where>
 	</select>
 	
-	<select id="selectSalesChart">
+	<select id="selectSalesChart" resultMap="SalesChartResultSet">
 		SELECT BOOK_ENROLL_DATE, SUM(TOTAL_COST) SUM_COST
 	  	  FROM RESERVATION
 		 WHERE BOOK_ENROLL_DATE BETWEEN (SYSDATE - 7) AND SYSDATE
