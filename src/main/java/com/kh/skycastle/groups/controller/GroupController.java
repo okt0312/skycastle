@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.cs.model.vo.Notice;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
@@ -100,16 +100,17 @@ public class GroupController {
 	}
 	
 	@RequestMapping("mygroupList.gr")
-	public String mygroupList(int currentPage, String status, Model model, HttpSession session) {
+	public String mygroupList(int currentPage, GroupDto gd, Model model, HttpSession session) {
 		
 		int groupListCount = gService.selectGroupListCount();
-		System.out.println(status);
+		System.out.println(gd);
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		
 		Member m = (Member)session.getAttribute("loginUser");
+		gd.setUserNo(m.getUserNo());
 		
-		
-		ArrayList<Groups> list = gService.selectMyGroupList(pi, m, status);
+		System.out.println(gd.toString());
+		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
 //		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		System.out.println(list);

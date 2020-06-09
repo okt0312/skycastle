@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.GroupDao;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.member.model.vo.Member;
@@ -32,8 +33,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	@Override
-	public ArrayList<Groups> selectMyGroupList(PageInfo pi, Member m, String status) {
-		return gDao.selectGroupList(sqlSession, pi, m, status);
+	public ArrayList<Groups> selectMyGroupList(PageInfo pi, GroupDto gd) {
+		return gDao.selectGroupList(sqlSession, pi, gd);
 	}
 	
 	/*

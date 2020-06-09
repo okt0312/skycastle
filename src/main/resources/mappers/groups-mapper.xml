@@ -27,14 +27,15 @@
 
 	
 	<!-- 리스트조회 함께 사용 -->
-	<select id="selectGroupList" resultMap="groupResultSet">
-		SELECT *
-		FROM GROUPS
+	<select id="selectGroupList" resultMap="groupResultSet" parameterType="GroupDto">
+		SELECT G.*, M.USER_NO
+		  FROM GROUPS G
+		  JOIN MEMBER M ON(LEADER_NO = USER_NO)
 		<where>
+			USER_NO=#{userNo}
 			<if test='status!=null'>
-				STATUS=#{status}
+				AND G.STATUS=#{status}
 			</if>
-			AND USER_NO=#{m.getUserNo}
 		</where>
 		ORDER BY START_DATE DESC
 	</select>
