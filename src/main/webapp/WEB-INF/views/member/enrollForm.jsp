@@ -61,6 +61,7 @@
 	border-style:none;
 	background-color: #fdce07;
 	color: black;
+	cursor: pointer;
 }
 
 #preBtn {
@@ -69,6 +70,7 @@
 	border-style:none;
 	background-color: #333333;
 	color: #ffffff;
+	cursor: pointer;
 }
 
 .btnsmb {
