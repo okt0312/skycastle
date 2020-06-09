@@ -26,7 +26,8 @@ public class GroupServiceImpl implements GroupService {
 
 	@Override
 	public ArrayList<Groups> selectGroupList(PageInfo pi) {
-		return gDao.selectGroupList(sqlSession, pi, null);
+		String status = null;
+		return gDao.selectGroupList(sqlSession, pi, status);
 		// 여기서 status를 null로 넘겨줘
 	}
 	
