@@ -249,6 +249,32 @@ public class AdGroupsController {
 		return mv;
 	}
 	
+	
+	
+	
+	
+	//공지사항 삭제
+	
+			@RequestMapping("deleteGrNo.ad")
+			public String deleteAdGrNotice(int gno, Model model, HttpSession session) {
+				int result = adGrService.deleteAdGrNotice(gno);
+				
+				if(result > 0)
+				{
+					
+					return "redirect:noticeMgmt.ad";
+				}
+				else
+				{
+					return "삭제 실패";
+				}
+			}
+	
+	
+	
+	
+	
+	
 	//소모임상세에서 댓글 리스트
 	@ResponseBody
 	@RequestMapping(value="rlist.ad", produces="application/json; charset=utf-8")

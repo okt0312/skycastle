@@ -87,9 +87,8 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 
 	//소모임 게시글 상세페이지에서 게시글 삭제하기
 	@Override
-	public int deleteGrBoard(int gno) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteAdGrNotice(int gno) {
+		return adGrDao.deleteAdGrNotice(sqlSession,gno);
 	}
 	
 	//소모임 게시글 댓글 조회용

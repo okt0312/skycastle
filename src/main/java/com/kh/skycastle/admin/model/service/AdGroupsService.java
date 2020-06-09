@@ -42,7 +42,7 @@ public interface AdGroupsService {
 		GroupNotice selectGrNoBoard(int gno);
 		
 		// 소모임게시판 게시물 삭제용 서비스
-		int deleteGrBoard(int gno);
+		int deleteAdGrNotice(int gno);
 	
 		//소모임 게시판 댓글 조회용
 		ArrayList<Reply> selectAdReplyList(int gno);
@@ -50,6 +50,8 @@ public interface AdGroupsService {
 		
 		//소모임게시판 댓글 삭제용 서비스
 		int deleteAdReply(int rno);
+
+		
 		
 		
 }
