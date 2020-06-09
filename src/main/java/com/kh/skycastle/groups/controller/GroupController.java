@@ -89,7 +89,6 @@ public class GroupController {
 		Groups g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
-		System.out.println(countDips);
 		
 		mv.addObject("g", g);
 		mv.addObject("count", countDips);
@@ -103,17 +102,15 @@ public class GroupController {
 	public String mygroupList(int currentPage, GroupDto gd, Model model, HttpSession session) {
 		
 		int groupListCount = gService.selectGroupListCount();
-		System.out.println(gd);
+		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		
 		Member m = (Member)session.getAttribute("loginUser");
 		gd.setUserNo(m.getUserNo());
 		
-		System.out.println(gd.toString());
 		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
 //		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
-		System.out.println(list);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		

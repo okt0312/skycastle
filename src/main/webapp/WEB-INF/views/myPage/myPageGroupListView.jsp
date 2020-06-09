@@ -141,15 +141,7 @@
 	        </form>
 	    </div>
 	    <br><br>
-	    <!-- 원래 메뉴바
-	    <div id="mygroupListMenubar">
-	        <a href="#">참가중인 소모임</a> | 
-	        <a href="#" style="font-weight: 600;">찜한 소모임</a> | 
-	        <a href="#">대기중인 소모임</a> | 
-	        <a href="#">지난 소모임</a> 
-	    </div> -->
 	    
-	    <!-- 이걸로 바꾸기 -->
         <div id="mygroupListMenubar">
         
             <ul id="groups_header_menu" style="margin-right: 10px;">
@@ -206,7 +198,7 @@
 	    
 		<script>
 			$(".grouplist").click(function(){
-				location.href = "groupNoticeList.gr?gno=" + $(this).children("#group_no").val() 
+				location.href = "mygroupNoticeList.gr?currentPage=1&gno=" + $(this).children("#group_no").val() 
 								+ "&userNo=" + "${ loginUser.userNo }";
 			});
 		</script>

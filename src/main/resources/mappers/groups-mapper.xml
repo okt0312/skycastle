@@ -39,7 +39,7 @@
 		</where>
 		ORDER BY START_DATE DESC
 	</select>
-	
+
 	<!-- 
 	<select id="selectGroupThumbnailList" resultMap="groupResultSet">
 		sql문 다시 짜기. 소그룹 번호에 해당하는 섬네일 호출해오기

@@ -188,7 +188,7 @@
     </style>
 </head>
 <body>
-    <jsp:include page="../common/menubar.jsp"/>
+	<jsp:include page="../myPage/common/myPageMenubar.jsp"/>
             <div id="mygroup">
                 <div id="mygroupMenubar">
                     <h2>소모임명</h2>
