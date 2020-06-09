@@ -32,12 +32,14 @@
         }
 
         /* 소모임 리스트 메뉴바 */
-/*         #mygroupListMenubar{
+/*         
+		#mygroupListMenubar{
             width:80%;
             height:200px;
             margin:auto;
             margin-top:50px;
-        } */
+        }
+*/
         #mygroupListMenubar{
             width:100%;
             height:20%;
@@ -73,13 +75,12 @@
 		    display:none; 
 		    position: absolute; 
 		}
-		.submenu li { background-color: whitesmoke; }
 		#groups_header_menu > li:hover ul.submenu { display:block; }
+		a:hover { color: #fdce07; }
 		a {
 		    text-decoration: none;
 		    color: black;
 		}
-		a:hover { color: #fdce07; }
 		
 		/*  */
 		.grouplist:hover{
