@@ -119,18 +119,32 @@
         </foreach>
 	</update>
 	
+
+	
+	
+	
 	<!-- 소모임 공지사항 게시판 리스트 -->
 	<select id="selectGrBoard" resultMap="adGroupsNoticeResultSet" >
 	SELECT N.GNOTICE_NO, G.GROUP_TITLE, N.GNOTICE_TITLE, N.ENROLL_DATE, N.STATUS
 	FROM GROUP_NOTICE N
 	JOIN GROUPS G USING(GROUP_NO)
 	</select>
-	
+	<!-- 소모임 공지사항 상세 리스트 -->
 	<select id="selectGrNoBoard" resultMap="adGroupsNoticeResultSet" >
 	 SELECT GNOTICE_NO,GNOTICE_TITLE,GNOTICE_CONTENT
 	  FROM GROUP_NOTICE
 	  WHERE GNOTICE_NO =#{gno}
 	</select>
+	
+		<!-- 소모임공지사항 삭제용 -->
+ 	<delete id="deleteAdGrNotice" parameterType="_int">
+ 	UPDATE GROUP_NOTICE
+ 	   SET STATUS='N'
+   WHERE GNOTICE_NO =#{gno}
+ 	</delete>
+	
+	
+	
 	
 	<!-- 댓글 리스트 조회 -->
 <select id="selectAdReplyList" parameterType="_int" resultMap="adReplyResultSet">
@@ -140,7 +154,7 @@
 	WHERE NOTICE_NO =#{gno}
 	</select>
 	
-	<!-- 소모임 조회 모달에서 소모임 삭제 -->
+	<!-- 소모임 공지사항 에서 댓글 삭제 -->
 	<update id="deleteAdReply" parameterType="_int">
 		UPDATE REPLY
 		   SET STATUS = 'N'

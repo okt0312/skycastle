@@ -58,20 +58,29 @@ public class AdGroupsDao {
 		public ArrayList<GroupNotice> selectGrBoard(SqlSessionTemplate sqlSession){
 			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGrBoard");
 		}
-
+		//소모임 공지사항 상세페이지 가기
 		public GroupNotice selectGrNoBoard(SqlSessionTemplate sqlSession, int gno) {
 			return sqlSession.selectOne("adGroupsMapper.selectGrNoBoard", gno);
 		}
-
+		
+		//소모임 공지사항 삭제
+		public int deleteAdGrNotice(SqlSessionTemplate sqlSession, int gno) {
+			return sqlSession.delete("adGroupsMapper.deleteAdGrNotice",gno);
+		}		
+				
+		
+		
+		//소모임 공지사랑 상세페이지 댓글 리스트 불러오기
 		public ArrayList<Reply> selectAdReplyList(SqlSessionTemplate sqlSession, int gno) {
 			
 			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectAdReplyList", gno);
 		
 		}
-
+		//소모임 공지사항 상세페잊 댓글 삭제
 		public int deleteAdReply(SqlSessionTemplate sqlSession, int rno) {
 
 			return sqlSession.delete("adGroupsMapper.deleteAdReply", rno);
-		}		
-				
+		}
+
+		
 }
