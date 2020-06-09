@@ -3,6 +3,7 @@ package com.kh.skycastle.groups.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.member.model.vo.Member;
 
 @Controller
 public class GroupController {
@@ -98,12 +100,16 @@ public class GroupController {
 	}
 	
 	@RequestMapping("mygroupList.gr")
-	public String mygroupList(int currentPage, String status, Model model) {
+	public String mygroupList(int currentPage, String status, Model model, HttpSession session) {
 		
 		int groupListCount = gService.selectGroupListCount();
 		System.out.println(status);
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<Groups> list = gService.selectMyGroupList(pi, status);
+		
+		Member m = (Member)session.getAttribute("loginUser");
+		
+		
+		ArrayList<Groups> list = gService.selectMyGroupList(pi, m, status);
 //		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		System.out.println(list);

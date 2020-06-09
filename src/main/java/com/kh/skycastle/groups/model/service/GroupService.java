@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.member.model.vo.Member;
 
 public interface GroupService {
 	
@@ -14,7 +15,7 @@ public interface GroupService {
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupList(PageInfo pi);
 	// 1-3. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectMyGroupList(PageInfo pi, String status);
+	ArrayList<Groups> selectMyGroupList(PageInfo pi, Member m, String status);
 	
 	
 	// 검색 구현하려면 마이바티스 참조
