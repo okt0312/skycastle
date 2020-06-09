@@ -42,23 +42,31 @@
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
-        {
-          title: '공간 A방\nabc@naver.com(오경택)',
-          start: '2020-06-09 10:30:00',
-          end: '2020-06-09 14:30:00'
-        },
-        {
-      	  title: '공간 B방\nabc@naver.com(오경택)',
-          start: '2020-06-09 10:30:00',
-          end: '2020-06-09 14:30:00'
-        }
+          <c:forEach var="cList" items="${ calList }" varStatus="i">
+			<c:choose>
+				<c:when test="${ i.last }">
+					{
+			       	   title: '${ cList.spaceName }\n${ cList.userId }(${ cList.userName })',
+			           start: '${ cList.usedDate } ${ cList.startTime }',
+			           end: '${ cList.usedDate } ${ cList.endTime }'
+			         }
+				</c:when>
+				<c:otherwise>
+			    	{
+			       	   title: '${ cList.spaceName }\n${ cList.userId }(${ cList.userName })',
+			           start: '${ cList.usedDate } ${ cList.startTime }',
+			           end: '${ cList.usedDate } ${ cList.endTime }'
+			         },
+				</c:otherwise>
+			</c:choose>
+ 		 </c:forEach>
       ]
     });
 
     calendar.render();
   });
-
 </script>
+
 </head>
 <body>
 	<div id="layoutSidenav">
