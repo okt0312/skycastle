@@ -45,7 +45,7 @@
          width: 70%;
      }
      #content_2{
-         width: 30%;
+        float:left; width: 30%;
          
      }
 
@@ -113,6 +113,28 @@
     margin-left: 100px;
 }
 
+.reservation_tb{
+	width:360px;
+	border:1px solid #bebebe
+}
+.reservation_tb th{
+	font-size:15px;
+	padding-left:15px
+}
+.reservation_tb td{
+	font-size:15px;
+	padding:15px 10px;
+}
+.reservation_tb thead tr td{
+	border:1px solid #FDCE07;
+	background:#FDCE07;
+	font-size:25px;
+	text-align:center;
+	font-weight:bold;
+	color:#333;
+	line-height:50px;
+}
+
     </style>
 </head>
 <body>
@@ -158,74 +180,110 @@
             <div id="content_2" >
                 <div id="detail">
                 	<form action="seatPayDetail.re" method="post">
-                        <div  style="background-color:#fdce07;" align="center">
-                                <h2>좌석 세부 선택</h2>
-                        </div>
-                        <div>
-                            <br>
-                            <input type="hidden" name="userNo" value="${loginUser.userNo}">
-                            <input type="hidden" name="refNo" value="${seat.seatNo}">
-                            <input  type="hidden"  id="usedDate"  type="date" name="usedDate">
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용 좌석 : <span>${seat.seatNo}</span>번
-                            <br><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;이용날짜 : <input id="date" disabled type="date" >
-                            <br><br>
-                            &nbsp;&nbsp; &nbsp;&nbsp;시작시간 : 
-                            <select id="time" name="national">
-                                <option class="time" value="08:00">08:00</option>
-                                <option class="time" value="10:00">10:00</option>
-                                <option class="time" value="12:00">12:00</option>
-                                <option class="time" value="14:00">14:00</option>
-                                <option class="time" value="16:00">16:00</option>
-                                <option class="time" value="18:00">18:00</option>
-                                <option class="time" value="20:00">20:00</option>
-                                <option class="time" value="22:00">22:00</option>
-                            </select>
-                            <br><br>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;시작</span>
-                        <input type="hidden" id="startH" name="startTime" size="5px">
-                        <input type="hidden"  id="endH" name="endTime" size="5px">
-                        <input type="text" disabled id="start" size="5px">~종료<input type="text" disabled id="end" size="5px">
-                        <br><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="button" id="timeAdd">2시간연장</button>
-                        <br><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp; 총 사용시간 : <span id="totalTime">2</span>
-                        <br><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="addTime" type="button">선택</button>
-                        <button id="removeTime" type="button">해제</button>
-                         <br>
-                        <div align="center" id="tileList" style="border:0px ;width:100%"></div>	
-                        
-                        <br><br>
-                        <div id="discountDiv" style="display:none">
-	                        <p><h2>&nbsp;&nbsp;&nbsp;&nbsp;할인 선택</h2></p>
-	                        <div style="border:0px;">
-	                            &nbsp;&nbsp;
-	                            <input type="hidden" id="couponName" name="couponName" value='선택없음'>
-	                            <input type="hidden" id="couponCode" name="couponCode" value="0">
-	                            <input type="hidden" id="discountRate" name="discountRate" value="0">
-	                             <select id="copon">
-	                                <c:choose>
-	                                	<c:when test="${ !empty loginUser}">
-												<option>선택없음</option>
-			                                <c:forEach var="c" items="${couponList }" varStatus="status" >
-												<option value="${ c.couponCode }" price="${ c.discountRate }">${c.couponName }</option>
-											</c:forEach>
-			                            </c:when>
-			                            <c:otherwise>
-			                            	<option>선택 없음</option>
-			                            </c:otherwise>
-	                                </c:choose>
-	                            </select>
-                          </div>  
-                            <br><br>
-                        </div>
-                        </div>
+                	<input type="hidden" name="userNo" value="${loginUser.userNo}">
+                	<input type="hidden" name="userNo" value="${loginUser.userNo}">
+                    <input type="hidden" name="refNo" value="${seat.seatNo}">
+                    <input  type="hidden"  id="usedDate"  type="date" name="usedDate">
+                	<table cellpadding="0" cellspacing="0" class="reservation_tb">
+                		<thead>
+                			<tr>
+                				<td colspan="2">좌석 세부 선택</td>
+                			</tr>
+                		</thead>
+                		<tbody>
+                			<tr>
+                				<th>
+                            		이용 좌석 :
+                				</th>
+                				<td>
+                            		${seat.seatNo}번
+                				</td>
+                			</tr>
+                			<tr>
+                				<th>
+                					이용날짜 :
+                				</th>
+                				<td>
+                					<input id="date" disabled type="date" >
+                				</td>
+                			</tr>
+                			<tr>
+                				<th  style="width:100px">
+                					시작시간 : 
+                				</th>
+                				<td>
+                					<select id="time" name="national">
+		                                <option class="time" value="08:00">08:00</option>
+		                                <option class="time" value="10:00">10:00</option>
+		                                <option class="time" value="12:00">12:00</option>
+		                                <option class="time" value="14:00">14:00</option>
+		                                <option class="time" value="16:00">16:00</option>
+		                                <option class="time" value="18:00">18:00</option>
+		                                <option class="time" value="20:00">20:00</option>
+		                                <option class="time" value="22:00">22:00</option>
+		                            </select>
+                				</td>
+                			</tr>
+                			<tr>
+                				<th style="width:50px" colspan="2">
+                					시작&nbsp;&nbsp;&nbsp;
+                					<input type="hidden" id="startH" name="startTime" size="5px">
+                					<input type="hidden"  id="endH" name="endTime" size="5px">
+                					<input type="text" disabled id="start"style="width:100px; border:1px solid #bebebe">
+                					&nbsp;&nbsp;~&nbsp;&nbsp; 종료&nbsp;&nbsp;&nbsp;
+                					<input type="text" disabled id="end" style="width:100px; border:1px solid #bebebe">
+                				</th>
+                			</tr>
+                			<tr>
+                				<td colspan="2" style="padding-top: 10px ">
+                					 <button type="button" id="timeAdd" style="margin-top:20px">2시간연장</button>
+                				</td> 
+                			</tr>
+                			<tr>
+                				<th colspan="2" style="padding:20px 10px; font-size:20px">총 사용시간 :<span id="totalTime"> 2 </span> 시간</th>
+                			</tr>
+                			<tr>
+                				<th colspan="2">
+                					<button id="addTime" type="button">선택</button>
+                					<button id="removeTime" type="button">해제</button>
+                				</th>
+                			</tr>
+                			<tr>
+                				<td colspan="2">
+                					<div align="center" id="tileList" style="border:0px ;width:100%"></div>	
+                				</td>
+                			</tr>
+                			<tr>
+                				<td colspan="2">
+                					  <div id="discountDiv" style="display:none; width:338px">
+				                        <p><h2>&nbsp;할인 선택</h2></p>
+				                        <div style="border:0px; margin-bottom:15px ; margin-left:10px">
+				                            &nbsp;&nbsp;
+				                            <input type="hidden" id="couponName" name="couponName" value='선택없음'>
+				                            <input type="hidden" id="couponCode" name="couponCode" value="0">
+				                            <input type="hidden" id="discountRate" name="discountRate" value="0">
+				                             <select id="copon" style="min-width:310px; height:30px;">
+				                                <c:choose>
+				                                	<c:when test="${ !empty loginUser}">
+															<option>선택없음</option>
+						                                		<c:forEach var="c" items="${couponList }" varStatus="status" >
+															<option value="${ c.couponCode }" price="${ c.discountRate }">${c.couponName }</option>
+														</c:forEach>
+						                            </c:when>
+						                            <c:otherwise>
+						                            	<option >선택 없음</option>
+						                            </c:otherwise>
+				                                </c:choose>
+				                            </select>
+			                          </div>  
+			                       </div>
+                				</td>
+                			</tr>
+                		</tbody>
+                	</table>
                         <input type="hidden" id="total" name="totalCost" value="${seat.seatPrice}">
-                        <div style="background-color: lightgray;">
-                            <p style="font-size:30px ;width:100%; " >결제금액: <span id="totalCost">${seat.seatPrice}</span>원</p>
+                        <div style="background-color: #f1f1f1; width:360px">
+                            <p style="font-size:30px ;width:100%; padding:15px; margin:0; color:#333" >결제금액: <span id="totalCost">${seat.seatPrice}</span>원</p>
                         </div> 
                         <button id="reservationBtn" type="submit" onclick="return reservation();">바로 예약하기</button>
                 	</form> 
@@ -397,14 +455,14 @@
 		
 	});
 	
-	//timeCheck();
+	timeCheck();
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
 		var date = new Date().getHours();
 		timeSelect = $("#time").children();
 		
 		for(var i=0; i<timeSelect.length; i++){
-			if(timeSelect.eq(i).val().substring(0, 2) < date){
+			if(timeSelect.eq(i).val().substring(0, 2) <= date){
 				timeSelect.eq(i).attr("disabled","disabled");
 			}			
 		}
@@ -453,8 +511,8 @@
 			data: {seatNo:${seat.seatNo}},
 			success:function(ReservationTime){
 				if(ReservationTime != ''){
-					/* console.log(ReservationTime);
-					console.log(ReservationTime[0].startTime.substring(0, 2));
+					 /*console.log(ReservationTime);
+					 console.log(ReservationTime[0].startTime.substring(0, 2));
 					console.log(ReservationTime[0].endTime.substring(0, 2));
 					console.log(timeSelect.eq(0).val().substring(0, 2)); */
 					  for(var i=0; i<ReservationTime.length; i++){
