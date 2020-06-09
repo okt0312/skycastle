@@ -148,7 +148,6 @@
 				개인정보 수집 및 이용에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
 
-
 			<center>
 				<div class="enrollBtn">
 					<!-- 취소 시 메인으로 이동 -->
@@ -157,6 +156,12 @@
 				</div>
 			</center>
 			
+			<c:if test="${ !empty enrollFail }">
+				<script>
+					alert("${enrollFail}");  
+				</script>
+			<c:remove var="enrollFail" scope="session"/>
+	</c:if>
 		</form>	
 		</div>
 	</div>
