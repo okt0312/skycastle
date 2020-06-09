@@ -246,7 +246,6 @@ public class AdGroupsController {
 		GroupNotice g = adGrService.selectGrNoBoard(gno);
 		mv.addObject("g", g);
 		mv.setViewName("admin/adGrBoDetailView");
-		System.out.println("컨트롤러"+g);
 		return mv;
 	}
 	
@@ -256,9 +255,10 @@ public class AdGroupsController {
 	public String selectAdReplyList(int gno) {
 		
 		ArrayList<Reply> list = adGrService.selectAdReplyList(gno);
-		// [{}, {}]
 		
-		//return new Gson().toJson(list); // 날짜 관련 기본 포맷      xx월 xx일, xxxx
+		System.out.println(gno);
+		System.out.println(list);
+		
 		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
 		
 	}
