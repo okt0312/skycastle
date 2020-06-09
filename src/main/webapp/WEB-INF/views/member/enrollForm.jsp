@@ -58,6 +58,7 @@
 #nextBtn {
 	margin-left: 25px;
 	border-radius: 4px;
+	border-style:none;
 	background-color: #fdce07;
 	color: black;
 }
@@ -65,6 +66,7 @@
 #preBtn {
 	margin-left: 25px;
 	border-radius: 4px;
+	border-style:none;
 	background-color: #333333;
 	color: #ffffff;
 }
@@ -85,7 +87,7 @@
 .agree {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
-	margin-left: 690px;
+	margin-left: 680px;
 }
 </style>
 </head>

@@ -89,8 +89,8 @@ public class MemberController {
 			session.setAttribute("loginUser", loginUser);
 			return "redirect:/";
 		} else {
-			model.addAttribute("msg", "로그인 실패");
-			return "common/errorPage";
+			session.setAttribute("loginFail", "로그인에 실패하였습니다. 다시 시도하십시오.");
+			return "member/loginForm";
 		}
 	}
 
