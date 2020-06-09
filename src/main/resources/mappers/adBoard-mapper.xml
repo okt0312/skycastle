@@ -20,7 +20,7 @@
 		<result column="EVENT_REGISTER_DATE" property="eventRegisterDate"/>
 		<result column="EVENT_STATUS" property="eventStatus"/>
 		<result column="CHANGE_NAME" property="changeName"/>
-	</resultMap>
+</resultMap>
   
   <!-- 공지사항 리스트조회 -->
   <select id ="selectNotice" resultMap="adNoticeResultSet">
@@ -67,8 +67,11 @@
  	
  	<!-- 이벤트 상세페이지 조회 -->
  	<select id="adSelectEvent" parameterType="_int" resultMap="adEventResultSet">
- 	SELECT EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME
+ 	SELECT EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, CHANGE_NAME
  	  FROM EVENT
- 	 WHERE EVENT_NO = #{eno} 
+ 	  JOIN ATTACHMENT ON(EVENT_NO=REF_BNO)
+ 	 WHERE GROUP_CATEGORY = 2
+ 	   AND FILE_LEVEL = 2
+ 	   AND EVENT_NO = #{eno}
  	</select>
 </mapper>

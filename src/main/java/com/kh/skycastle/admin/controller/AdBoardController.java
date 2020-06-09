@@ -1,13 +1,18 @@
 package com.kh.skycastle.admin.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdBoardService;
@@ -122,7 +127,7 @@ public class AdBoardController {
 			return ("admin/adEventEnrollForm");
 		}
 		
-		//이벤트 페이지 상세조회
+		//이벤트 페이지 상세조회(수정폼)
 		@RequestMapping("eventDetail.ad")
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
 			
@@ -131,8 +136,60 @@ public class AdBoardController {
 			mv.setViewName("admin/adEventDetailView");
 			
 			return mv;
-		}	
+		} 	
 		
-		
+		// 이벤트 수정 페이지 
+		@RequestMapping("updateEvent.ad")
+		public String updateEventForm(Event e, HttpServletRequest request,
+									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
+			
+			if(!file.getOriginalFilename().equals("")) {
+				
+				// 첨부파일 o
+				if(e.getChangeName() != null) {
+					deleteFile(e.getChangeName(), request);
+				}
+			
+			String changeName = saveFile(file, request);
+			
+			e.setChangeName(changeName);
+			}
+			
+			int result = adBoService.updateEvent(e);
+			
+			if(result > 0) {
+				return "redirect:adEventDetailView.ad?eno=" + e.getEventNo();
+			}
+		}
+			
+		// 공유해서 쓸수 있게끔 따로 정의 해놓은 메소드
+		// 전달받은 파일을 서버에 업로드 시킨 후 수정명 리턴하는 메소드
+		public String saveFile(MultipartFile file, HttpServletRequest request) {
+			
+			// 파일을 업로드 시킬 폴더 경로 (String savePath)
+			String resources = request.getSession().getServletContext().getRealPath("resources");
+			String savePath = resources + "\\uploadFiles\\event\\";
+			
+			String changeName = file.getOriginalFilename();
+			
+			try {
+				file.transferTo(new File(savePath + changeName));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	
+			return changeName;
+			
+		}
+		// 전달받은 파일명을 가지고 서버로 부터 삭제하는 메소드
+		public void deleteFile(String fileName, HttpServletRequest request) {
+			String resources = request.getSession().getServletContext().getRealPath("resources");
+			String savePath = resources + "\\uploadFiles\\";
+			
+			File deleteFile = new File(savePath + fileName);
+			deleteFile.delete();
+		}
 		
 }

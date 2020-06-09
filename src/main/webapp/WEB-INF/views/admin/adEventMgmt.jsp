@@ -54,7 +54,7 @@
 					                            </thead>
 					                            <tbody>
 					                               <c:forEach var="e" items="${ list }">
-					                               	<tr onclick="adEventDetail(${ e.eventNo });">
+					                               	<tr>
 					                                    <td>${ e.eventNo }</td>
 					                                    <td>${ e.eventTitle }</td>
 					                                    <td>${ e.eventOpenTime }</td>
