@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 //소모임 관리(소모임조회, 개설관리, 소모임게시글관리)관련 Dao입니다
 @Repository
@@ -60,6 +61,12 @@ public class AdGroupsDao {
 
 		public GroupNotice selectGrNoBoard(SqlSessionTemplate sqlSession, int gno) {
 			return sqlSession.selectOne("adGroupsMapper.selectGrNoBoard", gno);
+		}
+
+		public ArrayList<Reply> selectAdReplyList(SqlSessionTemplate sqlSession, int gno) {
+			
+			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectAdReplyList", gno);
+		
 		}		
 				
 }

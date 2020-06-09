@@ -28,6 +28,14 @@
 		<result column="GROUP_TITLE" property="groupTitle"/>
 </resultMap>
 
+	
+
+
+
+
+
+
+
 
 	<!--소모임조회 게시글리스트 하나하나 불러오는sql -->
 	<select id="selectGroups" resultMap="adGroupsResultSet">
@@ -104,5 +112,6 @@
 	  FROM GROUP_NOTICE
 	  WHERE GNOTICE_NO =#{gno}
 	</select>
+	
 	
 </mapper>

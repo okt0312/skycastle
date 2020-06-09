@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 public interface AdGroupsService {
 		
@@ -43,5 +44,8 @@ public interface AdGroupsService {
 		// 소모임게시판 게시물 삭제용 서비스
 		int deleteGrBoard(int gno);
 	
+		//소모임 게시판 댓글 조회용
+		ArrayList<Reply> selectAdReplyList(int gno);
+		
 		//소모임게시판 댓글 삭제용 서비스
 }

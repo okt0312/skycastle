@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.skycastle.admin.model.dao.AdGroupsDao;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 @Service("adGrService")
 public class AdGroupsServiceImpl implements AdGroupsService {
@@ -89,6 +90,13 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	public int deleteGrBoard(int gno) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	//소모임 게시글 댓글 조회용
+	@Override
+	public ArrayList<Reply> selectAdReplyList(int gno) {
+
+		return adGrDao.selectAdReplyList(sqlSession, gno);
 	}
 
 }

@@ -106,20 +106,65 @@
                             </div>
                             </table>
                             <input type="hidden" name="gnoticeNo" value="${ g.gnoticeNo}">
-                        </form> 
+                        </form>
+                        
+                         
                         <!-- 댓글관리 -->
-                        <div class="reply" align="center">
-                            댓글 
-                            <div>
-                            	
-                                <p>(번호로 이름소환)</p>
-                                <p>2020.04.25</p>
-                                <label>아ㅠㅠ5월에도 꼭 열어주세요</label>
-                                <button id="deleteReply" class="btn btn-danger">삭제</button></>
-                            </div>
-                        </div>
-                        
-                        
+                            <table id="replyArea" class="table" align="center">
+					                <thead>
+					                    <tr>
+					                       <td colspan="3">댓글 (<span id="rcount"></span>) </td> 
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    
+					                </tbody>
+					            </table>
+					        </div>
+					        <br><br>
+					    </div>
+					    
+					    <script>
+					    	
+					 // 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
+				    	function selectReplyList(){
+				    		
+				   			$.ajax({
+				   				url:"rlist.bo",
+				   				data:{gno:${g.gnoticeNo}},
+				   				success:function(list){
+				   					
+				   					//console.log(list);
+				   					
+				   					// 댓글 갯수
+				   					$("#rcount").text(list.length);
+				   					
+				   					var value = "";
+				   					//여기 원래 userNo가 들어갈자리에 조인써서 이름으로 들어가게 할거거든 
+				   					//근데 테이블에 값이없는데 어떻게 대입해서 들어가? 새롭게 매퍼만들어줘야해?
+				   					for(var i in list){
+				   						value += "<tr>" + 
+							                        "<th>" + list[i].userName + "</th>" +
+							                        "<td>" + list[i].replyContent + "</td>" +
+							                        "<td>" + list[i].uploadDate + "</td>" + 
+							                        "<td>" +
+							                        "<input type='submit' value='삭제' class='btn btn-danger'>" +
+							                        "</td>" +
+							                     "</tr>";
+				   					}
+				   					
+				   					$("#replyArea tbody").html(value);
+				   					
+				   				},error:function(){
+				   					console.log("댓글 리스트 조회용 ajax 통신실패!!");
+				   				}
+				   			});
+				   			
+				    	}
+				    
+				    </script>
+					    	
+					   	
                         
                     </div>
                 </main>
