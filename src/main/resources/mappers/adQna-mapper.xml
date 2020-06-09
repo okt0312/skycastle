@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="adQnaMapper">
+	<resultMap type="Qna" id="QnaResultSet">
+		<id column="QNA_NO" property="qnaNo"/>
+		<result column="MEMBER_YN" property="memberYn"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="EMAIL" property="email"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="QNA_TITLE" property="qnaTitle"/>
+		<result column="QNA_CONTENT" property="qnaContent"/>
+		<result column="QNA_DATE" property="qnaDate"/>
+		<result column="QNA_REPLY" property="qnaReply"/>
+		<result column="ORIGIN_NAME" property="originName"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	<select id="selectList" resultMap="QnaResultSet">
+		SELECT *
+		  FROM QNA
+	</select>
 </mapper>
