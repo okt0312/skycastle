@@ -56,9 +56,9 @@ div {
 	width: 1000px;
 	height: 200px;
 	border: 1px solid rgb(76, 60, 60);
-	background-color: #fdce07;
+	background-color: rgb(13,13,13);
 	margin: auto;
-	color: black;
+	color: #fdce07;
 }
 
 .bline {
@@ -72,18 +72,19 @@ div {
 
  #qnoticeList>tbody td{text-align: center;}
  #qnoticeList *{
-     height:30px;
-     font-size:12px;
+     height:50px;
+     
      border-bottom:1px solid lightgray;
  }
  #qnoticeList{border-top:1px solid black;margin:auto;}
  #qnoticeList>thead th{
-            font-size:14px;
+            
             font-weight:750;
         }
         
  #qnoticeList>tbody>tr:hover{
  	cursor: pointer;
+ 	background-color: #fdce07;
  }
 
 /* 페이징바 css */
@@ -149,7 +150,7 @@ div {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${loginUser.userName}</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black; margin-top: 10px;">문의하신 내용은 총 1건 입니다.</p>
+							<p style="font-size: 0.7em; color: #fdce07; margin-top: 10px;">문의하신 내용은 총 1건 입니다.</p>
 						</th>
 						
 						
@@ -175,7 +176,7 @@ div {
 				<br> <br>
 				<table id="qnoticeList" align="center" width="1000px;">
 					<thead>
-						<tr>
+						<tr style="font-size: 18px; font-family:고딕;">
 							<th style="width: 25%; text-align: center;">번호</th>
                             <th style="width: 25%; text-align: center;">제목</th>
 							<th style="width: 25%; text-align: center;">작성일</th>
@@ -186,7 +187,7 @@ div {
 						
 						
 						<c:forEach items="${ list }" var="y">
-							<tr>
+							<tr style="font-size: 14px; font-weight: bold;">
 
 								<td>${y.qnaNo}</td>
                                 <td>${y.qnaTitle}</td>

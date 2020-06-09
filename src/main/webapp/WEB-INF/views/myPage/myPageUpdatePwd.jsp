@@ -303,7 +303,7 @@ input, textarea, select, td, th {
                             		입력해주세요.
                         </p>
                   		
-
+						
 						<form id="updateForm" action="PwdCheckkk.my" method="post">
 						<input type="hidden" value="${ loginUser.userId }" name="userId">
                         <table>
