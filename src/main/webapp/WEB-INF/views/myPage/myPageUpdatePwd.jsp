@@ -236,6 +236,7 @@ input, textarea, select, td, th {
 
 .bts button.dark {
     background: #222;
+	cursor:pointer;
 }
 
 .bts button {
@@ -303,7 +304,7 @@ input, textarea, select, td, th {
                             		입력해주세요.
                         </p>
                   		
-						
+						<br>
 						<form id="updateForm" action="PwdCheckkk.my" method="post">
 						<input type="hidden" value="${ loginUser.userId }" name="userId">
                         <table>
