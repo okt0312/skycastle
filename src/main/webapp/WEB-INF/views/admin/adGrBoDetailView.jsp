@@ -105,7 +105,7 @@
                                 </p>
                             </div>
                             </table>
-                            <input type="hidden" name="gnoticeNo" value="${ g.gnoticeNo}">
+                            <input type="hidden" name="gno" id="gno" value="${ g.gnoticeNo}">
                         </form>
                         
                          
@@ -128,13 +128,17 @@
 					    <script>
 					    	
 					 // 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
+					 
+   		$(function(){
+   			selectAdReplyList();
+   		});
 				    	function selectAdReplyList(){
-				    		
+				    		console.log(gno);
 				   			$.ajax({
 				   				url:"rlist.bo",
 				   				data:{gno:${g.gnoticeNo}},
 				   				success:function(list){
-				   					
+				   					console.log(gno);
 				   					console.log(list);
 				   					
 				   					// 댓글 갯수
@@ -161,7 +165,7 @@
 				   			});
 				   			
 				    	}
-				    
+   		
 				    </script>
 					    	
 					   	
