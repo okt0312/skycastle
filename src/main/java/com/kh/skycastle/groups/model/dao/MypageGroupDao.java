@@ -10,7 +10,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 
 @Repository("gnDao")
-public class GroupNoticeDao {
+public class MypageGroupDao {
 	
 	public int selectGroupNoticeListCount(SqlSessionTemplate sqlSession) {
 		return sqlSession.selectOne("groupsMapper.selectGroupNoticeListCount");

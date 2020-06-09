@@ -12,7 +12,7 @@ import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
 @Service("gnService")
-public class GroupNoticeServiceImpl implements GroupNoticeService {
+public class MypageGroupServiceImpl implements MypageGroupService {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
