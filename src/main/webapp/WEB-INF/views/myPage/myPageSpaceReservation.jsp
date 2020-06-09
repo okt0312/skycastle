@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SKY CASTLE</title>
 
 
 <style>
@@ -462,7 +462,7 @@ ul{
                     	
                     	   
                         <span class="col1 thumb align_center">
-                            <img src="resources/images/room1.png" style="height: 100%; width: 100%; object-fit: contain;">
+                            <img src="resources/uploadFiles/space/${ r.changeName }" style="height: 100%; width: 100%; object-fit: contain;">
                         </span>
                         
                         
@@ -470,7 +470,6 @@ ul{
                             <p class="t1">${ r.spaceName }</p>
                             <p class="t2">${ r.usedDate }</p>
                             <p class="t3">${ r.startTime } ~ ${ r.endTime }</p> 
-                           
                         </span>
                        
                         <span class="col3 room_type align_center">

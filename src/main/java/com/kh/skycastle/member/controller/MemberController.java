@@ -132,7 +132,7 @@ public class MemberController {
 
 	// 회원가입
 	@RequestMapping("insert.me")
-	public String insertMember(Member m, Model model) {
+	public String insertMember(Member m, Model model, HttpSession session) {
 
 		// 암호화작업
 		String encPwd = bcryptPasswordEncoder.encode(m.getUserPwd());
@@ -148,8 +148,8 @@ public class MemberController {
 
 		} else { // 회원가입 실패
 
-			model.addAttribute("msg", "회원가입 실패!!");
-			return "common/errorPage";
+			session.setAttribute("enrollFail", "회원가입 실패 하였습니다. 다시 시도해주세요.");
+			return "member/enrollForm";
 		}
 	}
 	

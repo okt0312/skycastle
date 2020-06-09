@@ -89,7 +89,7 @@ public class MypageDao {
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("reservationMapper.spaceselectList",null, rowBounds);
+		return (ArrayList)sqlSession.selectList("reservationMapper.spaceselectList",m, rowBounds);
 		
 	}
 	
