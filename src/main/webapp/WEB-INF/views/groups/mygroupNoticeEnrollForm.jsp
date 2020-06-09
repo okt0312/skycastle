@@ -158,7 +158,7 @@
 		            <td style="border-bottom: 1px solid;">캘린더</td>
 		        </tr>
 		    </table>
-		
+			
 		    <div id="chat-btn">
 		        <button class="sky_btn1">채팅</button>
 		    </div>

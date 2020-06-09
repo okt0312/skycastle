@@ -17,16 +17,16 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
-	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi){
+	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi, String status){
 		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", status, rowBounds);
 	}
 	
-	/*
+/*
 	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
 		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
@@ -35,7 +35,7 @@ public class GroupDao {
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupThumbnailList", null, rowBounds);
 	}
-	*/
+*/
 	
 	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
 		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
@@ -45,14 +45,6 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.countDips", d);
 	}
 	
-	public ArrayList<Groups> selectMyGroupList(SqlSessionTemplate sqlSession, PageInfo pi, String status){
-		// rowbounds 생성하기 위해서 offset만들기
-		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
-		
-		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
-		System.out.println(status);
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", status, rowBounds);
-	}
 	
 	/*
 	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){

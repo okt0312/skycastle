@@ -26,8 +26,15 @@ public class GroupServiceImpl implements GroupService {
 
 	@Override
 	public ArrayList<Groups> selectGroupList(PageInfo pi) {
-		return gDao.selectGroupList(sqlSession, pi);
+		return gDao.selectGroupList(sqlSession, pi, null);
+		// 여기서 status를 null로 넘겨줘
 	}
+	
+	@Override
+	public ArrayList<Groups> selectMyGroupList(PageInfo pi, String status) {
+		return gDao.selectGroupList(sqlSession, pi, status);
+	}
+	
 	/*
 	@Override
 	public ArrayList<Groups> selectGroupThumbnailList(PageInfo pi) {
@@ -45,10 +52,6 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.countDips(sqlSession, d);
 	}
 	
-	@Override
-	public ArrayList<Groups> selectMyGroupList(PageInfo pi, String status) {
-		return gDao.selectMyGroupList(sqlSession, pi, status);
-	}
 	
 	@Override
 	public int insertGroup(Groups g) {
