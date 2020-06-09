@@ -11,7 +11,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
 .outer {
-	margin-top: 50px;
+	margin-top: 80px;
 	margin-bottom: 50px;
 	max-width: 100%;
 	position: relative;
@@ -19,7 +19,6 @@
 	justify-content: center;
 	align-items: center;
 }
-
 .mainTitle {
 	width: 550px;
 	font-size: 30px;
@@ -36,7 +35,8 @@
 /* 정보 입력란 div 스타일 */
 .infoArea {
 	width: 100%;
-	height: 600px;
+	height: 570px;
+	vertical-align:center;
 }
 
 .inputArea {
@@ -93,6 +93,15 @@ select::-ms-expand {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
 }
+#ckBtn:hover{
+	width: 100px;
+	height: 30px;
+	border-radius: 4px;
+	border:1px solid#fdce07;
+	color: rgb(51, 51, 51);
+	background-color: #ffffff;
+	cursor:pointer;
+}
 /* 회원가입 버튼 */
 #joinBtn {
 	width: 200px;
@@ -108,6 +117,7 @@ select::-ms-expand {
 	background-color: #ffffff;
 	border:1px solid#fdce07;
 	color: rgb(51, 51, 51);
+	cursor:pointer;
 }
 </style>
 </head>
