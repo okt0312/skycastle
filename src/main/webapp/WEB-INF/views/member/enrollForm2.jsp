@@ -85,10 +85,10 @@ select::-ms-expand {
 }
 /* 중복확인 */
 #ckBtn {
-	width: 90px;
+	width: 100px;
 	height: 30px;
 	border-radius: 4px;
-	border-color:none;
+	border-style:none;
 	background: #fdce07;
 	color: rgb(51, 51, 51);
 	font-size: 14px;
@@ -106,6 +106,7 @@ select::-ms-expand {
 
 #joinBtn:hover {
 	background-color: #ffffff;
+	border-style:none;
 	color: rgb(51, 51, 51);
 }
 </style>
