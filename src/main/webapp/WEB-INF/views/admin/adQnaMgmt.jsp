@@ -37,50 +37,42 @@
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
                                                 <thead>
                                                     <tr>
-                                                        <th>번호</th>
-                                                        <th>제목 </th>
-                                                        <th>작성일</th>
+                                                        <th>문의번호</th>
+                                                        <th>회원여부</th>
+                                                        <th>이름</th>
+                                                        <th>제목</th>
+                                                        <th>문의날짜</th>
                                                         <th>상태</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   
+                                                   <c:forEach var="li" items="${ list }">
                                                     <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>Tokyo</td>
+                                                        <td>${ li.qnaNo }</td>
+                                                        <c:choose>
+                                                        	<c:when test="${ li.memberYn eq 'Y' }">
+		                                                        <td>회원</td>
+                                                        	</c:when>
+                                                        	<c:when test="${ li.memberYn eq 'N' }">
+		                                                        <td>비회원</td>
+                                                        	</c:when>
+                                                        </c:choose>
+                                                        <td>${ li.userName }</td>
+                                                        <td>${ li.qnaTitle }</td>
+                                                        <td>${ li.qnaDate }</td>
+                                                        <c:choose>
+                                                        	<c:when test="${ li.status eq 'O' }">
+		                                                        <td>답변 대기중</td>
+                                                        	</c:when>
+                                                        	<c:when test="${ li.status eq 'Y' }">
+                                                        		<td>답변 완료</td>
+                                                        	</c:when>
+                                                        	<c:when test="${ li.status eq 'Y' }">
+                                                        		<td>삭제 문의</td>
+                                                        	</c:when>
+                                                        </c:choose>
                                                     </tr>
-                                                    <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
-                                                    <tr data-toggle="modal" data-target="#askManageModal">
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                        <td>Tokyo</td>
-                                                    </tr>
+                                                   </c:forEach>
                                                 </tbody>
                                             </table>
                                            
