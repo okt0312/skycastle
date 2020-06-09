@@ -43,69 +43,14 @@
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
-          title: 'All Day Event',
-          start: '2020-05-01'
+          title: '공간 A방\nabc@naver.com(오경택)',
+          start: '2020-06-09 10:30:00',
+          end: '2020-06-09 14:30:00'
         },
         {
-          title: 'Long Event',
-          start: '2020-06-08',
-          end: '2020-06-08'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-05-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-05-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-05-11',
-          end: '2020-05-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-06-08T10:30:00',
-          end: '2020-06-08T12:30:00'
-        },
-        {
-            title: 'Meeting2',
-            start: '2020-06-08T10:30:00',
-            end: '2020-06-08T12:30:00'
-        },
-        {
-            title: 'Meeting',
-            start: '2020-06-08T11:30:00',
-            end: '2020-06-08T12:30:00'
-        },
-        {
-            title: 'Meeting121',
-            start: '2020-06-09 10:30:00',
-            end: '2020-06-09T12:30:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-05-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-05-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-05-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-05-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-05-28'
+      	  title: '공간 B방\nabc@naver.com(오경택)',
+          start: '2020-06-09 10:30:00',
+          end: '2020-06-09 14:30:00'
         }
       ]
     });

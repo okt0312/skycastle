@@ -25,7 +25,8 @@
 		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdSales"/>	
 		<typeAlias type="com.kh.skycastle.admin.model.dto.SalesChart" alias="SalesChart"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Reply" alias="Reply"/>
-		<typeAlias type="com.kh.skycastle.groups.model.dto.GroupDto" alias="GroupDto"/>	
+		<typeAlias type="com.kh.skycastle.groups.model.dto.GroupDto" alias="GroupDto"/>
+		<typeAlias type="com.kh.skycastle.admin.model.dto.AdminCalendar" alias="AdminCalendar"/>	
 	</typeAliases>
 	
 	<mappers>
@@ -39,7 +40,7 @@
 		<mapper resource="mappers/adBoard-mapper.xml"/>
 		<mapper resource="mappers/adSales-mapper.xml"/>
 		<mapper resource="mappers/adSpace-mapper.xml"/>
-		
+		<mapper resource="mappers/adMain-mapper.xml"/>
 	</mappers>
 	
 	
