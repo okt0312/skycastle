@@ -247,16 +247,19 @@ input, textarea, select, td, th {
     font-size: 19px;
     color: #fff;
 }
-
-
-
-
 </style>
 
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
 
+
 <jsp:include page="common/myPageMenubar.jsp"/>
+	<script type="text/javascript">
+		<c:if test="${!empty msg }">
+			//alert("${msg}");
+			alertify.alert('오류', "${ msg }");
+		</c:if>
+	</script>
 
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
