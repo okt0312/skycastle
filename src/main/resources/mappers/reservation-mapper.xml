@@ -55,6 +55,7 @@
 		<result column="end_time" property="endTime"/>
 		<result column="space_name" property="spaceName"/>
 		<result column="seat_no" property="seatNo"/>
+		<result column="change_name" property="changeName"/>
 	</resultMap>
 	
 	
@@ -181,12 +182,13 @@
 	</select>
 	
 	<!-- 공간 예약 조회 -->
-	<select id="spaceselectList" resultMap="ReservationTimeResultSet">
-		SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, SPACE_NAME, R.STATUS
-		FROM RESERVATION R
-		JOIN RESERVATION_TIME RT USING(BOOK_NO)
-		JOIN TB_SPACE ON (REF_NO = SPACE_NO)
-		WHERE USER_NO = 2 AND CATEGORY = 2
+	<select id="spaceselectList" resultMap="ReservationTimeResultSet" parameterType="Member">
+		SELECT BOOK_NO, USED_DATE, START_TIME, END_TIME, SPACE_NAME, R.STATUS, AT.CHANGE_NAME
+	  	  FROM RESERVATION R
+		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
+		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
+		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
+		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
   	</select>
   	
   	<!-- 좌석 총 게시글 갯수 -->
