@@ -251,7 +251,7 @@ public class AdGroupsController {
 	
 	//소모임상세에서 댓글 리스트
 	@ResponseBody
-	@RequestMapping(value="rlist.bo", produces="application/json; charset=utf-8")
+	@RequestMapping(value="rlist.ad", produces="application/json; charset=utf-8")
 	public String selectAdReplyList(int gno) {
 		
 		ArrayList<Reply> list = adGrService.selectAdReplyList(gno);
@@ -260,7 +260,6 @@ public class AdGroupsController {
 		System.out.println(list);
 		
 		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
-		
 	}
 	
 	

@@ -35,6 +35,7 @@
 		<result column="USER_NO" property="userNo"/>
 		<result column="UPLOAD_DATE" property="uploadDate"/>
 		<result column="STATUS" property="status"/>
+		<result column="USER_NAME" property="userName"/>
 	</resultMap>
 	<!-- 회원 -->	
 	<resultMap type="Member" id="adMemberResultSet">

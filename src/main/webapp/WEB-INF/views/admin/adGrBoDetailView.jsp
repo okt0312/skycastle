@@ -104,7 +104,6 @@
                                     <input type="submit" value="삭제" class="btn btn-danger">
                                 </p>
                             </div>
-                            </table>
                             <input type="hidden" name="gno" id="gno" value="${ g.gnoticeNo}">
                         </form>
                         
@@ -124,25 +123,27 @@
 					        
 					        <br><br>
 					  
-					    
+					    </div>
 					    <script>
 					    	
 					 // 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
 					 
-   		$(function(){
-   			selectAdReplyList();
-   		});
-				    	function selectAdReplyList(){
+				   	   $(function(){
+				   			selectAdReplyList();
+				   		});
+					 
+					    	function selectAdReplyList(){
+				    		var gno = $("#gno").val();
 				    		console.log(gno);
+				    		
 				   			$.ajax({
-				   				url:"rlist.bo",
-				   				data:{gno:${g.gnoticeNo}},
+				   				url:"rlist.ad",
+				   				data:{"gno": gno},
 				   				success:function(list){
-				   					console.log(gno);
 				   					console.log(list);
 				   					
 				   					// 댓글 갯수
-				   					$("#rcount").text(list.length);
+				   					 $("#rcount").text(list.length);
 				   					
 				   					var value = "";
 				   					
@@ -157,9 +158,9 @@
 							                     "</tr>";
 				   					}
 				   					
-				   					$("#replyArea tbody").html(value);
-				   					
+				   					$("#replyArea tbody").html(value); 
 				   				},error:function(){
+				   					console.log(gno);
 				   					console.log("댓글 리스트 조회용 ajax 통신실패!!");
 				   				}
 				   			});
@@ -173,6 +174,6 @@
                     </div>
                 </main>
 		</div>
-
+</div>
 </body>
 </html>
