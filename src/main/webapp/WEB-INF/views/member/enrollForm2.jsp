@@ -98,15 +98,15 @@ select::-ms-expand {
 	width: 200px;
 	height: 30px;
 	border-radius: 5px;
+	border-style:none;
 	text-align: center;
 	background-color: #fdce07;
 	color: rgb(51, 51, 51);
 	font-size: 14px;
 }
-
 #joinBtn:hover {
 	background-color: #ffffff;
-	border-style:none;
+	border:1px solid#fdce07;
 	color: rgb(51, 51, 51);
 }
 </style>

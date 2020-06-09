@@ -89,6 +89,11 @@
 	font-size: 14px;
 	margin-left: 680px;
 }
+.agree1 {
+	color: rgb(51, 51, 51);
+	font-size: 14px;
+	margin-left: 740px;
+}
 </style>
 </head>
 <body data-spy="scroll" data-target="#navbar-example">
@@ -110,7 +115,7 @@
 				</p>
 			</div>
 
-			<p class="agree">
+			<p class="agree1">
 				위 이용약관에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
 
