@@ -65,5 +65,10 @@
  	 WHERE  EVENT_STATUS='Y'
  	</select>
  	
- 	
+ 	<!-- 이벤트 상세페이지 조회 -->
+ 	<select id="adSelectEvent" parameterType="_int" resultMap="adEventResultSet">
+ 	SELECT EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME
+ 	  FROM EVENT
+ 	 WHERE EVENT_NO = #{eno} 
+ 	</select>
 </mapper>
