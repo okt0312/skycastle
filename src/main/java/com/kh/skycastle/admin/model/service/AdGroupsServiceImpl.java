@@ -99,4 +99,10 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 		return adGrDao.selectAdReplyList(sqlSession, gno);
 	}
 
+	@Override
+	public int deleteAdReply(int rno) {
+		return adGrDao.deleteAdReply(sqlSession, rno);
+	
+	}
+
 }

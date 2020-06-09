@@ -67,6 +67,11 @@ public class AdGroupsDao {
 			
 			return (ArrayList)sqlSession.selectList("adGroupsMapper.selectAdReplyList", gno);
 		
+		}
+
+		public int deleteAdReply(SqlSessionTemplate sqlSession, int rno) {
+
+			return sqlSession.delete("adGroupsMapper.deleteAdReply", rno);
 		}		
 				
 }

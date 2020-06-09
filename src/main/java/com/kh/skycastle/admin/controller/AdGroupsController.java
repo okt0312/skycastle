@@ -256,11 +256,26 @@ public class AdGroupsController {
 		
 		ArrayList<Reply> list = adGrService.selectAdReplyList(gno);
 		
-		System.out.println(gno);
-		System.out.println(list);
+		//System.out.println(gno);
+		//System.out.println(list);
 		
 		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
 	}
-	
+	//소모임 상세에서 댓글 삭제
+	@ResponseBody
+	@RequestMapping(value = "rDelete.ad", produces = "text/html; charset=utf-8")
+	public String deleteAdReply(int rno, Model model)
+	{	System.out.println(rno);
+		int result = adGrService.deleteAdReply(rno);
+		
+		if(result > 0)
+		{
+			return "소모임 삭제 성공";
+		}
+		else
+		{
+			return "소모임 삭제 실패";
+		}
+	}
 	
 }

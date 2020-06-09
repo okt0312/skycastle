@@ -148,13 +148,13 @@
 				   					var value = "";
 				   					
 				   					for(var i in list){
-				   						value += "<tr>" + 
+				   						value += "<tr>" + "<form>"+"<input type='hidden' id='rno' value='${ r.replyNo}'>"+
 							                        "<th>" + list[i].userName + "</th>" +
 							                        "<td>" + list[i].replyContent + "</td>" +
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
-							                        "<input type='submit' value='삭제' class='btn btn-danger'>" +
-							                        "</td>" +
+							                        "<input type='button' value='삭제'id='${ r.replyNo}adReplyDeleteBtn' class='btn btn-danger'>" +
+							                        "</td>" + "</form>" +
 							                     "</tr>";
 				   					}
 				   					
@@ -166,7 +166,26 @@
 				   			});
 				   			
 				    	}
-   		
+					    	//@@@@@@@@@환장하겠네..정말!!!!!! 나중에 다시 해보기..
+					    	$("#${ r.replyNo}adReplyDeleteBtn").click(function(){
+					    		console.log("클릭")
+					    		var rno = $("#rno").val();
+				   				$.ajax({
+				   					url:"rDelete.ad",
+				   					data:{"rno": rno},
+				   					type:"post",
+				   					success:function(result){
+				   						
+				   						return "redirect:noticeDetail.ad?bno="+g.getGnoticeNo();
+				   						
+				   					},error:function(){
+				   						console.log("댓글 작성용 ajax 통신 실패!");
+				   					}
+				   				});
+				   				
+				   			});
+					    	
+					    	
 				    </script>
 					    	
 					   	

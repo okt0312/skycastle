@@ -134,11 +134,17 @@
 	
 	<!-- 댓글 리스트 조회 -->
 <select id="selectAdReplyList" parameterType="_int" resultMap="adReplyResultSet">
-	SELECT M.USER_NAME, R.REPLY_CONTENT,R.UPLOAD_DATE
+	SELECT M.USER_NAME, R.REPLY_CONTENT,R.UPLOAD_DATE,R.REPLY_NO
 	FROM REPLY R
 	JOIN MEMBER M USING(USER_NO)
 	WHERE NOTICE_NO =#{gno}
 	</select>
 	
+	<!-- 소모임 조회 모달에서 소모임 삭제 -->
+	<update id="deleteAdReply" parameterType="_int">
+		UPDATE REPLY
+		   SET STATUS = 'N'
+		 WHERE REPLY_NO = #{rno} 
+	</update>
 	
 </mapper>
