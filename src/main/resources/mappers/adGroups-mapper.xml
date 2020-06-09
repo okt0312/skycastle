@@ -99,7 +99,7 @@
 	JOIN GROUPS G USING(GROUP_NO)
 	</select>
 	
-	<select id="selectEvDetail" resultMap="adGroupsNoticeResultSet">
+	<select id="selectGrNoBoard" resultMap="adGroupsNoticeResultSet" >
 	 SELECT GNOTICE_NO,GNOTICE_TITLE,GNOTICE_CONTENT
 	  FROM GROUP_NOTICE
 	  WHERE GNOTICE_NO =#{gno}

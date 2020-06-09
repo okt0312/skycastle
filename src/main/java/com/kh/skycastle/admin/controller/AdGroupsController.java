@@ -244,10 +244,10 @@ public class AdGroupsController {
 	@RequestMapping("adGrDetail.bo")
 	public  ModelAndView selectNoDetail(int gno, ModelAndView mv) {
 		
-		GroupNotice g = adGrService.selectGrBoard(gno);
+		GroupNotice g = adGrService.selectGrNoBoard(gno);
 		mv.addObject("g", g);
-		mv.setViewName("admin/adGrDetailView");
-		
+		mv.setViewName("admin/adGrBoDetailView");
+		System.out.println("컨트롤러"+g);
 		return mv;
 	}
 	

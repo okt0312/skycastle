@@ -109,12 +109,15 @@
                         <div class="reply" align="center">
                             댓글 
                             <div>
-                                <p>이나라</p>
+                            	
+                                <p>(번호로 이름소환)</p>
                                 <p>2020.04.25</p>
                                 <label>아ㅠㅠ5월에도 꼭 열어주세요</label>
                                 <button id="deleteReply" class="btn btn-danger">삭제</button></>
                             </div>
                         </div>
+                        
+                        
                         
                     </div>
                 </main>

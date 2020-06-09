@@ -38,7 +38,7 @@ public interface AdGroupsService {
 		ArrayList<GroupNotice> selectGrBoard();
 		
 		//소모임 게시판 상세조회용 서비스
-		GroupNotice selectGrBoard(int gno);
+		GroupNotice selectGrNoBoard(int gno);
 		
 		// 소모임게시판 게시물 삭제용 서비스
 		int deleteGrBoard(int gno);

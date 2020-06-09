@@ -80,8 +80,8 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	
 	//소모임게시판 관리 페이지 각각 tr눌러서 불러오기
 	@Override
-	public GroupNotice selectGrBoard(int gno) {
-		return adGrDao.selectGrBoard(sqlSession,gno);
+	public GroupNotice selectGrNoBoard(int gno) {
+		return adGrDao.selectGrNoBoard(sqlSession,gno);
 	}
 
 	//소모임 게시글 상세페이지에서 게시글 삭제하기
