@@ -85,9 +85,10 @@ select::-ms-expand {
 }
 /* 중복확인 */
 #ckBtn {
-	width: 80px;
+	width: 90px;
 	height: 30px;
 	border-radius: 4px;
+	border-color:none;
 	background: #fdce07;
 	color: rgb(51, 51, 51);
 	font-size: 14px;
@@ -344,7 +345,11 @@ select::-ms-expand {
 				data : {userId : emailVal
 				},
 				success : function(ranNum) {
-					alert("입력하신 이메일로 인증번호를 전송하였습니다.");
+					if(emailVal.length == 0){
+						alert("이메일을 입력해주세요");
+					}else{
+						alert("입력하신 이메일로 인증번호를 전송하였습니다.");
+					}
 				},
 				error : function() {
 					alert("전송 중 오류 발생");

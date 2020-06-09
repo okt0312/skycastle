@@ -1,9 +1,6 @@
 package com.kh.skycastle.myPage.controller;
 
 
-import java.io.File;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +11,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
@@ -334,11 +330,11 @@ public class MypageController {
 	
 	
 	@RequestMapping("rlist.bo")
-	public String spaceselectList(int currentPage, Model model, HttpSession session, Member m) {
+	public String spaceselectList(int currentPage, Model model, HttpSession session) {
 		
+		Member m = (Member)session.getAttribute("loginUser");
 		
-		
-		
+		System.out.println(m);
 		int rlistCount = pService.spaceselectListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(rlistCount, currentPage, 10, 5);
