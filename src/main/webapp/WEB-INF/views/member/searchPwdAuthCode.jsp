@@ -45,6 +45,7 @@
     font-size: 14px;
     font-weight: 700;
     border-radius: 4px;
+    border-style:none;
     background:#fdce07;
     cursor: pointer;
   }
@@ -52,6 +53,7 @@
     width:310px;
     height:40px;
     border:1px solid rgb(231, 166, 44);
+    border-style:none;
     color:rgb(51,51,51);
     background-color:white;
   }
