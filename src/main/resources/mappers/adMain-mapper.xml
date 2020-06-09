@@ -6,12 +6,15 @@
 		<result column="USED_DATE" property="usedDate"/>
 		<result column="START_TIME" property="startTime"/>
 		<result column="END_TIME" property="endTime"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="SPACE_NAME" property="spaceName"/>
 	</resultMap>
 	
 	<select id="selectCalList" resultMap="adminCalResultSet">
-		SELECT USER_NAME, USED_DATE, START_TIME, END_TIME
+		SELECT USER_ID, USER_NAME, SPACE_NAME, USED_DATE, START_TIME, END_TIME
 		  FROM RESERVATION
 		  JOIN RESERVATION_TIME USING(BOOK_NO)
 		  JOIN MEMBER USING(USER_NO)
+		  JOIN TB_SPACE ON(REF_NO = SPACE_NO)
 	</select>
 </mapper>

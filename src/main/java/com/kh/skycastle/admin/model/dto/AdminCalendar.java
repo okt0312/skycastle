@@ -11,8 +11,10 @@ import lombok.ToString;
 @ToString
 public class AdminCalendar {
 	
+	private String userId;
 	private String userName;
 	private Date usedDate;
 	private String startTime;
 	private String endTime;
+	private String spaceName;
 }
