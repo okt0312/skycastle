@@ -75,15 +75,15 @@ public class MypageController {
 	}
 	
 	
-	@RequestMapping("PwdCheck.my")
+	@RequestMapping("PwdCheckk.my")
 	public String PwdCheck() {
 	
 		
-		return "myPage/myPageInfoUpdateCheck";
+		return "myPage/myPageUpdatePwd";
 	}
 	
 	
-	@RequestMapping("PwdCheckk.my")
+	@RequestMapping("PwdCheckkk.my")
 	public String updateCheckPwd(Member m, HttpSession session, Model model) {
 		
 		// System.out.println(m.getUserPwd());
@@ -101,7 +101,7 @@ public class MypageController {
 			 
 		
 			 model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
-			 return "myPage/myPageInfoUpdateCheck";
+			 return "myPage/myPageUpdatePwd";
 		 }
 		 
 	    
