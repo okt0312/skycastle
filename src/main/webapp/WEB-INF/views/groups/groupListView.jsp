@@ -84,11 +84,11 @@
 	
 	    <div align="center">
 	        <form action="" method="Get" style="margin:0 auto">
-		            <select name="condition">
-		                <option value="groupTitle" selected>모임명</option>
-		                <option value="groupContent">소제목</option>
-		            </select>
-	            	<input type="text" name="search">
+	            <select name="condition">
+	                <option value="groupTitle" selected>모임명</option>
+	                <option value="groupContent">소제목</option>
+	            </select>
+            	<input type="text" name="search">
 	            <button type="submit">검색</button>
 	        </form>
 	    </div>

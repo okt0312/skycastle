@@ -58,6 +58,7 @@
 #nextBtn {
 	margin-left: 25px;
 	border-radius: 4px;
+	border-style:none;
 	background-color: #fdce07;
 	color: black;
 }
@@ -65,6 +66,7 @@
 #preBtn {
 	margin-left: 25px;
 	border-radius: 4px;
+	border-style:none;
 	background-color: #333333;
 	color: #ffffff;
 }
@@ -85,7 +87,7 @@
 .agree {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
-	margin-left: 720px;
+	margin-left: 680px;
 }
 </style>
 </head>
@@ -146,7 +148,6 @@
 				개인정보 수집 및 이용에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
 
-
 			<center>
 				<div class="enrollBtn">
 					<!-- 취소 시 메인으로 이동 -->
@@ -155,6 +156,12 @@
 				</div>
 			</center>
 			
+			<c:if test="${ !empty enrollFail }">
+				<script>
+					alert("${enrollFail}");  
+				</script>
+			<c:remove var="enrollFail" scope="session"/>
+	</c:if>
 		</form>	
 		</div>
 	</div>

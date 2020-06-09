@@ -85,10 +85,12 @@
 	}
 	#searchPwd{
 	  width: 120px;
+	  height:25px;
 	  float: left;
 	}
 	#enrollMember{
 	  width: 120px;
+	  height:25px;
 	  float: right;
 	}
 </style>
@@ -119,6 +121,13 @@
 		<c:remove var="msg" scope="session"/>
 	</c:if>
     
+    <c:if test="${ !empty loginFail }">
+		<script>
+			alert("${loginFail}");  
+		</script>
+		<c:remove var="loginFail" scope="session"/>
+	</c:if>
+	
 	<script>
 		function postFormSubmit(num){
 			if(num == 1){ // 회원가입

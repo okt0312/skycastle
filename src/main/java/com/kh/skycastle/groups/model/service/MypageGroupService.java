@@ -6,7 +6,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
-public interface GroupNoticeService {
+public interface MypageGroupService {
 	
 	// 1. 소모임 공지사항 리스트 조회용 서비스
 	// 1-1. 소모임 공지사항 총개수 조회용 서비스
