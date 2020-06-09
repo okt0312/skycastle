@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -428,11 +429,12 @@ ul{
                             <p style="font-size: larger; margin-bottom: 5px;"> 좌석번호 </p>
                             <p style="font-size:50px; font-weight: 900; margin-top: 0px;">${ s.seatNo }</p>
                         </span>
-                       	
+                        <fmt:parseDate var="dateString" value="${s.usedDate}" pattern="yyyy-MM-dd HH:mm:ss" /> 
                         <span class="col2 room_info">
-                                   <p class="t1">${ s.usedDate }</p>
-                                   <p class="t2">${ s.startTime } ~ ${ s.endTime }</p>
-                                   <p class="t3">지점문의: 02-7777-7777</p>
+                              <p class="t1"><fmt:formatDate value="${dateString}" pattern="yyyy-MM-dd" /></p>
+                              <%-- <p class="t1">${ s.usedDate }</p> --%>
+                              <p class="t2">${ s.startTime } ~ ${ s.endTime }</p>
+                              <p class="t3">지점문의: 02-7777-7777</p>
                         </span>
                         <span class="col3 room_type align_center">
                             <strong class="reserve_type">

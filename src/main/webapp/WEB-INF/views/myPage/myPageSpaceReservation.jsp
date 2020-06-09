@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -465,10 +465,10 @@ ul{
                             <img src="resources/uploadFiles/space/${ r.changeName }" style="height: 100%; width: 100%; object-fit: contain;">
                         </span>
                         
-                        
+                        <fmt:parseDate var="dateString" value="${r.usedDate}" pattern="yyyy-MM-dd HH:mm:ss" /> 
                         <span class="col2 room_info">
                             <p class="t1">${ r.spaceName }</p>
-                            <p class="t2">${ r.usedDate }</p>
+                            <p class="t2"><fmt:formatDate value="${dateString}" pattern="yyyy-MM-dd" /></p>
                             <p class="t3">${ r.startTime } ~ ${ r.endTime }</p> 
                         </span>
                        
