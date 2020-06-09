@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 
-@Repository("gnDao")
+@Repository("mgDao")
 public class MypageGroupDao {
 	
 	public int selectGroupNoticeListCount(SqlSessionTemplate sqlSession) {

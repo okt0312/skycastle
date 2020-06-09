@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
-import com.kh.skycastle.groups.model.dao.GroupNoticeDao;
+import com.kh.skycastle.groups.model.dao.MypageGroupDao;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
@@ -17,16 +17,16 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	@Autowired
-	private GroupNoticeDao gnDao;
+	private MypageGroupDao mgDao;
 
 	@Override
 	public int selectGroupNoticeListCount() {
-		return gnDao.selectGroupNoticeListCount(sqlSession);
+		return mgDao.selectGroupNoticeListCount(sqlSession);
 	}
 
 	@Override
 	public ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi) {
-		return gnDao.selectGroupNoticeList(sqlSession, pi);
+		return mgDao.selectGroupNoticeList(sqlSession, pi);
 	}
 
 	@Override
