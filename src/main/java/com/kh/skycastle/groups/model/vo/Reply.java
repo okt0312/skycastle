@@ -21,6 +21,6 @@ public class Reply {
 	private int userNo;
 	private Date uploadDate;
 	private String status;
-	private String replyWriter;
+	private String userName;
 
 }

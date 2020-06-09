@@ -27,14 +27,32 @@
 		<result column="STATUS" property="status"/>
 		<result column="GROUP_TITLE" property="groupTitle"/>
 </resultMap>
-
-	
-
-
-
-
-
-
+	<!--댓글  -->
+	<resultMap type="Reply" id="adReplyResultSet">
+		<id column="REPLY_NO" property="replyNo"/>
+		<result column="REPLY_CONTENT" property="replyContent"/>
+		<result column="NOTICE_NO" property="noticeNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="UPLOAD_DATE" property="uploadDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	<!-- 회원 -->	
+	<resultMap type="Member" id="adMemberResultSet">
+		<id column="USER_NO" property="userNo"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<result column="PHONE" property="phone"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="MODIFY_DATE" property="modifyDate"/>
+		<result column="BLACKLIST" property="blacklist"/>
+		<result column="STATUS" property="status"/>
+		<result column="DROP_DATE" property="dropDate"/>
+		<result column="LAST_YEAR_USAGE" property="lastYearUsage"/>
+		<result column="THIS_YEAR_USAGE" property="thisYearUsage"/>
+		<result column="GRADE_NAME" property="gradeName"/>
+		<result column="REDCARD" property="redCard"/>
+	</resultMap>
 
 
 	<!--소모임조회 게시글리스트 하나하나 불러오는sql -->
@@ -111,6 +129,14 @@
 	 SELECT GNOTICE_NO,GNOTICE_TITLE,GNOTICE_CONTENT
 	  FROM GROUP_NOTICE
 	  WHERE GNOTICE_NO =#{gno}
+	</select>
+	
+	<!-- 댓글 리스트 조회 -->
+<select id="selectAdReplyList" parameterType="_int" resultMap="adReplyResultSet">
+	SELECT M.USER_NAME, R.REPLY_CONTENT,R.UPLOAD_DATE
+	FROM REPLY R
+	JOIN MEMBER M USING(USER_NO)
+	where NOTICE_NO =#{gno}
 	</select>
 	
 	
