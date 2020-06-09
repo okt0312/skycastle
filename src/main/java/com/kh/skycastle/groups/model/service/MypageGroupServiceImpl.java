@@ -7,63 +7,61 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
-import com.kh.skycastle.groups.model.dao.GroupDao;
-import com.kh.skycastle.groups.model.vo.Dips;
-import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.dao.GroupNoticeDao;
+import com.kh.skycastle.groups.model.vo.GroupNotice;
+import com.kh.skycastle.groups.model.vo.Reply;
 
-@Service("gService")
-public class GroupServiceImpl implements GroupService {
+@Service("gnService")
+public class MypageGroupServiceImpl implements MypageGroupService {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	@Autowired
-	private GroupDao gDao;
+	private GroupNoticeDao gnDao;
 
 	@Override
-	public int selectGroupListCount() {
-		return gDao.selectGroupListCount(sqlSession);
-	}
-
-	@Override
-	public ArrayList<Groups> selectGroupList(PageInfo pi) {
-		return gDao.selectGroupList(sqlSession, pi);
-	}
-	/*
-	@Override
-	public ArrayList<Groups> selectGroupThumbnailList(PageInfo pi) {
-		return gDao.selectGroupThumbnailList(sqlSession, pi);
-	}
-	*/
-	
-	@Override
-	public Groups selectGroup(int gno) {
-		return gDao.selectGroup(sqlSession, gno);
+	public int selectGroupNoticeListCount() {
+		return gnDao.selectGroupNoticeListCount(sqlSession);
 	}
 
 	@Override
-	public int countDips(Dips d) {
-		return gDao.countDips(sqlSession, d);
+	public ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi) {
+		return gnDao.selectGroupNoticeList(sqlSession, pi);
 	}
-	
+
 	@Override
-	public ArrayList<Groups> selectMyGroupList(PageInfo pi, String status) {
-		return gDao.selectMyGroupList(sqlSession, pi, status);
-	}
-	
-	@Override
-	public int insertGroup(Groups g) {
+	public int insertGroupNotice(GroupNotice gn) {
 		return 0;
 	}
 
-
-	
 	@Override
-	public int deleteGroup(int gno) {
+	public int increaseGroupNoticeCount(int gnno) {
 		return 0;
 	}
 
+	@Override
+	public GroupNotice selectGroupNotice(int gnno) {
+		return null;
+	}
 
+	@Override
+	public int deleteGroupNotice(int gnno) {
+		return 0;
+	}
 
+	@Override
+	public int updateGroupNotice(GroupNotice gn) {
+		return 0;
+	}
 
+	@Override
+	public ArrayList<Reply> selectReplyList(int gnno) {
+		return null;
+	}
+
+	@Override
+	public int insertReply(Reply r) {
+		return 0;
+	}
 
 }
