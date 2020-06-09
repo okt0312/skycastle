@@ -85,7 +85,7 @@
 .agree {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
-	margin-left: 720px;
+	margin-left: 690px;
 }
 </style>
 </head>
