@@ -123,9 +123,15 @@ public class AdBoardController {
 		}
 		
 		//이벤트 페이지 상세조회
-		//@RequestMapping("eventDetail.ad")
-		
-		
+		@RequestMapping("eventDetail.ad")
+		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
+			
+			Event e = adBoService.adSelectEvent(eno);
+			mv.addObject("e", e);
+			mv.setViewName("admin/adEventDetailView");
+			
+			return mv;
+		}	
 		
 		
 		

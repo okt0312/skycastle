@@ -43,9 +43,9 @@ public class AdBoardDao {
 	}
 	
 	//이벤트 상세 조회용
-	public Notice selectEvDetail(SqlSessionTemplate sqlSession,int eno) {
+	public Event adSelectEvent(SqlSessionTemplate sqlSession,int eno) {
 		
-		return sqlSession.selectOne("adBoardMapper.selectEvDetail", eno);
+		return sqlSession.selectOne("adBoardMapper.adSelectEvent", eno);
 		
 	}
 	

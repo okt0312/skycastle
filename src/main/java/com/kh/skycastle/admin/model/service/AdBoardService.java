@@ -30,7 +30,7 @@ public interface AdBoardService {
 	ArrayList<Event> selectEvent();
 	
 	//이벤트 상세조회용 서비스
-	Notice selectEvDetail(int eno);
+	Event adSelectEvent(int eno);
 		
 	//이벤트 등록용 서비스
 	int insertAdEvent(Event e);
