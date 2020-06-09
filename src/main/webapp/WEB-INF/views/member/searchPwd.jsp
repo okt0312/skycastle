@@ -55,7 +55,7 @@
     width:310px;
     height:40px;
     border:1px solid rgb(231, 166, 44);
-    border-style:none;
+    border:1px solid#fdce07;
     color:rgb(51,51,51);
     background-color:white;
   }
