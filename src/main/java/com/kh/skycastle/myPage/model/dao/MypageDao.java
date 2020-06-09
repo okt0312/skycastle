@@ -98,14 +98,14 @@ public class MypageDao {
 	}
 	
 	
-	public ArrayList<Seat> seatselectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+	public ArrayList<Seat> seatselectList(SqlSessionTemplate sqlSession, PageInfo pi, Member m) {
 		
 		
 		int offset = (pi.getCurrentPage() -1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("reservationMapper.seatselectList",null, rowBounds);
+		return (ArrayList)sqlSession.selectList("reservationMapper.seatselectList",m, rowBounds);
 		
 	}
 	

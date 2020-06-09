@@ -443,7 +443,17 @@ ul{
 	
                         <span class="col4 align_center" style="padding-top:90px;">
                             <span class="reserve_status" style="float: right;">
-                               	 이용대기
+                               	 <c:choose>
+                               		<c:when test="${ s.status eq 'X' }">
+		                               	이용대기
+                               		</c:when>
+                               		<c:when test="${ s.status eq 'O' }">
+		                               	이용예정
+                               		</c:when>
+                               		<c:when test="${ s.status eq 'C' }">
+		                               	이용완료
+                               		</c:when>
+                            	</c:choose>
                             </span>
                         </span>
                 </li>

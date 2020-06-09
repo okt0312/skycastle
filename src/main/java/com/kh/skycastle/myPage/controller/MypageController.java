@@ -183,14 +183,14 @@ public class MypageController {
 	
 	
 	@RequestMapping("seat.my")
-	public String seatselectList(int currentPage, Model model) {
+	public String seatselectList(int currentPage, Model model, HttpSession session) {
 			
 		int slistCount = pService.seatselectListCount();
-		
+		Member m = (Member)session.getAttribute("loginUser");
+
 		PageInfo pi = Pagination.getPageInfo(slistCount, currentPage, 10, 5);
 		
-		ArrayList<Seat> slist = pService.seatselectList(pi);
-		
+		ArrayList<Seat> slist = pService.seatselectList(pi, m);
 		model.addAttribute("pi", pi);
 		model.addAttribute("slist", slist);
 		

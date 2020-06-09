@@ -141,9 +141,9 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public ArrayList<Seat> seatselectList(PageInfo pi) {
+	public ArrayList<Seat> seatselectList(PageInfo pi, Member m) {
 		
-		return pDao.seatselectList(sqlSession, pi);
+		return pDao.seatselectList(sqlSession, pi, m);
 	}
 
 
