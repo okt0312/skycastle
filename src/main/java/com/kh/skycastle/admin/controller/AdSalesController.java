@@ -29,13 +29,14 @@ public class AdSalesController {
 	public ModelAndView adSelectSalesList(AdReservationDto adr, ModelAndView mv)
 	{
 		ArrayList<AdReservationDto> list = adsService.adSelectSalesList(adr);
-		
+		ArrayList<SalesChart> list2 = adsService.selectSalesChart();
 		int sumCost = 0;
 		
 		for(AdReservationDto obj : list)
 		{
 			sumCost += obj.getTotalCost();
 		}
+		mv.addObject("chartList", list2);
 		mv.addObject("list", list);
 		mv.addObject("adr", adr);
 		mv.addObject("sumCost", sumCost);
