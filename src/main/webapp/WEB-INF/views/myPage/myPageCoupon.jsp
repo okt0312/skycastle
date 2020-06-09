@@ -46,9 +46,9 @@ div {
 	width: 1000px;
 	height: 200px;
 	border: 1px solid rgb(76, 60, 60);
-	background-color: #fdce07;
+	background-color: rgb(13,13,13);
 	margin: auto;
-	color: black;
+	color: #fdce07;
 }
 
 
@@ -67,8 +67,8 @@ div {
 }
 
 #noticeList * {
-	height: 30px;
-	font-size: 12px;
+	height: 50px;
+	font-size: 14px;
 	border-bottom: 1px solid lightgray;
 }
 
@@ -77,9 +77,15 @@ div {
 }
 
 #noticeList>thead th {
-	font-size: 14px;
+	font-size: 18px;
 	font-weight: 750;
 }
+
+ #noticeList>tbody>tr:hover{
+ 	cursor: pointer;
+ 	color: #fdce07;
+ }
+
 
 /* 페이징바 css */
 .paging{
@@ -141,7 +147,7 @@ div {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${loginUser.userName}</b>님께서 보유하고있는 할인쿠폰 내역입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black; margin-top: 10px;">쿠폰을 사용하여 스터디룸을 예약하세요.</p>
+							<p style="font-size: 0.7em; color: #fdce07; margin-top: 10px;">쿠폰을 사용하여 스터디룸을 예약하세요.</p>
 						</th>
 						
 						
@@ -169,7 +175,7 @@ div {
 				<br> <br>
 				<table id="noticeList" align="center" width="1000px;" style="margin:auto;" >
 					<thead>
-						<tr>
+						<tr style="font-size: 18px; font-family:고딕;">
 							<th style="width: 30%; text-align: center;">쿠폰명</th>
                             <th style="width: 30%; text-align: center;">유효기간</th>
                             <th style="width: 30%; text-align: center;">사용여부</th>
@@ -179,7 +185,7 @@ div {
 					
 						<c:forEach items="${ list }" var="o">
 							
-							<tr>
+							<tr style="font-size: 14px; font-weight: bold;">
 								<td>${o.couponName}</td>
                                 <td>${o.startDate} ~ ${o.endDate}</td>
                                 <td></td>
