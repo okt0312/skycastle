@@ -7,10 +7,11 @@
 <meta charset="UTF-8">
 <title>소모임 게시판 관리</title>
 <style>
-	 #boardList>tbody>tr:hover{
-			 cursor:pointer;
-			 }
-
+/* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
 	  #selectBox
        {
            position: absolute;

@@ -35,6 +35,8 @@
         width:100%;
     }
     .boardList{
+    	width:700px;
+    	hight:500px;
         margin: auto;
         border-top:1px solid rgb(175, 175, 175);
         margin:10px;
@@ -86,13 +88,13 @@
                         <!-- 게시글 삭제 수정 시작 -->
                         <form action="">
                             <div class="contents" align="center">
-                                <table class="boardList">
+                                <table class="boardList" >
                                     <tr>
                                         <td><p>${ g.gnoticeTitle}</p></td>
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <textarea rows=20 cols=85 name="gnoticeContent" id="gnoticeContent">${ g.gnoticeContent}</textarea>
+                                           <br><br> ${ g.gnoticeContent}<br><br>
                                         </td>
                                     </tr>
                                 </table>    
