@@ -3,6 +3,7 @@ package com.kh.skycastle.groups.controller;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.cs.model.vo.Notice;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.member.model.vo.Member;
 
 @Controller
 public class GroupController {
@@ -98,12 +100,17 @@ public class GroupController {
 	}
 	
 	@RequestMapping("mygroupList.gr")
-	public String mygroupList(int currentPage, String status, Model model) {
+	public String mygroupList(int currentPage, GroupDto gd, Model model, HttpSession session) {
 		
 		int groupListCount = gService.selectGroupListCount();
-		System.out.println(status);
+		System.out.println(gd);
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<Groups> list = gService.selectMyGroupList(pi, status);
+		
+		Member m = (Member)session.getAttribute("loginUser");
+		gd.setUserNo(m.getUserNo());
+		
+		System.out.println(gd.toString());
+		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
 //		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		System.out.println(list);

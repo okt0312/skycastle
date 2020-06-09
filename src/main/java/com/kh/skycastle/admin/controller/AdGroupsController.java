@@ -1,9 +1,7 @@
 package com.kh.skycastle.admin.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.kh.skycastle.admin.model.service.AdGroupsService;
-import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 
 //소모임(소모임조회, 개설관리, 소모임게시글관리) 페이지 관련 컨트롤러 입니다
@@ -247,8 +246,22 @@ public class AdGroupsController {
 		GroupNotice g = adGrService.selectGrNoBoard(gno);
 		mv.addObject("g", g);
 		mv.setViewName("admin/adGrBoDetailView");
-		System.out.println("컨트롤러"+g);
 		return mv;
 	}
+	
+	//소모임상세에서 댓글 리스트
+	@ResponseBody
+	@RequestMapping(value="rlist.bo", produces="application/json; charset=utf-8")
+	public String selectAdReplyList(int gno) {
+		
+		ArrayList<Reply> list = adGrService.selectAdReplyList(gno);
+		
+		System.out.println(gno);
+		System.out.println(list);
+		
+		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
+		
+	}
+	
 	
 }

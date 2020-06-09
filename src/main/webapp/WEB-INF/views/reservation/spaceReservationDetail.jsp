@@ -270,7 +270,11 @@
     <br clear="both">
     <jsp:include page="../common/footer.jsp"/>
 </body>
+
 <script>
+
+
+
 	$(function(){
 		var spacePrice=${space.spacePrice};
 
@@ -449,23 +453,27 @@
 
 			
 		});
+		 
 		 timeCheck();
 		 selectSpaceReservationTime();
+		
 	});
+	
+	
 	
 	
 	//현재 시간을 가져와 이미 지난시간은 선택불가능하게 조정
 	function timeCheck(){
+			timeSelect = $("#time").children();
 		if($("#date").val() == new Date().toISOString().substring(0, 10)){
 			var date = new Date().getHours();
-			timeSelect = $("#time").children();
 			
 			for(var i=0; i<timeSelect.length; i++){
-				if(timeSelect.eq(i).val().substring(0, 2) < date){
+				if(timeSelect.eq(i).val().substring(0, 2) <= date){
 					timeSelect.eq(i).attr("disabled","disabled");
 				}			
 			}
-		    //showTimeSelect();
+		   // showTimeSelect();
 		
 		}else{
 			for(var i=0; i<timeSelect.length; i++){
@@ -475,10 +483,44 @@
 			}
 		    //showTimeSelect();
 		}
-		
-		
-		
-		
+
+	}
+	
+	//예약된 공간 시간현황 조회 함수
+	function selectSpaceReservationTime(){
+		timeSelect = $("#time").children();
+		chooseDay = $("#date").val();
+		//console.log(day);
+		$.ajax({
+			url:"selectSpaceReservationTime.re",
+			async: false,
+			data: {refNo:${space.spaceNo},usedDate:chooseDay},
+			success:function(ReservationTime){
+				//console.log(ReservationTime);
+				if(ReservationTime != ''){
+					/*  console.log(ReservationTime);
+					console.log(ReservationTime[0].startTime.substring(0, 2));
+					console.log(ReservationTime[0].endTime.substring(0, 2));
+					console.log(timeSelect.eq(0).val().substring(0, 2));  */
+					  for(var i=0; i<ReservationTime.length; i++){
+							for(var j=0; j<timeSelect.length; j++){
+								if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
+										&& timeSelect.eq(j).val().substring(0, 2) < ReservationTime[i].endTime.substring(0, 2) ){
+									timeSelect.eq(j).attr("disabled","disabled");
+								}			
+							}
+						} 
+					
+				}
+				
+				showTimeSelect();
+				
+
+			},error:function(){	
+				console.log("공간예약시간 조회 ajax 통신 실패!!");
+			}
+		});
+
 	}
 	
 	
@@ -506,51 +548,18 @@
 	}
 	
 	
-	// 예약된 공간 시간현황 조회 함수
-	function selectSpaceReservationTime(){
-		timeSelect = $("#time").children();
-		chooseDay = $("#date").val();
-		//console.log(day);
-		$.ajax({
-			url:"selectSpaceReservationTime.re",
-			async: false,
-			data: {refNo:${space.spaceNo},usedDate:chooseDay},
-			success:function(ReservationTime){
-				//console.log(ReservationTime);
-				if(ReservationTime != ''){
-					 console.log(ReservationTime);
-					console.log(ReservationTime[0].startTime.substring(0, 2));
-					console.log(ReservationTime[0].endTime.substring(0, 2));
-					console.log(timeSelect.eq(0).val().substring(0, 2)); 
-					  for(var i=0; i<ReservationTime.length; i++){
-							for(var j=0; j<timeSelect.length; j++){
-								if(ReservationTime[i].startTime.substring(0, 2) <= timeSelect.eq(j).val().substring(0, 2)
-										&& timeSelect.eq(j).val().substring(0, 2) < ReservationTime[i].endTime.substring(0, 2) ){
-									timeSelect.eq(j).attr("disabled","disabled");
-								}			
-							}
-						} 
-					  showTimeSelect();
-				}else{
-					  showTimeSelect();
-				}
-				
 	
-			},error:function(){	
-				console.log("공간예약시간 조회 ajax 통신 실패!!");
-			}
-		});
-
-	}
 	
 	// 예약된 좌석시간현황 조회 함수 호출
-	/* selectspaceReservationTime();
-	 setInterval(function() {
-		selectspaceStatusList();
+	 /*setInterval(function() {
+		 selectspaceReservationTime();
 	}, 5000);  */
 	
 	//사용가능한 시간옵션중 가장빠른것을 셀렉트하는 함수
 	function showTimeSelect(){
+		var a = $("#time option:selected").val();
+		console.log(a);
+		$("#time option:selected").removeAttr('selected');
 		var showTimeSelect = $("#time option:enabled");	
 		 showTimeSelect.eq(0).attr("selected","selected");
 	}

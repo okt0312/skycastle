@@ -7,8 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.member.model.vo.Member;
 
 @Repository("gDao")
 public class GroupDao {
@@ -17,13 +19,13 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
-	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi, String status){
+	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
 		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", status, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupList", gd, rowBounds);
 	}
 	
 /*

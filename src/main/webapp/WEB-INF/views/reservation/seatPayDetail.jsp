@@ -46,7 +46,7 @@
 
     <style>
 	    .sky_btn1 /* 확인 버튼 */
-	    {
+	    {	
 	        width: 450px;
 	        height: 40px;
 	        text-align: center;
@@ -58,20 +58,38 @@
 	        background: #fdce07;
 	        color: #000000;
 	        border: 0;
-	        line-height: 1px;
 	        color: white;
 	    }
-	
+		.sky_btn1:hover{
+			background:#fff;
+			border:1.5px solid #333;
+			color:#333;
+			font-weight:550
+			}
 	    #payTable{
-	        background-color: lightgray;
+	        background-color: #f1f1f1;
 	        width: 100%;
 	        height: 80spx;
 	        font-size: 25px;
 	        text-align: center;
 	      
 	    }
+	    #payTable tr td{padding:10px}
 	    #payD{
-	        width: 600px;
+	   	    float:left;
+	        width: 100%;
+	        margin:auto;
+	    }
+	    
+	    .discount_tb{width: 750px;
+ 	    	margin-bottom:20px 
+	    	 
+	    }
+	    .discount_tb td{padding:15px; text-align:center; font-size:15px }
+	    .discount_tb thead tr td{
+	    	background:#ffe885;
+	    	font-weight:600;
+	    	font-size:18px;
 	    }
     </style>
 
@@ -794,41 +812,31 @@
        
 			<center>
             	<div id="payD">
-                	<div>
-	                    <div align="left">
-	                        <span>선택사항</span>
-	                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        <span>사용쿠폰</span>
-	                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                        <span>등급할인</span>
-	                    </div>
-	                    <br>
-	                	<div id="detail">
-	                        <div>
-	                            <p>${reservation.usedDate} &nbsp;&nbsp;${reservation.startTime}~ ${reservation.endTime}</p> 
-	                          
-	                        </div>
-	                        <div>
-	                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                            <span  style="font-size: 15px; width:50px">${coupon.couponName }</span>
-	                        </div>
-	                        <div>
-	                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	                            <span  style="font-size: 15px;  width:50px">${grade.gradeName }</span>
-	                        </div>
-                		</div>
-            		</div>
+            		<table class="discount_tb" cellpadding="0" cellspacing="0" align="center">
+            			<thead>
+	            			<tr>
+	            				<td width="40%">선택사항</td>
+	            				<td width="35%">사용쿠폰</td>
+	            				<td width="25%">등급할인</td>
+	            			</tr>
+	            		</thead>
+	            		<tbody>
+	            			<tr>
+	            				<td>${reservation.usedDate} &nbsp;&nbsp;${reservation.startTime}~ ${reservation.endTime}</td>
+	            				<td>${coupon.couponName }</td>
+	            				<td>${grade.gradeName }</td>
+	            			</tr>
+	            		</tbody>	
+            		</table>
+            	 </div>
             		<br clear="both">
           
 	                <table id="payTable" >
 	                    <tr style="font-size: 10px;">
 	                        <td colspan="3"></td>
-	                        <td>쿠폰할인</td>
+	                        <td style="font-size:15px">(쿠폰할인)</td>
 	                        <td></td>
-	                        <td>등급할인</td>
+	                        <td style="font-size:15px">(등급할인)</td>
 	                        <td></td>
 	                        <td></td>
 	                    </tr>
@@ -845,13 +853,13 @@
 	                </table>
                 
 	                <br>
-	                <button class="sky_btn1" id="pay">바로 결제 하기</button>
+	                <button class="sky_btn1" id="pay" style="line-height:35px; height:50px">바로 결제 하기</button>
             	</div>
 			</center>
 		</div>
     </div>
     <form action="reservInsert.re"  method="post" id="reservInsert">
-    <input type="hidden" name="userNo" value="${reservation.userNo}">
+<%--     <input type="hidden" name="userNo" value="${reservation.userNo}"> --%>
   	<input type="hidden" name="refNo" value="${reservation.refNo}">
   	<input type="hidden" name="couponCode" value="${reservation.couponCode}">
   	<input type="hidden" id="finalTotal" name="totalCost"> 

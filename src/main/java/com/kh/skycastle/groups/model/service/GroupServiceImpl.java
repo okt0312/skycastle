@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.GroupDao;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.member.model.vo.Member;
 
 @Service("gService")
 public class GroupServiceImpl implements GroupService {
@@ -28,12 +30,11 @@ public class GroupServiceImpl implements GroupService {
 	public ArrayList<Groups> selectGroupList(PageInfo pi) {
 		String status = null;
 		return gDao.selectGroupList(sqlSession, pi, status);
-		// 여기서 status를 null로 넘겨줘
 	}
 	
 	@Override
-	public ArrayList<Groups> selectMyGroupList(PageInfo pi, String status) {
-		return gDao.selectGroupList(sqlSession, pi, status);
+	public ArrayList<Groups> selectMyGroupList(PageInfo pi, GroupDto gd) {
+		return gDao.selectGroupList(sqlSession, pi, gd);
 	}
 	
 	/*
