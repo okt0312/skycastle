@@ -312,21 +312,27 @@
 		
 		$("#timeAdd").click(function(){
 			
-			var nextDisabled = $("#time option:selected").next().prop("disabled");
+			
+			var end =  $("#end").val();
+			var timeOption = $("#time option");
 			
 			if($("#start").val() == ''){
 				alert("시작시간은 선택해주세요");
 				return;
-			}else if($("#start").val() == '22:00'){
-				alert("마지막타임입니다.");
-				return;
+			}else if($("#end").val() != '24:00'){
+				for(var i=0; i<=timeOption.length; i++){
+					if(end == timeOption.eq(i).val()){
+						if(timeOption.eq(i).prop("disabled")){
+							alert("다음 예약으로 인해시간 연장이 불가합니다.");
+							return;	
+						}
+					}		
+				}
 			}else if($("#end").val() == '24:00'){
 				alert("마지막타임입니다.");
 				return;
-			}else if(nextDisabled == true){
-				alert("시간 연장이 불가합니다.");
-				return;
 			}
+			
 			endTime =  $("#end").val().substr(0,2);
 			$("#end").val(Number(endTime)+2 +':00');
 			totalTime();

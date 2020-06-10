@@ -86,7 +86,7 @@
                             <li class="breadcrumb-item active"><a style="color:black">소모임 게시글 관리</a></li>
                         </ol>
                         <!-- 게시글 삭제 수정 시작 -->
-                        <form action="">
+                        <form action="deleteGrNo.ad">
                             <div class="contents" align="center">
                                 <table class="boardList" >
                                     <tr>
@@ -148,12 +148,12 @@
 				   					var value = "";
 				   					
 				   					for(var i in list){
-				   						value += "<tr>" + "<form>"+"<input type='hidden' id='rno' value='${ r.replyNo}'>"+
+				   						value += "<tr>" + "<form>"+"<input type='text' id='rno' value='${ r.replyNo}'>"+
 							                        "<th>" + list[i].userName + "</th>" +
 							                        "<td>" + list[i].replyContent + "</td>" +
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
-							                        "<input type='button' value='삭제'id='${ r.replyNo}adReplyDeleteBtn' class='btn btn-danger'>" +
+							                        "<input type='submit' value='삭제'id='${ r.replyNo}adReplyDeleteBtn' class='btn btn-danger'>" +
 							                        "</td>" + "</form>" +
 							                     "</tr>";
 				   					}
