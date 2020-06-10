@@ -76,17 +76,17 @@
  	</select>
  	
  	<!-- 이벤트 수정 -->
- 	<update id="updateAdEvent" parameterType="_int">
+ 	<update id="updateAdEvent" parameterType="Event">
  		UPDATE EVENT
 		   SET EVENT_TITLE = #{eventTitle},
 		       EVENT_REGISTER_DATE = SYSDATE
 		 WHERE EVENT_NO = #{eno} 		
  	</update>
  	
- 	<update id="updateAttachment" parameterType="_int">
+ 	<update id="updateAttachment" parameterType="Attachment">
  		UPDATE ATTACHMENT
 		   SET CAHNGE_NAME = #{chagneName},
-		 WHERE REF_BNO = #{eno} 		
+		 WHERE REF_BNO = #{fileNo} 		
  	</update>
  	
 </mapper>

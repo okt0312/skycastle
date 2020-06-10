@@ -26,7 +26,8 @@
 		<typeAlias type="com.kh.skycastle.admin.model.dto.SalesChart" alias="SalesChart"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Reply" alias="Reply"/>
 		<typeAlias type="com.kh.skycastle.groups.model.dto.GroupDto" alias="GroupDto"/>
-		<typeAlias type="com.kh.skycastle.admin.model.dto.AdminCalendar" alias="AdminCalendar"/>	
+		<typeAlias type="com.kh.skycastle.admin.model.dto.AdminCalendar" alias="AdminCalendar"/>
+		<typeAlias type="com.kh.skycastle.common.model.vo.Attachment" alias="Attachment"/>	
 	</typeAliases>
 	
 	<mappers>
