@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdBoardDao;
+import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
 
@@ -68,8 +69,8 @@ public class AdBoardServiceImpl implements AdBoardService {
 	
 	// 이벤트 수정
 	@Override
-	public int updateAdEvent(Event e) {
-		return adBoDao.updateAdEvent(sqlSession, e);
+	public int updateAdEvent(Event e, Attachment at) {
+		return  adBoDao.updateAdEvent(sqlSession, e, at);
 	}
 	
 	// 이벤트 삭제
