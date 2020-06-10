@@ -31,6 +31,7 @@
         margin-top: 20px;
         border-top: 2px #d1d1d1 solid;
         border-bottom: 2px #d1d1d1 solid;
+        height: 110px;
     }
     .myPage_header_menu
     {
@@ -46,9 +47,8 @@
     .myPage_header_menu ul
     {  
         list-style:none; 
-        margin: 7px 0; 
-        padding:0; 
         text-align: right;
+        top: -6px;
     }
     .myPage_header_menu > li 
     { 
@@ -99,17 +99,17 @@
         
         <div id="header2">
 
-           <div style="width: 100%; margin: 30px 40px 100px;">
-	            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 300px; float: left;"></a>
+           <div class="myPage_header_menu" style="width: 100%; margin: 30px 40px 100px;">
+	            <a href="${pageContext.servletContext.contextPath}/" id="" style="width: 25%"><img src="resources/images/myPage.logo.jpg" id="" style="width: 300px; float: left;"></a>
+	            <ul class="myPage_header_menu" style="margin:auto;">
+	                <li style="width: 17%; "><a href="rlist.bo?currentPage=1">이용현황</a></li>
+	                <li style="width: 17%; "><a href="mygroupList.gr?currentPage=1&status=Y">소모임관리</a></li>
+	                <li style="width: 17%; "><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
+	                <li style="width: 17%; "><a href="list.bo?currentPage=1">쿠폰함</a></li>
+	                <li style="width: 17%; "><a href="PwdCheckk.my">개인정보수정</a></li>
+	            </ul>
            </div>
            	<div>
-	            <ul class="myPage_header_menu" style="margin:auto;">
-	                <li style="width: 20%; "><a href="rlist.bo?currentPage=1">이용현황</a></li>
-	                <li style="width: 20%; "><a href="mygroupList.gr?currentPage=1&status=Y">소모임관리</a></li>
-	                <li style="width: 20%; "><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
-	                <li style="width: 20%; "><a href="list.bo?currentPage=1">쿠폰함</a></li>
-	                <li style="width: 20%; "><a href="PwdCheckk.my">개인정보수정</a></li>
-	            </ul>
            	</div>
         </div>
     </div>
