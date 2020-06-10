@@ -8,9 +8,15 @@
 <title>좌석 현황</title>
 
     <!-- 좌석 표 css-->
-    <style>
-	    .Style1 {border: 1px; border-style:solid; color: black;background-color:lightgray;font-weight:bold;}
-	    .Style9 {border: 1px; border-style:solid; color:black; background-color:lightgray;font-weight:bold;}
+   <!--  <style>
+	    .Style1 {border: 1px; border-style:solid; color: black;background-color:lightgray;font-weight:bold; }
+	    .Style9 {border: 1px; border-style:solid; color:black; background-color:lightgray;font-weight:bold; }
+	    .Style1:hover{ cursor:pointer;}
+	    .Style2:hover{ cursor:pointer;}
+    </style> -->
+
+ <style type="text/css">
+	    .Style9 {border: 1px; border-style:solid; color: black;background-color:lightgray;font-weight:bold;}
     </style>
 
 </head>
@@ -103,7 +109,7 @@
 										                15</td>
 										                <td class='Style9' style="text-align: center;width:30px;height:25px; font-size:10px;">
 										                14</td>
-										                <td class='Style1' style="text-align: center;width:30px;height:25px; font-size:10px; background-color: red;">
+										                <td class='Style1' style="text-align: center;width:30px;height:25px; font-size:10px; ">
 										                13</td>
 										                <td class='Style9' style="text-align: center;width:30px;height:25px; font-size:10px;">
 										                12</td>
