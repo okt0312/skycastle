@@ -19,4 +19,9 @@ public class AdQnaDao {
 	{
 		return sqlSession.update("adQnaMapper.deleteQna", q);
 	}
+	
+	public int answerQna(SqlSessionTemplate sqlSession, Qna q)
+	{
+		return sqlSession.update("adQnaMapper.answerQna", q);
+	}
 }

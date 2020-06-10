@@ -28,4 +28,9 @@ public class AdQanServiceImpl implements AdQnaService{
 		return adqDao.deleteQna(sqlSession, q);
 	}
 
+	@Override
+	public int answerQna(Qna q) {
+		return adqDao.answerQna(sqlSession, q);
+	}
+
 }

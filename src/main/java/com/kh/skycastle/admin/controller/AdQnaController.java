@@ -28,6 +28,33 @@ public class AdQnaController {
 		return "admin/adQnaMgmt";
 	}
 	
+	@RequestMapping("answerQna.ad")
+	public String answerQna(Qna q, HttpSession session)
+	{
+		System.out.println(q);
+		
+		if(q.getMemberYn().equals("Y"))
+		{
+			int result = adqService.answerQna(q);
+			
+			if(result > 0)
+			{
+				session.setAttribute("msg", "답변 작성 완료");
+			}
+			else
+			{
+				session.setAttribute("msg", "답변 작성 실패");
+			}
+			
+		}
+		else if(q.getMemberYn().equals("N"))
+		{
+			
+		}
+		
+		return "redirect:adQnaForm.ad";
+	}
+	
 	@RequestMapping("deleteQna.ad")
 	public String deleteQna(Qna q, HttpSession session)
 	{

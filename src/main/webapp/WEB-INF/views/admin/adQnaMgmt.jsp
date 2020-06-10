@@ -15,7 +15,6 @@
 </head>
 <body>
 	
- ${ msg }
 	<div id="layoutSidenav">
 		<jsp:include page="common/adminSidebar.jsp" />
 		
@@ -114,14 +113,16 @@
 
 							<form id="update_qna" action="" method="post" class="form-horizontal">
 								<input type="hidden" name="qnaNo" id="qnaNo">
+								<input type="hidden" name="memberYn" id="memberYn">
+								<input type="hidden" name="qanReply" id="qanReply">
 								<!-- Modal Body -->
 								<div class="modal-body">
-									<label for="userId" class="mr-sm-2">제목 :</label> <input
+									<label for="qnaTitle" class="mr-sm-2">제목 :</label> <input
 										type="text" class="form-control mb-2 mr-sm-2" id="qnaTitle" name="qnaTitle" readonly style="background: white;">
-									<br> <label for="userId" class="mr-sm-2">내용 :</label>
+									<br> <label for="qnaContent" class="mr-sm-2">내용 :</label>
 									<textarea class="form-control" rows=10 cols=60 name="qnaContent" id="qnaContent" placeholder="내용" readonly style="resize: none;"></textarea>
-									<br> <label for="userId" class="mr-sm-2">답변 :</label>
-									<textarea class="form-control" rows=7 cols=75 name="contents" id="" style="resize: none;"></textarea>
+									<br> <label for="qanReply" class="mr-sm-2">답변 :</label>
+									<textarea class="form-control" rows=7 cols=75 name="qnaReply" id="qnaReply" style="resize: none;"></textarea>
 									<br>
 								</div>
 								<!-- Modal footer -->
@@ -140,12 +141,18 @@
 											$("#qnaNo").val("${lc.qnaNo}");
 											$("#qnaTitle").val("${lc.qnaTitle}");
 											$("#qnaContent").val("${lc.qnaContent}");
+											$("#memberYn").val("${lc.memberYn}");
+											$("#qnaReply").val("${lc.qnaReply}");
 										}
 									</c:forEach>
 								});
 								
+								$("#qna_insert_btn").click(function(){
+									$("#update_qna").attr("action", "answerQna.ad").submit();
+								});
+								
 								$("#qna_delete_btn").click(function(){
-									$("#update_qna").attr("action", "deleteQna.ad").submit();;
+									$("#update_qna").attr("action", "deleteQna.ad").submit();
 								});
 							</script>
 							

@@ -10,4 +10,6 @@ public interface AdQnaService {
 	ArrayList<Qna> selectQnaList();
 	
 	int deleteQna(Qna q);
+	
+	int answerQna(Qna q);
 }

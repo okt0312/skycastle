@@ -26,4 +26,10 @@
 		   SET STATUS = 'N'
 		 WHERE QNA_NO = #{qnaNo}
 	</update>
+	
+	<update id="answerQna" parameterType="Qna">
+		UPDATE QNA
+		   SET STATUS = 'Y',QNA_REPLY = #{qnaReply}
+		 WHERE QNA_NO = #{qnaNo}
+	</update>
 </mapper>
