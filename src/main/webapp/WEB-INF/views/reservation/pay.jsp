@@ -19,9 +19,9 @@
 	    name : '주문명:결제테스트',
 	    amount : ${reservation.totalCost},
 	    buyer_email : 'iamport@siot.do',
-	    buyer_name : '구매자이름',
-	    buyer_tel : '010-1234-5678',
-	    buyer_addr : '서울특별시 강남구 삼성동',
+	    buyer_name : ${loginUser.userName},
+	    buyer_tel :  ${loginUser.phone},
+	    buyer_addr : '미입력',
 	    buyer_postcode : '123-456',
 	    m_redirect_url : 'http://192.168.30.225:9999/teaspoon'
 	}, function(rsp) {
