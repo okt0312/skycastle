@@ -128,6 +128,7 @@
 	SELECT N.GNOTICE_NO, G.GROUP_TITLE, N.GNOTICE_TITLE, N.ENROLL_DATE, N.STATUS
 	FROM GROUP_NOTICE N
 	JOIN GROUPS G USING(GROUP_NO)
+	WHERE N.STATUS = 'Y'
 	</select>
 	<!-- 소모임 공지사항 상세 리스트 -->
 	<select id="selectGrNoBoard" resultMap="adGroupsNoticeResultSet" >

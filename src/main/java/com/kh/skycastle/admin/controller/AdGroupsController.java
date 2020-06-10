@@ -260,7 +260,7 @@ public class AdGroupsController {
 				if(result > 0)
 				{
 					
-					return "redirect:noticeMgmt.ad";
+					return "redirect:groupBoMgmt.ad";
 				}
 				else
 				{
