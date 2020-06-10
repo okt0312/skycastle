@@ -75,7 +75,12 @@ div {
 	line-height: 1px;
 	color: white;
 }
-
+.sky_btn1:hover{
+			background:#fff;
+			border:1.5px solid #333;
+			color:#333;
+			font-weight:550
+			}
 #payTable {
 	background-color: lightgray;
 	width: 100%;
@@ -89,8 +94,22 @@ div {
 	height: 500px;
 }
 
-#payD {
-	width: 600px;
+  #payTable tr td{padding:10px}
+	    #payD{
+	   	    float:left;
+	        width: 100%;
+	        margin:auto;
+	    }
+.discount_tb{
+		width: 750px;
+    	margin-bottom:20px 
+   	 
+}
+.discount_tb td{padding:15px; text-align:center; font-size:15px }
+.discount_tb thead tr td{
+	background:#ffe885;
+	font-weight:600;
+	font-size:18px;
 }
 </style>
 
@@ -121,60 +140,59 @@ div {
 			<br>
 			<br>
 			<center>
-				<div id="payD">
-					<div>
-						<div align="left">
-							<span>선택사항</span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<span>사용쿠폰</span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>등급할인</span>
-						</div>
-						<br>
-						<div id="detail">
-							<div>
-								<c:forEach var="i" begin="0" end="${fn:length(usedDate)}">
-									<p>${usedDate[i]} &nbsp;&nbsp;${startTime[i]}~${endTime[i]}</p>
+            	<div id="payD">
+            		<table class="discount_tb" cellpadding="0" cellspacing="0" align="center">
+            			<thead>
+	            			<tr>
+	            				<td width="40%">선택사항</td>
+	            				<td width="35%">사용쿠폰</td>
+	            				<td width="25%">등급할인</td>
+	            			</tr>
+	            		</thead>
+	            		<tbody>
+	            			<tr>	
+								<td>${usedDate[0]} &nbsp;&nbsp;${startTime[0]}~${endTime[0]}</td>
+								<td>${coupon.couponName }</td>
+	            				<td>${grade.gradeName }</td>
+	            			</tr>
+	            			<c:if test="${fn:length(usedDate) > 1}">
+	            				<c:forEach var="i" begin="1" end="${fn:length(usedDate)-1}">
+	            				<tr>
+	            				<td>${usedDate[i]} &nbsp;&nbsp;${startTime[i]}~${endTime[i]}</td>
+	            				<td></td>
+	            				<td></td>
+		            			</tr>
 								</c:forEach>
-							</div>
-							<div>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<sapn style="font-size: 15px;">${coupon.couponName}</sapn>
-							</div>
-							<div>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<sapn style="font-size: 15px;">${grade.gradeName }</sapn>
-							</div>
-						</div>
-					</div>
-					<br clear="both">
-
-					<table id="payTable">
-						<tr style="font-size: 10px;">
-							<td colspan="3"></td>
-							<td>쿠폰할인</td>
-							<td></td>
-							<td>등급할인</td>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td>최종결제금액 :</td>
-							<td><span id="total">${reservation.totalCost}</span>원</td>
-							<td>-</td>
-							<td><span id="couponDiscount"></span>원</td>
-							<td>-</td>
-							<td><span id="gradeDiscount"></span>원</td>
-							<td>=</td>
-							<td><span id="totalCost"></span>원</td>
-						</tr>
-					</table>
-
-					<br>
-					<button class="sky_btn1" id="pay">바로 결제 하기</button>
-				</div>
+							</c:if>
+	            		</tbody>	
+            		</table>
+            	 </div>
+            		<br clear="both">
+          
+	                <table id="payTable" >
+	                    <tr style="font-size: 10px;">
+	                        <td colspan="3"></td>
+	                        <td style="font-size:15px">(쿠폰할인)</td>
+	                        <td></td>
+	                        <td style="font-size:15px">(등급할인)</td>
+	                        <td></td>
+	                        <td></td>
+	                    </tr>
+	                    <tr>
+	                        <td>최종결제금액 : </td>
+	                        <td><span id="total">${reservation.totalCost}</span>원</td>
+	                        <td>-</td>
+	                        <td><span id="couponDiscount"></span>원</td>
+	                        <td>-</td>
+	                        <td><span id="gradeDiscount"></span>원</td>
+	                        <td>=</td>
+	                        <td><span id="totalCost"></span>원</td>
+	                    </tr>
+	                </table>
+                
+	                <br>
+	                <button class="sky_btn1" id="pay" style="line-height:35px; height:50px">바로 결제 하기</button>
+            	</div>
 			</center>
 		</div>
 	</div>
