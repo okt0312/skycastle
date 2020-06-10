@@ -100,7 +100,7 @@
 				                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
 				                    </div>
 				
-				                    <form id="updateGroups_form" action="" method="post" class="form-horizontal">
+				                    <form id="updateSpace_form" action="" method="post" class="form-horizontal">
 				                        <!-- Modal Body -->
 				                        <div class="modal-body">
 				                        <label>&nbsp;&nbsp;공간 번호&nbsp;  :&nbsp; </label><input type="number" id="spaceNo" name="spaceNo" readonly><br><br>
@@ -124,45 +124,17 @@
 				           <!--모달 종료  --> 
 				           <script>
 				            	$("#dataTable tbody tr").click(function(){
-				            		$("#groupNo").val($(this).children().eq(0).text());
-				            		$("#groupTitle").val($(this).children().eq(2).text());
-				            		$("#leaderNo").val($(this).children().eq(5).text());
-				            		$("#startDate").val($(this).children().eq(7).text());
-				            		$("#endDate").val($(this).children().eq(8).text());
-				            		$("#place").val($(this).children().eq(3).text());
-				            		$("#memberLimit").val($(this).children(6).eq(5).text());
-				            		$("#status").val($(this).children().eq(9).text());
-				            		$("#groupCategory").val($(this).children().eq(1).text());
+				            		$("#spaceNo").val($(this).children().eq(0).text());
+				            		$("#spaceName").val($(this).children().eq(1).text());
+				            		$("#personnel").val($(this).children().eq(2).text());
+				            		$("#spacePrice").val($(this).children().eq(3).text());
+				            		$("#status").val($(this).children().eq(4).text());
 				            		
-				            		 
-				            		var category = $(this).children().eq(1).text();
-				            		var selnum = "";
-				            		
-				            		switch(category)
-				            		{
-				            		case "대입":
-				            			selnum = 1;
-				            			break;
-				            		case "공무원임용":
-				            			selnum = 2;
-				            			break;
-				            		case "어학회화":
-				            			selnum = 3;
-				            			break;
-				            		case "자격증":
-				            			selnum = 4;
-				            			break;
-				            		case "기타": 
-				            			selnum = 5;
-				            			break;
-				            		}
-				            		$("#groupCategory option[value="+ selnum + "]").attr("selected", true);
 				            	});
+				            		 
+				            		
 				            	
-				            	$('#groupLiModal').on('hidden.bs.modal', function () {
-				            		$("#groupCategory option").attr("selected", false);
-				            		})
-				            	
+				            
 				            		
 				            		
 				    //삭제버튼 에이작스
