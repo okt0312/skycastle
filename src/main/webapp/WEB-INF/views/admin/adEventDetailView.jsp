@@ -97,8 +97,8 @@
                         
                         <form action="" id="postForm" method="post">
                         	<input type="hidden" name="eventNo" value="${e.eventNo}">
-                        	<input type="hidden" name="changeName" value="${ at.changeName }">
-                        	<input type="hidden" name="fileNo" value="${ at.getFileNo }">
+                         	<input type="hidden" name="changeName" value="${ at.changeName }">
+                        	<input type="hidden" name="fileNo" value=${ at.fileNo }> 
                         </form> 
                        
                        <script>
