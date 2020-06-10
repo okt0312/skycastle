@@ -53,7 +53,7 @@
             line-height: 40px;
             color: black;
         }
-        
+        /* 여기서부터 */
         /* 소모임메뉴바 */
 		#groups_header_menu ul {
 		    list-style:none; 
@@ -81,6 +81,7 @@
 		    text-decoration: none;
 		    color: black;
 		}
+		/* 여기까지 지우면 500에러뜸 */
 		
 		/*  */
 		.grouplist:hover{
