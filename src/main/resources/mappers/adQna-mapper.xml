@@ -20,4 +20,10 @@
 		SELECT *
 		  FROM QNA
 	</select>
+	
+	<update id="deleteQna" parameterType="Qna">
+		UPDATE QNA
+		   SET STATUS = 'N'
+		 WHERE QNA_NO = #{qnaNo}
+	</update>
 </mapper>

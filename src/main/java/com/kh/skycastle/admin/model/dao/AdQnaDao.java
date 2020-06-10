@@ -14,4 +14,9 @@ public class AdQnaDao {
 	{
 		return (ArrayList)sqlSession.selectList("adQnaMapper.selectList");
 	}
+	
+	public int deleteQna(SqlSessionTemplate sqlSession, Qna q)
+	{
+		return sqlSession.update("adQnaMapper.deleteQna", q);
+	}
 }

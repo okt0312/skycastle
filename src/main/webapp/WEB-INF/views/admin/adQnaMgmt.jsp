@@ -14,8 +14,18 @@
 </style>
 </head>
 <body>
+	
+ ${ msg }
 	<div id="layoutSidenav">
 		<jsp:include page="common/adminSidebar.jsp" />
+		
+			<c:if test="${ !empty msg }">
+				<script>
+					alertify.alert("1:1문의관리", "${msg}");
+				</script>
+				<c:remove var="msg" scope="session"/>
+			</c:if>
+		
 		<div id="layoutSidenav_content">
 
 			<!--시작-->
@@ -76,8 +86,8 @@
 														<c:when test="${ li.status eq 'Y' }">
 															<td>답변 완료</td>
 														</c:when>
-														<c:when test="${ li.status eq 'Y' }">
-															<td>삭제 문의</td>
+														<c:when test="${ li.status eq 'N' }">
+															<td>삭제</td>
 														</c:when>
 													</c:choose>
 												</tr>
@@ -102,7 +112,8 @@
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 							</div>
 
-							<form action="폼요청받아주는서버" method="post" class="form-horizontal">
+							<form id="update_qna" action="" method="post" class="form-horizontal">
+								<input type="hidden" name="qnaNo" id="qnaNo">
 								<!-- Modal Body -->
 								<div class="modal-body">
 									<label for="userId" class="mr-sm-2">제목 :</label> <input
@@ -115,8 +126,8 @@
 								</div>
 								<!-- Modal footer -->
 								<div class="modal-footer" style="padding: 0">
-									<button type="submit" class="btn btn-primary">수정</button>
-									<button type="button" class="btn btn-danger">삭제</button>
+									<button id="qna_insert_btn" type="button" class="btn btn-primary">답변등록</button>
+									<button id="qna_delete_btn" type="button" class="btn btn-danger">삭제</button>
 									<button type="button" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
 								</div>
 							</form>
@@ -126,12 +137,15 @@
 									<c:forEach var="lc" items="${ list }">
 										if(qnaNo == ${lc.qnaNo})
 										{
+											$("#qnaNo").val("${lc.qnaNo}");
 											$("#qnaTitle").val("${lc.qnaTitle}");
 											$("#qnaContent").val("${lc.qnaContent}");
 										}
 									</c:forEach>
-									//$("#qnaTitle").val($(this).children().eq(3).text());
-									//$("#qnaContent").val()
+								});
+								
+								$("#qna_delete_btn").click(function(){
+									$("#update_qna").attr("action", "deleteQna.ad").submit();;
 								});
 							</script>
 							
