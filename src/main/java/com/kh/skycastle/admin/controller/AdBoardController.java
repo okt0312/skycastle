@@ -140,7 +140,7 @@ public class AdBoardController {
 		
 		// 이벤트 수정 페이지 
 		@RequestMapping("updateEvent.ad")
-		public String updateEventForm(Event e, HttpServletRequest request,
+		public String updateEventForm(Event e, HttpServletRequest request, 
 									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
 			
 			if(!file.getOriginalFilename().equals("")) {
@@ -155,10 +155,12 @@ public class AdBoardController {
 			e.setChangeName(changeName);
 			}
 			
-			int result = adBoService.updateEvent(e);
+			int result = adBoService.updateAdEvent(e);
 			
 			if(result > 0) {
 				return "redirect:adEventDetailView.ad?eno=" + e.getEventNo();
+			}else {
+				return "admin/adEventDetailView";
 			}
 		}
 			

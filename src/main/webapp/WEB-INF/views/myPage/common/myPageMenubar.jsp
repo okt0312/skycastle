@@ -40,6 +40,8 @@
         font-size: 23px;
         font-weight: bold;
         text-align: right;
+        position: relative;
+    	display: flex;
     }
     .myPage_header_menu ul
     {  
@@ -71,16 +73,10 @@
     }
     .myPage_header_menu > li:hover ul.submenu { display:block; }
 
-
-    a{
-        text-decoration: none;
-        color: black;
-    }
-
-    a:hover {
-        color: #fdce07;
-    }
-  
+	.myPage_header_menu li a
+	{
+		font-size: 20px;
+	}
    
     </style>
 
@@ -101,24 +97,20 @@
 <body>
     <div id="mypage_main_Header">
         
-      
-
-      
         <div id="header2">
 
-           
-            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 200px; float: left; margin-top: 18px;"></a>
-           	
-            <ul class="myPage_header_menu" style="margin:auto;">
-               
-               
-                <li style="width: 20%; "><a href="rlist.bo?currentPage=1">이용현황</a></li>
-                <li style="width: 20%; "><a href="mygroupList.gr?currentPage=1&status=Y">소모임관리</a></li>
-                <li style="width: 20%; "><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
-                <li style="width: 20%; "><a href="list.bo?currentPage=1">쿠폰함</a></li>
-                <li style="width: 10%; margin-left: 50px; "><a href="PwdCheckk.my">개인정보수정</a></li>
-                
-            </ul>
+           <div style="width: 100%; margin: 30px 40px 100px;">
+	            <a href="${pageContext.servletContext.contextPath}/" id=""><img src="resources/images/myPage.logo.jpg" id="" style="width: 300px; float: left;"></a>
+           </div>
+           	<div>
+	            <ul class="myPage_header_menu" style="margin:auto;">
+	                <li style="width: 20%; "><a href="rlist.bo?currentPage=1">이용현황</a></li>
+	                <li style="width: 20%; "><a href="mygroupList.gr?currentPage=1&status=Y">소모임관리</a></li>
+	                <li style="width: 20%; "><a href="qlist.bo?currentPage=1&userNo=${loginUser.userNo }">1:1문의</a></li>
+	                <li style="width: 20%; "><a href="list.bo?currentPage=1">쿠폰함</a></li>
+	                <li style="width: 20%; "><a href="PwdCheckk.my">개인정보수정</a></li>
+	            </ul>
+           	</div>
         </div>
     </div>
 

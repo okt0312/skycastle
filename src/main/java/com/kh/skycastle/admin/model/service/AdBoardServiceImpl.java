@@ -59,16 +59,20 @@ public class AdBoardServiceImpl implements AdBoardService {
 		return adBoDao.adSelectEvent(sqlSession,eno);
 	}
 	
+	// 이벤트 등록
 	@Override
 	public int insertAdEvent(Event e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	// 이벤트 수정
 	@Override
 	public int updateAdEvent(Event e) {
-		// TODO Auto-generated method stub
-		return 0;
+		return adBoDao.updateAdEvent(sqlSession, e);
 	}
+	
+	// 이벤트 삭제
 	@Override
 	public int deleteAdEvent(int eventNo) {
 		// TODO Auto-generated method stub

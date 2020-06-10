@@ -152,8 +152,7 @@
 		<br><br>
 		
 		<div id="groupDetail">
-			<!-- pre태그 수정할것 -->
-		    <pre style="width: 100%; text-align: left;">${ g.groupContent }</pre>
+		    <textarea style="width: 100%; text-align: left;">${ g.groupContent }</textarea>
 		</div>
 	</div>
     <jsp:include page="../common/footer.jsp"/>
@@ -167,7 +166,7 @@
 		
     	$("#apply_btn").click(function(){
 			
-			 var userNo = "${ loginUser.userNo }";
+			var userNo = "${ loginUser.userNo }";
 			
 			if(userNo != 0) {	// 로그인 했을때
 				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
@@ -176,38 +175,25 @@
 				alertify.alert("회원 전용 서비스", "회원만 신청할 수 있습니다. 로그인 페이지로 이동합니다.", function(){ location.href = "loginForm.me"; });
 			} 
 		});
-		
-/*
-		// 찜하기
-		$("#dipsIn").click(function(){
-				location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
-				+ "&userNo=" + "${ loginUser.userNo }";
-			}
-		});
-		
-		//찜취소
-		$("#dipsOut").click(function(){
-		
-		      location.href = "dipsOut.gr";
-		   }
-		});
-*/
-		
-		/*
+
     	// 위시리스트 등록 ajax
     	$(function(){
     		$('#dipsIn').click(function(){
     			
-    			var pcode1 = $(this).parent().siblings([".product_img"]).children().eq(0).val();
-    			console.log(pcode1);
-    			
-				var icon = $(this);
+//				var gno = $(this).children("#group_no").val();
+//				console.log(gno);
+
+//				var icon = $(this);
 				
-				if(icon.attr("class") == "like_icon empty"){ // 빈 하트일 경우 --> 위시리스트 등록
-        			$.ajax({
-        				url:"dipsIn.gr",
-        				data:{pcode:pcode1},
-        				success:function(result){
+				if( count == 0 ){ // 빈 하트일 경우 --> 위시리스트 등록
+				
+//					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
+//					+ "&userNo=" + "${ loginUser.userNo }";
+
+					$.ajax({
+	     				url:"dipsIn.gr",
+	     				data:{gno:$(this).children("#group_no").val()},
+	     				success:function(result){
         					if(result > 0){
 			        			 icon.removeClass("empty");
 			        			 icon.addClass("full");
@@ -228,7 +214,8 @@
         				}
     				});
     			
-				}else{ // 채워진 하트일 경우 --> 위시리스트 삭제
+				} else { // 채워진 하트일 경우 --> 위시리스트 삭제
+//					location.href = "dipsOut.gr";
 					
 					$.ajax({
 						url:"dipsOut.gr", 
