@@ -1,3 +1,4 @@
+
 package com.kh.skycastle.member.controller;
 
 import java.io.IOException;
@@ -60,9 +61,7 @@ public class MemberController {
 		// 네이버 아이디로 인증 url을 생성하기 위하여 naverLoginBO 클래스의 getAuthorizationUrl 메소드 호출
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 		
-		System.out.println("네이버" + naverAuthUrl);
-		
-		// 네이버 
+		// 네이버 로그인창 
 		model.addAttribute("url", naverAuthUrl);
 		
 		return "member/loginForm";
@@ -70,7 +69,7 @@ public class MemberController {
 	
 	@RequestMapping("/callback")
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
-		System.out.println("여기는 callback");
+		
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
 		// 로그인 사용자 정보 읽어오기 
@@ -85,7 +84,7 @@ public class MemberController {
 	public String loginMember(Member m, HttpSession session, Model model) {
 		Member loginUser = mService.loginMember(m);
 
-		if (loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
+		if(loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
 			session.setAttribute("loginUser", loginUser);
 			return "redirect:/";
 		} else {
@@ -108,7 +107,7 @@ public class MemberController {
 	@RequestMapping("enrollForm2.me")
 	public ModelAndView enrollForm2(@RequestParam(value = "infoAgree", defaultValue = "false") Boolean infoAgree) {
 
-		if (!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 xxx
+		if(!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 x
 			ModelAndView mv = new ModelAndView("member/enrollForm");
 			return mv;
 		}
@@ -123,7 +122,7 @@ public class MemberController {
 
 		int count = mService.idCheck(userId);
 
-		if (count > 0) {
+		if(count > 0) {
 			return "fail";
 		} else {
 			return "success";
@@ -143,11 +142,8 @@ public class MemberController {
 		int result = mService.insertMember(m);
 
 		if(result > 0) { // 회원가입 성공
-
 			return "member/enrollComplete";
-
 		} else { // 회원가입 실패
-
 			session.setAttribute("enrollFail", "회원가입 실패 하였습니다. 다시 시도해주세요.");
 			return "member/enrollForm";
 		}
@@ -248,9 +244,6 @@ public class MemberController {
 		String email = request.getParameter("userId");
 		String code = request.getParameter("passCode");
 		
-		System.out.println(authCode);
-		System.out.println(code);
-		
 		// 인증번호가 일치할 경우 비밀번호 변경창 이동
 		if(code.equals(authCode)) {
 			mv.setViewName("member/changePwd");
@@ -269,13 +262,10 @@ public class MemberController {
 		String email = request.getParameter("userId");
 		String pwdChange = request.getParameter("pwdChange");
 		
-		System.out.println(email + pwdChange);
-		
 		String encPwd = bcryptPasswordEncoder.encode(pwdChange);
 		m.setUserPwd(encPwd);
 		m.setUserId(email);
 		
-		System.out.println(m);
 		int result = mService.changePwd(m);
 		
 		if(result > 0) {
