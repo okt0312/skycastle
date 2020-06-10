@@ -272,8 +272,8 @@ public class MemberController {
 			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동합니다.");
 			return "member/loginForm";
 		}else {
-			model.addAttribute("msg", "에러 발생");
-			return "common/errorPage";
+			session.setAttribute("msg", "비밀번호 변경에 실패 하였습니다. 다시 시도하십시오.");
+			return "member/searchPwd";
 		}
 		
 	}

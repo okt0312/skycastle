@@ -8,8 +8,19 @@
 <title>로그인</title>
 <!-- jQuery 라이브러리 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!--  네이버로 로그인 라이브러리 
-<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script> -->
+<!-- alertify CDN -->
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
 <style>
 	.loginForm{
 	  position: absolute;
@@ -116,14 +127,14 @@
     
 	<c:if test="${ !empty msg }">
 		<script>
-			alert("${msg}");  
+			alertify.alert("${msg}");  
 		</script>
 		<c:remove var="msg" scope="session"/>
 	</c:if>
     
     <c:if test="${ !empty loginFail }">
 		<script>
-			alert("${loginFail}");  
+			alertify.alert("${loginFail}");  
 		</script>
 		<c:remove var="loginFail" scope="session"/>
 	</c:if>

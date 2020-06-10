@@ -8,6 +8,19 @@
 <title>비밀번호 찾기</title>
 <!-- jQuery 라이브러리 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- alertify CDN -->
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
 <style>
   .findPwdForm{
     width:320px;
@@ -95,6 +108,14 @@
         </form>
     </div>
 
+	<!-- alert 추가 -->
+	<c:if test="${ !empty msg }">
+		<script>
+			alertify.alert("${msg}");  
+		</script>
+		<c:remove var="msg" scope="session"/>
+	</c:if>
+	
 <script>
 	$(function(){
 		
@@ -113,6 +134,7 @@
 		});
 	});
 </script>
+
 </body>
 </body>
 </html>

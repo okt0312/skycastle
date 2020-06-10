@@ -8,6 +8,19 @@
 <title>회원가입 약관동의</title>
 <!-- jQuery 라이브러리 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- alertify CDN -->
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
 <style>
 #utilityMembership {
 	width: 50%;
@@ -165,7 +178,7 @@
 			
 			<c:if test="${ !empty enrollFail }">
 				<script>
-					alert("${enrollFail}");  
+					alertify.alert("${enrollFail}");  
 				</script>
 			<c:remove var="enrollFail" scope="session"/>
 	</c:if>
