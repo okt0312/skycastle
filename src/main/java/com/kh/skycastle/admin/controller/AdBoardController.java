@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdBoardService;
+import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
 
@@ -139,23 +140,24 @@ public class AdBoardController {
 		} 	
 		
 		// 이벤트 수정 페이지 
+		/*
 		@RequestMapping("updateEvent.ad")
-		public String updateEventForm(Event e, HttpServletRequest request, 
+		public String updateEventForm(Event e, Attachment at, HttpServletRequest request, 
 									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
 			
 			if(!file.getOriginalFilename().equals("")) {
 				
 				// 첨부파일 o
-				if(e.getChangeName() != null) {
-					deleteFile(e.getChangeName(), request);
+				if(at.getChangeName() != null) {
+					deleteFile(at.getChangeName(), request);
 				}
 			
 			String changeName = saveFile(file, request);
 			
-			e.setChangeName(changeName);
+			at.setChangeName(changeName);
 			}
 			
-			int result = adBoService.updateAdEvent(e);
+			int result = adBoService.updateAdEvent(e, at);
 			
 			if(result > 0) {
 				return "redirect:adEventDetailView.ad?eno=" + e.getEventNo();
@@ -163,6 +165,7 @@ public class AdBoardController {
 				return "admin/adEventDetailView";
 			}
 		}
+		*/
 			
 		// 공유해서 쓸수 있게끔 따로 정의 해놓은 메소드
 		// 전달받은 파일을 서버에 업로드 시킨 후 수정명 리턴하는 메소드

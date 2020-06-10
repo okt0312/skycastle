@@ -8,4 +8,6 @@ public interface AdQnaService {
 	
 	// 문의 전체 조회
 	ArrayList<Qna> selectQnaList();
+	
+	int deleteQna(Qna q);
 }
