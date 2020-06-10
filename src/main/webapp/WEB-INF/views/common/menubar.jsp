@@ -36,6 +36,13 @@
 </head>
 <body>
 
+			<c:if test="${ !empty msg }">
+				<script>
+					alertify.alert("SKY CASTLE", "${msg}");
+				</script>
+				<c:remove var="msg" scope="session"/>
+			</c:if>
+
 <!-- Preloader -->
         <div id="preloader">
             <div class="preload-content">

@@ -41,7 +41,6 @@
 					</ol>
 
 					<!-- 문의 테이블 -->
-
 					<div class="card-body">
 						<div class="card mb-4">
 							<div class="card-header"
@@ -52,7 +51,7 @@
 								<div class="table-responsive">
 									<div></div>
 
-									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
+									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"  style="text-align: center;">
 										<thead>
 											<tr>
 												<th>문의번호</th>
@@ -156,8 +155,11 @@
 								$("#qna_delete_btn").click(function(){
 									$("#update_qna").attr("action", "deleteQna.ad").submit();
 								});
+								
+							    $('#dataTable').DataTable({
+							        "order": [[ 0, "desc" ]]
+							    });
 							</script>
-							
 						</div>
 					</div>
 				</div>

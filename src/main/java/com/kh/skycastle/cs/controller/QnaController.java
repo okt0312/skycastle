@@ -51,7 +51,8 @@ public class QnaController {
 		
 		if(result > 0) {
 			
-			session.setAttribute("msg", "문의사항이 등록되었습니다. 답변은 5일 내에 남겨주신 이메일로 보내드리겠습니다.");
+			session.setAttribute("msg", "문의사항이 등록되었습니다. <br>답변은 5일 내에 남겨주신 이메일로 보내드리겠습니다.");
+			
 			return "redirect:/";
 			
 		}else {
