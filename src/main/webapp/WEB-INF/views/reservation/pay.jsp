@@ -19,8 +19,8 @@
 	    name : '주문명:결제테스트',
 	    amount : ${reservation.totalCost},
 	    buyer_email : 'iamport@siot.do',
-	    buyer_name : ${loginUser.userName},
-	    buyer_tel :  ${loginUser.phone},
+	    buyer_name : '${loginUser.userName}',
+	    buyer_tel : '${loginUser.phone}',
 	    buyer_addr : '미입력',
 	    buyer_postcode : '123-456',
 	    m_redirect_url : 'http://192.168.30.225:9999/teaspoon'
