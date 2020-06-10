@@ -70,7 +70,11 @@ public class AdBoardServiceImpl implements AdBoardService {
 	// 이벤트 수정
 	@Override
 	public int updateAdEvent(Event e, Attachment at) {
-		return  adBoDao.updateAdEvent(sqlSession, e, at);
+		
+		int result1 = adBoDao.updateAdEvent(sqlSession, e);
+		int result2 = adBoDao.updateAttachment(sqlSession , at);
+		
+		return  result1 * result2;
 	}
 	
 	// 이벤트 삭제

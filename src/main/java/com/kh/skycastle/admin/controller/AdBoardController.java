@@ -140,6 +140,7 @@ public class AdBoardController {
 		} 	
 		
 		// 이벤트 수정 페이지 
+		/*
 		@RequestMapping("updateEvent.ad")
 		public String updateEventForm(Event e, Attachment at, HttpServletRequest request, 
 									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
@@ -164,6 +165,7 @@ public class AdBoardController {
 				return "admin/adEventDetailView";
 			}
 		}
+		*/
 			
 		// 공유해서 쓸수 있게끔 따로 정의 해놓은 메소드
 		// 전달받은 파일을 서버에 업로드 시킨 후 수정명 리턴하는 메소드
