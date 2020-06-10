@@ -858,8 +858,8 @@
 			</center>
 		</div>
     </div>
-    <form action="reservInsert.re"  method="post" id="reservInsert">
-<%--     <input type="hidden" name="userNo" value="${reservation.userNo}"> --%>
+    <form action="payment.re"  method="post" id="reservInsert">
+    <input type="hidden" name="userNo" value="${reservation.userNo}"> 
   	<input type="hidden" name="refNo" value="${reservation.refNo}">
   	<input type="hidden" name="couponCode" value="${reservation.couponCode}">
   	<input type="hidden" id="finalTotal" name="totalCost"> 
@@ -867,7 +867,7 @@
   	<input type="hidden" name="usedDate" value="${reservation.usedDate}"> 
   	<input type="hidden" name="startTime" value="${reservation.startTime}"> 
   	<input type="hidden" name="endTime" value="${reservation.endTime}"> 
-  	
+  	<input type="hidden" name="category" value="1"> 
     </form>
     <jsp:include page="../common/footer.jsp"/>
 </body>
