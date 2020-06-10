@@ -148,14 +148,16 @@
 				   					var value = "";
 				   					
 				   					for(var i in list){
-				   						value += "<form>"+ "<tr>" +"<input type='text' id='rno' value='${ r.replyNo}'>"+
-							                        "<th>" + list[i].userName + "</th>" +
+				   						value +=  "<tr  id='rid" + this.rid + "'>" +
+				   										
+				   									"<td>"+ "<input type='hidden' id='rno' value='"+list[i].replyNo+"'>" + "</td>"+
+							                        "<td>" + list[i].userName + "</td>" +
 							                        "<td>" + list[i].replyContent + "</td>" +
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
-							                        "<input type='submit' value='삭제'id='${ r.replyNo}adReplyDeleteBtn' class='btn btn-danger'>" +
+							                        "<input type='submit' value='삭제' id='"+this.replyNo+"adReplyDeleteBtn' class='btn btn-danger'>" +
 							                        "</td>" + 
-							                     "</tr>"+"</form>";
+							                     "</tr>";
 				   					}
 				   					
 				   					$("#replyArea tbody").html(value); 
@@ -167,7 +169,7 @@
 				   			
 				    	}
 					    	//@@@@@@@@@환장하겠네..정말!!!!!! 나중에 다시 해보기..
-					    	$("#${ r.replyNo}adReplyDeleteBtn").click(function(){
+					    	$("#'+ this.relyNo +'adReplyDeleteBtn").click(function(){
 					    		console.log("클릭")
 					    		var rno = $("#rno").val();
 				   				$.ajax({
