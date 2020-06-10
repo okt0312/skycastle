@@ -47,8 +47,8 @@ public class MypageDao {
 		return (ArrayList)sqlSession.selectList("memberMapper.selectList", null , rowBounds);
 	}
 	
-	public int qselectListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("csMapper.qselectListCount");
+	public int qselectListCount(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.selectOne("csMapper.qselectListCount", m);
 	}
 	
 	

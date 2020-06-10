@@ -54,7 +54,8 @@ public class MypageController {
 	
 	@RequestMapping("qlist.bo")
 	public String qselectList(int currentPage, Member m, Model model, HttpSession session) {
-		int listOneCount = pService.qselectListCount();
+		int listOneCount = pService.qselectListCount(m);
+		
 		PageInfo pi = Pagination.getPageInfo(listOneCount, currentPage, 10, 5);
 		
 		ArrayList<Qna> list =  pService.qselectList(pi, m);
