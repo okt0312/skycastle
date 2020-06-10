@@ -115,6 +115,7 @@
 								<input type="hidden" name="qnaNo" id="qnaNo">
 								<input type="hidden" name="memberYn" id="memberYn">
 								<input type="hidden" name="qanReply" id="qanReply">
+								<input type="hidden" name="email" id="email">
 								<!-- Modal Body -->
 								<div class="modal-body">
 									<label for="qnaTitle" class="mr-sm-2">제목 :</label> <input
@@ -143,6 +144,7 @@
 											$("#qnaContent").val("${lc.qnaContent}");
 											$("#memberYn").val("${lc.memberYn}");
 											$("#qnaReply").val("${lc.qnaReply}");
+											$("#email").val("${lc.email}");
 										}
 									</c:forEach>
 								});
