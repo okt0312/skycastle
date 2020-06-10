@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
@@ -57,17 +58,31 @@ public class GroupController {
 	}
 	
 	
-
-	@RequestMapping("dipsIn.gr")
-	public ModelAndView dipsIn(int gno, int userNo, ModelAndView mv, HttpServletResponse response) {
+	@ResponseBody
+	@RequestMapping(value="dipsIn.gr", produces="application/json; charset=utf-8")
+	public String dipsIn(int gno, int userNo, HttpServletResponse response) {
 		
-		Groups g = gService.selectGroup(gno);
-		Dips d = new Dips(userNo, gno);
+//		Groups g = gService.selectGroup(gno);
+//		Dips d = new Dips(userNo, gno);
+//		
+//		mv.addObject("g", g);
+//		mv.setViewName("groups/groupDetail");
+//		
+//		return mv;
 		
-		mv.addObject("g", g);
-		mv.setViewName("groups/groupDetail");
 		
-		return mv;
+		Member m = new Member("user01", "pass01", "홍길동", 15, "aaa@naver.com");
+		// JSON : 자바스크립트 객체 표기법({속성:속성값, 속성:속성값})
+		
+//		Gson gson = new Gson();
+		
+//		gson.toJson(m, response.getWriter());// 기존에 사용하던 방법
+//		return gson.toJson(m);		// Member --> JSONObject --> String
+		
+//		Gson gson = new Gson();
+//		return gson.toJson(m);		// Member --> JSONObject --> String
+		// 두줄을 아래 한줄로
+		return new Gson().toJson(m);
 	}
 	
 	@RequestMapping("dipsOut.gr")
