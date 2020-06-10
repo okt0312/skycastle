@@ -181,7 +181,6 @@
                 <div id="detail">
                 	<form action="seatPayDetail.re" method="post">
                 	<input type="hidden" name="userNo" value="${loginUser.userNo}">
-                	<input type="hidden" name="userNo" value="${loginUser.userNo}">
                     <input type="hidden" name="refNo" value="${seat.seatNo}">
                     <input  type="hidden"  id="usedDate"  type="date" name="usedDate">
                 	<table cellpadding="0" cellspacing="0" class="reservation_tb">
@@ -515,6 +514,7 @@
 			async: false,
 			data: {seatNo:${seat.seatNo}},
 			success:function(ReservationTime){
+				console.log(ReservationTime);
 				if(ReservationTime != ''){
 					 /*console.log(ReservationTime);
 					 console.log(ReservationTime[0].startTime.substring(0, 2));
