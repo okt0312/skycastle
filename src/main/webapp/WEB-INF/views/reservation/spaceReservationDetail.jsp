@@ -349,7 +349,6 @@
 			$("#end").val('');
 			timeCheck();
 			selectSpaceReservationTime();
-
 		});
         
         
@@ -510,7 +509,7 @@
 			 	
 				if(discountRate != undefined){
 					$("#totalCost").text($("#total").val()-$("#total").val() * discountRate);
-				} else{
+				}else{
 					$("#totalCost").text($("#total").val());
 				}
 
@@ -519,7 +518,7 @@
 		 
 		 timeCheck();
 		 selectSpaceReservationTime();
-		
+		 	
 	});
 	
 	
@@ -614,18 +613,19 @@
 	
 	
 	// 예약된 좌석시간현황 조회 함수 호출
-	 /*setInterval(function() {
-		 selectspaceReservationTime();
-	}, 5000);  */
+	/*  setInterval(function() {
+		 selectSpaceReservationTime();
+	}, 5000);   */
+	
 	
 	//사용가능한 시간옵션중 가장빠른것을 셀렉트하는 함수
-	function showTimeSelect(){
-		var a = $("#time option:selected").val();
-		console.log(a);
+	function showTimeSelect(){	
 		$("#time option:selected").removeAttr('selected');
 		var showTimeSelect = $("#time option:enabled");	
-		 showTimeSelect.eq(0).attr("selected","selected");
-	}
+		 console.log(showTimeSelect);
+		 showTimeSelect.eq(0).attr("selected",true);
+		 
+		}
 	 
 	
 	

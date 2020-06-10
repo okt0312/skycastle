@@ -475,9 +475,6 @@
 			}			
 		}
 		
-		 var showTimeSelect = $("#time option:enabled");
-		
-		 showTimeSelect.eq(0).attr("selected","selected");
 		
 		
 	}
@@ -531,12 +528,10 @@
 								}			
 							}
 						}
-					  var showTimeSelect = $("#time option:enabled");
 						
-						 showTimeSelect.eq(0).attr("selected","selected");
 				}
+				showTimeSelect();
 				
-	
 			},error:function(){	
 				console.log("좌석예약시간 조회 ajax 통신 실패!!");
 			}
@@ -549,6 +544,15 @@
 	 setInterval(function() {
 		 selectSeatReservationTime();
 	}, 5000); 
+	 
+	//사용가능한 시간옵션중 가장빠른것을 셀렉트하는 함수
+		
+		function showTimeSelect(){
+			//$("#time option:selected").removeAttr('selected');
+			var showTimeSelect = $("#time option:enabled");	
+			 showTimeSelect.eq(0).attr("selected","selected");
+		}
+		 
 	
 	
 </script>

@@ -73,11 +73,14 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("reservInsert.re")
-	public String seatPayDetailInsert(Reservation reservation, Model model){
-		reservation.setCategory("1");
+	public String seatPayDetailInsert(Model model,HttpSession session){
+		
+		Reservation reservation = (Reservation)session.getAttribute("reservation");
+		
 		//System.out.println(reservation);
 		int result = rService.insertReservation(reservation);
 		if(result > 0 ) {
+			session.removeAttribute("reservation");
 			return "reservation/ReservationComplate";
 		}else {
 			 model.addAttribute("msg", "예약 실패");
@@ -185,12 +188,14 @@ public class ReservationController {
 	}
 	
 	@RequestMapping("reservSpaceInsert.re")
-	public String spacePayDetailInsert(Reservation reservation, Model model){
+	public String spacePayDetailInsert(Model model,HttpSession session){
 		
-		reservation.setCategory("2");
+		Reservation reservation = (Reservation)session.getAttribute("reservation");
+	
 		//System.out.println(reservation);
 		int result = rService.insertSpaceReservation(reservation);
 		if(result > 0 ) {
+			session.removeAttribute("reservation");
 			return "reservation/ReservationComplate";
 		}else {
 			 model.addAttribute("msg", "예약실패");
@@ -208,6 +213,15 @@ public class ReservationController {
 		//System.out.println(ReservationTime);
 		return new Gson().toJson(ReservationTime);
 		
+	}
+	
+	
+	@RequestMapping("payment.re")
+	public String pay(Reservation reservation,Model model, HttpSession session){	
+		 //System.out.println(reservation);
+		 //model.addAttribute("reservation", reservation);
+		session.setAttribute("reservation", reservation);
+		return "reservation/pay";
 	}
 	
 

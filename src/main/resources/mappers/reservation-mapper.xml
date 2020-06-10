@@ -108,7 +108,7 @@
 		select *
 		from reservation 
 		join reservation_time using(book_no)
-		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo}
+		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo} and category=1
 	</select>
 	
 	
@@ -149,7 +149,7 @@
 		select * 
 		from reservation 
 		join reservation_time using(book_no)
-		where ref_no=#{refNo} and used_date = #{usedDate}
+		where ref_no=#{refNo} and used_date = #{usedDate} and category=2
 	</select>
 	
 	
