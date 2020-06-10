@@ -78,8 +78,8 @@ public class MypageDao {
 		return sqlSession.update("csMapper.updateQna", q);
 	}
 	
-	public int spaceselectListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("reservationMapper.spaceselectListCount");
+	public int spaceselectListCount(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.selectOne("reservationMapper.spaceselectListCount", m);
 	}
 	
 	public ArrayList<Space> spaceselectList(SqlSessionTemplate sqlSession, PageInfo pi, Member m) {

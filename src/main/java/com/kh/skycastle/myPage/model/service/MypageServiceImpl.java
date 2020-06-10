@@ -121,9 +121,9 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public int spaceselectListCount() {
+	public int spaceselectListCount(Member m) {
 		
-		return pDao.spaceselectListCount(sqlSession);
+		return pDao.spaceselectListCount(sqlSession,m);
 	}
 
 

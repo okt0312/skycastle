@@ -53,7 +53,7 @@ public interface MypageService {
 	
 	// 12. 공간예약 리스트 조회용 서비스
 	// 1_1. 공간예약 총 갯수 조회용 서비스 
-	int spaceselectListCount();
+	int spaceselectListCount(Member m);
 	// 1_2. 공간예약 리스트 조회용 서비스 
 	ArrayList<Space> spaceselectList(PageInfo pi, Member m);
 	

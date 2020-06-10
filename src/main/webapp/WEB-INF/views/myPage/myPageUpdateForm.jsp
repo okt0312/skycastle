@@ -42,9 +42,9 @@ div {
 	width: 1000px;
 	height: 200px;
 	border: 1px solid rgb(76, 60, 60);
-	background-color: #fdce07;
+	background-color:  rgb(13,13,13);
 	margin: auto;
-	color: black;
+	color: #fdce07;
 }
 
 .bline {
@@ -52,15 +52,8 @@ div {
 	height: 2px;
 	border: 0px;
 	width: 370px;
+	margin: auto;
 }
-
-
-
-
-
-
-
-/* 중간버튼 스타일 */
 
 .board .container {
     padding-top: 160px;
@@ -309,12 +302,12 @@ p {
     width: 380px;
     margin: 50px auto 0 auto;
 }
-.bts a.dark {
+.bts button.dark {
     background: #fdce07;
 }
 
-.bts a {
-    display: block;
+.bts button {
+    display:block;
     height: 56px;
     line-height: 56px;
     text-align: center;
@@ -350,121 +343,153 @@ a {
 
 
 
-/* 중간버튼 스타일 */
 </style>
 
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
+
+<jsp:include page="common/myPageMenubar.jsp"/>
 
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 	
 
 
-		<br><br><br><br><br><br>
+		<br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 				
-			
-            
-            <br>
+			<div id="order-info">
+				
+				<table style="font-size: 16px;" width="1000px" height="200px">
+					<tr>
+						<th width="495px" style="padding-left: 2px; text-align: center;">
+							<b style="font-weight: bold; font-size: 1.5em;"></b>개인정보 입력 안내문 
+							<hr class="bline">
+							<p style="font-size: 0.8em; color: #fdce07; margin-top: 15px;">회원정보를 정확히 기입하셔야 예약이나 이벤트에 대한 불이익이 없습니다.</p>
+						</th>
+						
+						
+					</tr>
 
-			<div class="container">
-                <div id="content" class="content">
+                </table>
+                
+                <br>
+                
+                <div class="sub-menu-area">
+                    <!-- 현재 페이지는 yellow 로 표시 -->
+                   
+                    
 
-                    <div class="my_tozs">
-                        <div class="info_modify">
-                            <div class="info_modify">
-                                
-                                <div class="default_tabs t2" style="max-width: 600px;">
-                                    <ul>
-                                        <li>
-                                        <a href="" class="active">회원정보변경</a>
-                                        </li>
-                                        
-                                        <li>
-                                        <a href="">비밀번호변경</a>
-                                        </li>
-                                    </ul>
-                                </div>
-								
-								<form action="update.me" method="post" onsubmit="">
-								 <input type="hidden" value="${ loginUser.userId }" name="userId">
-            					 <input type="hidden" value="${ loginUser.userName }" name="userName">
-            					 <input type="hidden" value="${ loginUser.birthday }" name="birthday">
-                                <div class="step2">
-                                   <div class="row" style="max-width: 600px;">
-                                    <div class="col infoType">
-                                        <div class="mod_infos first">
-                                            <span class="in_tit">이메일</span>
-                                            <div class="info">${ loginUser.userId }</div>
-                                        </div>
-                                        <div class="mod_infos">
-                                            <span class="in_tit">이름</span>
-                                            <div class="info">${ loginUser.userName}</div>
-                                        </div>
-                                        <div class="mod_infos">
-                                            <span class="in_tit">생년월일</span>
-                                            <div class="info birthday">${ loginUser.birthday}</div>
-                                        </div>
-
-                                        <div class="mod_infos">
-                                            <span class="in_tit long">연락처</span>
-                                            
-                                            <div class="info">
-                                                <div class="phone">
-                                                    <input type="hidden" name="originalMemberPhone">
-                                                    <span class="inputs num_type">
-                                                        <input type="text" id="phone" name="phone" class="number"
-                                                        maxlength="11" placeholder="핸드폰번호 입력">
-                                                    </span>
-                                                    
-                                                    <p class="validate memberPhone" style="display: none;"></p>
-                                                </div>
-
-                                                </div>
-
-                                                </div>
-                                                
-                                                <div class="mod_infos">
-                                                <div class="info">
-                                                <div class="">
-                                                    
-                                                  
-                                                    
-                                                    
-                                                </div>
-                                            </div>
-                                            </div>
-                                        
-                                        
-
-                                        <div class="bts">
-                                            <a href="" class="dark">변경</a>
-                                        </div>
-                                        </form>
-                                        <div class="bts">
-                                            <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
-                                        </div>
-                                    </div>
-                                </div>     
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
 
+            </div>
+            
+            <br><br><br><br>
+
+			<div class="inner">
                 
+                <div class="container">
+                    <div id="content" class="content">
+    	
+                        <div class="my_tozs">
+                            <div class="info_modify">
+                                <div class="info_modify">
+                                    
+                                    <div class="default_tabs t2" style="max-width: 600px;">
+                                        <ul>
+                                            <li>
+                                            <a href="" class="active" style="background-color: #222; color: #fff;">회원정보변경</a>
+                                            </li>
+                                            
+                                            <li>
+                                            <a href="" style="background-color: #f8f8f8; color: #222;">비밀번호변경</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <form action="updatee.me" method="post" onsubmit="">
+                                     <input type="hidden" value="${ loginUser.userId }" name="userId">
+                                     <input type="hidden" value="${ loginUser.userName }" name="userName">
+                                     <input type="hidden" value="${ loginUser.birthday }" name="birthday">
+                                    <div class="step2">
+                                       <div class="row" style="max-width: 600px;">
+                                        <div class="col infoType">
+                                            <div class="mod_infos first">
+                                                <span class="in_tit">이메일</span>
+                                                <div class="info">${ loginUser.userId }</div>
+                                            </div>
+                                            <div class="mod_infos">
+                                                <span class="in_tit">이름</span>
+                                                <div class="info">${ loginUser.userName}</div>
+                                            </div>
+                                            <div class="mod_infos">
+                                                <span class="in_tit">생년월일</span>
+                                                <div class="info birthday">${ loginUser.birthday}</div>
+                                            </div>
+    
+                                            <div class="mod_infos">
+                                                <span class="in_tit long">연락처</span>
+                                                
+                                                <div class="info">
+                                                    <div class="phone">
+                                                        <input type="hidden" name="originalMemberPhone">
+                                                        <span class="inputs num_type">
+                                                            <input type="text" id="phone" name="phone" class="number"
+                                                            maxlength="11" placeholder="핸드폰번호 입력">
+                                                        </span>
+                                                        
+                                                        <p class="validate memberPhone" style="display: none;"></p>
+                                                    </div>
+    
+                                                    </div>
+    
+                                                    </div>
+                                                    
+                                                    <div class="mod_infos">
+                                                    <div class="info">
+                                                    <div class="">
+                                                        
+                                                  	
+                                                            
+                                                        
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            	
+                                            
+    
+                                            <div class="bts">
+                                                <button type="submit" class="dark" style="background-color: #222; color: #fff;" >변경</button>
+                                            </div>
+                                            </form>
+                                            
+                                            <div class="bts">
+                                                <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
+                                            </div>
+                                        </div>
+                                    </div>     
+                                    </div>
+                                </div>
+    
+                            </div>
+				
+				
+				
+                
+               
 
-
-
-			
+				
 				
 
-			
+			</div>
+		</div>
+		</div>
 
 	
+			
+
+	<jsp:include page="../common/footer.jsp"/>
 	
 </body>
 </html>

@@ -335,7 +335,7 @@ public class MypageController {
 		
 		Member m = (Member)session.getAttribute("loginUser");
 		
-		int rlistCount = pService.spaceselectListCount();
+		int rlistCount = pService.spaceselectListCount(m);
 		
 		PageInfo pi = Pagination.getPageInfo(rlistCount, currentPage, 10, 5);
 		
