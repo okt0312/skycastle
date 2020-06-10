@@ -79,9 +79,8 @@ public class AdBoardServiceImpl implements AdBoardService {
 	
 	// 이벤트 삭제
 	@Override
-	public int deleteAdEvent(int eventNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteAdEvent(int eno) {
+		return adBoDao.deleteAdEvent(sqlSession, eno);
 	}
 	
 }

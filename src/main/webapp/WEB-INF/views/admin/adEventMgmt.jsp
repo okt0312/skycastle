@@ -31,7 +31,8 @@
                                     <li class="breadcrumb-item"><a href="index.html" style="color:black"><b>HOME</b></a></li>
                                     <li class="breadcrumb-item active"><a style="color:black">이벤트 관리</a></li>
                                 </ol>
-
+						
+						<h1 style="font-weight:bold">${msg}</h1>
                         <!-- 회원조회 테이블 -->
                         
                             <div class="card-body">

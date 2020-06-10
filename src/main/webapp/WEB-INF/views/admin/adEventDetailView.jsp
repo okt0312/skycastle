@@ -88,17 +88,17 @@
                             	<!--버튼 모음  -->
 	                            <div align="center">
                                     <input type="button" value="목록" onclick="location.href='eventMgmt.ad';" class="btn btn-dark">
-                                    <input type="button" value="수정" onclick="postFormSubmit(1);" class="btn btn-primary" >
-                                    <input type="button" value="삭제" onclick="postFormSubmit(2);" class="btn btn-danger" id="adNoDeleteBtn">
+                                    <input type="button" value="수정" onclick="postFormSubmit(1);" class="btn btn-primary">
+                                    <input type="button" value="삭제" onclick="postFormSubmit(2);" class="btn btn-danger">
 	                            </div>
                             </div>
                             
                         <!--</form>-->
                         
                         <form action="" id="postForm" method="post">
-                        	<input type="hidden" name="eventNo" value="${e.eventNo}">
+                        	<input type="hidden" name="eno" value="${e.eventNo}">
                          	<input type="hidden" name="changeName" value="${ at.changeName }">
-                        	<input type="hidden" name="fileNo" value=${ at.fileNo }> 
+                        	<%-- <input type="hidden" name="fileNo" value=${ at.fileNo }>  --%>
                         </form> 
                        
                        <script>

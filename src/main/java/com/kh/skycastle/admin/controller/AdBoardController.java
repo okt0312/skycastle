@@ -133,7 +133,9 @@ public class AdBoardController {
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
 			
 			Event e = adBoService.adSelectEvent(eno);
+			Attachment at = new Attachment();
 			mv.addObject("e", e);
+			mv.addObject("at", at);
 			mv.setViewName("admin/adEventDetailView");
 			
 			return mv;
@@ -145,7 +147,6 @@ public class AdBoardController {
 									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
 			
 			if(!file.getOriginalFilename().equals("")) {
-				
 				// 첨부파일 o
 				if(at.getChangeName() != null) {
 					deleteFile(at.getChangeName(), request);
@@ -164,6 +165,23 @@ public class AdBoardController {
 			}else {
 				return "admin/adEventDetailView";
 			}
+		}
+		
+		@RequestMapping("deleteEvent.ad")
+		public String deleteAdEvent(int eno, String changeName, HttpServletRequest request, Model model) {
+			
+			int result = adBoService.deleteAdEvent(eno);
+			
+			if(result > 0) { // 게시글 삭제 성공 --> 기존의 첨부파일이 있었을 경우 서버에 삭제
+				
+				if(!changeName.equals("")) {
+					deleteFile(changeName, request);
+				}
+					return "redirect:eventMgmt.ad";
+				}else {
+					model.addAttribute("msg", "에러");
+					return "admin/adEventMgmt";
+				}
 		}
 			
 		// 공유해서 쓸수 있게끔 따로 정의 해놓은 메소드

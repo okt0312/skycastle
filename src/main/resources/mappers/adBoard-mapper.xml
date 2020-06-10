@@ -85,8 +85,13 @@
  	
  	<update id="updateAttachment" parameterType="Attachment">
  		UPDATE ATTACHMENT
-		   SET CAHNGE_NAME = #{chagneName},
-		 WHERE REF_BNO = #{fileNo} 		
+		   SET CAHNGE_NAME = #{chagneName}
+		 WHERE REF_BNO = #{eno} 		
  	</update>
  	
+ 	<update id="deleteAdEvent" parameterType="_int">
+ 		UPDATE EVENT
+ 		   SET EVENT_STATUS= 'N'
+ 		 WHERE EVENT_NO = #{eno} 
+ 	</update>
 </mapper>
