@@ -65,9 +65,10 @@
 		       #{qnaTitle}, #{qnaContent}, SYSYDATE ,  NULL , #{originName}, #{changeName}, DEFAULT) 
 	</insert>
 	
-	<select id="qselectListCount" resultType="_int">
+	<select id="qselectListCount" parameterType="Member" resultType="_int">
 		SELECT count(*)
 		 FROM QNA
+		WHERE USER_NO=#{userNo}
     </select>	
     
     <select id="qselectList" parameterType="Member" resultMap="qnaResultSet">

@@ -80,9 +80,9 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public int qselectListCount() {
+	public int qselectListCount(Member m) {
 		
-		return pDao.qselectListCount(sqlSession);
+		return pDao.qselectListCount(sqlSession, m);
 	}
 	
 
@@ -121,9 +121,9 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public int spaceselectListCount() {
+	public int spaceselectListCount(Member m) {
 		
-		return pDao.spaceselectListCount(sqlSession);
+		return pDao.spaceselectListCount(sqlSession,m);
 	}
 
 

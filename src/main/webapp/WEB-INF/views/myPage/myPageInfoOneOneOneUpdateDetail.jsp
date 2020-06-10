@@ -44,9 +44,9 @@ div {
 	width: 1000px;
 	height: 200px;
 	border: 1px solid rgb(76, 60, 60);
-	background-color: #fdce07;
+	background-color:  rgb(13,13,13);
 	margin: auto;
-	color: black;
+	color: #fdce07;
 }
 
 .bline {
@@ -121,23 +121,23 @@ td {
         
          #title1{
 
-         width:450px; 
-                   
-         resize:none;
-         border-radius: 2%;
-         padding-left: 10px;
-         padding-top: 10px;
+            width:450px; 
+            height:150px;
+            resize:none;
+            border-radius: 2%;
+            padding-left: 10px;
+            padding-top: 10px;
 
        }
        
        #title2{
 
-                    width:450px; 
-                    height:150px;
-                    resize:none;
-                    border-radius: 2%;
-                    padding-left: 10px;
-                    padding-top: 10px;
+            width:450px; 
+            height:150px;
+            resize:none;
+            border-radius: 2%;
+            padding-left: 10px;
+            padding-top: 10px;
 
         }
         
@@ -147,6 +147,8 @@ td {
 </style>
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
+
+
 
 
 <jsp:include page="common/myPageMenubar.jsp"/>
@@ -167,7 +169,7 @@ td {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${ loginUser.userName }</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: black; margin-top: 10px;">문의하신 내용은 총 1건입니다.</p>
+							<p style="font-size: 0.7em; color:#fdce07;  margin-top: 10px;">문의하신 내용은 총 1건입니다.</p>
 						</th>
 						
 						
@@ -200,27 +202,27 @@ td {
                 <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
 
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">아이디</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${loginUser.userId }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; font-weight:bolder;  padding-left: 15px;">아이디</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; color: #888;">${loginUser.userId }</td>
                     </tr>
                     
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray; padding-left: 15px;">연락처</td>
-                        <td style="padding-left: 1%; font-size: 1.3em;">${ loginUser.phone }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; font-weight:bolder;   padding-left: 15px;">연락처</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; color: #888;">${ loginUser.phone }</td>
                     </tr>
 
                   
                     <tr>
-                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; color:gray;">이름</td>
-                        <td style="padding-left: 1%; font-size: 1.3em; font-weight: bolder;">${loginUser.userName }</td>
+                        <td width="300px" height="30px" align="center" style="font-size: 1.2em; font-weight:bolder;">이름</td>
+                        <td style="padding-left: 1%; font-size: 1.3em; font-weight: bolder; color: #888;">${loginUser.userName }</td>
                     </tr>
    						
                    	
                     <tr>
-                        <td  width="300px" height="30px" align="center"  valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">제목</td>
+                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">제목</td>
                         <td style="padding-left: 1%;  padding-top: 1%;" valign="top">
                         
-                        <textarea  id="title1" name="qnaTitle" style="margin-top: 45px;">
+                        <textarea  id="title1" name="qnaTitle" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
                         ${ q.qnaTitle }
                         </textarea>
                         
@@ -230,9 +232,9 @@ td {
                    	
                     
                     <tr>
-                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; color:gray; padding-top: 2%;">내용</td>
+                        <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%;  padding-top: 1%;" valign="top">
-                            <textarea id="title2" name="qnaContent">
+                            <textarea id="title2" name="qnaContent" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
                             	${q.qnaContent}
                             </textarea>
                        	</td>

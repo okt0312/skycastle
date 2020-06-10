@@ -131,12 +131,15 @@ td {
         #dbtn{margin-right: 3%; margin-right: 2%; box-sizing:border-box;}
         #mbtn{margin-left: 3%; margin-right: 2%; box-sizing:border-box;} 
         #lbtn{margin-left: 3%; box-sizing:border-box;} 
-
+		
 /* 중간버튼 스타일 */
 </style>
 
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
+
+
+
 
 <jsp:include page="common/myPageMenubar.jsp"/>
 	
@@ -185,7 +188,7 @@ td {
                 <br><br><br>
 
                 <table id="middleTable" width="900px" height="500px" align="center" style="margin:auto;">
-
+					
                     <tr>
                         <td width="300px" height="30px" align="center" style="font-size: 1.2em; font-weight:bolder;  padding-left: 15px;">아이디</td>
                         <td style="padding-left: 1%; font-size: 1.2em; color: #888;">${loginUser.userId }</td>

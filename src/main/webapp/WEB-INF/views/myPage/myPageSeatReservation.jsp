@@ -426,15 +426,15 @@ ul{
                     <a href="">
                     	
                      	<span class="col1 thumb align_center" style="padding-top: 50px;">
-                            <p style="font-size: larger; margin-bottom: 5px;"> 좌석번호 </p>
-                            <p style="font-size:50px; font-weight: 900; margin-top: 0px;">${ s.seatNo }</p>
+                            <p style="font-size: larger; margin-bottom: 5px; color:purple;"> 좌석번호 </p>
+                            <p style="font-size:50px; font-weight: 900; margin-top: 0px; color:purple;">${ s.seatNo }</p>
                         </span>
                         <fmt:parseDate var="dateString" value="${s.usedDate}" pattern="yyyy-MM-dd HH:mm:ss" /> 
                         <span class="col2 room_info">
                               <p class="t1"><fmt:formatDate value="${dateString}" pattern="yyyy-MM-dd" /></p>
                               <%-- <p class="t1">${ s.usedDate }</p> --%>
                               <p class="t2">${ s.startTime } ~ ${ s.endTime }</p>
-                              <p class="t3">지점문의: 02-7777-7777</p>
+                              <p class="t3">지점문의: 010-8738-3290</p>
                         </span>
                         <span class="col3 room_type align_center">
                             <strong class="reserve_type">
