@@ -71,6 +71,8 @@
         float: right;
     }
 </style>
+
+
 </head>
 <body>
 <div id="layoutSidenav">
@@ -130,6 +132,7 @@
 					 
 				   	   $(function(){
 				   			selectAdReplyList();
+				   			
 				   		});
 					 
 					    	function selectAdReplyList(){
@@ -148,19 +151,22 @@
 				   					var value = "";
 				   					
 				   					for(var i in list){
-				   						value +=  "<tr  id='rid" + this.rid + "'>" +
+				   						value +=  "<tr  id='rid'>" +
 				   										
 				   									"<td>"+ "<input type='hidden' id='rno' value='"+list[i].replyNo+"'>" + "</td>"+
 							                        "<td>" + list[i].userName + "</td>" +
 							                        "<td>" + list[i].replyContent + "</td>" +
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
-							                        "<input type='submit' value='삭제' id='"+this.replyNo+"adReplyDeleteBtn' class='btn btn-danger'>" +
+							                        "<input type='button' value='삭제' name='del_btn' id='del_btn' class='btn btn-danger'>" +
+							                       // "<input type='submit' value='삭제' id='"+this.replyNo+"adReplyDeleteBtn' class='btn btn-danger'>" +
 							                        "</td>" + 
 							                     "</tr>";
 				   					}
 				   					
 				   					$("#replyArea tbody").html(value); 
+				   				
+				   					
 				   				},error:function(){
 				   					console.log(gno);
 				   					console.log("댓글 리스트 조회용 ajax 통신실패!!");
@@ -168,30 +174,33 @@
 				   			});
 				   			
 				    	}
-					    	//@@@@@@@@@환장하겠네..정말!!!!!! 나중에 다시 해보기..
-					    	$("#'+ this.relyNo +'adReplyDeleteBtn").click(function(){
-					    		console.log("클릭")
-					    		var rno = $("#rno").val();
-				   				$.ajax({
-				   					url:"rDelete.ad",
-				   					data:{"rno": rno},
-				   					type:"post",
-				   					success:function(result){
-				   						
-				   						return "redirect:noticeDetail.ad?bno="+g.getGnoticeNo();
-				   						
-				   					},error:function(){
-				   						console.log("댓글 작성용 ajax 통신 실패!");
-				   					}
-				   				});
-				   				
-				   			});
+					    	
+					    	//$("#'+ this.relyNo +'adReplyDeleteBtn").click(function(){
 					    	
 					    	
+					    		$('body').on('click', '#replyArea tbody tr td input[id=del_btn]', function(event) {
+					    			
+					    			var rno = $(this).parent("td").parent("tr").children().eq(0).children().val();
+						    		console.log(rno);
+						    		
+						    		$.ajax({
+					   					url:"rDelete.ad",
+					   					data:{"rno": rno},
+					   					type:"post",
+					   					success:function(result){
+					   						
+					   						console.log(result);
+					   						selectAdReplyList();
+					   						//return "redirect:noticeDetail.ad?bno="+g.getGnoticeNo();
+					   						
+					   					},error:function(){
+					   						console.log("댓글 작성용 ajax 통신 실패!");
+					   					}
+					   				});
+						    		
+					    		});
 				    </script>
 					    	
-					   	
-                        
                     </div>
                 </main>
 		</div>

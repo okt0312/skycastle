@@ -152,6 +152,7 @@
 	FROM REPLY R
 	JOIN MEMBER M USING(USER_NO)
 	WHERE NOTICE_NO =#{gno}
+		AND R.STATUS = 'Y'
 	</select>
 	
 	<!-- 소모임 공지사항 에서 댓글 삭제 -->

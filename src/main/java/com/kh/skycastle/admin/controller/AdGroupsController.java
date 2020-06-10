@@ -123,7 +123,6 @@ public class AdGroupsController {
 				g.setGroupCategory("기타");
 			}
 		}
-		System.out.println(list);
 		mv.addObject("list", list).setViewName("admin/adGroupConfirm");
 		
 		return mv;
@@ -137,7 +136,6 @@ public class AdGroupsController {
 	
 		
 		int result = adGrService.acceptGroups(grCoCheck);
-		//System.out.println(result);
 		
 			ArrayList<Groups> list = adGrService.selectGrConfirm();
 			
@@ -291,16 +289,16 @@ public class AdGroupsController {
 	@ResponseBody
 	@RequestMapping(value = "rDelete.ad", produces = "text/html; charset=utf-8")
 	public String deleteAdReply(int rno, Model model)
-	{	System.out.println(rno);
+	{	
 		int result = adGrService.deleteAdReply(rno);
 		
 		if(result > 0)
 		{
-			return "소모임 삭제 성공";
+			return "댓글 삭제 성공";
 		}
 		else
 		{
-			return "소모임 삭제 실패";
+			return "댓글 삭제 실패";
 		}
 	}
 	
