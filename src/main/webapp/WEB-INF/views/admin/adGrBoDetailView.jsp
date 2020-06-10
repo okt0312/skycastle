@@ -148,14 +148,14 @@
 				   					var value = "";
 				   					
 				   					for(var i in list){
-				   						value += "<tr>" + "<form>"+"<input type='text' id='rno' value='${ r.replyNo}'>"+
+				   						value += "<form>"+ "<tr>" +"<input type='text' id='rno' value='${ r.replyNo}'>"+
 							                        "<th>" + list[i].userName + "</th>" +
 							                        "<td>" + list[i].replyContent + "</td>" +
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
 							                        "<input type='submit' value='삭제'id='${ r.replyNo}adReplyDeleteBtn' class='btn btn-danger'>" +
-							                        "</td>" + "</form>" +
-							                     "</tr>";
+							                        "</td>" + 
+							                     "</tr>"+"</form>";
 				   					}
 				   					
 				   					$("#replyArea tbody").html(value); 
