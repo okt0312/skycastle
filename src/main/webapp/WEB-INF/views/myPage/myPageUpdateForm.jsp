@@ -321,7 +321,7 @@ a {
     padding: 0;
     border: 0;
     background: transparent;
-    text-decoration: none;
+    text-decoration: underline;
     font-size: 100%;
     color: #000;
 }
@@ -330,8 +330,8 @@ a {
 
 .btn_member_out {
     border: none;
-    color: #888 !important;
-    font-size: 13px !important;
+    color:#fdce07; !important;
+    font-size: 15px !important;
 }
 
 .default_tabs ul {
@@ -460,12 +460,12 @@ a {
                                             
     
                                             <div class="bts">
-                                                <button type="submit" class="dark" style="background-color: #222; color: #fff;" >변경</button>
+                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;" >변경</button>
                                             </div>
                                             </form>
                                             
-                                            <div class="bts">
-                                                <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
+                                            <div class="bts" style="font-size: 13px; color: #888;">
+                                              스카이캐슬를 더 이상 이용하지 않는다면 <a href="Dropp.me" class="btn_nude btn_nude_dark btn_member_out" style="color:#fdce07;  text-decoration: underline;">회원탈퇴 바로가기></a>
                                             </div>
                                         </div>
                                     </div>     

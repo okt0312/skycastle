@@ -197,7 +197,7 @@ height: 40px;
 			
 			<div id="btns">
 				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
-					class="middle_btn" id="cbtn">취소</button>
+					class="middle_btn" id="cbtn" onclick="location='myPageUpdateForm.jsp'">취소</button>
                 <button type="submit" class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
 			</form>

@@ -74,7 +74,7 @@ public class MypageController {
 	
 	@RequestMapping("PwdCheckk.my")
 	public String PwdCheck() {
-	
+		
 		
 		return "myPage/myPageUpdatePwd";
 	}
@@ -91,7 +91,7 @@ public class MypageController {
 		 Member memberPwd  =  pService.updateCheckPwd(m); // 멤버 조회만 결과
 		 if(memberPwd != null && bCryptPasswordEncoder.matches(m.getUserPwd(), memberPwd.getUserPwd())) { // 비밀번호 일치!!
 			 
-			 return "myPage/myPageInfoUpdateForm";
+			 return "myPage/myPageUpdateForm";
 			 
 		 } else {  // 비밀번호 불일치!!
 			 
@@ -105,7 +105,7 @@ public class MypageController {
 	     
 	}
 	
-	@RequestMapping("update.me") 
+	@RequestMapping("updatee.me") 
 	public String updateMember(Member m, Model model, HttpSession session) {
 		
 		int result = pService.updateMember(m);
@@ -116,7 +116,7 @@ public class MypageController {
 			session.setAttribute("msg", "회원정보 수정 성공!!");
 			
 			
-			return "myPage/myPageInfoUpdateCheck";
+			return "myPage/myPageUpdatePwd";
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
@@ -155,7 +155,7 @@ public class MypageController {
 	}
 	
 	
-	@RequestMapping("Drop.me")
+	@RequestMapping("Dropp.me")
 	public String Drop() {
 		return "myPage/myPageInfoDropOutForm";
 	}
@@ -307,6 +307,7 @@ public class MypageController {
 	public String qupdateForm(int qno, Model model) {
 		
 		model.addAttribute("q", pService.selectQna(qno));
+		
 		return "myPage/myPageInfoOneOneOneUpdateDetail";
 		
 	}
