@@ -37,16 +37,18 @@ public class AdBoardDao {
 		return sqlSession.delete("adBoardMapper.deleteAdNotice",noticeNo);
 	}
 	
-	//이벤트 리트스 조회용
+	// 이벤트 리스트 조회용
 	public ArrayList<Event> selectEvent(SqlSessionTemplate sqlSession){
 		return (ArrayList)sqlSession.selectList("adBoardMapper.selectEvent");
 	}
 	
-	//이벤트 상세 조회용
+	// 이벤트 상세 조회용
 	public Event adSelectEvent(SqlSessionTemplate sqlSession,int eno) {
-		
 		return sqlSession.selectOne("adBoardMapper.adSelectEvent", eno);
-		
 	}
 	
+	// 이벤트 수정용
+	public int updateAdEvent(SqlSessionTemplate sqlSession, Event e) {
+		return sqlSession.update("adBoardMapper.updateAdEvent", e);
+	}
 }
