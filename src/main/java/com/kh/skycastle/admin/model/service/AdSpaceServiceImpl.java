@@ -23,4 +23,21 @@ public class AdSpaceServiceImpl implements AdSpaceService{
 		return adSpDao.selectSpace(sqlSession);
 	}
 	
+	//공강현황 사용가능 기능
+	@Override
+	public int adUsableSpace(int sno) {
+		return adSpDao.adUsableSpace(sqlSession,sno);
+	
+	}
+	//공간형황 사용불가 기능
+	@Override
+	public int adUnusableSpace(int sno) {
+
+		return adSpDao.adUnusableSpace(sqlSession,sno);
+	}
+	
+	
+	
+	
+	
 }

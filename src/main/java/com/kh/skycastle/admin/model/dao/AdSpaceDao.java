@@ -15,4 +15,14 @@ public class AdSpaceDao {
 		public ArrayList<Space> selectSpace(SqlSessionTemplate sqlSession){
 			return (ArrayList)sqlSession.selectList("adSpaceMapper.selectSpace");
 		}
+		//공간 사용가능 기능
+		public int adUsableSpace(SqlSessionTemplate sqlSession, int sno) {
+			return sqlSession.delete("adSpaceMapper.adUsableSpace", sno);
+		
+		}
+		//공강 사용불가 기능
+		public int adUnusableSpace(SqlSessionTemplate sqlSession, int sno) {
+			return sqlSession.delete("adSpaceMapper.adUnusableSpace", sno);
+		
+		}
 }

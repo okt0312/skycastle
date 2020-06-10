@@ -16,4 +16,18 @@ SELECT SPACE_NO, SPACE_NAME, PERSONNEL, SPACE_PRICE, STATUS
 FROM TB_SPACE
 </select>
 
+<!-- 공간현황 모달에서 사용가능 기능 -->
+	<update id="adUsableSpace" parameterType="_int">
+		UPDATE TB_SPACE
+		   SET STATUS = 'Y'
+		 WHERE SPACE_NO = #{sno} 
+	</update>
+	
+	<!-- 공간현황 모달에서 사용불가 기능 -->
+	<update id="adUnusableSpace" parameterType="_int">
+		UPDATE TB_SPACE
+		   SET STATUS = 'N'
+		 WHERE SPACE_NO = #{sno} 
+	</update>
+
 </mapper>

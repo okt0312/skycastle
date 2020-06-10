@@ -113,8 +113,8 @@
 				                        
 				                    <!-- Modal footer -->
 				                    <div class="modal-footer">
-				                        <button type="button" class="btn btn-primary" id="updateGroupList_Btn">수정</button>
-				                        <button type="button" class="btn btn-danger" id="deleteGroupList_Btn">삭제</button>
+				                        <button type="button" class="btn btn-primary" id="usableSp_Btn">사용가능</button>
+				                        <button type="button" class="btn btn-danger" id="unusableSp_Btn">사용불가</button>
 				                        <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
 				                     </div>
 				                </form>
@@ -137,25 +137,25 @@
 				            
 				            		
 				            		
-				    //삭제버튼 에이작스
-            		$("#deleteGroupList_Btn").click(function(){
+				    //사용불가버튼 에이작스
+            		$("#unusableSp_Btn").click(function(){
            			
-           			var grNo = document.getElementById("groupNo").value;
+           			var sno = document.getElementById("spaceNo").value;
             		//var grNo= gNo.value;
             		//var grNo =$("#dataTable tbody tr").children().eq(0).text();
 
             		//console.log(grNo);
             		
-            				alertify.confirm('소모임 삭제', '해당 소모임을 삭제하시겠습니까?', 
+            				alertify.confirm('공간관리', '해당 공간을 사용불가로 바꾸시겠습니까?', 
            						 function()
            						 {
            							$.ajax({
-           								url:"deleteGroups.ad",
-           								data:{"grNo" : grNo},
+           								url:"unusableSpace.ad",
+           								data:{"sno" : sno},
            								type:"post",
            								success:function(msg)
            								{
-           									alertify.alert("소모임 관리", msg, function(){ location.reload();});
+           									alertify.alert("공간 관리", msg, function(){ location.reload();});
            								},
            								error:function()
            								{
@@ -167,6 +167,40 @@
           							 function(){} );
            		
         					   	}); 
+				    
+				    
+              		
+				    //사용가능버튼 에이작스
+            		$("#usableSp_Btn").click(function(){
+           			
+           			var sno = document.getElementById("spaceNo").value;
+            		//var grNo= gNo.value;
+            		//var grNo =$("#dataTable tbody tr").children().eq(0).text();
+
+            		//console.log(grNo);
+            		
+            				alertify.confirm('공간관리', '해당 공간을 사용가능으로 바꾸시겠습니까?', 
+           						 function()
+           						 {
+           							$.ajax({
+           								url:"usableSpace.ad",
+           								data:{"sno" : sno},
+           								type:"post",
+           								success:function(msg)
+           								{
+           									alertify.alert("공간 관리", msg, function(){ location.reload();});
+           								},
+           								error:function()
+           								{
+           									console.log("ajax통신 실패");
+           								}
+           								
+           							});
+          							 }, 
+          							 function(){} );
+           		
+        					   	}); 
+				            	
 				            	
 				            	</script>
                     
