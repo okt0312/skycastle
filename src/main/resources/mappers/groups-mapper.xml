@@ -25,20 +25,29 @@
 		WHERE STATUS='Y'
 	</select>
 
+	<!-- 소모임 리스트 조회 - 메인메뉴바 -->
+	<select id="selectGroupListAll" resultMap="groupResultSet" parameterType="GroupDto">
+		SELECT *
+		  FROM GROUPS
+		 WHERE STATUS='Y'
+		 ORDER BY START_DATE DESC
+	</select>
 	
-	<!-- 리스트조회 함께 사용 -->
+	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
 	<select id="selectGroupList" resultMap="groupResultSet" parameterType="GroupDto">
 		SELECT G.*, M.USER_NO
-		  FROM GROUPS G
-		  JOIN MEMBER M ON(LEADER_NO = USER_NO)
+		FROM GROUPS G
+		JOIN MEMBER M ON(LEADER_NO = USER_NO)
 		<where>
 			<if test='status!=null'>
-				USER_NO=#{userNo}
-				AND G.STATUS=#{status}
+	            USER_NO=#{userNo}
+	            AND G.STATUS=#{status}
 			</if>
 		</where>
 		ORDER BY START_DATE DESC
 	</select>
+	
+	<!-- 경택이가 해준거 -->
 	
 	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
 		SELECT *

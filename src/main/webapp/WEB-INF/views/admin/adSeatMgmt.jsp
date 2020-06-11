@@ -859,7 +859,7 @@
 	            <!-- 소모임 tr 클릭 시 뜨는 모달 -->
 	            <div class="modal fade" id="seatStModal" >
 	                <div class="modal-dialog modal-sm">
-	                    <div class="modal-content" style="width: 400px;">
+	                    <div class="modal-content" style="width: 700px;">
 	
 	                    <!-- Modal Header -->
 	                    <div class="modal-header">
@@ -869,12 +869,18 @@
 	
 	                    <form id="updateSpace_form" action="" method="post" class="form-horizontal">
 	                        <!-- Modal Body -->
-	                        <div class="modal-body">
+	                        <div class="modal-body" id="modal_out">
 	                        <label>&nbsp;&nbsp;좌석번호&nbsp;  :&nbsp; </label><input type="text" id="seatNo" name="seatNo" readonly ><br><br>
-	                         
-	                         <label>&nbsp;&nbsp;1번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS1" readonly >~<input type="text" id="reservE1" readonly ><br><br>
-	                          <label>&nbsp;&nbsp;2번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS2" readonly >~<input type="text" id="reservE2" readonly ><br><br>  
-	                          <label>&nbsp;&nbsp;3번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS3" readonly >~<input type="text" id="reservE3" readonly ><br><br>  
+	                        <div id="modal_in">
+	                        
+	                        
+	                        
+	                        </div>
+								
+								 
+								
+						
+						
 	                        </div>
 	                            
 	                        
@@ -983,7 +989,7 @@
 								type:"post",
 								success:function(msg)
 								{
-									alertify.alert("좌석 관리", msg, function(){ location.reload();});
+									alertify.alert("좌석 관리", msg,function(){ location.reload();} );
 								},
 								error:function()
 								{
@@ -1001,26 +1007,41 @@
 	    
 			});	
 	
-	
+	//여기 모달값넌는곳!
 	function timeList(seatNo){
 		$.ajax({
 			url:"selectSeatReservationTime.re",
 			async: false,
 			data: {seatNo:seatNo},
 			success:function(ReservationTime){
-				//console.log(ReservationTime);
-				$("#reservS1").val(ReservationTime[0].startTime);
-				$("#reservE1").val(ReservationTime[0].endTime);
-				$("#reservS2").val(ReservationTime[1].startTime);
-				$("#reservE2").val(ReservationTime[1].endTime);
-				$("#reservS3").val(ReservationTime[2].startTime);
-				$("#reservE3").val(ReservationTime[2].endTime);
+				console.log(ReservationTime);
 				
-			},error:function(){	
-				console.log("좌석예약시간 조회 ajax 통신 실패!!");
-			}
-		});
-	};
+				
+				
+				var value = "";
+					
+					for(var r in ReservationTime){
+						value += "<label>&nbsp;&nbsp;"+[Number(r)+Number(1)]+"번째예약&nbsp;&nbsp; </label><br>"+
+		                        "이름 : <input type='text' id='rno' value='"+ReservationTime[r].userName+"'><br>" +  
+		                        "아이디 : <input type='text' id='rno' value='"+ReservationTime[r].userId+"'><br>"+
+		                        "이용시간 : <input type='text' id='rno' value='"+ReservationTime[r].startTime+"'> ~ "+
+		                       	"<input type='text' id='rno' value='"+ReservationTime[r].endTime+"'>"+
+		                        "<br><br>";
+		                        
+		                        
+					}
+					
+					$("#modal_out #modal_in").html(value);
+					
+				},error:function(){
+					console.log("좌석 리스트 조회용 ajax 통신실패!!");
+				}
+			});
+				
+				
+		
+		}
+	
 		
 	
 	
