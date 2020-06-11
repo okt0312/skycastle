@@ -139,9 +139,12 @@
 						</c:otherwise>
 					</c:choose> --%>
 					
-					<c:if test="${ loginUser != null }">
+					<c:when test="${ loginUser != null }">
 						<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
-					</c:if>
+					</c:when>
+					<c:otherwise>	<!-- 로그인 안했을때 -->
+						<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
+					</c:otherwise>
 					
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
@@ -228,7 +231,6 @@
         					window.alert("통신에러1");
         				}
     				});
-    			
 				} else { // 채워진 하트일 경우 --> 위시리스트 삭제
 //					location.href = "dipsOut.gr";
 					
@@ -240,7 +242,7 @@
 								$("#dips").removeClass("dipsOut"); 	
 	        					$("#dips").addClass("dipsIn");		// 찜하기로 변경
 		     					$("#dips").text("찜하기");	
-								 window.alert("위시리스트에서 삭제되었습니다.")
+								window.alert("위시리스트에서 삭제되었습니다.")
 							}
 						},error:function(){
 							window.alert("통신에러2");
