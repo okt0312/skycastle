@@ -63,7 +63,7 @@
                                 <p align="center">
                                     <input type="button" value="목록" onclick="history.back(-1)" class="btn btn-dark">
                                     <input type="submit" id="" value="수정" class="btn btn-primary" >
-                                    <!-- <input type="submit" value="삭제" class="btn btn-danger" id="adNoDeleteBtn" > -->
+                                     <input type="button" value="삭제" class="btn btn-danger" id="forDeleteBtn" > 
                                     </p>
                                 
                             </div>
@@ -74,15 +74,27 @@
                             --%>
                         </form> 
                        
+                       <div id="delete_Hidden">
                         <form action="deleteNotice.ad">
                         <input type="hidden" name="noticeNo" id="noticeNo" value="${ n.noticeNo }">
                         <input type="submit" value="삭제" class="btn btn-danger" id="adNoDeleteBtn" >
                         </form> 
+                        </div>
                         
+                        <script>
+                        $(function(){
+                    		$("#delete_Hidden").hide();
+                    		$("#forDeleteBtn").click(function(){
+                    			$("#adNoDeleteBtn").click();
+                    			
+                    		});
+                        });
+                        </script>
                       
                        </div>   
                        
                     </div>
+                    
                 </main>
 		</div>
 </body>

@@ -63,12 +63,17 @@ public class AdGroupsController {
 	//소모임조회에서 모달창 소모임정보 수정하는거
 	@ResponseBody
 	@RequestMapping(value = "updateGroups.ad", produces = "application/json; charset=utf-8")
-	public int updateGrMgmt(Groups g, HttpSession session)
+	public String updateGrMgmt(Groups g, HttpSession session)
 	{	
 		int result = adGrService.updateGrMgmt(g);
-				
-				
-				return result;
+		if(result > 0)
+		{
+			return "소모임 삭제 성공";
+		}
+		else
+		{
+			return "소모임 삭제 실패";
+		}
 	}
 	
 	
