@@ -2,6 +2,7 @@
 package com.kh.skycastle.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -90,8 +91,8 @@ public class MemberController {
 		
 		System.out.println("이건 " + jsonObject.get("response"));
 
-		/*
-		m.setUserNo(Integer.parseInt(""));
+		
+		m.setUserNo(Integer.parseInt("00"));
 		m.setUserId((String)response.get("email"));
         m.setUserPwd("0000"); //DB에서 Not null로 처리했기에 임의로 준 값
         m.setUserName((String) response.get("name"));
@@ -101,7 +102,8 @@ public class MemberController {
         
         System.out.println("멤바아이디는 " + m.getUserId());
        
-        if((admService.selectMember((String)response.get("email"))) != m.getUserId()) {
+        /*
+        if((admService.selectMember((String)response.get("email"))).getUserId()== null){
         	mService.insertMember(m);
          }
 		*/

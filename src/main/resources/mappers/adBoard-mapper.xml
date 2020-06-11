@@ -75,6 +75,13 @@
 	 	   AND EVENT_NO = #{eno}
  	</select>
  	
+ 	<!-- 이벤트 등록 -->
+ 	<!-- <insert id="insertAdEvent" parameterType="Event">
+ 		INSERT INTO EVENT
+ 		VALUES(SEQ_EVENT.NEXTVAL, #{eventTitle), #{eventOpenTime}, #{eventCloseTime}, SYSDATE, 'Y')
+ 	</insert>
+ 	 -->
+ 	
  	<!-- 이벤트 수정 -->
  	<update id="updateAdEvent" parameterType="Event">
  		UPDATE EVENT

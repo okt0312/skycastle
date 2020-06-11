@@ -128,6 +128,32 @@ public class AdBoardController {
 			return ("admin/adEventEnrollForm");
 		}
 		
+		@RequestMapping("eventInsert.ad")
+		public String insertAdEvent(Event e, HttpServletRequest request, HttpSession session, 
+								    @RequestParam(name="uploadFile", required=false) MultipartFile[] file) {
+			
+			//System.out.println(file[0].getOriginalFilename());
+			//System.out.println(file[1].getOriginalFilename());
+			
+						    	
+			if(!file.getOriginalFilename().equals("")) {
+				String changeName = saveFile(file, request);
+				
+				e.setChangeName(changeName);
+			}
+			
+			Attachment at = new Attachment();
+			int result = adBoService.insertAdEvent(e, at);
+			
+			if(result > 0) {
+				return "redirect:eventMgmt.ad";
+			}else {
+				session.setAttribute("msg", "업로드 실패. 다시 시도하십시오,");
+				return "aimin/adEventEnrollForm";
+			}	
+			
+		}
+		
 		//이벤트 페이지 상세조회(수정폼)
 		@RequestMapping("eventDetail.ad")
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
