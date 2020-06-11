@@ -207,14 +207,14 @@ public class AdBoardController {
 		}
 		
 		@RequestMapping("deleteEvent.ad")
-		public String deleteAdEvent(int eno, String changeName, HttpServletRequest request, Model model) {
-			
-			int result = adBoService.deleteAdEvent(eno, changeName);
+		public String deleteAdEvent(Event e, HttpServletRequest request, Model model) {
+			System.out.println(e);
+			int result = adBoService.deleteAdEvent(e);
 			
 			if(result > 0) { // 게시글 삭제 성공 --> 기존의 첨부파일이 있었을 경우 서버에 삭제
 				
-				if(!changeName.equals("")) {
-					deleteFile(changeName, request);
+				if(!e.getChangeName().equals("")) {
+					deleteFile(e.getChangeName(), request);
 				}
 					return "redirect:eventMgmt.ad";
 				}else {

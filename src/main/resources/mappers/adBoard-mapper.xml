@@ -67,7 +67,7 @@
  	
  	<!-- 이벤트 상세페이지 조회 -->
  	<select id="adSelectEvent" parameterType="_int" resultMap="adEventResultSet">
-	 	SELECT EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, CHANGE_NAME
+	 	SELECT EVENT_NO,EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, CHANGE_NAME
 	 	  FROM EVENT
 	 	  JOIN ATTACHMENT ON(EVENT_NO=REF_BNO)
 	 	 WHERE GROUP_CATEGORY = 2
@@ -106,12 +106,12 @@
  	<update id="deleteAdEvent" parameterType="Event">
  		UPDATE EVENT
  		   SET EVENT_STATUS= 'N'
- 		 WHERE EVENT_NO = #{eno} 
+ 		 WHERE EVENT_NO = #{eventNo} 
  	</update>
  	
  	<update id="deleteAttachment" parameterType="Attachment">
  		UPDATE ATTACHMENT
  		   SET STATUS= 'N'
- 		 WHERE REF_BNO = #{eno} 
+ 		 WHERE GROUP_CATEGORY=2 AND REF_BNO = #{eventNo} 
  	</update>
 </mapper>
