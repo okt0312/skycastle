@@ -107,7 +107,6 @@ public class GroupController {
 		gd.setUserNo(m.getUserNo());
 		
 		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
-//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);

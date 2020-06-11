@@ -178,7 +178,7 @@
             </div>
 
             <!-- 방장에게만 보여지는 버튼-->
-            <c:if test="${ loginUser == leaderNo }">
+            <c:if test="${ loginUser.userNo == leaderNo }">
 	            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
 	            <div id="option-btn" style="margin-top: 300px;">
                 	<button class="sky_btn2" onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button><br>
