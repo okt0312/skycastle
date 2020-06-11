@@ -106,8 +106,7 @@ public class GroupController {
 		Member m = (Member)session.getAttribute("loginUser");
 		gd.setUserNo(m.getUserNo());
 		
-		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
-		
+		ArrayList<GroupDto> list = gService.selectMyGroupList(pi, gd);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		

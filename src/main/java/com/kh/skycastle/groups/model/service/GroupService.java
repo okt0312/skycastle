@@ -15,7 +15,7 @@ public interface GroupService {
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupListAll(PageInfo pi, GroupDto gd);
 	// 1-3. 요청한 페이지에 보여질 마이페이지 소모임 상태별 리스트 조회용 서비스
-	ArrayList<Groups> selectMyGroupList(PageInfo pi, GroupDto gd);
+	ArrayList<GroupDto> selectMyGroupList(PageInfo pi, GroupDto gd);
 	// 1-4. 요청한 페이지에 보여질 마이페이지 찜한 소모임 리스트 조회용 서비스
 	ArrayList<Dips> mygroupDipsList(PageInfo pi, int userNo);
 	

@@ -49,7 +49,7 @@
 	</select>
 	
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
-	<select id="selectGroupList" resultMap="groupResultSet" parameterType="GroupDto">
+	<select id="selectGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
 		SELECT G.*, M.USER_NO
 		FROM GROUPS G
 		JOIN MEMBER M ON(LEADER_NO = USER_NO)
