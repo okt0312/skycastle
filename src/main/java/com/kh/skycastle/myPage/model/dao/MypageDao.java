@@ -109,4 +109,8 @@ public class MypageDao {
 		
 	}
 	
+	public int mchangePwd(SqlSessionTemplate sqlSession, Member m) {
+    	return sqlSession.update("memberMapper.mchangePwd", m);
+    }
+	
 }

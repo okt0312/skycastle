@@ -354,4 +354,34 @@ public class MypageController {
 		
 		return "myPage/myPageSpaceReservation";
 	}
+	
+	@RequestMapping("cpwd.me")
+	public String cpwd() {
+		
+		
+		return  "myPage/myPagechangePwd";
+	}
+	
+	@RequestMapping("mchangePwd.me")
+	public String echangePwd(HttpServletRequest request, HttpSession session,  String userId, String pwdChagne, Member m, Model model) {
+		
+		String email = request.getParameter("userId");
+		String pwdChange = request.getParameter("pwdChange");
+		
+		String encPwd = bCryptPasswordEncoder.encode(pwdChange);
+		m.setUserPwd(encPwd);
+		m.setUserId(email);
+		
+		int result = pService.mchangePwd(m);
+		
+		if(result > 0) {
+			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동합니다.");
+			return "member/loginForm";
+		}else {
+			session.setAttribute("msg", "비밀번호 변경에 실패 하였습니다. 다시 시도하십시오.");
+			return  "myPage/myPagechangePwd";
+		}
+		
+	}
+	
 }

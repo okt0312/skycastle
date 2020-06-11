@@ -62,5 +62,8 @@ public interface MypageService {
 	int seatselectListCount(Member m);
 	// 1_2. 좌석예약 리스트 조회용 서비스 
 	ArrayList<Seat> seatselectList(PageInfo pi, Member m);
+	
+	// 비밀번호 변경
+	int mchangePwd(Member m);
 
 }
