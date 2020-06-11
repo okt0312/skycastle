@@ -64,13 +64,7 @@
 		<id column="GROUP_NO" property="groupNo"/>
 		<result column="USER_NO" property="userNo"/>
 	</resultMap>
-	
-	<select id="countDips" parameterType="Dips" resultType="_int">
-		SELECT COUNT(*)
-		  FROM DIPS
-		 WHERE USER_NO = #{userNo}
-		       AND GROUP_NO = #{groupNo}
-	</select>
+
 	
 	<select id="selectDipsList" parameterType="Dips" resultType="_int">
 		SELECT COUNT(*)
@@ -120,6 +114,12 @@
 		  FROM GROUPS
 		 WHERE GROUPS_NO=#{gnno}
 	</select>
+	
+ 	<!-- 공지사항 등록용 -->
+ 	<insert id="insertGroupNotice">
+	 	INSERT INTO GROUP_NOTICE
+	 	VALUES (SEQ_GNOTICE.NEXTVAL, #{gnoticeNo}, #{groupNo}, #{gnoticeTitle}, #{gnoticeContent}, sysdate, 'Y')
+ 	</insert>
 
 	
 	

@@ -227,7 +227,7 @@
             <script>
             	$(function(){
             		$("#boardList tbody tr").click(function(){
-            			location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
+            			location.href = "mygroupNoticeDetail.gr?gno=" + $(this).children().eq(0).text();
             		});
             	});
             	

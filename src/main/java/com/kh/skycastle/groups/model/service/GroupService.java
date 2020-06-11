@@ -37,5 +37,4 @@ public interface GroupService {
 	
 	// 4. 소모임 탈퇴용서비스
 	int deleteGroup(int gno);
-	
 }

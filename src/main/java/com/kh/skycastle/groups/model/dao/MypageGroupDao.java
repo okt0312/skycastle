@@ -24,6 +24,10 @@ public class MypageGroupDao {
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupNoticeList", null, rowBounds);
 	}
+
+	public int insertGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
+		return sqlSession.insert("groupsMapper.insertGroupNotice", gn);
+	}
 	
 	
 
