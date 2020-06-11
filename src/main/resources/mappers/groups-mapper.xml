@@ -72,15 +72,15 @@
 		       AND GROUP_NO = #{groupNo}
 	</select>
 	
-	<select id="selectDipsList" parameterType="_int" resultMap="dipsResultSet">
-		SELECT *
+	<select id="selectDipsList" parameterType="Dips" resultType="_int">
+		SELECT COUNT(*)
 		  FROM DIPS
-		 WHERE USER_NO = #{userNo}
+		 WHERE USER_NO = #{userNo} AND GROUP_NO = #{groupNo}
 	</select>
 	
 	<insert id="dipsIn" parameterType="_int">
 		INSERT INTO DIPS
-		VALUES(#{groupNo}, #{userNo})
+		VALUES( #{userNo}, #{groupNo})
 	</insert>
 	
 	<delete id="dipsOut" parameterType="_int">

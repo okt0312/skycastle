@@ -6,7 +6,6 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
 
 public interface GroupService {
 	
@@ -30,7 +29,7 @@ public interface GroupService {
 	int countDips(Dips d);
 	
 	//찜목록조회
-	ArrayList<Dips> selectDipsList(int userNo);
+	int selectDipsList(Dips d);
 	// 찜하기
 	int dipsIn(Dips d);
 	// 찜취소

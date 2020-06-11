@@ -179,15 +179,13 @@
    			if(${loginUser ne null}){
    				$.ajax({
    					url:"selectDipsList.gr",
-   					data:{userNo:${loginUser.userNo}},
-   					success:function(list){
+   					data:{"userNo":${loginUser.userNo}, "groupNo":$("#group_no").val()},
+   					success:function(result){
    						
-   						for(var i=0; list.length; i++){
-   							if(${g.groupNo} == list[i].groupNo){
-   								$("#dips").removeClass("dipsIn");
-   								$("#dips").addClass("dipsOut");
-   								$("#dips").val("찜취소");		//text 인지 value인지 확인
-   							}
+						if(result>0){
+							$("#dips").removeClass("dipsIn");
+							$("#dips").addClass("dipsOut");
+							$("#dips").text("찜취소");		//text 인지 value인지 확인
    						}			//버튼에 찜취소로 보여지고 아니면 찜하기로 보여진다.
    					}, error:function(){
    						console.log("찜목록 조회 실패");
@@ -200,12 +198,12 @@
     	$(function(){
     		$('#dips').click(function(){
     			
+					var gno = $("#group_no").val();
 				if( $("#dips").attr("class")=="sky_btn1 dipsIn"){ // 버튼의 글자가 찜하기 일떄. 빈 하트일 경우 --> 위시리스트 등록
 				
 //					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
 //					+ "&userNo=" + "${ loginUser.userNo }";
 
-					var gno = $("#group_no").val();
 					$.ajax({
 	     				url:"dipsIn.gr",
 	     				data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
@@ -214,6 +212,7 @@
 	     						$("#dips").removeClass("dipsIn"); 	
 	        					$("#dips").addClass("dipsOut");		// 찜취소로 변경
 		     					$("#dips").text("찜취소");	
+								alertify.alert("소모임", "찜목록 추가 완료");
 	     					}
         				}, error:function(){
         					window.alert("통신에러1");
@@ -225,17 +224,18 @@
 					$.ajax({
 						url:"dipsOut.gr", 
 						data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
+						type:"post",
 						success:function(result){
 							if(result > 0){
 								$("#dips").removeClass("dipsOut"); 	
 	        					$("#dips").addClass("dipsIn");		// 찜하기로 변경
 		     					$("#dips").text("찜하기");	
-								window.alert("위시리스트에서 삭제되었습니다.")
+								alertify.alert("소모임", "찜목록 삭제 완료");
 							}
 						},error:function(){
 							window.alert("통신에러2");
 						}
-					})
+					});
 				}
     		 });
     	});

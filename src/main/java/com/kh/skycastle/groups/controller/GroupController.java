@@ -60,19 +60,21 @@ public class GroupController {
 		return mv;
 	}
 	
+	@ResponseBody
 	@RequestMapping("selectDipsList.gr")
-	public String selectDipsList(int userNo){
-		ArrayList<Dips> list = gService.selectDipsList(userNo);
-		return new Gson().toJson(list);
+	public int selectDipsList(Dips d){
+		int result = gService.selectDipsList(d);
+		return result;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="dipsIn.gr", produces="application/json; charset=utf-8")
-	public String dipsIn(Dips d) {
+	public int dipsIn(Dips d) {
 		int result = gService.dipsIn(d);
-		return new Gson().toJson(result);
+		return result;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="dipsOut.gr", produces="application/json; charset=utf-8")
 	public int dipsOut(Dips d) {
 		
