@@ -7,6 +7,13 @@
 <meta charset="UTF-8">
 <title>공간 관리</title>
 <style>
+	 /* 목록 호버 */
+     #dataTable>tbody>tr:hover{
+     cursor:pointer;
+      background-color: rgba(204, 199, 199, 0.699);
+      }
+   
+
 	    #selectBox
        {
            position: absolute;
@@ -36,7 +43,7 @@
     
 				        <div class="card-body">
 				            <div class="card mb-4">
-				                <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">소모임 조회</b></div>
+				                <div class="card-header" style="border-bottom: white; background-color: white;"><b style="font-size: x-large;">공간현황</b></div>
 				                <div class="card-body">
 				                    <div class="table-responsive">
 				                        
