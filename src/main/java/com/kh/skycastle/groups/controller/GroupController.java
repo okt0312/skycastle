@@ -31,12 +31,9 @@ public class GroupController {
 	public String selectGroupList(int currentPage, GroupDto gd, Model model) {
 		
 		int groupListCount = gService.selectGroupListCount();
-//		System.out.println(gd);
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		ArrayList<Groups> list = gService.selectGroupList(pi, gd);
-//		System.out.println(list);
-//		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
