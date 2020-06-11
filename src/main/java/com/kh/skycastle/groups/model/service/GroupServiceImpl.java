@@ -68,8 +68,13 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int dipsIn(int gno, int userNo) {
-		return gDao.dipsIn(sqlSession, gno, userNo);
+	public int dipsIn(Dips d) {
+		return gDao.dipsIn(sqlSession, d);
+	}
+	
+	@Override
+	public ArrayList<Dips> selectDipsList(int userNo) {
+		return gDao.selectDipsList(sqlSession, userNo);
 	}
 
 

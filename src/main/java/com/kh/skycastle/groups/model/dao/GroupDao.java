@@ -46,9 +46,13 @@ public class GroupDao {
 	public int countDips(SqlSessionTemplate sqlSession, Dips d) {
 		return sqlSession.selectOne("groupsMapper.countDips", d);
 	}
+	
+	public ArrayList<Dips> selectDipsList(SqlSessionTemplate sqlSession, int userNo){
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectDipsList", userNo);
+	}
 
-	public int dipsIn(SqlSessionTemplate sqlSession, int gno, int userNo) {
-		return sqlSession.insert("groupsMapper.dipsIn", gno, userNo);
+	public int dipsIn(SqlSessionTemplate sqlSession, Dips d) {
+		return sqlSession.insert("groupsMapper.dipsIn", d);
 	}
 	
 	

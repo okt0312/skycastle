@@ -29,8 +29,10 @@ public interface GroupService {
 	// 3-1. 회원 찜하기 여부 확인
 	int countDips(Dips d);
 	
+	//찜목록조회
+	ArrayList<Dips> selectDipsList(int userNo);
 	// 찜하기
-	int dipsIn(int gno, int userNo);
+	int dipsIn(Dips d);
 
 	
 	// 4. 소모임 탈퇴용서비스

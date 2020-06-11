@@ -16,6 +16,11 @@
 		<result column="START_DATE" property="startDate"/>
 		<result column="END_DATE" property="endDate"/>
 	</resultMap>
+	
+	<resultMap type="Dips" id="dipsResultSet">
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="USER_NO" property="userNo"/>
+	</resultMap>
 
 
 
@@ -60,6 +65,12 @@
 		  FROM DIPS
 		 WHERE USER_NO = #{userNo}
 		       AND GROUP_NO = #{groupNo}
+	</select>
+	
+	<select id="selectDipsList" parameterType="_int" resultMap="dipsResultSet">
+		SELECT *
+		  FROM DIPS
+		 WHERE USER_NO = #{userNo}
 	</select>
 	
 	<insert id="dipsIn" parameterType="_int">

@@ -65,6 +65,7 @@
 			<div style="width: 250px; height: 250px; float: left;">
 		    	<img src="img/squaresize.PNG" alt="" width="250px" height="250px">
 			</div>
+			
 			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
 		        <h2>${ g.groupTitle }</h2>
 				<p>
@@ -180,15 +181,35 @@
 			} 
 		});
 
+    	$(function(){
+    		selectDipsList();
+    	});
+    	
+    	function selectDipsList(){
+   			if(loginUser != null){
+   				$.ajax({
+   					url:"selectDipsList.gr",
+   					data:{userNo:${loginUser.userNo}},
+   					success:function(list){
+   						
+   						for(var i=0; list.length; i++){
+   							if(${g.groupNo} == list[i].groupNo){
+   								$("#dips").removeClass("dipsIn");
+   								$("#dips").addClass("dipsOut");
+   								$("#dips").val("찜취소");		//text 인지 value인지 확인
+   							}
+   						}			//버튼에 찜취소로 보여지고 아니면 찜하기로 보여진다.
+   					}, error:function(){
+   						console.log("찜목록 조회 실패");
+   					}
+   				});
+   			}
+    	}
+    	
     	// 위시리스트 등록 ajax
     	$(function(){
-    		$('#dipsIn').click(function(){
+    		$('#dips').click(function(){
     			
-//				var gno = $(this).children("#group_no").val();
-//				console.log(gno);
-
-//				var icon = $(this);
-				
 				if( $("#dips").attr("class")=="sky_btn1 dipsIn"){ // 버튼의 글자가 찜하기 일떄. 빈 하트일 경우 --> 위시리스트 등록
 				
 //					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
@@ -196,7 +217,7 @@
 
 					$.ajax({
 	     				url:"dipsIn.gr",
-	     				data:{gno:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
+	     				data:{groupNo:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
 	     				success:function(result){	// insert 성공 --> result 1 
 	     					if(result>0){
 	     						$("#dips").removeClass("dipsIn"); 	
@@ -213,7 +234,7 @@
 					
 					$.ajax({
 						url:"dipsOut.gr", 
-						data:{gno:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
+						data:{groupNo:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
 						success:function(result){
 							if(result > 0){
 								$("#dips").removeClass("dipsOut"); 	
