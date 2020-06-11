@@ -19,6 +19,15 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
+	public ArrayList<Groups> selectGroupListAll(SqlSessionTemplate sqlSession, PageInfo pi){
+		// rowbounds 생성하기 위해서 offset만들기
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupListAll", rowBounds);
+	}
+
 	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
 		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
