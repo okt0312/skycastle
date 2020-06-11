@@ -77,4 +77,8 @@ public class AdBoardDao {
 	public int deleteAdEvent(SqlSessionTemplate sqlSession,int eno) {
 		return sqlSession.update("adBoardMapper.deleteAdEvent", eno);
 	}
+	
+	public int deleteAttachment(SqlSessionTemplate sqlSession, String changeName) {
+		return sqlSession.update("adBoardMapper.deleteAttachment", changeName);
+	}
 }

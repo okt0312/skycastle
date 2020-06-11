@@ -102,9 +102,16 @@
 		 WHERE REF_BNO = #{eno} 		
  	</update>
  	
- 	<update id="deleteAdEvent" parameterType="_int">
+ 	<!-- 이벤트 삭제  -->
+ 	<update id="deleteAdEvent" parameterType="Event">
  		UPDATE EVENT
  		   SET EVENT_STATUS= 'N'
  		 WHERE EVENT_NO = #{eno} 
+ 	</update>
+ 	
+ 	<update id="deleteAttachment" parameterType="Attachment">
+ 		UPDATE ATTACHMENT
+ 		   SET STATUS= 'N'
+ 		 WHERE REF_BNO = #{eno} 
  	</update>
 </mapper>

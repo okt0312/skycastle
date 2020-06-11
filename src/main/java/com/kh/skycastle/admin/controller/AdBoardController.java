@@ -209,7 +209,7 @@ public class AdBoardController {
 		@RequestMapping("deleteEvent.ad")
 		public String deleteAdEvent(int eno, String changeName, HttpServletRequest request, Model model) {
 			
-			int result = adBoService.deleteAdEvent(eno);
+			int result = adBoService.deleteAdEvent(eno, changeName);
 			
 			if(result > 0) { // 게시글 삭제 성공 --> 기존의 첨부파일이 있었을 경우 서버에 삭제
 				
