@@ -29,5 +29,11 @@ FROM TB_SPACE
 		   SET STATUS = 'N'
 		 WHERE SPACE_NO = #{sno} 
 	</update>
+	
+	<update id="adUnusableSeat" parameterType="Seat">
+		update seat set status = #{status} WHERE SEAT_NO = #{seatNo}
+	</update>
+	
+	
 
 </mapper>

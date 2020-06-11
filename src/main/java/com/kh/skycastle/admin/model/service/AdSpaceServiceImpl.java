@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdSpaceDao;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 @Service("adSpService")
@@ -34,6 +35,14 @@ public class AdSpaceServiceImpl implements AdSpaceService{
 	public int adUnusableSpace(int sno) {
 
 		return adSpDao.adUnusableSpace(sqlSession,sno);
+	}
+	
+	
+	//좌석상태변경 기능 
+	@Override
+	public int adSeatStatusMgmt(Seat seat) {
+		// TODO Auto-generated method stub
+		return adSpDao.adSeatStatusMgmt(sqlSession,seat);
 	}
 	
 	
