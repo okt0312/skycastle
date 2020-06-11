@@ -17,20 +17,35 @@
 		<result column="END_DATE" property="endDate"/>
 	</resultMap>
 
-
-
 	<select id="selectGroupListCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM GROUPS
 		WHERE STATUS='Y'
 	</select>
+	
+	
+	
+	<resultMap id="groupDtoResultSet" type="GroupDto">
+		<id column="USER_NO" property="userNo"/>
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="GROUP_TITLE" property="groupTitle"/>
+		<result column="GROUP_SUBTITLE" property="groupSubtitle"/>
+		<result column="GROUP_CATEGORY" property="groupCategory"/>
+		<result column="CHANGE_NAME" property="changeName"/>
+		<result column="PLACE" property="place"/>
+		<result column="MEMBER_LIMIT" property="memberLimit"/>
+		<result column="STATUS" property="status"/>
+		<result column="START_DATE" property="startDate"/>
+		<result column="END_DATE" property="endDate"/>
+	</resultMap>    
 
 	<!-- 소모임 리스트 조회 - 메인메뉴바 -->
-	<select id="selectGroupListAll" resultMap="groupResultSet" parameterType="GroupDto">
-		SELECT *
-		  FROM GROUPS
-		 WHERE STATUS='Y'
-		 ORDER BY START_DATE DESC
+	<select id="selectGroupListAll" resultMap="groupDtoResultSet" parameterType="GroupDto">
+		SELECT G.*, A.CHANGE_NAME
+		  FROM GROUPS G
+		  JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
+		 WHERE G.STATUS='Y'
+		 ORDER BY G.START_DATE DESC
 	</select>
 	
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
@@ -46,8 +61,6 @@
 		</where>
 		ORDER BY START_DATE DESC
 	</select>
-	
-	<!-- 경택이가 해준거 -->
 	
 	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
 		SELECT *
