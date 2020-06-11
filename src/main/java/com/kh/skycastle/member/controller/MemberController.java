@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
+import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -48,6 +49,9 @@ public class MemberController {
 		this.naverLoginBO = naverLoginBO;
 	}
 	
+	@Autowired
+	private AdMemberService admService;
+	
 	/*
 	@RequestMapping("loginForm.me")
 	public String loginForm() {
@@ -68,7 +72,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/callback")
-	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
+	public String callback(Member m, Model model, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest request) throws IOException, ParseException {
 		
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
@@ -77,6 +81,33 @@ public class MemberController {
 		
 		model.addAttribute("result", apiResult);
 		session.setAttribute("result", apiResult);
+		
+		// DB와 세션에 넣기 
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject = (JSONObject)jsonParser.parse(naverLoginBO.getUserProfile(oauthToken).toString());
+		
+		JSONObject response = (JSONObject)jsonObject.get("response");
+		
+		System.out.println("이건 " + jsonObject.get("response"));
+
+		/*
+		m.setUserNo(Integer.parseInt(""));
+		m.setUserId((String)response.get("email"));
+        m.setUserPwd("0000"); //DB에서 Not null로 처리했기에 임의로 준 값
+        m.setUserName((String) response.get("name"));
+        m.setBirthday((String)response.get("birthday"));
+        m.setPhone("00000000000");
+        m.setGradeCode(Integer.parseInt("5"));
+        
+        System.out.println("멤바아이디는 " + m.getUserId());
+       
+        if((admService.selectMember((String)response.get("email"))) != m.getUserId()) {
+        	mService.insertMember(m);
+         }
+		*/
+        //생략 가능_세션에 담기 위해 사용했다.
+        request.getSession(true).setAttribute("email", m.getUserId());
+ 
 		return "member/naverSuccess";
 	}
 
