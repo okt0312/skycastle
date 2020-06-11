@@ -33,7 +33,7 @@ public class GroupController {
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<Groups> list = gService.selectGroupListAll(pi, gd);
+		ArrayList<GroupDto> list = gService.selectGroupListAll(pi, gd);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
@@ -47,7 +47,6 @@ public class GroupController {
 		Groups g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
-//		System.out.println(countDips);
 		
 		mv.addObject("g", g);
 		mv.addObject("count", countDips);

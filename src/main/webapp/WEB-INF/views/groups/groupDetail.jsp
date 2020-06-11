@@ -63,7 +63,7 @@
 		
 		<div id="detailSum" style="width:100%; height: 250px;">
 			<div style="width: 250px; height: 250px; float: left;">
-		    	<img src="img/squaresize.PNG" alt="" width="250px" height="250px">
+		    	<img src="resources/uploadFiles/groups/${ g.changeName }" width="250px" height="250px">
 			</div>
 			
 			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
