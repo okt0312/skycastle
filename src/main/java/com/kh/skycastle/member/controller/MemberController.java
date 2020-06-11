@@ -91,7 +91,6 @@ public class MemberController {
 		
 		System.out.println("이건 " + jsonObject.get("response"));
 
-		
 		m.setUserNo(Integer.parseInt("00"));
 		m.setUserId((String)response.get("email"));
         m.setUserPwd("0000"); //DB에서 Not null로 처리했기에 임의로 준 값
@@ -102,11 +101,11 @@ public class MemberController {
         
         System.out.println("멤바아이디는 " + m.getUserId());
        
-        /*
-        if((admService.selectMember((String)response.get("email"))).getUserId()== null){
+        
+        if((admService.selectMember((String)response.get("email")).get(0).getUserId())== null){
         	mService.insertMember(m);
          }
-		*/
+		
         //생략 가능_세션에 담기 위해 사용했다.
         request.getSession(true).setAttribute("email", m.getUserId());
  
