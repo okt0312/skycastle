@@ -48,6 +48,17 @@ public class AdBoardDao {
 		return sqlSession.insert("adBoardMapper.insertAdEvent", e);
 	}
 	
+	public int insertAttachment(SqlSessionTemplate sqlSession, Attachment[] at) {
+		int result1 =1;
+		int result2 =0;
+		for(int i=0; i<at.length; i++) {
+		  result2 = sqlSession.insert("adBoardMapper.insertAttachment", at[i]);			
+		  result1 =  result1*result2;
+		}
+	
+		return result1;
+	}
+	
 	// 이벤트 상세 조회용
 	public Event adSelectEvent(SqlSessionTemplate sqlSession,int eno) {
 		return sqlSession.selectOne("adBoardMapper.adSelectEvent", eno);

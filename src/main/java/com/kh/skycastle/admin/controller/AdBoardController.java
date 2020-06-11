@@ -135,23 +135,33 @@ public class AdBoardController {
 			//System.out.println(file[0].getOriginalFilename());
 			//System.out.println(file[1].getOriginalFilename());
 			
-						    	
-			if(!file.getOriginalFilename().equals("")) {
-				String changeName = saveFile(file, request);
-				
-				e.setChangeName(changeName);
+			Attachment[] at = new Attachment[file.length];
+
+			for (int i = 0; i < file.length; i++) {
+				if (!file[i].getOriginalFilename().equals("")) {
+					at[i] = new Attachment();
+					saveFile(file[i], request);
+					at[i].setChangeName(file[i].getOriginalFilename());
+					if (i == 0) {
+						at[i].setFileLevel(1);
+					} else {
+						at[i].setFileLevel(2);
+					}
+				}
 			}
-			
-			Attachment at = new Attachment();
+			//System.out.println(e);
+			//System.out.println(at[0]);
+			//System.out.println(at[1]);
+
 			int result = adBoService.insertAdEvent(e, at);
-			
-			if(result > 0) {
+
+			if (result > 0) {
 				return "redirect:eventMgmt.ad";
-			}else {
+			} else {
 				session.setAttribute("msg", "업로드 실패. 다시 시도하십시오,");
 				return "aimin/adEventEnrollForm";
-			}	
-			
+			}
+
 		}
 		
 		//이벤트 페이지 상세조회(수정폼)
@@ -181,9 +191,9 @@ public class AdBoardController {
 					deleteFile(at.getChangeName(), request);
 				}
 			
-			String changeName = saveFile(file, request);
+			saveFile(file, request);
 			
-			at.setChangeName(changeName);
+			at.setChangeName(file.getOriginalFilename());
 			
 			}
 			
@@ -215,23 +225,23 @@ public class AdBoardController {
 			
 		// 공유해서 쓸수 있게끔 따로 정의 해놓은 메소드
 		// 전달받은 파일을 서버에 업로드 시킨 후 수정명 리턴하는 메소드
-		public String saveFile(MultipartFile file, HttpServletRequest request) {
+		public void saveFile(MultipartFile file, HttpServletRequest request) {
 			
 			// 파일을 업로드 시킬 폴더 경로 (String savePath)
 			String resources = request.getSession().getServletContext().getRealPath("resources");
 			String savePath = resources + "\\uploadFiles\\event\\";
 			
-			String changeName = file.getOriginalFilename();
+			
 			
 			try {
-				file.transferTo(new File(savePath + changeName));
+				file.transferTo(new File(savePath + file.getOriginalFilename()));
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	
-			return changeName;
+			return;
 			
 		}
 		// 전달받은 파일명을 가지고 서버로 부터 삭제하는 메소드
