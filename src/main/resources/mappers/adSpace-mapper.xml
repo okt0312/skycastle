@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="adSpaceMapper">
 
-<resultMap type="Space" id="adSpaceResultSet">
+	<resultMap type="Space" id="adSpaceResultSet">
 		<id column="SPACE_NO" property="spaceNo"/>
 		<result column="SPACE_NAME" property="spaceName"/>
 		<result column="PERSONNEL" property="personnel"/>
@@ -10,6 +10,18 @@
 		<result column="STATUS" property="status"/>
 		<result column="change_name" property="changeName"/>
 	</resultMap>
+	
+	<resultMap type="AdReservationDto" id="adReservationResultSet">
+		<id column="BOOK_NO" property="bookNo"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="CATEGORY" property="category"/>
+		<result column="REF_NO" property="refNo"/>
+		<result column="SPACE_NAME" property="spaceName"/>
+		<result column="COUPON_NAME" property="couponName"/>
+		<result column="TOTAL_COST" property="totalCost"/>
+		<result column="BOOK_ENROLL_DATE" property="bookEnrollDate"/>
+	</resultMap>
+	
 
 <select id="selectSpace" resultMap="adSpaceResultSet">
 SELECT SPACE_NO, SPACE_NAME, PERSONNEL, SPACE_PRICE, STATUS
@@ -34,6 +46,12 @@ FROM TB_SPACE
 		update seat set status = #{status} WHERE SEAT_NO = #{seatNo}
 	</update>
 	
-	
+	<select id="selectFormList" resultMap="adReservationResultSet">
+		SELECT R.BOOK_NO, M.USER_ID, R.CATEGORY, R.REF_NO, TS.SPACE_NAME, COUPON_NAME, R.TOTAL_COST, R.BOOK_ENROLL_DATE
+		  FROM RESERVATION R
+		  JOIN MEMBER M USING(USER_NO)
+		  JOIN TB_SPACE TS ON(TS.SPACE_NO = R.REF_NO) 
+		  LEFT JOIN COUPON C USING(COUPON_CODE)
+	</select>
 
 </mapper>
