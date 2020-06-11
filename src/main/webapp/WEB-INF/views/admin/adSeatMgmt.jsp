@@ -812,13 +812,13 @@
 	            	-->
 	            	
 	            	
-	            	//좌석 상태&클릭 
+	            	<!-- 좌석 상태&클릭 --> 
 	            	  <script>
   
  	
 					function selectSeatStatusList(){
 						$.ajax({
-							url:"SeatStatus.ad",					//상태조회url
+							url:"seatMgmt.ad",					//상태조회url
 							async: false,   						//이건뭘까..
 							success:function(status){				//성공하면 상태 돌려받음
 								//console.log(status);
@@ -829,13 +829,13 @@
 							//console.log(items);
 									for(var i=0; i<status.length; i++){ 			//반복문으로 상태뽑는중
 										if(status[i].refNo != 0){					//사용좌석번호가0이아니다 할때 반복시작(1번좌석시작)
-											//console.log(status[i].refNo);
+											console.log(status[i].refNo);
 											for(var j=0; j<items.length; j++){			     //반복문 검색으로 나열,,
 									             if( items[j].innerText == status[i].refNo ){   //좌석번호랑 예약좌석번호가 같으면
 									            	 items[j].style.backgroundColor = "#fdce07"; //사용중(노랑)으로 바꾼다		              
 									           	 }
 								            }
-										      seatUsedCount++;			//또한 사용중 숫자 올림
+										     // seatUsedCount++;			//또한 사용중 숫자 올림
 							            }else if(status[i].status == 'N'){ //  좌석상태가 n이면
 							            	for(var j=0; j<items.length; j++){
 									             if( items[j].innerText == status[i].seatNo ){//같은좌석인지 확인하는 과정?
@@ -877,7 +877,7 @@
 				
 						$("#seatTable .Style9").click(function(){	
 							console.log("1")
-							location.href="seatRdetail.re?seatNo="+ $(this).text(); //좌석번호를 링크로 넘김seatNo로
+							location.href="seatAddetail.re?seatNo="+ $(this).text(); //좌석번호를 링크로 넘김seatNo로
 							//console.log($(this));
 						});
 						

@@ -12,22 +12,22 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.skycastle.admin.model.service.AdSpaceService;
 import com.kh.skycastle.reservation.model.vo.Space;
 
-//공간관리(공간, 좌석, 예약) 관련 페이지 컨트롤러입니다
-@Controller
-public class AdSpaceController {
-	
-	@Autowired
-	private AdSpaceService adSpService;
-	
-	//메뉴바에서 공간관리 페이지 눌렀을때 이동
-	@RequestMapping("spaceMgmt.ad")
-	public ModelAndView adSpaceMgmt(ModelAndView mv){
-			
-	ArrayList<Space> list = adSpService.selectSpace();
-			
-	mv.addObject("list", list).setViewName("admin/adSpaceMgmt");
-	return mv;
-		}
+	//공간관리(공간, 좌석, 예약) 관련 페이지 컨트롤러입니다
+	@Controller
+	public class AdSpaceController {
+		
+		@Autowired
+		private AdSpaceService adSpService;
+		
+		//메뉴바에서 공간관리 페이지 눌렀을때 이동
+		@RequestMapping("spaceMgmt.ad")
+		public ModelAndView adSpaceMgmt(ModelAndView mv){
+				
+		ArrayList<Space> list = adSpService.selectSpace();
+				
+		mv.addObject("list", list).setViewName("admin/adSpaceMgmt");
+		return mv;
+			}
 	
 	
 	//공간현황 모달에서 사용불가로 전환할때
@@ -70,9 +70,11 @@ public class AdSpaceController {
 		
 	
 	//메뉴바 -> 좌석현황
-			@RequestMapping("seatMgmt.ad")
-			public String adSeatMgmt() {
-				return ("admin/adSeatMgmt");
-			}
-	
+		@RequestMapping("seatMgmt.ad")
+		public String adSeatMgmt() {
+			return ("admin/adSeatMgmt");
+		}
+
+	//좌석 상세
+			
 }
