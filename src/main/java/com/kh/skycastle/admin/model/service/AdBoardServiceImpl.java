@@ -80,8 +80,10 @@ public class AdBoardServiceImpl implements AdBoardService {
 	
 	// 이벤트 삭제
 	@Override
-	public int deleteAdEvent(int eno) {
-		return adBoDao.deleteAdEvent(sqlSession, eno);
+	public int deleteAdEvent(Event e) {
+		int result1 = adBoDao.deleteAdEvent(sqlSession, e);
+		int result2 = adBoDao.deleteAttachment(sqlSession, e);
+		return result1 * result2;
 	}
 	
 }

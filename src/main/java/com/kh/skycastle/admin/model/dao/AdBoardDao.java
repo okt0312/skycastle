@@ -74,7 +74,11 @@ public class AdBoardDao {
 	}
 	
 	// 이벤트 삭제용
-	public int deleteAdEvent(SqlSessionTemplate sqlSession,int eno) {
-		return sqlSession.update("adBoardMapper.deleteAdEvent", eno);
+	public int deleteAdEvent(SqlSessionTemplate sqlSession, Event e) {
+		return sqlSession.update("adBoardMapper.deleteAdEvent", e);
+	}
+	
+	public int deleteAttachment(SqlSessionTemplate sqlSession, Event e) {
+		return sqlSession.update("adBoardMapper.deleteAttachment", e);
 	}
 }

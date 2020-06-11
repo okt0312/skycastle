@@ -40,7 +40,7 @@ public interface AdBoardService {
 	int updateAdEvent(Event e, Attachment at);
 	
 	//이벤트 삭제용 서비스
-	int deleteAdEvent(int eno);
+	int deleteAdEvent(Event e);
 	
 	
 }
