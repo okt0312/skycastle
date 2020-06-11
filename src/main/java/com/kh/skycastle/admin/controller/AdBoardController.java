@@ -146,6 +146,9 @@ public class AdBoardController {
 		public String updateEventForm(Event e, Attachment at, HttpServletRequest request, 
 									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
 			
+			System.out.println("업로드 파일 " + at.getChangeName());
+			System.out.println("이벤트 " + e.getEventTitle());
+			
 			if(!file.getOriginalFilename().equals("")) {
 				// 첨부파일 o
 				if(at.getChangeName() != null) {

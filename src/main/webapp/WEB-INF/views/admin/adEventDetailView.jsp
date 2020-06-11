@@ -68,7 +68,7 @@
                                 	 <table class="boardList">
 	                                    <tr>
 	                                        <td style="text-align: center; font-size: 16px; font-weight:bold;">
-	                                        	<input type="text" name="evnetTitle" style="border-style:none; float:left;" value="${e.eventTitle}">
+	                                        	<input type="text" name="eventTitle" style="border-style:none; float:left;" value="${e.eventTitle}">
 	                                        </td>
 	                                    </tr> 
 	                                    <tr>   
