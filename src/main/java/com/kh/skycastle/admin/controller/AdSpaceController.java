@@ -85,7 +85,7 @@ import com.kh.skycastle.reservation.model.vo.Space;
 			
 			if(result > 0)
 			{
-				return "redirect:seatMgmt.ad";
+				return "좌석 상태변경 성공";
 			}
 			else
 			{

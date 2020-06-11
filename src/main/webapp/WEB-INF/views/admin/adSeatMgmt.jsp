@@ -859,7 +859,7 @@
 	            <!-- 소모임 tr 클릭 시 뜨는 모달 -->
 	            <div class="modal fade" id="seatStModal" >
 	                <div class="modal-dialog modal-sm">
-	                    <div class="modal-content" style="width: 400px;">
+	                    <div class="modal-content" style="width: 700px;">
 	
 	                    <!-- Modal Header -->
 	                    <div class="modal-header">
@@ -878,7 +878,7 @@
 	                        </div>
 								
 								 
-								<input type="text"  readonly >~<input type="text"  readonly ><br><br>
+								
 						
 						
 	                        </div>
@@ -989,7 +989,7 @@
 								type:"post",
 								success:function(msg)
 								{
-									alertify.alert("좌석 관리", msg, function(){ location.reload();});
+									alertify.alert("좌석 관리", msg,function(){ location.reload();} );
 								},
 								error:function()
 								{
@@ -1022,8 +1022,11 @@
 					
 					for(var r in ReservationTime){
 						value += "<label>&nbsp;&nbsp;"+[Number(r)+Number(1)]+"번째예약&nbsp;&nbsp; </label><br>"+
-		                        "이름  : <input type='text' id='rno' value='"+ReservationTime[r].userName+"'><br><br>" +  
-		                        "아이디 :  <input type='text' id='rno' value='"+ReservationTime[r].userId+"'><br><br>";
+		                        "이름 : <input type='text' id='rno' value='"+ReservationTime[r].userName+"'><br>" +  
+		                        "아이디 : <input type='text' id='rno' value='"+ReservationTime[r].userId+"'><br>"+
+		                        "이용시간 : <input type='text' id='rno' value='"+ReservationTime[r].startTime+"'> ~ "+
+		                       	"<input type='text' id='rno' value='"+ReservationTime[r].endTime+"'>"+
+		                        "<br><br>";
 		                        
 		                        
 					}
