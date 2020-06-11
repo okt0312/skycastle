@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.groups.model.dto.GroupDto;
@@ -27,12 +28,14 @@ public class GroupController {
 	private GroupService gService;
 	
 	@RequestMapping("groupList.gr")
-	public String selectGroupList(int currentPage, Model model) {
+	public String selectGroupList(int currentPage, GroupDto gd, Model model) {
 		
 		int groupListCount = gService.selectGroupListCount();
+		System.out.println(gd);
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<Groups> list = gService.selectGroupList(pi);
+		ArrayList<Groups> list = gService.selectGroupList(pi, gd);
+		System.out.println(list);
 //		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
@@ -60,29 +63,9 @@ public class GroupController {
 	
 	@ResponseBody
 	@RequestMapping(value="dipsIn.gr", produces="application/json; charset=utf-8")
-	public String dipsIn(int gno, int userNo, HttpServletResponse response) {
-		
-//		Groups g = gService.selectGroup(gno);
-//		Dips d = new Dips(userNo, gno);
-//		
-//		mv.addObject("g", g);
-//		mv.setViewName("groups/groupDetail");
-//		
-//		return mv;
-		
-		
-		Member m = new Member("user01", "pass01", "홍길동", 15, "aaa@naver.com");
-		// JSON : 자바스크립트 객체 표기법({속성:속성값, 속성:속성값})
-		
-//		Gson gson = new Gson();
-		
-//		gson.toJson(m, response.getWriter());// 기존에 사용하던 방법
-//		return gson.toJson(m);		// Member --> JSONObject --> String
-		
-//		Gson gson = new Gson();
-//		return gson.toJson(m);		// Member --> JSONObject --> String
-		// 두줄을 아래 한줄로
-		return new Gson().toJson(m);
+	public String dipsIn(int gno, int userNo) {
+		int result = gService.dipsIn(gno, userNo);
+		return new Gson().toJson(result);
 	}
 	
 	@RequestMapping("dipsOut.gr")

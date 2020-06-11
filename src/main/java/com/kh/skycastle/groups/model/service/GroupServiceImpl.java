@@ -27,9 +27,9 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public ArrayList<Groups> selectGroupList(PageInfo pi) {
+	public ArrayList<Groups> selectGroupList(PageInfo pi, GroupDto gd) {
 		String status = null;
-		return gDao.selectGroupList(sqlSession, pi, status);
+		return gDao.selectGroupList(sqlSession, pi, gd);
 	}
 	
 	@Override
@@ -65,6 +65,11 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int deleteGroup(int gno) {
 		return 0;
+	}
+
+	@Override
+	public int dipsIn(int gno, int userNo) {
+		return gDao.dipsIn(sqlSession, gno, userNo);
 	}
 
 

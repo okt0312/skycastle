@@ -122,21 +122,25 @@
 		<div class="statusBar" style="width:100%; height: 60px; vertical-align: middle; border: 1px solid black;">
 			<div style="text-align:right; height: 60px;">
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">	
-					<c:choose>
+					<%-- <c:choose>
 						<c:when test="${ loginUser != null }">
 							<c:choose>
 								<c:when test="${ count == 0 }">		<!-- 로그인 했고, 찜 안했을 때 -->
-									<button id="dipsIn" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
+									<button id="dipsIn" name="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
 								</c:when>
 					        	<c:when test="${ count == 1 }">		<!-- 로그인 했고, 찜 했을 때 -->
-									<button id="dipsOut" type="button" class="sky_btn1 dipsOut" style="float: left;">찜취소</button>
+									<button id="dipsOut" name="dips" type="button" class="sky_btn1 dipsOut" style="float: left;">찜취소</button>
 								</c:when>
 							</c:choose>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
 							<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
 						</c:otherwise>
-					</c:choose>
+					</c:choose> --%>
+					
+					<c:if test="${ loginUser != null }">
+						<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
+					</c:if>
 					
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
@@ -185,30 +189,20 @@
 
 //				var icon = $(this);
 				
-				if( count == 0 ){ // 빈 하트일 경우 --> 위시리스트 등록
+				if( $("#dips").attr("class")=="sky_btn1 dipsIn"){ // 버튼의 글자가 찜하기 일떄. 빈 하트일 경우 --> 위시리스트 등록
 				
 //					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
 //					+ "&userNo=" + "${ loginUser.userNo }";
 
 					$.ajax({
 	     				url:"dipsIn.gr",
-	     				data:{gno:$(this).children("#group_no").val()},
-	     				success:function(result){
-        					if(result > 0){
-			        			 icon.removeClass("empty");
-			        			 icon.addClass("full");
-			        			 icon.attr("src","찬하트주소");
-			        			 var bool = window.confirm("위시리스로 등록되었습니다. 위시리스트로 이동하시겠습니까?");
-			        			 if(bool){
-			        				 location.href="wishList.me";
-			        			 }
-        					} else if(result<0){
-        						$("#dPcode").val(pcode1);
-        						$("#duplicateDeletePcode").submit();
-        						
-        					} else if(result == 0){
-        						window.alert("로그인이 필요한 서비스입니다.");
-        					}
+	     				data:{gno:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
+	     				success:function(result){	// insert 성공 --> result 1 
+	     					if(result>0){
+	     						$("#dips").removeClass("dipsIn"); 	
+	        					$("#dips").addClass("dipsOut");		// 찜취소로 변경
+		     					$("#dips").text("찜취소");	
+	     					}
         				}, error:function(){
         					window.alert("통신에러1");
         				}
@@ -219,15 +213,13 @@
 					
 					$.ajax({
 						url:"dipsOut.gr", 
-						data:{pcode:pcode1},
+						data:{gno:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
 						success:function(result){
 							if(result > 0){
-			        			 icon.removeClass("full");
-			        			 icon.addClass("empty");
-								 icon.attr("src","빈하트추소");
+								$("#dips").removeClass("dipsOut"); 	
+	        					$("#dips").addClass("dipsIn");		// 찜하기로 변경
+		     					$("#dips").text("찜하기");	
 								 window.alert("위시리스트에서 삭제되었습니다.")
-							}else{
-								
 							}
 						},error:function(){
 							window.alert("통신에러2");
@@ -236,7 +228,7 @@
 				}
     		 });
     	});
-		*/
+		
     </script>
 
 </body>

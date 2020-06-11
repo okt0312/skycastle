@@ -32,8 +32,8 @@
 		  FROM GROUPS G
 		  JOIN MEMBER M ON(LEADER_NO = USER_NO)
 		<where>
-			USER_NO=#{userNo}
 			<if test='status!=null'>
+				USER_NO=#{userNo}
 				AND G.STATUS=#{status}
 			</if>
 		</where>
@@ -61,6 +61,11 @@
 		 WHERE USER_NO = #{userNo}
 		       AND GROUP_NO = #{groupNo}
 	</select>
+	
+	<insert id="dipsIn" parameterType="_int">
+		INSERT INTO DIPS
+		VALUES(#{gno}, #{userNo})
+	</insert>
 	
 	
 	
