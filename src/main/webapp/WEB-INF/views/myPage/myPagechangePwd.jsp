@@ -302,11 +302,11 @@ p {
     width: 380px;
     margin: 50px auto 0 auto;
 }
-.bts a.dark {
+.bts button.dark {
     background: #fdce07;
 }
 
-.bts a {
+.bts button {
     display: block;
     height: 56px;
     line-height: 56px;
@@ -316,7 +316,7 @@ p {
     font-weight: bolder;
 }
 
-a {
+button {
     margin: 0;
     padding: 0;
     border: 0;
@@ -330,8 +330,8 @@ a {
 
 .btn_member_out {
     border: none;
-    color: #888 !important;
-    font-size: 13px !important;
+   
+    font-size: 15px !important;
 }
 
 .default_tabs ul {
@@ -430,7 +430,7 @@ p {
                 
                 <div class="container">
                     <div id="content" class="content">
-    
+    					
                         <div class="my_tozs">
                             <div class="info_modify">
                                 <div class="info_modify">
@@ -438,11 +438,11 @@ p {
                                     <div class="default_tabs t2" style="max-width: 600px;">
                                         <ul>
                                             <li>
-                                            <a href="" style="background-color: #f8f8f8; color: #222;">회원정보변경</a>
+                                            <a href="updatee.me" style="background-color: #f8f8f8; color: #222;">회원정보변경</a>
                                             </li>
                                             
                                             <li>
-                                            <a href="" class="active"  style="background-color: #222; color: #fff;">비밀번호변경</a>
+                                            <a href="cpwd.me" class="active"  style="background-color: #222; color: #fff;">비밀번호변경</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -452,7 +452,10 @@ p {
                                        <div class="row" style="max-width: 600px;">
                                         <div class="col infoType">
                                         
+                                        	
                                            <form action="mchangePwd.me" method="POST">
+                                           <input type="hidden" name="userPwd" value="${userPwd}">
+                                           <input type="hidden" name="userId" value="${userId}">
                                            <label for="oldPw" class="mod_pws current">
                                                 <span class="inputs">
                                                     <input type="password" id="oldPw" name="oldPw" placeholder="현재비밀번호">
@@ -461,37 +464,32 @@ p {
                                            </label>
                                            <label for="pwId" class="mod_pws">
                                                 <span class="inputs">
-                                                    <input type="password" id="pwId" name="pwId" placeholder="새 비밀번호(6자리 이상 영문, 숫자, 특수문자를 사용)">
+                                                    <input type="password" id="pwId" name="pwId" placeholder="새 비밀번호(6자리 이상 영문, 숫자, 특수문자를 사용)" required>
                                                 </span>   
                                                     <p class="validate" style="display: none;"></p>
                                                </label>
                                             <label for="pwCheck" class="mod_pws">
                                                 <span class="inputs">
-                                                    <input type="password" id="pwCheck" name="pwCheck" placeholder="비밀번호 재확인">
-
+                                                    <input type="password" id="pwId2" name="pwId2" placeholder="비밀번호 재확인" required>
+				
                                                 </span>
                                                 <p class="validate" style="display: none;"></p>
                                             </label>
 
-                                            
-                                            
-    
-                                           
-    
-                                                    </div>
-    
+                                            		
+                                       				</div>
+    												
                                                     </div>
                                                    
                                                         
                                                         
-                                               
-                                       		<div class="bts">
-                                                <a href="" class="dark" style="background-color: #222; color: #fff;">변경</a>
+                                            <div class="bts">
+                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;">변경</button>
                                             </div>
                                             </form>
                                            
                                             <div class="bts" style="font-size: 13px; color: #888;">
-                                              스카이캐슬를 더 이상 이용하지 않는다면    <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
+                                              스카이캐슬를 더 이상 이용하지 않는다면    <a href="Dropp.me" class="btn_nude btn_nude_dark btn_member_out" style="color:#fdce07;  text-decoration: underline;">회원탈퇴 바로가기></a>
                                             </div>
                                         </div>
                                     </div>     
@@ -500,7 +498,34 @@ p {
     
                             </div>
 				
-				
+	<script>
+  	function validate() {
+  		
+  		var pwd1 = document.getElementById("pwId"); // 비밀번호
+		var pwd2 = document.getElementById("pwId2"); // 비밀번호 확인 	
+  		
+  		// 비밀번호 검사
+		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
+		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
+		if (!regExp.test(pwId.value)) {
+			alert("비밀번호가 유효하지 않습니다.");
+			pwd1.value = "";
+			pwd1.focus();
+			return false;
+		}
+		
+		// 비밀번호값과 비밀번호확인값이 일치하는지 검사
+		if (pwd1.value != pwId2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			pwd2.value = "";
+			pwd2.focus();
+			return false;
+		}
+		
+		return true;
+		
+  	}
+    </script>  	
 				
                 
                

@@ -114,8 +114,8 @@
 	
 	<update id="mchangePwd" parameterType="Member">
 		UPDATE MEMBER
-		   SET USER_PWD = #{userPwd}
-		 WHERE USER_ID = #{userId}
+		   SET USER_PWD = #{pwId}
+		 WHERE USER_NO = #{userNo}
 	</update>
 	
 	

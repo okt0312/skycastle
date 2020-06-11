@@ -121,7 +121,7 @@ public class MypageController {
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
 			model.addAttribute("msg, 회원 정보수정 실패!!");
-			return "myPage/myPageInfoUpdateForm";
+			return "myPage/myPageUpdatePwd";
 			
 			
 			}
@@ -363,16 +363,21 @@ public class MypageController {
 	}
 	
 	@RequestMapping("mchangePwd.me")
-	public String echangePwd(HttpServletRequest request, HttpSession session,  String userId, String pwdChagne, Member m, Model model) {
+	public String echangePwd(HttpServletRequest request, HttpSession session, String pwdChagne, String pwId, Model model) {
 		
-		String email = request.getParameter("userId");
-		String pwdChange = request.getParameter("pwdChange");
+		Member m = (Member)session.getAttribute("loginUser");
 		
-		String encPwd = bCryptPasswordEncoder.encode(pwdChange);
-		m.setUserPwd(encPwd);
-		m.setUserId(email);
 		
+		String encPwd = bCryptPasswordEncoder.encode(pwId);
+		m.setPwId(encPwd);
 		int result = pService.mchangePwd(m);
+		
+		
+		
+		
+		
+		
+		
 		
 		if(result > 0) {
 			session.setAttribute("msg", "비밀번호를 성공적으로 변경 하였습니다. 로그인 페이지로 이동합니다.");

@@ -83,13 +83,13 @@
         <button type="submit" id="changePwd" name="changePwd" onclick="return validate();">변경</button><br>
         </form>
     </div>
-
+	
 <script>
   	function validate() {
   		
   		var pwd1 = document.getElementById("pwdChange1"); // 비밀번호
 		var pwd2 = document.getElementById("pwdChange2"); // 비밀번호 확인 	
-  	
+  		
   		// 비밀번호 검사
 		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
 		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
