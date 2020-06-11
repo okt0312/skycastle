@@ -84,6 +84,7 @@ public class MemberController {
 		session.setAttribute("result", apiResult);
 		
 		// DB와 세션에 넣기 
+		/*
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject)jsonParser.parse(naverLoginBO.getUserProfile(oauthToken).toString());
 		
@@ -108,7 +109,7 @@ public class MemberController {
 		
         //생략 가능_세션에 담기 위해 사용했다.
         request.getSession(true).setAttribute("email", m.getUserId());
- 
+ 		*/
 		return "member/naverSuccess";
 	}
 
