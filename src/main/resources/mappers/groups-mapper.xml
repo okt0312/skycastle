@@ -75,7 +75,7 @@
 	
 	<insert id="dipsIn" parameterType="_int">
 		INSERT INTO DIPS
-		VALUES(#{gno}, #{userNo})
+		VALUES(#{groupNo}, #{userNo})
 	</insert>
 	
 	

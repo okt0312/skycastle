@@ -138,13 +138,14 @@
 							<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
 						</c:otherwise>
 					</c:choose> --%>
-					
-					<c:when test="${ loginUser != null }">
-						<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
-					</c:when>
-					<c:otherwise>	<!-- 로그인 안했을때 -->
-						<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
-					</c:otherwise>
+					<c:choose>
+						<c:when test="${ loginUser != null }">
+							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
+						</c:when>
+						<c:otherwise>	<!-- 로그인 안했을때 -->
+							<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
+						</c:otherwise>
+					</c:choose>
 					
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
@@ -189,7 +190,7 @@
     	});
     	
     	function selectDipsList(){
-   			if(loginUser != null){
+   			if(${loginUser ne null}){
    				$.ajax({
    					url:"selectDipsList.gr",
    					data:{userNo:${loginUser.userNo}},
@@ -218,9 +219,10 @@
 //					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
 //					+ "&userNo=" + "${ loginUser.userNo }";
 
+					var gno = $("#group_no").val();
 					$.ajax({
 	     				url:"dipsIn.gr",
-	     				data:{groupNo:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
+	     				data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
 	     				success:function(result){	// insert 성공 --> result 1 
 	     					if(result>0){
 	     						$("#dips").removeClass("dipsIn"); 	
@@ -236,7 +238,7 @@
 					
 					$.ajax({
 						url:"dipsOut.gr", 
-						data:{groupNo:$(this).children("#group_no").val(), userNo:${ loginUser.userNo }},
+						data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
 						success:function(result){
 							if(result > 0){
 								$("#dips").removeClass("dipsOut"); 	
