@@ -14,8 +14,10 @@ public interface GroupService {
 	int selectGroupListCount();
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectGroupList(PageInfo pi, GroupDto gd);
-	// 1-3. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
+	// 1-3. 요청한 페이지에 보여질 마이페이지 소모임 상태별 리스트 조회용 서비스
 	ArrayList<Groups> selectMyGroupList(PageInfo pi, GroupDto gd);
+	// 1-4. 요청한 페이지에 보여질 마이페이지 찜한 소모임 리스트 조회용 서비스
+	ArrayList<Dips> mygroupDipsList(PageInfo pi, GroupDto gd);
 	
 	
 	// 검색 구현하려면 마이바티스 참조

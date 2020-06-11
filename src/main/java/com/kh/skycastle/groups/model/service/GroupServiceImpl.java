@@ -37,6 +37,11 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectGroupList(sqlSession, pi, gd);
 	}
 	
+	@Override
+	public ArrayList<Dips> mygroupDipsList(PageInfo pi, GroupDto gd) {
+		return gDao.selectGroupDipsList(sqlSession, pi, gd);
+	}
+	
 	/*
 	@Override
 	public ArrayList<Groups> selectGroupThumbnailList(PageInfo pi) {
@@ -79,6 +84,7 @@ public class GroupServiceImpl implements GroupService {
 	public int selectDipsList(Dips d) {
 		return gDao.selectDipsList(sqlSession, d);
 	}
+
 
 
 

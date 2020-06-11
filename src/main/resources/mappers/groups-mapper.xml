@@ -79,8 +79,7 @@
 	
 	<delete id="dipsOut" parameterType="_int">
 		DELETE FROM DIPS
-		WHERE USER_NO=#{userNo}
-			  AND GROUP_NO=#{groupNo}
+		WHERE USER_NO=#{userNo} AND GROUP_NO=#{groupNo}
 	</delete>
 	
 	
