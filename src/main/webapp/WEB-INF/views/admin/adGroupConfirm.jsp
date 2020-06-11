@@ -140,7 +140,7 @@
 												alertify("수락할 소모임을 선택해주세요.");
 											} else {
 												//	(ifalertify.confirm("수락 처리하시겠습니까?")){
-												
+												alertify.alert('소모임 개설 관리', '해당소모임 개설을 수락하였습니다');
 														$.ajax({
 															url : "confirmGroup.ad",
 															data :
@@ -226,10 +226,10 @@
 
 											//배열값 넘기려고함
 											if (grCoCheck == "") {
-												alertify("수락할 소모임을 선택해주세요.");
+												alertify("거절할 소모임을 선택해주세요.");
 											} else {
 												//	if(alertify.confirm("수락 처리하시겠습니까?")){
-												
+												alertify.alert('소모임 개설 관리', '해당소모임 개설을 거절하였습니다');
 													  $.ajax({
 															url : "rejectionGroup.ad",
 															data : {
@@ -296,7 +296,7 @@
 															}
 
 														});
-												//}
+												//;
 											}
 
 										}

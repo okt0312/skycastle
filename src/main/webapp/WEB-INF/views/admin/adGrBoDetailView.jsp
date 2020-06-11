@@ -96,7 +96,7 @@
                                     </tr>
                                     <tr>
                                         <td>                 
-                                           <br><br> ${ g.gnoticeContent}<br><br>
+                                           <br><br><br> ${ g.gnoticeContent}<br><br><br><br>
                                         </td>
                                     </tr>
                                 </table>    
