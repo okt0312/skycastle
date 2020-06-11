@@ -19,7 +19,7 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
-	public ArrayList<GroupDto> selectGroupListAll(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
+	public ArrayList<Groups> selectGroupListAll(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
 		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		

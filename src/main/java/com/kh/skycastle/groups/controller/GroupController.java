@@ -33,7 +33,7 @@ public class GroupController {
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<GroupDto> list = gService.selectGroupListAll(pi, gd);
+		ArrayList<Groups> list = gService.selectGroupListAll(pi, gd);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
