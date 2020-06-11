@@ -14,7 +14,7 @@ public interface GroupService {
 	// 1-1. 소모임 총개수 조회용 서비스
 	int selectGroupListCount();
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<Groups> selectGroupList(PageInfo pi);
+	ArrayList<Groups> selectGroupList(PageInfo pi, GroupDto gd);
 	// 1-3. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
 	ArrayList<Groups> selectMyGroupList(PageInfo pi, GroupDto gd);
 	
@@ -29,7 +29,8 @@ public interface GroupService {
 	// 3-1. 회원 찜하기 여부 확인
 	int countDips(Dips d);
 	
-	
+	// 찜하기
+	int dipsIn(int gno, int userNo);
 
 	
 	// 4. 소모임 탈퇴용서비스

@@ -225,7 +225,7 @@
                         <div id="noticeTitle">
                             <table>
                                 <tr>
-                                    <td style="width:850px; font-weight:600;">연극 <환상동화> 이벤트 당첨자 안내</td>
+                                    <td style="width:850px; font-weight:600;">연극 이벤트 당첨자 안내</td>
                                     <td style="width:70px; text-align:center; font-size:12px;">2020-02-21</td>
                                     <td style="width:70px; text-align:center; font-size:12px;">조회 233</td>
                                 </tr>
@@ -235,7 +235,7 @@
                         <div id="noticeContent" style="margin-top: 50px;">
                             안녕하세요 고객님<br>
                             언제나 저희 도미노피자를 사랑해주셔서 감사의 말씀 드리며<br>
-                            2월 연극 <환상동화> 이벤트 당첨자 안내를 드립니다.(1인 2매)<br><br>
+                            2월 연극 이벤트 당첨자 안내를 드립니다.(1인 2매)<br><br>
                             당첨자 여러분 모두 축하 드리며, 자세한 안내는 개별문자로 안내드릴 예정입니다.<br><br>
                             앞으로도 도미노피자에 많은 관심 부탁 드립니다. 감사합니다.<br><br><br>
                             당첨자리스트(ABC 순)<br>
@@ -276,7 +276,6 @@
                 </div>
             </div>
             
-    <jsp:include page="../common/footer.jsp"/>
             
     <!-- 모달 시작 -->
     <div class="modal fade" id="reportModal"> <!-- modal별 id 변경해주세요-->
@@ -397,5 +396,7 @@
     		});
     	}
     </script>
+        <jsp:include page="../common/footer.jsp"/>
+    
 </body>
 </html>

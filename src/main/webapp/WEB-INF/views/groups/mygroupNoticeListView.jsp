@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>mygroupNoticeListView</title>
 <style>
+
+	#mygroup
+	{
+		width: 100%;
+		height: 1000px;
+	}
 	/* 마이소모임 메뉴바 */
 	#mygroupMenubar{
 	    width: 25%;
@@ -161,7 +167,6 @@
                 <tr>
                     <td style="width: 100px; height: 40px; text-align: center;">캘린더</td>
                 </tr>
-
             </table>
 
             <div id="chat-btn">
@@ -191,34 +196,30 @@
             <h2>공지사항</h2>
             <hr><br><br>
             
-        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
-		<form id="searchForm" action="" method="Get" align="center">
-			<div class="select">
-				<select class="custom-select" name="condition">
-					<option value="writer">작성자</option>
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-				</select>
-			</div>
-			<div class="text">
-				<input type="text" class="form-control" name="keyword">
-			</div>
-			<button type="submit" class="searchBtn btn btn-secondary">검색</button>
-		</form>
+	        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
+			<form id="searchForm" action="" method="Get" align="center">
+				<div class="select" style="width: 100px; float: left;">
+					<select class="custom-select" name="condition">
+						<option value="writer">작성자</option>
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+					</select>
+				</div>
+				<div class="text"  style="float: left;">
+					<input type="text" class="form-control" name="keyword">
+				</div>
+				<button type="submit" class="searchBtn btn btn-secondary">검색</button>
+			</form>
             
             <table id="mygroupNoticeTable">
                 
                 <tbody>
-                
                 	<c:forEach items="${ list }" var="gn">
-                	
 	                    <tr class="noticeTitle">
 	                        <td class="title">${ gn.gnoticeTitle }</td>
 	                        <td class="enrollDate">${ gn.enrollDate }</td>
 	                    </tr>
-	                    
 	                </c:forEach>
-	                
                 </tbody>    
             </table>
             
@@ -274,7 +275,6 @@
             <br><br><br><br><br>
         </div>
     </div>
-    <jsp:include page="../common/footer.jsp"/>
 
     <script>
         function deleteConfirm() {
@@ -289,5 +289,7 @@
             console.log(memStatus);
         }
     </script>
+    
+	    <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
