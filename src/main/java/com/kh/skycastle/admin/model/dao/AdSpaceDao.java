@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 @Repository
@@ -24,5 +25,9 @@ public class AdSpaceDao {
 		public int adUnusableSpace(SqlSessionTemplate sqlSession, int sno) {
 			return sqlSession.delete("adSpaceMapper.adUnusableSpace", sno);
 		
+		}
+		public int adSeatStatusMgmt(SqlSessionTemplate sqlSession,Seat seat) {
+
+			return sqlSession.delete("adSpaceMapper.adUnusableSeat",seat);
 		}
 }

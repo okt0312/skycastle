@@ -1,35 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>좌석 현황 관리자</title>
-
-    <!-- 좌석 표 css-->
-    <style>
-	    /*좌석  css*/	
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좌석 현황</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<style>
+		div{
+		   /* border: 1px solid red; */
+		   box-sizing: border-box;
+		}
+		.content{
+		    max-width: 1700px;
+		    margin:auto;
+		}
+		
+		.content_1{
+		    max-width: 1200px;
+		    margin:auto;
+		}
+		
+		#seatStateMain{
+		   width: 100%;
+		   height: 70px;
+		   background-color: #fdce07;
+		   color:white;
+		   font-weight: bold;
+		   font-size: 25px;
+		   line-height: 65px;
+		}
+		
+		#dateState{
+		   border-top: 2px solid gray;
+		   border-bottom: 2px solid gray;
+		   height: 70px;
+		   font-size: 20px;
+		   font-weight: bold;
+		   text-align: center;
+		   line-height: 55px;
+		}
+	</style> 
+	
+	<!-- 좌석 표 css-->
+	<style type="text/css">
 		.Style9 {border: 1px; border-style:solid; color: white;background-color:#fdce07;font-weight:bold;}
 		.Style_1 {border: 1px; border-style:solid;background-color:#fdce07;font-weight:bold; color: white;}
 		.Style9 {border: 1px; border-style:solid; color:white; background-color:#333333;font-weight:300;}
 		.Style_9 {border: 1px; border-style:solid; background-color:#333333;font-weight:bold; color: white;}
 		.Style10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
 		.Style_10 {border: 1px; border-style:solid; background-color:red;font-weight:bold; color: white;}
-		/* 좌석 누를때 css */
-	    #seatTable .Style9:hover,.Style1:hover,.Style10:hover{
+	</style>
+	
+	<style>
+		#seatTable .Style9:hover,.Style1:hover,.Style10:hover{
 		    cursor: pointer;
 		}
-    </style> 
-
-
+	</style>
 
 </head>
 <body>
-<div id="layoutSidenav"> 
+
+	<c:set var="current" value="<%= new java.util.Date() %>"/>
+	
+
+	<style>
+		.sky_btn1{
+			padding:0px;
+			boder:0px;
+			margin-top:4px;
+			line-height:10px;
+		}
+	</style>
+	
+	<div id="layoutSidenav"> 
 <jsp:include page="common/adminSidebar.jsp"/>
 		 <div id="layoutSidenav_content">
-		 	 <!--시작-->
+<!--시작-->
                 
             <main style="width:100%;">
                <div  class="container-fluid" style="padding-right: 10px; ">
@@ -39,8 +92,41 @@
                        <li class="breadcrumb-item"><a href="index.html" style="color:black"><b>HOME</b></a></li>
                        <li class="breadcrumb-item active"><a style="color:black">좌석 현황</a></li>
                    </ol>
-                   <!-- 좌석박스 시작 -->
-                     <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <div class="content">
+        <div class="content_1">
+        
+
+        
+
+	        <div id="dateState">
+	            <table style="width:100%">
+	                <tr>
+	                    <th style="width: 47%; text-align: left;">&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${current }" type="date"/></th>
+	                    <th style="width: 53%; text-align:left;">전체 좌석 현황</th>
+	                </tr>
+	            </table>
+	        </div>
+
+	        <br><br>
+	
+	        <div id="seatState">
+	            <table id ="stats" class="table" border="1px" style="text-align: center; border-color:#e9ecef;">
+					<thead class="thead-light">
+						<tr>
+						  <th>전체좌석</th>
+						  <th>사용중 좌석</th>
+						  <th>미사용중 좌석</th>
+						  <th>수리중</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+	        </div>
+        
+
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
 			    <tr>
 			        <td rowspan="3" style="width:35px;">&nbsp;</td>
 			        <td colspan="2" align="left">
@@ -735,10 +821,10 @@
 				        <br />
 					</td>
 			        
-			       <!-- 좌석박스 오른쪽 설명박스 -->
+			        
 			        <td id="comment" style="vertical-align: top; text-align:center">
 			            <center>     
-				            
+				            <!-- Todo : 남녀구분할 경우 처리 -->
 				            <table cellpadding="2" style="width:100px; border-color:black">
 					            <tr style="height:15px">
 									<td style="width:100px;text-align: center; font-size:12px" class='Style_1'>사용중</td>
@@ -753,145 +839,193 @@
 			            </center>
 			        </td>
 			    </tr>
+			   
 			</table>
-		</div>
-		
-		<!-- 
-		좌석 클릭 시 뜨는 모달
-	            <div class="modal fade" id="spaceLiModal" >
+        </div>
+    </div>
+         	 <script>
+           function spaceLiModal(){
+ 			
+	};
+	</script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+	            <!-- 소모임 tr 클릭 시 뜨는 모달 -->
+	            <div class="modal fade" id="seatStModal" >
 	                <div class="modal-dialog modal-sm">
 	                    <div class="modal-content" style="width: 400px;">
 	
-	                    Modal Header
+	                    <!-- Modal Header -->
 	                    <div class="modal-header">
-	                        <h4 class="modal-title">좌석 관리</h4>
+	                        <h4 class="modal-title">공간 관리</h4>
 	                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
 	                    </div>
 	
 	                    <form id="updateSpace_form" action="" method="post" class="form-horizontal">
-	                        Modal Body
+	                        <!-- Modal Body -->
 	                        <div class="modal-body">
-	                        <label>&nbsp;&nbsp;예약번호&nbsp;  :&nbsp; </label><input type="number" id="" name="" readonly><br><br>
-	                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="" name=""><br><br>
-	                            <label>&nbsp;&nbsp;좌석번호&nbsp;  :&nbsp; </label><input type="text" id="" name="" ><br><br>
-	                           <label>&nbsp;&nbsp;시작시간&nbsp;  :&nbsp; </label><input type="text" id="" name=""><br><br>
-	                            <label>&nbsp;&nbsp;끝시간&nbsp;  :&nbsp; </label><input type="text" id="" name=""><br><br>
+	                        <label>&nbsp;&nbsp;좌석번호&nbsp;  :&nbsp; </label><input type="text" id="seatNo" name="seatNo" readonly ><br><br>
+	                         
+	                         <label>&nbsp;&nbsp;1번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS1" readonly >~<input type="text" id="reservE1" readonly ><br><br>
+	                          <label>&nbsp;&nbsp;2번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS2" readonly >~<input type="text" id="reservE2" readonly ><br><br>  
+	                          <label>&nbsp;&nbsp;3번째예약&nbsp;  :&nbsp; </label><input type="text" id="reservS3" readonly >~<input type="text" id="reservE3" readonly ><br><br>  
 	                        </div>
 	                            
 	                        
-	                    Modal footer
+	                    <!-- Modal footer -->
 	                    <div class="modal-footer">
-	                        <button type="button" class="btn btn-primary" id="usableSp_Btn">사용가능</button>
-	                        <button type="button" class="btn btn-danger" id="unusableSp_Btn">사용불가</button>
+	                        <button type="button" class="btn btn-primary" id="usableSp_Btn" status="Y">사용가능</button>
+	                        <button type="button" class="btn btn-danger" id="unusableSp_Btn" status="N">사용불가</button>
 	                        <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>
 	                     </div>
 	                </form>
 	                    </div>
 	                </div>
 	            </div>
-	           모달 종료   
-		
-				<script>
-	             function spaceLiModal(){
-	   			 $('#spaceLiModal').modal({
-			       
-			  	  });
-				};
-				
-				
-	         
-	            	$("#dataTable tbody tr").click(function(){
-	            		$("#spaceNo").val($(this).children().eq(0).text());
-	            		$("#spaceName").val($(this).children().eq(1).text());
-	            		$("#personnel").val($(this).children().eq(2).text());
-	            		$("#spacePrice").val($(this).children().eq(3).text());
-	            		$("#status").val($(this).children().eq(4).text());
-	            		
-	            	});
-	            	
-	            	-->
-	            	
-	            	
-	            	<!-- 좌석 상태&클릭 --> 
-	            	  <script>
+	           <!--모달 종료  --> 
+ 
+ 
+    
+    <script>
   
- 	
-					function selectSeatStatusList(){
-						$.ajax({
-							url:"seatMgmt.ad",					//상태조회url
-							async: false,   						//이건뭘까..
-							success:function(status){				//성공하면 상태 돌려받음
-								//console.log(status);
-								
-							var seatUsedCount = 0; 					//사용된 좌석 갯수
-							var seatRepairingCount = 0;				//수리된 좌석 갯수
-							var items = document.getElementsByClassName("Style9"); //좌석들을 변수로줌
-							//console.log(items);
-									for(var i=0; i<status.length; i++){ 			//반복문으로 상태뽑는중
-										if(status[i].refNo != 0){					//사용좌석번호가0이아니다 할때 반복시작(1번좌석시작)
-											console.log(status[i].refNo);
-											for(var j=0; j<items.length; j++){			     //반복문 검색으로 나열,,
-									             if( items[j].innerText == status[i].refNo ){   //좌석번호랑 예약좌석번호가 같으면
-									            	 items[j].style.backgroundColor = "#fdce07"; //사용중(노랑)으로 바꾼다		              
-									           	 }
-								            }
-										     // seatUsedCount++;			//또한 사용중 숫자 올림
-							            }else if(status[i].status == 'N'){ //  좌석상태가 n이면
-							            	for(var j=0; j<items.length; j++){
-									             if( items[j].innerText == status[i].seatNo ){//같은좌석인지 확인하는 과정?
-									            	 items[j].classList.add('Style10');	 //10을 추가하고
-									            	 items[j].classList.remove('Style9');	//9를 지워라	 
-									           	 }
-								            }
-							            	seatRepairingCount++;  //수리중 수 증가
-							            }
-						            }
-									
-				/* 
-								 var value = "";
+ 	//모달 상태(색깔 바꿔주는 것)
+	function selectSeatStatusList(){
+		$.ajax({
+			url:"SeatStatus.re",
+			async: false,
+			success:function(status){
+				//console.log(status);
 				
-									value += "<tr>" +
-				        						"<th>" + status.length + "</th>" +  //상태길이..? 랭스는 문자의 길이아닌가..? 전체갯수
-				       							"<th>" + seatUsedCount + "</th>" +	//사용중 좌석수
-				       							"<th>" + (status.length-seatUsedCount-seatRepairingCount) + "</th>" + //사용가능수
-				       							"<th>" + seatRepairingCount + "</th>" + //수리중좌석수
-				   							  "</tr>"; 
-									
-								
-								$("#stats tbody").html(value);  //티바디안에 넣겠다 html태그사용해서
-								 */
-							},error:function(){	
-								console.log("좌석현황 ajax 통신 실패!!");
-							}
-						});
-					}
+			var seatUsedCount = 0;
+			var seatRepairingCount = 0;	
+			var items = document.getElementsByClassName("Style9");
+			//console.log(items);
+					for(var i=0; i<status.length; i++){
+						if(status[i].refNo != 0){
+							//console.log(status[i].refNo);
+							for(var j=0; j<items.length; j++){
+					             if( items[j].innerText == status[i].refNo ){
+					            	 items[j].style.backgroundColor = "#fdce07";					               
+					           	 }
+				            }
+						      seatUsedCount++;
+			            }else if(status[i].status == 'N'){
+			            	for(var j=0; j<items.length; j++){
+					             if( items[j].innerText == status[i].seatNo ){
+					            	 items[j].classList.add('Style10');	 
+					            	 items[j].classList.remove('Style9');	 
+					           	 }
+				            }
+			            	seatRepairingCount++;
+			            }
+		            }
 					
-					//좌석현황 조회 함수 호출
-					selectSeatStatusList();
-					setInterval(function() {
-						selectSeatStatusList();
-					}, 3000);					//????
+
+				 var value = "";
+
+					value += "<tr>" +
+        						"<th>" + status.length + "</th>" +
+       							"<th>" + seatUsedCount + "</th>" +
+       							"<th>" + (status.length-seatUsedCount-seatRepairingCount) + "</th>" +
+       							"<th>" + seatRepairingCount + "</th>" +
+   							  "</tr>"; 
 					
-					
-					$(function(){
 				
-						$("#seatTable .Style9").click(function(){	
-							console.log("1")
-							location.href="seatAddetail.re?seatNo="+ $(this).text(); //좌석번호를 링크로 넘김seatNo로
-							//console.log($(this));
-						});
+				$("#stats tbody").html(value); 
+				
+			},error:function(){	
+				console.log("좌석현황 ajax 통신 실패!!");
+			}
+		});
+	}
+	
+	//좌석현황 조회 함수 호출(실시간으로 바꿔주는것)
+	selectSeatStatusList();
+	setInterval(function() {
+		selectSeatStatusList();
+	}, 3000);
+	
+	
+	$(function(){
+      
+	
+		$("#seatTable .Style9,.Style10").click(function(){
+			var seatNo = $(this).text();
+			timeList(seatNo);
+			//console.log($("#seatNo").val(Number(seatNo)));
+			$("#seatNo").val(Number(seatNo));
+		
+			 $('#seatStModal').modal({		       
+				
+			 });
+			 
+		});
+		
+		$("#usableSp_Btn,#unusableSp_Btn").click(function(){
+			var seatNo =$("#seatNo").val();
+			var status = $(this).attr("status");
+			//console.log(seatNo);
+			//console.log(status);
+			
+			
 						
-						$("#seatTable .Style10").click(function(){
-							alert("수리중입니다.");			//수리중 누르면 수리중이라고 뜨게
-						});
-						
-					});
-					            	
-	            	
-	            	
-				</script>
+							$.ajax({
+								url:"seatStatusMgmt.ad",
+								data:{"seatNo" : seatNo,
+									  "status" : status
+								},
+								type:"post",
+								success:function(msg)
+								{
+									alertify.alert("좌석 관리", msg, function(){ location.reload();});
+								},
+								error:function()
+								{
+									console.log("ajax통신 실패");
+								}
+								
+							});
+							
+		
+				   	}); 
+		
+		
+		
+		
+	    
+			});	
+	
+	
+	function timeList(seatNo){
+		$.ajax({
+			url:"selectSeatReservationTime.re",
+			async: false,
+			data: {seatNo:seatNo},
+			success:function(ReservationTime){
+				//console.log(ReservationTime);
+				$("#reservS1").val(ReservationTime[0].startTime);
+				$("#reservE1").val(ReservationTime[0].endTime);
+				$("#reservS2").val(ReservationTime[1].startTime);
+				$("#reservE2").val(ReservationTime[1].endTime);
+				$("#reservS3").val(ReservationTime[2].startTime);
+				$("#reservE3").val(ReservationTime[2].endTime);
 				
-				</main>
-				</div>
+			},error:function(){	
+				console.log("좌석예약시간 조회 ajax 통신 실패!!");
+			}
+		});
+	};
+		
+	
+	
+    </script>
+    </main>
+    </div>
 </body>
 </html>
