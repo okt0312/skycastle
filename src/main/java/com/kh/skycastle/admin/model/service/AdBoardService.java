@@ -34,7 +34,7 @@ public interface AdBoardService {
 	Event adSelectEvent(int eno);
 		
 	//이벤트 등록용 서비스
-	int insertAdEvent(Event e);
+	int insertAdEvent(Event e, Attachment at);
 	
 	//이벤트 수정용 서비스
 	int updateAdEvent(Event e, Attachment at);
