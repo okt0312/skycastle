@@ -33,7 +33,8 @@ public interface GroupService {
 	ArrayList<Dips> selectDipsList(int userNo);
 	// 찜하기
 	int dipsIn(Dips d);
-
+	// 찜취소
+	int dipsOut(Dips d);
 	
 	// 4. 소모임 탈퇴용서비스
 	int deleteGroup(int gno);

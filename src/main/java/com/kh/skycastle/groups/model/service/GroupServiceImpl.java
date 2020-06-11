@@ -60,8 +60,6 @@ public class GroupServiceImpl implements GroupService {
 		return 0;
 	}
 
-
-	
 	@Override
 	public int deleteGroup(int gno) {
 		return 0;
@@ -73,9 +71,15 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	@Override
+	public int dipsOut(Dips d) {
+		return gDao.dipsOut(sqlSession, d);
+	}
+	
+	@Override
 	public ArrayList<Dips> selectDipsList(int userNo) {
 		return gDao.selectDipsList(sqlSession, userNo);
 	}
+
 
 
 

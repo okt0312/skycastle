@@ -16,11 +16,6 @@
 		<result column="START_DATE" property="startDate"/>
 		<result column="END_DATE" property="endDate"/>
 	</resultMap>
-	
-	<resultMap type="Dips" id="dipsResultSet">
-		<id column="GROUP_NO" property="groupNo"/>
-		<result column="USER_NO" property="userNo"/>
-	</resultMap>
 
 
 
@@ -59,6 +54,16 @@
 		  FROM GROUPS
 		 WHERE GROUP_NO=#{gno}
 	</select>
+
+
+
+
+
+	
+	<resultMap type="Dips" id="dipsResultSet">
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="USER_NO" property="userNo"/>
+	</resultMap>
 	
 	<select id="countDips" parameterType="Dips" resultType="_int">
 		SELECT COUNT(*)
@@ -77,6 +82,12 @@
 		INSERT INTO DIPS
 		VALUES(#{groupNo}, #{userNo})
 	</insert>
+	
+	<delete id="dipsOut" parameterType="_int">
+		DELETE FROM DIPS
+		WHERE USER_NO=#{userNo}
+			  AND GROUP_NO=#{groupNo}
+	</delete>
 	
 	
 	

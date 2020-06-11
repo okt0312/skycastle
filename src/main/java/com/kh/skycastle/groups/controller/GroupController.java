@@ -73,16 +73,11 @@ public class GroupController {
 		return new Gson().toJson(result);
 	}
 	
-	@RequestMapping("dipsOut.gr")
-	public ModelAndView dipsOut(int gno, int userNo, ModelAndView mv, HttpServletResponse response) {
+	@RequestMapping(value="dipsOut.gr", produces="application/json; charset=utf-8")
+	public int dipsOut(Dips d) {
 		
-		Groups g = gService.selectGroup(gno);
-		Dips d = new Dips(userNo, gno);
-		
-		mv.addObject("g", g);
-		mv.setViewName("groups/groupDetail");
-		
-		return mv;
+		int result = gService.dipsOut(d);
+		return result;
 	}
 
 	
