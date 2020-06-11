@@ -46,7 +46,7 @@ background-color:gray;
                                 <table class="boardList">
                                     <tr>
                                         <td style="text-align: center; font-size: x-large;">
-                                        	<input type="text" id="noticeTitle" name="noticeTitle" placeholder="Event Title 입력" style="width: 628px; float: left;">
+                                        	<input type="text" id="noticeTitle" name="eventTitle" placeholder="Event Title 입력" style="width: 628px; float: left;">
                                         </td>
                                     </tr>
                                     <tr>

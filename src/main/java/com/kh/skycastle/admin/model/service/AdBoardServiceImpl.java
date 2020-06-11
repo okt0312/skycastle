@@ -62,9 +62,10 @@ public class AdBoardServiceImpl implements AdBoardService {
 	
 	// 이벤트 등록
 	@Override
-	public int insertAdEvent(Event e) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertAdEvent(Event e, Attachment[] at) {
+		int result1 = adBoDao.insertAdEvent(sqlSession,e);
+		int result2 = adBoDao.insertAttachment(sqlSession,at);
+		return result1*result2;
 	}
 	
 	// 이벤트 수정

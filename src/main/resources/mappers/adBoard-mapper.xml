@@ -76,11 +76,17 @@
  	</select>
  	
  	<!-- 이벤트 등록 -->
- 	<!-- <insert id="insertAdEvent" parameterType="Event">
+	<insert id="insertAdEvent" parameterType="Event">
  		INSERT INTO EVENT
- 		VALUES(SEQ_EVENT.NEXTVAL, #{eventTitle), #{eventOpenTime}, #{eventCloseTime}, SYSDATE, 'Y')
+ 		VALUES(SEQ_EVENT.NEXTVAL, #{eventTitle}, #{eventOpenTime}, #{eventCloseTime}, SYSDATE, 'Y')
  	</insert>
- 	 -->
+ 	
+ 	 
+ 	 <insert id="insertAttachment" parameterType="Attachment">
+ 		insert into attachment 
+ 		values(SEQ_ATTACHMENT.nextval,2,SEQ_EVENT.currval,#{changeName},sysdate,#{fileLevel},'Y')
+ 	</insert>
+ 	
  	
  	<!-- 이벤트 수정 -->
  	<update id="updateAdEvent" parameterType="Event">

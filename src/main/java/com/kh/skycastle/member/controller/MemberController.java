@@ -74,7 +74,7 @@ public class MemberController {
 	
 	@RequestMapping("/callback")
 	public String callback(Member m, Model model, @RequestParam String code, @RequestParam String state, HttpSession session, HttpServletRequest request) throws IOException, ParseException {
-		
+	
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
 		// 로그인 사용자 정보 읽어오기 
@@ -101,11 +101,15 @@ public class MemberController {
         m.setGradeCode(Integer.parseInt("5"));
         
         System.out.println("멤바아이디는 " + m.getUserId());
-       
-        
-        if((admService.selectMember((String)response.get("email")).get(0).getUserId())== null){
-        	mService.insertMember(m);
-         }
+   	
+        int result = mService.selectDuplicateMember((String)response.get("email"));
+	     if( result == 0){
+	     	 System.out.println("중복없음");
+	     	 //mService.insertMember(m);
+	      }else {
+	     	 System.out.println("중복있음");	        	
+	      }
+	       
 		
         //생략 가능_세션에 담기 위해 사용했다.
         request.getSession(true).setAttribute("email", m.getUserId());
