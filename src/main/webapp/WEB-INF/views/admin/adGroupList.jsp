@@ -21,6 +21,8 @@
         display: block;
         z-index: 100;
     }
+    
+  
  </style>
 
 </head>
@@ -134,13 +136,17 @@
 
                     <form id="updateGroups_form" action="" method="post" class="form-horizontal">
                         <!-- Modal Body -->
-                        <div class="modal-body">
-                        <label>&nbsp;&nbsp;소모임 번호&nbsp;  :&nbsp; </label><input type="number" id="groupNo" name="groupNo" readonly><br><br>
-                            <label>&nbsp;&nbsp;모임명&nbsp;  :&nbsp; </label><input type="text" id="groupTitle" name="groupTitle"><br><br>
-                            <label>&nbsp;&nbsp;회원명&nbsp;  :&nbsp; </label><input type="text" id="leaderNo" name="leaderNo" ><br><br>
+                        <div class="modal-body"  disply="inline-block">
+                         <label>소모임 번호&nbsp;  :&nbsp; </label>
+                          <input id="groupNo" name="groupNo" class="form-control mb-2 mr-sm-2" type="number" readonly="readonly">
+                          <label>모임명&nbsp;  :&nbsp; </label>
+                           <input id="groupTitle" name="groupTitle" class="form-control mb-2 mr-sm-2" type="text" >
+                            <label>회원명&nbsp;  :&nbsp; </label>
+                           <input id="leaderNo" name="leaderNo" class="form-control mb-2 mr-sm-2" type="text" readonly="readonly">
+                            
                             <div class="slecet" >
                              	  카테고리 &nbsp;&nbsp;
-                                <select id="groupCategory" name="groupCategory">
+                                <select id="groupCategory" name="groupCategory" class="form-control">
                                     <option value="1">대입</option>
                                     <option value="2">공무원임용</option>
                                     <option value="3">어학회화</option>
@@ -148,12 +154,17 @@
                                     <option value="5">기타</option>
                                     
                                 </select>
-                           </div><br>
-                           <label>&nbsp;&nbsp;시작일&nbsp;  :&nbsp; </label><input type="text" id="startDate" name="startDate"><br><br>
-                           <label>&nbsp;&nbsp;종료일&nbsp;  :&nbsp; </label><input type="text" id="endDate"  name="endDate"><br><br>
-                            <label>&nbsp;&nbsp;장소&nbsp;  :&nbsp; </label><input type="text" id="place" name="place"><br><br>
-                            <label>&nbsp;&nbsp;정원&nbsp;  :&nbsp; </label><input type="text" id="memberLimit" name="memberLimit"><br><br>
-                            <label>&nbsp;&nbsp;상태&nbsp;  :&nbsp; </label><input type="text" id="status" name="status"><br><br>
+                           </div>
+                           <label>시작일&nbsp;  :&nbsp; </label>
+                           <input id="startDate" name="startDate" class="form-control mb-2 mr-sm-2" type="text">
+                           <label>종료일&nbsp;  :&nbsp; </label>
+                           <input id="endDate" name="endDate" class="form-control mb-2 mr-sm-2" type="text">
+                          <label>장소&nbsp;  :&nbsp; </label>
+                           <input id="place" name="place" class="form-control mb-2 mr-sm-2" type="text" >
+                           <label>정원&nbsp;  :&nbsp; </label>
+                           <input id="memberLimit" name="memberLimit" class="form-control mb-2 mr-sm-2" type="text" >
+                            <label>상태&nbsp;  :&nbsp; </label>
+                           <input id="status" name="status" class="form-control mb-2 mr-sm-2" type="text" readonly="readonly">
                         </div>
                             
                         
