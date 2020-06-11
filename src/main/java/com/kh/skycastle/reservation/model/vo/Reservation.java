@@ -32,4 +32,7 @@ public class Reservation {
 	private int seatNo; //좌석현황 조회시 사용
 	private String seatStatus; // 좌석 사용가능/불가능 확인용
 	private String changeName; //공간결제 상세페이지에서 사용
+	
+	private String userName;
+	private String userId;
 }

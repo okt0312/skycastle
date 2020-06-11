@@ -16,6 +16,10 @@
 	  	<result column="end_time" property="endTime"/>
 	  	<result column="seat_no" property="seatNo"/>
 	  	<result column="sstatus" property="seatStatus"/>
+  		<result column="user_id" property="userId"/>
+  		<result column="user_name" property="userName"/>
+	  	
+	  	
 	</resultMap>
 	
 	<resultMap type="Coupon" id="couponResultSet">
@@ -108,7 +112,10 @@
 		select *
 		from reservation 
 		join reservation_time using(book_no)
-		where used_date = to_char(sysdate, 'YYYY-MM-DD') and ref_no=#{seatNo} and category=1
+		join member using(user_no)
+		where used_date = to_char(sysdate, 'YYYY-MM-DD') 
+		and ref_no=#{seatNo} 
+		and category=1
 	</select>
 	
 	

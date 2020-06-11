@@ -31,11 +31,11 @@ public class GroupController {
 	public String selectGroupList(int currentPage, GroupDto gd, Model model) {
 		
 		int groupListCount = gService.selectGroupListCount();
-		System.out.println(gd);
+//		System.out.println(gd);
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		ArrayList<Groups> list = gService.selectGroupList(pi, gd);
-		System.out.println(list);
+//		System.out.println(list);
 //		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
@@ -50,7 +50,7 @@ public class GroupController {
 		Groups g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
-		System.out.println(countDips);
+//		System.out.println(countDips);
 		
 		mv.addObject("g", g);
 		mv.addObject("count", countDips);
@@ -60,24 +60,45 @@ public class GroupController {
 		return mv;
 	}
 	
+	@RequestMapping("mygroupDipsList.gr")
+	public String mygroupDipsList(int currentPage, GroupDto gd, Model model, HttpSession session) {
+		
+		int groupListCount = gService.selectGroupListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
+		
+		Member m = (Member)session.getAttribute("loginUser");
+		gd.setUserNo(m.getUserNo());
+		
+		ArrayList<Dips> list = gService.mygroupDipsList(pi, gd);
+//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		
+		return "myPage/myPageGroupListView";
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectDipsList.gr")
+	public int selectDipsList(Dips d){
+		int result = gService.selectDipsList(d);
+		return result;
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="dipsIn.gr", produces="application/json; charset=utf-8")
-	public String dipsIn(int gno, int userNo) {
-		int result = gService.dipsIn(gno, userNo);
-		return new Gson().toJson(result);
+	public int dipsIn(Dips d) {
+		int result = gService.dipsIn(d);
+		return result;
 	}
 	
-	@RequestMapping("dipsOut.gr")
-	public ModelAndView dipsOut(int gno, int userNo, ModelAndView mv, HttpServletResponse response) {
+	@ResponseBody
+	@RequestMapping(value="dipsOut.gr", produces="application/json; charset=utf-8")
+	public int dipsOut(Dips d) {
 		
-		Groups g = gService.selectGroup(gno);
-		Dips d = new Dips(userNo, gno);
-		
-		mv.addObject("g", g);
-		mv.setViewName("groups/groupDetail");
-		
-		return mv;
+		int result = gService.dipsOut(d);
+		return result;
 	}
 
 	

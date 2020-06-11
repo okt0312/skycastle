@@ -6,7 +6,6 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
 
 public interface GroupService {
 	
@@ -29,11 +28,13 @@ public interface GroupService {
 	// 3-1. 회원 찜하기 여부 확인
 	int countDips(Dips d);
 	
+	//찜목록조회
+	int selectDipsList(Dips d);
 	// 찜하기
-	int dipsIn(int gno, int userNo);
-
+	int dipsIn(Dips d);
+	// 찜취소
+	int dipsOut(Dips d);
 	
 	// 4. 소모임 탈퇴용서비스
 	int deleteGroup(int gno);
-	
 }

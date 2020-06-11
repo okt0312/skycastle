@@ -149,7 +149,7 @@
             
                 <li><a href="mygroupList.gr?currentPage=1&status=Y">참가중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="">찜한 소모임</a></li>
+                <li><a href="mygroupDipsList.gr?currentPage=1&status=Y">찜한 소모임</a></li>
                 <li style="width:3px"> | </li>
                 <li><a href="mygroupList.gr?currentPage=1&status=U">대기중인 소모임</a></li>
                 <li style="width:3px"> | </li>
@@ -213,7 +213,7 @@
 					<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
 				</c:when>
 				<c:otherwise>	  
-					<a href="groupList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+					<a href="mygroupNoticeList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
 				</c:otherwise>	
 			</c:choose>    
 				
@@ -223,7 +223,7 @@
 						<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
 					</c:when>
 					<c:otherwise>
-						<a href="groupList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+						<a href="mygroupNoticeList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -233,7 +233,7 @@
 					<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
 				</c:when>
 				<c:otherwise>
-					<a href="groupList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+					<a href="mygroupNoticeList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
 				</c:otherwise> 	
 			</c:choose>
 		</div>

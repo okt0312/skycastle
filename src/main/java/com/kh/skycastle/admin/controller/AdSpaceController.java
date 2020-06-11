@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.admin.model.service.AdSpaceService;
+import com.kh.skycastle.reservation.model.vo.Seat;
 import com.kh.skycastle.reservation.model.vo.Space;
 
 	//공간관리(공간, 좌석, 예약) 관련 페이지 컨트롤러입니다
@@ -74,7 +75,25 @@ import com.kh.skycastle.reservation.model.vo.Space;
 		public String adSeatMgmt() {
 			return ("admin/adSeatMgmt");
 		}
-
-	//좌석 상세
+		
+	//좌석 상태 변경 (사용가능 사용불가)
+		@ResponseBody
+		@RequestMapping(value = "seatStatusMgmt.ad", produces = "text/html; charset=utf-8")
+		public String adSeatStatusMgmt(Seat seat, Model model)
+		{	
+			int result = adSpService.adSeatStatusMgmt(seat);
 			
+			if(result > 0)
+			{
+				return "redirect:seatMgmt.ad";
+			}
+			else
+			{
+				return "좌석 상태변경 실패";
+			}
+		}
+		
+		
+	//좌석 상세
+	
 }

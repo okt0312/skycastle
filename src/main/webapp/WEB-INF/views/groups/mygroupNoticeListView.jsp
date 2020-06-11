@@ -196,23 +196,24 @@
             <h2>공지사항</h2>
             <hr><br><br>
             
-	        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
-			<form id="searchForm" action="" method="Get" align="center">
-				<div class="select" style="width: 100px; float: left;">
-					<select class="custom-select" name="condition">
-						<option value="writer">작성자</option>
-						<option value="title">제목</option>
-						<option value="content">내용</option>
-					</select>
-				</div>
-				<div class="text"  style="float: left;">
-					<input type="text" class="form-control" name="keyword">
-				</div>
-				<button type="submit" class="searchBtn btn btn-secondary">검색</button>
-			</form>
+            <div id="searchArea">
+		        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
+				<form id="searchForm" action="" method="Get" align="center">
+					<div class="select" style="width: 100px; float: left;">
+						<select class="custom-select" name="condition">
+							<option value="writer">작성자</option>
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+					</div>
+					<div class="text" style="float: left;">
+						<input type="text" class="form-control" name="keyword">
+					</div>
+					<button type="submit" class="searchBtn btn btn-secondary" style="float: left;">검색</button>
+				</form>
+            </div>
             
             <table id="mygroupNoticeTable">
-                
                 <tbody>
                 	<c:forEach items="${ list }" var="gn">
 	                    <tr class="noticeTitle">
@@ -226,7 +227,7 @@
             <script>
             	$(function(){
             		$("#boardList tbody tr").click(function(){
-            			location.href = "detail.bo?bno=" + $(this).children().eq(0).text();
+            			location.href = "mygroupNoticeDetail.gr?gno=" + $(this).children().eq(0).text();
             		});
             	});
             	

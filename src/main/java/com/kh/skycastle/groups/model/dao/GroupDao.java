@@ -44,15 +44,23 @@ public class GroupDao {
 	}
 	
 	public int countDips(SqlSessionTemplate sqlSession, Dips d) {
-		return sqlSession.selectOne("groupsMapper.countDips", d);
+		return sqlSession.selectOne("groupsMapper.selectDipsList", d);
+	}
+	
+	public int selectDipsList(SqlSessionTemplate sqlSession, Dips d){
+		return sqlSession.selectOne("groupsMapper.selectDipsList", d);
 	}
 
-	public int dipsIn(SqlSessionTemplate sqlSession, int gno, int userNo) {
-		return sqlSession.insert("groupsMapper.dipsIn", gno, userNo);
+	public int dipsIn(SqlSessionTemplate sqlSession, Dips d) {
+		return sqlSession.insert("groupsMapper.dipsIn", d);
+	}
+
+	public int dipsOut(SqlSessionTemplate sqlSession, Dips d) {
+		return sqlSession.insert("groupsMapper.dipsOut", d);
 	}
 	
 	
-	/*
+/*
 	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
 		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
@@ -61,6 +69,6 @@ public class GroupDao {
 		
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupThumbnailList", null, rowBounds);
 	}
-	*/
+*/
 
 }
