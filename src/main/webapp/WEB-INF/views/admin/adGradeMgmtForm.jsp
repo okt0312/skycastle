@@ -45,11 +45,8 @@
 							<div style="display: block;">
 								<b style="font-size: x-large;">등급 설정</b>
 							</div>
-							<div style="display: block; float: right;">
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#manageModal">수정</button>
-							</div>
 							<br> <br>
-							<table class="table table-bordered" style="text-align: center;">
+							<table id="grade_table" class="table table-hover table-condensed" style="text-align: center;">
 								<thead>
 									<tr>
 										<th style="width: 5%">번호</th>
@@ -59,13 +56,12 @@
 										<th style="width: 20%">회원 등급 현황(명)</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody style="cursor: pointer;">
 									<c:forEach var="g" items="${ list }" varStatus="status">
 										<tr>
 											<td>${ g.gradeCode }</td>
 											<td>${ g.gradeName }</td>
-											<fmt:parseNumber var="discount" value="${ g.discount * 100}"
-												integerOnly="true" />
+											<fmt:parseNumber var="discount" value="${ g.discount * 100}" integerOnly="true" />
 											<td>${ discount}</td>
 											<td>${ g.standard }</td>
 											<td>${ countList[status.index].gradeCount }</td>
@@ -76,9 +72,23 @@
 							<br> <br>
 						</div>
 					</div>
+					<script type="text/javascript">
+					
+						$("#grade_table tr").click(function(){
+							
+							$("#manageModal").modal();
+							
+							$("#gradeCode").val($(this).children().eq(0).text());
+							$("#gradeName").val($(this).children().eq(1).text());
+							$("#discount").val($(this).children().eq(2).text());
+							$("#standard").val($(this).children().eq(3).text());
+							$("#gradeCount").val($(this).children().eq(4).text());
+						});
+					</script>
+					
 					<div class="modal fade" id="manageModal">
 						<div class="modal-dialog modal-sm">
-							<div class="modal-content" style="width: 900px;">
+							<div class="modal-content" style="width: 70%">
 
 								<!-- Modal Header -->
 								<div class="modal-header">
@@ -88,33 +98,17 @@
 
 								<form id="updateGrade_form" action="updateGrade.ad" method="post"
 									class="form-horizontal" enctype="multipart/form-data">
+									<input type="hidden" name="gradeCode" id="gradeCode">
 									<!-- Modal Body -->
 									<div class="modal-body">
-									
-										<table class="table table-bordered" style="text-align: center;">
-											<thead>
-												<tr>
-													<th style="width: 5%">번호</th>
-													<th style="width: 10%">등급</th>
-													<th style="width: 10%">할인율(%)</th>
-													<th style="width: 20%">등급 기준(전년도 이용횟수 이상)</th>
-													<th style="width: 20%">회원 등급 현황(명)</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="g" items="${ list }" varStatus="status">
-													<tr>
-														<td><input type="text" name="gradeCode[0]" value="${ g.gradeCode }"></td>
-														<td><input type="text" class="form-control" name="gradeName[1]" value="${ g.gradeName }" style="text-align: center"></td>
-														<fmt:parseNumber var="discount" value="${ g.discount * 100}" integerOnly="true" />
-														<td><input type="text" name="discount[3]" class="form-control" value="${ discount}" style="text-align: center"></td>
-														<td><input type="text" name="standard[2]" class="form-control" value="${ g.standard }" style="text-align: center"></td>
-														<td>${ countList[status.index].gradeCount }</td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									
+										<label for="gradeName" class="mr-sm-2">등급명 :</label>
+			                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeName" name="gradeName" readonly style="background: white"> <br>
+			                            <label for="discount" class="mr-sm-2">할인율 :</label>
+			                            <input type="text" class="form-control mb-2 mr-sm-2" id="discount" name="discount"><br>
+			                            <label for="standard" class="mr-sm-2">전년도 이용 횟수 :</label>
+			                            <input type="text" class="form-control mb-2 mr-sm-2" id="standard" name="standard"><br>
+			                            <label for="gradeCount" class="mr-sm-2">등급현황 :</label>
+			                            <input type="text" class="form-control mb-2 mr-sm-2" id="gradeCount" name="gradeCount" readonly style="background: white"><br>
 									</div>
 									<!-- Modal footer -->
 									<div class="modal-footer">

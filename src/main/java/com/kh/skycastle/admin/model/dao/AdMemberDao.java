@@ -2,6 +2,7 @@ package com.kh.skycastle.admin.model.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -65,5 +66,10 @@ public class AdMemberDao {
 	public ArrayList<GradeDto> countGrade(SqlSessionTemplate sqlSession)
 	{
 		return (ArrayList)sqlSession.selectList("adMemberMapper.countGrade");
+	}
+	
+	public int updateGrade(SqlSessionTemplate sqlSession, Grade g)
+	{
+		return sqlSession.update("adMemberMapper.updateGrade", g);
 	}
 }

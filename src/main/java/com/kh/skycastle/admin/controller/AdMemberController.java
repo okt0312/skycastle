@@ -2,18 +2,18 @@ package com.kh.skycastle.admin.controller;
 
 import java.util.ArrayList;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.kh.skycastle.admin.model.dto.UpdateGradeDto;
 import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.groups.model.vo.Report;
 import com.kh.skycastle.member.model.dto.GradeDto;
@@ -161,5 +161,15 @@ public class AdMemberController {
 		mv.addObject("list", list).setViewName("admin/adBlacklistForm");
 		
 		return mv;
+	}
+	
+	@RequestMapping(value="updateGrade.ad")
+	public String updateGrade(Grade g)
+	{
+		g.setDiscount(g.getDiscount() / 100);
+		
+		int result = admService.updateGrade(g);
+		
+		return "redirect:gradeMgmt.ad";
 	}
 }

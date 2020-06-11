@@ -2,6 +2,7 @@ package com.kh.skycastle.admin.model.service;
 
 import java.util.ArrayList;
 
+import com.kh.skycastle.admin.model.dto.UpdateGradeDto;
 import com.kh.skycastle.groups.model.vo.Report;
 import com.kh.skycastle.member.model.dto.GradeDto;
 import com.kh.skycastle.member.model.vo.Grade;
@@ -31,4 +32,7 @@ public interface AdMemberService {
 	int updateReport(Member m);
 	
 	int updateReply(int reportNo);
+	
+	int updateGrade(Grade g);
+	
 }

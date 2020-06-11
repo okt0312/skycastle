@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdMemberDao;
+import com.kh.skycastle.admin.model.dto.UpdateGradeDto;
 import com.kh.skycastle.groups.model.vo.Report;
 import com.kh.skycastle.member.model.dto.GradeDto;
 import com.kh.skycastle.member.model.vo.Grade;
@@ -75,6 +76,11 @@ public class AdMemberServiceImpl implements AdMemberService{
 	@Override
 	public ArrayList<GradeDto> countGrade() {
 		return admDao.countGrade(sqlSession);
+	}
+
+	@Override
+	public int updateGrade(Grade g) {
+		return admDao.updateGrade(sqlSession, g);
 	}
 
 }

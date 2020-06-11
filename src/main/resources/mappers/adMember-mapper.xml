@@ -141,4 +141,10 @@
 		 GROUP BY GRADE_CODE
 		 ORDER BY GRADE_CODE
 	</select>
+	
+	<update id="updateGrade" parameterType="Grade">
+			UPDATE GRADE
+			   SET GRADE_NAME= #{gradeName}, STANDARD= #{standard}, DISCOUNT=#{discount}
+		 	 WHERE GRADE_CODE = #{gradeCode}
+	</update>
 </mapper>
