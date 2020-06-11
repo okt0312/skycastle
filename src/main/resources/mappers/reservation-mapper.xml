@@ -176,9 +176,12 @@
 	
 	<!-- 공간 총 게시글 갯수   -->
 	<select id="spaceselectListCount" resultType="_int">
-		select count(*)
-			from tb_space
-		where status='Y'
+		SELECT count(*)
+	  	  FROM RESERVATION R
+		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
+		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
+		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
+		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
 	</select>
 	
 	<!-- 공간 예약 조회 -->
@@ -193,9 +196,10 @@
   	
   	<!-- 좌석 총 게시글 갯수 -->
   	<select id="seatselectListCount"  resultType="_int">
-  		 select count(*)
-			from seat
-		where status='Y'
+  		SELECT count(*)
+		FROM RESERVATION R
+		JOIN RESERVATION_TIME RT USING(BOOK_NO) 
+		WHERE USER_NO = #{userNo} AND CATEGORY = 1
   	</select>
   	
   	<!-- 좌석 예약 조회 -->

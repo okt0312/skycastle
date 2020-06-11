@@ -59,7 +59,7 @@ public interface MypageService {
 	
 	// 13. 좌석예약 리스트 조회용 서비스 
 	// 1_1. 좌석예약 총 갯수 조회용 서비스 
-	int seatselectListCount();
+	int seatselectListCount(Member m);
 	// 1_2. 좌석예약 리스트 조회용 서비스 
 	ArrayList<Seat> seatselectList(PageInfo pi, Member m);
 
