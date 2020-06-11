@@ -99,7 +99,7 @@
 		    <div class="grouplist">
 	            <input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 		        <div class="groupThumbnailArea">
-		            <img src="img/${ g.thumbnail }" alt="" class="" width="150px">
+		            <img src="resources/uploadFiles/space/${ g.thumbnail }" style="width:150px;">
 		        </div>
 		        <div class="groupTextArea">
 		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>

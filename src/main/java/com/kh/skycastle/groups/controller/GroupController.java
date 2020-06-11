@@ -119,16 +119,15 @@ public class GroupController {
 	}
 
 	@RequestMapping("mygroupDipsList.gr")
-	public String mygroupDipsList(int currentPage, int userNo, Model model, HttpSession session) {
+	public String mygroupDipsList(int currentPage, Model model, HttpSession session) {
 		
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		
 		Member m = (Member)session.getAttribute("loginUser");
-		gd.setUserNo(m.getUserNo());
 		
-		ArrayList<Dips> list = gService.mygroupDipsList(pi, userNo);
+		ArrayList<Dips> list = gService.mygroupDipsList(pi, m.getUserNo());
 //		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);

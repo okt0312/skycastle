@@ -207,7 +207,7 @@
             }else{
                 memStatus = "Y";
             }
-            //console.log(memStatus);
+//			console.log(memStatus);
         }
     </script>
 </body>

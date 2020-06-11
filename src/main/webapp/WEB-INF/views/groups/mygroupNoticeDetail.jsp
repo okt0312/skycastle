@@ -370,7 +370,7 @@
     	function selectReplyList(){
     		
     		$.ajax({
-    			url:"rlist.bo",
+    			url:"replylist.bo",
     			data:{gnno:${gn.groupNoticeNo}},
     			success:function(list){
 
