@@ -28,12 +28,12 @@ public class GroupController {
 	private GroupService gService;
 	
 	@RequestMapping("groupList.gr")
-	public String selectGroupListAll(int currentPage, Model model) {
+	public String selectGroupListAll(int currentPage, GroupDto gd, Model model) {
 		
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<Groups> list = gService.selectGroupListAll(pi);
+		ArrayList<Groups> list = gService.selectGroupListAll(pi, gd);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
