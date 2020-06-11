@@ -82,9 +82,7 @@
 	
 		SELECT count(*)
 		 FROM COUPON
-		
-		 
-		 
+
 	</select>	
 	
 	<select id="selectList" resultMap="couponResultSet">
@@ -119,5 +117,15 @@
 		   SET USER_PWD = #{userPwd}
 		 WHERE USER_ID = #{userId}
 	</update>
+	
+	
+	
+		
+	<select id="selectDuplicateMember" resultType="_int">
+		SELECT count(*)
+		FROM member where user_id =#{email}
+
+	</select>	
+	
 	
 </mapper>

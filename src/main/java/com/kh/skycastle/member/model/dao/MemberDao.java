@@ -28,6 +28,10 @@ public class MemberDao {
     public Member searchPwd(SqlSessionTemplate sqlSession, Member m) {
     	return sqlSession.selectOne("memberMapper.searchPwd", m);
     }
+    
+    public int selectDuplicateMember(SqlSessionTemplate sqlSession,String email) {
+    	return sqlSession.selectOne("memberMapper.selectDuplicateMember", email);
+    }
 
 }
 

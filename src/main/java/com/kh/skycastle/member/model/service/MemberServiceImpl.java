@@ -48,5 +48,10 @@ public class MemberServiceImpl implements MemberService{
 		return mDao.searchPwd(sqlSession, m);
 	}
 
+	@Override
+	public int selectDuplicateMember(String email) {
+		return mDao.selectDuplicateMember(sqlSession,email);
+	}
+
     
 }

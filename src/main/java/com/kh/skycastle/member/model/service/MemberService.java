@@ -21,4 +21,5 @@ public interface MemberService {
     // 6. 비밀번호 변경 서비스
     int changePwd(Member m);
     
+    int selectDuplicateMember(String email);
 }
