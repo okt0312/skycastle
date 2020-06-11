@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class GroupDto {
+	
 	private int userNo;
 	private String status;
 }

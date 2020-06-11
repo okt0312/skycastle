@@ -147,6 +147,13 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 
+	@Override
+	public int mchangePwd(Member m) {
+		return pDao.mchangePwd(sqlSession, m);
+		
+	}
+
+
 	
 
 

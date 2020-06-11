@@ -447,7 +447,7 @@ ul{
                             <span class="reserve_status" style="float: right;">
                                	 <c:choose>
                                		<c:when test="${ s.status eq 'X' }">
-		                               	이용대기
+		                               	이용예정
                                		</c:when>
                                		<c:when test="${ s.status eq 'O' }">
 		                               	이용예정
@@ -506,7 +506,7 @@ ul{
        
 
        <!-- 페이징바 끝 -->
-
+		
 		<br><br><br>
 		
 
@@ -535,11 +535,21 @@ ul{
 
        <jsp:include page="../common/footer.jsp"/>
         
+	
+	
+  
+   <script>
 
-               
+		
+		<!-- 현재 시간을 가져옴  -->
+		var day = new Date().toISOString().substring(0, 10)
+		var Hours = new Date().getHours();
+		
+		
+		
 
 	
-		
+	</script>
 	
 
 

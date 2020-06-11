@@ -31,12 +31,9 @@ public class GroupController {
 	public String selectGroupList(int currentPage, GroupDto gd, Model model) {
 		
 		int groupListCount = gService.selectGroupListCount();
-//		System.out.println(gd);
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		ArrayList<Groups> list = gService.selectGroupList(pi, gd);
-//		System.out.println(list);
-//		ArrayList<Groups> thumbnail = gService.selectGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
@@ -60,24 +57,6 @@ public class GroupController {
 		return mv;
 	}
 	
-	@RequestMapping("mygroupDipsList.gr")
-	public String mygroupDipsList(int currentPage, GroupDto gd, Model model, HttpSession session) {
-		
-		int groupListCount = gService.selectGroupListCount();
-		
-		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		
-		Member m = (Member)session.getAttribute("loginUser");
-		gd.setUserNo(m.getUserNo());
-		
-		ArrayList<Dips> list = gService.mygroupDipsList(pi, gd);
-//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
-		
-		model.addAttribute("pi", pi);
-		model.addAttribute("list", list);
-		
-		return "myPage/myPageGroupListView";
-	}
 	
 	@ResponseBody
 	@RequestMapping("selectDipsList.gr")
@@ -128,7 +107,6 @@ public class GroupController {
 		gd.setUserNo(m.getUserNo());
 		
 		ArrayList<Groups> list = gService.selectMyGroupList(pi, gd);
-//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
@@ -136,6 +114,23 @@ public class GroupController {
 		return "myPage/myPageGroupListView";
 	}
 
+	@RequestMapping("mygroupDipsList.gr")
+	public String mygroupDipsList(int currentPage, Model model, HttpSession session) {
+		
+		int groupListCount = gService.selectGroupListCount();
+		
+		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
+		
+		Member m = (Member)session.getAttribute("loginUser");
+		
+		ArrayList<Dips> list = gService.mygroupDipsList(pi, m.getUserNo());
+//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
+		
+		model.addAttribute("pi", pi);
+		model.addAttribute("list", list);
+		
+		return "myPage/myPageGroupListView";
+	}
 	
 	
 }

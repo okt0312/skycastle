@@ -302,12 +302,12 @@ p {
     width: 380px;
     margin: 50px auto 0 auto;
 }
-.bts button.dark {
+.bts a.dark {
     background: #fdce07;
 }
 
-.bts button {
-    display:block;
+.bts a {
+    display: block;
     height: 56px;
     line-height: 56px;
     text-align: center;
@@ -321,7 +321,7 @@ a {
     padding: 0;
     border: 0;
     background: transparent;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 100%;
     color: #000;
 }
@@ -330,21 +330,60 @@ a {
 
 .btn_member_out {
     border: none;
-    color:#fdce07; !important;
-    font-size: 15px !important;
+    color: #888 !important;
+    font-size: 13px !important;
 }
 
 .default_tabs ul {
     overflow: hidden;
 }
 
+.info_modify .step2 .mod_pws {
+    display: block;
+    margin-top: 20px;
+}
+
+.inputs {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #181819;
+    height: 53px;
+    overflow: hidden;
+}
+
+.inputs input {
+    width: 100%;
+    height: 53px;
+    font-size: 17px;
+    color: #222;
+    border: 0;
+    outline: none;
+}
+
+.info_modify .step2 .validate {
+    clear: both;
+    font-size: 13px;
+    color: #db0436;
+    text-align: left;
+    margin: 10px 0 0 0;
+}
+
+p {
+    line-height: 100%;
+}
+
+.info_modify .step2 .mod_pws {
+    display: block;
+    margin-top: 20px;
+}
 
 
 
 
+/* 중간버튼 스타일 */
 
+/* 중간버튼 스타일 */
 </style>
-
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
 
@@ -353,7 +392,7 @@ a {
 <div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 	
-
+		
 
 		<br><br><br>
 		<!-- inner영역에 콘텐츠 작성 -->
@@ -366,7 +405,7 @@ a {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;"></b>개인정보 입력 안내문 
 							<hr class="bline">
-							<p style="font-size: 0.8em; color: #fdce07; margin-top: 15px;">회원정보를 정확히 기입하셔야 예약이나 이벤트에 대한 불이익이 없습니다.</p>
+							<p style="font-size: 0.7em; color: #fdce07;  margin-top: 15px;">회원정보를 정확히 기입하셔야 예약이나 이벤트에 대한 불이익이 없습니다.</p>
 						</th>
 						
 						
@@ -385,13 +424,13 @@ a {
 
             </div>
             
-            <br><br><br><br>
+           	<br><br><br><br>
 
 			<div class="inner">
                 
                 <div class="container">
                     <div id="content" class="content">
-    	
+    
                         <div class="my_tozs">
                             <div class="info_modify">
                                 <div class="info_modify">
@@ -399,73 +438,60 @@ a {
                                     <div class="default_tabs t2" style="max-width: 600px;">
                                         <ul>
                                             <li>
-                                            <a href="" class="active" style="background-color: #222; color: #fff;">회원정보변경</a>
+                                            <a href="" style="background-color: #f8f8f8; color: #222;">회원정보변경</a>
                                             </li>
                                             
                                             <li>
-                                            <a href="cpwd.me" style="background-color: #f8f8f8; color: #222;">비밀번호변경</a>
+                                            <a href="" class="active"  style="background-color: #222; color: #fff;">비밀번호변경</a>
                                             </li>
                                         </ul>
                                     </div>
                                     
-                                    <form action="updatee.me" method="post" onsubmit="">
-                                     <input type="hidden" value="${ loginUser.userId }" name="userId">
-                                     <input type="hidden" value="${ loginUser.userName }" name="userName">
-                                     <input type="hidden" value="${ loginUser.birthday }" name="birthday">
+                                  
                                     <div class="step2">
                                        <div class="row" style="max-width: 600px;">
                                         <div class="col infoType">
-                                            <div class="mod_infos first">
-                                                <span class="in_tit">이메일</span>
-                                                <div class="info">${ loginUser.userId }</div>
-                                            </div>
-                                            <div class="mod_infos">
-                                                <span class="in_tit">이름</span>
-                                                <div class="info">${ loginUser.userName}</div>
-                                            </div>
-                                            <div class="mod_infos">
-                                                <span class="in_tit">생년월일</span>
-                                                <div class="info birthday">${ loginUser.birthday}</div>
-                                            </div>
-    
-                                            <div class="mod_infos">
-                                                <span class="in_tit long">연락처</span>
-                                                
-                                                <div class="info">
-                                                    <div class="phone">
-                                                        <input type="hidden" name="originalMemberPhone">
-                                                        <span class="inputs num_type">
-                                                            <input type="text" id="phone" name="phone" class="number"
-                                                            maxlength="11" placeholder="핸드폰번호 입력">
-                                                        </span>
-                                                        
-                                                        <p class="validate memberPhone" style="display: none;"></p>
-                                                    </div>
-    
-                                                    </div>
-    
-                                                    </div>
-                                                    
-                                                    <div class="mod_infos">
-                                                    <div class="info">
-                                                    <div class="">
-                                                        
-                                                  	
-                                                            
-                                                        
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            	
+                                        
+                                           <form action="mchangePwd.me" method="POST">
+                                           <label for="oldPw" class="mod_pws current">
+                                                <span class="inputs">
+                                                    <input type="password" id="oldPw" name="oldPw" placeholder="현재비밀번호">
+                                                </span>
+                                                <p class="validate" style="display: none;"></p>
+                                           </label>
+                                           <label for="pwId" class="mod_pws">
+                                                <span class="inputs">
+                                                    <input type="password" id="pwId" name="pwId" placeholder="새 비밀번호(6자리 이상 영문, 숫자, 특수문자를 사용)">
+                                                </span>   
+                                                    <p class="validate" style="display: none;"></p>
+                                               </label>
+                                            <label for="pwCheck" class="mod_pws">
+                                                <span class="inputs">
+                                                    <input type="password" id="pwCheck" name="pwCheck" placeholder="비밀번호 재확인">
+
+                                                </span>
+                                                <p class="validate" style="display: none;"></p>
+                                            </label>
+
+                                            
                                             
     
-                                            <div class="bts">
-                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;" >변경</button>
+                                           
+    
+                                                    </div>
+    
+                                                    </div>
+                                                   
+                                                        
+                                                        
+                                               
+                                       		<div class="bts">
+                                                <a href="" class="dark" style="background-color: #222; color: #fff;">변경</a>
                                             </div>
                                             </form>
-                                            
+                                           
                                             <div class="bts" style="font-size: 13px; color: #888;">
-                                              스카이캐슬를 더 이상 이용하지 않는다면 <a href="Dropp.me" class="btn_nude btn_nude_dark btn_member_out" style="color:#fdce07;  text-decoration: underline;">회원탈퇴 바로가기></a>
+                                              스카이캐슬를 더 이상 이용하지 않는다면    <a href="" class="btn_nude btn_nude_dark btn_member_out">회원탈퇴</a>
                                             </div>
                                         </div>
                                     </div>     
@@ -485,11 +511,8 @@ a {
 			</div>
 		</div>
 		</div>
-
-	
-			
-
+		</div>
+		
 	<jsp:include page="../common/footer.jsp"/>
-	
 </body>
 </html>
