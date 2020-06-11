@@ -161,6 +161,7 @@
 	    <c:forEach items="${ list }" var="g">
 		    <div class="grouplist">
 	            <input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
+	            <input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
 		        <div class="groupThumbnailArea">
 		            <img src="img/${ g.thumbnail }" alt="" class="" width="150px">
 		        </div>

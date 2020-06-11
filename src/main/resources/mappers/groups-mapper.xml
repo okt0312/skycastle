@@ -72,6 +72,12 @@
 		 WHERE USER_NO = #{userNo} AND GROUP_NO = #{groupNo}
 	</select>
 	
+	<select id="selectDips" parameterType="Dips" resultMap="dipsResultSet">
+		SELECT COUNT(*)
+		  FROM DIPS
+		 WHERE USER_NO = #{userNo}
+	</select>
+	
 	<insert id="dipsIn" parameterType="_int">
 		INSERT INTO DIPS
 		VALUES( #{userNo}, #{groupNo})

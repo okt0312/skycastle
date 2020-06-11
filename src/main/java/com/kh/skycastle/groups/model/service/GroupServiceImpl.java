@@ -38,8 +38,8 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	@Override
-	public ArrayList<Dips> mygroupDipsList(PageInfo pi, GroupDto gd) {
-		return gDao.selectGroupDipsList(sqlSession, pi, gd);
+	public ArrayList<Dips> mygroupDipsList(PageInfo pi, int userNo) {
+		return gDao.selectGroupDipsList(sqlSession, pi, userNo);
 	}
 	
 	/*

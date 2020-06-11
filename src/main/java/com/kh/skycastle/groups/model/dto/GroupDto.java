@@ -11,5 +11,4 @@ public class GroupDto {
 	
 	private int userNo;
 	private String status;
-	
 }
