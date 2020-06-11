@@ -131,15 +131,15 @@ public class MypageServiceImpl implements MypageService {
 	public ArrayList<Space> spaceselectList(PageInfo pi, Member m) {
 		return pDao.spaceselectList(sqlSession, pi, m);
 	}
-
-
+	
+	
 	@Override
-	public int seatselectListCount() {
+	public int seatselectListCount(Member m) {
 		
-		return pDao.seatselectListCount(sqlSession);
+		return pDao.seatselectListCount(sqlSession, m);
 	}
-
-
+	
+	
 	@Override
 	public ArrayList<Seat> seatselectList(PageInfo pi, Member m) {
 		

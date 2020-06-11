@@ -93,8 +93,8 @@ public class MypageDao {
 		
 	}
 	
-	public int seatselectListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("reservationMapper.seatselectListCount");
+	public int seatselectListCount(SqlSessionTemplate sqlSession, Member m) {
+		return sqlSession.selectOne("reservationMapper.seatselectListCount", m);
 	}
 	
 	
