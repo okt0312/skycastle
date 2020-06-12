@@ -46,63 +46,65 @@
 		<br><br><br><br><br>
 		<h2>소모임</h2>
 		<br><hr><br>
-
-		<div id="detailSum" style="width: 100%;">
-			<h1>소모임 개설 신청</h1>
-
-			<table id="groupDetailTable">
-				<tbody>
-					<tr>
-						<th>카테고리</th>
-						<td><select style="width: 150px; height: 25px;">
-								<option>대입</option>
-								<option>공무원,임용</option>
-								<option>어학,회화</option>
-								<option>자격증</option>
-								<option>기타</option>
-						</select></td>
-					</tr>
-					<tr>
-						<th>소제목</th>
-						<td><input type="text" style="width: 200px; height: 20px;"
-							placeholder="제목 아래에 보여질 소제목 작성"></td>
-					</tr>
-					<tr>
-						<th>진행일정</th>
-						<td><input type="date"> ~ <input type="date"></td>
-					</tr>
-					<tr>
-						<th>신청일정</th>
-						<td><input type="date"> ~ <input type="date"></td>
-					</tr>
-					<tr>
-						<th>장소</th>
-						<td><select style="width: 100px; height: 25px;">
-								<option>장소1</option>
-								<option>장소2</option>
-								<option>장소3</option>
-						</select></td>
-					</tr>
-					<tr>
-						<th>자격</th>
-						<!-- 자격은 사용자가 입력할 필요 없으니까 지우는게 어때 -->
-						<td><input type="text" style="width: 150px; height: 20px;"></td>
-					</tr>
-					<tr>
-						<th>정원</th>
-						<td><input type="number" style="width: 150px; height: 20px;"
-							min="3" max="10"></td>
-					</tr>
-				</tbody>
-			</table>
-			<br><br><br>
-			<h2>소모임 개설 사유</h2>
-			<textarea name="passion" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
-			<br><br>
-			<div style="text-align: right;">
-				<button class="sky_btn1" onclick="">개설신청</button>
+		
+		<form action="insertGroup.gr">
+			<div id="detailSum" style="width: 100%;">
+				<h1>소모임 개설 신청</h1>
+	
+				<table id="groupDetailTable">
+					<tbody>
+						<tr>
+							<th>카테고리</th>
+							<td><select style="width: 150px; height: 25px;">
+									<option>대입</option>
+									<option>공무원,임용</option>
+									<option>어학,회화</option>
+									<option>자격증</option>
+									<option>기타</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>소제목</th>
+							<td><input type="text" style="width: 200px; height: 20px;"
+								placeholder="제목 아래에 보여질 소제목 작성"></td>
+						</tr>
+						<tr>
+							<th>진행일정</th>
+							<td><input type="date"> ~ <input type="date"></td>
+						</tr>
+						<tr>
+							<th>신청일정</th>
+							<td><input type="date"> ~ <input type="date"></td>
+						</tr>
+						<tr>
+							<th>장소</th>
+							<td><select style="width: 100px; height: 25px;">
+									<option>장소1</option>
+									<option>장소2</option>
+									<option>장소3</option>
+							</select></td>
+						</tr>
+						<tr>
+							<th>자격</th>
+							<!-- 자격은 사용자가 입력할 필요 없으니까 지우는게 어때 -->
+							<td><input type="text" style="width: 150px; height: 20px;"></td>
+						</tr>
+						<tr>
+							<th>정원</th>
+							<td><input type="number" style="width: 150px; height: 20px;"
+								min="3" max="10"></td>
+						</tr>
+					</tbody>
+				</table>
+				<br><br><br>
+				<h2>소모임 개설 사유</h2>
+				<textarea name="passion" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
+				<br><br>
+				<div style="text-align: right;">
+					<button type="submit" class="sky_btn1">개설신청</button>
+				</div>
 			</div>
-		</div>
+		</form>
 		<br><br><br><br>
 	</div>
 	

@@ -6,56 +6,21 @@
 <meta charset="UTF-8">
     <title>mygroupCalender</title>
     <style>
-        body
-        {
+        body {
             margin: 0px;
             background-color: #ffffff;
             color: #000000;
             height: 1000px;
         }
-        #hd_outer
-        {
-            max-width: 1700px;
-            margin: auto;
-        }
-        #hd_logo
-        {
-            border: 1px solid black;
-            height: 143px;
-        }
-        #hd_logo_img
-        {
-            float: left;
-            margin: 20px 0 0 100px;
-            width: 200px;
-            height: 100px;
-            background-color: black;
-        }
-        #hd_menu
-        {
-            position: relative;
-            z-index: 8;
-            background: rgb(255, 255, 255);
-            border-bottom: 1px solid rgb(209, 209, 209);
-            border-top: 1px solid rgb(209, 209, 209);
-            width: 100%;
-            height: 104px;
-        }
-        .content{
-            max-width: 1700px;
-            margin: auto;
-        }
-        .groupmenu{
+        .groupmenu {
             width: 100%;
         }
-
         html, body {
 		  margin: 0;
 		  padding: 0;
 		  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 		  font-size: 14px;
 		}
-		
 		#calendar {
 		  max-width: 900px;
 		  margin: 40px auto;
@@ -69,7 +34,8 @@
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
-
+	<jsp:include page="common/mygroupMenubar.jsp"/>
+	
           <div class="groupmenu" style="height: 500px;">
             <div id='calendar'></div>
           </div>

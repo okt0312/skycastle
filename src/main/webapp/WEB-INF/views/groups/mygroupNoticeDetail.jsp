@@ -13,26 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeDetail</title>
     <style>
-        /**/
-        #groupMenuTable{margin: auto;}
-        #groupMenuTable td{
-            width: 130px;
-            height: 40px;
-            border-top: 1px solid;
-            border-right: 1px solid;
-            border-left: 1px solid;
-        } 
-        /* 마이소모임 메뉴바 */
-        #mygroupMenubar{
-            width: 25%;
-            margin-top: 100px;
-            float: left;
-            text-align: center;
-        }
-        /* 메뉴바 표 */
-        
-        .sky_btn1 /* 확인 버튼 */
-        {
+        .sky_btn1 {
             width: 130px;
             height: 40px;
             text-align: center;
@@ -86,10 +67,6 @@
             background: #333333;
             color: white;
             border: 0;
-        }
-        /* 채팅버튼 */
-        #chat-btn{
-            margin-top: 50px;
         }
         /* 소모임내용 */
         #mygroupContent{
@@ -189,145 +166,129 @@
     </style>
 </head>
 <body>
-	<jsp:include page="../myPage/common/myPageMenubar.jsp"/>
-            <div id="mygroup">
-                <div id="mygroupMenubar">
-                    <h2>소모임명</h2>
-
-                    <table id="groupMenuTable" style="border-collapse:collapse;">
-                        <tr>
-                            <td>공지사항</td>
-                        </tr>
-                        <tr>
-                            <td style="border-bottom: 1px solid;">캘린더</td>
-                        </tr>
-                    </table>
-
-                    <div id="chat-btn">
-                        <button class="sky_btn1">채팅</button>
-                    </div>
-                    <div id="option-btn" style="margin-top: 300px;">
-                        <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
-                    </div>
-                    
-		            <!-- 방장에게만 보여지는 버튼-->
-		            <c:if test="${ loginUser.userNo == leaderNo }">
-			            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
-			            <div id="option-btn" style="margin-top: 300px;">
-		                	<button class="sky_btn2" onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button><br>
-		                	<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
-		                </div>
-		                
-			            <form action="" id="postForm" method="post">
-			            	<input type="hidden" name="gnno" value="${ gn.gnoticeNo }">
-			            	<input type="hidden" name="fileName" value="${ b.changeName }">
-			            </form>
-			        </c:if>
-			        
-                </div>
+	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
+	<div id="mygroup">
+		<jsp:include page="common/mygroupMenubar.jsp" />
 
 
-                <!-- mygroupContent 영역에 콘텐츠 작성 -->
-                <div id="mygroupContent">
-                    <h2>공지사항</h2>
-                    <hr><br><br>
-                    
-                        <div id="noticeTitle">
-                            <table>
-                                <tr>
-                                    <td style="width:850px; font-weight:600;">${ gn.gnoticeTitle }</td>
-                                    <td style="width:70px; text-align:center; font-size:12px;">${ gn.enrollDate }</td>
-                                    <td style="width:70px; text-align:center; font-size:12px;">조회수 23</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <hr>
-                        <div id="noticeContent" style="margin-top: 50px;">
-							<textarea rows="" cols="">${ gn.gnoticeContent }</textarea>
-                        </div>
+		<!-- mygroupContent 영역에 콘텐츠 작성 -->
+		<div id="mygroupContent">
+			<h2>공지사항</h2>
+			<hr>
+			<br>
+			<br>
 
-                        <br><br>
-                        <hr>
-                        <br>
+			<div id="noticeTitle">
+				<table>
+					<tr>
+						<td style="width: 850px; font-weight: 600;">${ gn.gnoticeTitle }</td>
+						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.enrollDate }</td>
+						<td style="width: 70px; text-align: center; font-size: 12px;">조회수
+							23</td>
+					</tr>
+				</table>
+			</div>
+			<hr>
+			<div id="noticeContent" style="margin-top: 50px;">
+				<textarea rows="" cols="">${ gn.gnoticeContent }</textarea>
+			</div>
 
-                        <div align="right" style="margin-right:60px">
-                            <!-- <button class="listBtn">좋아요</button> -->
-                            <button class="listBtn sky_btn22" data-toggle="modal" data-target="#reportModal">신고</button>
-                        </div>
+			<br>
+			<br>
+			<hr>
+			<br>
 
-                        <div id="replyArea">
-                            <div id="existReply">
-                                
-                            </div>
-                            <h2>댓글</h2>
-                            <p>
-                                조연화<br>
-                                2020-10-11<br>
-                                열공합시다아아아아아아아
-                            </p>
-                            <br><br>
-                            <h2>댓글달기</h2>
-                            <textarea style="width: 700px; height: 100px;"></textarea>&nbsp;&nbsp;<button class="sky_btn11">댓글달기</button>
+			<div align="right" style="margin-right: 60px">
+				<!-- <button class="listBtn">좋아요</button> -->
+				<button class="listBtn sky_btn22" data-toggle="modal"
+					data-target="#reportModal">신고</button>
+			</div>
 
-                        </div>
-                        <br><br><br>
-                        <div align="center">
-                            <button class="listBtn sky_btn2">목록</button>
-                        </div>
-                        <br><br><br><br><br>
+			<div id="replyArea">
+				<div id="existReply"></div>
+				<h2>댓글</h2>
+				<p>
+					조연화<br> 2020-10-11<br> 열공합시다아아아아아아아
+				</p>
+				<br>
+				<br>
+				<h2>댓글달기</h2>
+				<textarea style="width: 700px; height: 100px;"></textarea>
+				&nbsp;&nbsp;
+				<button class="sky_btn11">댓글달기</button>
 
-                            
-                </div>
-            </div>
-            
-            
-    <!-- 모달 시작 -->
-    <div class="modal fade" id="reportModal"> <!-- modal별 id 변경해주세요-->
-        <div class="modal-dialog">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-                <div class="modal-header">
-                <h4 class="modal-title" style="margin:auto;padding:0;">댓글 신고하기</h4>
-                <button type="button" class="close" data-dismiss="modal" style="margin:0;padding:0;">&times;</button>
-                </div>
-            
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <table style="width: 400px;">
-                        <tr>
-                            <th style="width: 80px;">작성자</th>
-                            <td style="width: 320px;">user01</td>
-                        </tr>
-                        <tr>
-                            <th>회원명</th>
-                            <td>조연화</td>
-                        </tr>
-                        <tr>
-                            <th>댓글내용</th>
-                            <td><textarea cols="40" rows="10" style="resize: none;" readonly>열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ</textarea></td>
-                            <!--서머노트쓸까?-->
-                        </tr>
-                        <tr>
-                            <th>신고사유</th>
-                            <td><textarea name="reportContent" cols="40" rows="10" style="resize: none;"></textarea></td>
-                            <!--서머노트쓸까?-->
-                        </tr>
-                    </table>
-                </div>
-            
-                <!-- Modal footer -->
-                <div class="modal-footer" style="margin:auto;">
-                    <!-- 하단버튼 영역-->
-                    <button type="button" class="btn btn-danger sky_btn1" style="width:200px; height:50px;">신고</button>
-                    <button type="button" class="btn btn-danger sky_btn2" data-dismiss="modal" style="width:200px; height:50px;">취소</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 모달 끝 -->
+			</div>
+			<br>
+			<br>
+			<br>
+			<div align="center">
+				<button class="listBtn sky_btn2">목록</button>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 
-    <script>
+
+		</div>
+	</div>
+
+
+	<!-- 모달 시작 -->
+	<div class="modal fade" id="reportModal">
+		<!-- modal별 id 변경해주세요-->
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title" style="margin: auto; padding: 0;">댓글
+						신고하기</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						style="margin: 0; padding: 0;">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<table style="width: 400px;">
+						<tr>
+							<th style="width: 80px;">작성자</th>
+							<td style="width: 320px;">user01</td>
+						</tr>
+						<tr>
+							<th>회원명</th>
+							<td>조연화</td>
+						</tr>
+						<tr>
+							<th>댓글내용</th>
+							<td><textarea cols="40" rows="10" style="resize: none;"
+									readonly>열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ</textarea></td>
+							<!--서머노트쓸까?-->
+						</tr>
+						<tr>
+							<th>신고사유</th>
+							<td><textarea name="reportContent" cols="40" rows="10"
+									style="resize: none;"></textarea></td>
+							<!--서머노트쓸까?-->
+						</tr>
+					</table>
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer" style="margin: auto;">
+					<!-- 하단버튼 영역-->
+					<button type="button" class="btn btn-danger sky_btn1"
+						style="width: 200px; height: 50px;">신고</button>
+					<button type="button" class="btn btn-danger sky_btn2"
+						data-dismiss="modal" style="width: 200px; height: 50px;">취소</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달 끝 -->
+
+	<script>
         function deleteConfirm() {
             var result = window.confirm("소모임을 나가시겠습니까?");
             var memStatus = "";
@@ -400,7 +361,7 @@
     		});
     	}
     </script>
-        <jsp:include page="../common/footer.jsp"/>
-    
+	<jsp:include page="../common/footer.jsp" />
+
 </body>
 </html>

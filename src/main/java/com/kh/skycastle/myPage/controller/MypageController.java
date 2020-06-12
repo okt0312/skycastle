@@ -44,7 +44,7 @@ public class MypageController {
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
 		ArrayList<Coupon> list = pService.selectList(pi,userNo);
 		
-		
+		//System.out.println(list);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
