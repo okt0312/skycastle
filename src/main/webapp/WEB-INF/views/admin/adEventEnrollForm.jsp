@@ -51,8 +51,8 @@ background-color:gray;
                                     </tr>
                                     <tr>
                                         <td>                 
-                                            <input type="file" id="upfile" class="form-control-file border" name="uploadFile">
-                                            <input type="file" class="form-control-file border" name="uploadFile">
+                                            <input type="file" id="upfile" class="form-control-file border" name="uploadFile" required>
+                                            <input type="file" class="form-control-file border" name="uploadFile" required>
                                         </td>
                                     </tr>
                                     <tr>
