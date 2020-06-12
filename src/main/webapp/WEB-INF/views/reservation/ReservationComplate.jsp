@@ -71,7 +71,7 @@
             </div>
             <div  align="center">
                 <button class="sky_btn1" onclick="location.href='${pageContext.servletContext.contextPath}/'">홈으로</button>
-                <button class="sky_btn1">예약현황</button>
+                <button class="sky_btn1" onclick="location.href='rlist.bo?currentPage=1'">예약현황</button>
             </div>
             
         </div>
