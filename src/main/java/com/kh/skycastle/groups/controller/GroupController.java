@@ -133,7 +133,6 @@ public class GroupController {
 		Member m = (Member)session.getAttribute("loginUser");
 		
 		ArrayList<Dips> list = gService.mygroupDipsList(pi, m.getUserNo());
-//		ArrayList<Groups> thumbnail = gService.selectMyGroupThumbnailList(pi);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
