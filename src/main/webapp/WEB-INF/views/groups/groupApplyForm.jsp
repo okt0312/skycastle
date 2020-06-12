@@ -80,7 +80,7 @@
 			<br><br><br>
 			
 			<h2>소모임 지원사유</h2>
-			<textarea name="passion" id="" style="width:100%; height:150px; resize:none;"></textarea>
+			<textarea name="passion" id="passion" style="width:100%; height:150px; resize:none;"></textarea>
 			<br><br>
 			
 			<div style="text-align:right;">

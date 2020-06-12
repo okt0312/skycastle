@@ -62,11 +62,11 @@
 		<br><hr><br>
 		
 		<div id="detailSum" style="width:100%; height: 250px;">
-			<div style="width: 250px; height: 250px; float: left;">
-		    	<img src="resources/uploadFiles/groups/${ g.changeName }" width="250px" height="250px">
+			<div style="float: left;">
+		    	<img src="resources/uploadFiles/groups/${ g.changeName }" style="width:250px;">
 			</div>
 			
-			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
+			<div style="width: 515px; height: 220px; vertical-align: middle; float: right; margin-left: 35px; margin-top:30px;">
 		        <h2>${ g.groupTitle }</h2>
 				<p>
 					<c:choose>
