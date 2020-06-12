@@ -359,22 +359,22 @@
 			
 			
 			if($("#start").val() == ''){
-				alert("시작시간은 선택해주세요");
+				alertify.alert("skycastle 내용:","시작시간은 선택해주세요");
 				return;
 			}else if($("#end").val() != '24:00'){
 				for(var i=0; i<=timeOption.length; i++){
 					if(end == timeOption.eq(i).val()){
 						if(timeOption.eq(i).prop("disabled")){
-							alert("다음 예약으로 인해시간 연장이 불가합니다.");
+							alertify.alert("skycastle 내용:","다음 예약으로 인해시간 연장이 불가합니다.");
 							return;	
 						}
 					}		
 				}
 			}else if($("#end").val() == '24:00'){
-				alert("마지막타임입니다.");
+				alertify.alert("skycastle 내용:","마지막타임입니다.");
 				return;
 			}else if(count == 2){
-				alert("선택을 해제해 주세요.");
+				alertify.alert("skycastle 내용:","선택을 해제해 주세요.");
 				return;
 			}
 			
@@ -407,7 +407,7 @@
 				
 		
 				}else{
-					alert("시작시간을 선택해주세요");
+					alertify.alert("skycastle 내용:","시작시간을 선택해주세요");
 				}
      
             }
