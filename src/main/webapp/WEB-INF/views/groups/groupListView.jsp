@@ -183,7 +183,6 @@
 				</c:otherwise> 	
 			</c:choose>
 		</div>
-	    
 	</div>
 	<br><br><br>
 	
