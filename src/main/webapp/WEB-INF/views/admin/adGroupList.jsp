@@ -170,6 +170,7 @@
                         
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                   		 
                         <button type="button" class="btn btn-primary" id="updateGroupList_Btn">수정</button>
                         <button type="button" class="btn btn-danger" id="deleteGroupList_Btn">삭제</button>
                         <button type="button"  id="modal_close" class="searchBtn btn btn-secondary" data-dismiss="modal">취소</button>

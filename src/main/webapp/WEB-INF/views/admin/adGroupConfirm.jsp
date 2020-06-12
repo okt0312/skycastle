@@ -109,7 +109,7 @@
 									</table>
 
 									<script>
-										//맨위 체크박스 전체클릭 전체해제 기능...은 안됨
+										//맨위 체크박스 전체클릭 전체해제 기능
 										function checkAll() {
 											console.log("클릭함");
 											if ($("#th_checkAll").is(':checked')) {
@@ -125,95 +125,59 @@
 											//클릭한 소모임번호 배열로 담음
 											var grCoCheck = new Array();
 
-											$("input[name=grCoCheck]:checked")
-													.each(
-															function(i) {
-																grCoCheck.push($(this).val());
+											$("input[name=grCoCheck]:checked").each(function(i) {grCoCheck.push($(this).val());});
 
-																		});
-
-											console.log(grCoCheck);
+											//console.log(grCoCheck);
 
 											//배열값 넘기려고함
-											if (grCoCheck == "") 
-											{
-												alertify("수락할 소모임을 선택해주세요.");
+											if (grCoCheck == ""){
+												alertify.alert("소모임 개설 관리","소모임을 선택해주세요");
 											} else {
-												//	(ifalertify.confirm("수락 처리하시겠습니까?")){
-												alertify.alert('소모임 개설 관리', '해당소모임 개설을 수락하였습니다');
+												alertify.confirm('소모임 개설 관리', '해당 소모임을 수락하시겠습니까?',function(){
 														$.ajax({
 															url : "confirmGroup.ad",
-															data :
-															{
-																"grCoCheck" : grCoCheck
-															},
+															data :{"grCoCheck" : grCoCheck},
 															traditional : true,
 															type : "post",
-															success : function(list) 
-															{
-																console.log(list);
-
-																var value = "";
-																for ( var i in list) 
-																{
-																	value += "<tr>"
-																				+ "<td>"
-																					+ "<div>"
-																						+ "<label><input class='checkbox ' type='checkbox' name='grCoCheck' value='"
-																							+ list[i].groupNo+ "' style='vertical-align: middle; transform: scale(1.4);'></label>"
-																					+ "</div>"
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].groupNo
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].groupTitle
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].groupSubtitle
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].groupCategory
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].startDate
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].endDate
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].place
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].memberLimit
-																				+ "</td>"
-																				+ "<td>"
-																					+ list[i].status
-																				+ "</td>"
-																		  + "</tr>"
-																}
-
-																$("#dataTable tbody").html(value);
-
-																/* if(result > 0)
-																{
-																	alertify.alert("소모임 관리", "성공", function(){ location.reload();});
-																}
-																else
-																{
-																	alertify.alert("소모임 관리", "실패", function(){ location.reload();});
-																} */
-
-															},
-															error : function() {
+															success : function(list){
+																//console.log(list);
+																		var value = "";
+																		for ( var i in list){
+																			value += "<tr>"
+																						+ "<td>"
+																							+ "<div>"
+																								+ "<label><input class='checkbox ' type='checkbox' name='grCoCheck' value='"
+																									+ list[i].groupNo+ "' style='vertical-align: middle; transform: scale(1.4);'></label>"
+																							+ "</div>"
+																						+ "</td>"
+																						+ "<td>"+ list[i].groupNo+ "</td>"
+																						+ "<td>"+ list[i].groupTitle+ "</td>"
+																						+ "<td>"+ list[i].groupSubtitle+ "</td>"
+																						+ "<td>"+ list[i].groupCategory+ "</td>"
+																						+ "<td>"+ list[i].startDate+ "</td>"
+																						+ "<td>"+ list[i].endDate+ "</td>"
+																						+ "<td>"+ list[i].place+ "</td>"
+																						+ "<td>"+ list[i].memberLimit+ "</td>"
+																						+ "<td>"+ list[i].status+ "</td>"
+																				  + "</tr>"
+																		       				}
+		
+																		$("#dataTable tbody").html(value);
+		
+																		
+																			alertify.alert("소모임 개설 관리", "개설 완료되었습니다", function(){ location.reload();});
+																		
+																
+															},error : function() {
 																console.log("ajax통신실패");
 															}
 
 														});
-												//}
-													}
+												
+													},function(){} );
 
 										}
+											};
 
 										//개설 거절버튼 클릭시
 										function rejectionGroups() {
@@ -226,10 +190,10 @@
 
 											//배열값 넘기려고함
 											if (grCoCheck == "") {
-												alertify("거절할 소모임을 선택해주세요.");
+												alertify.alert("소모임 개설 관리","소모임을 선택해주세요.");
 											} else {
 												//	if(alertify.confirm("수락 처리하시겠습니까?")){
-												alertify.alert('소모임 개설 관리', '해당소모임 개설을 거절하였습니다');
+												alertify.confirm('소모임 개설 관리', '해당 소모임을 거절하시겠습니까?',function(){
 													  $.ajax({
 															url : "rejectionGroup.ad",
 															data : {
@@ -281,14 +245,7 @@
 
 																$("#dataTable tbody").html(value);
 
-																/* if(result > 0)
-																{
-																	alertify.alert("소모임 관리", "성공", function(){ location.reload();});
-																}
-																else
-																{
-																	alertify.alert("소모임 관리", "실패", function(){ location.reload();});
-																} */
+																alertify.alert("소모임 개설 관리", "거절 완료되었습니다", function(){ location.reload();});
 
 															},
 															error : function() {
@@ -296,10 +253,12 @@
 															}
 
 														});
-												//;
-											}
+												
+											},function(){} );
 
 										}
+											};
+
 									</script>
 									<div>
 										<button id="confirmBtn" class="btn btn-primary"onclick="confirmGroup();">승인</button>
