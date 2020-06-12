@@ -14,6 +14,14 @@
         .inner{
             width: 100%;
         }
+        
+        /* 버튼스타일 */
+		.sky_btn1{
+			padding:0px;
+			boder:0px;
+			margin-top:4px;
+			line-height:10px;
+		}
         /* 소모임별 */
         .grouplist{
             width: 800px;
@@ -129,8 +137,9 @@
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br>
 	    <h2>소모임</h2>
+	    <button style="float:right;" class="sky_btn1" onclick="location.href='groupEnrollForm.gr';">소모임 개설 신청</button>
 	    <br><hr><br>
-	
+		
 	    <div align="center">
 	        <form action="" method="POST" style="margin:0 auto">
 	            <select>

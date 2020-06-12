@@ -54,7 +54,7 @@ public class GroupServiceImpl implements GroupService {
 	
 	@Override
 	public int insertGroup(Groups g) {
-		return 0;
+		return gDao.insertGroup(sqlSession, g);
 	}
 
 	@Override

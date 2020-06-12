@@ -65,6 +65,10 @@ public class GroupDao {
 		return sqlSession.insert("groupsMapper.dipsOut", d);
 	}
 
+	public int insertGroup(SqlSessionTemplate sqlSession, Groups g) {
+		return sqlSession.insert("groupsMapper.insertGroup", g);
+	}
+	
 	
 	
 /*

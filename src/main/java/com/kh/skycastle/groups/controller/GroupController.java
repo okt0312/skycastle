@@ -15,12 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.member.model.vo.Member;
 
+// 메인페이지에서 소모임기능 관련 컨트롤러
 @Controller
 public class GroupController {
 	
@@ -64,6 +66,7 @@ public class GroupController {
 		return result;
 	}
 	
+	// 찜취소
 	@ResponseBody
 	@RequestMapping(value="dipsIn.gr", produces="application/json; charset=utf-8")
 	public int dipsIn(Dips d) {
@@ -71,15 +74,15 @@ public class GroupController {
 		return result;
 	}
 	
+	// 찜취소
 	@ResponseBody
 	@RequestMapping(value="dipsOut.gr", produces="application/json; charset=utf-8")
 	public int dipsOut(Dips d) {
-		
 		int result = gService.dipsOut(d);
 		return result;
 	}
 
-	
+	// 소모임 신청폼
 	@RequestMapping("groupApplyForm.gr")
 	public ModelAndView groupApplyForm(int gno, int userNo, ModelAndView mv) {
 		
@@ -95,6 +98,9 @@ public class GroupController {
 		return mv;
 	}
 	
+	// 소모임 신청용
+	
+	// 마이페이지 상태별 소모임 리스트
 	@RequestMapping("mygroupList.gr")
 	public String mygroupList(int currentPage, GroupDto gd, Model model, HttpSession session) {
 		
@@ -111,7 +117,8 @@ public class GroupController {
 		
 		return "myPage/myPageGroupListView";
 	}
-
+	
+	// 마이페이지 찜한 소모임 리스트
 	@RequestMapping("mygroupDipsList.gr")
 	public String mygroupDipsList(int currentPage, Model model, HttpSession session) {
 		
@@ -128,6 +135,24 @@ public class GroupController {
 		model.addAttribute("list", list);
 		
 		return "myPage/myPageGroupListView";
+	}
+	
+	// 소모임 개설신청 폼
+	@RequestMapping("groupEnrollForm.gr")
+	public String groupEnrollForm(int userNo) {
+		return "groups/groupEnrollForm";
+	}
+	
+	// 소모임 개설 신청용
+	@RequestMapping("insertGroup.gr")
+	public String insertGroup(Groups g, Model model, HttpSession session) {
+		int result = gService.insertGroup(g);
+		
+		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
+			return "redirect:mygroupList.gr";
+		} else {
+			return "소모임 개설 신청하기 실패";
+		}
 	}
 	
 	

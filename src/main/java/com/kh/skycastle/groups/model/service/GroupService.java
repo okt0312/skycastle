@@ -22,7 +22,7 @@ public interface GroupService {
 	
 	// 검색 구현하려면 마이바티스 참조
 	
-	// 2. 소모임 신청용 서비스
+	// 2. 소모임 개설 신청용 서비스
 	int insertGroup(Groups g);
 	
 	// 3. 해당 소모임 상세조회용 서비스
@@ -39,4 +39,5 @@ public interface GroupService {
 	
 	// 4. 소모임 탈퇴용서비스
 	int deleteGroup(int gno);
+	
 }
