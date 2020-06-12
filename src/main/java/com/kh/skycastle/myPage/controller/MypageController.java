@@ -36,13 +36,13 @@ public class MypageController {
 	
 	
 	@RequestMapping("list.bo")
-	public String selectList(int currentPage, Model model) {
-		
-		int listCount = pService.selectListCount();
+	public String selectList(int currentPage, Model model, HttpSession session) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		int userNo = loginUser.getUserNo();
+		int listCount = pService.selectListCount(userNo);
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, currentPage, 10, 5);
-		
-		ArrayList<Coupon> list = pService.selectList(pi);
+		ArrayList<Coupon> list = pService.selectList(pi,userNo);
 		
 		
 		

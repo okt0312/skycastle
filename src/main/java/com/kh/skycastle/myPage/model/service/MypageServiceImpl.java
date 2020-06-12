@@ -66,16 +66,16 @@ public class MypageServiceImpl implements MypageService {
 
 
 	@Override
-	public int selectListCount() {
+	public int selectListCount(int userNo) {
 		
-		return pDao.selectListCount(sqlSession);
+		return pDao.selectListCount(sqlSession,userNo);
 	}
 
 
 	@Override
-	public ArrayList<Coupon> selectList(PageInfo pi) {
+	public ArrayList<Coupon> selectList(PageInfo pi,int userNo) {
 	
-		return pDao.selectList(sqlSession, pi);
+		return pDao.selectList(sqlSession, pi, userNo);
 	}
 
 
@@ -151,6 +151,20 @@ public class MypageServiceImpl implements MypageService {
 	public int mchangePwd(Member m) {
 		return pDao.mchangePwd(sqlSession, m);
 		
+	}
+
+
+	@Override
+	public int expirationCouponUpdate(int userNo) {
+		ArrayList<Coupon> expirationCouponNoList = pDao.expirationCouponNoList(sqlSession, userNo); 
+		//System.out.println(expirationCouponNoList);
+		for(int i=0; i<expirationCouponNoList.size(); i++) {
+			Coupon coupon = new Coupon();
+			coupon.setUserNo(userNo);
+			coupon.setCouponCode(expirationCouponNoList.get(i).getCouponCode());
+			pDao.expirationCouponUpdate(sqlSession,coupon);
+		}
+		return 0;
 	}
 
 
