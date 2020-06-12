@@ -174,17 +174,14 @@
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
 			<h2>공지사항</h2>
-			<hr>
-			<br>
-			<br>
+			<hr><br><br>
 
 			<div id="noticeTitle">
 				<table>
 					<tr>
 						<td style="width: 850px; font-weight: 600;">${ gn.gnoticeTitle }</td>
 						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.enrollDate }</td>
-						<td style="width: 70px; text-align: center; font-size: 12px;">조회수
-							23</td>
+						<td style="width: 70px; text-align: center; font-size: 12px;">조회수 23</td>
 					</tr>
 				</table>
 			</div>
@@ -193,42 +190,90 @@
 				<textarea rows="" cols="">${ gn.gnoticeContent }</textarea>
 			</div>
 
-			<br>
-			<br>
-			<hr>
-			<br>
+			<br><br><hr><br>
 
 			<div align="right" style="margin-right: 60px">
 				<!-- <button class="listBtn">좋아요</button> -->
 				<button class="listBtn sky_btn22" data-toggle="modal"
 					data-target="#reportModal">신고</button>
 			</div>
-
-			<div id="replyArea">
+			
+			<!-- 수업 : 수정하기, 삭제하기 버튼은 이글이 본인글일 경우만 보여져야됨 -->
+			<c:if test="${ loginUser.userNo eq g.leaderNo }">
+	            <div align="center">
+	                <button class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</button>
+	                <button class="btn btn-danger" onclick="postFormSubmit(2);">삭제하기</button>
+	            </div>
+	            
+	            <form action="" id="postForm" method="post">
+	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="noticeNo" value="${ r.noticeNo }">
+	            </form>
+	            <!-- delete.bo?bno=15&fileName=2020xxxx.jpg 첨부파일 있을 경우 -->
+	            <!-- delete.bo?bno=15&fileName= 첨부파일 없으면 이렇게 넘어온다 -->
+	            
+	            <script>
+	            	function postFormSubmit(num){
+	            		if(num == 1){	// 수정하기 클릭시
+	            			$("#postForm").attr("action", "updateForm.bo");
+	            		}else {			// 삭제하기 클릭시
+	            			$("#postForm").attr("action", "delete.bo");
+	            		}
+	            		$("#postForm").submit();
+	            	}
+	            </script>
+			</c:if>
+			
+			
+			
+			<div id="replyArea"><!-- 이게원래 -->
 				<div id="existReply"></div>
 				<h2>댓글</h2>
 				<p>
 					조연화<br> 2020-10-11<br> 열공합시다아아아아아아아
 				</p>
-				<br>
-				<br>
+				<br><br>
+				
 				<h2>댓글달기</h2>
 				<textarea style="width: 700px; height: 100px;"></textarea>
 				&nbsp;&nbsp;
 				<button class="sky_btn11">댓글달기</button>
 
 			</div>
-			<br>
-			<br>
-			<br>
+			
+			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
+                <thead>
+                    <tr>
+                        <c:choose>
+                        	<c:when test="${ !empty loginUser }">
+		                        <th colspan="2">
+		                            <textarea class="form-control" id="replyContent" cols="55" rows="2" style="resize:none; width:100%"></textarea>
+		                        </th>
+		                        <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
+                        	</c:when>
+		                    <c:otherwise>
+		                        <th colspan="2">
+		                            <textarea class="form-control" readonly cols="55" rows="2" style="resize:none; width:100%">로그인한 사용자만 이용가능한 서비스입니다. 로그인 후 이용해주세요.</textarea>
+		                        </th>
+		                        <th style="vertical-align: middle"><button class="btn btn-secondary" disabled>등록하기</button></th>
+		                    </c:otherwise>
+                        </c:choose>
+                    </tr>
+                    <tr>
+                       <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+			<br><br><br>
+			
 			<div align="center">
 				<button class="listBtn sky_btn2">목록</button>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			
+			<br><br><br><br><br>
 
 
 		</div>
@@ -305,19 +350,19 @@
     	$(function(){
     		selectReplyList();
     		
-    		$("#addReply").click(function(){
-    			
+    		$("#insertReply").click(function(){
+
     			$.ajax({
         			url:"replyInsert.gr",
-        			data:{replyContent:$("#content").val(),
-        				  refBoardNo:${gn.groupNoticeNo},
-        				  replyWriter:"${loginUser.userId}"},
+        			data:{replyContent:$("#replyContent").val(),
+        				  noticeNo:${r.noticeNo},			// r로 해야할까 gn.gnoticeNo로 해야할까 - 위에 hidden해놓은건 gn.gnoticeNo임
+        				  replyWriter:"${loginUser.userId}"},	// reply vo에는 userName밖에 없는데 ㅠㅜㅠㅜ
         			type:"post",
         			success:function(status){
 
         				if(status == "success"){
         					
-        					$("#content").val("");
+        					$("#replyContent").val("");
         					
         					selectReplyList();
         					
@@ -331,18 +376,15 @@
     		});
     	});
     	
-    	// 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
+    	// 해당 게시글의 댓글 리스트 조회해서 출력
     	function selectReplyList(){
     		
     		$.ajax({
-    			url:"replylist.bo",
-    			data:{gnno:${gn.groupNoticeNo}},
+    			url:"replylist.gr",
+    			data:{gnoticeNo:${gn.gnoticeNo}},
     			success:function(list){
 
-//    				console.log(list);
-    				
-    				// 댓글개수
-    				$("#rcount").text(list.length);
+    				$("#replyCount").text(list.length);	// 댓글개수
     				
     				var value = "";
     				

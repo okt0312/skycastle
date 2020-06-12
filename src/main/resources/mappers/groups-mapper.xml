@@ -150,7 +150,25 @@
 	 	VALUES (SEQ_GNOTICE.NEXTVAL, #{gnoticeNo}, #{groupNo}, #{gnoticeTitle}, #{gnoticeContent}, sysdate, 'Y')
  	</insert>
 
+
+
+
+	<resultMap id="replyResultSet" type="Reply">
+		<id column="REPLY_NO" property="replyNo"/>
+		<result column="REPLY_CONTENT" property="replyContent"/>
+		<result column="NOTICE_NO" property="noticeNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="UPLOAD_DATE" property="uploadDate"/>
+		<result column="STATUS" property="status"/>
+		<result column="USER_NAME" property="userName"/>
+	</resultMap>
 	
+	<select id="selectReplyList" parameterType="_int" resultMap="replyResultSet">
+		SELECT *
+		  FROM REPLY
+		 WHERE NOTICE_NO=#{gnoticeNo} AND STATUS='Y'
+		 ORDER BY REPLY_NO DESC
+	</select>
 	
 	
 	

@@ -33,7 +33,7 @@ public interface MypageGroupService {
 	
 	// --------- ajax ----------
 	// 6. 해당 소모임 공지사항에 딸려있는 댓글 리스트 조회용 서비스
-	ArrayList<Reply> selectReplyList(int gnno);
+	ArrayList<Reply> selectReplyList(int gnoticeNo);
 	
 	// 7. 댓글 작성용 서비스
 	int insertReply(Reply r);
