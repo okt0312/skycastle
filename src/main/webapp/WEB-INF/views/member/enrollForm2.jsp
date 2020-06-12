@@ -215,6 +215,7 @@ select::-ms-expand {
 
    <!-- 유효성 검사 -->
    <script>
+   ranNum ='';
       function validate() {
    
          var userId = document.getElementById("userId"); // 이메일
@@ -260,52 +261,20 @@ select::-ms-expand {
             name.focus();
             return false;
          }
+         
+         /* 인증번호 일치여부 */
+         if ($("#inputVeriCode").val() != '' && $("#inputVeriCode").val() == ranNum) {
+            return location.href = "enrollComplete.me";
+         } else {
+            alertify.alert("skycastle 내용:", "인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
+            return false;
+         }
    
          return true;
    
       }
       
-      ranNum ='';
-      $(function() {
-   
-         $("#joinBtn").on("click", function() {
-            if ($("#userId").val() == "") {
-               alertify.alert("아이디(이메일)를 입력해주세요.");
-               $("#userId").focus();
-               return false;
-            }
-            if ($("#memPwd1").val() == "") {
-               alertify.alert("skycastle 내용:", "비밀번호를 입력해주세요.");
-               $("#memPwd1").focus();
-               return false;
-            }
-            if ($("#memPwd2").val() == "") {
-               alertify.alert("skycastle 내용:", "비밀번호를 확인란을 입력해주세요.");
-               $("#memPwd2").focus();
-               return false;
-            }
-            if ($("#userName").val() == "") {
-               alertify.alert("skycastle 내용:", "성명을 입력해주세요.");
-               $("#userName").focus();
-               return false;
-            }
-            if ($("#inputVeriCode").val() == "") {
-               alertify.alert("skycastle 내용:", "이메일 인증을 완료해주세요.");
-               $("#inputVeriCode").focus();
-               return false;
-            }
-            
-            /* 인증번호 일치여부 */
-            if ($("#inputVeriCode").val() == ranNum) {
-               return location.href = "enrollComplete.me";
-            } else {
-               alertify.alert("skycastle 내용:", "인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
-               return false;
-            }
-            
-         });
-   
-      });
+    
    
       // 아이디(이메일) 중복체크 
       function idCheckValidate(num) {
@@ -343,6 +312,7 @@ select::-ms-expand {
                   url : "idCheck.me",
                   data : {userId : $idInput.val()
                   },
+                  asyn :false,
                   success : function(status) {
                      if (status == "fail") {
                         idCheckValidate(2); // 사용불가
@@ -367,8 +337,8 @@ select::-ms-expand {
          $.ajax({
             url : "sendCode.me",
             type : "post",
-            data : {userId : emailVal
-            },
+            data : {userId : emailVal},
+            asyn :false,
             success : function(ranNum1) {
                ranNum = ranNum1;
                console.log(ranNum);
