@@ -80,16 +80,15 @@
 	
 	<select id="selectListCount" resultType="_int">
 	
-		SELECT count(*)
-		 FROM COUPON
+		select count(*)
+		from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
 
 	</select>	
 	
 	<select id="selectList" resultMap="couponResultSet">
-		SELECT COUPON_CODE, COUPON_NAME, START_DATE, 
-            (START_DATE + EXPIRATION_PERIOD ) END_DATE, EXPIRATION_PERIOD, DISCOUNT_RATE
-			FROM COUPON
-			ORDER BY COUPON_CODE DESC
+			select coupon_code,coupon_name, start_date,(START_DATE + EXPIRATION_PERIOD ) END_DATE, expiration_period,discount_rate,status
+			from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
+			order by start_date desc
 	</select>
 	
 	<select id="idCheck" parameterType="string" resultType="_int">
@@ -124,8 +123,20 @@
 	<select id="selectDuplicateMember" resultType="_int">
 		SELECT count(*)
 		FROM member where user_id =#{email}
-
 	</select>	
+	
+	<select id="expirationCouponNoList" parameterType="_int" resultMap="couponResultSet">
+		select coupon_code
+		from member_coupon join coupon using(coupon_code) 
+		where user_no=#{userNo} and sysdate > (START_DATE + EXPIRATION_PERIOD )
+	</select>
+	
+	<update id="expirationCouponUpdate">
+		update member_coupon
+		set status = 'E'
+		where coupon_code =#{couponCode} and user_no=#{userNo}  AND status !='Y'
+	</update>
+	
 	
 	
 </mapper>

@@ -2,8 +2,13 @@ package com.kh.skycastle.myPage.model.dao;
 
 import java.util.ArrayList;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
@@ -34,17 +39,19 @@ public class MypageDao {
 		return sqlSession.update("memberMapper.updatePwd", m);
 	}
 	
-	public int selectListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("memberMapper.selectListCount");
+	public int selectListCount(SqlSessionTemplate sqlSession,int userNo) {
+		
+	
+		return sqlSession.selectOne("memberMapper.selectListCount",userNo);
 	}
 	
-	public ArrayList<Coupon> selectList(SqlSessionTemplate sqlSession, PageInfo pi) {
+	public ArrayList<Coupon> selectList(SqlSessionTemplate sqlSession, PageInfo pi, int userNo) {
 		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("memberMapper.selectList", null , rowBounds);
+		return (ArrayList)sqlSession.selectList("memberMapper.selectList", userNo , rowBounds);
 	}
 	
 	public int qselectListCount(SqlSessionTemplate sqlSession, Member m) {
@@ -112,5 +119,13 @@ public class MypageDao {
 	public int mchangePwd(SqlSessionTemplate sqlSession, Member m) {
     	return sqlSession.update("memberMapper.mchangePwd", m);
     }
+	
+	public ArrayList<Coupon> expirationCouponNoList(SqlSessionTemplate sqlSession, int userNo){
+		return (ArrayList)sqlSession.selectList("memberMapper.expirationCouponNoList", userNo);
+	}
+	
+	public int expirationCouponUpdate(SqlSessionTemplate sqlSession, Coupon coupon) {	
+		return sqlSession.update("memberMapper.expirationCouponUpdate", coupon);
+	}
 	
 }

@@ -22,6 +22,7 @@ public class Coupon {
 	private int expirationPeriod;
 	private double discountRate;
 	private Date endDate;
-	
+	private String status;
+	private int userNo;
 
 }

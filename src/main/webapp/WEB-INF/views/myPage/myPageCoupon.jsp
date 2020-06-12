@@ -183,12 +183,12 @@ div {
 					</thead>
 					<tbody>
 					
-						<c:forEach items="${ list }" var="o">
+						<c:forEach items="${ list }" var="c">
 							
 							<tr style="font-size: 14px; font-weight: bold;">
-								<td>${o.couponName}</td>
-                                <td>${o.startDate} ~ ${o.endDate}</td>
-                                <td></td>
+								<td>${c.couponName}</td>
+                                <td>${c.startDate} ~ ${c.endDate}</td>
+                                <td>${c.status}</td>
                             </tr>
                        	     
                          </c:forEach>

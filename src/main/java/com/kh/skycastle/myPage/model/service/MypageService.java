@@ -29,9 +29,9 @@ public interface MypageService {
 	
 	// 6. 쿠폰 게시판 리스트 조회용 서비스 
 	// 1_1. 쿠폰 게시판 총갯수 조회용 서비스 
-	int selectListCount();
+	int selectListCount(int userNo);
 	// 1_2. 쿠폰 요청한 페이지에 보여질 게시글 리스트 조회용 서비스 
-	ArrayList<Coupon> selectList(PageInfo pi);
+	ArrayList<Coupon> selectList(PageInfo pi,int userNo);
 	
 	// 7. 1:1문의 게시판 리스트 조회용 서비스
 	// 1_1. 1:1문의 게시판 총 갯수 조회용 서비스 
@@ -63,7 +63,10 @@ public interface MypageService {
 	// 1_2. 좌석예약 리스트 조회용 서비스 
 	ArrayList<Seat> seatselectList(PageInfo pi, Member m);
 	
-	// 비밀번호 변경
+	//14. 비밀번호 변경
 	int mchangePwd(Member m);
+	
+	//15. 로그인시 만료쿠폰 상태변경
+	int expirationCouponUpdate(int userNo);
 
 }
