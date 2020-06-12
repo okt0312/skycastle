@@ -36,6 +36,10 @@
         }
         input{border-radius: 2px;}
     </style>
+    
+	<!-- include summernote css/js-->
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
@@ -94,7 +98,7 @@
 			</table>
 			<br><br><br>
 			<h2>소모임 개설 사유</h2>
-			<textarea style="width: 100%; height: 150px; resize: none;"></textarea>
+			<textarea name="passion" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
 			<br><br>
 			<div style="text-align: right;">
 				<button class="sky_btn1" onclick="">개설신청</button>
@@ -102,6 +106,18 @@
 		</div>
 		<br><br><br><br>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$('#summernote').summernote({
+				height: 300,                 // set editor height
+				minHeight: null,             // set minimum height of editor
+				maxHeight: null,             // set maximum height of editor
+				focus: true                  // set focus to editable area after initializing summernote
+			});
+		});
+	</script>
+	
     <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>
