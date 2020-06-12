@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
@@ -17,6 +18,7 @@ import com.kh.skycastle.groups.model.service.MypageGroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 @Controller
 public class MypageGroupController {
@@ -112,6 +114,29 @@ public class MypageGroupController {
 //		
 //		return mv;
 //	}
+	
+	// 댓글 ajax
+	@ResponseBody
+	@RequestMapping(value="replylist.gr", produces="application/json; charset=utf-8")
+	public String selectReplyList(int gnoticeNo) {
+		
+		ArrayList<Reply> list = mgService.selectReplyList(gnoticeNo);
+		//return new Gson().toJson(list);
+		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="replyInsert.gr")
+	public String insertReply(Reply r) {
+		
+		int result = mgService.insertReply(r);
+		
+		if(result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
 
 	
 	

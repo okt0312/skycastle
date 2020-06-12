@@ -55,13 +55,13 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 
 	@Override
-	public ArrayList<Reply> selectReplyList(int gnno) {
-		return null;
+	public ArrayList<Reply> selectReplyList(int gnoticeNo) {
+		return mgDao.selectReplyList(sqlSession, gnoticeNo);
 	}
 
 	@Override
 	public int insertReply(Reply r) {
-		return 0;
+		return mgDao.insertReply(sqlSession, r);
 	}
 
 }

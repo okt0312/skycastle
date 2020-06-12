@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
+import com.kh.skycastle.groups.model.vo.Reply;
 
 @Repository("mgDao")
 public class MypageGroupDao {
@@ -27,6 +28,14 @@ public class MypageGroupDao {
 
 	public int insertGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
 		return sqlSession.insert("groupsMapper.insertGroupNotice", gn);
+	}
+
+	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int gnoticeNo) {
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectReplyList", gnoticeNo);
+	}
+
+	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
+		return sqlSession.insert("groupsMapper.insertReply", r);
 	}
 	
 	
