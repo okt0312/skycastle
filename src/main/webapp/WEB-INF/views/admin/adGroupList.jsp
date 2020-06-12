@@ -22,7 +22,7 @@
         z-index: 100;
     }
     
-  
+ 
  </style>
 
 </head>
@@ -134,7 +134,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
 
-                    <form id="updateGroups_form" action="" method="post" class="form-horizontal">
+                   <form id="updateGroups_form" action="" method="post" class="form-horizontal">
                         <!-- Modal Body -->
                         <div class="modal-body"  disply="inline-block">
                          <label>소모임 번호&nbsp;  :&nbsp; </label>
@@ -187,7 +187,7 @@
             		$("#startDate").val($(this).children().eq(7).text());
             		$("#endDate").val($(this).children().eq(8).text());
             		$("#place").val($(this).children().eq(3).text());
-            		$("#memberLimit").val($(this).children(6).eq(5).text());
+            		$("#memberLimit").val($(this).children().eq(6).text());
             		$("#status").val($(this).children().eq(9).text());
             		$("#groupCategory").val($(this).children().eq(1).text());
             		
@@ -218,7 +218,7 @@
             	
             	$('#groupLiModal').on('hidden.bs.modal', function () {
             		$("#groupCategory option").attr("selected", false);
-            		})
+            	});
             	
             		
             		
@@ -226,27 +226,25 @@
             		$("#updateGroupList_Btn").click(function(){
             		var formData = $("#updateGroups_form").serialize();
             		console.log(formData); //테스트과정
-            		$.ajax({
-	            		url:"updateGroups.ad",
-	            		data: $("#updateGroups_form").serialize(),
-	            		type:"post",
-	            		success : function(result)
-	            		{
-	            			if(result > 0)
-            				{
-	            				alertify.alert("소모임 관리", "소모임 수정 성공", function(){ location.reload();});
-            				}
-	            			else
-            				{
-	            				alertify.alert("소모임 관리", "소모임 수정 실패", function(){ location.reload();});
-            				}
-	            		},
-	            		error: function()
-	            		{
-	            			console.log("ajax통신 실패");
-	            		}
-	            	}); 
-            	}) 
+            		
+            		alertify.confirm('소모임 수정', '해당 소모임을 수정하시겠습니까?',function(){
+						            		$.ajax({
+							            		url:"updateGroups.ad",
+							            		data: $("#updateGroups_form").serialize(),
+							            		type:"post",
+							            		success : function(msg)
+							            		{
+							            			
+							            			alertify.alert("소모임 관리", "수정성공!", function(){ location.reload();});
+							            		},
+							            		error: function()
+							            		{
+							            			console.log("ajax통신 실패");
+							            		}
+							            	   }); 
+						            		},
+						            		function(){} );
+                  					}); 
             	
             	
             		//삭제버튼 에이작스
@@ -258,9 +256,7 @@
 
             		//console.log(grNo);
             		
-            				alertify.confirm('소모임 삭제', '해당 소모임을 삭제하시겠습니까?', 
-           						 function()
-           						 {
+            				alertify.confirm('소모임 삭제', '해당 소모임을 삭제하시겠습니까?', function(){
            							$.ajax({
            								url:"deleteGroups.ad",
            								data:{"grNo" : grNo},
@@ -278,7 +274,7 @@
           							 }, 
           							 function(){} );
            		
-           	});
+             			});
             	
             	
             		
