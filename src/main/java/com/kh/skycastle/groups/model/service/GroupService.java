@@ -22,8 +22,6 @@ public interface GroupService {
 	
 	// 검색 구현하려면 마이바티스 참조
 	
-	// 2. 소모임 개설 신청용 서비스
-	int insertGroup(Groups g);
 	
 	// 3. 해당 소모임 상세조회용 서비스
 	ArrayList<GroupDto> selectGroup(int gno);
@@ -37,7 +35,12 @@ public interface GroupService {
 	// 찜취소
 	int dipsOut(Dips d);
 	
-	// 4. 소모임 탈퇴용서비스
+	// 소모임 참가 신청용 서비스
+	int groupApply(int userNo, int groupNo, Groups g);
+	
+	// 소모임 탈퇴용서비스
 	int deleteGroup(int gno);
 	
+	// 소모임 개설 신청용 서비스
+	int insertGroup(int userNo, int groupNo, Groups g);
 }

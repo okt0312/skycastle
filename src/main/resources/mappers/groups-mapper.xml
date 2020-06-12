@@ -56,24 +56,26 @@
 	</select>
 	
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
-	<select id="selectGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
-		SELECT G.*, M.USER_NO
+	<select id="selectMyGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
+		SELECT G.*, M.USER_NO, A.CHANGE_NAME
 		FROM GROUPS G
-		JOIN MEMBER M ON(LEADER_NO = USER_NO)
+		JOIN MEMBER M ON(G.LEADER_NO = M.USER_NO)
+		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
 		<where>
 			<if test='status!=null'>
-	            USER_NO=#{userNo}
+	            M.USER_NO=#{userNo}
 	            AND G.STATUS=#{status}
+	            AND A.GROUP_CATEGORY=3
 			</if>
 		</where>
-		ORDER BY START_DATE DESC
+		ORDER BY G.START_DATE DESC
 	</select>
 	
 	<select id="selectGroup" parameterType="_int" resultMap="groupDtoResultSet">
 		SELECT G.*, A.CHANGE_NAME
 		  FROM GROUPS G
           JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
-		 WHERE G.GROUP_NO=#{gno}
+		 WHERE G.GROUP_NO=#{gno} AND A.GROUP_CATEGORY=3
 	</select>
 
 
@@ -129,10 +131,10 @@
 	</select>
 	
 
-	<select id="selectGroupNoticeList" resultMap="groupNoticeResultSet">
+	<select id="selectGroupNoticeList" parameterType="_int"  resultMap="groupNoticeResultSet">
 		SELECT *
 		FROM GROUP_NOTICE
-		WHERE STATUS='Y'
+		WHERE STATUS='Y' AND GROUP_NO=#{gno}
 		ORDER BY GNOTICE_NO DESC
 	</select>
 	

@@ -12,7 +12,7 @@ public interface MypageGroupService {
 	// 1-1. 소모임 공지사항 총개수 조회용 서비스
 	int selectGroupNoticeListCount();
 	// 1-2. 요청한 페이지에 보여질 소모임 공지사항 리스트 조회용 서비스
-	ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi);
+	ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi, int gno);
 	
 	// 검색 구현하려면 마이바티스 참조
 	

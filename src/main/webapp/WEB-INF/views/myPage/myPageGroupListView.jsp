@@ -171,9 +171,11 @@
 		    <div class="grouplist">
 	            <input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 	            <input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
+	            
 		        <div class="groupThumbnailArea">
-		            <img src="img/${ g.changeName }" alt="" class="" width="150px">
+		            <img src="resources/uploadFiles/groups/${ g.changeName }" width="150px">
 		        </div>
+		        
 		        <div class="groupTextArea">
 		            <h3 style="margin: 4px 0px;">${ g.groupTitle }</h3>
 		            <p style="margin: 0px 0px;">

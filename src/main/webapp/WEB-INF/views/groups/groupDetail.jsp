@@ -56,68 +56,71 @@
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
+	<c:forEach var="g" items="${ list }">
 	<div id="inner" style="width: 800px; margin: auto;">
 		<br><br><br><br><br>
 		<h2>소모임</h2>
 		<br><hr><br>
-		
-		<div id="detailSum" style="width:100%; height: 250px;">
-			<div style="float: left;">
-		    	<img src="resources/uploadFiles/groups/${ g.changeName }" style="width:250px;">
+			<div id="detailSum" style="width:100%; height: 250px;">
+				<div style="float: left;">
+			    	<img src="resources/uploadFiles/groups/${ g.changeName }" style="width:250px;">
+				</div>
+				
+				<div style="width: 515px; height: 220px; vertical-align: middle; float: right; margin-left: 35px; margin-top:30px;">
+			        <h2>${ g.groupTitle }</h2>
+					<p>
+						<c:choose>
+			         		<c:when test="${ g.groupCategory == 1 }">
+								대입
+			            	</c:when>
+			            	<c:when test="${ g.groupCategory == 2 }">
+								공무원임용
+			            	</c:when>
+			            	<c:when test="${ g.groupCategory == 3 }">
+								어학회화
+			            	</c:when>
+			            	<c:when test="${ g.groupCategory == 4 }">
+								자격증
+			            	</c:when>
+			            	<c:when test="${ g.groupCategory == 5 }">
+								기타
+			            	</c:when>
+			            	<c:otherwise>
+			            		카테고리가 없습니다
+			            	</c:otherwise>
+			            </c:choose>
+						
+						&nbsp;|&nbsp;${ g.groupSubtitle }<br><br>
+						소모임 신청 일정 : ${ g.startDate } ~ ${ g.endDate }<br>
+						장소 : ${ g.place }<br>
+						
+<%--
+ 						<c:choose>
+			         		<c:when test="${ g.gradeLimit == 1 }">
+								자격 : VVIP만 신청 가능<br>
+			            	</c:when>
+			            	<c:when test="${ g.gradeLimit == 2 }">
+								자격 : VIP 이상 신청 가능<br>
+			            	</c:when>
+			            	<c:when test="${ g.gradeLimit == 3 }">
+								자격 : GOLD 이상 신청 가능<br>
+			            	</c:when>
+			            	<c:when test="${ g.gradeLimit == 4 }">
+								자격 : SILVER 이상 신청 가능<br>
+			            	</c:when>
+			            	<c:when test="${ g.gradeLimit == 5 }">
+								자격 : BRONZE 이상 신청 가능<br>
+			            	</c:when>
+			            	<c:otherwise>
+			            		자격 : 신청 자격 제한이 없습니다.<br>
+			            	</c:otherwise>
+			            </c:choose>
+--%>
+						정원 : ${ g.memberLimit }명<br>
+					</p>
+			        <br><br><br><br><br>
+		    	</div>
 			</div>
-			
-			<div style="width: 515px; height: 220px; vertical-align: middle; float: right; margin-left: 35px; margin-top:30px;">
-		        <h2>${ g.groupTitle }</h2>
-				<p>
-					<c:choose>
-		         		<c:when test="${ g.groupCategory == 1 }">
-							대입
-		            	</c:when>
-		            	<c:when test="${ g.groupCategory == 2 }">
-							공무원임용
-		            	</c:when>
-		            	<c:when test="${ g.groupCategory == 3 }">
-							어학회화
-		            	</c:when>
-		            	<c:when test="${ g.groupCategory == 4 }">
-							자격증
-		            	</c:when>
-		            	<c:when test="${ g.groupCategory == 5 }">
-							기타
-		            	</c:when>
-		            	<c:otherwise>
-		            		카테고리가 없습니다
-		            	</c:otherwise>
-		            </c:choose>
-					
-					&nbsp;|&nbsp;${ g.groupSubtitle }<br><br>
-					소모임 신청 일정 : ${ g.startDate } ~ ${ g.endDate }<br>
-					장소 : ${ g.place }<br>
-					<c:choose>
-		         		<c:when test="${ g.gradeLimit == 1 }">
-							자격 : VVIP만 신청 가능<br>
-		            	</c:when>
-		            	<c:when test="${ g.gradeLimit == 2 }">
-							자격 : VIP 이상 신청 가능<br>
-		            	</c:when>
-		            	<c:when test="${ g.gradeLimit == 3 }">
-							자격 : GOLD 이상 신청 가능<br>
-		            	</c:when>
-		            	<c:when test="${ g.gradeLimit == 4 }">
-							자격 : SILVER 이상 신청 가능<br>
-		            	</c:when>
-		            	<c:when test="${ g.gradeLimit == 5 }">
-							자격 : BRONZE 이상 신청 가능<br>
-		            	</c:when>
-		            	<c:otherwise>
-		            		자격 : 신청 자격 제한이 없습니다.<br>
-		            	</c:otherwise>
-		            </c:choose>
-					정원 : ${ g.memberLimit }명<br>
-				</p>
-		        <br><br><br><br><br>
-	    	</div>
-		</div>
 		<br><br><br><br>
 	
 		<div class="statusBar" style="width:100%; height: 60px; vertical-align: middle; border: 1px solid black;">
@@ -136,15 +139,14 @@
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
 					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
-					<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
+					<input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-					
 					<c:choose>
 						<c:when test="${ loginUser != null }">	<!-- 로그인 했을때 -->
 							<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn" class="sky_btn2 loginBtn" style="float: left;" type="button">신청하기</button>
+							<button id="loginBtn" class="sky_btn2 loginBtn" type="button">신청하기</button>
 						</c:otherwise>
 					</c:choose>
 				</form>
@@ -156,6 +158,8 @@
 		    <textarea style="width: 100%; text-align: left;">${ g.groupContent }</textarea>
 		</div>
 	</div>
+	</c:forEach>
+	
     <jsp:include page="../common/footer.jsp"/>
 	
 		
@@ -204,12 +208,10 @@
     	$(function(){
     		$('#dips').click(function(){
     			
-					var gno = $("#group_no").val();
+				var gno = $("#group_no").val();
+				
 				if( $("#dips").attr("class")=="sky_btn1 dipsIn"){ // 버튼의 글자가 찜하기 일떄. 빈 하트일 경우 --> 위시리스트 등록
 				
-//					location.href = "dipsIn.gr?gno=" + $(this).children("#group_no").val()
-//					+ "&userNo=" + "${ loginUser.userNo }";
-
 					$.ajax({
 	     				url:"dipsIn.gr",
 	     				data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
@@ -225,7 +227,6 @@
         				}
     				});
 				} else { // 채워진 하트일 경우 --> 위시리스트 삭제
-//					location.href = "dipsOut.gr";
 					
 					$.ajax({
 						url:"dipsOut.gr", 
@@ -245,7 +246,6 @@
 				}
     		 });
     	});
-		
     </script>
 
 </body>

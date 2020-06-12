@@ -8,8 +8,7 @@
 <title>mygroupNoticeListView</title>
 <style>
 
-	#mygroup
-	{
+	#mygroup {
 		width: 100%;
 		height: 1000px;
 	}
@@ -25,8 +24,7 @@
 	    width: 130px;
 	    margin: auto;
 	}
-	.sky_btn1 /* 확인 버튼 */
-	{
+	.sky_btn1 {
 	    width: 130px;
 	    height: 40px;
 	    text-align: center;
@@ -39,8 +37,7 @@
 	    color: #000000;
 	    border: 0;
 	}
-	.sky_btn2   /* 취소, 첨부파일 버튼 */
-	{
+	.sky_btn2 {
 	    width: 130px;
 	    height: 40px;
 	    text-align: center;
@@ -118,6 +115,9 @@
 	    text-decoration: underline;
 	    color: rgb(216, 64, 38);
 	    cursor: pointer;
+	}
+	#searchArea{
+		text-align: center;
 	}
 	
 	/* 페이징바 css */
@@ -216,7 +216,7 @@
             <table id="mygroupNoticeTable">
                 <tbody>
                 	<c:forEach items="${ list }" var="gn">
-	                    <tr class="noticeTitle">
+	                    <tr class="groupNoticeTitle">
 	                        <td class="title">${ gn.gnoticeTitle }</td>
 	                        <td class="enrollDate">${ gn.enrollDate }</td>
 	                    </tr>
@@ -226,8 +226,8 @@
             
             <script>
             	$(function(){
-            		$("#boardList tbody tr").click(function(){
-            			location.href = "mygroupNoticeDetail.gr?gno=" + $(this).children().eq(0).text();
+            		$("#mygroupNoticeTable tbody tr").click(function(){
+            			location.href = "mygroupNoticeDetail.gr?gnno=" + $(this).children().eq(0).text();
             		});
             	});
             	

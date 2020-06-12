@@ -16,13 +16,13 @@ public class MypageGroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupNoticeListCount");
 	}
 	
-	public ArrayList<GroupNotice> selectGroupNoticeList(SqlSessionTemplate sqlSession, PageInfo pi){
+	public ArrayList<GroupNotice> selectGroupNoticeList(SqlSessionTemplate sqlSession, PageInfo pi, int gno){
 		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupNoticeList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupNoticeList", gno, rowBounds);
 	}
 
 	public int insertGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
