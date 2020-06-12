@@ -10,9 +10,9 @@ import com.kh.skycastle.groups.model.vo.Chat;
 @Repository("chatDao")
 public class ChatDao {
 
-	public ArrayList<Chat> selectChatList(SqlSessionTemplate sqlSession, String nowTime)
+	public ArrayList<Chat> selectChatList(SqlSessionTemplate sqlSession, Chat c)
 	{
-		ArrayList<Chat> list = (ArrayList)sqlSession.selectList("chatMapper.selectChatList", nowTime);
+		ArrayList<Chat> list = (ArrayList)sqlSession.selectList("chatMapper.selectChatList", c);
 		
 		for(int i = 0; i < list.size(); i++)
 		{
@@ -37,9 +37,9 @@ public class ChatDao {
 		return sqlSession.insert("chatMapper.insertChat", c);
 	}
 	
-	public ArrayList<Chat> getChatListByRecent(SqlSessionTemplate sqlSession, String chatId)
+	public ArrayList<Chat> getChatListByRecent(SqlSessionTemplate sqlSession, Chat c)
 	{
-		ArrayList<Chat> list = (ArrayList)sqlSession.selectList("chatMapper.getChatListByRecent", chatId);
+		ArrayList<Chat> list = (ArrayList)sqlSession.selectList("chatMapper.getChatListByRecent", c);
 		
 		for(int i = 0; i < list.size(); i++)
 		{

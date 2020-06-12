@@ -71,7 +71,7 @@
 
 		<div>
 			<button id="chat-btn" class="sky_btn1"
-			onclick="window.open('chatForm.gr','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
+			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
 		</div>
 		<div id="option-btn" style="margin-top: 300px;">
 			<button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
