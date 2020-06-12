@@ -1,7 +1,5 @@
 package com.kh.skycastle.groups.model.vo;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +13,9 @@ import lombok.ToString;
 @ToString
 public class Chat {
 	
+	private String chatId;
 	private String chatName;
 	private String chatContent;
-	private Date chatTime;
+	private String chatTime;
 	
 }

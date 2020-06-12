@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="chatMapper">
+
+	<resultMap type="Chat" id="chatResultSet">
+		
+		<id column="CHAT_ID" property="chatId"/>
+		<result column="CHAT_NAME" property="chatName"/>
+		<result column="CHAT_CONTENT" property="chatContent"/>
+		<result column="CHAT_TIME" property="chatTime"/>
+	
+	</resultMap>
+	
+	<select id="selectChatList" parameterType="string" resultMap="chatResultSet">
+		SELECT *
+		  FROM CHAT
+		 WHERE CHAT_TIME > #{nowTime} 
+		 ORDER BY CHAT_TIME
+	</select>
+	
+	<insert id="insertChat" parameterType="Chat">
+		INSERT INTO CHAT
+		VALUES (SEQ_CHAT.NEXTVAL, #{chatName}, #{chatContent}, SYSDATE)
+	</insert>
+	
+	<select id="getChatListByRecent" parameterType="string" resultMap="chatResultSet">
+		SELECT *
+		  FROM CHAT
+		 WHERE CHAT_ID > ${chatId}
+		 ORDER BY CHAT_TIME
+	</select>
+</mapper>
