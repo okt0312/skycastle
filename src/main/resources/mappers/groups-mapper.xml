@@ -150,6 +150,12 @@
 		 WHERE GNOTICE_NO=#{gnno}
 	</select>
 	
+	<update id="deleteGroupNotice" parameterType="_int">
+		UPDATE GROUP_NOTICE
+		   SET STATUS='N'
+		 WHERE GNOTICE_NO=#{gnoticeNo}
+	</update>
+	
  	<!-- 공지사항 등록용 -->
  	<insert id="insertGroupNotice">
 	 	INSERT INTO GROUP_NOTICE

@@ -47,20 +47,12 @@ public class MypageGroupController {
 	public ModelAndView selectGroupNotice(int gnno, int userNo, ModelAndView mv) {
 		
 		int result = mgService.increaseGroupNoticeCount(gnno);
+			
+		GroupNotice g = mgService.selectGroupNotice(gnno);
 		
-		if(result > 0) {	// 제대로 찾은 경우
+		mv.addObject("g", g);
+		mv.setViewName("groups/mygroupNoticeDetail");
 			
-			GroupNotice g = mgService.selectGroupNotice(gnno);
-			
-			mv.addObject("g", g);
-			mv.setViewName("groups/mygroupNoticeDetail");
-			
-		}else {				// 게시글 상세 조회 실패. 제대로 찾지 못함
-			
-//			mv.addObject("msg", "게시글 상세조회 실패");
-//			mv.setViewName("common/errorPage");
-			
-		}
 		return mv;
 	}
 	
@@ -83,34 +75,33 @@ public class MypageGroupController {
 	}
 	
 	// 방장 공지사항 수정
-//	@RequestMapping("mygroupNoticeUpdate.gr")
-//	public String updateAdNotice(Notice n, Model model, HttpSession session) {
-//		System.out.println("컨트롤러n"+n);
-//		System.out.println("컨트롤러 세션"+ session);
-//		int result = adBoService.updateAdNotice(n);
-//		
-//		if(result > 0) { 
-//			
-//			return "redirect:noticeMgmt.ad";
-//			//return "redirect:noticeDetail.ad?bno="+n.getNoticeNo();
-//		} else { 
-//			
-//			return "수정 실패";
-//		}
-//	}
+	@RequestMapping("mygroupNoticeUpdate.gr")
+	public String updateGroupNotice(Notice n, Model model, HttpSession session) {
+		
+		int result = mgService.updateAdNotice(n);
+		
+		if(result > 0) { 
+			
+			return "redirect:noticeMgmt.ad";
+			//return "redirect:noticeDetail.ad?bno="+n.getNoticeNo();
+		} else { 
+			
+			return "수정 실패";
+		}
+	}
 	
 	// 방장 공지사항 삭제 - 수정중
-//	@RequestMapping("deleteNotice.ad")
-//	public String deleteAdNotice(int noticeNo, Model model, HttpSession session) {
-//		int result = adBoService.deleteAdNotice(noticeNo);
-//		
-//		if(result > 0) {
-//			
-//			return "redirect:noticeMgmt.ad";
-//		} else {
-//			return "삭제 실패";
-//		}
-//	}
+	@RequestMapping("mygroupNoticedelete.gr")
+	public String deleteGroupNotice(int gnoticeNo, Model model, HttpSession session) {
+		int result = mgService.deleteGroupNotice(gnoticeNo);
+		
+		if(result > 0) {
+			
+			return "redirect:noticeMgmt.ad";
+		} else {
+			return "삭제 실패";
+		}
+	}
 	
 	
 	

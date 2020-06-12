@@ -182,7 +182,7 @@
 					<tr>
 						<td style="width: 850px; font-weight: 600;">${ gn.gnoticeTitle }</td>
 						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.enrollDate }</td>
-						<td style="width: 70px; text-align: center; font-size: 12px;">조회수 23</td>
+						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.count }</td>
 					</tr>
 				</table>
 			</div>
@@ -199,26 +199,24 @@
 					data-target="#reportModal">신고</button>
 			</div>
 			
-			<!-- 수업 : 수정하기, 삭제하기 버튼은 이글이 본인글일 경우만 보여져야됨 -->
+			<!-- 방장에게만 보이는 버튼 -->
 			<c:if test="${ loginUser.userNo eq g.leaderNo }">
 	            <div align="center">
-	                <button class="btn btn-primary" onclick="postFormSubmit(1);">수정하기</button>
-	                <button class="btn btn-danger" onclick="postFormSubmit(2);">삭제하기</button>
+	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
+	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
 	            
 	            <form action="" id="postForm" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
-	            	<input type="hidden" name="noticeNo" value="${ r.noticeNo }">
+	            	<input type="hidden" name="noticeNo" value="${ r.noticeNo }"><!-- 댓글 ajax에서만 스는데... -->
 	            </form>
-	            <!-- delete.bo?bno=15&fileName=2020xxxx.jpg 첨부파일 있을 경우 -->
-	            <!-- delete.bo?bno=15&fileName= 첨부파일 없으면 이렇게 넘어온다 -->
 	            
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-	            			$("#postForm").attr("action", "updateForm.bo");
+	            			$("#postForm").attr("action", "mygroupNoticeUpdate.gr");
 	            		}else {			// 삭제하기 클릭시
-	            			$("#postForm").attr("action", "delete.bo");
+	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
 	            		}
 	            		$("#postForm").submit();
 	            	}

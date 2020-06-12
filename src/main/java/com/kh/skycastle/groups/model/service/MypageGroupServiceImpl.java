@@ -45,8 +45,8 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 
 	@Override
-	public int deleteGroupNotice(int gnno) {
-		return 0;
+	public int deleteGroupNotice(int gnoticeNo) {
+		return mgDao.deleteGroupNotice(sqlSession, gnoticeNo);
 	}
 
 	@Override

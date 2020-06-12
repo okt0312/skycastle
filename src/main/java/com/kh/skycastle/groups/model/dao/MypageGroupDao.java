@@ -45,6 +45,10 @@ public class MypageGroupDao {
 	public GroupNotice selectGroupNotice(SqlSessionTemplate sqlSession, int gnno) {
 		return sqlSession.selectOne("groupsMapper.selectGroupNotice", gnno);
 	}
+
+	public int deleteGroupNotice(SqlSessionTemplate sqlSession, int gnoticeNo) {
+		return sqlSession.update("groupsMapper.deleteGroupNotice", gnoticeNo);
+	}
 	
 	
 

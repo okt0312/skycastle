@@ -26,7 +26,7 @@ public interface MypageGroupService {
 	GroupNotice selectGroupNotice(int gnno);
 	
 	// 4. 소모임 공지사항 삭제용 서비스
-	int deleteGroupNotice(int gnno);
+	int deleteGroupNotice(int gnoticeNo);
 	
 	// 5. 소모임 공지사항 수정용 서비스
 	int updateGroupNotice(GroupNotice gn);
