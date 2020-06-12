@@ -78,6 +78,7 @@
     border-radius: 5px;
     text-align: center;
     background-color: #fdce07;
+    border-style:none;
     color: #333333;
     font-size: 14px;
     font-weight: 700;

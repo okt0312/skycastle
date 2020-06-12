@@ -34,6 +34,7 @@
     height:50px;
     background:#fdce07;
     border-radius: 4px;
+    border-style:none;
     font-size: 14px;
   }
   #mainBtn a{

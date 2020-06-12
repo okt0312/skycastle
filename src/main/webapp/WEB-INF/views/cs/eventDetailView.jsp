@@ -92,6 +92,7 @@
     width:320px;
     height:40px;
     background-color: #fdce07;
+    border-style:none;
     font-size: 14px;
     font-weight: 400;
 }

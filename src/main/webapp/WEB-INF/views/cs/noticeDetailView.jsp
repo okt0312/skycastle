@@ -87,6 +87,7 @@
     height: 30px;
     border-radius: 4px;
     background: #fdce07;
+    border-style:none;
     color: #333333;
     font-size: 14px;
     font-weight: 400;
