@@ -901,7 +901,7 @@
 		});
 		
 		$("#seatTable .Style10").click(function(){
-			alert("수리중으로 사용불가합니다.");
+			alertify.alert("skycastle 내용:", "수리중으로 사용불가합니다.");
 		});
 		
 	});

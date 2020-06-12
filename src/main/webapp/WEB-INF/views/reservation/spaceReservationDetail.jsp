@@ -373,19 +373,19 @@
 			var timeOption = $("#time option");
 			
 			if($("#start").val() == ''){
-				alert("시작시간은 선택해주세요");
+				alertify.alert("skycastle 내용:", "시작시간은 선택해주세요");
 				return;
 			}else if($("#end").val() != '24:00'){
 				for(var i=0; i<=timeOption.length; i++){
 					if(end == timeOption.eq(i).val()){
 						if(timeOption.eq(i).prop("disabled")){
-							alert("다음 예약으로 인해시간 연장이 불가합니다.");
+							alertify.alert("skycastle 내용:", "다음 예약으로 인해시간 연장이 불가합니다.");
 							return;	
 						}
 					}		
 				}
 			}else if($("#end").val() == '24:00'){
-				alert("마지막타임입니다.");
+				alertify.alert("skycastle 내용:", "마지막타임입니다.");
 				return;
 			}
 			
@@ -423,12 +423,12 @@
 					var includeEndTime = addTimeList.eq(i).text().substr(29,2);
 					
 					if(addTimeList.eq(i).text() == addTimeText){
-						alert("이미 선택되었습니다.");	
+						alertify.alert("skycastle 내용:", "이미 선택되었습니다.");	
 						return;
 					}else if((includeDay == $("#date").val() && includeStartTime <= $("#start").val().substr(0,2) 
 							&& includeEndTime > $("#start").val().substr(0,2)) || (includeDay == $("#date").val() &&
 							 $("#start").val().substr(0,2) <= includeStartTime && $("#end").val().substr(0,2) > includeStartTime)){
-						alert("선택 시간이 중첩되었습니다.");
+						alertify.alert("skycastle 내용:", "선택 시간이 중첩되었습니다.");
 						return;
 					}
 				}
@@ -449,10 +449,10 @@
 					}
 				
 				}else{
-					alert("시작시간을 선택해주세요");
+					alertify.alert("skycastle 내용:", "시작시간을 선택해주세요");
 				}
            	}else{
-           		alert("최종선택을 해제해주세요.");
+           		alertify.alert("skycastle 내용:", "최종선택을 해제해주세요.");
            	}
  
 		});
@@ -464,7 +464,7 @@
 				$("#discountDiv").css("display","block");
 				console.log($("#total").val());
 			}else{
-				alert("시간 선택을 해주세요.")
+				alertify.alert("skycastle 내용:", "시간 선택을 해주세요.")
 			}
 			
 		});
@@ -598,13 +598,13 @@
 	function reservation(){
 			var loginUser = '${loginUser}';
 			if(loginUser == ''){
-				alert("로그인이 필요한 서비스입니다.");
+				alertify.alert("skycastle 내용:", "로그인이 필요한 서비스입니다.");
 				return false;
 			}else if($("#tileList").text()==''){
-				alert("시간 선택을 확인해주세요.");
+				alertify.alert("skycastle 내용:", "시간 선택을 확인해주세요.");
 				return false;
 			}else if(finalChoose != true){
-				alert("최종선택을 해주세요.");
+				alertify.alert("skycastle 내용:", "최종선택을 해주세요.");
 				return false;
 			}
 	}

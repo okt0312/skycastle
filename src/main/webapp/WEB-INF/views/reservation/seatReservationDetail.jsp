@@ -493,10 +493,10 @@
 			
 			var loginUser = '${loginUser}';
 			if(loginUser == ''){
-				alert("로그인이 필요한 서비스입니다.");
+				alertify.alert("skycastle 내용:" , "로그인이 필요한 서비스입니다.");
 				return false;
 			}else if($("#tileList").text()==''){
-				alert("시간 선택을 확인해주세요.");
+				alertify.alert("skycastle 내용:", "시간 선택을 확인해주세요.");
 				return false;
 			}else{
 				return true;

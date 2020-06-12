@@ -8,6 +8,20 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+<!-- alertify CDN -->
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
+
 <script>
 	var IMP = window.IMP; // 생략가능
 	IMP.init('imp40758225'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -43,7 +57,7 @@
 	        }
 	        msg += '에러내용 : ' + rsp.error_msg;
 	    }
-	    alert(msg);
+	    alertify.alert("skycastle 내용:", msg);
 	});
 </script>
 </head>

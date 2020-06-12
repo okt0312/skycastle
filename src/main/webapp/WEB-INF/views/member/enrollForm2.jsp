@@ -7,8 +7,21 @@
 <meta charset="UTF-8">
 <title>회원가입 정보입력</title>
 <!-- jQuery 라이브러리 -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- alertify CDN -->
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
+
 <style>
 .outer {
 	margin-top: 80px;
@@ -208,12 +221,13 @@ select::-ms-expand {
 			var pwd1 = document.getElementById("memPwd1"); // 비밀번호
 			var pwd2 = document.getElementById("memPwd2"); // 비밀번호 확인 
 			var name = document.getElementById("userName"); // 이름
+			var authcode = document.getElementById("inputVeriCode");
 	
 			// 이메일 검사 
 			var getEmail = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/i;
 	
 			if (!getEmail.test(userId.value)) {
-				alert("이메일 주소가 유효하지 않습니다.");
+				alertify.alert("skycastle 내용:", "이메일 주소가 유효하지 않습니다.");
 				userId.value = "";
 				userId.focus();
 				return false;
@@ -223,7 +237,7 @@ select::-ms-expand {
 			// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
 			var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
 			if (!regExp.test(pwd1.value)) {
-				alert("비밀번호가 유효하지 않습니다.");
+				alertify.alert("skycastle 내용:", "비밀번호가 유효하지 않습니다.");
 				pwd1.value = "";
 				pwd1.focus();
 				return false;
@@ -231,7 +245,7 @@ select::-ms-expand {
 	
 			// 비밀번호값과 비밀번호확인값이 일치하는지 검사
 			if (pwd1.value != pwd2.value) {
-				alert("비밀번호가 일치하지 않습니다.");
+				alertify.alert("skycastle 내용:", "비밀번호가 일치하지 않습니다.");
 				pwd2.value = "";
 				pwd2.focus();
 				return false;
@@ -241,7 +255,7 @@ select::-ms-expand {
 			// 한글로만 2글자 이상
 			var regExp = /^[가-힣]{2,}$/;
 			if (!regExp.test(name.value)) {
-				alert("한글로만 2글자 이상 입력해주세요.");
+				alertify.alert("skycastle 내용:", "한글로만 2글자 이상 입력해주세요.");
 				name.value = "";
 				name.focus();
 				return false;
@@ -255,35 +269,36 @@ select::-ms-expand {
 	
 			$("#joinBtn").on("click", function() {
 				if ($("#userId").val() == "") {
-					alert("아이디(이메일)를 입력해주세요.");
+					alertify.alert("아이디(이메일)를 입력해주세요.");
 					$("#userId").focus();
 					return false;
 				}
 				if ($("#memPwd1").val() == "") {
-					alert("비밀번호를 입력해주세요.");
+					alertify.alert("skycastle 내용:", "비밀번호를 입력해주세요.");
 					$("#memPwd1").focus();
 					return false;
 				}
 				if ($("#memPwd2").val() == "") {
-					alert("비밀번호를 확인란을 입력해주세요.");
+					alertify.alert("skycastle 내용:", "비밀번호를 확인란을 입력해주세요.");
 					$("#memPwd2").focus();
 					return false;
 				}
 				if ($("#userName").val() == "") {
-					alert("성명을 입력해주세요.");
+					alertify.alert("skycastle 내용:", "성명을 입력해주세요.");
 					$("#userName").focus();
 					return false;
 				}
-				/* if( authEmail == true){
-					return location.href = "enrollComplete.me";
-				}else{
-					alert("이메일 인증을 완료하여 주세요.");
+				if ($("#inputVeriCode").val() == "") {
+					alertify.alert("skycastle 내용:", "이메일 인증을 완료해주세요.");
+					$("#inputVeriCode").focus();
 					return false;
-				} */
-				if (("#inputVeriCode").val() == ranNum.value) {
+				}
+				
+				/* 인증번호 일치여부 */
+				if ($("#inputVeriCode").val() == ranNum(true)) {
 					return location.href = "enrollComplete.me";
 				} else {
-					alert("인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
+					alertify.alert("skycastle 내용:", "인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
 					return false;
 				}
 	
@@ -335,7 +350,7 @@ select::-ms-expand {
 							}
 						},
 						error : function() {
-							alert("중복체크 중 에러 발생");
+							alertify.alert("skycastle 내용:", "중복체크 중 에러 발생");
 						}
 					});
 				} else {
@@ -343,13 +358,11 @@ select::-ms-expand {
 				}
 			});
 		});
-	</script>
-	
-	<script>
+
 		// 인증번호 전송 
 		function authEmail() {
 			var emailVal = $("#userId").val();
-	
+		
 			$.ajax({
 				url : "sendCode.me",
 				type : "post",
@@ -357,13 +370,13 @@ select::-ms-expand {
 				},
 				success : function(ranNum) {
 					if(emailVal.length == 0){
-						alert("이메일을 입력해주세요");
+						alertify.alert("skycastle 내용:", "이메일을 입력해주세요");
 					}else{
-						alert("입력하신 이메일로 인증번호를 전송하였습니다.");
+						alertify.alert("skycastle 내용:", "입력하신 이메일로 인증번호를 전송하였습니다.");
 					}
 				},
 				error : function() {
-					alert("전송 중 오류 발생");
+					alertify.alert("skycastle 내용:", "전송 중 오류 발생");
 				}
 			});
 		}
