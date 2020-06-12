@@ -2,7 +2,6 @@ package com.kh.skycastle.groups.controller;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.Gson;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
@@ -35,7 +32,7 @@ public class GroupController {
 		int groupListCount = gService.selectGroupListCount();
 		
 		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		ArrayList<GroupDto> list = gService.selectGroupListAll(pi, gd);
+		ArrayList<Groups> list = gService.selectGroupListAll(pi, gd);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
@@ -46,7 +43,7 @@ public class GroupController {
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
 		
-		Groups g = gService.selectGroup(gno);
+		GroupDto g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
 		

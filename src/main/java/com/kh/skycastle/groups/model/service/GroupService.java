@@ -13,7 +13,7 @@ public interface GroupService {
 	// 1-1. 소모임 총개수 조회용 서비스
 	int selectGroupListCount();
 	// 1-2. 요청한 페이지에 보여질 소모임 리스트 조회용 서비스
-	ArrayList<GroupDto> selectGroupListAll(PageInfo pi, GroupDto gd);
+	ArrayList<Groups> selectGroupListAll(PageInfo pi, GroupDto gd);
 	// 1-3. 요청한 페이지에 보여질 마이페이지 소모임 상태별 리스트 조회용 서비스
 	ArrayList<GroupDto> selectMyGroupList(PageInfo pi, GroupDto gd);
 	// 1-4. 요청한 페이지에 보여질 마이페이지 찜한 소모임 리스트 조회용 서비스
@@ -26,7 +26,7 @@ public interface GroupService {
 	int insertGroup(Groups g);
 	
 	// 3. 해당 소모임 상세조회용 서비스
-	Groups selectGroup(int gno);
+	GroupDto selectGroup(int gno);
 	// 3-1. 회원 찜하기 여부 확인
 	int countDips(Dips d);
 	

@@ -27,7 +27,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public ArrayList<GroupDto> selectGroupListAll(PageInfo pi, GroupDto gd) {
+	public ArrayList<Groups> selectGroupListAll(PageInfo pi, GroupDto gd) {
 		return gDao.selectGroupListAll(sqlSession, pi, gd);
 	}
 	
@@ -42,7 +42,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	@Override
-	public Groups selectGroup(int gno) {
+	public GroupDto selectGroup(int gno) {
 		return gDao.selectGroup(sqlSession, gno);
 	}
 
