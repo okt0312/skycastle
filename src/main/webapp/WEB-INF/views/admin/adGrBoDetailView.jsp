@@ -70,6 +70,13 @@
         line-height: 10px;
         float: right;
     }
+    
+    /*댓글을품은 div  */
+    #reply_Out{
+     width:700px;
+      margin: auto;
+     
+    }
 </style>
 
 
@@ -111,11 +118,11 @@
                         
                          
                         <!-- 댓글관리 -->
-                        <div>
+                        <div id="reply_Out">
                             <table id="replyArea" class="table" align="center">
 					                <thead>
 					                    <tr>
-					                       <td colspan="3">댓글 (<span id="rcount"></span>) </td> 
+					                       <td colspan="5"style="">댓글 (<span id="rcount"></span>) </td> 
 					                    </tr>
 					                </thead>
 					                <tbody>
@@ -137,13 +144,13 @@
 					 
 					    	function selectAdReplyList(){
 				    		var gno = $("#gno").val();
-				    		console.log(gno);
+				    		console.log("댓글조회용gno"+gno);
 				    		
 				   			$.ajax({
 				   				url:"rlist.ad",
 				   				data:{"gno": gno},
 				   				success:function(list){
-				   					console.log(list);
+				   					console.log("댓글리스트"+list);
 				   					
 				   					// 댓글 갯수
 				   					 $("#rcount").text(list.length);
@@ -168,7 +175,7 @@
 				   				
 				   					
 				   				},error:function(){
-				   					console.log(gno);
+				   					console.log("댓글gno"+gno);
 				   					console.log("댓글 리스트 조회용 ajax 통신실패!!");
 				   				}
 				   			});
@@ -189,7 +196,7 @@
 					   					type:"post",
 					   					success:function(result){
 					   						
-					   						console.log(result);
+					   						console.log("댓글  삭제"+result);
 					   						selectAdReplyList();
 					   						//return "redirect:noticeDetail.ad?bno="+g.getGnoticeNo();
 					   						
