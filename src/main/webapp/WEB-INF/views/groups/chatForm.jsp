@@ -25,7 +25,8 @@
 			url : "chatSubmit.gr",
 			data : {
 				chatName : chatName,
-				chatContent : chatContent
+				chatContent : chatContent,
+				groupNo : ${ param.gno } 
 			},
 			success : function(result) {
 				if (result == 1) {
@@ -55,6 +56,7 @@
 			url : "chatList.gr",
 			data : {
 				listType: type,
+				groupNo : ${ param.gno } 
 			},
 			success : function(data) {
 				if(data == "") return;
@@ -155,7 +157,7 @@
 		$(document).ready(function(){
 			$("#chatName").val("${loginUser.userName}");
 			chatListFunction('today');
-		getInfiniteChat();
+			getInfiniteChat();
 		});
 	</script>
 </body>

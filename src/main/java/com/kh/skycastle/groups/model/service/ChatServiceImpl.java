@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.kh.skycastle.groups.model.dao.ChatDao;
 import com.kh.skycastle.groups.model.vo.Chat;
 
+import javafx.scene.chart.Chart;
+
 @Service("chatService")
 public class ChatServiceImpl implements ChatService{
 
@@ -19,8 +21,11 @@ public class ChatServiceImpl implements ChatService{
 	private ChatDao chatDao;
 
 	@Override
-	public ArrayList<Chat> selectChatList(String nowTime) {
-		return chatDao.selectChatList(sqlSession, nowTime);
+	public ArrayList<Chat> selectChatList(String nowTime, String groupNo) {
+		Chat c = new Chat();
+		c.setNowTime(nowTime);
+		c.setGroupNo(groupNo);
+		return chatDao.selectChatList(sqlSession, c);
 	}
 
 	@Override
@@ -29,9 +34,11 @@ public class ChatServiceImpl implements ChatService{
 	}
 
 	@Override
-	public ArrayList<Chat> getChatListByRecent(String chatId) {
-		
-		return chatDao.getChatListByRecent(sqlSession, chatId);
+	public ArrayList<Chat> getChatListByRecent(String chatId, String groupNo) {
+		Chat c = new Chat();
+		c.setChatId(chatId);
+		c.setGroupNo(groupNo);
+		return chatDao.getChatListByRecent(sqlSession, c);
 	}
 	
 }

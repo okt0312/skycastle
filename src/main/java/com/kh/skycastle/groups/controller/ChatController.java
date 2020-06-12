@@ -50,7 +50,7 @@ public class ChatController {
 
 	@ResponseBody
 	@RequestMapping(value = "chatList.gr", produces="text/html; charset=UTF-8")
-	public void chatList(String listType, HttpServletResponse response)
+	public void chatList(String listType, String groupNo, HttpServletResponse response)
 	{
 		response.setCharacterEncoding("utf-8");
 		if(listType == null || listType.equals(""))
@@ -65,7 +65,7 @@ public class ChatController {
 		else if(listType.equals("today"))
 		{
 			try {
-				response.getWriter().write(getToday());
+				response.getWriter().write(getToday(groupNo));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -75,7 +75,7 @@ public class ChatController {
 			try
 			{
 				Integer.parseInt(listType);
-				response.getWriter().write(getId(listType));
+				response.getWriter().write(getId(listType, groupNo));
 			}
 			catch(IOException e)
 			{
@@ -88,11 +88,11 @@ public class ChatController {
 		}
 	}
 	
-	public String getToday()
+	public String getToday(String groupNo)
 	{
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
-		ArrayList<Chat> chatList = chatService.selectChatList(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		ArrayList<Chat> chatList = chatService.selectChatList(new SimpleDateFormat("yyyy-MM-dd").format(new Date()), groupNo);
 		for(int i = 0; i < chatList.size(); i++)
 		{
 			result.append("[{\"value\": \"" + chatList.get(i).getChatName() + "\"},");
@@ -106,16 +106,14 @@ public class ChatController {
 		}
 		
 		result.append("], \"last\":\"" + chatList.get(chatList.size() - 1).getChatId() + "\"}");
-		System.out.println(chatList);
 		return result.toString();
 	}
 	
-	public String getId(String chatId)
+	public String getId(String chatId, String groupNo)
 	{
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
-		ArrayList<Chat> chatList = chatService.getChatListByRecent(chatId);
-		System.out.println(chatList);
+		ArrayList<Chat> chatList = chatService.getChatListByRecent(chatId, groupNo);
 		for(int i = 0; i < chatList.size(); i++)
 		{
 			result.append("[{\"value\": \"" + chatList.get(i).getChatName() + "\"},");
@@ -129,7 +127,6 @@ public class ChatController {
 		}
 		
 		result.append("], \"last\":\"" + chatList.get(chatList.size() - 1).getChatId() + "\"}");
-		System.out.println(chatList);
 		return result.toString();
 	}
 	

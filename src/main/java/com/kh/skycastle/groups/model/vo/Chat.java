@@ -17,5 +17,9 @@ public class Chat {
 	private String chatName;
 	private String chatContent;
 	private String chatTime;
+	private String groupNo;
+	
+	private String listType;
+	String nowTime;
 	
 }
