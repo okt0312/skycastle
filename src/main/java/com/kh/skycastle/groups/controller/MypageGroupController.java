@@ -44,14 +44,23 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 상세
 	@RequestMapping("mygroupNoticeDetail.gr")
-	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
+	public ModelAndView selectGroupNotice(int gnno, int userNo, ModelAndView mv) {
 		
-		Groups g = mgService.insertNotice(gno);
-
-		mv.addObject("g", g);
+		int result = mgService.increaseGroupNoticeCount(gnno);
 		
-		mv.setViewName("groups/groupDetail");
-
+		if(result > 0) {	// 제대로 찾은 경우
+			
+			GroupNotice g = mgService.selectGroupNotice(gnno);
+			
+			mv.addObject("g", g);
+			mv.setViewName("groups/mygroupNoticeDetail");
+			
+		}else {				// 게시글 상세 조회 실패. 제대로 찾지 못함
+			
+//			mv.addObject("msg", "게시글 상세조회 실패");
+//			mv.setViewName("common/errorPage");
+			
+		}
 		return mv;
 	}
 	

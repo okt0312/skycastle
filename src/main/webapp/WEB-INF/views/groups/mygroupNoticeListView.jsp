@@ -78,6 +78,11 @@
 	    color: #333333;
 	    font-weight: bold;
 	}
+	.gnno{
+		text-align: left;
+		font-size: 13px;
+		font-weight: 400;
+	}
 	.title{
 	    height:34px;
 	    text-align: left;
@@ -167,6 +172,7 @@
                 <tbody>
                 	<c:forEach items="${ list }" var="gn">
 	                    <tr class="groupNoticeTitle">
+	                        <td class="gnno">${ gn.gnoticeNo }</td>
 	                        <td class="title">${ gn.gnoticeTitle }</td>
 	                        <td class="enrollDate">${ gn.enrollDate }</td>
 	                    </tr>

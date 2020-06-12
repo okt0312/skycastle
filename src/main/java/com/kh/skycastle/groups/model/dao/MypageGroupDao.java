@@ -37,6 +37,14 @@ public class MypageGroupDao {
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
 		return sqlSession.insert("groupsMapper.insertReply", r);
 	}
+
+	public int increaseGroupNoticeCount(SqlSessionTemplate sqlSession, int gnno) {
+		return sqlSession.update("groupsMapper.increaseGroupNoticeCount", gnno);
+	}
+
+	public GroupNotice selectGroupNotice(SqlSessionTemplate sqlSession, int gnno) {
+		return sqlSession.selectOne("groupsMapper.selectGroupNotice", gnno);
+	}
 	
 	
 

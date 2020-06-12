@@ -170,7 +170,8 @@
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
-
+		<c:forEach items="${ list }" var="gn">
+		<c:forEach items="${ list }" var="gn">
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
 			<h2>공지사항</h2>
@@ -225,8 +226,8 @@
 			</c:if>
 			
 			
-			
-			<div id="replyArea"><!-- 이게원래 -->
+			<!-- 이게원래
+			<div id="replyArea">
 				<div id="existReply"></div>
 				<h2>댓글</h2>
 				<p>
@@ -239,7 +240,7 @@
 				&nbsp;&nbsp;
 				<button class="sky_btn11">댓글달기</button>
 
-			</div>
+			</div> -->
 			
 			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
                 <thead>
@@ -277,6 +278,8 @@
 
 
 		</div>
+		</c:forEach>
+		</c:forEach>
 	</div>
 
 
@@ -308,14 +311,12 @@
 						<tr>
 							<th>댓글내용</th>
 							<td><textarea cols="40" rows="10" style="resize: none;"
-									readonly>열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ</textarea></td>
-							<!--서머노트쓸까?-->
+									readonly>${ r.replyContent }</textarea></td>
 						</tr>
 						<tr>
 							<th>신고사유</th>
 							<td><textarea name="reportContent" cols="40" rows="10"
 									style="resize: none;"></textarea></td>
-							<!--서머노트쓸까?-->
 						</tr>
 					</table>
 				</div>
@@ -356,7 +357,7 @@
         			url:"replyInsert.gr",
         			data:{replyContent:$("#replyContent").val(),
         				  noticeNo:${gn.gnoticeNo},
-        				  replyWriter:"${loginUser.userId}"},	// reply vo에는 userName밖에 없는데 ㅠㅜㅠㅜ
+        				  replyWriter:"${loginUser.userNo}"},
         			type:"post",
         			success:function(status){
 
@@ -367,7 +368,7 @@
         					selectReplyList();
         					
         				}else{
-        					alert("댓글 등록 실패");
+        					alertify.alert("댓글 등록 확인","댓글 등록 실패");
         				}
         			}, error:function(){
         				console.log("댓글 작성용 ajax 통신 실패!!");

@@ -36,12 +36,12 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 
 	@Override
 	public int increaseGroupNoticeCount(int gnno) {
-		return 0;
+		return mgDao.increaseGroupNoticeCount(sqlSession, gnno);
 	}
 
 	@Override
 	public GroupNotice selectGroupNotice(int gnno) {
-		return null;
+		return mgDao.selectGroupNotice(sqlSession, gnno);
 	}
 
 	@Override

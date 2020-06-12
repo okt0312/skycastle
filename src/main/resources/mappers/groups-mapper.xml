@@ -137,11 +137,17 @@
 		WHERE STATUS='Y' AND GROUP_NO=#{gno}
 		ORDER BY GNOTICE_NO DESC
 	</select>
+	<!-- 조회수 증가용 -->
+	<update id="increaseGroupNoticeCount" parameterType="_int">
+		UPDATE GROUP_NOTICE
+		   SET COUNT = COUNT + 1
+		 WHERE GNOTICE_NO = #{gnno} AND STATUS = 'Y'
+	</update>
 	
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
 		SELECT *
-		  FROM GROUPS
-		 WHERE GROUPS_NO=#{gnno}
+		  FROM GROUP_NOTICE
+		 WHERE GNOTICE_NO=#{gnno}
 	</select>
 	
  	<!-- 공지사항 등록용 -->
@@ -164,17 +170,22 @@
 	</resultMap>
 	
 	<select id="selectReplyList" parameterType="_int" resultMap="replyResultSet">
-		SELECT *
+		<!-- SELECT *
 		  FROM REPLY
-		 WHERE NOTICE_NO=#{noticeNo} AND STATUS='Y'<!-- 조인해서 userName불러와 -->
-		 ORDER BY REPLY_NO DESC
+		 WHERE NOTICE_NO=#{noticeNo} AND STATUS='Y'조인해서 userName불러와
+		 ORDER BY REPLY_NO DESC -->
+		 
+		SELECT R.*, M.USER_NAME
+		  FROM REPLY R
+          JOIN MEMBER M ON(M.USER_NO = R.USER_NO)
+		 WHERE R.NOTICE_NO=#{noticeNo} AND R.STATUS='Y'
+		 ORDER BY R.REPLY_NO DESC
 	</select>
 	
 	<insert id="insertReply" parameterType="Reply">
 		INSERT INTO REPLY
 		VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, #{noticeNo}, #{replyWriter}, sysdate, 'Y')
 	</insert>
-	
 	
 	
 </mapper>
