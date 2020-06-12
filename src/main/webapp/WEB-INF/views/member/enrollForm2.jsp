@@ -158,7 +158,7 @@ select::-ms-expand {
 					<div id="checkResult"
 						style="display: none; font-size: 0.8em; margin-top: 5px"></div>
 
-					<input type="text" class="memberInfo" name="inputVeriCode"
+					<input type="text" class="memberInfo" name="inputVeriCode" id="inputVeriCode"
 						placeholder="인증번호 입력" required>
 					<!-- <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button> -->
 				</div>
@@ -264,7 +264,7 @@ select::-ms-expand {
 			return true;
 	
 		}
-	
+		ranNum ='';
 		$(function() {
 	
 			$("#joinBtn").on("click", function() {
@@ -294,14 +294,14 @@ select::-ms-expand {
 					return false;
 				}
 				
-				/* 인증번호 일치여부 
-				if ($("#inputVeriCode").val() == ranNum.value) {
+				/* 인증번호 일치여부 */
+				if ($("#inputVeriCode").val() == ranNum) {
 					return location.href = "enrollComplete.me";
 				} else {
 					alertify.alert("skycastle 내용:", "인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
 					return false;
 				}
-				*/
+				
 			});
 	
 		});
@@ -368,7 +368,9 @@ select::-ms-expand {
 				type : "post",
 				data : {userId : emailVal
 				},
-				success : function(ranNum) {
+				success : function(ranNum1) {
+					ranNum = ranNum1;
+					console.log(ranNum);
 					if(emailVal.length == 0){
 						alertify.alert("skycastle 내용:", "이메일을 입력해주세요");
 					}else{

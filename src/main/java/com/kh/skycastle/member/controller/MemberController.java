@@ -133,7 +133,7 @@ public class MemberController {
 			return "member/loginForm";
 		}
 	}
-
+	
 	@RequestMapping("logout.me")
 	public String logoutMember(HttpSession session) {
 		session.invalidate();

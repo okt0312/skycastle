@@ -188,7 +188,22 @@ div {
 							<tr style="font-size: 14px; font-weight: bold;">
 								<td>${c.couponName}</td>
                                 <td>${c.startDate} ~ ${c.endDate}</td>
-                                <td>${c.status}</td>
+                                
+                               <c:set var="st" value="N"/>
+                               	<c:choose>
+                               	 <c:when test="${st eq 'N'}">
+                                	<td>미사용</td>
+                                 </c:when>
+                                 
+                                 <c:when test="${st eq 'Y' }">
+                                 <td>사용완료</td>
+                                 </c:when>
+                                 
+                                 <c:when test="${st eq 'E' }">
+                                 <td>유효기간만료</td>
+                                 </c:when>
+                                 
+                                 </c:choose>
                             </tr>
                        	     
                          </c:forEach>
