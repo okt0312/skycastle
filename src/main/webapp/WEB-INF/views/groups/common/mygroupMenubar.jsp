@@ -93,5 +93,27 @@
 			</form>
 		</c:if>
 	</div>
+	
+	<script>
+		function postFormSubmit(num){
+			if(num == 1){	// 공지작성 클릭시
+				$("#postForm").attr("action", "updateForm.bo");
+			}else {			// 회원관리 클릭시
+				$("#postForm").attr("action", "delete.bo");
+			}		// $("#postForm").submit();
+		}
+		
+        function deleteConfirm() {
+            var result = window.confirm("소모임을 나가시겠습니까?");
+            var memStatus = "";
+
+            if(result){
+                memStatus = "N";
+            }else{
+                memStatus = "Y";
+            }
+            console.log(memStatus);
+        }
+	</script>
 </body>
 </html>

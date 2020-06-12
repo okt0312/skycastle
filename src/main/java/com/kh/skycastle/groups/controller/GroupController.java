@@ -157,6 +157,4 @@ public class GroupController {
 			return "소모임 개설 신청하기 실패";
 		}
 	}
-	
-	
 }

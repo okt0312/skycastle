@@ -180,16 +180,7 @@
             			location.href = "mygroupNoticeDetail.gr?gnno=" + $(this).children().eq(0).text();
             		});
             	});
-            	
-            	function postFormSubmit(num){
-            		if(num == 1){	// 공지작성 클릭시
-            			$("#postForm").attr("action", "updateForm.bo");
-            		}else {			// 회원관리 클릭시
-            			$("#postForm").attr("action", "delete.bo");
-            		}
-            		$("#postForm").submit();
-            	}
-            </script>
+			</script>
             <br>
 
             <!-- 페이징바 -->
@@ -226,20 +217,6 @@
             <br><br><br><br><br>
         </div>
     </div>
-
-    <script>
-        function deleteConfirm() {
-            var result = window.confirm("소모임을 나가시겠습니까?");
-            var memStatus = "";
-
-            if(result){
-                memStatus = "N";
-            }else{
-                memStatus = "Y";
-            }
-            console.log(memStatus);
-        }
-    </script>
     
 	<jsp:include page="../common/footer.jsp"/>
 </body>
