@@ -108,6 +108,12 @@
 		values(seq_reserveno.currval, #{usedDate}, #{startTime}, #{endTime})
 	</insert>
 	
+	<update id="updateUesdCoupon" parameterType="Reservation">
+		UPDATE member_coupon
+		SET status = 'Y'
+		WHERE user_no = #{userNo} and coupon_code=${couponCode}
+	</update>
+	
 	
 	<select id="selectSeatReservationTime" parameterType="_int" resultMap="reservationResultSet">
 		select *

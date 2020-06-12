@@ -38,6 +38,11 @@ public class ReservationDao {
 		return sqlSession.insert("reservationMapper.insertReservation",reservation);
 	}
 	
+	public int updateUesdCoupon (SqlSessionTemplate sqlSession, Reservation reservation) {
+		return sqlSession.insert("reservationMapper.updateUesdCoupon",reservation);
+	}
+	
+	
 	public int insertReservationTime(SqlSessionTemplate sqlSession, Reservation reservation) {
 		return sqlSession.insert("reservationMapper.insertReservationTime",reservation);
 	}
