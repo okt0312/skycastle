@@ -170,7 +170,7 @@
             </table>
 
             <div id="chat-btn">
-                <button class="sky_btn1">채팅</button>
+                <button class="sky_btn1" onclick="location.href='chatForm.gr'">채팅</button>
             </div>
             
             <div id="option-btn" style="margin-top: 300px;">
