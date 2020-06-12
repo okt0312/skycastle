@@ -22,12 +22,17 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.kh.skycastle.admin.model.service.AdMemberService;
 import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
+import com.kh.skycastle.myPage.model.service.MypageService;
 
 @Controller
 public class MemberController {
 
 	@Autowired
 	private MemberService mService;
+	
+	@Autowired
+	private MypageService pService; 
+	
 
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
@@ -117,6 +122,8 @@ public class MemberController {
 	@RequestMapping("login.me")
 	public String loginMember(Member m, HttpSession session, Model model) {
 		Member loginUser = mService.loginMember(m);
+		
+		pService.expirationCouponUpdate(loginUser.getUserNo());
 
 		if(loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
 			session.setAttribute("loginUser", loginUser);
