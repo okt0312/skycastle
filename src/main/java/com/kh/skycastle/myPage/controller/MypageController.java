@@ -232,25 +232,14 @@ public class MypageController {
 	}
 	
 	@RequestMapping("qdelete.bo")
-	public String deleteQna(int qno, HttpServletRequest request, Model model) {
+	public String deleteQna(int qno, HttpServletRequest request, Model model, String userNo) {
 		
 		int result = pService.deleteQna(qno);
-			
-			
 		
-		
+			
 		if(result > 0) { 
 			
-			// 기존의 첨부파일이 있었을 경우만 서버에 업로드된 파일 삭제
-//			if(!fileName.equals("")) {
-//						
-//				deleteFile(fileName, request);
-//				
-//					
-//				
-//			}
-			
-			return "redirect:qlist.bo?currentPage=1";
+			return "redirect:qlist.bo?currentPage=1&userNo=" + userNo;
 			
 		} else { // 게시글 삭제 실패!
 			

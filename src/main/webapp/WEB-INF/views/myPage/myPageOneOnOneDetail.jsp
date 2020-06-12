@@ -261,8 +261,8 @@ td {
                 
                 <form action="" id="postForm" method="post">
 	            	<input type="hidden" name="qno" value="${ q.qnaNo }">
-	            	
-	            </form>
+	            	<input type="hidden" name="userNo" value="${loginUser.userNo}">
+ 	            </form>
                 
                 
                  <script>

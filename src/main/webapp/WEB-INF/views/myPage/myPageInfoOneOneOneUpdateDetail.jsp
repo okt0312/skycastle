@@ -148,7 +148,12 @@ td {
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
 
-
+<script type="text/javascript">
+		<c:if test="${!empty msg }">
+			//alert("${msg}");
+			alertify.alert('오류', "${ msg }");
+		</c:if>
+</script>
 
 
 <jsp:include page="common/myPageMenubar.jsp"/>
