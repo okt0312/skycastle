@@ -132,11 +132,11 @@ public class AdBoardController {
 		public String insertAdEvent(Event e, HttpServletRequest request, HttpSession session, 
 								    @RequestParam(name="uploadFile", required=false) MultipartFile[] file) {
 			
-			//System.out.println(file[0].getOriginalFilename());
-			//System.out.println(file[1].getOriginalFilename());
+			System.out.println(file[0].getOriginalFilename());
+			System.out.println(file[1].getOriginalFilename());
 			
 			Attachment[] at = new Attachment[file.length];
-
+			
 			for (int i = 0; i < file.length; i++) {
 				if (!file[i].getOriginalFilename().equals("")) {
 					at[i] = new Attachment();
