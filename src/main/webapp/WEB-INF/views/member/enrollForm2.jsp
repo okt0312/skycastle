@@ -38,7 +38,6 @@
    font-weight: 700;
    border-bottom-style: ridge;
 }
-
 #subTitle {
    text-align: center;
    color: rgb(51, 51, 51);
@@ -48,10 +47,9 @@
 /* 정보 입력란 div 스타일 */
 .infoArea {
    width: 100%;
-   height: 570px;
+   height: 600px;
    vertical-align:center;
 }
-
 .inputArea {
    margin: auto;
    margin-top: 25px;
@@ -70,12 +68,11 @@
    height: 25px;
 }
 /* 생년월일 */
-#birthday {
+/* #birthday {
    width: 60px;
    height: 30px;
    border-bottom-style: ridge;
-}
-
+} */
 select {
    width: 60px;
    margin-top: 10px;
@@ -146,8 +143,8 @@ select::-ms-expand {
          <!-- 정보 입력-->
          <div class="infoArea">
             <div class="inputArea">
-               <label for="memId"><span>*</span> 통합이메일(아이디)</label><br> <input
-                  type="email" class="memberInfo" id="userId" name="userId"
+               <label for="memId"><span>*</span> 통합이메일(아이디)</label><br> 
+               <input type="email" class="memberInfo" id="userId" name="userId"
                   placeholder="이메일" required>
 
                <!-- 이메일 인증번호 전송 버튼 -->
@@ -157,20 +154,22 @@ select::-ms-expand {
                <!-- 아이디 중복체크 결과 -->
                <div id="checkResult"
                   style="display: none; font-size: 0.8em; margin-top: 5px"></div>
-
+            </div>
+            <div class="inputArea">
+			   <label for="autoCode"><span>*</span> 인증번호 확인</label><br> 
                <input type="text" class="memberInfo" name="inputVeriCode" id="inputVeriCode"
                   placeholder="인증번호 입력" required>
                <!-- <button type="button" id="sendCode" onclick="authEmail();">이메일인증하기</button> -->
             </div>
 
             <div class="inputArea">
-               <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br> <input
-                  type="password" class="memberInfo" id="memPwd1" name="userPwd"
+               <label for="memPwd1"><span>*</span> 비밀번호 입력</label><br> 
+               <input type="password" class="memberInfo" id="memPwd1" name="userPwd"
                   placeholder="6자리 이상 영문,숫자,특수문자를 사용" required>
             </div>
             <div class="inputArea">
-               <label for="memPwd2"><span>*</span> 비밀번호 확인</label><br> <input
-                  type="password" class="memberInfo" id="memPwd2"
+               <label for="memPwd2"><span>*</span> 비밀번호 확인</label><br> 
+               <input type="password" class="memberInfo" id="memPwd2"
                   placeholder="비밀번호를 한번 더 입력" required>
             </div>
             <div class="inputArea">
@@ -178,8 +177,8 @@ select::-ms-expand {
                   type="text" class="memberInfo" id="userName" name="userName">
             </div>
             <div class="inputArea">
-               <label for="memId"><span>*</span> 생년월일</label><br> <input
-                  type="text" class="memberInfo" name="birthday"
+               <label for="memId"><span>*</span> 생년월일</label><br> 
+               <input type="text" class="memberInfo" id="birthday" name="birthday"
                   placeholder="-제외 8자리로 입력"> &nbsp;&nbsp;
                <!--  <select name="month">
                         <option value="01" selected>1월</option>
@@ -198,8 +197,8 @@ select::-ms-expand {
                     <input type="text" id="birthday" name="day" placeholder="생일 2자리"> &nbsp;&nbsp; -->
             </div>
             <div class="inputArea">
-               <label for="memId"><span>*</span> 휴대폰</label><br> <input
-                  type="text" class="memberInfo" name="phone"
+               <label for="memId"><span>*</span> 휴대폰</label><br> 
+               <input type="text" class="memberInfo" name="phone" id="phone"
                   placeholder="- 제외하고 입력">
             </div>
          </div>
@@ -222,6 +221,9 @@ select::-ms-expand {
          var pwd1 = document.getElementById("memPwd1"); // 비밀번호
          var pwd2 = document.getElementById("memPwd2"); // 비밀번호 확인 
          var name = document.getElementById("userName"); // 이름
+         var phone = document.getElementById("phone"); // 핸드폰번호 
+         var birthday = document.getElementById("birthday"); // 생년월일 
+        	       
          var authcode = document.getElementById("inputVeriCode");
    
          // 이메일 검사 
@@ -236,7 +238,8 @@ select::-ms-expand {
    
          // 비밀번호 검사
          // 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
-         var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
+         var regExp = /^.*(?=^.{6,25}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+         //var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
          if (!regExp.test(pwd1.value)) {
             alertify.alert("skycastle 내용:", "비밀번호가 유효하지 않습니다.");
             pwd1.value = "";
@@ -262,6 +265,26 @@ select::-ms-expand {
             return false;
          }
          
+         // 핸드폰 번호 검사
+         // 01로 시작 & 나머지 8자리
+         var regExp = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/; 
+         if (!regExp.test(phone.value)){
+        	 alertify.alert("skycastle 내용:", "숫자로만 입력해주세요.");
+             phone.value = "";
+             phone.focus();
+             return false;
+         }
+         
+      	 // 생년월일 검사
+         // 8자리
+         var regExp = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/
+         if (!regExp.test(birthday.value)){
+        	 alertify.alert("skycastle 내용:", "8자리 숫자로만 입력해주세요.");
+             birthday.value = "";
+             birthday.focus();
+             return false;
+         }
+      	 
          /* 인증번호 일치여부 */
          if ($("#inputVeriCode").val() != '' && $("#inputVeriCode").val() == ranNum) {
             return location.href = "enrollComplete.me";
@@ -274,8 +297,6 @@ select::-ms-expand {
    
       }
       
-    
-   
       // 아이디(이메일) 중복체크 
       function idCheckValidate(num) {
    
