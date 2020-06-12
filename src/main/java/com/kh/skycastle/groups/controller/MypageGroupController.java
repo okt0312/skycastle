@@ -45,11 +45,8 @@ public class MypageGroupController {
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
 		
 		Groups g = mgService.insertNotice(gno);
-		Dips d = new Dips(userNo, gno);
-		int countDips = mgService.countDips(d);
-		
+
 		mv.addObject("g", g);
-		mv.addObject("count", countDips);
 		
 		mv.setViewName("groups/groupDetail");
 

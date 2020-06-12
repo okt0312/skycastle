@@ -166,11 +166,20 @@
 		    <div id="option-btn" style="margin-top: 300px;">
 		        <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
 		    </div>
-		<!--                방장은
-		                <div id="option-btn" style="margin-top: 300px;">
-		                    <button class="sky_btn2">회원관리</button>
-		                </div>
-		-->
+		    
+            <!-- 방장에게만 보여지는 버튼-->
+            <c:if test="${ loginUser.userNo == leaderNo }">
+	            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
+	            <div id="option-btn" style="margin-top: 300px;">
+                	<button class="sky_btn2" onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button><br>
+                	<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
+                </div>
+                
+	            <form action="" id="postForm" method="post">
+	            	<input type="hidden" name="gnno" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="fileName" value="${ b.changeName }">
+	            </form>
+	        </c:if>
 		</div>
 		
 		
@@ -180,19 +189,22 @@
 		    <h2>공지사항</h2>
 		    <hr><br><br>
 		    
-	        <div id="noticeTitle">
-	            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
-	        </div>
-	        <hr>
-	        <div id="noticeContent" style="margin-top: 50px;">
-	            <textarea cols="78" rows="10" placeholder="내용을 입력하세요"></textarea>
-			</div>
-		
-			<br><br>
-		
-	        <div align="center">
-	            <button class="listBtn sky_btn1">등록하기</button>
-	        </div>
+		    <form action="post">
+		        <div id="noticeTitle">
+		            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
+		        </div>
+		        <hr>
+		        <div id="noticeContent" style="margin-top: 50px;">
+		            <textarea cols="78" rows="10" placeholder="내용을 입력하세요"></textarea>
+				</div>
+			
+				<br><br>
+			
+		        <div align="center">
+		            <button class="listBtn sky_btn1">등록하기</button>
+		        </div>
+		    </form>
+		    
 			<br><br><br><br><br>
 		</div>
 	</div>

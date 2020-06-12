@@ -162,10 +162,10 @@
 
             <table id="groupMenuTable" border="1">
                 <tr>
-                    <th style="width: 100px; height: 40px;">공지사항</th>
+                    <th style="width: 100px; height: 40px;" onclick="location.href='mygroupNoticeList.gr';">공지사항</th>
                 </tr>
                 <tr>
-                    <td style="width: 100px; height: 40px; text-align: center;">캘린더</td>
+                    <td style="width: 100px; height: 40px; text-align: center;" onclick="location.href='';">캘린더</td>
                 </tr>
             </table>
 
