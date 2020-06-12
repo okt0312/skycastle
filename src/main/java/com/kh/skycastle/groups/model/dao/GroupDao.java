@@ -68,18 +68,5 @@ public class GroupDao {
 	public int insertGroup(SqlSessionTemplate sqlSession, Groups g) {
 		return sqlSession.insert("groupsMapper.insertGroup", g);
 	}
-	
-	
-	
-/*
-	public ArrayList<Groups> selectGroupThumbnailList(SqlSessionTemplate sqlSession, PageInfo pi){
-		
-		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
-		
-		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
-		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupThumbnailList", null, rowBounds);
-	}
-*/
 
 }

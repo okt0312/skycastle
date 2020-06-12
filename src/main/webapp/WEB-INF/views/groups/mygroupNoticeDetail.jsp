@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -208,13 +209,22 @@
                     <div id="option-btn" style="margin-top: 300px;">
                         <button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
                     </div>
-    <!--                방장은
-                    <div id="option-btn" style="margin-top: 300px;">
-                        <button class="sky_btn2">회원관리</button>
-                    </div>
-    -->
+                    
+		            <!-- 방장에게만 보여지는 버튼-->
+		            <c:if test="${ loginUser.userNo == leaderNo }">
+			            <!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
+			            <div id="option-btn" style="margin-top: 300px;">
+		                	<button class="sky_btn2" onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button><br>
+		                	<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
+		                </div>
+		                
+			            <form action="" id="postForm" method="post">
+			            	<input type="hidden" name="gnno" value="${ gn.gnoticeNo }">
+			            	<input type="hidden" name="fileName" value="${ b.changeName }">
+			            </form>
+			        </c:if>
+			        
                 </div>
-
 
 
                 <!-- mygroupContent 영역에 콘텐츠 작성 -->
@@ -225,21 +235,15 @@
                         <div id="noticeTitle">
                             <table>
                                 <tr>
-                                    <td style="width:850px; font-weight:600;">연극 이벤트 당첨자 안내</td>
-                                    <td style="width:70px; text-align:center; font-size:12px;">2020-02-21</td>
-                                    <td style="width:70px; text-align:center; font-size:12px;">조회 233</td>
+                                    <td style="width:850px; font-weight:600;">${ gn.gnoticeTitle }</td>
+                                    <td style="width:70px; text-align:center; font-size:12px;">${ gn.enrollDate }</td>
+                                    <td style="width:70px; text-align:center; font-size:12px;">조회수 23</td>
                                 </tr>
                             </table>
                         </div>
                         <hr>
                         <div id="noticeContent" style="margin-top: 50px;">
-                            안녕하세요 고객님<br>
-                            언제나 저희 도미노피자를 사랑해주셔서 감사의 말씀 드리며<br>
-                            2월 연극 이벤트 당첨자 안내를 드립니다.(1인 2매)<br><br>
-                            당첨자 여러분 모두 축하 드리며, 자세한 안내는 개별문자로 안내드릴 예정입니다.<br><br>
-                            앞으로도 도미노피자에 많은 관심 부탁 드립니다. 감사합니다.<br><br><br>
-                            당첨자리스트(ABC 순)<br>
-                            *F3를 눌러 아이디 검색, 확인하시면 됩니다.<br>
+							<textarea rows="" cols="">${ gn.gnoticeContent }</textarea>
                         </div>
 
                         <br><br>

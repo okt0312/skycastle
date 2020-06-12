@@ -23,6 +23,11 @@
 		WHERE STATUS='Y'
 	</select>
 	
+	<insert id="insertGroup">
+		INSERT INTO GROUPS
+		VALUES(#{groupNo}, #{leaderNo}, #{groupTitle}, #{groupSubtitle}, #{groupContent}, #{groupCategory}, #{place}, #{gradeLimit}, #{memberLimit}, 'U', SYSDATE, #{endDate})
+	</insert>
+	
 	
 	
 	<resultMap id="groupDtoResultSet" type="GroupDto">
