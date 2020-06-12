@@ -1,6 +1,6 @@
 package com.kh.skycastle.groups.model.vo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +19,7 @@ public class Reply {
 	private String replyContent;
 	private int noticeNo;
 	private int userNo;
-	private Date uploadDate;
+	private Timestamp uploadDate;
 	private String status;
 	private String userName;
 

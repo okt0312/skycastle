@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.GsonBuilder;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.cs.model.vo.Notice;
@@ -115,13 +116,15 @@ public class MypageGroupController {
 //		return mv;
 //	}
 	
+	
+	
 	// 댓글 ajax
 	@ResponseBody
 	@RequestMapping(value="replylist.gr", produces="application/json; charset=utf-8")
-	public String selectReplyList(int gnoticeNo) {
+	public String selectReplyList(int noticeNo) {
 		
-		ArrayList<Reply> list = mgService.selectReplyList(gnoticeNo);
-		//return new Gson().toJson(list);
+		ArrayList<Reply> list = mgService.selectReplyList(noticeNo);
+		
 		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
 	}
 	

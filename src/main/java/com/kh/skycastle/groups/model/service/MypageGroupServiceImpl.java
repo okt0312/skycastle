@@ -55,8 +55,8 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 
 	@Override
-	public ArrayList<Reply> selectReplyList(int gnoticeNo) {
-		return mgDao.selectReplyList(sqlSession, gnoticeNo);
+	public ArrayList<Reply> selectReplyList(int noticeNo) {
+		return mgDao.selectReplyList(sqlSession, noticeNo);
 	}
 
 	@Override

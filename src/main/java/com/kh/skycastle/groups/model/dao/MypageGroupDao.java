@@ -30,8 +30,8 @@ public class MypageGroupDao {
 		return sqlSession.insert("groupsMapper.insertGroupNotice", gn);
 	}
 
-	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int gnoticeNo) {
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectReplyList", gnoticeNo);
+	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int noticeNo) {
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectReplyList", noticeNo);
 	}
 
 	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {

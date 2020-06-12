@@ -355,7 +355,7 @@
     			$.ajax({
         			url:"replyInsert.gr",
         			data:{replyContent:$("#replyContent").val(),
-        				  noticeNo:${r.noticeNo},			// r로 해야할까 gn.gnoticeNo로 해야할까 - 위에 hidden해놓은건 gn.gnoticeNo임
+        				  noticeNo:${gn.gnoticeNo},
         				  replyWriter:"${loginUser.userId}"},	// reply vo에는 userName밖에 없는데 ㅠㅜㅠㅜ
         			type:"post",
         			success:function(status){
@@ -381,7 +381,7 @@
     		
     		$.ajax({
     			url:"replylist.gr",
-    			data:{gnoticeNo:${gn.gnoticeNo}},
+    			data:{noticeNo:${gn.gnoticeNo}},
     			success:function(list){
 
     				$("#replyCount").text(list.length);	// 댓글개수
