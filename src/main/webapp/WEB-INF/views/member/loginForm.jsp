@@ -127,14 +127,14 @@
     
 	<c:if test="${ !empty msg }">
 		<script>
-			alertify.alert("${msg}");  
+			alertify.alert("skycastle 내용:", "${msg}");  
 		</script>
 		<c:remove var="msg" scope="session"/>
 	</c:if>
     
     <c:if test="${ !empty loginFail }">
 		<script>
-			alertify.alert("${loginFail}");  
+			alertify.alert("skycastle 내용:", "${loginFail}");  
 		</script>
 		<c:remove var="loginFail" scope="session"/>
 	</c:if>

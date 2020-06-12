@@ -178,10 +178,18 @@
 			
 			<c:if test="${ !empty enrollFail }">
 				<script>
-					alertify.alert("${enrollFail}");  
+					alertify.alert("skycastle 내용:", "${enrollFail}");  
 				</script>
 			<c:remove var="enrollFail" scope="session"/>
-	</c:if>
+			</c:if>
+			
+			<c:if test="${ !empty msg }">
+				<script>
+					alertify.alert("skycastle 내용:", "${msg}");  
+				</script>
+			<c:remove var="msg" scope="session"/>
+			</c:if>
+			
 		</form>	
 		</div>
 	</div>

@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 재설정</title>
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+<!-- alertify CDN 종료 -->
 <style>
   .changePwdForm{
     width:320px;
@@ -94,7 +103,7 @@
 		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
 		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
 		if (!regExp.test(pwd1.value)) {
-			alert("비밀번호가 유효하지 않습니다.");
+			alertify.alert("skycastle 내용:", "비밀번호가 유효하지 않습니다.");
 			pwd1.value = "";
 			pwd1.focus();
 			return false;
@@ -102,7 +111,7 @@
 
 		// 비밀번호값과 비밀번호확인값이 일치하는지 검사
 		if (pwd1.value != pwd2.value) {
-			alert("비밀번호가 일치하지 않습니다.");
+			alertify.alert("skycastle 내용:", "비밀번호가 일치하지 않습니다.");
 			pwd2.value = "";
 			pwd2.focus();
 			return false;

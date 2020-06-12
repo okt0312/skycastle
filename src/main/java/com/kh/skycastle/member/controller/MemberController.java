@@ -2,13 +2,10 @@
 package com.kh.skycastle.member.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -142,10 +139,11 @@ public class MemberController {
 	}
 
 	@RequestMapping("enrollForm2.me")
-	public ModelAndView enrollForm2(@RequestParam(value = "infoAgree", defaultValue = "false") Boolean infoAgree) {
+	public ModelAndView enrollForm2(@RequestParam(value = "infoAgree", defaultValue = "false") Boolean infoAgree, HttpSession session) {
 
 		if(!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 x
 			ModelAndView mv = new ModelAndView("member/enrollForm");
+			session.setAttribute("msg", "약관에 동의하셔야만 회원가입이 가능합니다.");
 			return mv;
 		}
 		ModelAndView mv = new ModelAndView("member/enrollForm2");

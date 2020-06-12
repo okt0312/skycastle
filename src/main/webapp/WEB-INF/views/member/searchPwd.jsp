@@ -111,7 +111,7 @@
 	<!-- alert 추가 -->
 	<c:if test="${ !empty msg }">
 		<script>
-			alertify.alert("${msg}");  
+			alertify.alert("skycastle 내용:", "${msg}");  
 		</script>
 		<c:remove var="msg" scope="session"/>
 	</c:if>
@@ -122,12 +122,12 @@
 		$("#findPwd").on("click", function(){
 			
 			if($("#email").val()==""){
-				alert("아이디(이메일)를 입력해주세요.");
+				alertify.alert("skycastle 내용:", "아이디(이메일)를 입력해주세요.");
 				$("#email").focus();
 				return false;
 			}
 			if($("#phone").val()==""){
-				alert("휴대폰 번호를 입력해주세요.");
+				alertify.alert("skycastle 내용:", "휴대폰 번호를 입력해주세요.");
 				$("#phone").focus();
 				return false;
 			}
