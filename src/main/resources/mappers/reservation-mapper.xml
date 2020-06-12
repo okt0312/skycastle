@@ -82,6 +82,7 @@
 	<select id="selectCouponList"   parameterType="_int" resultMap="couponResultSet">
 		select coupon_code,coupon_name, start_date, expiration_period,discount_rate
 		from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
+		and status ='N'
 	</select>
 	
 	<select id="selectGrade" parameterType="_int" resultMap="gradeResultSet">
