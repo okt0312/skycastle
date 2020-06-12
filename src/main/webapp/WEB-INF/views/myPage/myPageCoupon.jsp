@@ -189,17 +189,17 @@ div {
 								<td>${c.couponName}</td>
                                 <td>${c.startDate} ~ ${c.endDate}</td>
                                 
-                               <c:set var="st" value="N"/>
+                               
                                	<c:choose>
-                               	 <c:when test="${st eq 'N'}">
+                               	 <c:when test="${c.status eq 'N'}">
                                 	<td>미사용</td>
                                  </c:when>
                                  
-                                 <c:when test="${st eq 'Y' }">
+                                 <c:when test="${c.status eq 'Y' }">
                                  <td>사용완료</td>
                                  </c:when>
                                  
-                                 <c:when test="${st eq 'E' }">
+                                 <c:when test="${c.status eq 'E' }">
                                  <td>유효기간만료</td>
                                  </c:when>
                                  
