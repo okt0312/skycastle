@@ -112,16 +112,16 @@ public class MypageController {
 		
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
 			
-			session.setAttribute("loginUser", pService.updateCheckPwd(m));
+			session.setAttribute("loginUser2", pService.updateCheckPwd(m));
 			session.setAttribute("msg", "회원정보 수정 성공!!");
 			
 			
-			return "myPage/myPageUpdatePwd";
+			return "myPage/myPageUpdateForm";
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
 			model.addAttribute("msg, 회원 정보수정 실패!!");
-			return "myPage/myPageUpdatePwd";
+			return "myPage/myPageUpdateForm";
 			
 			
 			}

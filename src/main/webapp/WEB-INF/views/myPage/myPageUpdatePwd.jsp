@@ -273,9 +273,9 @@ input, textarea, select, td, th {
 		</div>
 
 
-
-
-
+		
+		
+		
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<div id="order-info">
