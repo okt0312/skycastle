@@ -62,11 +62,11 @@
 		<br><hr><br>
 		
 		<div id="detailSum" style="width:100%; height: 250px;">
-			<div style="width: 250px; height: 250px; float: left;">
-		    	<img src="resources/uploadFiles/groups/${ g.changeName }" width="250px" height="250px">
+			<div style="float: left;">
+		    	<img src="resources/uploadFiles/groups/${ g.changeName }" style="width:250px;">
 			</div>
 			
-			<div style="width: 540px; height: 250px; vertical-align: middle; float: right; margin-left: 10px;">
+			<div style="width: 515px; height: 220px; vertical-align: middle; float: right; margin-left: 35px; margin-top:30px;">
 		        <h2>${ g.groupTitle }</h2>
 				<p>
 					<c:choose>
@@ -125,11 +125,11 @@
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">
 					
 					<c:choose>
-						<c:when test="${ loginUser != null }">
+						<c:when test="${ loginUser != null }">	<!-- 로그인 했을때 -->
 							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn" class="sky_btn2" style="float: left;" type="button">로그인</button>
+							<button id="loginBtn" class="sky_btn2 loginBtn" style="float: left;" type="button">로그인</button>
 						</c:otherwise>
 					</c:choose>
 					
@@ -138,10 +138,16 @@
 					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 					<input type="hidden" id="user_no" name="uno" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
-					<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
+					
+					<c:choose>
+						<c:when test="${ loginUser != null }">	<!-- 로그인 했을때 -->
+							<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
+						</c:when>
+						<c:otherwise>	<!-- 로그인 안했을때 -->
+							<button id="loginBtn" class="sky_btn2 loginBtn" style="float: left;" type="button">신청하기</button>
+						</c:otherwise>
+					</c:choose>
 				</form>
-			  	<!-- 신청하기 버튼 누르면 '신청하시겠습니까?' alert창 뜨도록 -->
-				<!-- 신청자격 없으면 '신청자격없음' 위에 disabled속성, 클래스 부여해서 뜰 수 있도록 -->
 		    </div>
 		</div>
 		<br><br>
@@ -155,7 +161,7 @@
 		
     <script>
 		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
-		$("#loginBtn").click(function(){
+		$(".loginBtn").click(function(){
 			location.href = "loginForm.me";
 		});
 		

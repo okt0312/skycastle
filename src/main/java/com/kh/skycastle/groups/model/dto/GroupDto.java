@@ -15,9 +15,11 @@ public class GroupDto {
 	private int groupNo;
 	private String groupTitle;
 	private String groupSubtitle;
+	private String groupContent;
 	private String groupCategory;
 	private String changeName;
 	private String place;
+	private String gradeLimit;
 	private int memberLimit;
 	private String status;
 	private Date startDate;

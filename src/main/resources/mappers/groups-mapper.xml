@@ -35,9 +35,11 @@
 		<id column="GROUP_NO" property="groupNo"/>
 		<result column="GROUP_TITLE" property="groupTitle"/>
 		<result column="GROUP_SUBTITLE" property="groupSubtitle"/>
+		<result column="GROUP_CONTENT" property="groupContent"/>
 		<result column="GROUP_CATEGORY" property="groupCategory"/>
 		<result column="CHANGE_NAME" property="changeName"/>
 		<result column="PLACE" property="place"/>
+		<result column="GRADE_LIMIT" property="gradeLimit"/>
 		<result column="MEMBER_LIMIT" property="memberLimit"/>
 		<result column="STATUS" property="status"/>
 		<result column="START_DATE" property="startDate"/>
@@ -67,10 +69,11 @@
 		ORDER BY START_DATE DESC
 	</select>
 	
-	<select id="selectGroup" parameterType="_int" resultMap="groupResultSet">
-		SELECT *
-		  FROM GROUPS
-		 WHERE GROUP_NO=#{gno}
+	<select id="selectGroup" parameterType="_int" resultMap="groupDtoResultSet">
+		SELECT G.*, A.CHANGE_NAME
+		  FROM GROUPS G
+          JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
+		 WHERE G.GROUP_NO=#{gno}
 	</select>
 
 

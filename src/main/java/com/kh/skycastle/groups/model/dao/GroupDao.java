@@ -19,8 +19,8 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupListCount");
 	}
 	
-	public ArrayList<GroupDto> selectGroupListAll(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
-		// rowbounds 생성하기 위해서 offset만들기
+	public ArrayList<Groups> selectGroupListAll(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
+		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
@@ -29,7 +29,7 @@ public class GroupDao {
 	}
 
 	public ArrayList<GroupDto> selectGroupList(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
-		// rowbounds 생성하기 위해서 offset만들기
+		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
@@ -45,8 +45,8 @@ public class GroupDao {
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectDips", userNo, rowBounds);
 	}
 	
-	public Groups selectGroup(SqlSessionTemplate sqlSession, int gno) {
-		return sqlSession.selectOne("groupsMapper.selectGroup", gno);
+	public ArrayList<GroupDto> selectGroup(SqlSessionTemplate sqlSession, int gno) {
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroup", gno);
 	}
 	
 	public int countDips(SqlSessionTemplate sqlSession, Dips d) {
