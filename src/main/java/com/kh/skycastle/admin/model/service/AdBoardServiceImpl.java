@@ -56,8 +56,8 @@ public class AdBoardServiceImpl implements AdBoardService {
 	}
 	//이벤트 상세페이지 조회
 	@Override
-	public Event adSelectEvent(int eno) {
-		return adBoDao.adSelectEvent(sqlSession,eno);
+	public ArrayList<Event> adSelectEvent(int eno) {
+		return adBoDao.adSelectEvent(sqlSession, eno);
 	}
 	
 	// 이벤트 등록

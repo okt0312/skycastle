@@ -22,19 +22,19 @@
 		<result column="CHANGE_NAME" property="changeName"/>
 </resultMap>
   
-  <!-- 공지사항 리스트조회 -->
-  <select id ="selectNotice" resultMap="adNoticeResultSet">
-  SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
-  FROM NOTICE
-  WHERE STATUS='Y'
-  </select>
+	<!-- 공지사항 리스트조회 -->
+	<select id ="selectNotice" resultMap="adNoticeResultSet">
+		SELECT NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,STATUS
+		FROM NOTICE
+		WHERE STATUS='Y'
+	</select>
   
-  <!--공지사항 상세페이지  -->
-  <select id="selectNoDetail" resultMap="adNoticeResultSet">
-  SELECT  NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,NOTICE_CONTENT
-  FROM NOTICE
-  WHERE NOTICE_NO =#{bno}
-  </select>
+	<!--공지사항 상세페이지  -->
+	<select id="selectNoDetail" resultMap="adNoticeResultSet">
+		SELECT  NOTICE_NO,NOTICE_TITLE,ENROLL_DATE,NOTICE_CONTENT
+		FROM NOTICE
+		WHERE NOTICE_NO =#{bno}
+	</select>
   
  	<!--공지사항 수정용  -->
  	<update id="updateAdNotice" parameterType="Notice">
@@ -45,7 +45,7 @@
 	WHERE NOTICE_NO =#{noticeNo}
  	</update>
  	
- 	<!-- 공지사항 삭제요 -->
+ 	<!-- 공지사항 삭제용 -->
  	<delete id="deleteAdNotice" parameterType="_int">
  	UPDATE NOTICE
  	   SET STATUS='N'
@@ -62,16 +62,16 @@
  	<select id="selectEvent" resultMap="adEventResultSet">
 	 	SELECT EVENT_NO, EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, EVENT_REGISTER_DATE, EVENT_STATUS
 	 	  FROM EVENT
-	 	 WHERE  EVENT_STATUS='Y'
+	 	 WHERE EVENT_STATUS='Y'
  	</select>
  	
  	<!-- 이벤트 상세페이지 조회 -->
- 	<select id="adSelectEvent" parameterType="_int" resultMap="adEventResultSet">
-	 	SELECT EVENT_NO,EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, CHANGE_NAME
+ 	<select id="adSelectEvent" resultMap="adEventResultSet">
+	 	SELECT EVENT_NO, EVENT_TITLE, EVENT_OPEN_TIME, EVENT_CLOSE_TIME, CHANGE_NAME
 	 	  FROM EVENT
 	 	  JOIN ATTACHMENT ON(EVENT_NO=REF_BNO)
 	 	 WHERE GROUP_CATEGORY = 2
-	 	   AND FILE_LEVEL = 2
+	 	   AND STATUS = 'Y'
 	 	   AND EVENT_NO = #{eno}
  	</select>
  	
@@ -93,13 +93,13 @@
  		UPDATE EVENT
 		   SET EVENT_TITLE = #{eventTitle},
 		       EVENT_REGISTER_DATE = SYSDATE
-		 WHERE EVENT_NO = #{eno} 		
+		 WHERE EVENT_NO = #{eventNo} 		
  	</update>
  	
  	<update id="updateAttachment" parameterType="Attachment">
  		UPDATE ATTACHMENT
 		   SET CAHNGE_NAME = #{chagneName}
-		 WHERE REF_BNO = #{eno} 		
+		 WHERE REF_BNO = #{eventNo} 		
  	</update>
  	
  	<!-- 이벤트 삭제  -->

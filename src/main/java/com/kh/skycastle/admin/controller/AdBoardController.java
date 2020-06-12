@@ -168,10 +168,8 @@ public class AdBoardController {
 		@RequestMapping("eventDetail.ad")
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
 			
-			Event e = adBoService.adSelectEvent(eno);
-			Attachment at = new Attachment();
-			mv.addObject("e", e);
-			mv.addObject("at", at);
+			ArrayList<Event> list = adBoService.adSelectEvent(eno);
+			mv.addObject("list", list);
 			mv.setViewName("admin/adEventDetailView");
 			
 			return mv;

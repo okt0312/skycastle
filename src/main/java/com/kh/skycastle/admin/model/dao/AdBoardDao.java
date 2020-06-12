@@ -60,8 +60,8 @@ public class AdBoardDao {
 	}
 	
 	// 이벤트 상세 조회용
-	public Event adSelectEvent(SqlSessionTemplate sqlSession,int eno) {
-		return sqlSession.selectOne("adBoardMapper.adSelectEvent", eno);
+	public ArrayList<Event> adSelectEvent(SqlSessionTemplate sqlSession, int eno) {
+		return (ArrayList)sqlSession.selectList("adBoardMapper.adSelectEvent", eno);
 	}
 	
 	// 이벤트 수정용

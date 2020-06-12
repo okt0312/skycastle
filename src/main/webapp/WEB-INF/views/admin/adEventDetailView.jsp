@@ -66,23 +66,32 @@
                               
                                 <div class="infoContent">
                                 	 <table class="boardList">
-	                                    <tr>
-	                                        <td style="text-align: center; font-size: 16px; font-weight:bold;">
-	                                        	<input type="text" name="eventTitle" style="border-style:none; float:left;" value="${e.eventTitle}">
-	                                        </td>
-	                                    </tr> 
+						                <tr>
+						                    <td style="text-align: center; font-size: 16px; font-weight:bold;">
+                                        		<input type="text" name="eventTitle" style="border-style:none; float:left;" value="${list.eventTitle}">	
+                                        	</td> 
+                                        </tr>
+                                        <tr>	
+						                    <td>${list.eventOpenTime}</td>
+						                    <td>${list.eventCloseTime}</td> 
+						                </tr>
+								             
 	                                    <tr>   
 	                                        <td>
-	                                        	<input type="file" id="upfile" style="border-style:none;" name="reUploadFile"> 
-					                            <c:if test="${ !empty e.changeName }">
-					                            <span style="float:right">첨부 파일 : 
-					                            	<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/event/${e.changeName}">${e.changeName}</a>
-					                            </span>	
-					                            </c:if>
+	                                        	<c:forEach items="${list}" var="e">
+		                                        	<input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="썸네일"><br>
+		                                        	<input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="상세이미지"> 
+		                                        	
+						                            <c:if test="${ !empty e.changeName }">
+							                            <span style="float:right">첨부 파일 : 
+							                            	<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/event/${e.changeName}">${e.changeName}</a>
+							                            </span>	
+						                            </c:if>
+					                            </c:forEach>
 					                        </td>    
 	                                    </tr>
                                 	</table>
-                            		<img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${e.changeName}">
+                            		<img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${list.changeName}">
                             	</div>
                             	
                             	<!--버튼 모음  -->
@@ -96,9 +105,13 @@
                         <!--</form>-->
                         
                         <form action="" id="postForm" method="post">
-                        	<input type="hidden" name="eventNo" value="${e.eventNo}">
-                         	<input type="hidden" name="changeName" value="${ e.changeName }">
-                        	<%-- <input type="hidden" name="fileNo" value=${ at.fileNo }>  --%>
+                        	<input type="hidden" name="eventNo" value="${list.eventNo}">
+                         	
+                        <%--
+                        	<input type="hidden" name="changeName" value="${ e.changeName }">
+                        	<input type="hidden" name="fileNo" value=${ at.fileNo }>   
+                        --%>
+                        	
                         </form> 
                        
                        <script>
