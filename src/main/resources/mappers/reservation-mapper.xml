@@ -195,7 +195,7 @@
 		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
 		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
 		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
-		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
+		 WHERE USER_NO = #{userNo} AND CATEGORY= 2 and group_category = 1
 	</select>
 	
 	<!-- 공간 예약 조회 -->
@@ -205,7 +205,7 @@
 		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
 		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
 		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
-		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
+		 WHERE USER_NO = #{userNo} AND CATEGORY= 2 and group_category = 1
   	</select>
   	
   	<!-- 좌석 총 게시글 갯수 -->
