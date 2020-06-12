@@ -99,7 +99,7 @@
                             <div class="contents" align="center">
                                 <table class="boardList" >
                                     <tr>
-                                        <td><p>${ g.gnoticeTitle}</p></td>
+                                        <td><p style="text-align:center;">${ g.gnoticeTitle}</p></td>
                                     </tr>
                                     <tr>
                                         <td>                 
@@ -110,7 +110,7 @@
                                 <p align="center">
                                     <input type="button" value="취소" onclick="history.back(-1)" class="btn btn-dark">
                                    <!--  <input type="submit" value="수정" class="btn btn-primary"> -->
-                                    <input type="submit" value="삭제" class="btn btn-danger">
+                                    <input type="submit" value="삭제" class="btn btn-danger" onclick="deleteBtn();">
                                 </p>
                             </div>
                             <input type="hidden" name="gno" id="gno" value="${ g.gnoticeNo}">
@@ -134,6 +134,11 @@
 					  
 					    </div>
 					    <script>
+					    //공지사항 삭제 컨펌
+					      function deleteBtn(){
+								alertify.alert("소모임 게시판 관리","게시글이 삭제되었습니다");			    	
+					    };
+					    	
 					    	
 					 // 해당 게시글에 딸려있는 댓글 리스트 ajax로 조회해서 화면에 뿌려주는
 					 
@@ -144,13 +149,11 @@
 					 
 					    	function selectAdReplyList(){
 				    		var gno = $("#gno").val();
-				    		console.log("댓글조회용gno"+gno);
 				    		
 				   			$.ajax({
 				   				url:"rlist.ad",
 				   				data:{"gno": gno},
 				   				success:function(list){
-				   					console.log("댓글리스트"+list);
 				   					
 				   					// 댓글 갯수
 				   					 $("#rcount").text(list.length);
@@ -166,7 +169,6 @@
 							                        "<td>" + list[i].uploadDate + "</td>" + 
 							                        "<td>" +
 							                        "<input type='button' value='삭제' name='del_btn' id='del_btn' class='btn btn-danger'>" +
-							                       // "<input type='submit' value='삭제' id='"+this.replyNo+"adReplyDeleteBtn' class='btn btn-danger'>" +
 							                        "</td>" + 
 							                     "</tr>";
 				   					}
@@ -175,35 +177,35 @@
 				   				
 				   					
 				   				},error:function(){
-				   					console.log("댓글gno"+gno);
 				   					console.log("댓글 리스트 조회용 ajax 통신실패!!");
 				   				}
 				   			});
 				   			
 				    	}
 					    	
-					    	//$("#'+ this.relyNo +'adReplyDeleteBtn").click(function(){
+					    	
 					    	
 					    	
 					    		$('body').on('click', '#replyArea tbody tr td input[id=del_btn]', function(event) {
 					    			
 					    			var rno = $(this).parent("td").parent("tr").children().eq(0).children().val();
-						    		console.log(rno);
 						    		
+						    		alertify.confirm('소모임 게시판 관리', '댓글을 삭제하시겠습니까?',function(){
 						    		$.ajax({
 					   					url:"rDelete.ad",
 					   					data:{"rno": rno},
 					   					type:"post",
 					   					success:function(result){
 					   						
-					   						console.log("댓글  삭제"+result);
-					   						selectAdReplyList();
-					   						//return "redirect:noticeDetail.ad?bno="+g.getGnoticeNo();
 					   						
+					   						selectAdReplyList();
+					   						
+					   						alertify.alert("소모임 게시글 관리", "댓글이 삭제되었습니다", function(){ location.reload();});
 					   					},error:function(){
 					   						console.log("댓글 작성용 ajax 통신 실패!");
 					   					}
 					   				});
+						    		},function(){} );
 						    		
 					    		});
 				    </script>
