@@ -21,9 +21,9 @@ public interface MypageGroupService {
 	
 	// 3. 소모임 공지사항 상세조회용 서비스
 	// 3-1. 해당 소모임 공지사항 조회수 증가용 서비스
-	int increaseGroupNoticeCount(int gnno);
+	int increaseGroupNoticeCount(int gnoticeNo);
 	// 3-2. 해당 소모임 공지사항 조회용 서비스
-	GroupNotice selectGroupNotice(int gnno);
+	GroupNotice selectGroupNotice(int gnoticeNo);
 	
 	// 4. 소모임 공지사항 삭제용 서비스
 	int deleteGroupNotice(int gnoticeNo);

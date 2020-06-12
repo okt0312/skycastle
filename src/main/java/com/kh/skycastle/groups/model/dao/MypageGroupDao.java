@@ -38,16 +38,20 @@ public class MypageGroupDao {
 		return sqlSession.insert("groupsMapper.insertReply", r);
 	}
 
-	public int increaseGroupNoticeCount(SqlSessionTemplate sqlSession, int gnno) {
-		return sqlSession.update("groupsMapper.increaseGroupNoticeCount", gnno);
+	public int increaseGroupNoticeCount(SqlSessionTemplate sqlSession, int gnoticeNo) {
+		return sqlSession.update("groupsMapper.increaseGroupNoticeCount", gnoticeNo);
 	}
 
-	public GroupNotice selectGroupNotice(SqlSessionTemplate sqlSession, int gnno) {
-		return sqlSession.selectOne("groupsMapper.selectGroupNotice", gnno);
+	public GroupNotice selectGroupNotice(SqlSessionTemplate sqlSession, int gnoticeNo) {
+		return sqlSession.selectOne("groupsMapper.selectGroupNotice", gnoticeNo);
 	}
 
 	public int deleteGroupNotice(SqlSessionTemplate sqlSession, int gnoticeNo) {
 		return sqlSession.update("groupsMapper.deleteGroupNotice", gnoticeNo);
+	}
+
+	public int updateGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
+		return sqlSession.update("groupsMapper.updateGroupNotice", gn);
 	}
 	
 	

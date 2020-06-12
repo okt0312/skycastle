@@ -44,11 +44,11 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 상세
 	@RequestMapping("mygroupNoticeDetail.gr")
-	public ModelAndView selectGroupNotice(int gnno, int userNo, ModelAndView mv) {
+	public ModelAndView selectGroupNotice(int gnoticeNo, int userNo, ModelAndView mv) {
 		
-		int result = mgService.increaseGroupNoticeCount(gnno);
+		int result = mgService.increaseGroupNoticeCount(gnoticeNo);
 			
-		GroupNotice g = mgService.selectGroupNotice(gnno);
+		GroupNotice g = mgService.selectGroupNotice(gnoticeNo);
 		
 		mv.addObject("g", g);
 		mv.setViewName("groups/mygroupNoticeDetail");
@@ -74,32 +74,37 @@ public class MypageGroupController {
 		}
 	}
 	
+	// 방장 공지사항 수정폼
+	@RequestMapping("updateForm.bo")
+	public String updateForm(int gnoticeNo, Model model) {
+		
+		model.addAttribute("gnoticeNo", mgService.selectGroupNotice(gnoticeNo));
+		return "groups/mygroupNoticeUpdate";
+	}
+	
 	// 방장 공지사항 수정
 	@RequestMapping("mygroupNoticeUpdate.gr")
-	public String updateGroupNotice(Notice n, Model model, HttpSession session) {
+	public String updateGroupNotice(GroupNotice gn) {
 		
-		int result = mgService.updateAdNotice(n);
+		int result = mgService.updateGroupNotice(gn);
 		
 		if(result > 0) { 
-			
-			return "redirect:noticeMgmt.ad";
-			//return "redirect:noticeDetail.ad?bno="+n.getNoticeNo();
+			return "redirect:mygroupNoticeDetail.gr?gnoticeNo=" + gn.getGnoticeNo();
 		} else { 
-			
-			return "수정 실패";
+			return "소모임 공지사항 수정 실패";
 		}
 	}
 	
-	// 방장 공지사항 삭제 - 수정중
+	// 방장 공지사항 삭제
 	@RequestMapping("mygroupNoticedelete.gr")
-	public String deleteGroupNotice(int gnoticeNo, Model model, HttpSession session) {
+	public String deleteGroupNotice(int gnoticeNo) {
+		
 		int result = mgService.deleteGroupNotice(gnoticeNo);
 		
 		if(result > 0) {
-			
-			return "redirect:noticeMgmt.ad";
+			return "redirect:mygroupNoticeList.gr?currentPage=1";
 		} else {
-			return "삭제 실패";
+			return "공지사항 삭제 실패";
 		}
 	}
 	

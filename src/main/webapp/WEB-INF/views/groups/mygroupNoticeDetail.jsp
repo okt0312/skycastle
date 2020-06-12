@@ -171,7 +171,8 @@
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
 		<c:forEach items="${ list }" var="gn">
-		<c:forEach items="${ list }" var="gn">
+		<c:forEach items="${ list }" var="r">
+		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
 			<h2>공지사항</h2>

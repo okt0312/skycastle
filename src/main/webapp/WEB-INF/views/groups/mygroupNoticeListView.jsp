@@ -78,7 +78,7 @@
 	    color: #333333;
 	    font-weight: bold;
 	}
-	.gnno{
+	.gnoticeNo{
 		text-align: left;
 		font-size: 13px;
 		font-weight: 400;
@@ -172,7 +172,7 @@
                 <tbody>
                 	<c:forEach items="${ list }" var="gn">
 	                    <tr class="groupNoticeTitle">
-	                        <td class="gnno">${ gn.gnoticeNo }</td>
+	                        <td class="gnoticeNo">${ gn.gnoticeNo }</td>
 	                        <td class="title">${ gn.gnoticeTitle }</td>
 	                        <td class="enrollDate">${ gn.enrollDate }</td>
 	                    </tr>
@@ -183,7 +183,8 @@
             <script>
             	$(function(){
             		$("#mygroupNoticeTable tbody tr").click(function(){
-            			location.href = "mygroupNoticeDetail.gr?gnno=" + $(this).children().eq(0).text();
+            			location.href = "mygroupNoticeDetail.gr?gnoticeNo=" + $(this).children().eq(0).text()
+            							+ "&userNo=" + "${ loginUser.userNo }";
             		});
             	});
 			</script>
