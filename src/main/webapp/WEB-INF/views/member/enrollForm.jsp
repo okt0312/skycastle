@@ -102,13 +102,15 @@
 .agree {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
-	margin-left: 680px;
+	text-align:center;
 }
+/*
 .agree1 {
 	color: rgb(51, 51, 51);
 	font-size: 14px;
 	margin-left: 740px;
 }
+*/
 </style>
 </head>
 <body data-spy="scroll" data-target="#navbar-example">
@@ -130,9 +132,9 @@
 				</p>
 			</div>
 
-			<p class="agree1">
+			<!-- <p class="agree1">
 				위 이용약관에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
-			</p>
+			</p> -->
 
 			<h4 class="subTitle">개인정보 수집 및 이용안내</h4>
 			<div class="applyAgree" style="margin-top: 15px;">
@@ -165,7 +167,7 @@
 			</div>
 
 			<p class="agree">
-				개인정보 수집 및 이용에 동의합니다. <input type="checkbox" name="infoAgree" value="true">
+				이용약관 동의, 개인정보 수집 및 이용에 모두 동의합니다. <input type="checkbox" name="infoAgree" value="true">
 			</p>
 
 			<center>

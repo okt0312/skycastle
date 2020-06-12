@@ -148,7 +148,7 @@ public class MemberController {
 	@RequestMapping("enrollForm2.me")
 	public ModelAndView enrollForm2(@RequestParam(value = "infoAgree", defaultValue = "false") Boolean infoAgree, 
 									HttpSession session) {
-
+		
 		if(!infoAgree) { // 체크박스 동의하지 않을 경우 정보입력 페이지 이동 x
 			ModelAndView mv = new ModelAndView("member/enrollForm");
 			session.setAttribute("msg", "약관에 동의하셔야만 회원가입이 가능합니다.");

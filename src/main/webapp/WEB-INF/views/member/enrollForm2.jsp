@@ -294,14 +294,14 @@ select::-ms-expand {
 					return false;
 				}
 				
-				/* 인증번호 일치여부 */
-				if ($("#inputVeriCode").val() == ranNum(true)) {
+				/* 인증번호 일치여부 
+				if ($("#inputVeriCode").val() == ranNum.value) {
 					return location.href = "enrollComplete.me";
 				} else {
 					alertify.alert("skycastle 내용:", "인증번호가 일치하지 않습니다. 이메일 인증을 완료하여 주세요.");
 					return false;
 				}
-	
+				*/
 			});
 	
 		});
