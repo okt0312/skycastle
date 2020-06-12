@@ -14,8 +14,7 @@
             width: 200px;
             height: 40px;
         }
-        .sky_btn1 /* 확인 버튼 */
-        {
+        .sky_btn1 {
             width: 130px;
             height: 40px;
             text-align: center;

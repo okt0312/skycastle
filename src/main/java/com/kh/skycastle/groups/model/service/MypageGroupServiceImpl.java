@@ -25,8 +25,8 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 
 	@Override
-	public ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi) {
-		return mgDao.selectGroupNoticeList(sqlSession, pi);
+	public ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi, int gno) {
+		return mgDao.selectGroupNoticeList(sqlSession, pi, gno);
 	}
 
 	@Override

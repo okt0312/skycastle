@@ -45,48 +45,72 @@
 		<h2>소모임</h2>
 		<br><hr><br>
 		
-		<div id="detailSum" style="width:100%;">
-			<h1>소모임 신청하기</h1>
-			<br><br><br>
-			
-			<c:forEach items="${ list }" var="g">
+		<c:forEach items="${ list }" var="g">
+			<div id="detailSum" style="width:100%;">
+				<h1>소모임 신청하기</h1>
+				<br><br><br>
+				
+				<span style="color:gray;">
+					<c:choose>
+		         		<c:when test="${ g.groupCategory == 1 }">
+							&nbsp;대입
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 2 }">
+							&nbsp;공무원임용
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 3 }">
+							&nbsp;어학회화
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 4 }">
+							&nbsp;자격증
+		            	</c:when>
+		            	<c:when test="${ g.groupCategory == 5 }">
+							&nbsp;기타
+		            	</c:when>
+		            	<c:otherwise>
+		            		&nbsp;카테고리가 없습니다
+		            	</c:otherwise>
+		            </c:choose>
+				</span>
+		            
+				&nbsp;&nbsp;|&nbsp;&nbsp;${ g.groupSubtitle }
+				<h2>${ g.groupTitle }</h2>
+				
+				<br><br>
+					
 				<table id="groupDetailTable">
 				    <tbody>
 				        <tr>
-				            <td><input type="text" value="${ g.groupTitle }" readonly></td>
-				            <td><input type="text" value=" | ${ g.groupCategory }" readonly></td>
-				        </tr>
-				        <tr>
-				            <td colspan="2"><input type="text" value="${ g.groupSubtitle }" readonly></td>
-				        </tr>
-				        <tr>
-				            <td colspan="2"><input type="text" value="${ g.groupContent }" readonly></td>
-				        </tr>
-				        <tr>
 				            <th>신청일정</th>
-				            <td><input type="text" value="${ g.startDate } ~ ${ g.endDate }" readonly></td>
+				            <td>${ g.startDate } ~ ${ g.endDate }</td>
 				        </tr>
 				        <tr>
 				            <th>장소</th>
-				            <td><input type="text" value="${ g.place }" readonly></td>
+				            <td>${ g.place }</td>
 				        </tr>
 				        <tr>
 				            <th>정원</th>
-				            <td><input type="text" value="${ g.memberLimit }" readonly></td>
+				            <td>${ g.memberLimit }명</td>
 				        </tr>
 				    </tbody>
 				</table>
-			</c:forEach>
-			<br><br><br>
-			
-			<h2>소모임 지원사유</h2>
-			<textarea name="passion" id="passion" style="width:100%; height:150px; resize:none;"></textarea>
-			<br><br>
-			
-			<div style="text-align:right;">
-				<button class="sky_btn1" onclick="">확인</button>
-	        </div>
-	    </div>
+				<br><br><br>
+				
+				<form action="">
+					<h2>소모임 지원사유</h2>
+					<span style="color:gray;">해당 소모임에 참여하고 싶은 이유를 자유롭게 적어주세요</span>
+					<textarea name="passion" id="passion" style="width:100%; height:150px; resize:none;" required></textarea>
+					<br><br>
+					
+					<div style="text-align:right;">
+						<button type="submit" class="sky_btn1">확인</button>
+			        </div>
+			        
+					<input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
+					<input type="hidden" id="group_no" name="groupNo" value="${ g.groupNo }">
+				</form>
+		    </div>
+		</c:forEach>
 	    <br><br><br><br>
 	</div>
 	

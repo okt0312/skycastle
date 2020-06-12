@@ -33,7 +33,7 @@ public class GroupServiceImpl implements GroupService {
 	
 	@Override
 	public ArrayList<GroupDto> selectMyGroupList(PageInfo pi, GroupDto gd) {
-		return gDao.selectGroupList(sqlSession, pi, gd);
+		return gDao.selectMyGroupList(sqlSession, pi, gd);
 	}
 	
 	@Override

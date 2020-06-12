@@ -47,11 +47,11 @@ public class GroupController {
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
 		
-		mv.addObject("g", g);
+		mv.addObject("list", g);
 		mv.addObject("count", countDips);
 		
 		mv.setViewName("groups/groupDetail");
-
+		
 		return mv;
 	}
 	
@@ -79,23 +79,30 @@ public class GroupController {
 		return result;
 	}
 
-	// 소모임 신청폼
+	// 소모임 참가 신청폼
 	@RequestMapping("groupApplyForm.gr")
 	public ModelAndView groupApplyForm(int gno, int userNo, ModelAndView mv) {
 		
-		Groups g = gService.selectGroup(gno);
-		Dips d = new Dips(userNo, gno);
-		int countDips = gService.countDips(d);
+		ArrayList<GroupDto> g = gService.selectGroup(gno);
 		
-		mv.addObject("g", g);
-		mv.addObject("count", countDips);
+		mv.addObject("list", g);
 		
 		mv.setViewName("groups/groupApplyForm");
 		
 		return mv;
 	}
 	
-	// 소모임 신청용
+	// 소모임 참가 신청용
+	public int groupApply(int userNo, int groupNo, Groups g) {
+		int result = gService.groupApply(g);
+		
+		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
+			return "redirect:mygroupList.gr";
+		} else {
+			return "소모임 개설 신청하기 실패";
+		}
+	}
+	
 	
 	// 마이페이지 상태별 소모임 리스트
 	@RequestMapping("mygroupList.gr")

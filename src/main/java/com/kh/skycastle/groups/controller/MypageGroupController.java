@@ -26,13 +26,13 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 리스트
 	@RequestMapping("mygroupNoticeList.gr")
-	public String selectGroupNoticeList(int currentPage, Model model) {
+	public String selectGroupNoticeList(int currentPage, int gno, Model model) {
+		
 		
 		int groupNoticeListCount = mgService.selectGroupNoticeListCount();
-		
 		PageInfo pi = Pagination.getPageInfo(groupNoticeListCount, currentPage, 10, 5);
 		
-		ArrayList<GroupNotice> list = mgService.selectGroupNoticeList(pi);
+		ArrayList<GroupNotice> list = mgService.selectGroupNoticeList(pi, gno);
 		
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
