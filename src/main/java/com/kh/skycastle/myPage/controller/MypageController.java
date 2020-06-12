@@ -373,4 +373,9 @@ public class MypageController {
 		
 	}
 	
+	@RequestMapping("xorud.me")
+	public String xorud() {
+		return "myPage/myPageUpdateForm";
+	}
+	
 }

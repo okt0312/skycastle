@@ -419,7 +419,7 @@ p {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;"></b>개인정보 입력 안내문 
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: #fdce07;  margin-top: 15px;">회원정보를 정확히 기입하셔야 예약이나 이벤트에 대한 불이익이 없습니다.</p>
+							<p style="font-size: 0.8em; color: #fdce07;  margin-top: 15px;">회원정보를 정확히 기입하셔야 예약이나 이벤트에 대한 불이익이 없습니다.</p>
 						</th>
 						
 						
@@ -452,7 +452,7 @@ p {
                                     <div class="default_tabs t2" style="max-width: 600px;">
                                         <ul>
                                             <li>
-                                            <a href="updatee.me" style="background-color: #f8f8f8; color: #222;">회원정보변경</a>
+                                            <a href="xorud.me" style="background-color: #f8f8f8; color: #222;">회원정보변경</a>
                                             </li>
                                             
                                             <li>
