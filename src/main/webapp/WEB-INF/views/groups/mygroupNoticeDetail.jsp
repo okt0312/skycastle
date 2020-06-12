@@ -347,7 +347,7 @@
     		$("#addReply").click(function(){
     			
     			$.ajax({
-        			url:"rinsert.gr",
+        			url:"replyInsert.gr",
         			data:{replyContent:$("#content").val(),
         				  refBoardNo:${gn.groupNoticeNo},
         				  replyWriter:"${loginUser.userId}"},
