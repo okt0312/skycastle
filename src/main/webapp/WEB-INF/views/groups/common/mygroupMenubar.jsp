@@ -79,7 +79,7 @@
 
 		<!-- 방장에게만 보여지는 버튼-->
 		<c:if test="${ loginUser.userNo == leaderNo }">
-			<!-- <a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
+<!--		<a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
 			<div id="option-btn" style="margin-top: 300px;">
 				<button class="sky_btn2"
 					onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button>
@@ -88,8 +88,8 @@
 			</div>
 
 			<form action="" id="postForm" method="post">
-				<input type="hidden" name="gnno" value="${ gn.gnoticeNo }">
-				<input type="hidden" name="fileName" value="${ b.changeName }">
+				<input type="hidden" name="groupNo" value="${ g.groupNo }">
+				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
 		</c:if>
 	</div>

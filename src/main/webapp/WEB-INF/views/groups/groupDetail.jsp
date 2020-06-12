@@ -132,13 +132,12 @@
 							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn" class="sky_btn2 loginBtn" style="float: left;" type="button">로그인</button>
+							<button id="loginBtn1" class="sky_btn2" style="float: left;" type="button">찜하기</button>
 						</c:otherwise>
 					</c:choose>
 					
 					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
-					<!-- <button class="sky_btn1" id="applyBtn">신청하기</button> -->
 					<input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 					<c:choose>
@@ -146,7 +145,7 @@
 							<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn" class="sky_btn2 loginBtn" type="button">신청하기</button>
+							<button id="loginBtn2" class="sky_btn2" type="button">신청하기</button>
 						</c:otherwise>
 					</c:choose>
 				</form>
@@ -164,8 +163,11 @@
 	
 		
     <script>
-		// 비로그인시 찜 희망할 경우 로그인폼으로 이동
-		$(".loginBtn").click(function(){
+		// 로그인폼으로 이동
+		$("#loginBtn1").click(function(){	// 비로그인시 찜 희망할 경우
+			location.href = "loginForm.me";
+		});
+		$("#loginBtn2").click(function(){	// 비로그인시 신청 희망할 경우
 			location.href = "loginForm.me";
 		});
 		

@@ -28,7 +28,6 @@ public class MypageGroupController {
 	@RequestMapping("mygroupNoticeList.gr")
 	public String selectGroupNoticeList(int currentPage, int gno, Model model) {
 		
-		
 		int groupNoticeListCount = mgService.selectGroupNoticeListCount();
 		PageInfo pi = Pagination.getPageInfo(groupNoticeListCount, currentPage, 10, 5);
 		
