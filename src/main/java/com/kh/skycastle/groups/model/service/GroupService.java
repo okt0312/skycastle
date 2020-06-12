@@ -26,7 +26,7 @@ public interface GroupService {
 	int insertGroup(Groups g);
 	
 	// 3. 해당 소모임 상세조회용 서비스
-	GroupDto selectGroup(int gno);
+	ArrayList<GroupDto> selectGroup(int gno);
 	// 3-1. 회원 찜하기 여부 확인
 	int countDips(Dips d);
 	

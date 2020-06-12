@@ -43,7 +43,7 @@ public class GroupController {
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
 		
-		GroupDto g = gService.selectGroup(gno);
+		ArrayList<GroupDto> g = gService.selectGroup(gno);
 		Dips d = new Dips(userNo, gno);
 		int countDips = gService.countDips(d);
 		

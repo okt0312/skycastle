@@ -42,7 +42,7 @@ public class GroupServiceImpl implements GroupService {
 	}
 	
 	@Override
-	public GroupDto selectGroup(int gno) {
+	public ArrayList<GroupDto> selectGroup(int gno) {
 		return gDao.selectGroup(sqlSession, gno);
 	}
 
