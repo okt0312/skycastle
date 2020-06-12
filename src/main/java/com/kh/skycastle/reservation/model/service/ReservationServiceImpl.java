@@ -97,7 +97,7 @@ public class ReservationServiceImpl implements ReservationService{
 			result1 = result1*result2;
 		}
 		int result3 = rDao.updateUesdCoupon(sqlSession, reservation);
-		return result1*result3;
+		return result1;
 		
 	}
 

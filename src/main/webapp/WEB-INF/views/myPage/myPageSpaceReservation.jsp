@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -480,19 +481,27 @@ ul{
                         
                     </a>
 
+                        
+						 <c:set var="current" value="<%= new java.util.Date() %>"/>									
+				  		 <fmt:formatDate var="date" value='${current }' type='date'  pattern='yyyy-MM-dd'/>
+                       	 <fmt:formatDate var="currentHours" value='${current }' type='both' pattern='HH'/>
+                        <c:set var="endTime" value="${r.endTime}"/>		
+                        <c:set var="endHourse" value="${fn:substring(endTime,0,2)}"/>
+                        <c:set var="usedDate" value="${r.usedDate}"/>	
+                        <c:set var="usedDay" value="${fn:substring(r.usedDate,0,10)}"/>
+                       
+                       
+                       
                         <span class="col4 align_center" style="padding-top:90px;">
                             <span class="reserve_status" style="float: right;">
-                               	<c:choose>
-                               		<c:when test="${ r.status eq 'X' }">
-		                               	이용대기
-                               		</c:when>
-                               		<c:when test="${ r.status eq 'O' }">
-		                               	이용예정
-                               		</c:when>
-                               		<c:when test="${ r.status eq 'C' }">
+                               	 <c:choose>
+                               		<c:when test="${ (usedDay eq date and endHourse <= currentHours) or usedDay < date}">                        
 		                               	이용완료
                                		</c:when>
-                               	</c:choose>
+                               		<c:otherwise>
+                               			이용예정
+                               		</c:otherwise>
+                            	</c:choose>
                             </span>
                         </span>
                           

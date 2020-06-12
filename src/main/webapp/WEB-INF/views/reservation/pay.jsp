@@ -57,7 +57,7 @@
 	        }
 	        msg += '에러내용 : ' + rsp.error_msg;
 	    }
-	    alertify.alert("skycastle 내용:", msg);
+	   
 	});
 </script>
 </head>
