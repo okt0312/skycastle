@@ -43,6 +43,7 @@ public class ReservationServiceImpl implements ReservationService{
 	public int insertReservation(Reservation reservation) {
 		int result1 = rDao.insertReservation(sqlSession, reservation);
 		int result2 =  rDao.insertReservationTime(sqlSession, reservation);
+		int result3 = rDao.updateUesdCoupon(sqlSession, reservation);
 		return result1*result2;
 	}
 
@@ -95,8 +96,8 @@ public class ReservationServiceImpl implements ReservationService{
 			result2 = rDao.insertReservationTimeArray(sqlSession, reservTime);
 			result1 = result1*result2;
 		}
-		
-		return result1;
+		int result3 = rDao.updateUesdCoupon(sqlSession, reservation);
+		return result1*result3;
 		
 	}
 

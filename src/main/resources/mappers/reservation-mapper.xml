@@ -82,6 +82,7 @@
 	<select id="selectCouponList"   parameterType="_int" resultMap="couponResultSet">
 		select coupon_code,coupon_name, start_date, expiration_period,discount_rate
 		from member_coupon join coupon using(coupon_code) where user_no=#{userNo}
+		and status ='N'
 	</select>
 	
 	<select id="selectGrade" parameterType="_int" resultMap="gradeResultSet">
@@ -106,6 +107,12 @@
 		insert into reservation_time
 		values(seq_reserveno.currval, #{usedDate}, #{startTime}, #{endTime})
 	</insert>
+	
+	<update id="updateUesdCoupon" parameterType="Reservation">
+		UPDATE member_coupon
+		SET status = 'Y'
+		WHERE user_no = #{userNo} and coupon_code=${couponCode}
+	</update>
 	
 	
 	<select id="selectSeatReservationTime" parameterType="_int" resultMap="reservationResultSet">
@@ -188,7 +195,7 @@
 		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
 		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
 		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
-		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
+		 WHERE USER_NO = #{userNo} AND CATEGORY= 2 and group_category = 1
 	</select>
 	
 	<!-- 공간 예약 조회 -->
@@ -198,7 +205,7 @@
 		  JOIN RESERVATION_TIME RT USING(BOOK_NO)
 		  JOIN TB_SPACE ON (REF_NO = SPACE_NO)
 		  JOIN ATTACHMENT AT ON(REF_NO = REF_BNO)
-		 WHERE USER_NO = #{userNo} AND CATEGORY = 2
+		 WHERE USER_NO = #{userNo} AND CATEGORY= 2 and group_category = 1
   	</select>
   	
   	<!-- 좌석 총 게시글 갯수 -->
