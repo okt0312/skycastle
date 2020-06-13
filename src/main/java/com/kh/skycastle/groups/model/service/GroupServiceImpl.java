@@ -20,11 +20,12 @@ public class GroupServiceImpl implements GroupService {
 	private SqlSessionTemplate sqlSession;
 	@Autowired
 	private GroupDao gDao;
-
+	
 	@Override
 	public int selectGroupListCount() {
 		return gDao.selectGroupListCount(sqlSession);
 	}
+
 
 	@Override
 	public ArrayList<Groups> selectGroupListAll(PageInfo pi, GroupDto gd) {
@@ -87,6 +88,12 @@ public class GroupServiceImpl implements GroupService {
 	@Override
 	public int selectDipsListCount(int userNo) {
 		return  gDao.selectDipsListCount(sqlSession,userNo);
+	}
+
+
+	@Override
+	public int selectGroupStatusListCount(GroupDto gd) {
+		return gDao.selectGroupStatusListCount(sqlSession,gd);
 	}
 
 	

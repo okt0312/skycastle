@@ -15,9 +15,10 @@
 		<result column="STATUS" property="status"/>
 		<result column="START_DATE" property="startDate"/>
 		<result column="END_DATE" property="endDate"/>
+		<result column="CHANGE_NAME" property="changeName"/>
 	</resultMap>
 
-	<select id="selectGroupListCount" resultType="_int">
+	<select id="selectGroupListCount" parameterType="GroupDto" resultType="_int">
 		SELECT COUNT(*)
 		FROM GROUPS
 		WHERE STATUS='Y'
@@ -60,22 +61,7 @@
 		 ORDER BY G.START_DATE DESC
 	</select>
 	
-	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
-	<select id="selectMyGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
-		SELECT G.*, M.USER_NO, A.CHANGE_NAME
-		FROM GROUP_MANAGE GM
-		JOIN MEMBER M ON(GM.USER_NO = M.USER_NO)
-		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
-		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
-		<where>
-			<if test='status!=null'>
-	            M.USER_NO=#{userNo}
-	            AND G.STATUS=#{status}
-	            AND A.GROUP_CATEGORY=3
-			</if>
-		</where>
-		ORDER BY G.START_DATE DESC
-	</select>
+	
 	
 	<select id="selectGroup" parameterType="_int" resultMap="groupDtoResultSet">
 		SELECT G.*, A.CHANGE_NAME
@@ -231,11 +217,12 @@
 	</insert>
 	
 	
-		<select id="selectDipsListCount" parameterType="_int" resultType="_int">
+	<!--찜한 목록 카운트  -->
+	<select id="selectDipsListCount" parameterType="_int" resultType="_int">
 		select count(*)
 		from dips where user_no=#{userNo}
 	</select>
-	
+	<!--찜한목록 리스트 -->
 	<select id="selectGroupDipsList" parameterType="_int" resultMap="groupResultSet">
 		select group_no,leader_no,group_title,group_subtitle,group_content,g.group_category,place,grade_limit,member_limit,g.status,start_date,end_date,user_no,change_name 
 		from groups g 
@@ -243,5 +230,23 @@
 		join attachment on(ref_bno=group_no)
 		where user_no =2 and g.status='Y'
 	</select>
-	
+	<!--마이페이지 상태별 소모임 리스트 카운트   -->
+	<select id="selectGroupStatusListCount" parameterType="GroupDto" resultType="_int">
+		select count(*) 
+		from group_manage
+		where user_no=#{userNo} and status=#{status}
+	</select>
+	<!--마이페이지 상태별 소모임 리스트 조회  -->
+	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
+	<select id="selectMyGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
+		SELECT gm.group_no,leader_no,group_title,group_subtitle,group_content,g.group_category,place,grade_limit,member_limit,gm.status,start_date,end_date,user_no,change_name 
+		FROM GROUP_MANAGE GM
+		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
+		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
+	            AND USER_NO=#{userNo}
+	            AND G.STATUS='Y'
+                AND GM.STATUS=#{status}
+	            AND A.GROUP_CATEGORY=3
+		ORDER BY G.START_DATE DESC
+	</select>
 </mapper>

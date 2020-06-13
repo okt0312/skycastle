@@ -22,6 +22,9 @@ public interface GroupService {
 	
 	//찜한 소모임 갯수 카운트
 	int selectDipsListCount(int userNo);
+	//상태별 소모임 갯수 카운트
+	int selectGroupStatusListCount(GroupDto gd);
+	
 	
 	// 검색 구현하려면 마이바티스 참조
 	

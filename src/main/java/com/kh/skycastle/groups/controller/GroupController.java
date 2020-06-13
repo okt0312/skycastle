@@ -123,15 +123,16 @@ public class GroupController {
 	// 마이페이지 상태별 소모임 리스트
 	@RequestMapping("mygroupList.gr")
 	public String mygroupList(int currentPage, GroupDto gd, Model model, HttpSession session) {
-		
-		int groupListCount = gService.selectGroupListCount();
-		
-		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
-		
-		Member m = (Member)session.getAttribute("loginUser");
-		gd.setUserNo(m.getUserNo());
+		//System.out.println(gd);
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		gd.setUserNo(loginUser.getUserNo());
+		int groupListCount = gService.selectGroupStatusListCount(gd);
+		//System.out.println(groupListCount);
+		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 5, 3);
 		
 		ArrayList<GroupDto> list = gService.selectMyGroupList(pi, gd);
+		//System.out.println(list);
+		model.addAttribute("status", gd.getStatus());
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
 		
@@ -145,11 +146,11 @@ public class GroupController {
 		
 		int dipsListCount = gService.selectDipsListCount(loginUser.getUserNo());
 		//System.out.println(dipsListCount);
-		PageInfo pi = Pagination.getPageInfo(dipsListCount, currentPage, 10, 5);
+		PageInfo pi = Pagination.getPageInfo(dipsListCount, currentPage, 5, 3);
 		
 		
 		ArrayList<Groups> dipsList = gService.mygroupDipsList(pi, loginUser.getUserNo());
-		
+		//System.out.println(dipsList);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", dipsList);
 		

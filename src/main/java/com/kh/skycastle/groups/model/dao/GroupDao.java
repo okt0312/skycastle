@@ -81,5 +81,10 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectDipsListCount", userNo);
 	}
 	
+	public int selectGroupStatusListCount(SqlSessionTemplate sqlSession, GroupDto gd) {
+		return sqlSession.selectOne("groupsMapper.selectGroupStatusListCount", gd);
+	}
+	
+	
 
 }

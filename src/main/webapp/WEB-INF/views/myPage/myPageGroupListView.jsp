@@ -261,38 +261,140 @@
 		</script>
 		<br>
 
-	    
-        <!-- 페이징바 -->
-		<div class="paging" align="center">
-			<c:choose>
-				<c:when test="${ pi.currentPage eq 1 }">          
-					<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
-				</c:when>
-				<c:otherwise>	  
-					<a href="mygroupNoticeList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
-				</c:otherwise>	
-			</c:choose>    
-				
-			<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-				<c:choose>
-					<c:when test="${ p eq pi.currentPage }">
-						<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
-					</c:when>
-					<c:otherwise>
-						<a href="mygroupNoticeList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			
-			<c:choose>   
-				<c:when test="${ pi.currentPage eq pi.maxPage }">
-					<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
-				</c:when>
-				<c:otherwise>
-					<a href="mygroupNoticeList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
-				</c:otherwise> 	
-			</c:choose>
+	    <c:choose>
+	    	<c:when test="${status eq 'Y'}">
+			    	 <!-- 페이징바 -->
+				<div class="paging" align="center">
+					<c:choose>
+						<c:when test="${ pi.currentPage eq 1 }">          
+							<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:when>
+						<c:otherwise>	  
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage-1 }&status=Y" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:otherwise>	
+					</c:choose>    
+						
+					<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+						<c:choose>
+							<c:when test="${ p eq pi.currentPage }">
+								<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:when>
+							<c:otherwise>
+								<a href="mygroupList.gr?currentPage=${ p }&status=Y" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<c:choose>   
+						<c:when test="${ pi.currentPage eq pi.maxPage }">
+							<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:when>
+						<c:otherwise>
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage+1 }}&status=Y" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:otherwise> 	
+					</c:choose>
 		</div>
+	    	</c:when>
+	    	<c:when test="${status eq 'U'}">
+	    		  	 <!-- 페이징바 -->
+				<div class="paging" align="center">
+					<c:choose>
+						<c:when test="${ pi.currentPage eq 1 }">          
+							<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:when>
+						<c:otherwise>	  
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage-1 }&status=U" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:otherwise>	
+					</c:choose>    
+						
+					<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+						<c:choose>
+							<c:when test="${ p eq pi.currentPage }">
+								<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:when>
+							<c:otherwise>
+								<a href="mygroupList.gr?currentPage=${ p }&status=U" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<c:choose>   
+						<c:when test="${ pi.currentPage eq pi.maxPage }">
+							<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:when>
+						<c:otherwise>
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage+1 }}&status=U" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:otherwise> 	
+					</c:choose>
+	    	</c:when>
+	    	<c:when test="${status eq 'N'}">
+	    		  	 <!-- 페이징바 -->
+				<div class="paging" align="center">
+					<c:choose>
+						<c:when test="${ pi.currentPage eq 1 }">          
+							<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:when>
+						<c:otherwise>	  
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage-1 }&status=N" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:otherwise>	
+					</c:choose>    
+						
+					<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+						<c:choose>
+							<c:when test="${ p eq pi.currentPage }">
+								<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:when>
+							<c:otherwise>
+								<a href="mygroupList.gr?currentPage=${ p }&status=N" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<c:choose>   
+						<c:when test="${ pi.currentPage eq pi.maxPage }">
+							<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:when>
+						<c:otherwise>
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage+1 }}&status=N" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:otherwise> 	
+					</c:choose>
+	    	
+	    	</c:when>
+	    	<c:otherwise>
+	    		  	 <!-- 페이징바 -->
+				<div class="paging" align="center">
+					<c:choose>
+						<c:when test="${ pi.currentPage eq 1 }">          
+							<a href="#" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:when>
+						<c:otherwise>	  
+							<a href="mygroupDipsList.gr?currentPage=${ pi.currentPage-1 }" class="btn_arr prev"><span class="hide">Prev</span></a>
+						</c:otherwise>	
+					</c:choose>    
+						
+					<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
+						<c:choose>
+							<c:when test="${ p eq pi.currentPage }">
+								<a href="#" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:when>
+							<c:otherwise>
+								<a href="mygroupDipsList.gr?currentPage=${ p }" class="on">${ p }</a><!-- D : 활성화페이지일 경우 : on 처리 -->
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<c:choose>   
+						<c:when test="${ pi.currentPage eq pi.maxPage }">
+							<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:when>
+						<c:otherwise>
+							<a href="mygroupDipsList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
+						</c:otherwise> 	
+					</c:choose>
+	    	</c:otherwise>
+	    	
+	    </c:choose>
+       
 	</div>
 	
 	<jsp:include page="../common/footer.jsp"/>
