@@ -80,11 +80,10 @@
 						<tr>
 							<th>장소</th>
 							<td>
-								<select style="width: 100px; height: 25px;">
-									<option>장소1</option>
-									<option>장소2</option>
-									<option>장소3</option>
-								</select>
+								<datalist style="width: 100px; height: 25px;">
+									
+									<option name="place">${ s.spaceName }</option>
+								</datalist>
 							</td>
 						</tr>
 						<tr>
