@@ -69,4 +69,8 @@ public class GroupDao {
 		return sqlSession.insert("groupsMapper.insertGroup", g);
 	}
 
+	public int groupApply(SqlSessionTemplate sqlSession, int userNo, int groupNo) {
+		return sqlSession.insert("groupsMapper.groupApply", userNo, groupNo);
+	}
+
 }

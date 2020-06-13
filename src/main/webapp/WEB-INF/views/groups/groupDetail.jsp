@@ -136,7 +136,7 @@
 						</c:otherwise>
 					</c:choose>
 					
-					현재신청자수 : 15명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					현재신청자수 : 15명	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!-- 버튼이 위아래 가운데에 오게 -->
 					<input type="hidden" id="user_no" name="userNo" value="${ loginUser.userNo }">
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
