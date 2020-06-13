@@ -27,9 +27,9 @@ public class AdMemberController {
 	private AdMemberService admService;
 	
 	@RequestMapping("memberList.ad")
-	public ModelAndView adMemberListForm(String status, ModelAndView mv)
+	public ModelAndView adMemberListForm(String selNo, ModelAndView mv)
 	{
-		ArrayList<Member> list1 = admService.selectMember(status);
+		ArrayList<Member> list1 = admService.selectMember(selNo);
 		ArrayList<Grade> list2 = admService.selectGrade();
 		for(Member m : list1)
 		{
@@ -43,6 +43,7 @@ public class AdMemberController {
 			}
 		}
 		
+		mv.addObject("selNo", selNo);
 		mv.addObject("list", list1);
 		mv.addObject("gradeList", list2);
 		mv.setViewName("admin/adMemberListForm");

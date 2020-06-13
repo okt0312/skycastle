@@ -14,9 +14,9 @@ import com.kh.skycastle.member.model.vo.Member;
 @Repository
 public class AdMemberDao {
 
-	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, String status)
+	public ArrayList<Member> selectMember(SqlSessionTemplate sqlSession, String selNo)
 	{
-		return (ArrayList)sqlSession.selectList("adMemberMapper.selectMember", status);
+		return (ArrayList)sqlSession.selectList("adMemberMapper.selectMember", selNo);
 	}
 	
 	public int deleteMember(SqlSessionTemplate sqlSession, int userNo)

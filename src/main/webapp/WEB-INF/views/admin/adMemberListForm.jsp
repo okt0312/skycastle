@@ -73,67 +73,21 @@
                                             <div>
                                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
                                                 <div id="selectBox">
-                                                    <select id="list_mem" name="list_mem">
-                                                        <option value="전체보기">전체보기</option>
-                                                        <option value="회원">회원</option>
-                                                        <option value="비회원">비회원</option>
-                                                    </select>
+                                                    <form id ="selNoForm" action="memberList.ad" method="post">
+														<select id="selNo" name="selNo">
+															<option value="0" <c:if test="${selNo == '0'}">selected</c:if>>전체보기</option>
+															<option value="Y" <c:if test="${selNo == 'Y'}">selected</c:if>>회원</option>
+															<option value="N" <c:if test="${selNo == 'N'}">selected</c:if>>비회원</option>
+														</select>
+													</form>
                                                 </div>
-                                                <!-- <script>
-                                               		$("#list_mem").change(function(){
-                                               			var status = $("#list_mem").val();
-                                               			switch(status)
-                                               			{
-                                               			case "회원":
-                                               				status = "Y";
-                                               				break;
-                                               			case "비회원":
-                                               				status = "N";
-                                               				break;
-                                           				default :
-                                           					ststus = null;
-                                           					break;
-                                               			}
-                                               			
-                                               			
-                                               			$.ajax({
-                                               				url:"choiceList.ad",
-                                               				data: {"status":status},
-                                               				type:"post",
-                                               				success:function(list)
-                                               				{
-                                               					console.log(list);
-                                               					$("#dataTable tbody").empty();
-                                               					
-                                               					var value = "";
-                                               					for(var i in list)
-                                        						{
-	                                               					value += "<tr>" +
-				                                                                "<td>" +  list[i].userNo + "</td>" +
-				                                                                "<td>" +  list[i].userName + "</td>" +
-				                                                                "<td>" +  list[i].status + "</td>" +
-				                                                                "<td>" +  list[i].userId + "</td>" +
-				                                                                "<td>" +  list[i].birthday + "</td>" +
-				                                                                "<td>" +  list[i].phone + "</td>" +
-				                                                                "<td>" +  list[i].gradeName + "</td>" +
-				                                                                "<td>" +  list[i].enrollDate + "</td>" +
-				                                                                "<td>" +
-				                                                                	"<button id='tbBtn1' class='tbBtn123' data-toggle='modal' data-target='#manageModal'>관리</button>" +
-				                                                                    "<button id='tbBtn2' class='tbBtn123' data-toggle='modal' data-target=''#spaceModal'>공간</button>" +
-				                                                                    "<button id='tbBtn3' class='tbBtn123' data-toggle='modal' data-target=''#groupModal'>소모임</button>" +
-				                                                         
-				                                                                "</td>" +
-			                                                            	"</tr>";
-                                        						}
-	                                               					$("#dataTable tbody").html(value);
-                                               				},
-                                               				error:function()
-                                               				{
-                            									console.log("ajax통신 실패");
-                                               				}
-                                               			});
-                                               		});
-                                               	</script> -->
+                                                <script type="text/javascript">
+													$("#selNo").on("change", function(){
+														
+														$("#selNoForm").submit();
+														
+													});
+												</script>
                                                 <!-- 셀렉트 끝 -->
                                             </div>
                                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">

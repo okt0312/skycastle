@@ -11,7 +11,7 @@ import com.kh.skycastle.member.model.vo.Member;
 public interface AdMemberService {
 	
 	// 관리페이지 회원 조회
-	ArrayList<Member> selectMember(String status);
+	ArrayList<Member> selectMember(String selNo);
 	
 	// 관리페이지 회원 탈퇴
 	int deleteMember(int userNo);

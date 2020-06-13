@@ -23,9 +23,9 @@ public class AdMemberServiceImpl implements AdMemberService{
 	private AdMemberDao admDao;
 	
 	@Override
-	public ArrayList<Member> selectMember(String status) {
+	public ArrayList<Member> selectMember(String selNo) {
 		
-		return admDao.selectMember(sqlSession, status);
+		return admDao.selectMember(sqlSession, selNo);
 	}
 
 	@Override

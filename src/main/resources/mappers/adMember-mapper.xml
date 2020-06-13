@@ -48,9 +48,9 @@
 		  JOIN GRADE G USING(GRADE_CODE)
 	  	 WHERE USER_ID != 'admin@naver.com'
 			   AND USER_NO != 0
-			   <if test="status != null">
-			   		AND STATUS = #{status}
-			   </if>
+		 <if test='selNo != "" and selNo != "0" '>
+		       AND M.STATUS = #{selNo}
+	     </if>
 	</select>
 	
 	<select id="selectGrade" resultMap="adGradeResultSet">
