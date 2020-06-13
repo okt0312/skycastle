@@ -31,6 +31,7 @@
 		<typeAlias type="com.kh.skycastle.common.model.vo.Attachment" alias="Attachment"/>	
 		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdReservationDto"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Chat" alias="Chat"/>
+		<typeAlias type="com.kh.skycastle.admin.model.dto.MainCount" alias="MainCount"/>
 	</typeAliases>
 	
 	<mappers>

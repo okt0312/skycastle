@@ -24,13 +24,12 @@
 			<main>
 				<div class="container-fluid" style="padding-right: 10px;">
 					<h1 class="mt-4">
-						<b>회원 조회</b>
+						<b>예약 현황</b>
 					</h1>
 					<!--작은 회색 네모-->
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html" style="color: black"><b>HOME</b></a></li>
-						<li class="breadcrumb-item active"><a style="color: black">회원
-								조회</a></li>
+						<li class="breadcrumb-item active"><a style="color: black">예약 목록</a></li>
 					</ol>
 
 					<!-- 회원조회 테이블 -->

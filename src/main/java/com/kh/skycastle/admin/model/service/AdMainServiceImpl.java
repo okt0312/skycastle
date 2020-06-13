@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdMainDao;
 import com.kh.skycastle.admin.model.dto.AdminCalendar;
+import com.kh.skycastle.admin.model.dto.MainCount;
 
 @Service("adMainService")
 public class AdMainServiceImpl implements AdMainService{
@@ -21,5 +22,10 @@ public class AdMainServiceImpl implements AdMainService{
 	@Override
 	public ArrayList<AdminCalendar> selectCalList() {
 		return adMainDao.selectCalList(sqlSession);
+	}
+
+	@Override
+	public MainCount selectCount() {
+		return adMainDao.selectCount(sqlSession);
 	}
 }

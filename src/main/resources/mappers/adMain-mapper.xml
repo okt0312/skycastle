@@ -9,6 +9,14 @@
 		<result column="USER_ID" property="userId"/>
 		<result column="SPACE_NAME" property="spaceName"/>
 	</resultMap>
+	<resultMap type="MainCount" id="mainCountResultSet">
+		<result column="GROUPS" property="groups"/>
+		<result column="RESERVATION" property="reservation"/>
+		<result column="SEAT" property="seat"/>
+		<result column="SPACE" property="space"/>
+		<result column="QNA" property="qna"/>
+		<result column="REPORT" property="report"/>
+	</resultMap>
 	
 	<select id="selectCalList" resultMap="adminCalResultSet">
 		SELECT USER_ID, USER_NAME, SPACE_NAME, USED_DATE, START_TIME, END_TIME
@@ -16,5 +24,40 @@
 		  JOIN RESERVATION_TIME USING(BOOK_NO)
 		  JOIN MEMBER USING(USER_NO)
 		  JOIN TB_SPACE ON(REF_NO = SPACE_NO)
+	</select>
+	
+	<select id="selectCount" resultMap="mainCountResultSet">
+		SELECT *
+		  FROM (SELECT COUNT(*) GROUPS
+		        FROM GROUPS
+		        WHERE STATUS = 'U'),
+		        
+				(SELECT COUNT(*) RESERVATION
+				   FROM RESERVATION
+				  WHERE STATUS = 'X'),
+				
+				(SELECT COUNT(*) SEAT
+				   FROM RESERVATION_TIME
+				   JOIN RESERVATION USING(BOOK_NO)
+				 <![CDATA[ WHERE USED_DATE >= TO_CHAR(SYSDATE, 'YYYY/MM/DD')
+				  		AND TO_CHAR(SYSDATE, 'HH24') >= SUBSTR(START_TIME, 1, 2)
+						AND TO_CHAR(SYSDATE, 'HH24') < SUBSTR(END_TIME, 1, 2) 
+						AND CATEGORY = 1)]]>,
+				
+				(SELECT COUNT(*) SPACE
+				   FROM RESERVATION_TIME
+				   JOIN RESERVATION USING(BOOK_NO)
+				 <![CDATA[ WHERE USED_DATE >= TO_CHAR(SYSDATE, 'YYYY/MM/DD')
+					  	AND TO_CHAR(SYSDATE, 'HH24') >= SUBSTR(START_TIME, 1, 2)
+				  		AND TO_CHAR(SYSDATE, 'HH24') < SUBSTR(END_TIME, 1, 2) 
+				  		AND CATEGORY = 2)]]>,
+				
+				(SELECT COUNT(*) QNA
+				   FROM QNA
+				  WHERE STATUS = 'O'),
+				
+				(SELECT COUNT(*) REPORT
+				   FROM REPORT
+				  WHERE STATUS = 'O')
 	</select>
 </mapper>
