@@ -134,8 +134,7 @@ public class AdBoardController {
 		public String insertAdEvent(Event e, HttpServletRequest request, HttpSession session, 
 								    @RequestParam(name="uploadFile", required=false) MultipartFile[] file) {
 			
-			System.out.println(file[0].getOriginalFilename());
-			System.out.println(file[1].getOriginalFilename());
+			System.out.println(e);
 			
 			Attachment[] at = new Attachment[file.length];
 			
@@ -245,7 +244,7 @@ public class AdBoardController {
 			
 			if(result > 0) { // 게시글 삭제 성공 --> 기존의 첨부파일이 있었을 경우 서버에 삭제
 				
-				if(!e.getChangeName().equals("")) {
+				if(e.getChangeName() != null) {
 					deleteFile(e.getChangeName(), request);
 				}
 					return "redirect:eventMgmt.ad";
