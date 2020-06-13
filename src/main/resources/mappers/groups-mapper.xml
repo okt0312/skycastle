@@ -139,7 +139,7 @@
 	
 	
 	
-	
+	 
 	
 	
 	
@@ -230,5 +230,18 @@
 		VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, #{noticeNo}, #{replyWriter}, sysdate, 'Y')
 	</insert>
 	
+	
+		<select id="selectDipsListCount" parameterType="_int" resultType="_int">
+		select count(*)
+		from dips where user_no=#{userNo}
+	</select>
+	
+	<select id="selectGroupDipsList" parameterType="_int" resultMap="groupResultSet">
+		select group_no,leader_no,group_title,group_subtitle,group_content,g.group_category,place,grade_limit,member_limit,g.status,start_date,end_date,user_no,change_name 
+		from groups g 
+		join dips using(group_no)
+		join attachment on(ref_bno=group_no)
+		where user_no =2 and g.status='Y'
+	</select>
 	
 </mapper>
