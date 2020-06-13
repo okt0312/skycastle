@@ -10,8 +10,8 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.GroupDao;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
 
 @Service("gService")
 public class GroupServiceImpl implements GroupService {
@@ -56,7 +56,7 @@ public class GroupServiceImpl implements GroupService {
 	public int insertGroup(Groups g) {
 		return gDao.insertGroup(sqlSession, g);
 	}
-
+	
 	@Override
 	public int deleteGroup(int gno) {
 		return 0;
@@ -78,15 +78,10 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public int groupApply(int userNo, int groupNo, Groups g) {
-		return gDao.groupApply(sqlSession, userNo, groupNo);
+	public int groupApply(GroupManage gm) {
+		return gDao.groupApply(sqlSession,gm);
 	}
 
-	@Override
-	public int insertGroup(int userNo, int groupNo, Groups g) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 

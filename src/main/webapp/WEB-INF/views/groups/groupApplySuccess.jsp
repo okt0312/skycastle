@@ -47,7 +47,7 @@
 	        </p>
 	        <br><br>
 	        <div style="text-align:center;">
-	            <button class="sky_btn1" onclick="">확인</button>
+	            <button class="sky_btn1" onclick="location.href='mygroupList.gr?currentPage=1&status=U'">확인</button>
 	        </div>
 	    </div>
 	

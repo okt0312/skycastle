@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.Groups;
 
 public interface GroupService {
@@ -36,11 +37,11 @@ public interface GroupService {
 	int dipsOut(Dips d);
 	
 	// 소모임 참가 신청용 서비스
-	int groupApply(int userNo, int groupNo, Groups g);
+	int groupApply(GroupManage gm);
 	
 	// 소모임 탈퇴용서비스
 	int deleteGroup(int gno);
 	
 	// 소모임 개설 신청용 서비스
-	int insertGroup(int userNo, int groupNo, Groups g);
+	int insertGroup(Groups g);
 }

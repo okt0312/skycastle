@@ -96,7 +96,7 @@
 				</table>
 				<br><br><br>
 				
-				<form action="">
+				<form action="groupApply.gr" method="post">
 					<h2>소모임 지원사유</h2>
 					<span style="color:gray;">해당 소모임에 참여하고 싶은 이유를 자유롭게 적어주세요</span>
 					<textarea name="passion" id="passion" style="width:100%; height:150px; resize:none;" required></textarea>
