@@ -126,7 +126,7 @@
 	</resultMap>
 	
 	<!-- 소모임 가입 신청 -->
-	<insert id="groupApply" parameterType="_int">
+	<insert id="groupApply" parameterType="GroupManage">
 		INSERT INTO GROUP_MANAGE
 		VALUES(#{groupNo}, #{userNo}, #{passion}, 'U')
 	</insert>
