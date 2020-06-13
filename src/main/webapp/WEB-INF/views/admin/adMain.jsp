@@ -148,7 +148,7 @@
 								<div
 									class="card-footer d-flex align-items-center justify-content-between"
 									style="background-color: rgb(158, 158, 158);">
-									<a class="small text-white stretched-link" href="#">공간 현황</a>
+									<a class="small text-white stretched-link" href="reservation.ad?selNo=2">공간 현황</a>
 									<div class="small text-white">
 										<i class="fas fa-angle-right"></i>
 									</div>

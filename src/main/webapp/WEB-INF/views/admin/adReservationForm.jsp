@@ -117,5 +117,11 @@
 			<jsp:include page="common/adFooter.jsp" />
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$('#dataTable').DataTable({
+		    "order": [[ 0, "desc" ]]
+		});
+	</script>	
 </body>
 </html>
