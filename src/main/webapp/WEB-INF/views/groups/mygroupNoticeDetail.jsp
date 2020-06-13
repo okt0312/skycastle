@@ -235,20 +235,10 @@
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
-                        <c:choose>
-                        	<c:when test="${ !empty loginUser }">
-		                        <th colspan="2">
-		                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:100%"></textarea>
-		                        </th>
-		                        <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
-                        	</c:when>
-		                    <c:otherwise>
-		                        <th colspan="2">
-		                            <textarea class="form-control" readonly cols="55" rows="2" style="resize:none; width:100%">로그인한 사용자만 이용가능한 서비스입니다. 로그인 후 이용해주세요.</textarea>
-		                        </th>
-		                        <th style="vertical-align: middle"><button class="btn btn-secondary" disabled>등록하기</button></th>
-		                    </c:otherwise>
-                        </c:choose>
+                        <th colspan="2">
+                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:100%"></textarea>
+                        </th>
+                        <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
                 </thead>
                 <tbody>
