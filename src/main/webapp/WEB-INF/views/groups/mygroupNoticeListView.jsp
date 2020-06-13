@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>mygroupNoticeListView</title>
-<style>
+<style>	
+	/* div{border:1px solid black;} */
 	#mygroup {
 		width: 100%;
 		height: 1000px;
@@ -54,8 +55,19 @@
 	}
 	
 	/* 공지사항 테이블 css */
+	.tableArea{
+		margin-top:80px;
+		width:97%;
+		border:2px solid #dddddd;
+	}
+	#noticeTitle{
+		padding:10px;
+		font-size: 32px;
+		font-weight:300;
+		color:#333333;
+	}
 	#mygroupNoticeTable{
-	    width: 80%;
+	    width: 100%;
 	    height: 450px;
 	    text-align:left;
 	    align-self: center;                  
@@ -79,22 +91,29 @@
 	    font-weight: bold;
 	}
 	.gnoticeNo{
-		text-align: left;
-		font-size: 13px;
+		width:10%;
+		padding-left:20px; 
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+		font-size: 14px;
 		font-weight: 400;
 	}
 	.title{
+		width:70%;
 	    height:34px;
 	    text-align: left;
+	    padding-left:25px;
 	    padding-top: 5px;
 	    padding-bottom: 5px;
-	    font-size: 13px;
+	    font-size: 14px;
 	    font-weight: 400;
 	}
 	.enrollDate{
-	    font-size: 13px;
+		width:20%;
+	    font-size: 14px;
 	    font-weight: 400;
-	    text-align: right;
+	    text-align: center;
+	    padding-right: 15px;
 	}
 	.noticeTitle{
 	    border-bottom:1px solid #dddddd;
@@ -110,6 +129,8 @@
 	
 	/* 페이징바 css */
 	.paging{
+		width:97%;
+		align:center;
 	    padding:19px;
 	    text-align:center;
 	}
@@ -128,6 +149,7 @@
 	    margin:0 3px;
 	    padding-top:0;
 	    border:1px solid #ddd;
+	    background: #fdce07;
 	    border-radius:30px;
 	    font-size: 9px;
 	    line-height: 20px;
@@ -148,8 +170,8 @@
     	<jsp:include page="common/mygroupMenubar.jsp"/>
 
         <div id="mygroupContent">
-            <h2>공지사항</h2>
-            <hr><br><br>
+            <p id="noticeTitle">공지사항<p>
+            <hr><!-- <br><br> -->
             
             <div id="searchArea">
 		        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
@@ -161,24 +183,26 @@
 							<option value="content">내용</option>
 						</select>
 					</div>
-					<div class="text" style="float: left;">
+					<div class="text" style="float: left; margin-left:5px;">
 						<input type="text" class="form-control" name="keyword">
 					</div>
-					<button type="submit" class="searchBtn btn btn-secondary" style="float: left;">검색</button>
+					<button type="submit" class="searchBtn btn btn-secondary" style="float:left; margin-left:5px;">검색</button>
 				</form>
             </div>
             
-            <table id="mygroupNoticeTable">
-                <tbody>
-                	<c:forEach items="${ list }" var="gn">
-	                    <tr class="groupNoticeTitle">
-	                        <td class="gnoticeNo">${ gn.gnoticeNo }</td>
-	                        <td class="title">${ gn.gnoticeTitle }</td>
-	                        <td class="enrollDate">${ gn.enrollDate }</td>
-	                    </tr>
-	                </c:forEach>
-                </tbody>    
-            </table>
+            <div class="tableArea">
+	            <table id="mygroupNoticeTable">
+	                <tbody>
+	                	<c:forEach items="${ list }" var="gn">
+		                    <tr class="groupNoticeTitle">
+		                        <td class="gnoticeNo">${ gn.gnoticeNo }</td>
+		                        <td class="title">${ gn.gnoticeTitle }</td>
+		                        <td class="enrollDate">${ gn.enrollDate }</td>
+		                    </tr>
+		                </c:forEach>
+	                </tbody>    
+	            </table>
+            </div>
             
             <script>
             	$(function(){

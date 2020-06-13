@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeDetail</title>
     <style>
+    	/* div{border:1px solid black;} */
         .sky_btn1 {
             width: 130px;
             height: 40px;
@@ -170,8 +171,8 @@
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
-		<c:forEach items="${ list }" var="gn">
-		<c:forEach items="${ list }" var="r">
+		<c:forEach items="${g}" var="gn">
+		<c:forEach items="${list}" var="r">
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
@@ -201,14 +202,14 @@
 			</div>
 			
 			<!-- 방장에게만 보이는 버튼 -->
-			<c:if test="${ loginUser.userNo eq g.leaderNo }">
+			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
 	            <div align="center">
 	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
 	            
 	            <form action="" id="postForm" method="post">
-	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="gnoticeNo" value="${ g.gnoticeNo }">
 	            	<input type="hidden" name="noticeNo" value="${ r.noticeNo }"><!-- 댓글 ajax에서만 스는데... -->
 	            </form>
 	            
@@ -356,7 +357,8 @@
         			url:"replyInsert.gr",
         			data:{replyContent:$("#replyContent").val(),
         				  noticeNo:${gn.gnoticeNo},
-        				  replyWriter:"${loginUser.userNo}"},
+        				  replyWriter:"${loginUser.userNo}"
+        				  },
         			type:"post",
         			success:function(status){
 
