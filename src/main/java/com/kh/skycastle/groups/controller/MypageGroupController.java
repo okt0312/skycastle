@@ -145,6 +145,12 @@ public class MypageGroupController {
 			return "fail";
 		}
 	}
+	
+	
+	@RequestMapping(value="mygroupCalendar.gr")
+	public String mygroupList() {
+		return "groups/mygroupCalender";
+	}
 
 	
 	

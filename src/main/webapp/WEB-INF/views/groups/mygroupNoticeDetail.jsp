@@ -197,17 +197,12 @@
 			</div>
 			<hr>
 
-			<div id="noticeContent" style="width:950px; margin-top: 30px; word-break:break-all;">
+			<div id="noticeContent" style="width:950px; margin-top: 30px; padding-left:20px; word-break:break-all;">
 				${gn.gnoticeContent}
 			</div>
 
-			<br><br><hr><br>
+			<br><br>
 
-			<div align="right" style="margin-left:10px; margin-bottom:15px; width:1090px;">
-				<!-- <button class="listBtn">좋아요</button> -->
-				<button class="listBtn sky_btn22" data-toggle="modal"
-					data-target="#reportModal">신고</button>
-			</div>
 			
 			<!-- 방장에게만 보이는 버튼 -->
 			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
@@ -234,42 +229,16 @@
 			</c:if>
 			
 			
-			<!-- 이게원래
-			<div id="replyArea">
-				<div id="existReply"></div>
-				<h2>댓글</h2>
-				<p>
-					조연화<br> 2020-10-11<br> 열공합시다아아아아아아아
-				</p>
-				<br><br>
-				
-				<h2>댓글달기</h2>
-				<textarea style="width: 700px; height: 100px;"></textarea>
-				&nbsp;&nbsp;
-				<button class="sky_btn11">댓글달기</button>
-
-			</div> -->
-			
 			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
                 <thead>
                     <tr>
-                        <c:choose>
-                        	<c:when test="${ !empty loginUser }">
-		                        <th colspan="2">
-		                            <textarea class="form-control" id="replyContent" cols="55" rows="2" style="resize:none; width:100%"></textarea>
-		                        </th>
-		                        <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
-                        	</c:when>
-		                    <c:otherwise>
-		                        <th colspan="2">
-		                            <textarea class="form-control" readonly cols="55" rows="2" style="resize:none; width:100%">로그인한 사용자만 이용가능한 서비스입니다. 로그인 후 이용해주세요.</textarea>
-		                        </th>
-		                        <th style="vertical-align: middle"><button class="btn btn-secondary" disabled>등록하기</button></th>
-		                    </c:otherwise>
-                        </c:choose>
+                       <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
-                       <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
+                        <th colspan="2">
+                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:100%"></textarea>
+                        </th>
+                        <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
                 </thead>
                 <tbody>

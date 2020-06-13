@@ -65,7 +65,7 @@
 			</tr>
 			<tr>
 				<td style="width: 100px; height: 40px; text-align: center;"
-					onclick="location.href='';">캘린더</td>
+					onclick="location.href='mygroupCalendar.gr';">캘린더</td>
 			</tr>
 		</table>
 
@@ -74,7 +74,7 @@
 			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
 		</div>
 		<div id="option-btn" style="margin-top: 300px;">
-			<button class="sky_btn2" onclick="deleteConfirm();">소모임 나가기</button>
+			<button class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
 		</div>
 
 		<!-- 방장에게만 보여지는 버튼-->
