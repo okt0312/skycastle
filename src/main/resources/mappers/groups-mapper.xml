@@ -25,7 +25,7 @@
 	
 	<insert id="insertGroup">
 		INSERT INTO GROUPS
-		VALUES(#{groupNo}, #{leaderNo}, #{groupTitle}, #{groupSubtitle}, #{groupContent}, #{groupCategory}, #{place}, #{gradeLimit}, #{memberLimit}, 'U', SYSDATE, #{endDate})
+		VALUES(#{SEQ_GROUPS.NEXTVAL}, #{leaderNo}, #{groupTitle}, #{groupSubtitle}, #{groupContent}, #{groupCategory}, #{place}, #{gradeLimit}, #{memberLimit}, 'U', SYSDATE, #{endDate})
 	</insert>
 	
 	
@@ -118,15 +118,18 @@
 	
 	
 	
-	<resultMap id="groupApply" type="GroupManage">
-		<id column="GNOTICE_NO" property="gnoticeNo"/>
-		<result column="GROUP_NO" property="groupNo"/>
-		<result column="GNOTICE_TITLE" property="gnoticeTitle"/>
-		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
-		<result column="ENROLL_DATE" property="enrollDate"/>
+	<resultMap id="groupManageResultSet" type="GroupManage">
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="PASSION" property="passion"/>
 		<result column="STATUS" property="status"/>
 	</resultMap>
 	
+	<!-- 소모임 가입 신청 -->
+	<insert id="groupApply" parameterType="_int">
+		INSERT INTO GROUP_MANAGE
+		VALUES(#{groupNo}, #{userNo}, #{passion}, 'U')
+	</insert>
 	
 	
 	<resultMap id="groupNoticeResultSet" type="GroupNotice">
