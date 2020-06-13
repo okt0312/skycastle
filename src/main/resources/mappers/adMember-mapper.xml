@@ -48,7 +48,7 @@
 		  JOIN GRADE G USING(GRADE_CODE)
 	  	 WHERE USER_ID != 'admin@naver.com'
 			   AND USER_NO != 0
-		 <if test='selNo != "" and selNo != "0" '>
+		 <if test='selNo != null and selNo != "0" '>
 		       AND M.STATUS = #{selNo}
 	     </if>
 	</select>
@@ -90,7 +90,7 @@
 		FROM REPORT R
 		JOIN REPLY RE USING(REPLY_NO)
 		JOIN MEMBER M USING (USER_NO)
-		<if test='selNo != "" and selNo != "0" '>
+		<if test='selNo != null and selNo != "0" '>
 		       WHERE R.STATUS = #{selNo}
 	     </if>
 	</select>
