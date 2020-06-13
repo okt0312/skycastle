@@ -35,13 +35,21 @@
                                             <div>
                                                 <!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
                                                 <div id="selectBox" >
-                                                    <select >
-                                                        <option value="처리상태">처리상태</option>
-                                                        <option value="미완료">미완료</option>
-                                                        <option value="완료">완료</option>
-                                                    </select>
-                                                    
+                                                    <form id ="selNoForm" action="reportMgmt.ad" method="post">
+														<select id="selNo" name="selNo">
+															<option value="0" <c:if test="${selNo == '0'}">selected</c:if>>전체보기</option>
+															<option value="O" <c:if test="${selNo == 'O'}">selected</c:if>>처리 대기</option>
+															<option value="Y" <c:if test="${selNo == 'Y'}">selected</c:if>>처리 완료</option>
+														</select>
+													</form>
                                                 </div>
+                                                <script type="text/javascript">
+													$("#selNo").on("change", function(){
+														
+														$("#selNoForm").submit();
+														
+													});
+												</script>
                                                 <!-- 셀렉트 끝 -->
                                             </div>
 

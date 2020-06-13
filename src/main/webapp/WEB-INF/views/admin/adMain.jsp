@@ -186,7 +186,7 @@
 								<div
 									class="card-footer d-flex align-items-center justify-content-between"
 									style="background-color: rgb(250, 120, 192);">
-									<a class="small text-white stretched-link" href="reportMgmt.ad">신고 확인</a>
+									<a class="small text-white stretched-link" href="reportMgmt.ad?selNo=O">신고 확인</a>
 									<div class="small text-white">
 										<i class="fas fa-angle-right"></i>
 									</div>

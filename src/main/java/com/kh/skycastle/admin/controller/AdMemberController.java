@@ -110,10 +110,11 @@ public class AdMemberController {
 	
 	
 	@RequestMapping("reportMgmt.ad")
-	public ModelAndView adReporList(ModelAndView mv)
+	public ModelAndView adReporList(ModelAndView mv, String selNo)
 	{
-		ArrayList<Report> list = admService.selectReport();
+		ArrayList<Report> list = admService.selectReport(selNo);
 		mv.addObject("list", list);
+		mv.addObject("selNo", selNo);
 		mv.setViewName("admin/adReportForm");
 		return mv;
 	}

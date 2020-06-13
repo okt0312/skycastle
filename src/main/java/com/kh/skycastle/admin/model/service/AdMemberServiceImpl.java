@@ -51,9 +51,9 @@ public class AdMemberServiceImpl implements AdMemberService{
 	}
 
 	@Override
-	public ArrayList<Report> selectReport() {
+	public ArrayList<Report> selectReport(String selNo) {
 		
-		return admDao.selectReport(sqlSession);
+		return admDao.selectReport(sqlSession, selNo);
 	}
 
 	@Override

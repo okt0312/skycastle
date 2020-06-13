@@ -44,9 +44,9 @@ public class AdMemberDao {
 		return (ArrayList)sqlSession.selectList("adMemberMapper.selectBlacklist");
 	}
 	
-	public ArrayList<Report> selectReport(SqlSessionTemplate sqlSession)
+	public ArrayList<Report> selectReport(SqlSessionTemplate sqlSession, String selNo)
 	{
-		return (ArrayList)sqlSession.selectList("adMemberMapper.selectReport");
+		return (ArrayList)sqlSession.selectList("adMemberMapper.selectReport", selNo);
 	}
 	
 	public int updateMemberReport(SqlSessionTemplate sqlSession, Member m)

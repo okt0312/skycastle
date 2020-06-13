@@ -82,7 +82,7 @@
 		 WHERE BLACKLIST = 'Y'
 	</select>
 	
-	<select id="selectReport" resultMap="adReportResultSet">
+	<select id="selectReport" resultMap="adReportResultSet" parameterType="string">
 		SELECT REPORT_NO, REPLY_NO, USER_ID REPLY_WRITER,  R.REPORT_CONTENT, RE.NOTICE_NO, 
 		       REPORT_DATE, R.STATUS, M.REDCARD, (SELECT USER_ID 
                                                   FROM MEMBER 
@@ -90,6 +90,9 @@
 		FROM REPORT R
 		JOIN REPLY RE USING(REPLY_NO)
 		JOIN MEMBER M USING (USER_NO)
+		<if test='selNo != "" and selNo != "0" '>
+		       WHERE R.STATUS = #{selNo}
+	     </if>
 	</select>
 	
 	<update id="updateMemberReport" parameterType="Member">

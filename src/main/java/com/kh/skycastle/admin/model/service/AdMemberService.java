@@ -25,7 +25,7 @@ public interface AdMemberService {
 	
 	ArrayList<Member> selectBlacklist();
 	
-	ArrayList<Report> selectReport();
+	ArrayList<Report> selectReport(String selNo);
 	
 	int updateMemberReport(Member m);
 	
