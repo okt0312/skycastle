@@ -362,7 +362,6 @@ select::-ms-expand {
             asyn :false,
             success : function(ranNum1) {
                ranNum = ranNum1;
-               console.log(ranNum);
                if(emailVal.length == 0){
                   alertify.alert("skycastle 내용:", "이메일을 입력해주세요");
                }else{

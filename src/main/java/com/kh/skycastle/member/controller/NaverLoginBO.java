@@ -77,7 +77,7 @@ public class NaverLoginBO {
 		return (String)session.getAttribute(SESSION_STATE);
 	}
 	
-	// Access Token을 이용하여 네이버 사용자 프로필 API를 호추ㅠㄹ 
+	// Access Token을 이용하여 네이버 사용자 프로필 API를 호출
 	public String getUserProfile(OAuth2AccessToken oauthToken) throws IOException{
 		
 		OAuth20Service oauthService = new ServiceBuilder()

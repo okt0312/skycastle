@@ -6,6 +6,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -86,14 +88,16 @@ public class MemberController {
 		session.setAttribute("result", apiResult);
 		
 		// DB와 세션에 넣기 
-		/*
+		
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject = (JSONObject)jsonParser.parse(naverLoginBO.getUserProfile(oauthToken).toString());
 		
 		JSONObject response = (JSONObject)jsonObject.get("response");
 		
-		System.out.println("이건 " + jsonObject.get("response"));
-
+		//System.out.println("이건 " + jsonObject.get("response"));
+		System.out.println(jsonObject);
+		
+		/*
 		m.setUserNo(Integer.parseInt("00"));
 		m.setUserId((String)response.get("email"));
         m.setUserPwd("0000"); //DB에서 Not null로 처리했기에 임의로 준 값
@@ -117,6 +121,7 @@ public class MemberController {
         request.getSession(true).setAttribute("email", m.getUserId());
  		*/
 		return "member/naverSuccess";
+		
 	}
 
 	@RequestMapping("login.me")
@@ -178,7 +183,6 @@ public class MemberController {
 
 		// 암호화작업
 		String encPwd = bcryptPasswordEncoder.encode(m.getUserPwd());
-		System.out.println("암호화후 : " + encPwd);
 
 		m.setUserPwd(encPwd);
 
@@ -239,8 +243,6 @@ public class MemberController {
 		String id = request.getParameter("userId");
 		String ph = request.getParameter("phone");
 		
-		System.out.println("테스트" + id + ph );
-		
 		m.setUserId(id);
 		m.setPhone(ph);
 		
@@ -248,8 +250,6 @@ public class MemberController {
 		
 		String authCode = "";
 		authCode = tempkey.init();
-		
-		System.out.println(m);
 		
 		if(user != null) {
 			session.setAttribute("user", user);
