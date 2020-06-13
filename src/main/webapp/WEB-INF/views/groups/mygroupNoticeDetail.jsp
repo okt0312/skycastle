@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeDetail</title>
     <style>
-    	/* div{border:1px solid black;} */
+   		/* div{border:1px solid black;} */
         .sky_btn1 {
             width: 130px;
             height: 40px;
@@ -70,6 +71,12 @@
             border: 0;
         }
         /* 소모임내용 */
+        #noticeTitle{
+		padding:10px;
+		font-size: 32px;
+		font-weight:300;
+		color:#333333;
+		}
         #mygroupContent{
             width: 75%;
             margin-top: 100px;
@@ -176,26 +183,27 @@
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
-			<h2>공지사항</h2>
-			<hr><br><br>
+			<p id="noticeTitle">공지사항</p>
+			<hr><!-- <br><br> -->
 
 			<div id="noticeTitle">
 				<table>
 					<tr>
-						<td style="width: 850px; font-weight: 600;">${ gn.gnoticeTitle }</td>
-						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.enrollDate }</td>
-						<td style="width: 70px; text-align: center; font-size: 12px;">${ gn.count }</td>
+						<td style="width: 850px; font-weight: 400; font-size: 20px;">${ gn.gnoticeTitle }</td>
+						<td style="width: 100px; text-align: center; font-size: 16px;">${ gn.enrollDate }</td>
+						<td style="width: 70px; text-align: center; font-size: 16px;">${ gn.count }</td>
 					</tr>
 				</table>
 			</div>
 			<hr>
-			<div id="noticeContent" style="margin-top: 50px;">
-				<textarea rows="" cols="">${ gn.gnoticeContent }</textarea>
+
+			<div id="noticeContent" style="width:950px; margin-top: 30px; word-break:break-all;">
+				${gn.gnoticeContent}
 			</div>
 
 			<br><br><hr><br>
 
-			<div align="right" style="margin-right: 60px">
+			<div align="right" style="margin-left:10px; margin-bottom:15px; width:1090px;">
 				<!-- <button class="listBtn">좋아요</button> -->
 				<button class="listBtn sky_btn22" data-toggle="modal"
 					data-target="#reportModal">신고</button>
@@ -271,7 +279,7 @@
 			<br><br><br>
 			
 			<div align="center">
-				<button class="listBtn sky_btn2">목록</button>
+				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);">목록</button>
 			</div>
 			
 			<br><br><br><br><br>
