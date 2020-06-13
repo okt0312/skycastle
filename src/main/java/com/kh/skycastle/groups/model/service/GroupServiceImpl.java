@@ -54,7 +54,9 @@ public class GroupServiceImpl implements GroupService {
 	
 	@Override
 	public int insertGroup(Groups g) {
-		return gDao.insertGroup(sqlSession, g);
+		int result2 = gDao.insertGroup(sqlSession, g);
+		int result1 = gDao.insertThumbNail(sqlSession, g);
+		return result1*result2;
 	}
 	
 	@Override

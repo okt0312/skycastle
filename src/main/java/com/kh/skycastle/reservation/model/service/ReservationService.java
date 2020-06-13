@@ -36,6 +36,8 @@ public interface ReservationService {
 	
 	//8. 공간 리스트 조회
 	ArrayList<Space> selectSpaceList(PageInfo pi);
+	//소모임 신청시 선택할 공간리스트 조회
+	ArrayList<Space> selectSpaceList();
 	
 	//9. 공간 인원별 검색 리스트 조회
 	ArrayList<Space> spaceSearchList(int keyword);

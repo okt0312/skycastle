@@ -28,6 +28,6 @@ public class Groups {
 	private Date startDate;
 	private Date endDate;
 	
-	private String thumbnail;
+	private String changeName;
 
 }

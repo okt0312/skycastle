@@ -154,7 +154,7 @@
 		<br><br>
 		
 		<div id="groupDetail">
-		    <textarea style="width: 100%; text-align: left;">${ g.groupContent }</textarea>
+		    <textarea style="width: 100%; text-align: left;" readonly>${ g.groupContent }</textarea>
 		</div>
 	</div>
 	</c:forEach>

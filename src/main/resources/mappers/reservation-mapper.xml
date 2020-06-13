@@ -139,6 +139,12 @@
 		join attachment on(space_no=ref_bno)
 	</select>
 	
+	<select id="selectAllSpaceList" resultMap="SpaceResultSet">
+		select *
+		from tb_space
+		where status='Y'
+	</select>
+	
 	<select id="spaceSearchList" resultMap="SpaceResultSet">
 		select space_no,space_name,personnel,space_price, tb.status, change_name
 		from tb_space tb

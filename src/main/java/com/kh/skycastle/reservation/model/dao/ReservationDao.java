@@ -63,6 +63,10 @@ public class ReservationDao {
 		return (ArrayList)sqlSession.selectList("reservationMapper.selectSpaceList",null, rowBounds);
 	}
 	
+	public ArrayList<Space> selectSpaceList(SqlSessionTemplate sqlSession) {
+		return (ArrayList)sqlSession.selectList("reservationMapper.selectAllSpaceList");
+	}
+	
 	public ArrayList<Space> spaceSearchList(SqlSessionTemplate sqlSession, int keyword) {
 		return (ArrayList)sqlSession.selectList("reservationMapper.spaceSearchList",keyword);
 	}

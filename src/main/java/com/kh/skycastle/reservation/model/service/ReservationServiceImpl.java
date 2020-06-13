@@ -69,6 +69,11 @@ public class ReservationServiceImpl implements ReservationService{
 	public ArrayList<Space> selectSpaceList(PageInfo pi) {
 		return rDao.selectSpaceList(sqlSession,pi);
 	}
+	
+	@Override
+	public ArrayList<Space> selectSpaceList() {
+		return rDao.selectSpaceList(sqlSession);
+	}
 
 	@Override
 	public ArrayList<Space> spaceSearchList(int keyword) {

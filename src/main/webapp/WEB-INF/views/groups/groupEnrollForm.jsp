@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +35,18 @@
         input { height:20px; border-radius: 2px; }
     </style>
     
-	<!-- include summernote css/js-->
-	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+  
+
+
+
+
 </head>
 <body>
     <jsp:include page="../common/menubar.jsp"/>
@@ -45,7 +55,7 @@
 		<h2>소모임</h2>
 		<br><hr><br>
 		
-		<form action="insertGroup.gr">
+		<form action="insertGroup.gr" method="post" enctype="multipart/form-data">
 			<div id="detailSum" style="width: 100%;">
 				<h1>소모임 개설 신청</h1>
 	
@@ -54,7 +64,7 @@
 						<tr>
 							<th>카테고리</th>
 							<td>
-								<select style="width: 150px; height: 25px;">
+								<select name="groupCategory" style="width: 150px; height: 25px;">
 									<option value="1">대입</option>
 									<option value="2">공무원,임용</option>
 									<option value="3">어학,회화</option>
@@ -62,6 +72,11 @@
 									<option value="5">기타</option>
 								</select>
 							</td>
+						</tr>
+						<tr>
+							<th>대표사진</th>
+							<td><input type="file" style="width: 200px; height: 20px;"
+								name="thumbnailImg" required></td>
 						</tr>
 						<tr>
 							<th>제목</th>
@@ -75,27 +90,30 @@
 						</tr>
 						<tr>
 							<th>진행일정</th>
-							<td><input type="date" name="startDate"> ~ <input type="date" name="endDate"></td>
+							<td><input type="date" name="startDate" required> ~ <input type="date" name="endDate" required></td>
 						</tr>
 						<tr>
 							<th>장소</th>
 							<td>
-								<datalist style="width: 100px; height: 25px;">
-									
-									<option name="place">${ s.spaceName }</option>
-								</datalist>
+						        <input type="text" name="place" placeholder="직접입력 또는 방선택" name="color" list="space">
+						        <datalist id="space">
+							        <c:forEach var="s" items="${spaceList }">
+							            <option>${s.spaceName}</option>									
+									</c:forEach>
+						        </datalist>
+
 							</td>
 						</tr>
 						<tr>
 							<th>정원</th>
-							<td><input type="number" style="width: 150px; height: 20px;"
+							<td><input type="number" name="memberLimit" style="width: 150px; height: 20px;"
 								min="3" max="10"></td>
 						</tr>
 					</tbody>
 				</table>
 				<br><br><br>
-				<h2>소모임 개설 사유</h2>
-				<textarea name="passion" id="summernote" style="width:100%; height:150px; resize:none;"></textarea>
+				<h2>소모임 내용</h2>
+				<textarea name="groupContent" id="summernote" style="width:100%; height:150px;  resize:none;"></textarea>
 				<br><br>
 				<div style="text-align: right;">
 					<button type="submit" class="sky_btn1">개설신청</button>
@@ -105,6 +123,10 @@
 		<br><br><br><br>
 	</div>
 	
+	
+	
+    <jsp:include page="../common/footer.jsp"/>
+</body>
 	<script>
 		$(document).ready(function() {
 			$('#summernote').summernote({
@@ -112,10 +134,8 @@
 				minHeight: null,             // set minimum height of editor
 				maxHeight: null,             // set maximum height of editor
 				focus: true                  // set focus to editable area after initializing summernote
+				
 			});
 		});
 	</script>
-	
-    <jsp:include page="../common/footer.jsp"/>
-</body>
 </html>

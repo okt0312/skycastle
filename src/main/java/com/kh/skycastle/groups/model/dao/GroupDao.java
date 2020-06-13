@@ -69,6 +69,10 @@ public class GroupDao {
 		return sqlSession.insert("groupsMapper.insertGroup", g);
 	}
 
+	public int insertThumbNail(SqlSessionTemplate sqlSession, Groups g) {
+		return sqlSession.insert("groupsMapper.insertThumbNail", g);
+	}
+	
 	public int groupApply(SqlSessionTemplate sqlSession, GroupManage gm) {
 		return sqlSession.insert("groupsMapper.groupApply", gm);
 	}
