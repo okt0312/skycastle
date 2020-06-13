@@ -141,19 +141,20 @@ public class GroupController {
 	// 마이페이지 찜한 소모임 리스트
 	@RequestMapping("mygroupDipsList.gr")
 	public String mygroupDipsList(int currentPage, Model model, HttpSession session) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
 		
-		int groupListCount = gService.selectGroupListCount();
+		int dipsListCount = gService.selectDipsListCount(loginUser.getUserNo());
+		//System.out.println(dipsListCount);
+		PageInfo pi = Pagination.getPageInfo(dipsListCount, currentPage, 10, 5);
 		
-		PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
 		
-		Member m = (Member)session.getAttribute("loginUser");
-		
-		ArrayList<Dips> list = gService.mygroupDipsList(pi, m.getUserNo());
+		ArrayList<Groups> dipsList = gService.mygroupDipsList(pi, loginUser.getUserNo());
 		
 		model.addAttribute("pi", pi);
-		model.addAttribute("list", list);
+		model.addAttribute("list", dipsList);
 		
 		return "myPage/myPageGroupListView";
+		
 	}
 	
 	// 소모임 개설신청 폼

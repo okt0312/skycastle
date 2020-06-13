@@ -95,7 +95,7 @@
 						<tr>
 							<th>장소</th>
 							<td>
-						        <input type="text" name="place" placeholder="직접입력 또는 방선택" name="color" list="space">
+						        <input type="text" name="place" placeholder="직접입력 또는 방선택" name="color" list="space" required>
 						        <datalist id="space">
 							        <c:forEach var="s" items="${spaceList }">
 							            <option>${s.spaceName}</option>									
@@ -107,7 +107,7 @@
 						<tr>
 							<th>정원</th>
 							<td><input type="number" name="memberLimit" style="width: 150px; height: 20px;"
-								min="3" max="10"></td>
+								min="3" max="10" required></td>
 						</tr>
 					</tbody>
 				</table>

@@ -202,7 +202,7 @@
             
                 <li><a href="mygroupList.gr?currentPage=1&status=Y">참가중인 소모임</a></li>
                 <li style="width:3px"> | </li>
-                <li><a href="mygroupDipsList.gr?currentPage=1&status=Y">찜한 소모임</a></li>
+                <li><a href="mygroupDipsList.gr?currentPage=1">찜한 소모임</a></li>
                 <li style="width:3px"> | </li>
                 <li><a href="mygroupList.gr?currentPage=1&status=U">대기중인 소모임</a></li>
                 <li style="width:3px"> | </li>

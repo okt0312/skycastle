@@ -37,12 +37,12 @@ public class GroupDao {
 		return (ArrayList)sqlSession.selectList("groupsMapper.selectMyGroupList", gd, rowBounds);
 	}
 	
-	public ArrayList<Dips> selectGroupDipsList(SqlSessionTemplate sqlSession, PageInfo pi, int userNo) {
+	public ArrayList<Groups> selectGroupDipsList(SqlSessionTemplate sqlSession, PageInfo pi, int userNo) {
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectDips", userNo, rowBounds);
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupDipsList", userNo, rowBounds);
 	}
 	
 	public ArrayList<GroupDto> selectGroup(SqlSessionTemplate sqlSession, int gno) {
@@ -76,5 +76,10 @@ public class GroupDao {
 	public int groupApply(SqlSessionTemplate sqlSession, GroupManage gm) {
 		return sqlSession.insert("groupsMapper.groupApply", gm);
 	}
+	
+	public int selectDipsListCount(SqlSessionTemplate sqlSession, int userNo) {
+		return sqlSession.selectOne("groupsMapper.selectDipsListCount", userNo);
+	}
+	
 
 }
