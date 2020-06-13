@@ -169,6 +169,7 @@ public class AdBoardController {
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
 			
 			ArrayList<Event> list = adBoService.adSelectEvent(eno);
+			System.out.println(list);
 			mv.addObject("list", list);
 			mv.setViewName("admin/adEventDetailView");
 			

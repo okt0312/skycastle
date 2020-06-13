@@ -68,30 +68,37 @@
                                 	 <table class="boardList">
 						                <tr>
 						                    <td style="text-align: center; font-size: 16px; font-weight:bold;">
-                                        		<input type="text" name="eventTitle" style="border-style:none; float:left;" value="${list.eventTitle}">	
+                                        		<input type="text" name="eventTitle" style="border-style:none; float:left;" value="${list[0].eventTitle}">	
                                         	</td> 
                                         </tr>
                                         <tr>	
-						                    <td>${list.eventOpenTime}</td>
-						                    <td>${list.eventCloseTime}</td> 
+						                    <td>${list[0].eventOpenTime} ~ ${list[0].eventCloseTime}</td>
 						                </tr>
 								             
-	                                    <tr>   
-	                                        <td>
-	                                        	<c:forEach items="${list}" var="e">
-		                                        	<input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="썸네일"><br>
-		                                        	<input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="상세이미지"> 
+	                                    <tr> 
+	                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                                        	썸네일 : <input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="썸네일">
 		                                        	
-						                            <c:if test="${ !empty e.changeName }">
+		                                        	<c:if test="${ !empty list[0].changeName }">
 							                            <span style="float:right">첨부 파일 : 
-							                            	<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/event/${e.changeName}">${e.changeName}</a>
+							                            	<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/event/${list[0].changeName}">${list[0].changeName}</a>
 							                            </span>	
 						                            </c:if>
-					                            </c:forEach>
-					                        </td>    
+					                        </td>
+	                                    </tr>
+	                                    <tr>
+					                        <td>    
+		                                        	상세 이미지 : <input type="file" id="upfile" style="border-style:none;" name="reUploadFile" placeholder="상세이미지">
+		                                        	
+		                                        	<c:if test="${ !empty list[1].changeName }">
+							                            <span style="float:right">첨부 파일 : 
+							                            	<a href="${ pageContext.servletContext.contextPath }/resources/uploadFiles/event/${list[1].changeName}">${list[1].changeName}</a>
+							                            </span>	
+						                            </c:if>
+                                        	</td> 
 	                                    </tr>
                                 	</table>
-                            		<img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${list.changeName}">
+                            		<img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${list[0].changeName}">
                             	</div>
                             	
                             	<!--버튼 모음  -->
@@ -105,7 +112,7 @@
                         <!--</form>-->
                         
                         <form action="" id="postForm" method="post">
-                        	<input type="hidden" name="eventNo" value="${list.eventNo}">
+                        	<input type="hidden" name="eventNo" value="${list[0].eventNo}">
                          	
                         <%--
                         	<input type="hidden" name="changeName" value="${ e.changeName }">
