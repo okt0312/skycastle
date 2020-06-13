@@ -129,10 +129,10 @@
 					
 					<c:choose>
 						<c:when test="${ !empty loginUser }">	<!-- 로그인 했을때 -->
-							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
+							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left; margin-top:5px; margin-left: 5px;">찜하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn1" class="sky_btn2" style="float: left;" type="button">찜하기</button>
+							<button id="loginBtn1" class="sky_btn2" style="float: left; margin-top:5px; margin-left: 5px;" type="button">찜하기</button>
 						</c:otherwise>
 					</c:choose>
 					
@@ -142,10 +142,10 @@
 					<input type="hidden" id="group_no" name="gno" value="${ g.groupNo }">
 					<c:choose>
 						<c:when test="${ loginUser != null }">	<!-- 로그인 했을때 -->
-							<button id="apply_btn" type="button" class="sky_btn1">신청하기</button>
+							<button id="apply_btn" type="button" class="sky_btn1" style="margin-top:5px; margin-right: 5px;">신청하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
-							<button id="loginBtn2" class="sky_btn2" type="button">신청하기</button>
+							<button id="loginBtn2" class="sky_btn2" type="button"  style="margin-top:5px; margin-right: 5px;">신청하기</button>
 						</c:otherwise>
 					</c:choose>
 				</form>

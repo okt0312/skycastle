@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.vo.Dips;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.Groups;
-import com.kh.skycastle.member.model.vo.Member;
 
 @Repository("gDao")
 public class GroupDao {
@@ -69,8 +69,8 @@ public class GroupDao {
 		return sqlSession.insert("groupsMapper.insertGroup", g);
 	}
 
-	public int groupApply(SqlSessionTemplate sqlSession, int userNo, int groupNo) {
-		return sqlSession.insert("groupsMapper.groupApply", userNo, groupNo);
+	public int groupApply(SqlSessionTemplate sqlSession, GroupManage gm) {
+		return sqlSession.insert("groupsMapper.groupApply", gm);
 	}
 
 }

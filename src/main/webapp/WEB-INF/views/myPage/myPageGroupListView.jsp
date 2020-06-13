@@ -16,12 +16,56 @@
         }
         
         /* 버튼스타일 */
-		.sky_btn1{
-			padding:0px;
-			boder:0px;
-			margin-top:4px;
-			line-height:10px;
-		}
+		.sky_btn1 /* 확인 버튼 */
+{
+		
+	height: 40px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+	background: #fdce07;
+	color: #000000;
+	border: 0;
+    margin: 0px auto;
+}
+
+.sky_btn2   /* 취소, 첨부파일 버튼 */
+{
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+	
+	cursor: pointer;
+	background: #333333;
+	color: white;
+	border: 0;
+    margin: 0px auto;
+}
+
+.sky_btn3   /* 취소, 첨부파일 버튼 */
+{
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	
+	
+	cursor: pointer;
+	background: #333333;
+	color: white;
+	border: 0;
+    margin: 0px auto;
+}
+
+
+
         /* 소모임별 */
         .grouplist{
             width: 800px;
@@ -137,17 +181,17 @@
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br>
 	    <h2>소모임</h2>
-	    <button style="float:right;" class="sky_btn1" onclick="location.href='groupEnrollForm.gr';">소모임 개설 신청</button>
+	    <button style="float:right;" class="sky_btn1" onclick="location.href='groupEnrollForm.gr?userNo=' + '${ loginUser.userNo }';">소모임 개설 신청</button>
 	    <br><hr><br>
 		
 	    <div align="center">
 	        <form action="" method="POST" style="margin:0 auto">
-	            <select>
+	            <select class="sky_btn3" style="height: 26px; padding-bottom: 3px;">
 	                <option value="title" selected>모임명</option>
 	                <option value="content">내용</option>
 	            </select>
 	            <input type="text" name="search">
-	            <button type="submit">검색</button>
+	            <button type="submit" class="sky_btn2">검색</button>
 	        </form>
 	    </div>
 	    <br><br>

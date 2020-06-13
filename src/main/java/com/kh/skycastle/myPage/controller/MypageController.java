@@ -112,7 +112,7 @@ public class MypageController {
 		
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
 			
-			session.setAttribute("loginUser2", pService.updateCheckPwd(m));
+			session.setAttribute("loginUser", pService.updateCheckPwd(m));
 			session.setAttribute("msg", "회원정보 수정 성공!!");
 			
 			

@@ -16,6 +16,7 @@ import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.service.GroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.member.model.vo.Member;
 
@@ -93,12 +94,14 @@ public class GroupController {
 	}
 	
 	// 소모임 참가 신청용
-	public int groupApply(int userNo, int groupNo, Groups g) {
-		int result = gService.groupApply(userNo, groupNo, g);
-		
+	@RequestMapping("groupApply.gr")
+	public String groupApply(HttpSession session, GroupManage gm) {
+		int result = gService.groupApply(gm);
+		//System.out.println(gm);
 		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
-			return "redirect:mygroupList.gr";
+			return "groups/groupApplySuccess";
 		} else {
+			session.setAttribute("msg", "업로드 실패. 다시 시도하십시오,");
 			return "소모임 개설 신청하기 실패";
 		}
 	}
@@ -147,6 +150,7 @@ public class GroupController {
 	}
 	
 	// 소모임 개설 신청용
+	/*
 	@RequestMapping("insertGroup.gr")
 	public String insertGroup(Groups g, Model model, HttpSession session) {
 		int result = gService.insertGroup(g);
@@ -157,4 +161,5 @@ public class GroupController {
 			return "소모임 개설 신청하기 실패";
 		}
 	}
+	*/
 }
