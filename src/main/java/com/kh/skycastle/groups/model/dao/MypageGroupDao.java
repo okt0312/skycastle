@@ -13,8 +13,8 @@ import com.kh.skycastle.groups.model.vo.Reply;
 @Repository("mgDao")
 public class MypageGroupDao {
 	
-	public int selectGroupNoticeListCount(SqlSessionTemplate sqlSession) {
-		return sqlSession.selectOne("groupsMapper.selectGroupNoticeListCount");
+	public int selectGroupNoticeListCount(SqlSessionTemplate sqlSession, int gno) {
+		return sqlSession.selectOne("groupsMapper.selectGroupNoticeListCount", gno);
 	}
 	
 	public ArrayList<GroupNotice> selectGroupNoticeList(SqlSessionTemplate sqlSession, PageInfo pi, int gno){

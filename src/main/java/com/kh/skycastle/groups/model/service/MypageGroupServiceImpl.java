@@ -20,8 +20,8 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	private MypageGroupDao mgDao;
 
 	@Override
-	public int selectGroupNoticeListCount() {
-		return mgDao.selectGroupNoticeListCount(sqlSession);
+	public int selectGroupNoticeListCount(int gno) {
+		return mgDao.selectGroupNoticeListCount(sqlSession, gno);
 	}
 
 	@Override

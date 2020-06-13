@@ -156,9 +156,8 @@
 	<select id="selectGroupNoticeListCount" resultType="_int">
 		SELECT COUNT(*)
 		FROM GROUP_NOTICE
-		WHERE STATUS='Y'
+		WHERE STATUS='Y' AND GROUP_NO=#{gno}
 	</select>
-	
 
 	<select id="selectGroupNoticeList" parameterType="_int"  resultMap="groupNoticeResultSet">
 		SELECT *
