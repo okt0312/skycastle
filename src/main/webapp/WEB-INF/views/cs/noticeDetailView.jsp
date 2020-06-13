@@ -118,9 +118,8 @@
             </thead>
             <tbody>
                 <tr id="noticeDetail">
-                   <% pageContext.setAttribute("line", "\n"); %>
+                   <% pageContext.setAttribute("line", "."); %>
                    <td colspan="2">${ fn:replace(n.noticeContent, line, "<br/>")}</td>
-                  
                 </tr>
             </tbody>    
         </table>

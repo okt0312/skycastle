@@ -14,7 +14,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeDetail</title>
     <style>
-   		/* div{border:1px solid black;} */
+    	/* 바깥쪽 div */
+    	#mygroup{
+    		/* margin:auto; */
+    		max-width:1700px;
+    		height:1000px;
+    	}
         .sky_btn1 {
             width: 130px;
             height: 40px;
@@ -78,9 +83,11 @@
 		color:#333333;
 		}
         #mygroupContent{
+        	margin:auto;
             width: 75%;
-            margin-top: 100px;
-            float: left;
+            height:800px;
+            margin-top: 80px;
+            margin-right:35px;
         }
         #mygroupNoticeTable{
             margin: auto;
@@ -184,7 +191,7 @@
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
 			<p id="noticeTitle">공지사항</p>
-			<hr><!-- <br><br> -->
+			<hr>
 
 			<div id="noticeTitle">
 				<table>
@@ -197,12 +204,12 @@
 			</div>
 			<hr>
 
-			<div id="noticeContent" style="width:950px; margin-top: 30px; padding-left:20px; word-break:break-all;">
-				${gn.gnoticeContent}
+			<!-- 공지사항 개행 추가 -->
+			<% pageContext.setAttribute("line", "."); %>
+			<div id="noticeContent" style="width:1050px; margin-top: 30px; padding-left:20px; word-break:break-all;">
+				${fn:replace(gn.gnoticeContent, line, "<br/>")}
 			</div>
-
 			<br><br>
-
 			
 			<!-- 방장에게만 보이는 버튼 -->
 			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
