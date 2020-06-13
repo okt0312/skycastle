@@ -30,10 +30,8 @@
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.4s;
         }
-        .sky_btn1:hover {
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        }
-        input{border-radius: 2px;}
+        .sky_btn1:hover { box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
+        input { height:20px; border-radius: 2px; }
     </style>
     
 	<!-- include summernote css/js-->
@@ -55,39 +53,39 @@
 					<tbody>
 						<tr>
 							<th>카테고리</th>
-							<td><select style="width: 150px; height: 25px;">
-									<option>대입</option>
-									<option>공무원,임용</option>
-									<option>어학,회화</option>
-									<option>자격증</option>
-									<option>기타</option>
-							</select></td>
+							<td>
+								<select style="width: 150px; height: 25px;">
+									<option value="1">대입</option>
+									<option value="2">공무원,임용</option>
+									<option value="3">어학,회화</option>
+									<option value="4">자격증</option>
+									<option value="5">기타</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>제목</th>
+							<td><input type="text" style="width: 200px; height: 20px;"
+								name="groupTitle" placeholder="제목 아래에 보여질 소제목 작성"></td>
 						</tr>
 						<tr>
 							<th>소제목</th>
 							<td><input type="text" style="width: 200px; height: 20px;"
-								placeholder="제목 아래에 보여질 소제목 작성"></td>
+								name="groupSubtitle" placeholder="제목 아래에 보여질 소제목 작성"></td>
 						</tr>
 						<tr>
 							<th>진행일정</th>
-							<td><input type="date"> ~ <input type="date"></td>
-						</tr>
-						<tr>
-							<th>신청일정</th>
-							<td><input type="date"> ~ <input type="date"></td>
+							<td><input type="date" name="startDate"> ~ <input type="date" name="endDate"></td>
 						</tr>
 						<tr>
 							<th>장소</th>
-							<td><select style="width: 100px; height: 25px;">
+							<td>
+								<select style="width: 100px; height: 25px;">
 									<option>장소1</option>
 									<option>장소2</option>
 									<option>장소3</option>
-							</select></td>
-						</tr>
-						<tr>
-							<th>자격</th>
-							<!-- 자격은 사용자가 입력할 필요 없으니까 지우는게 어때 -->
-							<td><input type="text" style="width: 150px; height: 20px;"></td>
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<th>정원</th>
