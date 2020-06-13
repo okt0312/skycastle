@@ -36,9 +36,9 @@ public class MypageGroupController {
 		
 		ArrayList<GroupNotice> list = mgService.selectGroupNoticeList(pi, gno);
 		
+		model.addAttribute("gno", gno);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", list);
-		model.addAttribute("gno", gno);
 		
 		return "groups/mygroupNoticeListView";
 	}
