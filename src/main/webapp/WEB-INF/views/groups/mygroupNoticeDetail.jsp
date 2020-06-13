@@ -145,7 +145,12 @@
             color: rgb(216, 64, 38);
             cursor: pointer;
         }
-
+		/* 댓글 스타일 
+		.replyList tr{
+			
+		} 
+		*/
+		
         /* 페이징바 css */
         .paging{
             padding:19px;
@@ -236,7 +241,7 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
+			<table id="replyArea" class="table" align="center" border="1"><!-- 수업때한거 -->
                 <thead>
                     <tr>
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
@@ -248,11 +253,12 @@
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="replyList">
                     
                 </tbody>
             </table>
 			<br><br><br>
+			
 			
 			<div align="center">
 				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);">목록</button>
@@ -347,13 +353,10 @@
         			success:function(status){
 
         				if(status == "success"){
-        					
         					$("#replyContent").val("");
-        					
         					selectReplyList();
-        					
         				}else{
-        					alertify.alert("댓글 등록 확인","댓글 등록 실패");
+        					alertify.alert("skycastle 내용:", "댓글 등록 실패");
         				}
         			}, error:function(){
         				console.log("댓글 작성용 ajax 통신 실패!!");
@@ -376,9 +379,9 @@
     				
     				for(var i in list){
     					value += "<tr>" +
-    								"<th>" + list[i].replyWriter + "</th>" +
+    								"<th>" + list[i].userName + "</th>" +
     								"<td>" + list[i].replyContent + "</td>" +
-    								"<td>" + list[i].createDate + "</td>" +
+    								"<td>" + list[i].uploadDate + "</td>" +
     							 "</tr>";
     				}
     				$("#replyArea tbody").html(value);
