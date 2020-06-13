@@ -116,6 +116,19 @@
 	
 	
 	
+	
+	
+	<resultMap id="groupApply" type="GroupManage">
+		<id column="GNOTICE_NO" property="gnoticeNo"/>
+		<result column="GROUP_NO" property="groupNo"/>
+		<result column="GNOTICE_TITLE" property="gnoticeTitle"/>
+		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	
+	
 	<resultMap id="groupNoticeResultSet" type="GroupNotice">
 		<id column="GNOTICE_NO" property="gnoticeNo"/>
 		<result column="GROUP_NO" property="groupNo"/>
@@ -134,10 +147,11 @@
 
 	<select id="selectGroupNoticeList" parameterType="_int"  resultMap="groupNoticeResultSet">
 		SELECT *
-		FROM GROUP_NOTICE
-		WHERE STATUS='Y' AND GROUP_NO=#{gno}
-		ORDER BY GNOTICE_NO DESC
+		  FROM GROUP_NOTICE
+		 WHERE STATUS='Y' AND GROUP_NO=#{gno}
+		 ORDER BY GNOTICE_NO DESC
 	</select>
+	
 	<!-- 조회수 증가용 -->
 	<update id="increaseGroupNoticeCount" parameterType="_int">
 		UPDATE GROUP_NOTICE

@@ -77,6 +77,17 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectDipsList(sqlSession, d);
 	}
 
+	@Override
+	public int groupApply(int userNo, int groupNo, Groups g) {
+		return gDao.groupApply(sqlSession, userNo, groupNo);
+	}
+
+	@Override
+	public int insertGroup(int userNo, int groupNo, Groups g) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 
 

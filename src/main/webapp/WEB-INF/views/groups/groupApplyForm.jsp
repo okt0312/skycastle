@@ -47,8 +47,8 @@
 		
 		<c:forEach items="${ list }" var="g">
 			<div id="detailSum" style="width:100%;">
-				<h1>소모임 신청하기</h1>
-				<br><br><br>
+				<h1 style="margin:0px;">소모임 신청하기</h1>
+				<br><hr><br><br>
 				
 				<span style="color:gray;">
 					<c:choose>
@@ -73,7 +73,7 @@
 		            </c:choose>
 				</span>
 		            
-				&nbsp;&nbsp;|&nbsp;&nbsp;${ g.groupSubtitle }
+				&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;${ g.groupSubtitle }
 				<h2>${ g.groupTitle }</h2>
 				
 				<br><br>

@@ -94,7 +94,7 @@ public class GroupController {
 	
 	// 소모임 참가 신청용
 	public int groupApply(int userNo, int groupNo, Groups g) {
-		int result = gService.groupApply(g);
+		int result = gService.groupApply(userNo, groupNo, g);
 		
 		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
 			return "redirect:mygroupList.gr";
