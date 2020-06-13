@@ -37,20 +37,31 @@
 					<div class="card-body">
 						<div class="card mb-4">
 							<div class="card-header" style="border-bottom: white; background-color: white;">
-								<b style="font-size: x-large;">회원목록</b>
+								<b style="font-size: x-large;">예약 목록</b>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
 									<div>
 										<!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
 										<div id="selectBox">
-											<select id="selNo" name="selNo">
-												<option value="0">전체보기</option>
-												<option value="1">좌석</option>
-												<option value="2">공간</option>
-											</select>
+											<form id ="selNoForm" action="reservation.ad" method="post">
+												<select id="selNo" name="selNo">
+													<option value="0" <c:if test="${selNo == 0}">selected</c:if>>전체보기</option>
+													<option value="1" <c:if test="${selNo == 1}">selected</c:if>>좌석</option>
+													<option value="2" <c:if test="${selNo == 2}">selected</c:if>>공간</option>
+												</select>
+											</form>
 										</div>
 									</div>
+									
+									<script type="text/javascript">
+										$("#selNo").on("change", function(){
+											
+											$("#selNoForm").submit();
+											
+										});
+									</script>
+									
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
 										<thead>
 											<tr>

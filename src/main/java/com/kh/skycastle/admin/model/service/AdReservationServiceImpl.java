@@ -19,9 +19,9 @@ public class AdReservationServiceImpl implements AdReservationService{
 	private AdReservationDao adReservDao;
 	
 	@Override
-	public ArrayList<AdReservationDto> selectFormList() {
+	public ArrayList<AdReservationDto> selectFormList(String selNo) {
 		
-		return adReservDao.selectFormList(sqlSession);
+		return adReservDao.selectFormList(sqlSession, selNo);
 	}
 
 }

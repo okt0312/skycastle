@@ -10,9 +10,9 @@ import com.kh.skycastle.admin.model.dto.AdReservationDto;
 @Repository("adReservDao")
 public class AdReservationDao {
 
-	public ArrayList<AdReservationDto> selectFormList(SqlSessionTemplate sqlSession)
+	public ArrayList<AdReservationDto> selectFormList(SqlSessionTemplate sqlSession, String selNo)
 	{
-		return (ArrayList)sqlSession.selectList("adSpaceMapper.selectFormList");
+		return (ArrayList)sqlSession.selectList("adSpaceMapper.selectFormList", selNo);
 	}
 	
 }

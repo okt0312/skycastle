@@ -46,12 +46,16 @@ FROM TB_SPACE
 		update seat set status = #{status} WHERE SEAT_NO = #{seatNo}
 	</update>
 	
-	<select id="selectFormList" resultMap="adReservationResultSet">
+	<select id="selectFormList" parameterType="string" resultMap="adReservationResultSet">
 		SELECT R.BOOK_NO, M.USER_ID, R.CATEGORY, R.REF_NO, TS.SPACE_NAME, COUPON_NAME, R.TOTAL_COST, R.BOOK_ENROLL_DATE
 		  FROM RESERVATION R
 		  JOIN MEMBER M USING(USER_NO)
 		  JOIN TB_SPACE TS ON(TS.SPACE_NO = R.REF_NO) 
 		  LEFT JOIN COUPON C USING(COUPON_CODE)
+	     <if test="selNo != null and selNo != 0 ">
+		     WHERE R.CATEGORY = #{selNo}
+	     </if>
+	     
 	</select>
 
 </mapper>

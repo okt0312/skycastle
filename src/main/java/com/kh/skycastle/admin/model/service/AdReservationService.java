@@ -6,6 +6,6 @@ import com.kh.skycastle.admin.model.dto.AdReservationDto;
 
 public interface AdReservationService {
 	
-	ArrayList<AdReservationDto>selectFormList();
+	ArrayList<AdReservationDto>selectFormList(String selNo);
 
 }

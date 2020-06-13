@@ -17,10 +17,11 @@ public class AdReservationController {
 	private AdReservationService adReservationService;
 	
 	@RequestMapping("reservation.ad")
-	public String reservationForm(Model m)
+	public String reservationForm(Model m, String selNo)
 	{
-		ArrayList<AdReservationDto> list = adReservationService.selectFormList();
+		ArrayList<AdReservationDto> list = adReservationService.selectFormList(selNo);
 		
+		m.addAttribute("selNo", selNo);
 		m.addAttribute("list", list);
 		
 		return "admin/adReservationForm";
