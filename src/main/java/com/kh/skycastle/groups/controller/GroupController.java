@@ -145,7 +145,7 @@ public class GroupController {
 	
 	// 소모임 개설신청 폼
 	@RequestMapping("groupEnrollForm.gr")
-	public String groupEnrollForm(int userNo) {
+	public String groupEnrollForm() {
 		return "groups/groupEnrollForm";
 	}
 	
