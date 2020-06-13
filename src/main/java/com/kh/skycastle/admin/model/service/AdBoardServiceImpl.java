@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.admin.model.dao.AdBoardDao;
+import com.kh.skycastle.admin.model.dto.EventDto;
 import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
@@ -85,5 +86,11 @@ public class AdBoardServiceImpl implements AdBoardService {
 		int result2 = adBoDao.deleteAttachment(sqlSession, e);
 		return result1 * result2;
 	}
+	@Override
+	public int updateEvent(EventDto e) {
+		return adBoDao.updateEvent(sqlSession, e);
+	}
+	
+	
 	
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.skycastle.admin.model.dto.EventDto;
 import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
@@ -80,5 +81,10 @@ public class AdBoardDao {
 	
 	public int deleteAttachment(SqlSessionTemplate sqlSession, Event e) {
 		return sqlSession.update("adBoardMapper.deleteAttachment", e);
+	}
+	
+	public int updateEvent(SqlSessionTemplate sqlSession,EventDto e)
+	{
+		return sqlSession.update("adBoardMapper.updateEvent", e);
 	}
 }

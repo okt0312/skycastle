@@ -65,6 +65,10 @@
                             <div class="contents" align="center">
                               
                                 <div class="infoContent">
+                                <form id="postForm" method="post" action="" enctype="multipart/form-data">
+                                <input type="hidden" name="thumbChangeName" value="${list[0].changeName}">
+                                <input type="hidden" name="detailChangeName" value="${list[1].changeName}">
+                                <input type="hidden" name="eventNo" value="${ param.eno }">
                                 	 <table class="boardList">
 						                <tr>
 						                    <td style="text-align: center; font-size: 16px; font-weight:bold;">
@@ -98,6 +102,7 @@
                                         	</td> 
 	                                    </tr>
                                 	</table>
+                                	</form>
                             		<img src="${pageContext.servletContext.contextPath}/resources/uploadFiles/event/${list[0].changeName}">
                             	</div>
                             	
@@ -135,8 +140,8 @@
                       
                        </div>   
                        
-                    </div>
                 </main>
+                    </div>
 		</div><!--이 /div지우지말것  -->
 </body>
 </html>

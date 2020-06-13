@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.skycastle.admin.model.dto.EventDto;
 import com.kh.skycastle.admin.model.service.AdBoardService;
 import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
@@ -169,7 +171,6 @@ public class AdBoardController {
 		public ModelAndView adSelectEvent(int eno, ModelAndView mv) {
 			
 			ArrayList<Event> list = adBoService.adSelectEvent(eno);
-			System.out.println(list);
 			mv.addObject("list", list);
 			mv.setViewName("admin/adEventDetailView");
 			
@@ -178,31 +179,63 @@ public class AdBoardController {
 		
 		// 이벤트 수정 페이지 
 		@RequestMapping("updateEvent.ad")
-		public String updateEventForm(Event e, Attachment at, HttpServletRequest request, 
-									  @RequestParam(name="reUploadFile", required=false) MultipartFile file) {
+		public String updateEventForm(EventDto e, Attachment at, HttpServletRequest request, 
+									@RequestParam(name="reUploadFile", required=false) MultipartFile[] file) {
+			int result = 1;
+			String inputThumb = file[0].getOriginalFilename();
+			String inputDetail = file[1].getOriginalFilename();
 			
-			System.out.println("업로드 파일 " + at.getChangeName());
-			System.out.println("이벤트 " + e.getEventTitle());
-			
-			if(!file.getOriginalFilename().equals("")) {
-				// 첨부파일 o
-				if(at.getChangeName() != null) {
-					deleteFile(at.getChangeName(), request);
+			if(!inputThumb.equals(""))
+			{
+				e.setFileLevel(1);
+				e.setInputThumb(inputThumb);;
+				if(e.getThumbChangeName() != null)	// update
+				{
+					deleteFile(e.getThumbChangeName(), request);
+					saveFile(file[0], request);
+					
+					result = adBoService.updateEvent(e);
 				}
-			
-			saveFile(file, request);
-			
-			at.setChangeName(file.getOriginalFilename());
-			
+				
+				
 			}
-			
-			int result = adBoService.updateAdEvent(e, at);
-			
+			if(!inputDetail.equals(""))
+			{				
+				e.setFileLevel(2);
+				e.setInputDetail(inputDetail);
+				if(e.getDetailChangeName() != null) // update
+				{
+					deleteFile(e.getDetailChangeName(), request);
+					saveFile(file[1], request);
+					
+					result = adBoService.updateEvent(e);
+				}
+			}
 			if(result > 0) {
-				return "redirect:adEventDetailView.ad?eno=" + e.getEventNo();
+				return "redirect:eventDetail.ad?eno=" + e.getEventNo();
 			}else {
 				return "admin/adEventDetailView";
 			}
+			
+//			if(!file.getOriginalFilename().equals("")) {
+//				// 첨부파일 o
+//				if(at.getChangeName() != null) {
+//					deleteFile(at.getChangeName(), request);
+//				}
+//			
+//			saveFile(file, request);
+//			
+//			at.setChangeName(file.getOriginalFilename());
+//			
+//			}
+//			
+//			int result = adBoService.updateAdEvent(e, at);
+//			
+//			if(result > 0) {
+//				return "redirect:adEventDetailView.ad?eno=" + e.getEventNo();
+//			}else {
+//				return "admin/adEventDetailView";
+//			}
 		}
 		
 		@RequestMapping("deleteEvent.ad")

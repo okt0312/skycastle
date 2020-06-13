@@ -2,6 +2,7 @@ package com.kh.skycastle.admin.model.service;
 
 import java.util.ArrayList;
 
+import com.kh.skycastle.admin.model.dto.EventDto;
 import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.cs.model.vo.Event;
 import com.kh.skycastle.cs.model.vo.Notice;
@@ -42,5 +43,5 @@ public interface AdBoardService {
 	//이벤트 삭제용 서비스
 	int deleteAdEvent(Event e);
 	
-	
+	int updateEvent(EventDto e);
 }

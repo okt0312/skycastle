@@ -114,4 +114,16 @@
  		   SET STATUS= 'N'
  		 WHERE GROUP_CATEGORY=2 AND REF_BNO = #{eventNo} 
  	</update>
+ 	
+ 	<update id="updateEvent" parameterType="EventDto">
+ 		UPDATE ATTACHMENT
+ 		<if test="fileLevel == 1">
+			SET CHANGE_NAME = #{inputThumb}, UPLOAD_DATE = SYSDATE
+			WHERE REF_BNO = #{eventNo} AND GROUP_CATEGORY = 2  AND FILE_LEVEL = 1
+ 		</if>
+ 		<if test="fileLevel == 2">
+ 			SET CHANGE_NAME = #{inputDetail}, UPLOAD_DATE = SYSDATE
+			WHERE REF_BNO = #{eventNo} AND GROUP_CATEGORY = 2  AND FILE_LEVEL = 2
+ 		</if>
+ 	</update>
 </mapper>

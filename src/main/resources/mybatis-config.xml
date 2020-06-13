@@ -32,6 +32,7 @@
 		<typeAlias type="com.kh.skycastle.admin.model.dto.AdReservationDto" alias="AdReservationDto"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Chat" alias="Chat"/>
 		<typeAlias type="com.kh.skycastle.admin.model.dto.MainCount" alias="MainCount"/>
+		<typeAlias type="com.kh.skycastle.admin.model.dto.EventDto" alias="EventDto"/>
 	</typeAliases>
 	
 	<mappers>
