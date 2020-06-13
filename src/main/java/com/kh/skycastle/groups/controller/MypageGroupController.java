@@ -46,11 +46,10 @@ public class MypageGroupController {
 	@RequestMapping("mygroupNoticeDetail.gr")
 	public ModelAndView selectGroupNotice(int gnoticeNo, int userNo, ModelAndView mv) {
 		
-		int result = mgService.increaseGroupNoticeCount(gnoticeNo);
+		//int result = mgService.increaseGroupNoticeCount(gnoticeNo);
 			
-		GroupNotice g = mgService.selectGroupNotice(gnoticeNo);
-		
-		mv.addObject("g", g);
+		GroupNotice gn = mgService.selectGroupNotice(gnoticeNo);
+		mv.addObject("gn", gn);
 		mv.setViewName("groups/mygroupNoticeDetail");
 			
 		return mv;

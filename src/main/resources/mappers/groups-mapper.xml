@@ -132,6 +132,13 @@
 	</insert>
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	<resultMap id="groupNoticeResultSet" type="GroupNotice">
 		<id column="GNOTICE_NO" property="gnoticeNo"/>
 		<result column="GROUP_NO" property="groupNo"/>
@@ -159,13 +166,13 @@
 	<update id="increaseGroupNoticeCount" parameterType="_int">
 		UPDATE GROUP_NOTICE
 		   SET COUNT = COUNT + 1
-		 WHERE GNOTICE_NO = #{gnno} AND STATUS = 'Y'
+		 WHERE GNOTICE_NO = #{gnoticeNo} AND STATUS = 'Y'
 	</update>
 	
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
 		SELECT *
 		  FROM GROUP_NOTICE
-		 WHERE GNOTICE_NO=#{gnno}
+		 WHERE GNOTICE_NO=#{gnoticeNo}
 	</select>
 	
 	<update id="deleteGroupNotice" parameterType="_int">

@@ -128,7 +128,7 @@
 				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">
 					
 					<c:choose>
-						<c:when test="${ loginUser != null }">	<!-- 로그인 했을때 -->
+						<c:when test="${ !empty loginUser }">	<!-- 로그인 했을때 -->
 							<button id="dips" type="button" class="sky_btn1 dipsIn" style="float: left;">찜하기</button>
 						</c:when>
 						<c:otherwise>	<!-- 로그인 안했을때 -->
@@ -191,7 +191,7 @@
    			if(${loginUser ne null}){
    				$.ajax({
    					url:"selectDipsList.gr",
-   					data:{"userNo":${loginUser.userNo}, "groupNo":$("#group_no").val()},
+   					data:{"userNo":'${loginUser.userNo}', "groupNo":$("#group_no").val()},
    					success:function(result){
    						
 						if(result>0){
@@ -216,7 +216,7 @@
 				
 					$.ajax({
 	     				url:"dipsIn.gr",
-	     				data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
+	     				data:{"groupNo":gno, "userNo":'${ loginUser.userNo }'},
 	     				success:function(result){	// insert 성공 --> result 1 
 	     					if(result>0){
 	     						$("#dips").removeClass("dipsIn"); 	
@@ -232,7 +232,7 @@
 					
 					$.ajax({
 						url:"dipsOut.gr", 
-						data:{"groupNo":gno, "userNo":${ loginUser.userNo }},
+						data:{"groupNo":gno, "userNo":'${ loginUser.userNo }'},
 						type:"post",
 						success:function(result){
 							if(result > 0){
