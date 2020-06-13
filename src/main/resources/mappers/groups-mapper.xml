@@ -58,8 +58,9 @@
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
 	<select id="selectMyGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
 		SELECT G.*, M.USER_NO, A.CHANGE_NAME
-		FROM GROUPS G
-		JOIN MEMBER M ON(G.LEADER_NO = M.USER_NO)
+		FROM GROUP_MANAGE GM
+		JOIN MEMBER M ON(GM.USER_NO = M.USER_NO)
+		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
 		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
 		<where>
 			<if test='status!=null'>
