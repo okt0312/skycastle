@@ -133,7 +133,7 @@
 											if (grCoCheck == ""){
 												alertify.alert("소모임 개설 관리","소모임을 선택해주세요");
 											} else {
-												alertify.confirm('소모임 개설 관리', '해당 소모임을 수락하시겠습니까?',function(){
+												alertify.confirm("소모임 개설 관리", "해당 소모임을 수락하시겠습니까?",function(){
 														$.ajax({
 															url : "confirmGroup.ad",
 															data :{"grCoCheck" : grCoCheck},
