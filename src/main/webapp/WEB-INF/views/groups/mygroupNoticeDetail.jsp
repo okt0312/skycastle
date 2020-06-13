@@ -171,8 +171,8 @@
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
-		<c:forEach items="${g}" var="gn">
-		<c:forEach items="${list}" var="r">
+		<%-- <c:forEach items="${g}" var="gn">
+		<c:forEach items="${list}" var="r">  --%>
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
@@ -278,8 +278,8 @@
 
 
 		</div>
-		</c:forEach>
-		</c:forEach>
+		<%-- </c:forEach> 
+		</c:forEach> --%>
 	</div>
 
 

@@ -165,7 +165,7 @@
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
 		SELECT *
 		  FROM GROUP_NOTICE
-		 WHERE GNOTICE_NO=#{gnno}
+		 WHERE GNOTICE_NO=#{gnoticeNo}
 	</select>
 	
 	<update id="deleteGroupNotice" parameterType="_int">

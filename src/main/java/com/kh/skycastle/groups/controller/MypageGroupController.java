@@ -48,8 +48,8 @@ public class MypageGroupController {
 		
 		//int result = mgService.increaseGroupNoticeCount(gnoticeNo);
 			
-		GroupNotice g = mgService.selectGroupNotice(gnoticeNo);
-		mv.addObject("g", g);
+		GroupNotice gn = mgService.selectGroupNotice(gnoticeNo);
+		mv.addObject("gn", gn);
 		mv.setViewName("groups/mygroupNoticeDetail");
 			
 		return mv;
