@@ -406,11 +406,10 @@
            		$("#groupNo").val($(this).children().eq(0).text());*/
            		
            		
-           		$('body').on('click', '#replyList tbody tr th td input[id=report_btn]', function(event) {
+           		$('body').on('click', '#replyArea .replyList tr td input[id=report_btn]', function(event) {
 		    			
-		    			var rno = $(this).parent("td").parent("th").children().eq(0).children().val();
-		    			
-			    		
+		    			var rno = $(this).parent("td").parent("tr").children().eq(1).children().val();
+			    		console.log(rno);
 			    		
 			    		$.ajax({
 		   					url:"replyReport.gr",
