@@ -37,6 +37,7 @@
 		<url-pattern>*.my</url-pattern>
 		<url-pattern>*.cs</url-pattern>
 		<url-pattern>*.re</url-pattern>
+		<url-pattern>*.rp</url-pattern>
 	</servlet-mapping>
 		
 		<!-- 한글 깨짐 방지용 인코딩 필터 등록 -->
