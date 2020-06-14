@@ -71,11 +71,14 @@ public class MypageGroupController {
 	public String insertGroupNotice(GroupNotice gn, Model model, HttpSession session) {
 		int result = mgService.insertGroupNotice(gn);
 		
-		if(result > 0) {
-			return "redirect:mygroupNoticeList.gr";
-		} else {
-			return "소모임 공지사항 등록 실패";
-		}
+		System.out.println(result);
+		
+//		if(result > 0) {
+//			return "redirect:mygroupNoticeList.gr";
+//		} else {
+//			return "소모임 공지사항 등록 실패";
+//		}
+		return "소모임 공지사항 등록 실패";
 	}
 	
 	// 방장 공지사항 수정폼
@@ -99,11 +102,11 @@ public class MypageGroupController {
 		}
 	}
 	
-	/* 방장 공지사항 삭제
+	// 방장 공지사항 삭제
 	@RequestMapping("mygroupNoticedelete.gr")
 	public String deleteGroupNotice(int gnoticeNo) {
 		
-		int result = .deleteGroupNotice(gnoticeNo);
+		int result = mgService.deleteGroupNotice(gnoticeNo);
 		
 		if(result > 0) {
 			return "redirect:mygroupNoticeList.gr?currentPage=1";
@@ -111,7 +114,6 @@ public class MypageGroupController {
 			return "공지사항 삭제 실패";
 		}
 	}
-	*/
 	
 	/* 방장 회원관리 */ 
 	@RequestMapping("mygroupMemMg.gr")
