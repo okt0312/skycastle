@@ -219,13 +219,18 @@
 	                <button class="sky_btn11" onclick="postFormSubmit(1);" style="margin-left:300px;">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
-	            <br>
 	            
-	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
+	            
+<%-- 	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">  
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                      	
 	            </form>
 	            <form action="mygroupNoticedelete.gr" id="postForm2" method="post">
+	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
+	            </form> --%>
+	            
+	            <form action="" id="postForm" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
 	            </form>
@@ -233,16 +238,20 @@
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-	            			$("#postForm1").submit();
+//	            			$("#postForm1").submit();
+	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
 	            		}else {			// 삭제하기 클릭시
-	            			$("#postForm2").submit();
+//	            			$("#postForm2").submit();
+//	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
+	        				alertify.confirm('소모임 공지사항 삭제 확인', '해당 공지사항을 삭제하시겠습니까?', function(){ $("#postForm").attr("action", "mygroupNoticedelete.gr"); }
+	        	            , function(){});
 	            		}
-	            		
+	            		$("#postForm").submit();
 	            	}
 	            </script>
 			</c:if>
 			
-			
+			<br><br><br><br>
 			<table id="replyArea" class="table" style="width:840px;">
                 <thead class="replyList">
                 
@@ -326,19 +335,6 @@
 	<!-- 모달 끝 -->
 
 	<script>
-        function deleteConfirm() {
-            var result = window.confirm("소모임을 나가시겠습니까?");
-            var memStatus = "";
-
-            if(result){
-                memStatus = "N";
-            }else{
-                memStatus = "Y";
-            }
-            console.log(memStatus);
-        }
-        
-        
     	$(function(){
     		selectReplyList();
     		
