@@ -245,7 +245,15 @@
 	<select id="selectGroupStatusListCount" parameterType="GroupDto" resultType="_int">
 		select count(*) 
 		from group_manage
-		where user_no=#{userNo} and status=#{status}
+		<choose>
+		<!-- parameterType으로 받음 객체의 필드명만 써주면 아래처럼 자동으로 값이 읽힌다 -->  
+			<when test='status == "Y"'>
+				where user_no=#{userNo} and (status=#{status} or status = 'A')
+			</when>
+			<otherwise>			
+				where user_no=#{userNo} and status=#{status}
+			</otherwise>
+		</choose>
 	</select>
 	<!--마이페이지 상태별 소모임 리스트 조회  -->
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
@@ -256,7 +264,14 @@
 		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
 	    WHERE   USER_NO=#{userNo}
 	            AND G.STATUS='Y'
-                AND GM.STATUS=#{status}
+	            <choose>
+					<when test='status == "Y"'>
+						 AND (GM.STATUS=#{status} or GM.STATUS='A')
+					</when>
+					<otherwise>			
+						 AND GM.STATUS=#{status}
+					</otherwise>
+				</choose>              
 	            AND A.GROUP_CATEGORY=3
 		ORDER BY G.START_DATE DESC
 	</select>
