@@ -148,12 +148,7 @@ td {
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
 
-<script type="text/javascript">
-		<c:if test="${!empty msg }">
-			//alert("${msg}");
-			alertify.alert('오류', "${ msg }");
-		</c:if>
-</script>
+
 
 
 <jsp:include page="common/myPageMenubar.jsp"/>
@@ -227,9 +222,7 @@ td {
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">제목</td>
                         <td style="padding-left: 1%;  padding-top: 1%;" valign="top">
                         
-                        <textarea  id="title1" name="qnaTitle" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
-                        ${ q.qnaTitle }
-                        </textarea>
+                        <textarea  id="title1" name="qnaTitle" style=" font-weight:bolder; background-color: rag(206, 212, 218);">${ q.qnaTitle }</textarea>
                         
                         </td>
                     </tr>
@@ -239,9 +232,7 @@ td {
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%;  padding-top: 1%;" valign="top">
-                            <textarea id="title2" name="qnaContent" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
-                            	${q.qnaContent}
-                            </textarea>
+                            <textarea id="title2" name="qnaContent" style=" font-weight:bolder; background-color: rag(206, 212, 218);">${q.qnaContent}</textarea>
                        	</td>
                     </tr>
                   
@@ -257,7 +248,7 @@ td {
                 <div id="btns" style="margin: 0 auto; width: 50%; padding-left: 270px;"> 
                     
                   
-                    <button type="submit" style= "border:1px solid darkgray" class="sky_btn1" id="mbtn">수정하기</button>
+                    <button type="button" style= "border:1px solid darkgray" class="sky_btn1" id="mbtn" onclick="xorud">수정하기</button>
                     <button type="button" class="sky_btn2" id="lbtn" onclick="javascript:history.go(-1);">목록</button>
 					
                 </div>
@@ -300,9 +291,34 @@ td {
 		
 	
 	
+	<script>
+		
+		function xorud() {
+			if(confirm("수정하시겠습니까?") == true) {
+				document.form.submit();
+			} else{
+				return;
+			}
+		} 
+	</script>
 	
 	
-
+	
+    <script>
+	
+	
+	$("#mbtn").click(function(){
+		
+		if(confirm) {	
+			alertify.confirm('SKYCATLE', '수정하시겠습니까?', function(){ $("#qupdateForm").submit(); }
+            , function(){});
+		} else {	
+			return;
+		} 
+	});
+	
+	
+   </script>	
 	
 
 		

@@ -100,7 +100,8 @@
 				$("#postForm").attr("action", "updateForm.bo");
 			}else {			// 회원관리 클릭시
 				$("#postForm").attr("action", "delete.bo");
-			}		// $("#postForm").submit();
+			}
+			$("#postForm").submit();
 		}
 		
         function deleteConfirm() {

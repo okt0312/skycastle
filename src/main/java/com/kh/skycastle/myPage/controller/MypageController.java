@@ -17,6 +17,7 @@ import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.coupon.model.vo.Coupon;
 import com.kh.skycastle.cs.model.vo.Qna;
+import com.kh.skycastle.member.model.service.MemberService;
 import com.kh.skycastle.member.model.vo.Member;
 import com.kh.skycastle.myPage.model.service.MypageService;
 import com.kh.skycastle.reservation.model.vo.Seat;
@@ -28,6 +29,9 @@ public class MypageController {
 	
 	@Autowired
 	private MypageService pService; 
+	
+	@Autowired
+	private MemberService mService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -112,8 +116,8 @@ public class MypageController {
 		
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
 			
-			session.setAttribute("loginUser", pService.updateCheckPwd(m));
-			session.setAttribute("msg", "회원정보 수정 성공!!");
+			session.setAttribute("loginUser", mService.loginMember(m));
+		    
 			
 			
 			return "myPage/myPageUpdateForm";

@@ -44,7 +44,7 @@
 		select * 
 		  from notice
 		 where status='Y'
-		 order by notice_no asc
+		 order by enroll_date desc
 	</select>
 	
 	<select id="selectNotice" parameterType="_int" resultMap="noticeResultSet">
@@ -56,13 +56,12 @@
 	<insert id="insertNonMemberInquiry" parameterType="Qna">
 		insert into qna
 		values(seq_qna.nextval, 'N', #{userName}, #{email}, #{userNo},
-		       #{qnaTitle}, #{qnaContent}, SYSDATE ,  NULL , #{originName}, #{changeName}, DEFAULT) 
+		       #{qnaTitle}, #{qnaContent}, SYSDATE, NULL , #{originName}, #{changeName}, DEFAULT) 
 	</insert>
 	
 	<insert id="insertMemberInquiry" parameterType="Qna">
 		insert into qna
-		values(seq_qna.nextval, 'Y' , #{userName}, #{email}, #{userNo},
-		       #{qnaTitle}, #{qnaContent}, SYSYDATE ,  NULL , #{originName}, #{changeName}, DEFAULT) 
+		values(seq_qna.nextval, 'Y', #{userName}, #{email}, #{userNo}, #{qnaTitle}, #{qnaContent}, SYSDATE, NULL, #{originName}, #{changeName}, DEFAULT) 
 	</insert>
 	
 	<select id="qselectListCount" parameterType="Member" resultType="_int">
