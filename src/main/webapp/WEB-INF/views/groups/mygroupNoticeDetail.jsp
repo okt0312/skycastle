@@ -347,7 +347,7 @@
         			url:"replyInsert.gr",
         			data:{replyContent:$("#replyContent").val(),
         				  noticeNo:${gn.gnoticeNo},
-        				  replyWriter:"${loginUser.userNo}"
+        				  userNo:"${loginUser.userNo}"
         				  },
         			type:"post",
         			success:function(status){
