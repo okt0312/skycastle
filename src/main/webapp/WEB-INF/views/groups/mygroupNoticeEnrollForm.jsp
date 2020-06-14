@@ -32,100 +32,11 @@
             color: #000000;
             border: 0;
         }
-        .sky_btn11 /* 댓글달기 버튼 */
-        {
-            width: 100px;
-            height: 40px;
-            text-align: center;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            background: #fdce07;
-            color: #000000;
-            border: 0;
-        }
-        .sky_btn2   /* 취소, 첨부파일 버튼 */
-        {
-            width: 130px;
-            height: 40px;
-            text-align: center;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            background: #333333;
-            color: white;
-            border: 0;
-        }
-        .sky_btn22   /* 신고 버튼 */
-        {
-            width: 80px;
-            height: 30px;
-            text-align: center;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 5px;
-
-            cursor: pointer;
-            background: #333333;
-            color: white;
-            border: 0;
-        }
         /* 소모임내용 */
         #mygroupContent{
             width: 75%;
             margin-top: 100px;
             float: left;
-        }
-
-        /* 공지사항 테이블 css */
-        #mygroupNoticeTable{
-            width: 80%;
-            height: 450px;
-            text-align:left;
-            align-self: center;                  
-            border-collapse: collapse; 
-            box-sizing: border-box;
-            margin: auto;
-        }
-        #mainNotice{
-            height:50px;
-            font-size: 13px;
-            color: #333333;
-            border-bottom:2px solid #dddddd;
-        }
-        #mainNotice button{
-            width:50px;
-            height:25px;
-            margin-right: 5px;
-            border-radius: 4px;
-            background:#fdce07;
-            color: #333333;
-            font-weight: bold;
-        }
-        .title{
-            height:34px;
-            text-align: left;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            font-size: 13px;
-            font-weight: 400;
-        }
-        .enrollDate{
-            font-size: 13px;
-            font-weight: 400;
-            text-align: right;
-        }
-        .noticeTitle{
-            border-bottom:1px solid #dddddd;
-        }
-        #mygroupNoticeTable tr:hover{
-            text-decoration: underline;
-            color: rgb(216, 64, 38);
-            cursor: pointer;
         }
     </style>
 </head>
