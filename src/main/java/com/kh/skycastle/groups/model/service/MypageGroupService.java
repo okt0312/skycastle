@@ -37,5 +37,8 @@ public interface MypageGroupService {
 	
 	// 7. 댓글 작성용 서비스
 	int insertReply(Reply r);
+	
+	//댓글신고하기 모달로보내기
+	ArrayList<Reply> grReplyReportForm();
 
 }

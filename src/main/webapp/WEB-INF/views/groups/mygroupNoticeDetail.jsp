@@ -188,6 +188,9 @@
 	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
+
+		<%-- <c:forEach items="${g}" var="gn">
+		<c:forEach items="${list}" var="r">  --%>
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
@@ -237,22 +240,24 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table">
-                <thead class="replyList">
-
-                </thead>
-                <tbody>
+			<table id="replyArea" class="table"><!-- 수업때한거 -->
+                <thead>
                     <tr>
-                       <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
+                       <td colspan="5">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
-                        <th colspan="2">
+                        <th colspan="4">
                             <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:600px;"></textarea>
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
+                </thead>
+                <tbody class="replyList">
+                    
                 </tbody>
             </table>
+			<br><br><br>
+			
 			
 			<div align="center">
 				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);">목록</button>
@@ -260,7 +265,10 @@
 			
 			<br><br><br><br><br>
 
+
 		</div>
+		<%-- </c:forEach> 
+		</c:forEach> --%>
 	</div>
 
 
@@ -370,18 +378,57 @@
     				
     				for(var i in list){
     					value += "<tr>" +
-    								"<th style='width:20px;'>" + list[i].userName + "</th>" +
-    								"<td style='width:120px; text-align:left;'>" + list[i].replyContent + "</td>" +
+    								"<th style='width:100px;'>" + list[i].userName + "</th>" +
+    								"<td>"+ "<input type='hidden' id='rno' value='"+list[i].replyNo+"'>" + "</td>"+
+    								"<td>"+ "<input type='hidden' id='userNo' value='"+list[i].userNo+"'>" + "</td>"+
+    								"<td style='width:630px; text-align:left;'>" + list[i].replyContent + "</td>" +
     								"<td>" + list[i].uploadDate + "</td>" +
+    								"<td><input type='button' value='신고하기' onclick='reportModal();' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
-    				$("#replyArea thead").html(value);
+    				$("#replyArea tbody").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
     			}
     		});
-    	}
+    	};
+    	
+    	//클릭시 모달 실행
+   	 function reportModal(){
+  			 $('#reportModal').modal({
+		       
+		  	  });
+			};
+   	
+   	/* 신고하기 모달로 보내기
+   	$("#replyList tbody tr #del_btn").click(function(){
+           		$("#groupNo").val($(this).children().eq(0).text());*/
+           		
+           		
+           		$('body').on('click', '#replyList tbody tr th td input[id=report_btn]', function(event) {
+		    			
+		    			var rno = $(this).parent("td").parent("th").children().eq(0).children().val();
+		    			
+			    		
+			    		
+			    		$.ajax({
+		   					url:"replyReport.gr",
+		   					data:{"rno": rno},
+		   					type:"post",
+		   					success:function(result){
+		   					 reportModal();
+		   						
+		   						
+		   						
+		   						
+		   					},error:function(){
+		   						console.log("댓글 작성용 ajax 통신 실패!");
+		   					}
+		   				});
+			    		
+			    		
+		    		});
     </script>
 	<jsp:include page="../common/footer.jsp" />
 
