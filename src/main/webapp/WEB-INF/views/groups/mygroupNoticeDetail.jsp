@@ -36,7 +36,7 @@
         .sky_btn11 /* 댓글달기 버튼 */
         {
             width: 100px;
-            height: 40px;
+            height: 35px;
             text-align: center;
             font-size: 15px;
             font-weight: bold;
@@ -63,13 +63,13 @@
         }
         .sky_btn22   /* 신고 버튼 */
         {
-            width: 80px;
-            height: 30px;
+            width: 100px;
+            height: 35px;
             text-align: center;
             font-size: 15px;
             font-weight: bold;
             border-radius: 5px;
-
+			padding: 10px;
             cursor: pointer;
             background: #333333;
             color: white;
@@ -213,12 +213,12 @@
 			<div id="noticeContent" style="width:1050px; margin-top: 30px; padding-left:20px; word-break:break-all;">
 				${fn:replace(gn.gnoticeContent, line, "<br/>")}
 			</div>
-			<br><br>
+			<br><br><br><br>
 			
 			<!-- 방장에게만 보이는 버튼 -->
 			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
-	            <div align="center">
-	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
+	            <div>
+	                <button class="sky_btn11" onclick="postFormSubmit(1);" style="margin-left:300px;">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
 	            
@@ -259,8 +259,8 @@
 			<br><br><br>
 			
 			
-			<div align="center">
-				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);">목록</button>
+			<div>
+				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);" style="margin-left:300px;">목록</button>
 			</div>
 			
 			<br><br><br><br><br>
