@@ -8,6 +8,12 @@
 	<title>mygroupMenubar</title>
 	
 	<style>
+		#mainTitle{
+			padding:10px;
+			font-size: 32px;
+			font-weight:300;
+			color:#333333;
+		}
 		/* 마이소모임 메뉴바 */
 		#mygroupMenubar{
 		    width: 25%;
@@ -19,6 +25,11 @@
 		#groupMenuTable{
 		    width: 130px;
 		    margin: auto;
+		}
+		.subMenu:hover{
+			 text-decoration: underline;
+			 color: rgb(216, 64, 38);
+			 cursor: pointer;		
 		}
 		/* 버튼스타일 */
 		.sky_btn1 {
@@ -43,6 +54,7 @@
 		    border-radius: 5px;
 		    padding: 10px;
 		    cursor: pointer;
+		    margin-bottom:15px;
 		    background: #333333;
 		    color: white;
 		    border: 0;
@@ -56,16 +68,16 @@
 </head>
 <body>
 	<div id="mygroupMenubar">
-		<h2>소모임명</h2>
+		<p id="mainTitle">소모임명</p>
 
-		<table id="groupMenuTable" border="1">
-			<tr>
-				<th style="width: 100px; height: 40px;"
-					onclick="location.href = 'mygroupNoticeList.gr?currentPage=1&gno=${ listGno }'">공지사항</th>
+		<table id="groupMenuTable">
+			<tr class="subMenu">
+				<td style="width: 100px; height: 40px; text-align:left;"
+					onclick="location.href = 'mygroupNoticeList.gr?currentPage=1&gno=${ listGno }'">* 공지사항</td>
 			</tr>
-			<tr>
-				<td style="width: 100px; height: 40px; text-align: center;"
-					onclick="location.href='mygroupCalendar.gr';">캘린더</td>
+			<tr class="subMenu">
+				<td style="width: 100px; height: 40px; text-align:left;"
+					onclick="location.href='mygroupCalendar.gr';">* 캘린더</td>
 			</tr>
 		</table>
 
@@ -74,17 +86,18 @@
 			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
 		</div>
 		
-		<br><br>
+		<!-- <br><br> 
 		<div id="option-btn">
 			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
 		</div>
-
+		--!>
+		
 		<!-- 방장에게만 보여지는 버튼-->
 		<c:if test="${ param.userNo == list[0].leaderNo }">
 			<div id="option-btn" style="margin-top: 100px;">
 				<button class="sky_btn2" onclick="postFormSubmit(1);">공지작성</button>
 				<br>
-				<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
+				<button class="sky_btn2" type="button" onclick="postFormSubmit(2);">회원관리</button>
 			</div>
 
 			<form action="" id="postForm" method="post">
@@ -97,6 +110,10 @@
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
 		</c:if>
+		
+		<div id="option-btn">
+			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
+		</div>
 	</div>
 	
 	<script>
@@ -104,7 +121,7 @@
 			if(num == 1){	// 공지작성 클릭시
 				$("#postForm").attr("action", "mygroupNoticeEnrollForm.gr");
 			}else {			// 회원관리 클릭시
-				$("#postForm").attr("action", "mygroupMemMg.gr");
+				$("#postForm").attr("action", "mygroupMemMg.gr?");
 			}
 			$("#postForm").submit();
 		}

@@ -121,6 +121,13 @@
 		<result column="STATUS" property="status"/>
 	</resultMap>
 	
+	<!-- 소모임 방장 회원관리 -->
+	<select id="myGroupMember" resultMap="groupManageResultSet">
+			SELECT *
+			  FROM GROUP_MANAGE
+			 WHERE GROUP_NO = #{groupNo} 
+	</select>
+	
 	<!-- 소모임 가입 신청 -->
 	<insert id="groupApply" parameterType="GroupManage">
 		INSERT INTO GROUP_MANAGE

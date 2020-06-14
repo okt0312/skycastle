@@ -112,13 +112,15 @@ public class MypageGroupController {
 	}
 	*/
 	
-	/* 방장 회원관리 
+	/* 방장 회원관리 */ 
 	@RequestMapping("mygroupMemMg.gr")
-	public String myGroupMember() {
-		ArrayList<GroupManage> list = mgService.myGroupMember();
+	public String myGroupMember(int groupNo, Model model) {
 		
+		ArrayList<GroupManage> list = mgService.myGroupMember(groupNo);
+		model.addAttribute("list", list);
+		return "groups/mygroupMemMg";
 	}
-	*/
+	
 	
 	
 	
