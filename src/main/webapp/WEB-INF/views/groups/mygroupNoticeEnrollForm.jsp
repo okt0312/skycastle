@@ -13,6 +13,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>mygroupNoticeEnrollForm</title>
     <style>
+    	/* div{border:1px solid red;} */
+    	#mygroup{
+    		width:100%;
+    		height:1000px;
+    	}
     	.sky_btn1 /* 확인 버튼 */
         {
             width: 130px;
