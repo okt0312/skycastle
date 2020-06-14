@@ -148,10 +148,13 @@ public class MypageGroupController {
 	}
 	
 	@RequestMapping(value="mygroupCalendar.gr")
-	public String mygroupList() {
+	public String mygroupList(Model m) {
 		
 		ArrayList<Calendar> list = calService.selectCalList();
 		System.out.println(list);
+		
+		m.addAttribute("calList", list);
+		
 		return "groups/mygroupCalender";
 	}
 

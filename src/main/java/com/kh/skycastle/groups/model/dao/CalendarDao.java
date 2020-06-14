@@ -11,8 +11,16 @@ import com.kh.skycastle.groups.model.vo.Calendar;
 public class CalendarDao {
 	
 	public ArrayList<Calendar> selectCalList(SqlSessionTemplate sqlSession)
-	{
-		return (ArrayList)sqlSession.selectList("calendarMapper.selectCalList");
+	{	
+		ArrayList<Calendar> list = (ArrayList)sqlSession.selectList("calendarMapper.selectCalList"); 
+		
+		for(Calendar i : list)
+		{
+			i.setStartDate(i.getStartDate().substring(0, 10));
+			i.setEndDate(i.getEndDate().substring(0, 10));
+		}
+		
+		return list;
 	}
 
 }
