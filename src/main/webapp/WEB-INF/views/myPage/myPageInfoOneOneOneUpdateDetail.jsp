@@ -148,12 +148,7 @@ td {
 </head>
 <body style="width: 100%; height: 100%; margin:auto;">
 
-<script type="text/javascript">
-		<c:if test="${!empty msg }">
-			//alert("${msg}");
-			alertify.alert('오류', "${ msg }");
-		</c:if>
-</script>
+
 
 
 <jsp:include page="common/myPageMenubar.jsp"/>
@@ -257,7 +252,7 @@ td {
                 <div id="btns" style="margin: 0 auto; width: 50%; padding-left: 270px;"> 
                     
                   
-                    <button type="submit" style= "border:1px solid darkgray" class="sky_btn1" id="mbtn">수정하기</button>
+                    <button type="button" style= "border:1px solid darkgray" class="sky_btn1" id="mbtn" onclick="xorud">수정하기</button>
                     <button type="button" class="sky_btn2" id="lbtn" onclick="javascript:history.go(-1);">목록</button>
 					
                 </div>
@@ -300,9 +295,34 @@ td {
 		
 	
 	
+	<script>
+		
+		function xorud() {
+			if(confirm("수정하시겠습니까?") == true) {
+				document.form.submit();
+			} else{
+				return;
+			}
+		} 
+	</script>
 	
 	
-
+	
+    <script>
+	
+	
+	$("#mbtn").click(function(){
+		
+		if(confirm) {	
+			alertify.confirm('SKYCATLE', '수정하시겠습니까?', function(){ $("#qupdateForm").submit(); }
+            , function(){});
+		} else {	
+			return;
+		} 
+	});
+	
+	
+   </script>	
 	
 
 		
