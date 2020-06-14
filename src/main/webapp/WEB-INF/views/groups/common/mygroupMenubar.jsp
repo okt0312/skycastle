@@ -104,7 +104,7 @@
 			if(num == 1){	// 공지작성 클릭시
 				$("#postForm").attr("action", "mygroupNoticeEnrollForm.gr");
 			}else {			// 회원관리 클릭시
-				$("#postForm").attr("action", "mygroupNoticedelete.gr");
+				$("#postForm").attr("action", "mygroupMemMg.gr");
 			}
 			$("#postForm").submit();
 		}
