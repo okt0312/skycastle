@@ -188,9 +188,6 @@
 	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
-
-		<%-- <c:forEach items="${g}" var="gn">
-		<c:forEach items="${list}" var="r">  --%>
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
@@ -240,7 +237,7 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table"><!-- 수업때한거 -->
+			<table id="replyArea" class="table">
                 <thead class="replyList">
                 
                 </thead>
@@ -267,8 +264,6 @@
 
 
 		</div>
-		<%-- </c:forEach> 
-		</c:forEach> --%>
 	</div>
 
 
