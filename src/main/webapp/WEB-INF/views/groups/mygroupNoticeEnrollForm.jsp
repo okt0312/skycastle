@@ -155,19 +155,5 @@
 		</div>
 	</div>
     <jsp:include page="../common/footer.jsp"/>
-            
-    <script>
-        function deleteConfirm() {
-            var result = window.confirm("소모임을 나가시겠습니까?");
-            var memStatus = "";
-
-            if(result){
-                memStatus = "N";
-            }else{
-                memStatus = "Y";
-            }
-//			console.log(memStatus);
-        }
-    </script>
 </body>
 </html>
