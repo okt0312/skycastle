@@ -222,9 +222,7 @@ td {
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">제목</td>
                         <td style="padding-left: 1%;  padding-top: 1%;" valign="top">
                         
-                        <textarea  id="title1" name="qnaTitle" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
-                        ${ q.qnaTitle }
-                        </textarea>
+                        <textarea  id="title1" name="qnaTitle" style=" font-weight:bolder; background-color: rag(206, 212, 218);">${ q.qnaTitle }</textarea>
                         
                         </td>
                     </tr>
@@ -234,9 +232,7 @@ td {
                     <tr>
                         <td width="300px" height="200px" align="center" valign="top" style="font-size: 1.2em; font-weight:bolder;  padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%;  padding-top: 1%;" valign="top">
-                            <textarea id="title2" name="qnaContent" style=" font-weight:bolder; background-color: rag(206, 212, 218);">
-                            	${q.qnaContent}
-                            </textarea>
+                            <textarea id="title2" name="qnaContent" style=" font-weight:bolder; background-color: rag(206, 212, 218);">${q.qnaContent}</textarea>
                        	</td>
                     </tr>
                   
