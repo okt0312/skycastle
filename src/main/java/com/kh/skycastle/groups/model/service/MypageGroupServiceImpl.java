@@ -65,8 +65,14 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 
 	@Override
-	public ArrayList<Reply> grReplyReportForm() {
-		return mgDao.grReplyReportForm(sqlSession);
+	public ArrayList<Reply> grReplyReportForm(int rno) {
+		return mgDao.grReplyReportForm(sqlSession,rno);
+	}
+
+	// 공지사항 조회수 증가용 
+	@Override
+	public int increaseGroupNoticeListCount(int gno) {
+		return mgDao.increaseGroupNoticeListCount(sqlSession, gno);
 	}
 
 }

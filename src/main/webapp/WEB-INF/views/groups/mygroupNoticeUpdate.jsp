@@ -171,40 +171,38 @@
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
 		<c:forEach items="${ list }" var="gn">
-		<c:forEach items="${ list }" var="gn">
 		
-		<!-- mygroupContent 영역에 콘텐츠 작성 -->
-		<div id="mygroupContent">
-			<h2>공지사항</h2>
-			<hr><br><br>
-
-			<div id="noticeTitle">
-				<form id="mygroupNoticeupdateForm" method="post" action="mygroupNoticeUpdate.gr">
-					<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
-					<table>
-						<tr>
-							<th>제목</th>
-							<td style="width: 850px; font-weight: 600;"><input type="text" name="gnoticeTitle" value="${ gn.gnoticeTitle }" required></td>
-						</tr>
-						<tr>
-							<th colspan="2"><label for="content">내용</label></th>
-						</tr>
-						<tr>
-							<th colspan="2"><textarea rows="10" required name="gnoticeContent">${ gn.gnoticeContent }</textarea></th>
-						</tr>
-					</table>
-					<div align="center">
-	                    <button type="submit" class="sky_btn1">수정하기</button>&nbsp;&nbsp;&nbsp;&nbsp;
-	                    <button type="button" class="sky_btn2" onclick="javascript:history.go(-1);">이전으로</button>
-	                </div>
-	            </form>
+			<!-- mygroupContent 영역에 콘텐츠 작성 -->
+			<div id="mygroupContent">
+				<h2>공지사항</h2>
+				<hr><br><br>
+	
+				<div id="noticeTitle">
+					<form id="mygroupNoticeupdateForm" method="post" action="mygroupNoticeUpdate.gr">
+						<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+						<table>
+							<tr>
+								<th>제목</th>
+								<td style="width: 850px; font-weight: 600;"><input type="text" name="gnoticeTitle" value="${ gn.gnoticeTitle }" required></td>
+							</tr>
+							<tr>
+								<th colspan="2"><label for="content">내용</label></th>
+							</tr>
+							<tr>
+								<th colspan="2"><textarea rows="10" required name="gnoticeContent">${ gn.gnoticeContent }</textarea></th>
+							</tr>
+						</table>
+						<div align="center">
+		                    <button type="submit" class="sky_btn1">수정하기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+		                    <button type="button" class="sky_btn2" onclick="javascript:history.go(-1);">이전으로</button>
+		                </div>
+		            </form>
+				</div>
+				<hr>
+	
+				<br><br><hr><br>
+	
 			</div>
-			<hr>
-
-			<br><br><hr><br>
-
-		</div>
-		</c:forEach>
 		</c:forEach>
 	</div>
 

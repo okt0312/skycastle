@@ -13,6 +13,8 @@ public interface MypageGroupService {
 	int selectGroupNoticeListCount(int gno);
 	// 1-2. 요청한 페이지에 보여질 소모임 공지사항 리스트 조회용 서비스
 	ArrayList<GroupNotice> selectGroupNoticeList(PageInfo pi, int gno);
+	// 1-3. 소모임 공지사항 조회수 증가용 
+	int increaseGroupNoticeListCount(int gno);
 	
 	// 검색 구현하려면 마이바티스 참조
 	
@@ -39,6 +41,6 @@ public interface MypageGroupService {
 	int insertReply(Reply r);
 	
 	//댓글신고하기 모달로보내기
-	ArrayList<Reply> grReplyReportForm();
+	ArrayList<Reply> grReplyReportForm(int rno);
 
 }

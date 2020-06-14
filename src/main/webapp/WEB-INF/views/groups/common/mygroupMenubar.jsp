@@ -74,18 +74,23 @@
 			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
 		</div>
 		<div id="option-btn" style="margin-top: 300px;">
-			<button class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
+			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
 		</div>
 
 		<!-- 방장에게만 보여지는 버튼-->
-		<c:if test="${ loginUser.userNo == leaderNo }">
-			<div id="option-btn" style="margin-top: 300px;">
+		<c:if test="${ param.userNo == list[0].leaderNo }">
+			<div id="option-btn" style="margin-top: 100px;">
 				<button class="sky_btn2" onclick="postFormSubmit(1);">공지작성</button>
 				<br>
 				<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
 			</div>
 
 			<form action="" id="postForm" method="post">
+				<input type="hidden" name="groupNo" value="${ g.groupNo }">
+				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
+			</form>
+			
+			<form action="" id="dropOutForm" method="post">
 				<input type="hidden" name="groupNo" value="${ g.groupNo }">
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
@@ -101,18 +106,14 @@
 			}
 			$("#postForm").submit();
 		}
-		
-        function deleteConfirm() {
-            var result = window.confirm("소모임을 나가시겠습니까?");
-            var memStatus = "";
-
-            if(result){
-                memStatus = "N";
-            }else{
-                memStatus = "Y";
-            }
-            console.log(memStatus);
-        }
+        
+        
+    	$("#deleteConfirm").click(function(){
+			
+			alertify.confirm('소모임 탈퇴 확인', '해당 소모임을 탈퇴하시겠습니까?',
+					function(){ $("#dropOutForm").submit(); },	// yes 클릭시
+					function(){});								// no 클릭시
+		});
 	</script>
 </body>
 </html>

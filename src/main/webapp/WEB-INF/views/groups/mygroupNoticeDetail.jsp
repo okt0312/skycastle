@@ -291,16 +291,16 @@
 					<table style="width: 400px;">
 						<tr>
 							<th style="width: 80px;">작성자</th>
-							<td style="width: 320px;">user01</td>
+							<td style="width: 320px;">${loginUser.userId}</td>
 						</tr>
 						<tr>
 							<th>회원명</th>
-							<td>조연화</td>
+							<td>${list.userName} </td>
 						</tr>
 						<tr>
 							<th>댓글내용</th>
 							<td><textarea cols="40" rows="10" style="resize: none;"
-									readonly>${ r.replyContent }</textarea></td>
+									readonly>${list.replyContent }</textarea></td>
 						</tr>
 						<tr>
 							<th>신고사유</th>
@@ -406,11 +406,10 @@
            		$("#groupNo").val($(this).children().eq(0).text());*/
            		
            		
-           		$('body').on('click', '#replyList tbody tr th td input[id=report_btn]', function(event) {
+           		$('body').on('click', '#replyArea .replyList tr td input[id=report_btn]', function(event) {
 		    			
-		    			var rno = $(this).parent("td").parent("th").children().eq(0).children().val();
-		    			
-			    		
+		    			var rno = $(this).parent("td").parent("tr").children().eq(1).children().val();
+			    		console.log(rno);
 			    		
 			    		$.ajax({
 		   					url:"replyReport.gr",
