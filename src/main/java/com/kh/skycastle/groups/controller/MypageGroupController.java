@@ -151,7 +151,6 @@ public class MypageGroupController {
 	public String mygroupList(Model m) {
 		
 		ArrayList<Calendar> list = calService.selectCalList();
-		System.out.println(list);
 		
 		m.addAttribute("calList", list);
 		
