@@ -220,19 +220,23 @@
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
 	            
-	            <form action="" id="postForm" method="post">
+	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
+	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">  
+	            	<input type="hidden" name="groupNo" value="${ groupNo }">                      	
+	            </form>
+	            <form action="mygroupNoticedelete.gr" id="postForm2" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
-	            	
+	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
 	            </form>
 	            
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
+	            			$("#postForm1").submit();
 	            		}else {			// 삭제하기 클릭시
-	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
+	            			$("#postForm2").submit();
 	            		}
-	            		$("#postForm").submit();
+	            		
 	            	}
 	            </script>
 			</c:if>

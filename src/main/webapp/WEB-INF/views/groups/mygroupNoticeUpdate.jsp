@@ -164,15 +164,18 @@
         }
         .paging .on:hover{text-decoration:none;}
     </style>
+    
+  
 </head>
 <body>
 	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
-		<c:forEach items="${ list }" var="gn">
+		
 		
 			<!-- mygroupContent 영역에 콘텐츠 작성 -->
+			<div style="width:100%; height:1000px;">
 			<div id="mygroupContent">
 				<h2>공지사항</h2>
 				<hr><br><br>
@@ -203,7 +206,7 @@
 				<br><br><hr><br>
 	
 			</div>
-		</c:forEach>
+		
 	</div>
 
 	<jsp:include page="../common/footer.jsp" />

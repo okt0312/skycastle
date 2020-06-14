@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,16 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.GsonBuilder;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
-import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
-import com.kh.skycastle.groups.model.vo.Dips;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
-import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.groups.model.vo.Reply;
+import com.kh.skycastle.member.model.vo.Member;
 
 @Controller
 public class MypageGroupController {
@@ -49,12 +45,13 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 상세
 	@RequestMapping("mygroupNoticeDetail.gr")
-	public ModelAndView selectGroupNotice(int gnoticeNo, ModelAndView mv) {
-		
+	public ModelAndView selectGroupNotice(int gnoticeNo,int groupNo, ModelAndView mv) {
+		//System.out.println(groupNo);
 		int result = mgService.increaseGroupNoticeCount(gnoticeNo);
 			
 		GroupNotice gn = mgService.selectGroupNotice(gnoticeNo);
 		mv.addObject("gn", gn);
+		mv.addObject("groupNo", groupNo);
 		mv.setViewName("groups/mygroupNoticeDetail");
 			
 		return mv;
@@ -87,16 +84,19 @@ public class MypageGroupController {
 	
 	// 방장 공지사항 수정폼
 	@RequestMapping("mygroupNoticeUpdateForm.gr")
-	public String updateForm(int gnoticeNo, Model model) {
-		
-		model.addAttribute("gnoticeNo", mgService.selectGroupNotice(gnoticeNo));
+	public String updateForm(GroupNotice gn, Model model) {
+		//System.out.println(gn.getGnoticeNo());
+		GroupNotice gNotice = mgService.selectGroupNotice(gn.getGnoticeNo());
+		//System.out.println(gNotice);
+		model.addAttribute("gn", gNotice);
 		return "groups/mygroupNoticeUpdate";
+		
 	}
 	
 	// 방장 공지사항 수정
 	@RequestMapping("mygroupNoticeUpdate.gr")
 	public String updateGroupNotice(GroupNotice gn) {
-		
+		System.out.println(gn);
 		int result = mgService.updateGroupNotice(gn);
 		
 		if(result > 0) { 
@@ -108,12 +108,12 @@ public class MypageGroupController {
 	
 	// 방장 공지사항 삭제
 	@RequestMapping("mygroupNoticedelete.gr")
-	public String deleteGroupNotice(int gnoticeNo) {
-		
+	public String deleteGroupNotice(int gnoticeNo,int groupNo,HttpSession session) {
+		Member loginUser = (Member)session.getAttribute("loginUser");
 		int result = mgService.deleteGroupNotice(gnoticeNo);
 		
 		if(result > 0) {
-			return "redirect:mygroupNoticeList.gr?currentPage=1";
+			return "redirect:mygroupNoticeList.gr?currentPage=1&gno=" +groupNo+"&userNo="+loginUser.getUserNo();
 		} else {
 			return "공지사항 삭제 실패";
 		}

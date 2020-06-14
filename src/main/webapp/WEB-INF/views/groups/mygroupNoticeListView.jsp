@@ -206,7 +206,7 @@
             <script>
             	$(function(){
             		$("#mygroupNoticeTable tbody tr").click(function(){
-            			location.href = "mygroupNoticeDetail.gr?gnoticeNo=" + $(this).children().eq(0).text()
+            			location.href = "mygroupNoticeDetail.gr?gnoticeNo=" + $(this).children().eq(0).text() +"&groupNo=${listGno}";
             							/* + "&userNo=" + "${ loginUser.userNo } "*/;
             		});
             	});
