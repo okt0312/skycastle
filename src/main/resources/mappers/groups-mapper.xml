@@ -127,7 +127,12 @@
 		VALUES(#{groupNo}, #{userNo}, #{passion}, 'U')
 	</insert>
 	
-	
+	<!-- 소모임 탈퇴하기 -->
+	<update id="groupDropOut" parameterType="_int">
+		UPDATE GROUP_MANAGE
+		   SET STATUS='N'
+		 WHERE GROUP_NO=#{groupNo} AND USER_NO=#{userNo}
+	</update>
 	
 	
 	 
