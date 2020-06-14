@@ -60,7 +60,7 @@ public class MypageGroupController {
 	// 방장 공지사항 등록 폼
 	@RequestMapping("mygroupNoticeEnrollForm.gr")
 	public String groupNoticeEnrollForm(int groupNo,Model model) {
-		//System.out.println(groupNo);
+		
 		model.addAttribute("groupNo",groupNo);
 		return ("groups/mygroupNoticeEnrollForm");
 	}
@@ -77,26 +77,22 @@ public class MypageGroupController {
 		} else {
 			return "소모임 공지사항 등록 실패";
 		}
-	
 	}
-	
-	
 	
 	// 방장 공지사항 수정폼
 	@RequestMapping("mygroupNoticeUpdateForm.gr")
 	public String updateForm(GroupNotice gn, Model model) {
-		//System.out.println(gn.getGnoticeNo());
+		
 		GroupNotice gNotice = mgService.selectGroupNotice(gn.getGnoticeNo());
-		//System.out.println(gNotice);
+		
 		model.addAttribute("gn", gNotice);
 		return "groups/mygroupNoticeUpdate";
-		
 	}
 	
 	// 방장 공지사항 수정
 	@RequestMapping("mygroupNoticeUpdate.gr")
 	public String updateGroupNotice(GroupNotice gn) {
-		System.out.println(gn);
+		
 		int result = mgService.updateGroupNotice(gn);
 		
 		if(result > 0) { 
@@ -119,7 +115,7 @@ public class MypageGroupController {
 		}
 	}
 	
-	/* 방장 회원관리 */ 
+	// 방장 회원관리
 	@RequestMapping("mygroupMemMg.gr")
 	public String myGroupMember(int groupNo, Model model) {
 		
@@ -128,20 +124,7 @@ public class MypageGroupController {
 		return "groups/mygroupMemMg";
 	}
 	
-	
-	
-	
-	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기
-	@ResponseBody
-	@RequestMapping("replyReportForm.gr")
-	public String grReplyReportForm(Model r,int rno)
-		{System.out.println(rno);
-			ArrayList<Reply> list = mgService.grReplyReportForm(rno);
-			r.addAttribute("list", list);
-			System.out.println(list);
-			return "groups/mygroupNoticeDetail";
-	}
-	
+	// 캘린더
 	@RequestMapping(value="mygroupCalendar.gr")
 	public String mygroupList() {
 		return "groups/mygroupCalender";

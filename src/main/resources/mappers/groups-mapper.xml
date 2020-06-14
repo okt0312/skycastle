@@ -177,13 +177,7 @@
 		   SET COUNT = COUNT + 1
 		 WHERE GNOTICE_NO = #{gnoticeNo} AND STATUS = 'Y'
 	</update>
-	
-	<!-- <update id="increaseGroupNoticeListCount" parameterType="_int">
-		UPDATE GROUP_NOTICE
-		   SET COUNT = COUNT + 1
-		 WHERE GNOTICE_NO = #{gno} AND STATUS = 'Y'
-	</update> -->
-	
+
 	
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
 		SELECT GN.*, G.LEADER_NO
@@ -207,8 +201,8 @@
  	<!-- 공지사항 수정용 -->
 	<update id="updateGroupNotice" parameterType="GroupNotice">
 		UPDATE GROUP_NOTICE
-		   SET GNOTICE_TITLE=#{boardTitle},
-			   GNOTICE_CONTENT=#{boardContent}
+		   SET GNOTICE_TITLE=#{gnoticeTitle},
+			   GNOTICE_CONTENT=#{gnoticeContent}
 		 WHERE GNOTICE_NO=#{gnoticeNo}
 	</update>
 

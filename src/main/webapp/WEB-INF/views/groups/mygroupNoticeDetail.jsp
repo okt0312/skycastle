@@ -219,6 +219,7 @@
 	                <button class="sky_btn11" onclick="postFormSubmit(1);" style="margin-left:300px;">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
+	            <br>
 	            
 	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">  
