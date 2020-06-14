@@ -137,6 +137,7 @@
 		<result column="GNOTICE_CONTENT" property="gnoticeContent"/>
 		<result column="ENROLL_DATE" property="enrollDate"/>
 		<result column="STATUS" property="status"/>
+		<result column="LEADER_NO" property="leaderNo"/>
 	</resultMap>
 	
 	<select id="selectGroupNoticeListCount" resultType="_int">
@@ -146,10 +147,11 @@
 	</select>
 
 	<select id="selectGroupNoticeList" parameterType="_int"  resultMap="groupNoticeResultSet">
-		SELECT *
-		  FROM GROUP_NOTICE
-		 WHERE STATUS='Y' AND GROUP_NO=#{gno}
-		 ORDER BY GNOTICE_NO DESC
+		SELECT GN.GNOTICE_NO, GROUP_NO, GN.GNOTICE_TITLE, GN.GNOTICE_CONTENT, GN.ENROLL_DATE, GN.STATUS, G.LEADER_NO
+		  FROM GROUP_NOTICE GN
+         JOIN GROUPS G USING(GROUP_NO)          
+		 WHERE GN.STATUS='Y' AND GROUP_NO=#{gno}
+		 ORDER BY GN.GNOTICE_NO DESC
 	</select>
 	
 	<!-- 조회수 증가용 -->

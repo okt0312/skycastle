@@ -24,6 +24,7 @@
 		  JOIN RESERVATION_TIME USING(BOOK_NO)
 		  JOIN MEMBER USING(USER_NO)
 		  JOIN TB_SPACE ON(REF_NO = SPACE_NO)
+		  WHERE CATEGORY = 2
 	</select>
 	
 	<select id="selectCount" resultMap="mainCountResultSet">
