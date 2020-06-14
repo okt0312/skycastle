@@ -55,15 +55,7 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 		return mgDao.updateGroupNotice(sqlSession, gn);
 	}
 
-	@Override
-	public ArrayList<Reply> selectReplyList(int noticeNo) {
-		return mgDao.selectReplyList(sqlSession, noticeNo);
-	}
 
-	@Override
-	public int insertReply(Reply r) {
-		return mgDao.insertReply(sqlSession, r);
-	}
 
 	@Override
 	public ArrayList<Reply> grReplyReportForm(int rno) {

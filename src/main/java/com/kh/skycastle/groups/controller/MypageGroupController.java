@@ -113,28 +113,6 @@ public class MypageGroupController {
 	
 
 	
-	// 댓글 ajax
-	@ResponseBody
-	@RequestMapping(value="replylist.gr", produces="application/json; charset=utf-8")
-	public String selectReplyList(int noticeNo) {
-		
-		ArrayList<Reply> list = mgService.selectReplyList(noticeNo);
-		
-		return new GsonBuilder().setDateFormat("yyyy년 MM월 dd일 HH:mm:ss").create().toJson(list);
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="replyInsert.gr")
-	public String insertReply(Reply r) {
-		
-		int result = mgService.insertReply(r);
-		
-		if(result > 0) {
-			return "success";
-		} else {
-			return "fail";
-		}
-	}
 	
 	
 	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기

@@ -31,13 +31,7 @@ public class MypageGroupDao {
 		return sqlSession.insert("groupsMapper.insertGroupNotice", gn);
 	}
 
-	public ArrayList<Reply> selectReplyList(SqlSessionTemplate sqlSession, int noticeNo) {
-		return (ArrayList)sqlSession.selectList("groupsMapper.selectReplyList", noticeNo);
-	}
 
-	public int insertReply(SqlSessionTemplate sqlSession, Reply r) {
-		return sqlSession.insert("groupsMapper.insertReply", r);
-	}
 
 	public int increaseGroupNoticeCount(SqlSessionTemplate sqlSession, int gnoticeNo) {
 		return sqlSession.update("groupsMapper.increaseGroupNoticeCount", gnoticeNo);
