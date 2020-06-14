@@ -193,7 +193,8 @@
 		<div id="mygroupContent">
 			<p id="noticeTitle">공지사항</p>
 			<hr>
-
+			
+			
 			<div id="noticeTitle">
 				<table>
 					<tr>
@@ -220,8 +221,8 @@
 	            </div>
 	            
 	            <form action="" id="postForm" method="post">
-	            	<input type="hidden" name="gnoticeNo" value="${ g.gnoticeNo }">
-	            	<input type="hidden" name="noticeNo" value="${ r.noticeNo }"><!-- 댓글 ajax에서만 스는데... -->
+	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+	            	
 	            </form>
 	            
 	            <script>
