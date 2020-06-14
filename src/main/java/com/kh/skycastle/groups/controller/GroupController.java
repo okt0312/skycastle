@@ -145,12 +145,12 @@ public class GroupController {
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		
 		int dipsListCount = gService.selectDipsListCount(loginUser.getUserNo());
-		//System.out.println(dipsListCount);
+		System.out.println(dipsListCount);
 		PageInfo pi = Pagination.getPageInfo(dipsListCount, currentPage, 5, 3);
 		
 		
 		ArrayList<Groups> dipsList = gService.mygroupDipsList(pi, loginUser.getUserNo());
-		//System.out.println(dipsList);
+		System.out.println(dipsList);
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", dipsList);
 		
