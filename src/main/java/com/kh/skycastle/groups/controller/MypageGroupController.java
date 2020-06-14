@@ -30,7 +30,7 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 리스트
 	@RequestMapping("mygroupNoticeList.gr")
-	public String selectGroupNoticeList(int currentPage, int gno, Model model, HttpSession session) {
+	public String selectGroupNoticeList(int currentPage, int gno, Model model,HttpSession session) {
 
 		//int result = mgService.increaseGroupNoticeListCount(gno);
 		
@@ -98,11 +98,11 @@ public class MypageGroupController {
 		}
 	}
 	
-	// 방장 회원관리 
-	@RequestMapping("mygroupMemMg.gr")
-	public String deleteGroupNotice() {
+	/* 방장 공지사항 삭제
+	@RequestMapping("mygroupNoticedelete.gr")
+	public String deleteGroupNotice(int gnoticeNo) {
 		
-		int result = mgService.deleteGroupNotice(gnoticeNo);
+		int result = .deleteGroupNotice(gnoticeNo);
 		
 		if(result > 0) {
 			return "redirect:mygroupNoticeList.gr?currentPage=1";
@@ -110,8 +110,15 @@ public class MypageGroupController {
 			return "공지사항 삭제 실패";
 		}
 	}
+	*/
 	
-
+	/* 방장 회원관리 
+	@RequestMapping("mygroupMemMg.gr")
+	public String myGroupMember() {
+		ArrayList<GroupManage> list = mgService.myGroupMember();
+		
+	}
+	*/
 	
 	
 	
