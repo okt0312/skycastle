@@ -99,7 +99,7 @@
 		font-weight: 400;
 	}
 	.title{
-		width:70%;
+		width:60%;
 	    height:34px;
 	    text-align: left;
 	    padding-left:25px;
@@ -110,6 +110,13 @@
 	}
 	.enrollDate{
 		width:20%;
+	    font-size: 14px;
+	    font-weight: 400;
+	    text-align: center;
+	    padding-right: 15px;
+	}
+	.count{
+		width:10%;
 	    font-size: 14px;
 	    font-weight: 400;
 	    text-align: center;
@@ -177,10 +184,10 @@
 	            <table id="mygroupNoticeTable">
 	            	<thead>
 	            		<tr>
-		            		<th>글번호</th>
-		            		<th>제목</th>
-		            		<th>등록일</th>
-		            		<th>조회수</th>
+		            		<th class="gnoticeNo" style="text-align:left;">글번호</th>
+		            		<th class="title" style="text-align:center;">제목</th>
+		            		<th class="enrollDate" style="text-align:center;">등록일</th>
+		            		<!-- <th class="count" style="text-align:center;">조회수</th> -->
 	            		</tr>
 	            	</thead>
 	                <tbody>
@@ -189,7 +196,7 @@
 		                        <td class="gnoticeNo">${ gn.gnoticeNo }</td>
 		                        <td class="title">${ gn.gnoticeTitle }</td>
 		                        <td class="enrollDate">${ gn.enrollDate }</td>
-		                        <td class="count">${ gn.count }</td>
+		                       <%--  <td class="count">${ gn.count }</td> --%>
 		                    </tr>
 		                </c:forEach>
 	                </tbody>    
@@ -200,7 +207,7 @@
             	$(function(){
             		$("#mygroupNoticeTable tbody tr").click(function(){
             			location.href = "mygroupNoticeDetail.gr?gnoticeNo=" + $(this).children().eq(0).text()
-            							+ "&userNo=" + "${ loginUser.userNo }";
+            							/* + "&userNo=" + "${ loginUser.userNo } "*/;
             		});
             	});
 			</script>

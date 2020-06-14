@@ -31,10 +31,10 @@ public class MypageGroupController {
 	@RequestMapping("mygroupNoticeList.gr")
 	public String selectGroupNoticeList(int currentPage, int gno, Model model,HttpSession session) {
 
-		int result = mgService.increaseGroupNoticeListCount(gno);
+		//int result = mgService.increaseGroupNoticeListCount(gno);
 		
 		int groupNoticeListCount = mgService.selectGroupNoticeListCount(gno);
-		PageInfo pi = Pagination.getPageInfo(groupNoticeListCount, currentPage, 10, 5);
+		PageInfo pi = Pagination.getPageInfo(groupNoticeListCount, currentPage, 10, 10);
 		
 		ArrayList<GroupNotice> list = mgService.selectGroupNoticeList(pi, gno);
 		int listGno = gno;
@@ -47,7 +47,7 @@ public class MypageGroupController {
 	
 	// 그룹 공지사항 상세
 	@RequestMapping("mygroupNoticeDetail.gr")
-	public ModelAndView selectGroupNotice(int gnoticeNo, int userNo, ModelAndView mv) {
+	public ModelAndView selectGroupNotice(int gnoticeNo, ModelAndView mv) {
 		
 		int result = mgService.increaseGroupNoticeCount(gnoticeNo);
 			
