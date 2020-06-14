@@ -53,6 +53,10 @@ public class MypageGroupDao {
 	public int updateGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
 		return sqlSession.update("groupsMapper.updateGroupNotice", gn);
 	}
+
+	public ArrayList<Reply> grReplyReportForm(SqlSessionTemplate sqlSession) {
+		return (ArrayList)sqlSession.selectList("groupsMapper.grReplyReportForm");
+	}
 	
 	
 

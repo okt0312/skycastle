@@ -64,4 +64,9 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 		return mgDao.insertReply(sqlSession, r);
 	}
 
+	@Override
+	public ArrayList<Reply> grReplyReportForm() {
+		return mgDao.grReplyReportForm(sqlSession);
+	}
+
 }
