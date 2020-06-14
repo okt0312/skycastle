@@ -32,7 +32,40 @@
 
 </head>
 <body>
-
+<script>
+/* $("#update_Btn").click(function() 
+		{
+		    alertify.confirm("Are you sure you want to commit your reservation?", function (e) 
+		    {
+		        if (e) {
+		            // user clicked "ok"
+		            alertify.success("You've confirmed your reservation.");
+		            $("#noticeUpdateForm").submit();
+		            return true;
+		        } else {
+		            // user clicked "cancel"
+		            alertify.error("You did not confirm your reservation.");
+		            return false;
+		        }
+		    });
+		});
+		
+		
+		 $("#noticeUpdateForm").submit(function(event){
+			   /*  event.preventDefault(); // cancel submit 
+			    alertify.confirm("Are you sure you want to commit your reservation?", function (e) {
+			        if (e) {
+			            // user clicked "ok"
+			            alertify.success("You've confirmed your reservation.");
+			            $("#noticeUpdateForm")[0].submit(); // submit form skipping jQuery bound handler
+			        } else {
+			            // user clicked "cancel"
+			            alertify.error("You did not confirm your reservation.");
+			        }
+			    });
+			});
+		 */
+</script>
 
  <!-- 메뉴와 푸터는 인클루드 할거니 내용만 수정하겠음-->
 <div id="layoutSidenav"> 
@@ -47,7 +80,7 @@
                             <li class="breadcrumb-item active"><a style="color:black">공지사항 관리</a></li>
                         </ol>
                         <!-- 게시글 수정 시작 -->
-                        <form id="noticeUpdateForm" action="noticeUpdate.ad">
+                        <form id="noticeUpdateForm" name="noticeUpdateForm" action="noticeUpdate.ad">
                             <div class="contents" align="center">
                                 <table class="boardList">
                                     <tr>
@@ -62,7 +95,7 @@
                                 <div>
                                 <p align="center">
                                     <input type="button" value="목록" onclick="history.back(-1)" class="btn btn-dark">
-                                    <input type="submit" id="" value="수정" class="btn btn-primary" >
+                                    <input type="button" id="update_Btn" name="update_Btn" value="수정" class="btn btn-primary" >
                                      <input type="button" value="삭제" class="btn btn-danger" id="forDeleteBtn" > 
                                     </p>
                                 
@@ -73,7 +106,7 @@
                           <%--  <input type="hidden" name="enrollDate" value="${ n.enrollDate }">
                             --%>
                         </form> 
-                       
+                     
                        <div id="delete_Hidden">
                         <form action="deleteNotice.ad">
                         <input type="hidden" name="noticeNo" id="noticeNo" value="${ n.noticeNo }">
@@ -82,6 +115,10 @@
                         </div>
                         
                         <script>
+                      
+                        
+                        
+                        
                         $(function(){
                     		$("#delete_Hidden").hide();
                     		$("#forDeleteBtn").click(function(){
@@ -89,6 +126,12 @@
                     			
                     		});
                         });
+                       
+                       
+
+                           
+                        
+                   
                         </script>
                       
                        </div>   
