@@ -171,24 +171,7 @@
 
         <div id="mygroupContent">
             <p id="noticeTitle">공지사항<p>
-            <hr><!-- <br><br> -->
-            
-            <div id="searchArea">
-		        <!-- 수업때 쓴 검색 폼(넣을지말지) -->
-				<form id="searchForm" action="" method="Get" align="center">
-					<div class="select" style="width: 100px; float: left;">
-						<select class="custom-select" name="condition">
-							<option value="writer">작성자</option>
-							<option value="title">제목</option>
-							<option value="content">내용</option>
-						</select>
-					</div>
-					<div class="text" style="float: left; margin-left:5px;">
-						<input type="text" class="form-control" name="keyword">
-					</div>
-					<button type="submit" class="searchBtn btn btn-secondary" style="float:left; margin-left:5px;">검색</button>
-				</form>
-            </div>
+            <hr>
             
             <div class="tableArea">
 	            <table id="mygroupNoticeTable">
