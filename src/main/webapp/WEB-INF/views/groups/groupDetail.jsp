@@ -197,8 +197,8 @@
 						if(result>0){
 							$("#dips").removeClass("dipsIn");
 							$("#dips").addClass("dipsOut");
-							$("#dips").text("찜취소");		//text 인지 value인지 확인
-   						}			//버튼에 찜취소로 보여지고 아니면 찜하기로 보여진다.
+							$("#dips").text("찜취소");
+   						}			// 버튼이 찜취소로 보여지고 아니면 찜하기로 보여진다.
    					}, error:function(){
    						console.log("찜목록 조회 실패");
    					}
