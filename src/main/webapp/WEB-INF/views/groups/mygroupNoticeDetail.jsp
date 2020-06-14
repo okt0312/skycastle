@@ -291,7 +291,7 @@
 				<div class="modal-body">
 					<table style="width: 400px;">
 						<tr>
-							<input type="hidden" id="uNo" name="userNo" value="${loginUser.userNo}">
+							<input type="hidden" id="userNo" name="userNo" value="${loginUser.userNo}">
 							<input type="hidden" name="replyNo" id="replyNo" value="">
 							<th style="width: 80px;">작성자</th>
 							<td style="width: 320px;">${loginUser.userId} (${loginUser.userName})</td>
@@ -404,24 +404,36 @@
    		  	  });
      			 $("#content").text(content);
      			 $("#replyNo").val(replyNo);
+     			
    			};
    			
    		
    		$("#reportSubmit").click(function(){
-   		  var userNo = $("uNo").val();
-   		  var replyNo = $("rno").val();
+   		  var userNo = $("#userNo").val();
+   		  var replyNo = $("#replyNo").val();
    		  var reportContent = $("#reportContent").val();
+   		  if(reportContent==''){
+   			alertify.alert("skycastle 내용:", "신고 내용을 작성하세요!");
+   			return;
+   		  }else{
+   			$("#reportContent").val('');
    			$.ajax({
     			url:"insertReport.rp",
     			data:{reporterNo:userNo,replyNo:replyNo,reportContent:reportContent},
-    			success:function(result){
-
-    				alert(result);
+    			success:function(status){
+					if(status == '성공'){
+						
+						alertify.alert("skycastle 내용:", "신고 완료!");
+					}
     				
     			}, error:function(){
     				console.log("신고하기 ajax 통신 실패!!");
     			}
     		});
+   		  }
+   		  
+   		  
+   			
    		});	
       	
     

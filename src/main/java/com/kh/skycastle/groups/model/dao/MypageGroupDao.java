@@ -67,5 +67,8 @@ public class MypageGroupDao {
 		return sqlSession.insert("groupsMapper.insertGroupNoticee", gn);
 	}
 	
+	public ArrayList<GroupManage> myGroupMember(SqlSessionTemplate sqlSession, int groupNo ){
+		return (ArrayList)sqlSession.selectList("groupsMapper.myGroupMember", groupNo);
+	}
 
 }
