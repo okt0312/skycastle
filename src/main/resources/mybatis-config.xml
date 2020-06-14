@@ -33,6 +33,7 @@
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Chat" alias="Chat"/>
 		<typeAlias type="com.kh.skycastle.admin.model.dto.MainCount" alias="MainCount"/>
 		<typeAlias type="com.kh.skycastle.admin.model.dto.EventDto" alias="EventDto"/>
+		<typeAlias type="com.kh.skycastle.groups.model.vo.Report" alias="Report"/>
 	</typeAliases>
 	
 	<mappers>
@@ -48,6 +49,7 @@
 		<mapper resource="mappers/adSpace-mapper.xml"/>
 		<mapper resource="mappers/adMain-mapper.xml"/>
 		<mapper resource="mappers/chat-mapper.xml"/>
+		<mapper resource="mappers/report-mapper.xml"/>
 	</mappers>
 	
 	

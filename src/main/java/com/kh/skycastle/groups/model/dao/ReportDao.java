@@ -8,6 +8,6 @@ import com.kh.skycastle.groups.model.vo.Report;
 @Repository("ReportDao")
 public class ReportDao {
 	public int insertReport(SqlSessionTemplate sqlSession, Report report) {
-		return sqlSession.insert("groupsMapper.insertReport", report);
+		return sqlSession.insert("reportMapper.insertReport", report);
 	}
 }
