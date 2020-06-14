@@ -101,7 +101,7 @@
 			</div>
 
 			<form action="" id="postForm" method="post">
-				<input type="hidden" name="groupNo" value="${ g.groupNo }">
+				<%-- <input type="hidden" name="groupNo" value="${ listGno.groupNo }"> --%>
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
 			
@@ -121,7 +121,7 @@
 			if(num == 1){	// 공지작성 클릭시
 				$("#postForm").attr("action", "mygroupNoticeEnrollForm.gr");
 			}else {			// 회원관리 클릭시
-				$("#postForm").attr("action", "mygroupMemMg.gr?");
+				$("#postForm").attr("action", "mygroupMemMg.gr?groupNo=" + ${listGno});
 			}
 			$("#postForm").submit();
 		}
