@@ -79,10 +79,8 @@
 
 		<!-- 방장에게만 보여지는 버튼-->
 		<c:if test="${ loginUser.userNo == leaderNo }">
-<!--		<a class="btn btn-secondary" style="float:right" href="enrollForm.bo">글쓰기</a> -->
 			<div id="option-btn" style="margin-top: 300px;">
-				<button class="sky_btn2"
-					onclick="location.href='mygroupNoticeEnrollForm.gr';">공지작성</button>
+				<button class="sky_btn2" onclick="postFormSubmit(1);">공지작성</button>
 				<br>
 				<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
 			</div>
@@ -97,9 +95,9 @@
 	<script>
 		function postFormSubmit(num){
 			if(num == 1){	// 공지작성 클릭시
-				$("#postForm").attr("action", "updateForm.bo");
+				$("#postForm").attr("action", "mygroupNoticeEnrollForm.gr");
 			}else {			// 회원관리 클릭시
-				$("#postForm").attr("action", "delete.bo");
+				$("#postForm").attr("action", "mygroupNoticedelete.gr");
 			}
 			$("#postForm").submit();
 		}

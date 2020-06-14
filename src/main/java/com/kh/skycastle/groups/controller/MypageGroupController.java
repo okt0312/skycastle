@@ -75,7 +75,7 @@ public class MypageGroupController {
 	}
 	
 	// 방장 공지사항 수정폼
-	@RequestMapping("updateForm.bo")
+	@RequestMapping("mygroupNoticeUpdateForm.gr")
 	public String updateForm(int gnoticeNo, Model model) {
 		
 		model.addAttribute("gnoticeNo", mgService.selectGroupNotice(gnoticeNo));
