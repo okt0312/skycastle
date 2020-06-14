@@ -412,7 +412,7 @@
 			    		console.log(rno);
 			    		
 			    		$.ajax({
-		   					url:"replyReport.gr",
+		   					url:"replyReportForm.gr",
 		   					data:{"rno": rno},
 		   					type:"post",
 		   					success:function(result){
