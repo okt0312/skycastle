@@ -409,11 +409,11 @@
    		
    		$("#reportSubmit").click(function(){
    		  var userNo = $("uNo").val();
-   		  var replyNo = $("replyNo").val();
+   		  var replyNo = $("rno").val();
    		  var reportContent = $("#reportContent").val();
    			$.ajax({
     			url:"insertReport.rp",
-    			data:{userNo:userNo,replyNo:replyNo,reportContent:reportContent},
+    			data:{reporterNo:userNo,replyNo:replyNo,reportContent:reportContent},
     			success:function(result){
 
     				alert(result);

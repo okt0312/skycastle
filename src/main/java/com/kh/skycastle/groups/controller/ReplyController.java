@@ -3,6 +3,7 @@ package com.kh.skycastle.groups.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,6 +11,7 @@ import com.google.gson.GsonBuilder;
 import com.kh.skycastle.groups.model.service.ReplyService;
 import com.kh.skycastle.groups.model.vo.Reply;
 
+@Controller
 public class ReplyController {
 	
 	@Autowired
