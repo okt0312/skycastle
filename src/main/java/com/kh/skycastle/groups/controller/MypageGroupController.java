@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.groups.model.service.CalendarService;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
+import com.kh.skycastle.groups.model.vo.Calendar;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
@@ -24,6 +26,9 @@ public class MypageGroupController {
 	
 	@Autowired
 	private MypageGroupService mgService;
+	
+	@Autowired
+	private CalendarService calService;
 	
 	// 그룹 공지사항 리스트
 	@RequestMapping("mygroupNoticeList.gr")
@@ -126,7 +131,12 @@ public class MypageGroupController {
 	
 	// 캘린더
 	@RequestMapping(value="mygroupCalendar.gr")
-	public String mygroupList() {
+	public String mygroupList(Model m) {
+		
+		ArrayList<Calendar> list = calService.selectCalList();
+		
+		m.addAttribute("calList", list);
+		
 		return "groups/mygroupCalender";
 	}
 
