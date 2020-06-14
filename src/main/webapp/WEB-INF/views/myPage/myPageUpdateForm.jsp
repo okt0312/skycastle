@@ -408,7 +408,7 @@ a {
                                         </ul>
                                     </div>
                                     
-                                    <form action="updatee.me" method="post" onsubmit="">
+                                    <form id="updateeForm" action="updatee.me" method="post" onsubmit="">
                                      <input type="hidden" value="${ loginUser.userId }" name="userId">
                                      <input type="hidden" value="${ loginUser.userName }" name="userName">
                                      <input type="hidden" value="${ loginUser.birthday }" name="birthday">
@@ -460,7 +460,7 @@ a {
                                             
     
                                             <div class="bts">
-                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;" >변경</button>
+                                                <button type="button" class="dark" style="background-color: #222; color: #fff; width: 354px;" id="xorud" >변경</button>
                                             </div>
                                             </form>
                                             
@@ -485,6 +485,22 @@ a {
 			</div>
 		</div>
 		</div>
+		
+		<script>
+	
+	
+	$("#xorud").click(function(){
+		
+		if(confirm) {	
+			alertify.confirm('SKYCATLE','회원정보를 변경하시겠습니까?', function(){ $("#updateeForm").submit(); }
+            , function(){});
+		} else {	
+			return;
+		} 
+	});
+	
+	
+   </script>	
 
 	
 			
