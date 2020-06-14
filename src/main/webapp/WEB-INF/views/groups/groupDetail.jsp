@@ -125,7 +125,7 @@
 	
 		<div class="statusBar" style="width:100%; height: 60px; vertical-align: middle; border: 1px solid black;">
 			<div style="text-align:right; height: 60px;">
-				<form id="apply_form" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">
+				<form id="applyform" action="groupApplyForm.gr" method="post" style="margin: 5px 5px;">
 					
 					<c:choose>
 						<c:when test="${ !empty loginUser }">	<!-- 로그인 했을때 -->
@@ -176,7 +176,7 @@
 			var userNo = "${ loginUser.userNo }";
 			
 			if(userNo != 0) {	// 로그인 했을때
-				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#apply_form").submit(); }
+				alertify.confirm('소모임 신청 확인', '신청하시겠습니까?', function(){ $("#applyform").submit(); }
 	            , function(){});
 			} else {	// 로그인 안했을때 -> 로그인 창으로 이동
 				alertify.alert("회원 전용 서비스", "회원만 신청할 수 있습니다. 로그인 페이지로 이동합니다.", function(){ location.href = "loginForm.me"; });

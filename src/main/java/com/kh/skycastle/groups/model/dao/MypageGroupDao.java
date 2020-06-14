@@ -64,4 +64,9 @@ public class MypageGroupDao {
 	}
 	*/
 
+	public int groupDropOut(SqlSessionTemplate sqlSession, int groupNo, int userNo) {
+		return sqlSession.update("groupsMapper.groupDropOut", groupNo, userNo);
+	}
+	
+
 }

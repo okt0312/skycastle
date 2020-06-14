@@ -181,7 +181,7 @@ height: 40px;
             
 		
 			
-		
+			
 			<form id="postForm" action="delete.me" method="post">
 			<input type="hidden" value="${ loginUser.userNo }" name="userNo">
 			<table id="middleTable" style="margin: auto;">
@@ -198,7 +198,7 @@ height: 40px;
 			<div id="btns">
 				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn" onclick="location='myPageUpdateForm.jsp'">취소</button>
-                <button type="submit" class="middle_btn" id="mbtn">탈퇴</button>
+                <button type="button" class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
 			</form>
 			
@@ -207,11 +207,20 @@ height: 40px;
 		
 		</div>
 		
-		
-		<!-- <form id="postForm" action="delete.me" method="post">
-			<input type="hidden" name="userId" value="${ loginUser.userId }">
-		 </form>
-		-->
+	  <script>
+	
+	
+	  $("#mbtn").click(function(){
+			
+			if(confirm) {	
+				alertify.confirm('SKYCATLE', '탈퇴하시겠습니까?', function(){ $("#postForm").submit(); }
+	            , function(){});
+			} else {	
+				return;
+			} 
+		});
+	
+   </script>	
 		
 		
 	<jsp:include page="../common/footer.jsp"/>

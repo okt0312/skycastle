@@ -241,19 +241,19 @@
 			
 			
 			<table id="replyArea" class="table"><!-- 수업때한거 -->
-                <thead>
+                <thead class="replyList">
+                
+                </thead>
+                <tbody class="replyList">
                     <tr>
                        <td colspan="5">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
                         <th colspan="4">
-                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:600px;"></textarea>
+                            <textarea class="form-control" id="replyContent" cols="70" rows="2" style="resize:none; width:600px;"></textarea>
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
-                </thead>
-                <tbody class="replyList">
-                    
                 </tbody>
             </table>
 			<br><br><br>
@@ -386,7 +386,7 @@
     								"<td><input type='button' value='신고하기' onclick='reportModal();' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
-    				$("#replyArea tbody").html(value);
+    				$("#replyArea thead").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
@@ -412,7 +412,7 @@
 			    		console.log(rno);
 			    		
 			    		$.ajax({
-		   					url:"replyReport.gr",
+		   					url:"replyReportForm.gr",
 		   					data:{"rno": rno},
 		   					type:"post",
 		   					success:function(result){

@@ -110,20 +110,7 @@ public class MypageGroupController {
 		}
 	}
 	
-	
-	
-	// 방장 공지사항 상세페이지 - 수정중
-//	@RequestMapping("noticeDetail.ad")
-//	public ModelAndView selectNoDetail(int bno, ModelAndView mv) {
-//		
-//		Notice n = adBoService.selectNoDetail(bno);
-//		mv.addObject("n", n);
-//		mv.setViewName("admin/adNoticeDetailView");
-//		
-//		return mv;
-//	}
-	
-	
+
 	
 	// 댓글 ajax
 	@ResponseBody
@@ -150,21 +137,28 @@ public class MypageGroupController {
 	
 	
 	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기
-		@ResponseBody
-		@RequestMapping("replyReportForm.gr")
-			public String grReplyReportForm(Model r,int rno)
-			{System.out.println(rno);
-				ArrayList<Reply> list = mgService.grReplyReportForm(rno);
-				r.addAttribute("list", list);
-				System.out.println(list);
-				return "groups/mygroupNoticeDetail";
-			}
+	@ResponseBody
+	@RequestMapping("replyReportForm.gr")
+	public String grReplyReportForm(Model r,int rno)
+		{System.out.println(rno);
+			ArrayList<Reply> list = mgService.grReplyReportForm(rno);
+			r.addAttribute("list", list);
+			System.out.println(list);
+			return "groups/mygroupNoticeDetail";
+	}
 	
 	@RequestMapping(value="mygroupCalendar.gr")
 	public String mygroupList() {
 		return "groups/mygroupCalender";
 	}
 
+	// 회원의 소모임 탈퇴
+	@RequestMapping("groupDropOut.gr")
+	public int groupDropOut(int groupNo, int userNo) {
+		
+		int result = mgService.groupDropOut(groupNo, userNo);
+		
+	}
 	
 	
 }

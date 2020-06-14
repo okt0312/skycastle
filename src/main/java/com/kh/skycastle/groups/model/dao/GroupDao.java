@@ -66,7 +66,9 @@ public class GroupDao {
 	}
 
 	public int insertGroup(SqlSessionTemplate sqlSession, Groups g) {
-		return sqlSession.insert("groupsMapper.insertGroup", g);
+		int result1 = sqlSession.insert("groupsMapper.insertGroup", g);
+		int result2 = sqlSession.insert("groupsMapper.insertGroupManage", g);
+		return result1 * result2;
 	}
 
 	public int insertThumbNail(SqlSessionTemplate sqlSession, Groups g) {

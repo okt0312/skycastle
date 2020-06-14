@@ -467,27 +467,21 @@ p {
                                         <div class="col infoType">
                                         
                                         	
+                                          
                                            <form action="mchangePwd.me" method="POST">
                                            <input type="hidden" name="userPwd" value="${userPwd}">
                                            <input type="hidden" name="userId" value="${userId}">
-                                           <label for="oldPw" class="mod_pws current">
-                                                <span class="inputs">
-                                                    <input type="password" id="oldPw" name="oldPw" placeholder="현재비밀번호">
-                                                </span>
-                                                <p style="display: none;"></p>
-                                           </label>
+                                         
                                            <label for="pwId" class="mod_pws">
                                                 <span class="inputs">
                                                     <input type="password" id="pwId" name="pwId" placeholder="새 비밀번호(6자리 이상 영문, 숫자, 특수문자를 사용)" required>
                                                 </span>   
-                                                    <p style="display: none;"></p>
                                                </label>
                                             <label for="pwCheck" class="mod_pws">
                                                 <span class="inputs">
                                                     <input type="password" id="pwId2" name="pwId2" placeholder="비밀번호 재확인" required>
 				
                                                 </span>
-                                                <p style="display: none;"></p>
                                             </label>
 
                                             		
@@ -498,9 +492,9 @@ p {
                                                         
                                                         
                                             <div class="bts">
-                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px; onclick="return validate();">변경</button>
+                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;" onclick="return validate();">변경</button>
                                             </div>
-                                            </form>
+                                           </form>
                                            
                                             <div class="bts" style="font-size: 13px; color: #888;">
                                               스카이캐슬를 더 이상 이용하지 않는다면    <a href="Dropp.me" class="btn_nude btn_nude_dark btn_member_out" style="color:#fdce07;  text-decoration: underline;">회원탈퇴 바로가기></a>
@@ -518,6 +512,8 @@ p {
   		var pwd1 = document.getElementById("pwId"); // 비밀번호
 		var pwd2 = document.getElementById("pwId2"); // 비밀번호 확인 	
   		
+	
+		
   		// 비밀번호 검사
 		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
 		var regExp = /^[a-z\d!@#$%^&*]{6,}$/i;
@@ -530,7 +526,7 @@ p {
 		
 		// 비밀번호값과 비밀번호확인값이 일치하는지 검사
 		if (pwd1.value != pwd2.value) {
-			alertify.alert("skycastle 내용:", "비밀번호가 일치하지 않습니다.");
+			alertify.alert("skycastle 내용:", "새 비밀번호와 일치하지 않습니다.");
 			pwd2.value = "";
 			pwd2.focus();
 			return false;
@@ -543,7 +539,7 @@ p {
 				
                 
                
-
+	
 				
 				
 

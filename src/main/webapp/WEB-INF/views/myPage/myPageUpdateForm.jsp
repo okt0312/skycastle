@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -430,7 +432,11 @@ a {
                                             </div>
     										 <div class="mod_infos">
                                                 <span class="in_tit">현재 연락처</span>
-                                                <div class="info birthday">${ loginUser.phone}</div>
+                                                <c:set var="phone" value="${loginUser.phone}"/>
+                                                <c:set var="first" value="${fn:substring(phone,0,3)}"/>
+                                                 <c:set var="middle" value="${fn:substring(phone,3,7)}"/>
+                                                  <c:set var="last" value="${fn:substring(phone,7,11)}"/>
+                                                <div class="info birthday">&nbsp;&nbsp;${first}-${middle}-${last}</div>
                                             </div>
     										
     										
@@ -497,7 +503,9 @@ a {
 	
 	
 	$("#xorud").click(function(){
-		
+		 if(validate()==false){
+			 return;
+		 }
 		if(confirm) {	
 			alertify.confirm('SKYCATLE','회원정보를 변경하시겠습니까?', function(){ $("#updateeForm").submit(); }
             , function(){});
@@ -506,6 +514,21 @@ a {
 		} 
 	});
 	
+	function validate() {
+	var phone = document.getElementById("phone"); // 비밀번호 확인 	
+  		
+	
+		
+  		// 휴대폰번호 검사
+		// 특수문자(!@#$%^&*) 영문자 숫자 포함 6글자 이상
+		var regExp = /^[\d]{11}$/i;
+		if (!regExp.test(phone.value)) {
+			alertify.alert("skycastle 내용:", "올바른 번호를 입력해주세요");
+			phone.value = "";
+			phone.focus();
+			return false;
+		}
+	}
 	
    </script>	
 

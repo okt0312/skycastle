@@ -75,4 +75,10 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 		return mgDao.increaseGroupNoticeListCount(sqlSession, gno);
 	}
 	*/
+
+	@Override
+	public int groupDropOut(int groupNo, int userNo) {
+		return mgDao.groupDropOut(sqlSession, groupNo, userNo);
+	}
+
 }
