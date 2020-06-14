@@ -117,14 +117,11 @@ public class MypageController {
 		if(result > 0) { // 회원정보수정 성공 --> 알럴트
 			
 			session.setAttribute("loginUser", mService.loginMember(m));
-		    
-			
-			
-			return "myPage/myPageUpdateForm";
+		    return "myPage/myPageUpdateForm";
 			
 		} else { // 회원정보 수정 실패 --> 알럴트
 			
-			model.addAttribute("msg, 회원 정보수정 실패!!");
+			
 			return "myPage/myPageUpdateForm";
 			
 			
