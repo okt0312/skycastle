@@ -96,6 +96,18 @@ public class GroupServiceImpl implements GroupService {
 		return gDao.selectGroupStatusListCount(sqlSession,gd);
 	}
 
+
+	@Override
+	public int selectGroupSearchListCount(GroupDto gd) {
+		return gDao.selectGroupSearchListCount(sqlSession,gd);
+	}
+
+
+	@Override
+	public ArrayList<Groups> selectGroupSearchList(PageInfo pi, GroupDto gd) {
+		return gDao.selectGroupSearchList(sqlSession, pi, gd);
+	}
+
 	
 
 

@@ -309,4 +309,22 @@
 	            AND A.GROUP_CATEGORY=3
 		ORDER BY G.START_DATE DESC
 	</select>
+	
+	<select id="selectGroupSearchListCount" parameterType="GroupDto" resultType="_int">
+			SELECT count(*)
+			FROM GROUPS G
+			WHERE G.STATUS='Y' 
+			AND G.GROUP_TITLE LIKE '%'||#{groupTitle}||'%' 
+			ORDER BY G.START_DATE DESC
+	</select>
+	
+	<select id="selectGroupSearchList" resultMap="groupDtoResultSet" parameterType="GroupDto">
+		 SELECT G.*, A.CHANGE_NAME
+		  FROM GROUPS G
+		  JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
+		 WHERE G.STATUS='Y' AND A.GROUP_CATEGORY=3
+		 AND G.GROUP_TITLE LIKE '%'||#{groupTitle}||'%' 
+		 ORDER BY G.START_DATE DESC
+	</select>
+	
 </mapper>

@@ -87,6 +87,21 @@ public class GroupDao {
 		return sqlSession.selectOne("groupsMapper.selectGroupStatusListCount", gd);
 	}
 	
+	public int selectGroupSearchListCount(SqlSessionTemplate sqlSession,GroupDto gd) {
+		return sqlSession.selectOne("groupsMapper.selectGroupSearchListCount",gd);
+	}
+	
+	public ArrayList<Groups> selectGroupSearchList(SqlSessionTemplate sqlSession, PageInfo pi, GroupDto gd){
+		
+		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
+		
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		
+		return (ArrayList)sqlSession.selectList("groupsMapper.selectGroupSearchList", gd, rowBounds);
+	}
+	
+	
+	
 	
 
 }

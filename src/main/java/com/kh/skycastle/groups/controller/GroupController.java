@@ -52,6 +52,21 @@ public class GroupController {
 		
 		return "groups/groupListView";
 	}
+	@RequestMapping("groupSearchList.gr")
+	public String selectGroupSearchListAll(int currentPage, GroupDto gd, Model model) {
+	     //System.out.println(gd);
+		
+		  int groupListCount = gService.selectGroupSearchListCount(gd);
+		  System.out.println(groupListCount);
+		  PageInfo pi = Pagination.getPageInfo(groupListCount, currentPage, 10, 5);
+		  ArrayList<Groups> list = gService.selectGroupSearchList(pi, gd);
+		  
+		  model.addAttribute("pi", pi); model.addAttribute("list", list);
+		  model.addAttribute("searchKeyword",gd.getGroupTitle());
+		
+		return "groups/groupListView";
+		
+	}
 	
 	@RequestMapping("groupDetail.gr")
 	public ModelAndView selectGroup(int gno, int userNo, ModelAndView mv) {
