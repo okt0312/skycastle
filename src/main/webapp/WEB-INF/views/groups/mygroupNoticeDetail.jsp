@@ -216,7 +216,7 @@
 			<br><br>
 			
 			<!-- 방장에게만 보이는 버튼 -->
-			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
+			<c:if test="${ loginUser.userNo eq g.leaderNo }">
 	            <div align="center">
 	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
@@ -273,6 +273,7 @@
 
 
 	<!-- 모달 시작 -->
+	<form action="">
 	<div class="modal fade" id="reportModal">
 		<!-- modal별 id 변경해주세요-->
 		<div class="modal-dialog">
@@ -290,22 +291,21 @@
 				<div class="modal-body">
 					<table style="width: 400px;">
 						<tr>
+							<input type="hidden" id="uNo" name="userNo" value="${loginUser.userNo}">
+							<input type="hidden" name="replyNo" id="replyNo" value="">
 							<th style="width: 80px;">작성자</th>
-							<td style="width: 320px;">${loginUser.userId}</td>
+							<td style="width: 320px;">${loginUser.userId} (${loginUser.userName})</td>
 						</tr>
-						<tr>
-							<th>회원명</th>
-							<td>${list.userName} </td>
-						</tr>
+
 						<tr>
 							<th>댓글내용</th>
-							<td><textarea cols="40" rows="10" style="resize: none;"
+							<td><textarea cols="40" rows="10" style="resize: none;" id="content"
 									readonly>${list.replyContent }</textarea></td>
 						</tr>
 						<tr>
 							<th>신고사유</th>
-							<td><textarea name="reportContent" cols="40" rows="10"
-									style="resize: none;"></textarea></td>
+							<td><textarea id ="reportContent" name="reportContent" cols="40" rows="10" 
+									style="resize: none;" required></textarea></td>
 						</tr>
 					</table>
 				</div>
@@ -313,7 +313,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" style="margin: auto;">
 					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger sky_btn1"
+					<button type="button"  id="reportSubmit" class="btn btn-danger sky_btn1"
 						style="width: 200px; height: 50px;">신고</button>
 					<button type="button" class="btn btn-danger sky_btn2"
 						data-dismiss="modal" style="width: 200px; height: 50px;">취소</button>
@@ -321,6 +321,7 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<!-- 모달 끝 -->
 
 	<script>
@@ -383,10 +384,10 @@
     								"<td>"+ "<input type='hidden' id='userNo' value='"+list[i].userNo+"'>" + "</td>"+
     								"<td style='width:630px; text-align:left;'>" + list[i].replyContent + "</td>" +
     								"<td>" + list[i].uploadDate + "</td>" +
-    								"<td><input type='button' value='신고하기' onclick='reportModal();' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
+    								"<td><input type='button' value='신고하기' onclick='reportModal();' rno='"+list[i].replyNo+"' content='"+list[i].replyContent+"' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
-    				$("#replyArea thead").html(value);
+    				$("#replyArea tbody").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
@@ -395,40 +396,39 @@
     	};
     	
     	//클릭시 모달 실행
-   	 function reportModal(){
-  			 $('#reportModal').modal({
-		       
-		  	  });
-			};
+      	 function reportModal(){
+      		 content = window.event.target.getAttribute("content");
+      		 replyNo = window.event.target.getAttribute("rno");
+     			 $('#reportModal').modal({
+   		       
+   		  	  });
+     			 $("#content").text(content);
+     			 $("#replyNo").val(replyNo);
+   			};
+   			
+   		
+   		$("#reportSubmit").click(function(){
+   		  var userNo = $("uNo").val();
+   		  var replyNo = $("replyNo").val();
+   		  var reportContent = $("#reportContent").val();
+   			$.ajax({
+    			url:"insertReport.rp",
+    			data:{userNo:userNo,replyNo:replyNo,reportContent:reportContent},
+    			success:function(result){
+
+    				alert(result);
+    				
+    			}, error:function(){
+    				console.log("신고하기 ajax 통신 실패!!");
+    			}
+    		});
+   		});	
+      	
+    
    	
-   	/* 신고하기 모달로 보내기
-   	$("#replyList tbody tr #del_btn").click(function(){
-           		$("#groupNo").val($(this).children().eq(0).text());*/
-           		
-           		
-           		$('body').on('click', '#replyArea .replyList tr td input[id=report_btn]', function(event) {
-		    			
-		    			var rno = $(this).parent("td").parent("tr").children().eq(1).children().val();
-			    		console.log(rno);
-			    		
-			    		$.ajax({
-		   					url:"replyReportForm.gr",
-		   					data:{"rno": rno},
-		   					type:"post",
-		   					success:function(result){
-		   					 reportModal();
-		   						
-		   						
-		   						
-		   						
-		   					},error:function(){
-		   						console.log("댓글 작성용 ajax 통신 실패!");
-		   					}
-		   				});
-			    		
-			    		
-		    		});
+   	
     </script>
+      <br><br><br><br>
 	<jsp:include page="../common/footer.jsp" />
 
 </body>
