@@ -24,14 +24,14 @@
 		WHERE STATUS='Y'
 	</select>
 	
-	<insert id="insertGroup">
+	<insert id="insertGroup" parameterType="Groups">
 		INSERT INTO GROUPS
 		VALUES(SEQ_GROUPS.NEXTVAL, #{leaderNo}, #{groupTitle}, #{groupSubtitle}, #{groupContent}, #{groupCategory}, #{place}, 0, #{memberLimit}, 'U', #{startDate}, #{endDate})
 	</insert>
 	
-	<insert id="insertGroupManage">
+	<insert id="insertGroupManage" parameterType="Groups">
 		INSERT INTO GROUP_MANAGE
-		VALUES(SEQ_GROPUS.CURRVAL, #{leaderNo}, NULL, 'A')
+		VALUES(SEQ_GROUPS.CURRVAL, #{leaderNo}, NULL, 'A')
 	</insert>
 	
 	<insert id="insertThumbNail">
@@ -289,10 +289,14 @@
 		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
 		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
 	    WHERE   USER_NO=#{userNo}
-	            AND G.STATUS='Y'
 	            <choose>
 					<when test='status == "Y"'>
 						 AND (GM.STATUS=#{status} or GM.STATUS='A')
+						 AND G.STATUS = 'Y'
+					</when>
+					<when test='status == "U"'>
+						 AND (GM.STATUS=#{status} or GM.STATUS='A')
+						 AND G.STATUS = 'U'
 					</when>
 					<otherwise>			
 						 AND GM.STATUS=#{status}
