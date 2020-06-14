@@ -29,6 +29,11 @@
 		VALUES(SEQ_GROUPS.NEXTVAL, #{leaderNo}, #{groupTitle}, #{groupSubtitle}, #{groupContent}, #{groupCategory}, #{place}, 0, #{memberLimit}, 'U', #{startDate}, #{endDate})
 	</insert>
 	
+	<insert id="insertGroupManage">
+		INSERT INTO GROUP_MANAGE
+		VALUES(SEQ_GROPUS.CURRVAL, #{leaderNo}, NULL, 'A')
+	</insert>
+	
 	<insert id="insertThumbNail">
 		INSERT INTO attachment
 		VALUES(SEQ_attachment.nextval, 3,SEQ_GROUPS.currval, #{changeName},sysdate,1, 'Y')
