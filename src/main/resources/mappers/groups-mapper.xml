@@ -212,8 +212,11 @@
 	</select>
 	
 	<insert id="insertReply" parameterType="Reply">
-		INSERT INTO REPLY
+		<!-- INSERT INTO REPLY
 		VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, #{noticeNo}, #{replyWriter}, sysdate, 'Y')
+		-->
+		INSERT INTO REPLY
+		VALUES(SEQ_REPLY.NEXTVAL, #{replyContent} , #{noticeNo}, #{userNo} , SYSDATE, 'Y');
 	</insert>
 	
 	
