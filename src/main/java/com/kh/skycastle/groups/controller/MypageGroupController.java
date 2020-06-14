@@ -151,10 +151,10 @@ public class MypageGroupController {
 		@ResponseBody
 		@RequestMapping("replyReportForm.gr")
 			public String grReplyReportForm(Model r,int rno)
-			{
+			{System.out.println(rno);
 				ArrayList<Reply> list = mgService.grReplyReportForm(rno);
 				r.addAttribute("list", list);
-				
+				System.out.println(list);
 				return "groups/mygroupNoticeDetail";
 			}
 	
