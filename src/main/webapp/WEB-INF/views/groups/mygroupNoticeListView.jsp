@@ -192,12 +192,21 @@
             
             <div class="tableArea">
 	            <table id="mygroupNoticeTable">
+	            	<thead>
+	            		<tr>
+		            		<th>글번호</th>
+		            		<th>제목</th>
+		            		<th>등록일</th>
+		            		<th>조회수</th>
+	            		</tr>
+	            	</thead>
 	                <tbody>
 	                	<c:forEach items="${ list }" var="gn">
 		                    <tr class="groupNoticeTitle">
 		                        <td class="gnoticeNo">${ gn.gnoticeNo }</td>
 		                        <td class="title">${ gn.gnoticeTitle }</td>
 		                        <td class="enrollDate">${ gn.enrollDate }</td>
+		                        <td class="count">${ gn.count }</td>
 		                    </tr>
 		                </c:forEach>
 	                </tbody>    
