@@ -142,11 +142,11 @@
 		    
 		    <form action="groupNoticeInsert.gr">
 		        <div id="noticeTitle">
-		            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
+		            <input type="text" name="gnoticeTitle" style="width: 595px;" placeholder="제목을 입력하세요">
 		        </div>
 		        <hr>
 		        <div id="noticeContent" style="margin-top: 50px;">
-		            <textarea cols="78" rows="10" placeholder="내용을 입력하세요"></textarea>
+		            <textarea cols="78" name="gnoticeContent" rows="10" placeholder="내용을 입력하세요"></textarea>
 				</div>
 			
 				<br><br>
