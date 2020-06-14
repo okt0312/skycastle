@@ -297,14 +297,10 @@
 		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
 		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
 	    WHERE   USER_NO=#{userNo}
+	            AND G.STATUS='Y'
 	            <choose>
 					<when test='status == "Y"'>
 						 AND (GM.STATUS=#{status} or GM.STATUS='A')
-						 AND G.STATUS = 'Y'
-					</when>
-					<when test='status == "U"'>
-						 AND (GM.STATUS=#{status} or GM.STATUS='A')
-						 AND G.STATUS = 'U'
 					</when>
 					<otherwise>			
 						 AND GM.STATUS=#{status}
