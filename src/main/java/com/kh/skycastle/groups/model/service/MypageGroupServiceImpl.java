@@ -74,10 +74,7 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 		return mgDao.groupDropOut(sqlSession, gm);
 	}
 
-	@Override
-	public int insertGroupNoticee(GroupNotice gn) {
-		
-		return mgDao.insertGroupNoticee(sqlSession, gn);
+	
 	// 소모임 방장 회원관리
 	@Override
 	public ArrayList<GroupManage> myGroupMember(int groupNo) {

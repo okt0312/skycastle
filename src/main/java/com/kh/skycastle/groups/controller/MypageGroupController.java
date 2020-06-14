@@ -154,20 +154,7 @@ public class MypageGroupController {
 		}
 	}
 	
-	// 공지사항 등록 
-	@RequestMapping("post.bo")
-	public String insertGroupNoticee(SqlSessionTemplate sqlSession, GroupNotice gn) {
-		
-		int result = mgService.insertGroupNoticee(gn);
-		System.out.println(result);
-		
-//		if(result > 0) {
-//			return "redirect:mygroupNoticeList.gr";
-//		} else {
-//			return "";
-//		}
-		return "";
-	}
+
 	
 	
 }

@@ -43,8 +43,7 @@ public interface MypageGroupService {
 	int groupDropOut(GroupManage gm);
 	
 	
-	// 공지사항 등록용 
-	int insertGroupNoticee(GroupNotice gn);
+	
 
 	// 소모임 방장 회원관리 
 	ArrayList<GroupManage> myGroupMember(int groupNo);
