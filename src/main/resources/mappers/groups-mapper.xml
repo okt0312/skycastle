@@ -121,10 +121,20 @@
 		<result column="STATUS" property="status"/>
 	</resultMap>
 	
+	<resultMap id="groupMemberResultSet" type="GroupMember">
+		<id column="GROUP_NO" property="groupNo"/>
+		<result column="USER_NO" property="userNo"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="PASSION" property="passion"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	
 	<!-- 소모임 방장 회원관리 -->
-	<select id="myGroupMember" resultMap="groupManageResultSet">
+	<select id="myGroupMember" resultMap="groupMemberResultSet">
 		SELECT *
-		FROM GROUP_MANAGE 
+		FROM GROUP_MEMBER 
 		WHERE GROUP_NO = #{groupNo}
 	</select>
 	
@@ -320,5 +330,19 @@
 		 AND G.GROUP_TITLE LIKE '%'||#{groupTitle}||'%' 
 		 ORDER BY G.START_DATE DESC
 	</select>
+	
+		<!-- 소모임수락 방장이 모달에서 사용가능 기능 -->
+	<update id="grSubmit" parameterType="_int">
+	UPDATE GROUP_MANAGE
+ SET STATUS = 'Y'
+ WHERE USER_NO = #{modaluserNo} 
+	</update>
+	
+	<!-- 소모임거절 방장이 모달에서 사용가능 기능 -->
+	<update id="grRejection" parameterType="_int">
+	UPDATE GROUP_MANAGE
+ SET STATUS = 'N'
+ WHERE USER_NO = #{modaluserNo} 
+	</update>
 	
 </mapper>

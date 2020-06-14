@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.groups.model.dto.GroupMember;
 import com.kh.skycastle.groups.model.service.CalendarService;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
 import com.kh.skycastle.groups.model.vo.Calendar;
@@ -124,7 +125,7 @@ public class MypageGroupController {
 	@RequestMapping("mygroupMemMg.gr")
 	public String myGroupMember(int groupNo, Model model) {
 		
-		ArrayList<GroupManage> list = mgService.myGroupMember(groupNo);
+		ArrayList<GroupMember> list = mgService.myGroupMember(groupNo);
 		model.addAttribute("list", list);
 		return "groups/mygroupMemMg";
 	}
@@ -153,6 +154,35 @@ public class MypageGroupController {
 		}
 	}
 	
+	//소모임 승인
+		@ResponseBody
+		@RequestMapping("grSubmit.gr")
+		public String grSubmit(int modaluserNo,Model model) {
+			
+			int result = mgService.grSubmit(modaluserNo);
+			
+			if(result > 0) {
+				return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
+			} else {
+				return "소모임 승인 실패";
+			}
+			
+		}
+		
+		//소모임 거절
+			@ResponseBody
+			@RequestMapping("grRejection.gr")
+			public String grRejection(int modaluserNo,Model model) {
+				
+				int result = mgService.grRejection(modaluserNo);
+				
+				if(result > 0) {
+					return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
+				} else {
+					return "소모임 승인 실패";
+				}
+				
+			}
 
 	
 	
