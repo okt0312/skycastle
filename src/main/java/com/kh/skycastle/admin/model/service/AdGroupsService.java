@@ -9,7 +9,7 @@ import com.kh.skycastle.groups.model.vo.Reply;
 public interface AdGroupsService {
 		
 		// 소모임리스트 조회용 서비스
-		ArrayList<Groups> selectGroups();
+		ArrayList<Groups> selectGroupList(String selNo);
 	
 		// 소모임 개별(tr눌렀을때) 조회용 서비스
 		Groups selectGroups(int gno);

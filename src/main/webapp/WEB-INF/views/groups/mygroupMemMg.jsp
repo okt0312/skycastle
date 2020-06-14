@@ -159,17 +159,19 @@
 					</tr>
 				</thead>
 				<tbody>
+	             
 					<tr class="register">
 						<td class="registerId">userId</td>
 						<!--아이디 누르면 모달창-->
 						<td class="registerName">김신영</td>
 						<td class="registerDate">2020.05.09</td>
-						<td class="registerButton" style="text-align: center;">
+						<td class="registerButton" style="text-align: center;">	
 							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
+							data-target="#enrollDetailModal">상세보기</button>
 						</td>
 					</tr>
-					<tr class="register">
+						
+					 <tr class="register">
 						<td class="registerId">userId</td>
 						<td class="registerName">박대광</td>
 						<td class="registerDate">2020.05.06</td>
@@ -240,7 +242,7 @@
 							<button class="sky_btn11" data-toggle="modal"
 								data-target="#enrollDetailModal">상세보기</button>
 						</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 

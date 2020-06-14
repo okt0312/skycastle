@@ -19,4 +19,6 @@ public class GroupManage {
 	private String passion;
 	private String status;
 
+	// leaderNo 추가
+	private int leaderNo;
 }

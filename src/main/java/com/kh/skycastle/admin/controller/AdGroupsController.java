@@ -28,9 +28,9 @@ public class AdGroupsController {
 	
 	//메뉴바에서 소모임 조회 페이지 눌렀을때 이동 + 리스트나타남+카테고리값인 숫자를 글자로바꿈
 	@RequestMapping("groupList.ad")
-	public ModelAndView adGroupList(ModelAndView mv){
+	public ModelAndView adGroupList(ModelAndView mv,String selNo){
 		
-		ArrayList<Groups> list = adGrService.selectGroups();
+		ArrayList<Groups> list = adGrService.selectGroupList(selNo);
 		
 		for(Groups g : list)
 		{
@@ -55,6 +55,8 @@ public class AdGroupsController {
 				g.setGroupCategory("기타");
 			}
 		}
+		
+		mv.addObject("selNo", selNo);
 		mv.addObject("list", list).setViewName("admin/adGroupList");
 		
 		return mv;
