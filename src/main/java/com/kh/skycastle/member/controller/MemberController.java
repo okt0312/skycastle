@@ -127,10 +127,9 @@ public class MemberController {
 	@RequestMapping("login.me")
 	public String loginMember(Member m, HttpSession session, Model model) {
 		Member loginUser = mService.loginMember(m);
-		
-		pService.expirationCouponUpdate(loginUser.getUserNo());
 
 		if(loginUser != null && bcryptPasswordEncoder.matches(m.getUserPwd(), loginUser.getUserPwd())) {
+			pService.expirationCouponUpdate(loginUser.getUserNo());
 			session.setAttribute("loginUser", loginUser);
 			return "redirect:/";
 		} else {
