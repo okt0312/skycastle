@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.MypageGroupDao;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
@@ -77,8 +78,8 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	*/
 
 	@Override
-	public int groupDropOut(int groupNo, int userNo) {
-		return mgDao.groupDropOut(sqlSession, groupNo, userNo);
+	public int groupDropOut(GroupManage gm) {
+		return mgDao.groupDropOut(sqlSession, gm);
 	}
 
 }

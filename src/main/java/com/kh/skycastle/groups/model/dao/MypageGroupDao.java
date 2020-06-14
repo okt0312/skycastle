@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
@@ -64,8 +65,8 @@ public class MypageGroupDao {
 	}
 	*/
 
-	public int groupDropOut(SqlSessionTemplate sqlSession, int groupNo, int userNo) {
-		return sqlSession.update("groupsMapper.groupDropOut", groupNo, userNo);
+	public int groupDropOut(SqlSessionTemplate sqlSession, GroupManage gm) {
+		return sqlSession.update("groupsMapper.groupDropOut", gm);
 	}
 	
 

@@ -17,6 +17,7 @@ import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.cs.model.vo.Notice;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
 import com.kh.skycastle.groups.model.vo.Dips;
+import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Groups;
 import com.kh.skycastle.groups.model.vo.Reply;
@@ -154,10 +155,15 @@ public class MypageGroupController {
 
 	// 회원의 소모임 탈퇴
 	@RequestMapping("groupDropOut.gr")
-	public int groupDropOut(int groupNo, int userNo) {
+	public String groupDropOut(GroupManage gm) {
 		
-		int result = mgService.groupDropOut(groupNo, userNo);
+		int result = mgService.groupDropOut(gm);
 		
+		if(result > 0) {
+			return "redirect:mygroupList.gr?currentPage=1&status=Y";
+		} else {
+			return "소모임 탈퇴 실패";
+		}
 	}
 	
 	
