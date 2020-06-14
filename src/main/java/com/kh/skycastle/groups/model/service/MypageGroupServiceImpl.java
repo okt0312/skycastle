@@ -12,7 +12,7 @@ import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
 
-@Service("gnService")
+@Service("mgService")
 public class MypageGroupServiceImpl implements MypageGroupService {
 	
 	@Autowired
@@ -77,7 +77,7 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	@Override
 	public int insertGroupNoticee(GroupNotice gn) {
 		
-		return mgDao.insertGroupNoticee(sqlSession, gn);
+		return mgDao.insertGroupNoticee(sqlSession, gn);}
 	// 소모임 방장 회원관리
 	@Override
 	public ArrayList<GroupManage> myGroupMember(int groupNo) {
