@@ -16,9 +16,8 @@ import lombok.ToString;
 public class GroupNotice {
 	
 	private int gnoticeNo;
-	private String groupNo;
-	/* learder No (방장) 추가 */
-	private int leaderNo;
+	private int groupNo;
+	private int leaderNo;		/* learder No (방장) 추가 */
 	private String gnoticeTitle;
 	private String gnoticeContent;
 	private Date enrollDate;
