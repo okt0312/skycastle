@@ -36,7 +36,7 @@
         .sky_btn11 /* 댓글달기 버튼 */
         {
             width: 100px;
-            height: 40px;
+            height: 35px;
             text-align: center;
             font-size: 15px;
             font-weight: bold;
@@ -237,7 +237,7 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table">
+			<table id="replyArea" class="table" style="width:840px;">
                 <thead class="replyList">
                 
                 </thead>
@@ -246,7 +246,7 @@
                        <td colspan="5">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
-                        <th colspan="4">
+                        <th colspan="4" style="width:620px;">
                             <textarea class="form-control" id="replyContent" cols="70" rows="2" style="resize:none; width:600px;"></textarea>
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
@@ -382,7 +382,7 @@
     								"<td><input type='button' value='신고하기' onclick='reportModal();' rno='"+list[i].replyNo+"' content='"+list[i].replyContent+"' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
-    				$("#replyArea tbody").html(value);
+    				$("#replyArea thead").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
