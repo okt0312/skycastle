@@ -78,8 +78,8 @@
 		</div>
 
 		<!-- 방장에게만 보여지는 버튼-->
-		<c:if test="${ loginUser.userNo == leaderNo }">
-			<div id="option-btn" style="margin-top: 300px;">
+		<c:if test="${ param.userNo == list[0].leaderNo }">
+			<div id="option-btn" style="margin-top: 100px;">
 				<button class="sky_btn2" onclick="postFormSubmit(1);">공지작성</button>
 				<br>
 				<button class="sky_btn2" onclick="postFormSubmit(2);">회원관리</button>
