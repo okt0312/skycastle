@@ -247,7 +247,7 @@
                     </tr>
                     <tr>
                         <th colspan="4">
-                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:600px;"></textarea>
+                            <textarea class="form-control" id="replyContent" cols="70" rows="2" style="resize:none; width:600px;"></textarea>
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
