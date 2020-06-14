@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -151,6 +152,21 @@ public class MypageGroupController {
 		} else {
 			return "소모임 탈퇴 실패";
 		}
+	}
+	
+	// 공지사항 등록 
+	@RequestMapping("post.bo")
+	public String insertGroupNoticee(SqlSessionTemplate sqlSession, GroupNotice gn) {
+		
+		int result = mgService.insertGroupNoticee(gn);
+		System.out.println(result);
+		
+//		if(result > 0) {
+//			return "redirect:mygroupNoticeList.gr";
+//		} else {
+//			return "";
+//		}
+		return "";
 	}
 	
 	
