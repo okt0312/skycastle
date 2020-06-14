@@ -140,14 +140,13 @@
 </head>
 <body>
 	<jsp:include page="../common/menubar.jsp" />
+	<div style="width:100%; height:1000px;">
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
 
 		<div id="mygroupContent">
 			<h2>회원관리</h2>
 			<hr>
-			<br>
-			<br>
 
 			<table id="mygroupMemberTable">
 				<thead>
@@ -166,7 +165,7 @@
 						<td class="registerName">김신영</td>
 						<td class="registerDate">2020.05.09</td>
 						<td class="registerButton" style="text-align: center;">	
-							<button class="sky_btn11" data-toggle="modal"
+							<button type="button" class="sky_btn11" data-toggle="modal"
 							data-target="#enrollDetailModal">상세보기</button>
 						</td>
 					</tr>
@@ -242,7 +241,7 @@
 							<button class="sky_btn11" data-toggle="modal"
 								data-target="#enrollDetailModal">상세보기</button>
 						</td>
-					</tr> -->
+					</tr> 
 				</tbody>
 			</table>
 
@@ -308,7 +307,7 @@
 			<!-- 모달 끝 -->
 		</div>
 	</div>
-
+	</div>
 	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
