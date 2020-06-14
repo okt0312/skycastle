@@ -109,12 +109,12 @@ public class GroupController {
 	@RequestMapping("groupApply.gr")
 	public String groupApply(HttpSession session, GroupManage gm) {
 		int result = gService.groupApply(gm);
-		//System.out.println(gm);
+		
 		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
 			return "groups/groupApplySuccess";
 		} else {
 			session.setAttribute("msg", "업로드 실패. 다시 시도하십시오,");
-			return "소모임 개설 신청하기 실패";
+			return "소모임 참가 신청하기 실패";
 		}
 	}
 	
