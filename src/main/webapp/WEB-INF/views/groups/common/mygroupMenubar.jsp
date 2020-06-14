@@ -113,12 +113,12 @@
 			
 			var userNo = "${ loginUser.userNo }";
 			
-			if(userNo == "${ g.leaderNo }") {	// 소모임 탈퇴를 원하는 회원이 방장일 경우
+			if(userNo == "${ list[0].leaderNo }") {	// 소모임 탈퇴를 원하는 회원이 방장일 경우
 				alertify.alert("소모임 탈퇴 확인", "방장의 소모임탈퇴는 관리자가 처리합니다. 관리자에게 연락바랍니다.", function(){});
 			} else {	// 소모임 탈퇴를 원하는 회원이 방장일 경우
 				alertify.confirm('소모임 탈퇴 확인', '해당 소모임을 탈퇴하시겠습니까?', function(){ $("#dropOutForm").submit(); }
 	            , function(){});
-			} 
+			}
 		});
 	</script>
 </body>
