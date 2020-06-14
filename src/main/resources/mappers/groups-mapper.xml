@@ -254,7 +254,7 @@
 		FROM GROUP_MANAGE GM
 		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
 		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
-	            AND USER_NO=#{userNo}
+	    WHERE   USER_NO=#{userNo}
 	            AND G.STATUS='Y'
                 AND GM.STATUS=#{status}
 	            AND A.GROUP_CATEGORY=3
