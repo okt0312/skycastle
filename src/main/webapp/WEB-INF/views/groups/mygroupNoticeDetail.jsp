@@ -260,7 +260,7 @@
 			
 			
 			<div>
-				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);" style="margin-left:300px;">목록</button>
+				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);" style="margin-left:370px;">목록</button>
 			</div>
 			
 			<br><br><br><br><br>
