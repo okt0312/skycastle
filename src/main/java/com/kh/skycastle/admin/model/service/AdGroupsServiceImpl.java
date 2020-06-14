@@ -23,7 +23,7 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	
 	//소모임 조회페이지 리스트 불러오기
 	@Override
-	public ArrayList<Groups> selectGroups() {
+	public ArrayList<Groups> selectGroupList(String selNo) {
 		
 		return  adGrDao.selectGroups(sqlSession);
 				

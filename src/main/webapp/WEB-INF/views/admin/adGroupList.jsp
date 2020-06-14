@@ -61,15 +61,23 @@
                         
                             <!-- 테이블 위에 띄워놓은 셀렉박스-->
                                <div id="selectBox">
-                                   <select>
-                                       <option value="전체보기">전체보기</option>
-                                       <option value="1">대입</option>
-                                       <option value="2">공무원임용</option>
-                                       <option value="3">어학회화</option>
-                                       <option value="4">자격증</option>
-                                       <option value="5">기타</option>
+                                <form id ="selGrNoForm" action="groupList.ad" method="post">
+                                   <select id="selNo" name="grNo">
+                                       <option value="0" <c:if test="${selNo == '0'}">selected</c:if>>전체보기</option>
+                                       <option value="1" <c:if test="${selNo == '1'}">selected</c:if>>대입</option>
+                                       <option value="2" <c:if test="${selNo == '2'}">selected</c:if>>공무원임용</option>
+                                       <option value="3" <c:if test="${selNo == '3'}">selected</c:if>>어학회화</option>
+                                       <option value="4" <c:if test="${selNo == '4'}">selected</c:if>>자격증</option>
+                                       <option value="5" <c:if test="${selNo == '5'}">selected</c:if>>기타</option>
                                    </select>
                                </div>
+                               <script>
+                               $("#selNo").on("change", function(){
+									
+									$("#selGrNoForm").submit();
+									
+								});
+                               </script>
                             <!-- 셀렉트 끝 -->
                         
 
