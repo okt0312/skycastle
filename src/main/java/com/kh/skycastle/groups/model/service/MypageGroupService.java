@@ -41,5 +41,10 @@ public interface MypageGroupService {
 	
 	// 소모임 탈퇴용
 	int groupDropOut(GroupManage gm);
+	
+	
+	// 공지사항 등록용 
+	int insertGroupNoticee(GroupNotice gn);
+
 
 }
