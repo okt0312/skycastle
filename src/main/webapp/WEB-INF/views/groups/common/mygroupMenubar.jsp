@@ -73,7 +73,9 @@
 			<button id="chat-btn" class="sky_btn1"
 			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
 		</div>
-		<div id="option-btn" style="margin-top: 300px;">
+		
+		<br><br>
+		<div id="option-btn">
 			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
 		</div>
 
@@ -106,13 +108,17 @@
 			}
 			$("#postForm").submit();
 		}
-        
-        
+    	
     	$("#deleteConfirm").click(function(){
 			
-			alertify.confirm('소모임 탈퇴 확인', '해당 소모임을 탈퇴하시겠습니까?',
-					function(){ $("#dropOutForm").submit(); },	// yes 클릭시
-					function(){});								// no 클릭시
+			var userNo = "${ loginUser.userNo }";
+			
+			if(userNo == "${ g.leaderNo }") {	// 소모임 탈퇴를 원하는 회원이 방장일 경우
+				alertify.alert("소모임 탈퇴 확인", "방장의 소모임탈퇴는 관리자가 처리합니다. 관리자에게 연락바랍니다.", function(){});
+			} else {	// 소모임 탈퇴를 원하는 회원이 방장일 경우
+				alertify.confirm('소모임 탈퇴 확인', '해당 소모임을 탈퇴하시겠습니까?', function(){ $("#dropOutForm").submit(); }
+	            , function(){});
+			} 
 		});
 	</script>
 </body>
