@@ -176,6 +176,14 @@
 	 	INSERT INTO GROUP_NOTICE
 	 	VALUES (SEQ_GNOTICE.NEXTVAL, #{gnoticeNo}, #{groupNo}, #{gnoticeTitle}, #{gnoticeContent}, sysdate, 'Y')
  	</insert>
+ 	
+ 	<!-- 공지사항 수정용 -->
+	<update id="updateGroupNotice" parameterType="GroupNotice">
+		UPDATE GROUP_NOTICE
+		   SET GNOTICE_TITLE=#{boardTitle},
+			   GNOTICE_CONTENT=#{boardContent}
+		 WHERE GNOTICE_NO=#{gnoticeNo}
+	</update>
 
 
 
