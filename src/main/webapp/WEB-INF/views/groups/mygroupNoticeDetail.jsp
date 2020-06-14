@@ -241,7 +241,10 @@
 			
 			
 			<table id="replyArea" class="table"><!-- 수업때한거 -->
-                <thead>
+                <thead class="replyList">
+                
+                </thead>
+                <tbody class="replyList">
                     <tr>
                        <td colspan="5">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
@@ -251,9 +254,6 @@
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
-                </thead>
-                <tbody class="replyList">
-                    
                 </tbody>
             </table>
 			<br><br><br>
@@ -386,7 +386,7 @@
     								"<td><input type='button' value='신고하기' onclick='reportModal();' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
-    				$("#replyArea tbody").html(value);
+    				$("#replyArea thead").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
