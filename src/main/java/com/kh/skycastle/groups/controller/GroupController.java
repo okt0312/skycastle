@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kh.skycastle.common.model.vo.Attachment;
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
 import com.kh.skycastle.groups.model.dto.GroupDto;
@@ -145,11 +144,11 @@ public class GroupController {
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		
 		int dipsListCount = gService.selectDipsListCount(loginUser.getUserNo());
-		
+
 		PageInfo pi = Pagination.getPageInfo(dipsListCount, currentPage, 5, 3);
 		
 		ArrayList<Groups> dipsList = gService.mygroupDipsList(pi, loginUser.getUserNo());
-		
+
 		model.addAttribute("pi", pi);
 		model.addAttribute("list", dipsList);
 		
@@ -191,33 +190,33 @@ public class GroupController {
 	}
 	
 	   
-		public String saveFile(MultipartFile file, HttpServletRequest request) {
-			
-			
-			String resources = request.getSession().getServletContext().getRealPath("resources");
-			String savePath = resources + "\\uploadFiles\\groups\\";
-			
-			//원본명(aaa.jpg : 원본의 확장자를 추출해야한다.)
-			String originName = file.getOriginalFilename();
-			
-			//수정명(20200522202011.jpg)
-			//년월일시분초(String currentTime)
-			String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-			
-			//확장자(String ext)
-			String ext = originName.substring(originName.lastIndexOf("."));// .jpg
-			
-			String changeName = currentTime + ext;
-			
-			//전달 받은 파일을 transferTo(new File(경로+파일명))메소드로 업로드를 진행한다.
-			try {
-				file.transferTo(new File(savePath+changeName));
-			} catch (IllegalStateException | IOException e) {
-				e.printStackTrace();
-			}
-			
-			//DB에 저장하도록 리턴
-			return changeName;
+	public String saveFile(MultipartFile file, HttpServletRequest request) {
+		
+		
+		String resources = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = resources + "\\uploadFiles\\groups\\";
+		
+		//원본명(aaa.jpg : 원본의 확장자를 추출해야한다.)
+		String originName = file.getOriginalFilename();
+		
+		//수정명(20200522202011.jpg)
+		//년월일시분초(String currentTime)
+		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+		
+		//확장자(String ext)
+		String ext = originName.substring(originName.lastIndexOf("."));// .jpg
+		
+		String changeName = currentTime + ext;
+		
+		//전달 받은 파일을 transferTo(new File(경로+파일명))메소드로 업로드를 진행한다.
+		try {
+			file.transferTo(new File(savePath+changeName));
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
 		}
+		
+		//DB에 저장하도록 리턴
+		return changeName;
+	}
 	
 }
