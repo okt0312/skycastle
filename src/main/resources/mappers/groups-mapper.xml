@@ -216,7 +216,7 @@
 		VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, #{noticeNo}, #{replyWriter}, sysdate, 'Y')
 		-->
 		INSERT INTO REPLY
-		VALUES(SEQ_REPLY.NEXTVAL, #{replyContent} , #{noticeNo}, #{userNo} , SYSDATE, 'Y');
+		VALUES(SEQ_REPLY.NEXTVAL, #{replyContent}, #{noticeNo}, #{userNo} , SYSDATE, 'Y')
 	</insert>
 	
 	

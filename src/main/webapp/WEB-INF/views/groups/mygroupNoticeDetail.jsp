@@ -241,7 +241,7 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table" align="center" border="1"><!-- 수업때한거 -->
+			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
                 <thead>
                     <tr>
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
