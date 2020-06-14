@@ -145,11 +145,10 @@
             color: rgb(216, 64, 38);
             cursor: pointer;
         }
-		/* 댓글 스타일 
+		/* 댓글 스타일 */
 		.replyList tr{
-			
+			width:320px;
 		} 
-		*/
 		
         /* 페이징바 css */
         .paging{
@@ -241,14 +240,14 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table" align="center"><!-- 수업때한거 -->
+			<table id="replyArea" class="table"><!-- 수업때한거 -->
                 <thead>
                     <tr>
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
                     <tr>
                         <th colspan="2">
-                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:100%"></textarea>
+                            <textarea class="form-control" id="replyContent" cols="50" rows="2" style="resize:none; width:600px;"></textarea>
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
@@ -379,8 +378,8 @@
     				
     				for(var i in list){
     					value += "<tr>" +
-    								"<th>" + list[i].userName + "</th>" +
-    								"<td>" + list[i].replyContent + "</td>" +
+    								"<th style='width:20px;'>" + list[i].userName + "</th>" +
+    								"<td style='width:120px; text-align:left;'>" + list[i].replyContent + "</td>" +
     								"<td>" + list[i].uploadDate + "</td>" +
     							 "</tr>";
     				}
