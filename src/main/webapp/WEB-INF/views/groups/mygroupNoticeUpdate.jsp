@@ -67,9 +67,11 @@
 	
 				<div id="noticeTitle">
 					<form id="mygroupNoticeupdateForm" method="post" action="mygroupNoticeUpdate.gr">
+						<input type="hidden" name="groupNo" value="${ gn.groupNo }">
 						<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
 						<table id="groupNoticeForm">
 							<tr>
+						
 								<th style="width: 100px; height:50px;">제목</th>
 								<td style="width: 850px; font-weight: 600;"><input type="text" name="gnoticeTitle" value="${ gn.gnoticeTitle }" style="width: 600px;" required></td>
 							</tr>
@@ -93,7 +95,6 @@
 			</div>
 		</div>
 	</div>
-
 	<jsp:include page="../common/footer.jsp" />
 
 </body>

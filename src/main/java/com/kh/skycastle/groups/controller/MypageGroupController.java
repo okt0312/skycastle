@@ -90,7 +90,6 @@ public class MypageGroupController {
 	public String updateForm(GroupNotice gn, Model model) {
 		
 		GroupNotice gNotice = mgService.selectGroupNotice(gn.getGnoticeNo());
-		
 		model.addAttribute("gn", gNotice);
 		return "groups/mygroupNoticeUpdate";
 	}
@@ -102,7 +101,7 @@ public class MypageGroupController {
 		int result = mgService.updateGroupNotice(gn);
 		
 		if(result > 0) { 
-			return "redirect:mygroupNoticeDetail.gr?gnoticeNo=" + gn.getGnoticeNo();
+			return "redirect:mygroupNoticeDetail.gr?gnoticeNo=" + gn.getGnoticeNo() + "&groupNo=" + gn.getGroupNo();
 		} else { 
 			return "소모임 공지사항 수정 실패";
 		}
