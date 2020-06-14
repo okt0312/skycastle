@@ -256,15 +256,12 @@
                     
                 </tbody>
             </table>
-			<br><br><br>
-			
 			
 			<div align="center">
 				<button class="listBtn sky_btn2" onclick="javascript:history.go(-1);">목록</button>
 			</div>
 			
 			<br><br><br><br><br>
-
 
 		</div>
 		<%-- </c:forEach> 
