@@ -199,9 +199,9 @@
 	</update>
 	
  	<!-- 공지사항 등록용 -->
- 	<insert id="insertGroupNotice">
+ 	<insert id="insertGroupNotice" parameterType="GroupNotice">
 	 	INSERT INTO GROUP_NOTICE
-	 	VALUES (SEQ_GNOTICE.NEXTVAL, #{gnoticeNo}, #{groupNo}, #{gnoticeTitle}, #{gnoticeContent}, sysdate, 'Y')
+	 	VALUES (SEQ_GNOTICE.NEXTVAL,#{groupNo}, #{gnoticeTitle}, #{gnoticeContent}, sysdate, 'Y',0)
  	</insert>
  	
  	<!-- 공지사항 수정용 -->

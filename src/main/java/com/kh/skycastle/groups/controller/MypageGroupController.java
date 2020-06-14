@@ -62,7 +62,9 @@ public class MypageGroupController {
 	
 	// 방장 공지사항 등록 폼
 	@RequestMapping("mygroupNoticeEnrollForm.gr")
-	public String groupNoticeEnrollForm() {
+	public String groupNoticeEnrollForm(int groupNo,Model model) {
+		//System.out.println(groupNo);
+		model.addAttribute("groupNo",groupNo);
 		return ("groups/mygroupNoticeEnrollForm");
 	}
 	
@@ -71,14 +73,14 @@ public class MypageGroupController {
 	public String insertGroupNotice(GroupNotice gn, Model model, HttpSession session) {
 		int result = mgService.insertGroupNotice(gn);
 		
-		System.out.println(result);
+		//System.out.println(gn);
 		
-//		if(result > 0) {
-//			return "redirect:mygroupNoticeList.gr";
-//		} else {
-//			return "소모임 공지사항 등록 실패";
-//		}
-		return "소모임 공지사항 등록 실패";
+		if(result > 0) {
+			return "redirect:mygroupNoticeList.gr";
+		} else {
+			return "소모임 공지사항 등록 실패";
+		}
+	
 	}
 	
 	// 방장 공지사항 수정폼

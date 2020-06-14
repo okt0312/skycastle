@@ -142,6 +142,7 @@
 		    
 		    <form action="groupNoticeInsert.gr">
 		        <div id="noticeTitle">
+		        	<input type="hidden" name="groupNo" value="${groupNo}">
 		            <input type="text" name="gnoticeTitle" style="width: 595px;" placeholder="제목을 입력하세요">
 		        </div>
 		        <hr>
