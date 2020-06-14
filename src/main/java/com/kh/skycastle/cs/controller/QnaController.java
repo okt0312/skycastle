@@ -73,14 +73,13 @@ public class QnaController {
 			q.setChangeName(changeName);
 			
 		}
-			System.out.println(q);
 		
 		int result = qService.insertMemberInquiry(q);
 		
 		if(result > 0) {
 		
-			return "redirect/OneOnOne.my";
-			
+			return "redirect:qlist.bo?currentPage=1&userNo=" + q.getUserNo();
+		
 		}else {
 			
 			return "common/errorPage";
