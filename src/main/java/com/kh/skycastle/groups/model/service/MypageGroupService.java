@@ -42,5 +42,8 @@ public interface MypageGroupService {
 	
 	//댓글신고하기 모달로보내기
 	ArrayList<Reply> grReplyReportForm(int rno);
+	
+	// 소모임 탈퇴용
+	int groupDropOut(int groupNo, int userNo);
 
 }

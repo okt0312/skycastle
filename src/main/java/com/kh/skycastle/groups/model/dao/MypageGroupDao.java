@@ -61,6 +61,10 @@ public class MypageGroupDao {
 	public int increaseGroupNoticeListCount(SqlSessionTemplate sqlSession, int gno) {
 		return sqlSession.update("groupsMapper.increaseGroupNoticeListCount", gno);
 	}
+
+	public int groupDropOut(SqlSessionTemplate sqlSession, int groupNo, int userNo) {
+		return sqlSession.update("groupsMapper.groupDropOut", groupNo, userNo);
+	}
 	
 
 }

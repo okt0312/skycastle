@@ -90,7 +90,7 @@
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
 			
-			<form action="" id="dropOutForm" method="post">
+			<form action="groupDropOut.gr" id="dropOutForm" method="post">
 				<input type="hidden" name="groupNo" value="${ g.groupNo }">
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 			</form>
