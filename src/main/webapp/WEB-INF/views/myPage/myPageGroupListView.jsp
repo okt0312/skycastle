@@ -181,7 +181,7 @@
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br>
 	    <h2>소모임</h2>
-	    <button style="float:right;" class="sky_btn1" onclick="location.href='groupEnrollForm.gr?userNo=' + '${ loginUser.userNo }';">소모임 개설 신청</button>
+	    <button style="float:right;" class="sky_btn1" onclick="window.open('groupEnrollForm.gr?userNo=${ loginUser.userNo }','Sky Castle','width=1000, height=1000, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">소모임 개설 신청</button>
 	    <br><hr><br>
 		
 	    <div align="center">
