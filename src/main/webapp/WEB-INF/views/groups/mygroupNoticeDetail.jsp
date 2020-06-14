@@ -188,9 +188,6 @@
 	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />
-
-		<%-- <c:forEach items="${g}" var="gn">
-		<c:forEach items="${list}" var="r">  --%>
 		
 		<!-- mygroupContent 영역에 콘텐츠 작성 -->
 		<div id="mygroupContent">
@@ -241,7 +238,10 @@
 			
 			
 			<table id="replyArea" class="table">
-                <thead>
+                <thead class="replyList">
+
+                </thead>
+                <tbody>
                     <tr>
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
                     </tr>
@@ -251,9 +251,6 @@
                         </th>
                         <th style="vertical-align: middle"><button class="btn btn-secondary" id="insertReply">등록하기</button></th>
                     </tr>
-                </thead>
-                <tbody class="replyList">
-                    
                 </tbody>
             </table>
 			
@@ -264,8 +261,6 @@
 			<br><br><br><br><br>
 
 		</div>
-		<%-- </c:forEach> 
-		</c:forEach> --%>
 	</div>
 
 
@@ -380,7 +375,7 @@
     								"<td>" + list[i].uploadDate + "</td>" +
     							 "</tr>";
     				}
-    				$("#replyArea tbody").html(value);
+    				$("#replyArea thead").html(value);
     				
     			}, error:function(){
     				console.log("댓글리스트 조회용 ajax 통신 실패!!");
