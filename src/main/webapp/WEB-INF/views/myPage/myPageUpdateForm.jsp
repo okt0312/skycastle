@@ -412,6 +412,7 @@ a {
                                      <input type="hidden" value="${ loginUser.userId }" name="userId">
                                      <input type="hidden" value="${ loginUser.userName }" name="userName">
                                      <input type="hidden" value="${ loginUser.birthday }" name="birthday">
+                                    
                                     <div class="step2">
                                        <div class="row" style="max-width: 600px;">
                                         <div class="col infoType">
@@ -427,9 +428,15 @@ a {
                                                 <span class="in_tit">생년월일</span>
                                                 <div class="info birthday">${ loginUser.birthday}</div>
                                             </div>
-    
+    										 <div class="mod_infos">
+                                                <span class="in_tit">현재 연락처</span>
+                                                <div class="info birthday">${ loginUser.phone}</div>
+                                            </div>
+    										
+    										
+                                            
                                             <div class="mod_infos">
-                                                <span class="in_tit long">연락처</span>
+                                                <span class="in_tit long">수정연락처</span>
                                                 
                                                 <div class="info">
                                                     <div class="phone">

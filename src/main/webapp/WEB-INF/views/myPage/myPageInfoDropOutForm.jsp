@@ -185,12 +185,12 @@ height: 40px;
 			<form id="postForm" action="delete.me" method="post">
 			<input type="hidden" value="${ loginUser.userNo }" name="userNo">
 			<table id="middleTable" style="margin: auto;">
-                
+               
 				<tr>
 					
 					<td style="padding-top: 3%; width: 100%; padding-right: 30px;" colspan="3">
 						<textarea class="aa" name="leaveReason" id="leaveReason" cols="100" rows="10"
-							style="resize:none;"></textarea>
+							style="resize:none" required></textarea>
 					</td>
 				</tr>
 			</table>
