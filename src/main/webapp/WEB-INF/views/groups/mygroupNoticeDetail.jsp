@@ -221,32 +221,31 @@
 	            </div>
 	            
 	            
-<%-- 	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
+				<form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">  
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                      	
 	            </form>
 	            <form action="mygroupNoticedelete.gr" id="postForm2" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
-	            </form> --%>
+	            </form>
 	            
-	            <form action="" id="postForm" method="post">
+<%-- 	            <form action="" id="postForm" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
-	            </form>
+	            </form> --%>
 	            
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-//	            			$("#postForm1").submit();
-	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
+	            			$("#postForm1").submit();
+//	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
 	            		}else {			// 삭제하기 클릭시
 //	            			$("#postForm2").submit();
-//	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
-	        				alertify.confirm('소모임 공지사항 삭제 확인', '해당 공지사항을 삭제하시겠습니까?', function(){ $("#postForm").attr("action", "mygroupNoticedelete.gr"); }
-	        	            , function(){});
+	        				alertify.confirm('소모임 공지사항 삭제 확인', '해당 공지사항을 삭제하시겠습니까?',
+	        						function(){ $("#postForm2").submit(); },
+	        						function(){});
 	            		}
-	            		$("#postForm").submit();
 	            	}
 	            </script>
 			</c:if>

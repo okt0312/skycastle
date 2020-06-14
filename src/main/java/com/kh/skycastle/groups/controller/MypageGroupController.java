@@ -110,7 +110,7 @@ public class MypageGroupController {
 	
 	// 방장 공지사항 삭제
 	@RequestMapping("mygroupNoticedelete.gr")
-	public String deleteGroupNotice(int gnoticeNo,int groupNo,HttpSession session) {
+	public String deleteGroupNotice(int gnoticeNo, int groupNo, HttpSession session) {
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		int result = mgService.deleteGroupNotice(gnoticeNo);
 		
