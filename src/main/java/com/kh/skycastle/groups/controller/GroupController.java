@@ -68,7 +68,7 @@ public class GroupController {
 		return mv;
 	}
 	
-	// 찜목록
+	// 찜 확인여부 조회하기위해 호출하는 찜 리스트
 	@ResponseBody
 	@RequestMapping("selectDipsList.gr")
 	public int selectDipsList(Dips d){
