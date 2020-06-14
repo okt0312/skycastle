@@ -188,7 +188,7 @@
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
 		SELECT GN.*, G.LEADER_NO
 		  FROM GROUP_NOTICE GN
-          JOIN GROUPS G USING(GROUP_NO)
+          JOIN GROUPS G ON(G.GROUP_NO = GN.GROUP_NO)
 		 WHERE GN.GNOTICE_NO=#{gnoticeNo}
 	</select>
 	
