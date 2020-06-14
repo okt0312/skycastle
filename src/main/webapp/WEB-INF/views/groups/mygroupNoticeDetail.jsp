@@ -216,7 +216,7 @@
 			<br><br>
 			
 			<!-- 방장에게만 보이는 버튼 -->
-			<c:if test="${ loginUser.userNo eq g.leaderNo }">
+			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
 	            <div align="center">
 	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
