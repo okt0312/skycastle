@@ -146,16 +146,17 @@ public class MypageGroupController {
 		}
 	}
 	
-	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기
-	@RequestMapping("replyReportForm.gr")
-		public String grReplyReportForm(Model r)
-		{
-			ArrayList<Reply> list = mgService.grReplyReportForm();
-			r.addAttribute("list", list);
-			
-			return "마이그룹노티스디테일주소";
-		}
 	
+	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기
+		@ResponseBody
+		@RequestMapping("replyReportForm.gr")
+			public String grReplyReportForm(Model r,int rno)
+			{
+				ArrayList<Reply> list = mgService.grReplyReportForm(rno);
+				r.addAttribute("list", list);
+				
+				return "groups/mygroupNoticeDetail";
+			}
 	
 	@RequestMapping(value="mygroupCalendar.gr")
 	public String mygroupList() {

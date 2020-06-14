@@ -227,6 +227,13 @@
 		VALUES(SEQ_REPLY.NEXTVAL, #{replyContent}, #{noticeNo}, #{userNo} , SYSDATE, 'Y')
 	</insert>
 	
+	<!--댓글 신고   -->
+	<select id="grReplyReportForm" resultMap="replyResultSet">
+		SELECT R.*, M.USER_NAME
+		FROM REPLY R
+		JOIN MEMBER M ON(M.USER_NO = R.USER_NO)
+		WHERE REPLY_NO = #{rno}
+	</select>
 	
 	<!--찜한 목록 카운트  -->
 	<select id="selectDipsListCount" parameterType="_int" resultType="_int">

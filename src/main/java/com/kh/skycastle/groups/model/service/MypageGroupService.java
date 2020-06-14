@@ -39,6 +39,6 @@ public interface MypageGroupService {
 	int insertReply(Reply r);
 	
 	//댓글신고하기 모달로보내기
-	ArrayList<Reply> grReplyReportForm();
+	ArrayList<Reply> grReplyReportForm(int rno);
 
 }
