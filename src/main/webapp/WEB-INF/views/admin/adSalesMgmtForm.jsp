@@ -174,8 +174,8 @@
 				        labels: [day6, day5, day4, day3, day2, day1, today],
 				        datasets: [{
 				            label: '매출 금액(원)',
-				            data: [${ chartList[0].sumCost }, ${ chartList[1].sumCost }, ${ chartList[2].sumCost }, 
-				            	   ${ chartList[3].sumCost }, ${ chartList[4].sumCost }, ${ chartList[5].sumCost }, ${ chartList[6].sumCost }],
+				            data: [${ chartList[6].sumCost }, ${ chartList[5].sumCost }, ${ chartList[4].sumCost }, 
+				            	   ${ chartList[3].sumCost }, ${ chartList[2].sumCost }, ${ chartList[1].sumCost }, ${ chartList[0].sumCost }],
 				            backgroundColor: [
 				                'rgba(255, 99, 132, 0.2)',
 				                'rgba(54, 162, 235, 0.2)',
