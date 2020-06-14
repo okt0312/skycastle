@@ -17,52 +17,52 @@
         
         /* 버튼스타일 */
 		.sky_btn1 /* 확인 버튼 */
-{
+		{
+				
+			height: 40px;
+			text-align: center;
+			font-size: 15px;
+			font-weight: bold;
+			border-radius: 5px;
+			padding: 10px;
+			cursor: pointer;
+			background: #fdce07;
+			color: #000000;
+			border: 0;
+		    margin: 0px auto;
+		}
 		
-	height: 40px;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
-	border-radius: 5px;
-	padding: 10px;
-	cursor: pointer;
-	background: #fdce07;
-	color: #000000;
-	border: 0;
-    margin: 0px auto;
-}
+		.sky_btn2   /* 취소, 첨부파일 버튼 */
+		{
+			width: 50px;
+			height: 30px;
+			text-align: center;
+			font-size: 15px;
+			font-weight: bold;
+			padding: 5px;
+			
+			cursor: pointer;
+			background: #333333;
+			color: white;
+			border: 0;
+		    margin: 0px auto;
+		}
 
-.sky_btn2   /* 취소, 첨부파일 버튼 */
-{
-	width: 50px;
-	height: 30px;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 5px;
-	
-	cursor: pointer;
-	background: #333333;
-	color: white;
-	border: 0;
-    margin: 0px auto;
-}
-
-.sky_btn3   /* 취소, 첨부파일 버튼 */
-{
-	width: 80px;
-	height: 30px;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
-	
-	
-	cursor: pointer;
-	background: #333333;
-	color: white;
-	border: 0;
-    margin: 0px auto;
-}
+		.sky_btn3   /* 취소, 첨부파일 버튼 */
+		{
+			width: 80px;
+			height: 30px;
+			text-align: center;
+			font-size: 15px;
+			font-weight: bold;
+			
+			
+			cursor: pointer;
+			background: #333333;
+			color: white;
+			border: 0;
+		    margin: 0px auto;
+		}
 
 
 
@@ -82,16 +82,6 @@
             padding-left: 30px;
             box-sizing: border-box;
         }
-
-        /* 소모임 리스트 메뉴바 */
-/*         
-		#mygroupListMenubar{
-            width:80%;
-            height:200px;
-            margin:auto;
-            margin-top:50px;
-        }
-*/
         #mygroupListMenubar{
             width:100%;
             height:20%;
@@ -182,7 +172,7 @@
 	    <br><br><br>
 	    <h2>소모임</h2>
 	    <button style="float:right;" class="sky_btn1" onclick="window.open('groupEnrollForm.gr?userNo=${ loginUser.userNo }','Sky Castle','width=1000, height=1000, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">소모임 개설 신청</button>
-	    <br><hr><br>
+	    <br><br><hr><br>
 		
 	    <div align="center">
 	        <form action="" method="POST" style="margin:0 auto">

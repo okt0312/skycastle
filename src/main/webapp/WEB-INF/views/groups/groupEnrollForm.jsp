@@ -13,7 +13,7 @@
         /* 표 스타일 */
         #groupDetailTable th{
             width: 200px;
-            height: 40px;
+            height: 50px;
         }
         .sky_btn1 {
             width: 130px;
@@ -32,9 +32,8 @@
             transition-duration: 0.4s;
         }
         .sky_btn1:hover { box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
-        input { height:20px; border-radius: 2px; }
+        input { height:30px; border-radius: 2px; border:1px solid #333333;}
     </style>
-    
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -43,10 +42,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
   
-
-
-
-
 </head>
 <body>
 	<div id="inner" style="width: 800px; margin: auto;">
@@ -55,13 +50,13 @@
 		<form action="insertGroup.gr" method="post" enctype="multipart/form-data">
 			<div id="detailSum" style="width: 100%;">
 				<h1>소모임 개설 신청</h1>
-	
+				<br>
 				<table id="groupDetailTable">
 					<tbody>
 						<tr>
 							<th>카테고리</th>
 							<td>
-								<select name="groupCategory" style="width: 150px; height: 25px;">
+								<select name="groupCategory" style="width: 150px;">
 									<option value="1">대입</option>
 									<option value="2">공무원,임용</option>
 									<option value="3">어학,회화</option>
@@ -72,29 +67,29 @@
 						</tr>
 						<tr>
 							<th>대표사진</th>
-							<td><input type="file" style="width: 200px; height: 20px;"
+							<td><input type="file" style="width: 300px;"
 								name="thumbnailImg" required></td>
 						</tr>
 						<tr>
 							<th>제목</th>
-							<td><input type="text" style="width: 200px; height: 20px;"
+							<td><input type="text" style="width: 300px;"
 								name="groupTitle" placeholder="제목 아래에 보여질 소제목 작성"></td>
 						</tr>
 						<tr>
 							<th>소제목</th>
-							<td><input type="text" style="width: 200px; height: 20px;"
+							<td><input type="text" style="width: 350px;"
 								name="groupSubtitle" placeholder="제목 아래에 보여질 소제목 작성"></td>
 						</tr>
 						<tr>
 							<th>진행일정</th>
-							<td><input type="date" name="startDate" required> ~ <input type="date" name="endDate" required></td>
+							<td><input type="date" name="startDate" required>&nbsp;&nbsp;~&nbsp;&nbsp;<input type="date" name="endDate" required></td>
 						</tr>
 						<tr>
 							<th>장소</th>
 							<td>
 						        <input type="text" name="place" placeholder="직접입력 또는 방선택" name="color" list="space" required>
 						        <datalist id="space">
-							        <c:forEach var="s" items="${spaceList }">
+							        <c:forEach var="s" items="${spaceList}">
 							            <option>${s.spaceName}</option>									
 									</c:forEach>
 						        </datalist>
@@ -103,8 +98,8 @@
 						</tr>
 						<tr>
 							<th>정원</th>
-							<td><input type="number" name="memberLimit" style="width: 150px; height: 20px;"
-								min="3" max="10" required></td>
+							<td><input type="number" name="memberLimit" style="width: 100px;"
+								min="3" max="10" required>&nbsp;&nbsp;명</td>
 						</tr>
 					</tbody>
 				</table>
@@ -130,7 +125,6 @@
 				minHeight: null,             // set minimum height of editor
 				maxHeight: null,             // set maximum height of editor
 				focus: true                  // set focus to editable area after initializing summernote
-				
 			});
 		});
 	</script>
