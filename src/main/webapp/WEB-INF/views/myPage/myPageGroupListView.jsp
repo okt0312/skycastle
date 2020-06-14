@@ -263,7 +263,8 @@
 
 	    <c:choose>
 	    	<c:when test="${status eq 'Y'}">
-			    	 <!-- 페이징바 -->
+	    	
+				<!-- 페이징바 -->
 				<div class="paging" align="center">
 					<c:choose>
 						<c:when test="${ pi.currentPage eq 1 }">          

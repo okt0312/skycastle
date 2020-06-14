@@ -61,7 +61,7 @@
 		<table id="groupMenuTable" border="1">
 			<tr>
 				<th style="width: 100px; height: 40px;"
-					onclick="location.href = 'mygroupNoticeList.gr?currentPage=1&gno=' + ${ gno }">공지사항</th>
+					onclick="location.href = 'mygroupNoticeList.gr?currentPage=1&gno=${ listGno }'">공지사항</th>
 			</tr>
 			<tr>
 				<td style="width: 100px; height: 40px; text-align: center;"
