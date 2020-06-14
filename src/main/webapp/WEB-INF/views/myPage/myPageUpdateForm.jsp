@@ -439,8 +439,7 @@ a {
                                                 <div class="info birthday">&nbsp;&nbsp;${first}-${middle}-${last}</div>
                                             </div>
     										
-    										
-                                            
+    										                                           
                                             <div class="mod_infos">
                                                 <span class="in_tit long">수정연락처</span>
                                                 
