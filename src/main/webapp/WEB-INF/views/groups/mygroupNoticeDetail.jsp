@@ -230,7 +230,7 @@
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-	            			$("#postForm").attr("action", "mygroupNoticeUpdate.gr");
+	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
 	            		}else {			// 삭제하기 클릭시
 	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
 	            		}
