@@ -216,7 +216,7 @@
 			<br><br>
 			
 			<!-- 방장에게만 보이는 버튼 -->
-			<c:if test="${ loginUser.userNo eq g.leaderNo }">
+			<c:if test="${ loginUser.userNo eq gn.leaderNo }">
 	            <div align="center">
 	                <button class="sky_btn11" onclick="postFormSubmit(1);">수정하기</button>
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
@@ -230,7 +230,7 @@
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
-	            			$("#postForm").attr("action", "mygroupNoticeUpdate.gr");
+	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
 	            		}else {			// 삭제하기 클릭시
 	            			$("#postForm").attr("action", "mygroupNoticedelete.gr");
 	            		}
@@ -291,7 +291,7 @@
 				<div class="modal-body">
 					<table style="width: 400px;">
 						<tr>
-							<input type="hidden" id="uNo" name="userNo" value="${loginUser.userNo}">
+							<input type="hidden" id="userNo" name="userNo" value="${loginUser.userNo}">
 							<input type="hidden" name="replyNo" id="replyNo" value="">
 							<th style="width: 80px;">작성자</th>
 							<td style="width: 320px;">${loginUser.userId} (${loginUser.userName})</td>
@@ -404,24 +404,36 @@
    		  	  });
      			 $("#content").text(content);
      			 $("#replyNo").val(replyNo);
+     			
    			};
    			
    		
    		$("#reportSubmit").click(function(){
-   		  var userNo = $("uNo").val();
-   		  var replyNo = $("rno").val();
+   		  var userNo = $("#userNo").val();
+   		  var replyNo = $("#replyNo").val();
    		  var reportContent = $("#reportContent").val();
+   		  if(reportContent==''){
+   			alertify.alert("skycastle 내용:", "신고 내용을 작성하세요!");
+   			return;
+   		  }else{
+   			$("#reportContent").val('');
    			$.ajax({
     			url:"insertReport.rp",
     			data:{reporterNo:userNo,replyNo:replyNo,reportContent:reportContent},
-    			success:function(result){
-
-    				alert(result);
+    			success:function(status){
+					if(status == '성공'){
+						
+						alertify.alert("skycastle 내용:", "신고 완료!");
+					}
     				
     			}, error:function(){
     				console.log("신고하기 ajax 통신 실패!!");
     			}
     		});
+   		  }
+   		  
+   		  
+   			
    		});	
       	
     

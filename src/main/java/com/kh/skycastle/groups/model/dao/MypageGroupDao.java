@@ -19,7 +19,6 @@ public class MypageGroupDao {
 	}
 	
 	public ArrayList<GroupNotice> selectGroupNoticeList(SqlSessionTemplate sqlSession, PageInfo pi, int gno){
-		// rowbounds 생성하기 위해서 offset만들기
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
@@ -30,8 +29,6 @@ public class MypageGroupDao {
 	public int insertGroupNotice(SqlSessionTemplate sqlSession, GroupNotice gn) {
 		return sqlSession.insert("groupsMapper.insertGroupNotice", gn);
 	}
-
-
 
 	public int increaseGroupNoticeCount(SqlSessionTemplate sqlSession, int gnoticeNo) {
 		return sqlSession.update("groupsMapper.increaseGroupNoticeCount", gnoticeNo);
@@ -58,10 +55,11 @@ public class MypageGroupDao {
 		return sqlSession.update("groupsMapper.increaseGroupNoticeListCount", gno);
 	}
 	*/
-
+	
 	public int groupDropOut(SqlSessionTemplate sqlSession, GroupManage gm) {
 		return sqlSession.update("groupsMapper.groupDropOut", gm);
 	}
+	
 	
 	public ArrayList<GroupManage> myGroupMember(SqlSessionTemplate sqlSession, int groupNo ){
 		return (ArrayList)sqlSession.selectList("groupsMapper.myGroupMember", groupNo);

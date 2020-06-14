@@ -140,7 +140,7 @@
 		    <h2>공지사항</h2>
 		    <hr><br><br>
 		    
-		    <form action="post">
+		    <form action="groupNoticeInsert.gr">
 		        <div id="noticeTitle">
 		            <input type="text" style="width: 595px;" placeholder="제목을 입력하세요">
 		        </div>
@@ -152,7 +152,7 @@
 				<br><br>
 			
 		        <div align="center">
-		            <button class="listBtn sky_btn1">등록하기</button>
+		            <button type="submit" class="listBtn sky_btn1">등록하기</button>
 		        </div>
 		    </form>
 		    

@@ -42,6 +42,9 @@ public interface MypageGroupService {
 	// 소모임 탈퇴용
 	int groupDropOut(GroupManage gm);
 	
+	
+	
+
 	// 소모임 방장 회원관리 
 	ArrayList<GroupManage> myGroupMember(int groupNo);
 

@@ -186,9 +186,10 @@
 	
 	
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">
-		SELECT *
-		  FROM GROUP_NOTICE
-		 WHERE GNOTICE_NO=#{gnoticeNo}
+		SELECT GN.*, G.LEADER_NO
+		  FROM GROUP_NOTICE GN
+          JOIN GROUPS G ON(G.GROUP_NO = GN.GROUP_NO)
+		 WHERE GN.GNOTICE_NO=#{gnoticeNo}
 	</select>
 	
 	<update id="deleteGroupNotice" parameterType="_int">
