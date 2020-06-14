@@ -50,8 +50,6 @@
 </head>
 <body>
 	<div id="inner" style="width: 800px; margin: auto;">
-		<br><br>
-		<h2>소모임</h2>
 		<br><hr><br>
 		
 		<form action="insertGroup.gr" method="post" enctype="multipart/form-data">
@@ -114,7 +112,7 @@
 				<h2>소모임 내용</h2>
 				<textarea name="groupContent" id="summernote" style="width:100%; height:150px;  resize:none;"></textarea>
 				<br><br>
-				<div style="text-align: right;">
+				<div style="text-align: center;">
 					<button type="submit" class="sky_btn1">개설신청</button>
 				</div>
 			</div>
