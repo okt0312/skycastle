@@ -44,7 +44,7 @@
 		select * 
 		  from notice
 		 where status='Y'
-		 order by notice_no asc
+		 order by enroll_date desc
 	</select>
 	
 	<select id="selectNotice" parameterType="_int" resultMap="noticeResultSet">

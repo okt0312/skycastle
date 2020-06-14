@@ -240,7 +240,7 @@
 			</c:if>
 			
 			
-			<table id="replyArea" class="table"><!-- 수업때한거 -->
+			<table id="replyArea" class="table">
                 <thead>
                     <tr>
                        <td colspan="3">댓글 (<span id="replyCount"></span>) </td> 
