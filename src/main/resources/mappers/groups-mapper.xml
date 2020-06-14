@@ -171,11 +171,11 @@
 		 WHERE GNOTICE_NO = #{gnoticeNo} AND STATUS = 'Y'
 	</update>
 	
-	<update id="increaseGroupNoticeListCount" parameterType="_int">
+	<!-- <update id="increaseGroupNoticeListCount" parameterType="_int">
 		UPDATE GROUP_NOTICE
 		   SET COUNT = COUNT + 1
 		 WHERE GNOTICE_NO = #{gno} AND STATUS = 'Y'
-	</update>
+	</update> -->
 	
 	
 	<select id="selectGroupNotice" parameterType="_int" resultMap="groupNoticeResultSet">

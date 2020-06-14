@@ -69,11 +69,12 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 		return mgDao.grReplyReportForm(sqlSession,rno);
 	}
 
-	// 공지사항 조회수 증가용 
+	/* 공지사항 조회수 증가용 
 	@Override
 	public int increaseGroupNoticeListCount(int gno) {
 		return mgDao.increaseGroupNoticeListCount(sqlSession, gno);
 	}
+	*/
 
 	@Override
 	public int groupDropOut(int groupNo, int userNo) {
