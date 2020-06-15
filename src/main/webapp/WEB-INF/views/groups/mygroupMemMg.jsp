@@ -152,12 +152,12 @@
 			<h2>회원관리</h2>
 			<hr>
 
-			<table id="mygroupMemberTable" border="1">
+			<table id="mygroupMemberTable">
 				<thead>
 					<tr class="register">
 						<th class="registerId" style="width: 20%;">아이디</th>
 						<th class="registerName" style="width: 40%;">회원명</th>
-						<th class="registerStatus" style="width: 10%;">상태</th>
+						<th class="registerStatus" style="text-align: center; width: 10%;">상태</th>
 						<th class="registerButton" style="width: 20%; text-align: center;">수락/거절</th>
 					</tr>
 				</thead>

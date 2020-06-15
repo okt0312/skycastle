@@ -332,7 +332,7 @@
 	</select>
 	
 		<!-- 소모임수락 방장이 모달에서 사용가능 기능 -->
-	<update id="grSubmit" parameterType="GroupDto">
+	<update id="grSubmit" parameterType="GroupManage">
 	 UPDATE GROUP_MANAGE
 	 SET STATUS = #{status}
 	 WHERE USER_NO = #{userNo} and group_no = #{groupNo}
