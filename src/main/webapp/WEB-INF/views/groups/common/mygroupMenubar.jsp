@@ -68,7 +68,7 @@
 </head>
 <body>
 	<div id="mygroupMenubar">
-		<p id="mainTitle">소모임명</p>
+		<p id="mainTitle">  </p>
 
 		<table id="groupMenuTable">
 			<tr class="subMenu">
