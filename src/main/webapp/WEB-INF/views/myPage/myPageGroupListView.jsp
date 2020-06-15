@@ -171,20 +171,11 @@
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br>
 	    <h2>소모임</h2>
-	    <button style="float:right;" class="sky_btn1" onclick="window.open('groupEnrollForm.gr?userNo=${ loginUser.userNo }','Sky Castle','width=1000, height=1000, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">소모임 개설 신청</button>
-	    <br><br><hr><br>
-		
-	    <div align="center">
-	        <form action="" method="POST" style="margin:0 auto">
-	            <select class="sky_btn3" style="height: 26px; padding-bottom: 3px;">
-	                <option value="title" selected>모임명</option>
-	                <option value="content">내용</option>
-	            </select>
-	            <input type="text" name="search">
-	            <button type="submit" class="sky_btn2">검색</button>
-	        </form>
-	    </div>
-	    <br><br>
+	    <button style="float:right;" class="sky_btn1"
+	    	onclick="window.open('groupEnrollForm.gr?userNo=${ loginUser.userNo }','Sky Castle','width=1000, height=1000, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">
+	    	소모임 개설 신청
+	    </button>
+	    <br><br><br>
 	    
         <div id="mygroupListMenubar">
         
