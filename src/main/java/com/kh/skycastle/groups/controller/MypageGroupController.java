@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.dto.GroupMember;
 import com.kh.skycastle.groups.model.service.CalendarService;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
 import com.kh.skycastle.groups.model.vo.Calendar;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
-import com.kh.skycastle.groups.model.vo.Reply;
 import com.kh.skycastle.member.model.vo.Member;
 
 @Controller
@@ -123,8 +123,9 @@ public class MypageGroupController {
 	// 방장 회원관리
 	@RequestMapping("mygroupMemMg.gr")
 	public String myGroupMember(int groupNo, Model model) {
-		
+		//System.out.println(groupNo);
 		ArrayList<GroupMember> list = mgService.myGroupMember(groupNo);
+		model.addAttribute("groupNo",groupNo);
 		model.addAttribute("list", list);
 		return "groups/mygroupMemMg";
 	}
@@ -155,33 +156,20 @@ public class MypageGroupController {
 	
 	//소모임 승인
 		@ResponseBody
-		@RequestMapping("grSubmit.gr")
-		public String grSubmit(int userNo,Model model) {
-			
-			int result = mgService.grSubmit(userNo);
+		@RequestMapping(value="grSubmit.gr", produces="text/html; charset=utf-8")
+		public String grSubmit(GroupDto g,Model model) {
+			//System.out.println(g);
+			int result = mgService.grSubmit(g);
 			
 			if(result > 0) {
-				return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
+				return "성공";
 			} else {
-				return "소모임 승인 실패";
+				return "실패";
 			}
 			
 		}
 		
-		//소모임 거절
-			@ResponseBody
-			@RequestMapping("grRejection.gr")
-			public String grRejection(int userNo,Model model) {
-				
-				int result = mgService.grRejection(userNo);
-				
-				if(result > 0) {
-					return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
-				} else {
-					return "소모임 승인 실패";
-				}
-				
-			}
+	
 
 	
 	

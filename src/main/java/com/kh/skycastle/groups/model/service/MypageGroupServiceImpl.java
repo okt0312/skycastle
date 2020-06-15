@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.groups.model.dao.MypageGroupDao;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.dto.GroupMember;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
@@ -83,13 +84,10 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 	//방장이 소모임 수락해줄때
 	@Override
-	public int grSubmit(int userNo) {
-		return mgDao.grSubmit(sqlSession, userNo);
+	public int grSubmit(GroupDto g) {
+		return mgDao.grSubmit(sqlSession, g);
 	}
 	
-	@Override
-	public int grRejection(int userNo) {
-		return mgDao.grRejection(sqlSession, userNo);
-	}
+	
 
 }

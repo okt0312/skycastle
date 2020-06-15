@@ -332,17 +332,10 @@
 	</select>
 	
 		<!-- 소모임수락 방장이 모달에서 사용가능 기능 -->
-	<update id="grSubmit" parameterType="_int">
-	UPDATE GROUP_MANAGE
- SET STATUS = 'Y'
- WHERE USER_NO = #{userNo} 
+	<update id="grSubmit" parameterType="GroupDto">
+	 UPDATE GROUP_MANAGE
+	 SET STATUS = #{status}
+	 WHERE USER_NO = #{userNo} and group_no = #{groupNo}
 	</update>
-	
-	<!-- 소모임거절 방장이 모달에서 사용가능 기능 -->
-	<update id="grRejection" parameterType="_int">
-	UPDATE GROUP_MANAGE
- SET STATUS = 'N'
- WHERE USER_NO = #{userNo} 
-	</update>
-	
+
 </mapper>

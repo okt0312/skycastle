@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.dto.GroupDto;
 import com.kh.skycastle.groups.model.dto.GroupMember;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
@@ -66,13 +67,10 @@ public class MypageGroupDao {
 		return (ArrayList)sqlSession.selectList("groupsMapper.myGroupMember", groupNo);
 	}
 
-	public int grSubmit(SqlSessionTemplate sqlSession, int userNo) {
-		return sqlSession.delete("groupsMapper.grSubmit", userNo);
+	public int grSubmit(SqlSessionTemplate sqlSession, GroupDto g) {
+		return sqlSession.delete("groupsMapper.grSubmit", g);
 	}
 
-	public int grRejection(SqlSessionTemplate sqlSession, int userNo) {
 	
-		return sqlSession.delete("groupsMapper.grRejection", userNo);
-	}
 
 }
