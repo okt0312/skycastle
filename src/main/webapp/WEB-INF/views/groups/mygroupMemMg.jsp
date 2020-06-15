@@ -251,7 +251,7 @@
 					    			success:function(result){
 										if(result == '성공'){
 											
-											alertify.alert("skycastle 내용:", "수락 완료!");
+											alertify.alert("skycastle 내용:", "수락 완료!",function(){ location.reload();});
 									
 										}
 					    				
@@ -273,7 +273,7 @@
 					    			success:function(result){
 										if(result == '성공'){
 											
-											alertify.alert("skycastle 내용:", "거절 완료!");
+											alertify.alert("skycastle 내용:", "거절 완료!",function(){ location.reload();});
 											
 										}
 					    				
