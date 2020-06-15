@@ -143,7 +143,7 @@
     </style>
 </head>
 <body>
-	<jsp:include page="../common/menubar.jsp" />
+	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<div style="width:100%; height:1000px;">
 	<div id="mygroup">
 		<jsp:include page="common/mygroupMenubar.jsp" />

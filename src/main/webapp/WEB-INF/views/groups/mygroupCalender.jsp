@@ -100,8 +100,8 @@
 </script>
 </head>
 <body>
-    <jsp:include page="../common/menubar.jsp"/>
-	<jsp:include page="common/mygroupMenubar.jsp"/>
+	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
+		<jsp:include page="common/mygroupMenubar.jsp" />
 	
         <div id='calendar'></div>
 
