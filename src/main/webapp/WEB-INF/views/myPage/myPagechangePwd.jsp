@@ -468,7 +468,7 @@ p {
                                         
                                         	
                                           
-                                           <form action="mchangePwd.me" method="POST">
+                                           <form id="xoryd1" action="mchangePwd.me" method="POST">
                                            <input type="hidden" name="userPwd" value="${userPwd}">
                                            <input type="hidden" name="userId" value="${userId}">
                                          
@@ -492,7 +492,7 @@ p {
                                                         
                                                         
                                             <div class="bts">
-                                                <button type="submit" class="dark" style="background-color: #222; color: #fff; width: 354px;" onclick="return validate();">변경</button>
+                                                <button type="button" id="xoryd" class="dark" style="background-color: #222; color: #fff; width: 354px;" onclick="return validate();">변경</button>
                                             </div>
                                            </form>
                                            
@@ -536,7 +536,25 @@ p {
 		
   	}
     </script>  	
-				
+			
+			
+	<script>
+	
+	
+	$("#xoryd").click(function(){
+		
+		if(confirm) {	
+			alertify.confirm('SKYCATLE', '비밀번호를 변경하시겠습니까?', function(){ $("#xoryd1").submit(); }
+            , function(){});
+		} else {	
+			return;
+		} 
+	});
+	
+	
+   </script>	
+	
+		
                 
                
 	
