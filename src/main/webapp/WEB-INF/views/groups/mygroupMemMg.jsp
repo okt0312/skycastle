@@ -168,19 +168,18 @@
 						<!--아이디 누르면 모달창-->
 						<td class="registerName" style="width: 40%;">${ m.userName }</td>
 						<td class="registerStatus" style="text-align: center; width: 10%;">
-							${ m.status }
 							
 							<c:choose>
-				         		<c:when test="${ m.status == U }">
+				         		<c:when test="${ m.status == 'U' }">
 									대기
 				            	</c:when>
-				            	<c:when test="${ m.status == Y }">
+				            	<c:when test="${ m.status == 'Y' }">
 									참가
 				            	</c:when>
-				            	<c:when test="${ m.status == A }">
+				            	<c:when test="${ m.status == 'A' }">
 									방장
 				            	</c:when>
-				            	<c:when test="${ m.status == N }">
+				            	<c:when test="${ m.status == 'N' }">
 									종료
 				            	</c:when>
 				            </c:choose>
