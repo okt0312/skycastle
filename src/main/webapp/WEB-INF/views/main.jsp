@@ -62,8 +62,8 @@
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag" style="font-weight: 600;">소모임</a>
-                            <h4><a href="#" class="post-headline">소모임 관련</a></h4>
+                            <a href="groupList.gr?currentPage=1" class="post-tag" style="font-weight: 600;">소모임</a>
+                            <h4><a href="groupList.gr?currentPage=1" class="post-headline">소모임 관련</a></h4>
                             <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
                             <a href="#" class="btn original-btn">소모임 둘러보기</a>
                         </div>
@@ -108,10 +108,10 @@
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag" style="font-weight: 600;">공간</a>
-                            <h4><a href="#" class="post-headline">공간 관련</a></h4>
+                            <a href="spaceMain.re?currentPage=1" class="post-tag" style="font-weight: 600;">공간</a>
+                            <h4><a href="spaceMain.re?currentPage=1" class="post-headline">공간 관련</a></h4>
                             <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                            <a href="#" class="btn original-btn">공간 둘러보기</a>
+                            <a href="spaceMain.re?currentPage=1" class="btn original-btn">공간 둘러보기</a>
                         </div>
                     </div>
                 </div>
