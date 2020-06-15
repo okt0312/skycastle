@@ -169,7 +169,7 @@
 						<td class="registerName" style="width: 40%;">${ m.userName }</td>
 						<td class="registerStatus" style="text-align: center; width: 10%;">${ m.status }</td>
 						<td class="registerButton" style="text-align: center; width: 10%;">	
-							<button type="button" class="sky_btn11" id="r_Btn" onclick="modal();" userId="${ m.userId }" content="${m.passion }" >상세보기</button>
+							<button type="button" class="sky_btn11" id="r_Btn" onclick="modal();" userId="${ m.userId }" userNo="${m.userNo}" content="${m.passion }" >상세보기</button>
 						</td>
 					</tr>
 				  </c:forEach>	
@@ -219,7 +219,7 @@
 									<td><textarea cols="40" rows="10" style="resize: none;"
 											readonly id="modalContent"></textarea></td>
 									<!--서머노트쓸까?-->
-								</tr><input type="text" id="modaluserNo" name="modaluserNo">
+								</tr><input type="text" id="userNo" name="userNo">
 							</table>
 						</div>
 
@@ -297,7 +297,7 @@
 	      		userNo = window.event.target.getAttribute("userNo");
 	      		 //console.log(userId);
 	      		//console.log(content);
-	      		 $("#modalUserNo").text(userNo);
+	      		 $("#userNo").val(userNo);
 	      		 $("#modalId").text(userId);
 	      		 $("#modalContent").text(content);
 	     		 $("#enrollDetailModal").modal({
