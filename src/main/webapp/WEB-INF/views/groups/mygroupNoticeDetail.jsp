@@ -148,6 +148,7 @@
 		/* 댓글 스타일 */
 		.replyList tr{
 			width:320px;
+			vertical-align:middle;
 		} 
 		
         /* 페이징바 css */
@@ -375,11 +376,9 @@
     				
     				for(var i in list){
     					value += "<tr>" +
-    								"<th style='width:100px;'>" + list[i].userName + "</th>" +
-    								"<td>"+ "<input type='hidden' id='rno' value='"+list[i].replyNo+"'>" + "</td>"+
-    								"<td>"+ "<input type='hidden' id='userNo' value='"+list[i].userNo+"'>" + "</td>"+
-    								"<td style='width:630px; text-align:left;'>" + list[i].replyContent + "</td>" +
-    								"<td>" + list[i].uploadDate + "</td>" +
+    								"<th style='width:150px;'>" + list[i].userName + "</th>" +
+    								"<td style='width:500px; text-align:left;'>" + list[i].replyContent + "</td>" +
+    								"<td style='width:300px; font-size:12px;'>" + list[i].uploadDate + "</td>" +
     								"<td><input type='button' value='신고하기' onclick='reportModal();' rno='"+list[i].replyNo+"' content='"+list[i].replyContent+"' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}
