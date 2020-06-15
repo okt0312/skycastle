@@ -102,8 +102,7 @@
 <body>
 	<jsp:include page="../myPage/common/myPageMenubar.jsp" />
 	<jsp:include page="common/mygroupMenubar.jsp" />
-		
-	<br><br><br>
+	<br><br><br><br><br><br>
 	<div id='calendar'></div>
 
     <jsp:include page="../common/footer.jsp"/>

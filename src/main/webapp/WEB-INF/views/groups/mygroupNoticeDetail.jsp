@@ -325,8 +325,6 @@
 					<!-- 하단버튼 영역-->
 					<button type="button"  id="reportSubmit" class="btn btn-danger sky_btn1"
 						style="width: 200px; height: 50px;">신고</button>
-					<button type="button" class="btn btn-danger sky_btn2"
-						data-dismiss="modal" style="width: 200px; height: 50px;">취소</button>
 				</div>
 			</div>
 		</div>
