@@ -64,7 +64,8 @@
                             <div class="line"></div>
                             <a href="groupList.gr?currentPage=1" class="post-tag" style="font-weight: 600;">소모임</a>
                             <h4><a href="groupList.gr?currentPage=1" class="post-headline">소모임 관련</a></h4>
-                            <p>스카이캐슬은 나와 다른 삶을 경험한[사람]들과 삶에서 곡 필요하지만, 일상적으로 나눌수 없던 [주제]들에 대해 함께 대화하고, 글을 쓰며 서로 삶에 영감을 더하는 [커뮤티니]입니다.</p>
+                           
+                            <p>새로운 사람과 나누는 비일상적인 대화 <br> 스카이캐슬은 나와 다른 삶을 경험한 사람들과 삶에서 꼭 필요하지만, 일상적으로 나눌수 없던 주제들에 대해 함께 대화하고, 글을 쓰며 서로 삶에 영감을 더하는 커뮤티니입니다. </p>
                             <a href="#" class="btn original-btn">소모임 둘러보기</a>
                         </div>
                     </div>
