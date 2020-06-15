@@ -124,7 +124,7 @@
 									style="background-color: rgb(239, 160, 111);">
 									<div style="display: inline-block;">잔여 좌석</div>
 									<div
-										style="display: inline-block; float: right; font-size: large;">${ c.seat }</div>
+										style="display: inline-block; float: right; font-size: large;">${ 132 - c.seat }</div>
 								</div>
 								<div
 									class="card-footer d-flex align-items-center justify-content-between"

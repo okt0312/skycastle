@@ -146,25 +146,25 @@
 	        <script>
 				var ctx = document.getElementById("myBarChart");
 				var today = new Date(); 
-				today.setDate(today.getDate());
+				today.setDate(today.getDate() + 1);
 				today = today.toISOString().substring(0, 10);
 				var day1 = new Date();  
-				day1.setDate(day1.getDate() - 1);
+				day1.setDate(day1.getDate());
 				day1 = day1.toISOString().substring(0, 10);
 				var day2 = new Date();  
-				day2.setDate(day2.getDate() - 2);
+				day2.setDate(day2.getDate() - 1);
 				day2 = day2.toISOString().substring(0, 10);
 				var day3 = new Date();  
-				day3.setDate(day3.getDate() - 3);
+				day3.setDate(day3.getDate() - 2);
 				day3 = day3.toISOString().substring(0, 10);
 				var day4 = new Date();  
-				day4.setDate(day4.getDate() - 4);
+				day4.setDate(day4.getDate() - 3);
 				day4 = day4.toISOString().substring(0, 10);
 				var day5 = new Date();  
-				day5.setDate(day5.getDate() - 5);
+				day5.setDate(day5.getDate() - 4);
 				day5 = day5.toISOString().substring(0, 10);
 				var day6 = new Date();  
-				day6.setDate(day6.getDate() - 6);
+				day6.setDate(day6.getDate() - 5);
 				day6 = day6.toISOString().substring(0, 10);
 				
 				
@@ -174,8 +174,8 @@
 				        labels: [day6, day5, day4, day3, day2, day1, today],
 				        datasets: [{
 				            label: '매출 금액(원)',
-				            data: [${ chartList[6].sumCost }, ${ chartList[5].sumCost }, ${ chartList[4].sumCost }, 
-				            	   ${ chartList[3].sumCost }, ${ chartList[2].sumCost }, ${ chartList[1].sumCost }, ${ chartList[0].sumCost }],
+				            data: [${ chartList[0].sumCost }, ${ chartList[1].sumCost }, ${ chartList[2].sumCost }, 
+				            	   ${ chartList[3].sumCost }, ${ chartList[4].sumCost }, ${ chartList[5].sumCost }, ${ chartList[6].sumCost }],
 				            backgroundColor: [
 				                'rgba(255, 99, 132, 0.2)',
 				                'rgba(54, 162, 235, 0.2)',
