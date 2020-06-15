@@ -337,7 +337,7 @@
 							<a href="#" class="btn_arr next"><span class="hide">Next</span></a>  
 						</c:when>
 						<c:otherwise>
-							<a href="mygroupList.gr?currentPage=${ pi.currentPage+1 }}&status=N" class="btn_arr next"><span class="hide">Next</span></a>  
+							<a href="mygroupList.gr?currentPage=${ pi.currentPage+1 }&status=N" class="btn_arr next"><span class="hide">Next</span></a>  
 						</c:otherwise> 	
 					</c:choose>
 	    	
