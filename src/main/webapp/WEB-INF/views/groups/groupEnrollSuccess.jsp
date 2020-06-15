@@ -32,7 +32,6 @@
     </style>
 </head>
 <body>
-    <jsp:include page="../common/menubar.jsp"/>
 	<div id="inner" style="width: 800px; margin: auto;">
 	    <br><br><br><br><br>
 	    <h2>소모임</h2>
@@ -48,11 +47,18 @@
 	        <!--개설대기중소모임 따로 만들어야 하는지-->
 	        <br><br>
 	        <div style="text-align: center;">
-	            <button class="sky_btn1" onclick="">확인</button>
+	            <button class="sky_btn1" onclick="pclose1();">확인</button>
 	        </div>
+	        <script type="text/javascript">
+		        function pclose1(){
+				    opener.location.reload();
+				    window.close();
+				}
+	        </script>
+	        
+	        
 	    </div>
 	    <br><br><br><br>
 	</div>
-    <jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

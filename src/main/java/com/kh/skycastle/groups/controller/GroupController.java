@@ -196,7 +196,7 @@ public class GroupController {
 		int result = gService.insertGroup(g);
 		
 		if(result > 0) {	// 성공 --> 마이페이지 소모임 리스트로 이동
-			return "redirect:mygroupList.gr?currentPage=1&status=Y";
+			return "groups/groupEnrollSuccess";
 		} else {
 			return "소모임 개설 신청하기 실패";
 		}
