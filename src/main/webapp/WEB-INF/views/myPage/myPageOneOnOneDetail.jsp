@@ -255,7 +255,7 @@ td {
                     
                     <button class="sky_btn1" id="dbtn" onclick="postFormSubmit(2);">삭제</button>
                     <button style="background:white; color:black; border:1px solid darkgray" class="sky_btn1" id="mbtn"  onclick="postFormSubmit(1);">수정</button>
-                    <button type="button" class="sky_btn2" id="lbtn" onclick="javascript:history.go(-1);">목록</button>
+                    <button type="button" class="sky_btn2" id="lbtn" onclick="location.href='qlist.bo?currentPage=1&userNo=${loginUser.userNo}';">목록</button>
 					
                 </div>
                 
