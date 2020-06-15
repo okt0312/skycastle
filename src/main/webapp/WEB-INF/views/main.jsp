@@ -110,7 +110,7 @@
                             <div class="line"></div>
                             <a href="spaceMain.re?currentPage=1" class="post-tag" style="font-weight: 600;">공간</a>
                             <h4><a href="spaceMain.re?currentPage=1" class="post-headline">공간 관련</a></h4>
-                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                            <p>Focus on Your work. <br> 스카이캐슬이 생각하는 오피스는 재미있는 공간이 아닙니다. 소통하는 공간도, 트렌디한 공간도 아닙니다. 업무에만 집중할 수 있도록 10년의 노하우를 담은 오피스 본연의 역할에 가장 충실한 공간, 당신의 업무에 꼭 필요한 공간과 서비스를 지원해드리겠습니다.</p>
                             <a href="spaceMain.re?currentPage=1" class="btn original-btn">공간 둘러보기</a>
                         </div>
                     </div>
