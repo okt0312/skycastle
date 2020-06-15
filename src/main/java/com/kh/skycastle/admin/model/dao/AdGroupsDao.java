@@ -14,8 +14,8 @@ import com.kh.skycastle.groups.model.vo.Reply;
 public class AdGroupsDao {
 	
 	//소모임조회 리스트 불러오는 메소드
-	public ArrayList<Groups> selectGroups(SqlSessionTemplate sqlSession){
-		return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGroups");
+	public ArrayList<Groups> selectGroupList(SqlSessionTemplate sqlSession,String selNo){
+		return (ArrayList)sqlSession.selectList("adGroupsMapper.selectGroups",selNo);
 	}
 	
 	//소모임 조회 모달에서 수정하는 메소드
