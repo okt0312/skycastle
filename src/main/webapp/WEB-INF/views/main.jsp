@@ -64,7 +64,7 @@
                             <div class="line"></div>
                             <a href="groupList.gr?currentPage=1" class="post-tag" style="font-weight: 600;">소모임</a>
                             <h4><a href="groupList.gr?currentPage=1" class="post-headline">소모임 관련</a></h4>
-                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
+                            <p>스카이캐슬은 나와 다른 삶을 경험한[사람]들과 삶에서 곡 필요하지만, 일상적으로 나눌수 없던 [주제]들에 대해 함께 대화하고, 글을 쓰며 서로 삶에 영감을 더하는 [커뮤티니]입니다.</p>
                             <a href="#" class="btn original-btn">소모임 둘러보기</a>
                         </div>
                     </div>
