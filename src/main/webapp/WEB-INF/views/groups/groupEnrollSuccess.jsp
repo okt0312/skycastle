@@ -38,11 +38,10 @@
 	    <br><hr><br>
 	
 	    <div id="detailSum" style="width:100%; height: 250px;">
-	        <img src="" alt=""><!--어떤사진넣지-->
 	        <h1 style="text-align: center;">소모임 개설 신청이 완료되었습니다</h1>
 	        <p style="text-align: center;">
 	            관리자 검토 후 개설됩니다.<br>
-	            마이페이지 '참가중인 소모임' 메뉴에서 확인하실 수 있습니다
+	            개설 후, 마이페이지 '참가중인 소모임' 메뉴에서 확인하실 수 있습니다
 	        </p>
 	        <!--개설대기중소모임 따로 만들어야 하는지-->
 	        <br><br>
