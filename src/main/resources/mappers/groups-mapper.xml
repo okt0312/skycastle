@@ -335,14 +335,14 @@
 	<update id="grSubmit" parameterType="_int">
 	UPDATE GROUP_MANAGE
  SET STATUS = 'Y'
- WHERE USER_NO = #{modaluserNo} 
+ WHERE USER_NO = #{userNo} 
 	</update>
 	
 	<!-- 소모임거절 방장이 모달에서 사용가능 기능 -->
 	<update id="grRejection" parameterType="_int">
 	UPDATE GROUP_MANAGE
  SET STATUS = 'N'
- WHERE USER_NO = #{modaluserNo} 
+ WHERE USER_NO = #{userNo} 
 	</update>
 	
 </mapper>

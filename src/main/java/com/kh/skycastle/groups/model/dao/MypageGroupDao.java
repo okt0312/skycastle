@@ -66,13 +66,13 @@ public class MypageGroupDao {
 		return (ArrayList)sqlSession.selectList("groupsMapper.myGroupMember", groupNo);
 	}
 
-	public int grSubmit(SqlSessionTemplate sqlSession, int modaluserNo) {
-		return sqlSession.delete("groupsMapper.grSubmit", modaluserNo);
+	public int grSubmit(SqlSessionTemplate sqlSession, int userNo) {
+		return sqlSession.delete("groupsMapper.grSubmit", userNo);
 	}
 
-	public int grRejection(SqlSessionTemplate sqlSession, int modaluserNo) {
+	public int grRejection(SqlSessionTemplate sqlSession, int userNo) {
 	
-		return sqlSession.delete("groupsMapper.grRejection", modaluserNo);
+		return sqlSession.delete("groupsMapper.grRejection", userNo);
 	}
 
 }

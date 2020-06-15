@@ -50,9 +50,9 @@ public interface MypageGroupService {
 	ArrayList<GroupMember> myGroupMember(int groupNo);
 	
 	//방장이 소모임 승인해줄때
-	int grSubmit(int modaluserNo);
+	int grSubmit(int userNo);
 	
 	//방장이 소모임 거절해줄때
-	int grRejection(int modaluserNo);
+	int grRejection(int userNo);
 
 }

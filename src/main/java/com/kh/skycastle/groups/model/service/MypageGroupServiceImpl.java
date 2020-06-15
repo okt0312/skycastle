@@ -83,13 +83,13 @@ public class MypageGroupServiceImpl implements MypageGroupService {
 	}
 	//방장이 소모임 수락해줄때
 	@Override
-	public int grSubmit(int modaluserNo) {
-		return mgDao.grSubmit(sqlSession, modaluserNo);
+	public int grSubmit(int userNo) {
+		return mgDao.grSubmit(sqlSession, userNo);
 	}
 	
 	@Override
-	public int grRejection(int modaluserNo) {
-		return mgDao.grRejection(sqlSession, modaluserNo);
+	public int grRejection(int userNo) {
+		return mgDao.grRejection(sqlSession, userNo);
 	}
 
 }

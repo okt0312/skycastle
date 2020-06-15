@@ -156,9 +156,9 @@ public class MypageGroupController {
 	//소모임 승인
 		@ResponseBody
 		@RequestMapping("grSubmit.gr")
-		public String grSubmit(int modaluserNo,Model model) {
+		public String grSubmit(int userNo,Model model) {
 			
-			int result = mgService.grSubmit(modaluserNo);
+			int result = mgService.grSubmit(userNo);
 			
 			if(result > 0) {
 				return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
@@ -171,9 +171,9 @@ public class MypageGroupController {
 		//소모임 거절
 			@ResponseBody
 			@RequestMapping("grRejection.gr")
-			public String grRejection(int modaluserNo,Model model) {
+			public String grRejection(int userNo,Model model) {
 				
-				int result = mgService.grRejection(modaluserNo);
+				int result = mgService.grRejection(userNo);
 				
 				if(result > 0) {
 					return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";

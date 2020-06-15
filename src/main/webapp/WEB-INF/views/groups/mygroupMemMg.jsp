@@ -204,9 +204,10 @@
 							<button type="button" class="close" data-dismiss="modal"
 								style="margin: 0; padding: 0;">&times;</button>
 						</div>
-							<form action="" id="postForm">
+							<form action="joinPostForm.gr" id="postForm">
+							
 						<!-- Modal body -->
-						<div class="modal-body">
+						<div class="modal-body" id="">
 							<table style="width: 400px;">
 								<tr style="width: 400px;">
 									<th id="modalTh">아이디</th>
@@ -218,7 +219,7 @@
 									<td><textarea cols="40" rows="10" style="resize: none;"
 											readonly id="modalContent"></textarea></td>
 									<!--서머노트쓸까?-->
-								</tr><input type="hidden" id="modaluserNo" name="modaluserNo">
+								</tr><input type="text" id="modaluserNo" name="modaluserNo">
 							</table>
 						</div>
 
@@ -232,11 +233,51 @@
 						</div>
 						</form>
 						<script>
+						
+						//모달폼을 거절로 보내나 수락으로 보내나 선택후 보내려고 함
 						function postFormSubmit(num){
-							if(num == 1){ // 회원가입
-								$("#postForm").attr("action", "grSubmit.gr");
-							}else{ // 비번찾기 클릭시
-								$("#postForm").attr("action", "grRejection.gr");
+							  var userNo = $("#modaluserNo").val();
+							  console.log(userNo);
+							  
+							if(num == 1){ // 수락클릭시
+									$("#postForm").attr("action", "grSubmit.gr");
+							
+								//$("#reportContent").val('');
+					   			$.ajax({
+					    			url:"grSubmit.gr",
+					    			data:{userNo:userNo},
+					    			success:function(result){
+										if(result == '성공'){
+											
+											alertify.alert("skycastle 내용:", "수락 완료!");
+										}
+					    				
+					    			}, error:function(){
+					    				console.log("신고하기 ajax 통신 실패!!");
+					    			}
+					    		});
+								
+								
+								
+								
+							
+							}else{ // 거절 클릭시
+								$("#postForm").attr("action", "joinPostForm.gr");
+							
+								$.ajax({
+					    			url:"grRejection.gr",
+					    			data:{userNo:userNo},
+					    			success:function(result){
+										if(result == '성공'){
+											
+											alertify.alert("skycastle 내용:", "거절 완료!");
+										}
+					    				
+					    			}, error:function(){
+					    				console.log("신고하기 ajax 통신 실패!!");
+					    			}
+					    		});
+								
 							}
 							
 							$("#postForm").submit();
@@ -253,9 +294,10 @@
 	      	 function modal(){
 	      		content = window.event.target.getAttribute("content");
 	      		 userId = window.event.target.getAttribute("userId");
+	      		userNo = window.event.target.getAttribute("userNo");
 	      		 //console.log(userId);
 	      		//console.log(content);
-	      		 $("#modaluserNo").text(userNo);
+	      		 $("#modalUserNo").text(userNo);
 	      		 $("#modalId").text(userId);
 	      		 $("#modalContent").text(content);
 	     		 $("#enrollDetailModal").modal({
