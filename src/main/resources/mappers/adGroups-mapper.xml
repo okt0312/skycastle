@@ -62,6 +62,9 @@
 			   GRADE_LIMIT, LEADER_NO,MEMBER_LIMIT,
 			   START_DATE,END_DATE,STATUS
 		  FROM GROUPS
+		  <if test='selNo != null and selNo != "0" '>
+		       WHERE GROUP_CATEGORY = #{selNo}
+	     </if>
 	</select>
 	
 	<!-- 소모임 조회 모달에서 소모임정보 수정 -->

@@ -25,7 +25,7 @@ public class AdGroupsServiceImpl implements AdGroupsService {
 	@Override
 	public ArrayList<Groups> selectGroupList(String selNo) {
 		
-		return  adGrDao.selectGroups(sqlSession);
+		return  adGrDao.selectGroupList(sqlSession,selNo);
 				
 				
 	}

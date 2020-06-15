@@ -153,10 +153,13 @@
 		</div>
 		<br><br>
 		
-		<div id="groupDetail">
-		    <textarea style="width: 100%; text-align: left;" readonly>${ g.groupContent }</textarea>
+		<div id="textContent">
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$("#textContent").html('${g.groupContent}');
+	</script>
 	</c:forEach>
 	
     <jsp:include page="../common/footer.jsp"/>

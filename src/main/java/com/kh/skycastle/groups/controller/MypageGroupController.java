@@ -13,7 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
 import com.kh.skycastle.common.template.Pagination;
+import com.kh.skycastle.groups.model.dto.GroupMember;
+import com.kh.skycastle.groups.model.service.CalendarService;
 import com.kh.skycastle.groups.model.service.MypageGroupService;
+import com.kh.skycastle.groups.model.vo.Calendar;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
@@ -24,6 +27,9 @@ public class MypageGroupController {
 	
 	@Autowired
 	private MypageGroupService mgService;
+	
+	@Autowired
+	private CalendarService calService;
 	
 	// 그룹 공지사항 리스트
 	@RequestMapping("mygroupNoticeList.gr")
@@ -60,7 +66,7 @@ public class MypageGroupController {
 	// 방장 공지사항 등록 폼
 	@RequestMapping("mygroupNoticeEnrollForm.gr")
 	public String groupNoticeEnrollForm(int groupNo,Model model) {
-		//System.out.println(groupNo);
+		
 		model.addAttribute("groupNo",groupNo);
 		return ("groups/mygroupNoticeEnrollForm");
 	}
@@ -77,30 +83,25 @@ public class MypageGroupController {
 		} else {
 			return "소모임 공지사항 등록 실패";
 		}
-	
 	}
-	
-	
 	
 	// 방장 공지사항 수정폼
 	@RequestMapping("mygroupNoticeUpdateForm.gr")
 	public String updateForm(GroupNotice gn, Model model) {
-		//System.out.println(gn.getGnoticeNo());
+		
 		GroupNotice gNotice = mgService.selectGroupNotice(gn.getGnoticeNo());
-		//System.out.println(gNotice);
 		model.addAttribute("gn", gNotice);
 		return "groups/mygroupNoticeUpdate";
-		
 	}
 	
 	// 방장 공지사항 수정
 	@RequestMapping("mygroupNoticeUpdate.gr")
 	public String updateGroupNotice(GroupNotice gn) {
-		System.out.println(gn);
+		
 		int result = mgService.updateGroupNotice(gn);
 		
 		if(result > 0) { 
-			return "redirect:mygroupNoticeDetail.gr?gnoticeNo=" + gn.getGnoticeNo();
+			return "redirect:mygroupNoticeDetail.gr?gnoticeNo=" + gn.getGnoticeNo() + "&groupNo=" + gn.getGroupNo();
 		} else { 
 			return "소모임 공지사항 수정 실패";
 		}
@@ -108,7 +109,7 @@ public class MypageGroupController {
 	
 	// 방장 공지사항 삭제
 	@RequestMapping("mygroupNoticedelete.gr")
-	public String deleteGroupNotice(int gnoticeNo,int groupNo,HttpSession session) {
+	public String deleteGroupNotice(int gnoticeNo, int groupNo, HttpSession session) {
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		int result = mgService.deleteGroupNotice(gnoticeNo);
 		
@@ -119,31 +120,23 @@ public class MypageGroupController {
 		}
 	}
 	
-	/* 방장 회원관리 */ 
+	// 방장 회원관리
 	@RequestMapping("mygroupMemMg.gr")
 	public String myGroupMember(int groupNo, Model model) {
 		
-		ArrayList<GroupManage> list = mgService.myGroupMember(groupNo);
+		ArrayList<GroupMember> list = mgService.myGroupMember(groupNo);
 		model.addAttribute("list", list);
 		return "groups/mygroupMemMg";
 	}
 	
-	
-	
-	
-	//이거다이거 위는 퓨리턴이자너 아니야 모달로 값넘기기
-	@ResponseBody
-	@RequestMapping("replyReportForm.gr")
-	public String grReplyReportForm(Model r,int rno)
-		{System.out.println(rno);
-			ArrayList<Reply> list = mgService.grReplyReportForm(rno);
-			r.addAttribute("list", list);
-			System.out.println(list);
-			return "groups/mygroupNoticeDetail";
-	}
-	
+	// 캘린더
 	@RequestMapping(value="mygroupCalendar.gr")
-	public String mygroupList() {
+	public String mygroupList(Model m) {
+		
+		ArrayList<Calendar> list = calService.selectCalList();
+		
+		m.addAttribute("calList", list);
+		
 		return "groups/mygroupCalender";
 	}
 
@@ -160,6 +153,35 @@ public class MypageGroupController {
 		}
 	}
 	
+	//소모임 승인
+		@ResponseBody
+		@RequestMapping("grSubmit.gr")
+		public String grSubmit(int userNo,Model model) {
+			
+			int result = mgService.grSubmit(userNo);
+			
+			if(result > 0) {
+				return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
+			} else {
+				return "소모임 승인 실패";
+			}
+			
+		}
+		
+		//소모임 거절
+			@ResponseBody
+			@RequestMapping("grRejection.gr")
+			public String grRejection(int userNo,Model model) {
+				
+				int result = mgService.grRejection(userNo);
+				
+				if(result > 0) {
+					return "redirect:mygroupMemMg.gr?currentPage=1&status=Y";
+				} else {
+					return "소모임 승인 실패";
+				}
+				
+			}
 
 	
 	

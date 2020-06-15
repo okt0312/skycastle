@@ -3,6 +3,7 @@ package com.kh.skycastle.groups.model.service;
 import java.util.ArrayList;
 
 import com.kh.skycastle.common.model.vo.PageInfo;
+import com.kh.skycastle.groups.model.dto.GroupMember;
 import com.kh.skycastle.groups.model.vo.GroupManage;
 import com.kh.skycastle.groups.model.vo.GroupNotice;
 import com.kh.skycastle.groups.model.vo.Reply;
@@ -46,6 +47,12 @@ public interface MypageGroupService {
 	
 
 	// 소모임 방장 회원관리 
-	ArrayList<GroupManage> myGroupMember(int groupNo);
+	ArrayList<GroupMember> myGroupMember(int groupNo);
+	
+	//방장이 소모임 승인해줄때
+	int grSubmit(int userNo);
+	
+	//방장이 소모임 거절해줄때
+	int grRejection(int userNo);
 
 }

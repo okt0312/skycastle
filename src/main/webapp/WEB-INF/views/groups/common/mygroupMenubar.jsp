@@ -83,18 +83,14 @@
 
 		<div>
 			<button id="chat-btn" class="sky_btn1"
-			onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">채팅</button>
+				onclick="window.open('chatForm.gr?gno=${param.gno}','Sky Castle','width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">
+				채팅
+			</button>
 		</div>
-		
-		<!-- <br><br> 
-		<div id="option-btn">
-			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
-		</div>
-		--!>
 		
 		<!-- 방장에게만 보여지는 버튼-->
 		<c:if test="${ param.userNo == list[0].leaderNo }">
-			<div id="option-btn" style="margin-top: 100px;">
+			<div id="option-btn" style="margin-top: 70px;">
 				<button class="sky_btn2" onclick="postFormSubmit(1);">공지작성</button>
 				<br>
 				<button class="sky_btn2" type="button" onclick="postFormSubmit(2);">회원관리</button>
@@ -112,6 +108,7 @@
 			</form>
 		</c:if>
 		
+		<br><br><br><br>
 		<div id="option-btn">
 			<button id="deleteConfirm" class="sky_btn2" onclick="deleteConfirm();">소모임 탈퇴</button>
 		</div>

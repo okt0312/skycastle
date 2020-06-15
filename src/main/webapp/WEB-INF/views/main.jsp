@@ -62,10 +62,10 @@
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag" style="font-weight: 600;">소모임</a>
-                            <h4><a href="#" class="post-headline">소모임 관련</a></h4>
-                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                            <a href="#" class="btn original-btn">소모임 둘러보기</a>
+                            <a href="groupList.gr?currentPage=1" class="post-tag" style="font-weight: 600;">소모임</a>
+                            <h4><a href="groupList.gr?currentPage=1" class="post-headline">소모임 관련</a></h4>
+                           	<p>새로운 사람과 나누는 비일상적인 대화 <br> 스카이캐슬은 나와 다른 삶을 경험한 사람들과 삶에서 꼭 필요하지만, 일상적으로 나눌수 없던 주제들에 대해 함께 대화하고, 글을 쓰며 서로 삶에 영감을 더하는 커뮤니티입니다. </p>
+                            <a href="groupList.gr?currentPage=1" class="btn original-btn">소모임 둘러보기</a>
                         </div>
                     </div>
                 </div>
@@ -108,10 +108,10 @@
                         <!-- Blog Content -->
                         <div class="single-blog-content">
                             <div class="line"></div>
-                            <a href="#" class="post-tag" style="font-weight: 600;">공간</a>
-                            <h4><a href="#" class="post-headline">공간 관련</a></h4>
-                            <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum</p>
-                            <a href="#" class="btn original-btn">공간 둘러보기</a>
+                            <a href="spaceMain.re?currentPage=1" class="post-tag" style="font-weight: 600;">공간</a>
+                            <h4><a href="spaceMain.re?currentPage=1" class="post-headline">공간 관련</a></h4>
+                            <p>Focus on Your work. <br> 스카이캐슬이 생각하는 오피스는 재미있는 공간이 아닙니다. 소통하는 공간도, 트렌디한 공간도 아닙니다. 업무에만 집중할 수 있도록 10년의 노하우를 담은 오피스 본연의 역할에 가장 충실한 공간, 당신의 업무에 꼭 필요한 공간과 서비스를 지원해드리겠습니다.</p>
+                            <a href="spaceMain.re?currentPage=1" class="btn original-btn">공간 둘러보기</a>
                         </div>
                     </div>
                 </div>

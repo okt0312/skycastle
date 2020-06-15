@@ -32,7 +32,7 @@
             transition-duration: 0.4s;
         }
         .sky_btn1:hover { box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
-        input { height:30px; border-radius: 2px; border:1px solid #333333;}
+        input { height:30px; border-radius: 2px; border:0.5px solid #333333; box-sizing:border-box;}
     </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
@@ -56,7 +56,7 @@
 						<tr>
 							<th>카테고리</th>
 							<td>
-								<select name="groupCategory" style="width: 150px;">
+								<select name="groupCategory" style="width: 150px; box-sizing:border-box;">
 									<option value="1">대입</option>
 									<option value="2">공무원,임용</option>
 									<option value="3">어학,회화</option>

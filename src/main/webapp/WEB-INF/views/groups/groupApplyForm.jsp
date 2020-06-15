@@ -42,12 +42,10 @@
     <jsp:include page="../common/menubar.jsp"/>
 	<div id="inner" style="width: 800px; margin: auto;">
 		<br><br><br><br><br>
-		<h2>소모임</h2>
-		<br><hr><br>
 		
 		<c:forEach items="${ list }" var="g">
 			<div id="detailSum" style="width:100%;">
-				<h1 style="margin:0px;">소모임 신청하기</h1>
+				<h2 style="margin:0px;">소모임 신청하기</h2>
 				<br><hr><br><br>
 				
 				<span style="color:gray;">

@@ -34,6 +34,8 @@
 		<typeAlias type="com.kh.skycastle.admin.model.dto.MainCount" alias="MainCount"/>
 		<typeAlias type="com.kh.skycastle.admin.model.dto.EventDto" alias="EventDto"/>
 		<typeAlias type="com.kh.skycastle.groups.model.vo.Report" alias="Report"/>
+		<typeAlias type="com.kh.skycastle.groups.model.vo.Calendar" alias="Calendar"/>
+		<typeAlias type="com.kh.skycastle.groups.model.dto.GroupMember" alias="GroupMember"/>
 	</typeAliases>
 	
 	<mappers>
@@ -50,7 +52,9 @@
 		<mapper resource="mappers/adMain-mapper.xml"/>
 		<mapper resource="mappers/chat-mapper.xml"/>
 		<mapper resource="mappers/report-mapper.xml"/>
-	</mappers>
+		<mapper resource="mappers/calendar-mapper.xml"/>
+		
+		</mappers>
 	
 	
 

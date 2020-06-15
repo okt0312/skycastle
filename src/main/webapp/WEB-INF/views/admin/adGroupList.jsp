@@ -62,7 +62,7 @@
                             <!-- 테이블 위에 띄워놓은 셀렉박스-->
                                <div id="selectBox">
                                 <form id ="selGrNoForm" action="groupList.ad" method="post">
-                                   <select id="selNo" name="grNo">
+                                   <select id="selNo" name="selNo">
                                        <option value="0" <c:if test="${selNo == '0'}">selected</c:if>>전체보기</option>
                                        <option value="1" <c:if test="${selNo == '1'}">selected</c:if>>대입</option>
                                        <option value="2" <c:if test="${selNo == '2'}">selected</c:if>>공무원임용</option>

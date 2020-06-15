@@ -17,8 +17,7 @@ public class GroupNotice {
 	
 	private int gnoticeNo;
 	private int groupNo;
-	/* learder No (방장) 추가 */
-	private int leaderNo;
+	private int leaderNo;		/* learder No (방장) 추가 */
 	private String gnoticeTitle;
 	private String gnoticeContent;
 	private Date enrollDate;

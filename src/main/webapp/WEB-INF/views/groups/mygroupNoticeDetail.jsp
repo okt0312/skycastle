@@ -148,6 +148,7 @@
 		/* 댓글 스타일 */
 		.replyList tr{
 			width:320px;
+			vertical-align:middle;
 		} 
 		
         /* 페이징바 css */
@@ -220,7 +221,8 @@
 	                <button class="sky_btn22" onclick="postFormSubmit(2);">삭제하기</button>
 	            </div>
 	            
-	            <form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
+	            
+				<form action="mygroupNoticeUpdateForm.gr" id="postForm1" method="post">
 	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">  
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                      	
 	            </form>
@@ -229,19 +231,27 @@
 	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
 	            </form>
 	            
+<%-- 	            <form action="" id="postForm" method="post">
+	            	<input type="hidden" name="gnoticeNo" value="${ gn.gnoticeNo }">
+	            	<input type="hidden" name="groupNo" value="${ groupNo }">                	
+	            </form> --%>
+	            
 	            <script>
 	            	function postFormSubmit(num){
 	            		if(num == 1){	// 수정하기 클릭시
 	            			$("#postForm1").submit();
+//	            			$("#postForm").attr("action", "mygroupNoticeUpdateForm.gr");
 	            		}else {			// 삭제하기 클릭시
-	            			$("#postForm2").submit();
+//	            			$("#postForm2").submit();
+	        				alertify.confirm('소모임 공지사항 삭제 확인', '해당 공지사항을 삭제하시겠습니까?',
+	        						function(){ $("#postForm2").submit(); },
+	        						function(){});
 	            		}
-	            		
 	            	}
 	            </script>
 			</c:if>
 			
-			
+			<br><br><br><br>
 			<table id="replyArea" class="table" style="width:840px;">
                 <thead class="replyList">
                 
@@ -325,19 +335,6 @@
 	<!-- 모달 끝 -->
 
 	<script>
-        function deleteConfirm() {
-            var result = window.confirm("소모임을 나가시겠습니까?");
-            var memStatus = "";
-
-            if(result){
-                memStatus = "N";
-            }else{
-                memStatus = "Y";
-            }
-            console.log(memStatus);
-        }
-        
-        
     	$(function(){
     		selectReplyList();
     		
@@ -379,11 +376,9 @@
     				
     				for(var i in list){
     					value += "<tr>" +
-    								"<th style='width:100px;'>" + list[i].userName + "</th>" +
-    								"<td>"+ "<input type='hidden' id='rno' value='"+list[i].replyNo+"'>" + "</td>"+
-    								"<td>"+ "<input type='hidden' id='userNo' value='"+list[i].userNo+"'>" + "</td>"+
-    								"<td style='width:630px; text-align:left;'>" + list[i].replyContent + "</td>" +
-    								"<td>" + list[i].uploadDate + "</td>" +
+    								"<th style='width:150px;'>" + list[i].userName + "</th>" +
+    								"<td style='width:500px; text-align:left;'>" + list[i].replyContent + "</td>" +
+    								"<td style='width:300px; font-size:12px;'>" + list[i].uploadDate + "</td>" +
     								"<td><input type='button' value='신고하기' onclick='reportModal();' rno='"+list[i].replyNo+"' content='"+list[i].replyContent+"' name='report_btn' id='report_btn' class='btn btn-danger'></td>" +
     							 "</tr>";
     				}

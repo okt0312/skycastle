@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +72,7 @@
 
         /* 회원 목록 테이블 css */
         #mygroupMemberTable{
-            width: 80%;
+            width: 100%;
             height: 450px;
             text-align:left;
             align-self: center;                  
@@ -135,6 +136,9 @@
         .modal-body{
             margin:10px;
         }
+        #modalTh{
+        	width:150px;
+        }
         /* 모달 스타일 끝*/
     </style>
 </head>
@@ -148,100 +152,28 @@
 			<h2>회원관리</h2>
 			<hr>
 
-			<table id="mygroupMemberTable">
+			<table id="mygroupMemberTable" border="1">
 				<thead>
 					<tr class="register">
 						<th class="registerId" style="width: 20%;">아이디</th>
 						<th class="registerName" style="width: 40%;">회원명</th>
-						<th class="registerDate" style="width: 10%;">신청일</th>
+						<th class="registerStatus" style="width: 10%;">상태</th>
 						<th class="registerButton" style="width: 20%; text-align: center;">수락/거절</th>
 					</tr>
 				</thead>
 				<tbody>
-	             
+	             <c:forEach items="${ list }" var="m" >
 					<tr class="register">
-						<td class="registerId">userId</td>
+						<td class="registerId" style="width: 20%;">${ m.userId }</td>
 						<!--아이디 누르면 모달창-->
-						<td class="registerName">김신영</td>
-						<td class="registerDate">2020.05.09</td>
-						<td class="registerButton" style="text-align: center;">	
-							<button type="button" class="sky_btn11" data-toggle="modal"
-							data-target="#enrollDetailModal">상세보기</button>
+						<td class="registerName" style="width: 40%;">${ m.userName }</td>
+						<td class="registerStatus" style="text-align: center; width: 10%;">${ m.status }</td>
+						<td class="registerButton" style="text-align: center; width: 10%;">	
+							<button type="button" class="sky_btn11" id="r_Btn" onclick="modal();" userId="${ m.userId }" content="${m.passion }" >상세보기</button>
 						</td>
 					</tr>
-						
-					 <tr class="register">
-						<td class="registerId">userId</td>
-						<td class="registerName">박대광</td>
-						<td class="registerDate">2020.05.06</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">서윤정</td>
-						<td class="registerDate">2020.04.29</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">오경택</td>
-						<td class="registerDate">2020.04.25</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">이태경</td>
-						<td class="registerDate">2020.04.02</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">조연화</td>
-						<td class="registerDate">2020.03.22</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">가가가</td>
-						<td class="registerDate">2020.02.27</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">나나나</td>
-						<td class="registerDate">2020.02.22</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr>
-					<tr class="register">
-						<td class="registerId" style="width: 20%;">userId</td>
-						<td class="registerName">다다다</td>
-						<td class="registerDate">2020.01.30</td>
-						<td class="registerButton" style="text-align: center;">
-							<button class="sky_btn11" data-toggle="modal"
-								data-target="#enrollDetailModal">상세보기</button>
-						</td>
-					</tr> 
+				  </c:forEach>	
+				  	
 				</tbody>
 			</table>
 
@@ -272,39 +204,108 @@
 							<button type="button" class="close" data-dismiss="modal"
 								style="margin: 0; padding: 0;">&times;</button>
 						</div>
-
+							<form action="joinPostForm.gr" id="postForm">
+							
 						<!-- Modal body -->
-						<div class="modal-body">
+						<div class="modal-body" id="">
 							<table style="width: 400px;">
-								<tr>
-									<th style="width: 80px;">아이디</th>
-									<td style="width: 320px;">user01</td>
+								<tr style="width: 400px;">
+									<th id="modalTh">아이디</th>
+									<td id="modalId"> </td>
 								</tr>
-								<tr>
-									<th>회원명</th>
-									<td>조연화</td>
-								</tr>
+								
 								<tr>
 									<th>신청사유</th>
 									<td><textarea cols="40" rows="10" style="resize: none;"
-											readonly>열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ열심히공부할게요 ㅠㅜㅠㅜㅠㅜ</textarea></td>
+											readonly id="modalContent"></textarea></td>
 									<!--서머노트쓸까?-->
-								</tr>
+								</tr><input type="text" id="modaluserNo" name="modaluserNo">
 							</table>
 						</div>
 
 						<!-- Modal footer -->
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
-							<button type="button" class="btn btn-danger sky_btn1"
-								style="width: 200px; height: 50px;">수락</button>
+							<button type="" class="btn btn-danger sky_btn1"
+								style="width: 200px; height: 50px;" onclick="postFormSubmit(1);">수락</button>
 							<button type="button" class="btn btn-danger sky_btn2"
-								data-dismiss="modal" style="width: 200px; height: 50px;">거절</button>
+								data-dismiss="modal" style="width: 200px; height: 50px;" onclick="postFormSubmit(2);">거절</button>
 						</div>
+						</form>
+						<script>
+						
+						//모달폼을 거절로 보내나 수락으로 보내나 선택후 보내려고 함
+						function postFormSubmit(num){
+							  var userNo = $("#modaluserNo").val();
+							  console.log(userNo);
+							  
+							if(num == 1){ // 수락클릭시
+									$("#postForm").attr("action", "grSubmit.gr");
+							
+								//$("#reportContent").val('');
+					   			$.ajax({
+					    			url:"grSubmit.gr",
+					    			data:{userNo:userNo},
+					    			success:function(result){
+										if(result == '성공'){
+											
+											alertify.alert("skycastle 내용:", "수락 완료!");
+										}
+					    				
+					    			}, error:function(){
+					    				console.log("신고하기 ajax 통신 실패!!");
+					    			}
+					    		});
+								
+								
+								
+								
+							
+							}else{ // 거절 클릭시
+								$("#postForm").attr("action", "joinPostForm.gr");
+							
+								$.ajax({
+					    			url:"grRejection.gr",
+					    			data:{userNo:userNo},
+					    			success:function(result){
+										if(result == '성공'){
+											
+											alertify.alert("skycastle 내용:", "거절 완료!");
+										}
+					    				
+					    			}, error:function(){
+					    				console.log("신고하기 ajax 통신 실패!!");
+					    			}
+					    		});
+								
+							}
+							
+							$("#postForm").submit();
+						}
+						</script>
 					</div>
 				</div>
 			</div>
 			<!-- 모달 끝 -->
+			
+			<script>
+		
+		  	//클릭시 모달 실행
+	      	 function modal(){
+	      		content = window.event.target.getAttribute("content");
+	      		 userId = window.event.target.getAttribute("userId");
+	      		userNo = window.event.target.getAttribute("userNo");
+	      		 //console.log(userId);
+	      		//console.log(content);
+	      		 $("#modalUserNo").text(userNo);
+	      		 $("#modalId").text(userId);
+	      		 $("#modalContent").text(content);
+	     		 $("#enrollDetailModal").modal({
+	   		       
+	   		  	  });
+	
+	   		};
+			</script>
 		</div>
 	</div>
 	</div>

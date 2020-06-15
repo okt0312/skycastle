@@ -117,8 +117,6 @@
                                                         <td>${ m.enrollDate }</td>
                                                         <td>
                                                         	<button id="tbBtn1" class="tbBtn123" data-toggle="modal" data-target="#manageModal">관리</button>
-                                                            <button id="tbBtn2" class="tbBtn123" data-toggle="modal" data-target="#spaceModal">공간</button>
-                                                            <button id="tbBtn3" class="tbBtn123" data-toggle="modal" data-target="#groupModal">소모임</button>
                                                             <c:if test="${ m.status eq '회원' }">
 	                                                            <button id="tbBtn4">삭제</button>
                                                             </c:if>
@@ -189,11 +187,6 @@
                             <input type="text" class="form-control mb-2 mr-sm-2" id="birthday" name="birthday"><br>
                             <label for="phone" class="mr-sm-2">핸드폰 :</label>
                             <input type="text" class="form-control mb-2 mr-sm-2" id="phone" name="phone">  
-                        </div>
-                        <div class="model-button" style="padding: 10px;">
-                            	임시 비밀번호 발급
-                            <button type="button">발급</button>
-                            <br>
                         </div>
                         
                     <!-- Modal footer -->

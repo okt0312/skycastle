@@ -431,17 +431,17 @@ a {
                                                 <div class="info birthday">${ loginUser.birthday}</div>
                                             </div>
     										 <div class="mod_infos">
-                                                <span class="in_tit">현재 연락처</span>
+                                                <span class="in_tit">연락처</span>
                                                 <c:set var="phone" value="${loginUser.phone}"/>
                                                 <c:set var="first" value="${fn:substring(phone,0,3)}"/>
                                                  <c:set var="middle" value="${fn:substring(phone,3,7)}"/>
                                                   <c:set var="last" value="${fn:substring(phone,7,11)}"/>
-                                                <div class="info birthday">&nbsp;&nbsp;${first}-${middle}-${last}</div>
+                                                <div class="info birthday">${first}-${middle}-${last}</div>
                                             </div>
     										
     										                                           
                                             <div class="mod_infos">
-                                                <span class="in_tit long">수정연락처</span>
+                                                <span class="in_tit long">연락처</span>
                                                 
                                                 <div class="info">
                                                     <div class="phone">

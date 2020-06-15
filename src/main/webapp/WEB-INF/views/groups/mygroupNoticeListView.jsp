@@ -44,15 +44,6 @@
 	    margin-top: 100px;
 	    float: left;
 	}
-	#mygroupNoticeTable{
-	    margin: auto;
-	}
-	#mygroupNoticeTable>thead>tr{
-	    height: 50px;
-	}
-	#mygroupNoticeTable>tbody>tr{
-	    height: 34px;
-	}
 	
 	/* 공지사항 테이블 css */
 	.tableArea{
@@ -74,6 +65,12 @@
 	    border-collapse: collapse; 
 	    box-sizing: border-box;
 	    margin: auto;
+	}
+	#mygroupNoticeTable>thead>tr{
+	    height: 50px;
+	}
+	#mygroupNoticeTable>tbody>tr{
+	    height: 34px;
 	}
 	#mainNotice{
 	    height:50px;
@@ -97,6 +94,7 @@
 	    padding-bottom: 5px;
 		font-size: 14px;
 		font-weight: 400;
+		text-align:left;
 	}
 	.title{
 		width:60%;
@@ -184,7 +182,7 @@
 	            <table id="mygroupNoticeTable">
 	            	<thead>
 	            		<tr>
-		            		<th class="gnoticeNo" style="text-align:left;">글번호</th>
+		            		<th class="gnoticeNo">글번호</th>
 		            		<th class="title" style="text-align:center;">제목</th>
 		            		<th class="enrollDate" style="text-align:center;">등록일</th>
 		            		<!-- <th class="count" style="text-align:center;">조회수</th> -->
