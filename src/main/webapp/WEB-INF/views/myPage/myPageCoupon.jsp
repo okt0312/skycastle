@@ -162,7 +162,7 @@ div {
                    
                     <a href="">쿠폰함</a> 
                     <span style="color: lightgray; font-size: 17px;">|</span> 
-                    <a href="">나의 등급 내역</a>
+                   
                     
 		
                 </div>
