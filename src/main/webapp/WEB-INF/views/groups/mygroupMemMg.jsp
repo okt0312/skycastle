@@ -167,7 +167,24 @@
 						<td class="registerId" style="width: 20%;">${ m.userId }</td>
 						<!--아이디 누르면 모달창-->
 						<td class="registerName" style="width: 40%;">${ m.userName }</td>
-						<td class="registerStatus" style="text-align: center; width: 10%;">${ m.status }</td>
+						<td class="registerStatus" style="text-align: center; width: 10%;">
+							${ m.status }
+							
+							<c:choose>
+				         		<c:when test="${ m.status == U }">
+									대기
+				            	</c:when>
+				            	<c:when test="${ m.status == Y }">
+									참가
+				            	</c:when>
+				            	<c:when test="${ m.status == A }">
+									방장
+				            	</c:when>
+				            	<c:when test="${ m.status == N }">
+									종료
+				            	</c:when>
+				            </c:choose>
+						</td>
 						<td class="registerButton" style="text-align: center; width: 10%;">	
 							<button type="button" class="sky_btn11" id="r_Btn" onclick="modal();" userId="${ m.userId }" userNo="${m.userNo}" content="${m.passion }" >상세보기</button>
 						</td>
