@@ -105,6 +105,7 @@
                     </div>
                     
                 </main>
+                <jsp:include page="common/adFooter.jsp"/>
 		</div>
 </body>
 </html>

@@ -66,7 +66,7 @@ public class AdGroupsController {
 	@ResponseBody
 	@RequestMapping(value="updateGroups.ad", produces="application/json; charset=utf-8")
 	public int updateGrMgmt(Groups g, HttpSession session)
-	{	System.out.println(g);
+	{	System.out.println("그룹번로" +g);
 		
 		int result = adGrService.updateGrMgmt(g);
 		System.out.println(result);

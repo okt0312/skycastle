@@ -14,14 +14,7 @@
       }
    
 
-	    #selectBox
-       {
-           position: absolute;
-           float: left;
-           margin-left: 170px;
-           display: block;
-           z-index: 100;
-       }
+	 
 </style>
 </head>
 <body>
@@ -47,19 +40,7 @@
 				                <div class="card-body">
 				                    <div class="table-responsive">
 				                        
-				                            <!-- 테이블 위에 띄워놓은 셀렉박스-->
-				                               <div id="selectBox">
-				                                   <select>
-				                                       <option value="전체보기">전체보기</option>
-				                                       <option value="1">대입</option>
-				                                       <option value="2">공무원임용</option>
-				                                       <option value="3">어학회화</option>
-				                                       <option value="4">자격증</option>
-				                                       <option value="5">기타</option>
-				                                   </select>
-				                               </div>
-				                            <!-- 셀렉트 끝 -->
-				                        
+				                           
 				
 				                       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align: center;">
 				                            <thead>
@@ -212,6 +193,7 @@
 				            	</script>
                     
                 </main>
+                <jsp:include page="common/adFooter.jsp"/>
                 </div>
 
 

@@ -863,7 +863,7 @@
 	
 	                    <!-- Modal Header -->
 	                    <div class="modal-header">
-	                        <h4 class="modal-title">공간 관리</h4>
+	                        <h4 class="modal-title">좌석 관리</h4>
 	                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
 	                    </div>
 	
@@ -1047,6 +1047,7 @@
 	
     </script>
     </main>
+    <jsp:include page="common/adFooter.jsp"/>
     </div>
 </body>
 </html>

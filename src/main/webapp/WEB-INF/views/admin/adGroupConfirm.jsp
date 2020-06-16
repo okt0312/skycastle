@@ -7,15 +7,6 @@
 <meta charset="UTF-8">
 <title>소모임 개설 관리</title>
 
-<style>
-#selectBox {
-	position: absolute;
-	float: left;
-	margin-left: 170px;
-	display: block;
-	z-index: 100;
-}
-</style>
 
 </head>
 <body>
@@ -47,17 +38,6 @@
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
-
-									<!-- 테이블이 부트스트랩이라 넣을 방법을 모르겠습니다..ㅜㅜ-->
-									<div id="selectBox">
-										<select>
-											<option value="전체보기">전체보기</option>
-											<option value="회원">회원</option>
-											<option value="비회원">비회원</option>
-										</select>
-
-									</div>
-									<!-- 셀렉트 끝 -->
 
 
 									<!-- 일단 보류 나중에 채워넣기 -->
@@ -272,6 +252,7 @@
 
 
 			</main>
+			<jsp:include page="common/adFooter.jsp"/>
 		</div>
 </body>
 </html>

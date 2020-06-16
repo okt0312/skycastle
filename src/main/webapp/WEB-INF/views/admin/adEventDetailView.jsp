@@ -141,6 +141,7 @@
                        </div>   
                        
                 </main>
+                <jsp:include page="common/adFooter.jsp"/>
                     </div>
 		</div><!--이 /div지우지말것  -->
 </body>
