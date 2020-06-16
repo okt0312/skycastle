@@ -45,7 +45,7 @@
 						<div class="card mb-4">
 							<div class="card-header"
 								style="border-bottom: white; background-color: white;">
-								<b style="font-size: x-large;">이벤트 조회</b>
+								<b style="font-size: x-large;">1:1문의 관리</b>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
