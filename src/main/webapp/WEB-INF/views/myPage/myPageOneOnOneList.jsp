@@ -150,7 +150,7 @@ div {
 						<th width="495px" style="padding-left: 2px; text-align: center;">
 							<b style="font-weight: bold; font-size: 1.5em;">${loginUser.userName}</b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-							<p style="font-size: 0.7em; color: #fdce07; margin-top: 10px;">문의하신 내용은 총 1건 입니다.</p>
+							<p style="font-size: 0.7em; color: #fdce07; margin-top: 10px;">문의하신 내용은 총 4건 입니다.</p>
 						</th>
 						
 						
