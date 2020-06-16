@@ -492,7 +492,7 @@ p {
                                                         
                                                         
                                             <div class="bts">
-                                                <button type="button" id="xoryd" class="dark" style="background-color: #222; color: #fff; width: 354px;" onclick="return validate();">변경</button>
+                                                <button type="submit" id="xoryd" class="dark" style="background-color: #222; color: #fff; width: 354px;" onclick="return validate();">변경</button>
                                             </div>
                                            </form>
                                            
@@ -532,7 +532,9 @@ p {
 			return false;
 		}
 		
-		return true;
+		alertify.confirm('SKYCATLE', '비밀번호를 변경하시겠습니까?',function(){$("#xoryd1").submit();},function(){});
+	
+		return false;
 		
   	}
     </script>  	
@@ -541,7 +543,7 @@ p {
 	<script>
 	
 	
-	$("#xoryd").click(function(){
+	/* $("#xoryd").click(function(){
 		
 		if(confirm) {	
 			alertify.confirm('SKYCATLE', '비밀번호를 변경하시겠습니까?', function(){ $("#xoryd1").submit(); }
@@ -550,7 +552,7 @@ p {
 			return;
 		} 
 	});
-	
+	 */
 	
    </script>	
 	
