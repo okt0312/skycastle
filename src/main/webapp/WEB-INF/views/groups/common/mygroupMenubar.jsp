@@ -97,7 +97,6 @@
 			</div>
 
 			<form action="" id="postForm" method="post">
-				<%-- <input type="hidden" name="groupNo" value="${ listGno.groupNo }"> --%>
 				<input type="hidden" name="userNo" value="${ loginUser.userNo }">
 				<input type="hidden" name="groupNo" value="${ listGno }">
 			</form>

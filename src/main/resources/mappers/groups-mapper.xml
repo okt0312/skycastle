@@ -296,11 +296,12 @@
 	<!--마이페이지 상태별 소모임 리스트 조회  -->
 	<!-- 소모임 리스트 조회 - 마이페이지 3가지 -->
 	<select id="selectMyGroupList" resultMap="groupDtoResultSet" parameterType="GroupDto">
-		SELECT gm.group_no,leader_no,group_title,group_subtitle,group_content,g.group_category,place,grade_limit,member_limit,gm.status,start_date,end_date,user_no,change_name 
-		FROM GROUP_MANAGE GM
-		JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
-		JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
-	    WHERE   USER_NO=#{userNo}
+		SELECT gm.group_no,leader_no,group_title,group_subtitle,group_content,g.group_category,
+					place,grade_limit,member_limit,gm.status,start_date,end_date,user_no,change_name 
+		  FROM GROUP_MANAGE GM
+		  JOIN GROUPS G ON(G.GROUP_NO = GM.GROUP_NO)
+		  JOIN ATTACHMENT A ON(G.GROUP_NO = A.REF_BNO)
+	     WHERE USER_NO=#{userNo}
 	            AND G.STATUS='Y'
 	            <choose>
 					<when test='status == "Y"'>
@@ -315,11 +316,11 @@
 	</select>
 	
 	<select id="selectGroupSearchListCount" parameterType="GroupDto" resultType="_int">
-			SELECT count(*)
-			FROM GROUPS G
-			WHERE G.STATUS='Y' 
-			AND G.GROUP_TITLE LIKE '%'||#{groupTitle}||'%' 
-			ORDER BY G.START_DATE DESC
+		SELECT count(*)
+		  FROM GROUPS G
+		 WHERE G.STATUS='Y' 
+				AND G.GROUP_TITLE LIKE '%'||#{groupTitle}||'%' 
+		 ORDER BY G.START_DATE DESC
 	</select>
 	
 	<select id="selectGroupSearchList" resultMap="groupDtoResultSet" parameterType="GroupDto">

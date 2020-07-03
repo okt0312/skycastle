@@ -8,8 +8,7 @@
 	<title>groupListView</title>
 
 	<style>
-		body
-		{
+		body{
 		    margin: 0px;
 		    background-color: #ffffff;
 		    color: #000000;
@@ -151,7 +150,7 @@
 	    
 	    <c:choose>	
 	    	<c:when test="${empty searchKeyword}">
-			    	  <!-- 페이징바 -->
+			    <!-- 페이징바 -->
 				<div class="paging" align="center">
 					<c:choose>
 						<c:when test="${ pi.currentPage eq 1 }">          
@@ -181,10 +180,10 @@
 							<a href="groupList.gr?currentPage=${ pi.currentPage+1 }" class="btn_arr next"><span class="hide">Next</span></a>  
 						</c:otherwise> 	
 					</c:choose>
-		</div>
+				</div>
 	    	</c:when>
 	    	<c:otherwise>
-			    	  <!-- 페이징바 -->
+			    <!-- 페이징바 -->
 				<div class="paging" align="center">
 					<c:choose>
 						<c:when test="${ pi.currentPage eq 1 }">          

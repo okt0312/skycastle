@@ -37,9 +37,8 @@
 	    <br><br><br><br><br>
 	    <h2>소모임</h2>
 	    <br><hr><br>
-	
+		
 	    <div id="detailSum" style="width:100%; height: 250px;">
-	        <img src="" alt=""><!--어떤사진넣지-->
 	        <h1 style="text-align: center;">소모임 신청이 완료되었습니다</h1>
 	        <p style="text-align: center;">
 	            소모임 개설자의 승인 후<br>
